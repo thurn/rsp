@@ -132,3 +132,83 @@ Every accepted sigil, in acceptance order. Names, icon families, and icon words 
 | GY-C24 | Tailor's Hanger | `hanger` | hanger | hanger | Gray | Common | 45 | before bidding / self / all hand cards of one chosen suit / replace with random cards / ×1 | 2 |
 | GY-C25 | Rousing Speaker | `speaker` | speaker | speaker | Gray | Common | 50 | when you bid / self / contract / +5 per 50 points behind / ×1 | 2 |
 | GY-C26 | Muffling Headphones | `headphone` | headphone | headphones | Gray | Common | 45 | when played / all players / aces in this trick / count as twos / this trick | 2 |
+| RE-U01 | Arena's Law | `stadium` | stadium | arena | Red | Uncommon | 70 | always / all players / void players in a trumped trick / must overtrump if able / all tricks | 3 |
+| RE-U02 | Kindled Bonfire | `campfire` | campfire | bonfire | Red | Uncommon | 70 | when played / self / this card (costs a chosen hand card) / rank +6 / ×1 | 3 |
+| RE-U03 | Gentleman's Cricket | `cricket-ball` | cricket-ball | cricket | Red | Uncommon | 65 | you win a trick, every card matched the suit led / self / contract / contract value +10 / per trick | 3 |
+| RE-U04 | Second Strike | `bowling-ball` | bowling-ball | strike | Red | Uncommon | 70 | you trump, second time this round / self / your spades / rank +3 / all, rest of round | 3 |
+| RE-U05 | Runner-Up Trophy | `trophy` | trophy | trophy | Red | Uncommon | 65 | scoring, made contract, partner won 2+ more tricks than you / team / contract / multiplier +1× / ×1 | 3 |
+| RE-U06 | Hidden Knife | `knife` | knife | knife | Red | Uncommon | 75 | when played / self / this card / gains rank to beat every earlier card of its suit in the trick / ×1 | 3 |
+| RE-U07 | Tricolor Triangle | `triangle` | triangle | triangle | Red | Uncommon | 65 | scoring, you led three or more different suits / self / contract / contract value +50 / ×1 | 3 |
+| RE-U08 | Triumphal Arch | `arch` | arch | arch | Red | Uncommon | 70 | you win a trick / self / contract / contract value +5 per trick your partner has won / per trick | 3 |
+| RE-U09 | Allied Bow | `bow` | bow | bow | Red | Uncommon | 65 | always / partner / partner's spades / rank +2 / all | 3 |
+| RE-U10 | Bold Stance | `body` | body | stance | Red | Uncommon | 65 | you win a trick, own bid already taken / self / your bid / +1 (optional) / once per round | 3 |
+| RE-U11 | Serving Shuttlecock | `shuttlecock` | shuttlecock | shuttlecock | Red | Uncommon | 60 | after bidding / self / first trick's leader / choose any player / ×1 | 3 |
+| OR-U01 | Twin Cherries | `cherry` | cherry | cherry | Orange | Uncommon | 70 | when played / self / the next card you play / its sigil triggers twice, that trick only / ×1 | 3 |
+| OR-U02 | Folded Banknote | `currency-note` | currency-note | banknote | Orange | Uncommon | 65 | after bidding / self / a chosen card in hand / remove it, gold +30 / ×1 | 3 |
+| OR-U03 | Surprise Party | `party` | party | party | Orange | Uncommon | 70 | scoring, you won the first and the last trick / self / contract / contract value +50 / ×1 | 3 |
+| OR-U04 | Greedy Magnet | `magnet` | magnet | magnet | Orange | Uncommon | 70 | this card wins / self / diamonds in that trick / contract value +10 per diamond / ×1 | 3 |
+| OR-U05 | Grand Treasury | `landmark` | landmark | treasury | Orange | Uncommon | 65 | always / self / interest cap / 50 → 100 gold / ×1 | 3 |
+| OR-U06 | Swapped Sticker | `sticker` | sticker | sticker | Orange | Uncommon | 70 | you play a card passed to you / self / received cards / contract value +10 / per card | 3 |
+| OR-U07 | Clouded Eight Ball | `8-ball` | 8-ball | eight ball | Orange | Uncommon | 70 | always / self / your blind nil / score ±200 → ±300 / ×1 | 3 |
+| OR-U08 | Consolation Tote | `shopping-bag` | shopping-bag | shopping bag | Orange | Uncommon | 70 | this card loses / self / you / gold +40 / ×1 | 3 |
+| OR-U09 | Merchant's Briefcase | `briefcase` | briefcase | briefcase | Orange | Uncommon | 65 | you pass cards / self / contract / pay 10 gold for contract value +20 / per pass | 3 |
+| OR-U10 | Released Balloon | `balloon` | balloon | balloon | Orange | Uncommon | 70 | you pass cards, you bid nil / self / your nil / nil value +25 / per pass | 3 |
+| OR-U11 | Tuned Amplifier | `guitar-amp` | guitar-amp | amplifier | Orange | Uncommon | 65 | after bidding / self / all cards of a chosen suit in hand / rank +4 or −4, costs 20 points / ×1 | 3 |
+| GR-U01 | Self-Sown Sapling | `sapling` | sapling | sapling | Green | Uncommon | 70 | first off-suit play each round / self / your hand / add a new two of the played card's suit / ×1 | 3 |
+| GR-U02 | Shifting Wind | `wind` | wind | wind | Green | Uncommon | 65 | before bidding / self / all your cards of two chosen non-spade suits / swap suits / ×1 | 3 |
+| GR-U03 | Mauling Bear | `bear` | bear | bear | Green | Uncommon | 75 | first spade played to a trick of another suit each round / opponents / a chosen opponent's highest spade / convert to the suit led / ×1 | 3 |
+| GR-U04 | Golden Apple | `apple-full` | apple-full | apple | Green | Uncommon | 70 | you lead a diamond / self / contract / contract value +10 / per lead | 3 |
+| GR-U05 | Blooming Lotus | `spa` | spa | lotus | Green | Uncommon | 80 | scoring, you played a heart to each of the last four tricks / self / contract / multiplier +1× / ×1 | 3 |
+| GR-U06 | Deep-Rooted Tree | `tree` | tree | tree | Green | Uncommon | 75 | always / self / contract / contract value +10 per consecutive round held into the last three tricks, max +50 / streak counter | 3 |
+| GR-U07 | Untrodden Snowfall | `snowflake` | snowflake | snowflake | Green | Uncommon | 65 | always, at the deal / self / your dealt hand / no clubs; still 13 cards / ×1 | 3 |
+| GR-U08 | Growing Colony | `bacteria` | bacteria | bacteria | Green | Uncommon | 70 | while held, after each trick / self / the two cards beside it in hand / rank +1 / per trick | 3 |
+| GR-U09 | Held Breath | `lungs` | lungs | breath | Green | Uncommon | 65 | you discard this card / self / contract / contract value +5 per trick already played / ×1 | 3 |
+| GR-U10 | Black Coffee | `coffee` | coffee | coffee | Green | Uncommon | 70 | you discard this card / self / the other cards of its suit in hand / convert to spades / ×1 | 3 |
+| GR-U11 | Soft Pawprints | `paw-print` | paw-print | pawprint | Green | Uncommon | 65 | after bidding, you bid nil / self / your hand / add a new two of a chosen suit / ×1 | 3 |
+| BL-U01 | Stilled Hurricane | `hurricane` | hurricane | hurricane | Blue | Uncommon | 70 | always, tricks 10+ / all players / spades played to tricks of another suit / cannot win / last four tricks | 3 |
+| BL-U02 | Missing Signature | `signature` | signature | signature | Blue | Uncommon | 75 | always / self / tricks this card wins / count for no one / ×1 | 3 |
+| BL-U03 | Clean Bullseye | `bullseye` | bullseye | bullseye | Blue | Uncommon | 75 | scoring, you won 4+ tricks with non-spades / self / contract / multiplier +1× / ×1 | 3 |
+| BL-U04 | Gilded Beaker | `beaker` | beaker | beaker | Blue | Uncommon | 65 | while held / self / gold from your other sigils / ×2 gold / all | 3 |
+| BL-U05 | Boiling Thermometer | `thermometer` | thermometer | thermometer | Blue | Uncommon | 65 | always, tricks 10+ / self / this card / rank set to ace / ×1 | 3 |
+| BL-U06 | Attentive Ear | `ear` | ear | ear | Blue | Uncommon | 70 | scoring, partner's own bid exact / self / contract / contract value +50 / ×1 | 3 |
+| BL-U07 | Quiet Omega | `omega` | omega | omega | Blue | Uncommon | 70 | you lose a trick, you played last / self / your nil / nil value +10 / per trick | 3 |
+| BL-U08 | Amended Scroll | `scroll` | scroll | scroll | Blue | Uncommon | 65 | this card loses a trick / self / your bid / may lower by 1 / ×1 | 3 |
+| BL-U09 | Bottled Lightning | `bolt` | bolt | lightning | Blue | Uncommon | 80 | this card wins, you've won 4+ other tricks / self / contract / multiplier +1× / ×1 | 3 |
+| BL-U10 | Measured Delta | `delta` | delta | delta | Blue | Uncommon | 70 | tenth trick begins, this card held / self / your bid / may raise or lower by 1 / ×1 | 3 |
+| BL-U11 | Rosy Spectacles | `glasses` | glasses | spectacles | Blue | Uncommon | 70 | always / all players / tricks led in hearts / cannot be won by trump / all | 3 |
+| TE-U01 | Spare Key | `key` | key | key | Teal | Uncommon | 75 | before bidding / self / a common or uncommon sigil your partner owns / copy onto this card / ×1 | 3 |
+| TE-U02 | Swapped Suitcases | `luggage` | luggage | suitcase | Teal | Uncommon | 65 | this card loses a trick / team / two cards each / optional exchange with partner / ×2 | 3 |
+| TE-U03 | Paving the Road | `road` | road | road | Teal | Uncommon | 70 | when led, partner wins the trick / self / contract / contract value +40 / ×1 | 3 |
+| TE-U04 | Mystery Parcel | `package` | package | parcel | Teal | Uncommon | 70 | before bidding / self and a chosen opponent not on nil / a chosen card for a random card / swap / ×1 | 3 |
+| TE-U05 | Sunset Sailboat | `sail` | sail | sailboat | Teal | Uncommon | 70 | you win a trick with a heart, tricks 9–13 / self / contract / contract value +15 / per trick, max 5 | 3 |
+| TE-U06 | Rerouted Bus | `bus` | bus | bus | Teal | Uncommon | 65 | when played / partner / partner's bid / optional +1 / ×1 | 3 |
+| TE-U07 | Shouldered Backpack | `backpack` | backpack | backpack | Teal | Uncommon | 65 | you win a trick, partner bid nil / partner / a card your partner picks / optional one-way pass to you / per trick | 3 |
+| TE-U08 | Guarded Lock | `lock` | lock | lock | Teal | Uncommon | 70 | scoring, partner's nil made and own bid exact / self / contract / contract value +60 / ×1 | 3 |
+| TE-U09 | Fair Shuffle | `shuffle` | shuffle | shuffle | Teal | Uncommon | 75 | you pass cards, own bid already taken / self / contract / contract value +20 / per pass | 3 |
+| TE-U10 | Admiring Woman | `woman` | woman | woman | Teal | Uncommon | 70 | partner wins a trick, you played a heart to it / self / contract / contract value +15 / per trick | 3 |
+| PU-U01 | Spiteful Eraser | `eraser` | eraser | eraser | Purple | Uncommon | 75 | this card loses to an opponent / opponents / the winning card's sigil / disabled / rest of round | 3 |
+| PU-U02 | Spiked Cocktail | `cocktail` | cocktail | cocktail | Purple | Uncommon | 70 | this card played off suit / opponents / a chosen opponent's card in this trick / rank +4 or −4 / ×1 | 3 |
+| PU-U03 | Sweet Tooth | `tooth` | tooth | tooth | Purple | Uncommon | 70 | scoring / self / opponents' bags this round / contract value +15 / per bag | 3 |
+| PU-U04 | Sleepwalker's Bed | `bed` | bed | bed | Purple | Uncommon | 65 | you lose a trick, on blind nil / self / your highest card / rank −3 / per trick | 3 |
+| PU-U05 | Tiptoe Sneaker | `sneaker` | sneaker | sneaker | Purple | Uncommon | 70 | while held / self / your plays to club leads / may discard instead of following / all | 3 |
+| PU-U06 | Sugared Pill | `pill` | pill | pill | Purple | Uncommon | 65 | scoring, your failed nil / team / your nil's penalty / −50 points / ×1 | 3 |
+| PU-U07 | Spare Moustache | `moustache` | moustache | moustache | Purple | Uncommon | 70 | after bidding, partner on nil / partner / two cards your partner chooses / rank −4 / ×2 | 3 |
+| PU-U08 | Rewound Reel | `film-roll` | film-roll | reel | Purple | Uncommon | 80 | always / all players / tricks led with clubs / lowest club wins / all | 3 |
+| PU-U09 | Half-Lit Menorah | `menorah` | menorah | menorah | Purple | Uncommon | 80 | scoring, contract made with 4 or fewer tricks / team / contract / multiplier +1× / ×1 | 3 |
+| PU-U10 | Restless Ghost | `ghost` | ghost | ghost | Purple | Uncommon | 70 | you play another suit, team behind / self / your nil / nil value +15 / per off-suit play | 3 |
+| GY-U01 | Sprawling Warehouse | `warehouse` | warehouse | warehouse | Gray | Uncommon | 65 | at shop / self / your offers / four instead of three / each shop and reroll | 3 |
+| GY-U02 | Thrifted Radio | `radio` | radio | radio | Gray | Uncommon | 60 | when you sell any sigil / self / you / gold +20 / per sale | 3 |
+| GY-U03 | Overstocked Fridge | `fridge` | fridge | fridge | Gray | Uncommon | 75 | at shop / self / purchases / a second purchase, common only / each shop | 3 |
+| GY-U04 | Early Alarm | `alarm` | alarm | alarm | Gray | Uncommon | 65 | after scoring / self (team pays) / team score to your gold / −20 points, +40 gold / per round | 3 |
+| GY-U05 | Neighborly Balcony | `balcony` | balcony | balcony | Gray | Uncommon | 70 | after bidding / team / a chosen card of yours and a card your partner picks / swap sigils / ×1 | 3 |
+| GY-U06 | Tracing Pencil | `pencil` | pencil | pencil | Gray | Uncommon | 70 | before bidding / self, opponents show / a random sigil from each opponent, this card / copy the chosen one / ×1 | 3 |
+| GY-U07 | Matching Mugs | `cup` | cup | mug | Gray | Uncommon | 75 | at purchase / self / this sigil / permanent copy of a chosen common sigil you own / run | 3 |
+| GY-U08 | Field First Aid | `medical-kit` | medical-kit | first aid | Gray | Uncommon | 65 | before bidding, no aces / self / a chosen card / rank becomes ace / ×1 | 3 |
+| GY-U09 | Spare Trousers | `pant` | pant | trousers | Gray | Uncommon | 70 | before bidding / self / your hand / add a random new card / ×1 | 3 |
+| GY-U10 | Saved Hard Drive | `hard-drive` | hard-drive | hard drive | Gray | Uncommon | 70 | after scoring / self / a chosen non-ace card you won a trick with / its copy replaces a random card in your next hand / ×1 | 3 |
+| GY-U11 | Rinsing Shower | `shower` | shower | shower | Gray | Uncommon | 60 | scoring, team contract 7+ / team / overtricks / add no bags / ×1 | 3 |
+| GY-U12 | Emptied Dishwasher | `dishwasher` | dishwasher | dishwasher | Gray | Uncommon | 60 | this card loses / team / bags / remove two / ×1 | 3 |
+| GY-U13 | Waiting Bench | `bench` | bench | bench | Gray | Uncommon | 70 | always / self / contract / +10 per shop left without buying since purchase, max +40 / counter | 3 |
+| GY-U14 | Sous-Chef's Hat | `chef-hat` | chef-hat | chef's hat | Gray | Uncommon | 65 | you lose a trick, your card second-best / self / contract / +5 / per trick | 3 |
+| GY-U15 | Roommates' Apartment | `apartment` | apartment | apartment | Gray | Uncommon | 70 | always / self / contract / +10 per resonance in both partners' collections / counter | 3 |
+| GY-U16 | Artist's Palette | `palette` | palette | palette | Gray | Uncommon | 65 | scoring, own 5+ resonances / self / contract / +30 / ×1 | 3 |

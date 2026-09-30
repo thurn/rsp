@@ -306,3 +306,206 @@ Opponent:    Visible on trigger; opponents answer by leading suits you still hol
 AI note:     Play singletons early to open voids.
 Rationale:   Two or three off-suit plays a round (four to six with Alchemist's Wand or diamond conversion) is +10 to +30, about +12 EV, on the common budget. Counting trumps and discards alike serves both a trumping Spade Master and a flooded Diamond Flood hand. It differs from GR-C07, which pays for spades played to another suit's trick, by counting every off-suit card at half the rate.
 ```
+
+## Spiteful Eraser
+
+```
+Code:        PU-U01
+Name:        Spiteful Eraser
+Icon:        eraser               (alternates: Barred Entry / no-entry, Parting Ban / block)
+Resonance:   Purple
+Rarity:      Uncommon (75 gold)
+Text:        When this card loses a trick to an opponent, the winning card's sigil stops working for the rest of the round.
+Timing:      When this card loses
+Archetypes:  Contract Attacker, Nil Champion, Blind Bidder, Nil Guard
+Family:      Disabling sigils / Targeted (the card that beat it)
+Role:        Utility; opponent-facing
+Signature:   this card loses to an opponent | opponents | the winning card's sigil | disabled | rest of round
+Decision:    Which trick to lose this card on: hold it until an opponent wins with a card carrying a sigil worth stopping, such as a trick-winning payoff or a rule setter.
+Opponent:    Shown when it resolves and limited to one sigil a round; opponents answer by winning with unengraved cards when they can see this card coming.
+AI note:     Play this card under an opponent's winning card that carries a sigil, preferring ongoing and "whenever" sigils; on a nil, shed it on the first such trick.
+Rationale:   One disable a round, aimed by the owner's timing rather than by choosing from hidden sigils, and it lands in the short "when this card loses" window. It is weak early, when few opposing cards carry sigils, and strong late, when most do and affinities put them on the aces that win; that curve matches Contract Attacker's margin growing as opposing collections grow. "To an opponent" keeps it from switching off a partner's sigil. The winning card's own triggers from that trick resolve under the core resolution order; the disable covers everything after.
+```
+
+## Spiked Cocktail
+
+```
+Code:        PU-U02
+Name:        Spiked Cocktail
+Icon:        cocktail               (alternates: Tampered Vial / vial, Stray Syringe / syringe)
+Resonance:   Purple
+Rarity:      Uncommon (70 gold)
+Text:        When you play this card to a trick of another suit, choose an opponent's card in this trick to gain +4 rank or lose 4 rank.
+Timing:      When you play another suit (card-bound)
+Archetypes:  Contract Attacker, Nil Champion, Blind Bidder, Nil Guard; splash Discard Dominance
+Family:      Changing opponents' ranks / Duration (card-bound)
+Role:        Enabler; opponent-facing
+Signature:   this card played off suit | opponents | a chosen opponent's card in this trick | rank +4 or −4 | ×1
+Decision:    Which trick to spend it on and which way to push: lower an opponent's winner so your partner takes a trick they counted on, or raise an opposing nil bidder's card over the top to break the nil.
+Opponent:    Visible when it resolves, once a round, and only on cards already played; opponents answer by keeping an extra winner or ducking deeper than 4 ranks.
+AI note:     If an opponent is on nil and their card is within 4 ranks of winning, raise it; otherwise lower the opponent's card that beats your partner's card; play it as your first off-suit card that changes a trick.
+Rationale:   Four ranks usually flips one trick (a king falls to a nine, a nine rises to a king), which is about one trick's swing a round, fair for an uncommon enabler. It edits played cards, so the text names "in this trick" as the core rules require, and it never acts after bidding (Sinking Anchor) or on your own cards (Tipping Scales). Counting trumps as well as discards keeps it live when the engraved card is a spade.
+Deviation:   Timing moved from "when you discard this card" to "when you play this card to a trick of another suit", because a spade-engraved copy could never be discarded and would be dead a quarter of the time; this also adds a sigil to the short "when you play another suit" window.
+```
+
+## Sweet Tooth
+
+```
+Code:        PU-U03
+Name:        Sweet Tooth
+Icon:        tooth               (alternates: Bottomless Popcorn / popcorn, Stuffed Sock / sock)
+Resonance:   Purple
+Rarity:      Uncommon (70 gold)
+Text:        Gain +15 contract value for each bag the opponents take this round.
+Timing:      Conditional scoring
+Archetypes:  Contract Attacker; splash Discard Dominance, Nil Guard
+Family:      Bag management / Opponents' bags (reward)
+Role:        Payoff (Contract additive)
+Signature:   scoring | self | opponents' bags this round | contract value +15 | per bag
+Decision:    When a set is out of reach, whether to stop contesting tricks and feed the opponents overtricks, bidding your own contract low enough to still make it.
+Opponent:    Visible at scoring; opponents answer by bidding up to their hand or ducking tricks they don't need.
+AI note:     Once the opponents have taken their bid, duck tricks your team doesn't need for its own contract.
+Rationale:   A partnership takes about 1.5 bags when it makes its contract, and a feeding Contract Attacker pushes that to about 3, so +15 a bag is about +20 EV, rising to about +35 with the bagging line. It hedges the set payoffs (Grinning Skull, Hungry Kraken), which pay only when the opponents fail, and it scores your own contract rather than their point loss. Few tricks for your team means many for theirs, so it also pairs with PU-U09.
+Deviation:   Timing changed from After scoring to Conditional scoring, because contract value is counted during scoring; +15 sets it in the uncommon band.
+```
+
+## Sleepwalker's Bed
+
+```
+Code:        PU-U04
+Name:        Sleepwalker's Bed
+Icon:        bed               (alternates: Warm Milk / milk-bottle, Faint Nightlight / night-light)
+Resonance:   Purple
+Rarity:      Uncommon (65 gold)
+Text:        Whenever you lose a trick, if you bid blind nil, your highest card loses 3 rank.
+Timing:      When you lose any trick
+Archetypes:  Blind Bidder; splash Nil Guard (beside a blind partner)
+Family:      Lowering your ranks / Triggered by losses (blind nil)
+Role:        Enabler (feeds Nil)
+Signature:   you lose a trick, on blind nil | self | your highest card | rank −3 | per trick
+Decision:    Whether to gamble blind when eligible, and in the first tricks which high card to shed while the rest of the hand is still being sanded down.
+Opponent:    Visible on every trigger; opponents answer by attacking early, before the hand has worn down, with low leads in the blind bidder's short suits.
+AI note:     With this sigil, bid blind nil whenever eligible; early in the round, follow with your highest safe card.
+Rationale:   A blind nil loses almost every trick until it fails, so this fires about a dozen times: after five tricks an ace, king, queen, and two jacks have all dropped to ten or below. That lifts blind nil survival from about 0.5 to about 0.65, worth about +60 points and 130 gold per blind round, and blind rounds come in about a third of rounds with Night Owl or Desperate Gambit. It triggers on losing, not on discards (Thrown Towel), and only on blind nils, so ordinary nils stay with Nil Champion.
+```
+
+## Tiptoe Sneaker
+
+```
+Code:        PU-U05
+Name:        Tiptoe Sneaker
+Icon:        sneaker               (alternates: Formless Blob / blob, Shortcut Scissors / cut)
+Resonance:   Purple
+Rarity:      Uncommon (70 gold)
+Text:        While this card is in your hand, you may discard when clubs are led, even if you could follow suit.
+Timing:      While in hand
+Archetypes:  Discard Dominance; splash Nil Champion, While Held
+Family:      Following-suit relief / Suit-bound
+Role:        Enabler
+Signature:   while held | self | your plays to club leads | may discard instead of following | all
+Decision:    How long to keep this card, since the relief ends when it is played, and on each club lead whether to follow or throw a card from a suit you want to empty.
+Opponent:    Visible the first time you discard on a club lead; opponents answer by leading other suits, or by forcing this card out when it is itself a club.
+AI note:     On a club lead, discard your highest card if on nil, otherwise the last card of your shortest suit; play this card last.
+Rationale:   Clubs are the sacrifice suit, and this keeps them as discard material: club leads, which normally force you to follow, become discards for Scouring Tornado and Rebel Graffiti, and the clubs stay in hand for Buried Bone. It permits discards only, not trumping, which keeps it away from Spade Master. About three club leads a round makes it about three extra discards, and a nil bidder can never be caught on a club lead while it is held.
+```
+
+## Sugared Pill
+
+```
+Code:        PU-U06
+Name:        Sugared Pill
+Icon:        pill               (alternates: Mending Tape / tape, Forgiving Scripture / bible)
+Resonance:   Purple
+Rarity:      Uncommon (65 gold)
+Text:        If your nil fails, it costs your team 50 fewer points.
+Timing:      Conditional scoring
+Archetypes:  Nil Champion; splash Blind Bidder
+Family:      Nil value / Insurance
+Role:        Utility (Nil)
+Signature:   scoring, your failed nil | team | your nil's penalty | −50 points | ×1
+Decision:    Bidding nil on riskier hands, such as three high cards for Daring Knight, because a failure now costs 50 instead of 100.
+Opponent:    Visible at scoring; opponents still gain the swing of breaking the nil, only smaller.
+AI note:     Lower the success chance needed to bid nil by about 10 percentage points.
+Rationale:   Halving the penalty lifts a 60% nil from +20 to +40 and adds about +7 a round on ordinary nils, with more from the riskier nils it unlocks. A blind nil fails for −150 instead of −200. It softens the cost without making nil free, and it never pays on success, so it stays apart from PU-R05 (your partner's nil survives one trick) and from the nil-value payoffs.
+```
+
+## Spare Moustache
+
+```
+Code:        PU-U07
+Name:        Spare Moustache
+Icon:        moustache               (alternates: Soft-Pedal Piano / piano, Dimming Bulb / light-bulb)
+Resonance:   Purple
+Rarity:      Uncommon (70 gold)
+Text:        After bidding, if your partner bid nil, your partner chooses two cards in their hand to lose 4 rank.
+Timing:      After bidding
+Archetypes:  Nil Guard; splash Blind Bidder, Nil Champion (as the partner of a nil bidder)
+Family:      Lowering your ranks / Post-bid (aimed at your partner)
+Role:        Enabler (feeds Nil: partner's nil)
+Signature:   after bidding, partner on nil | partner | two cards your partner chooses | rank −4 | ×2
+Decision:    Your solo bid, knowing your partner's nil is safer, and for your partner, which two dangers to dull, since they know their own hand.
+Opponent:    The two changes are shown after bids; opponents know the nil lost two teeth and aim their low leads elsewhere.
+AI note:     The nil partner lowers its two most dangerous cards, preferring high cards in short suits; an AI partner of this sigil's owner treats two of its highest cards as four ranks lower when deciding whether to bid nil.
+Rationale:   The partner picks because only they see their hand, which keeps the owner free of hidden information and makes every lowering count. Four ranks turns an ace into a ten and a king into a nine, lifting a partner's nil from about 75% to about 85%, about +20 per partner nil, and it stacks with Sheltering Castle, which then takes the next two highest cards. It lowers only the partner's cards (not Waning Moon's own hand) and moves no cards (not Sheltering Castle).
+```
+
+## Rewound Reel
+
+```
+Code:        PU-U08
+Name:        Rewound Reel
+Icon:        film-roll               (alternates: Inverted Circle / circle, Contrary Alien / alien)
+Resonance:   Purple
+Rarity:      Uncommon (80 gold)
+Text:        In tricks led with clubs, the lowest club wins instead of the highest.
+Timing:      Always on, for you
+Archetypes:  Nil Champion, Discard Dominance; splash Contract Attacker
+Family:      Reversing rank order / Asymmetry
+Role:        Enabler; rule setter
+Signature:   always | all players | tricks led with clubs | lowest club wins | all
+Decision:    Bidding clubs upside down: high clubs become safe losers for a nil (and still count for Daring Knight), and low clubs become winners worth bidding or leading.
+Opponent:    A global rule shown before bidding, so everyone bids with it; opponents answer by keeping their low clubs as winners or trumping club leads.
+AI note:     Count clubs of rank 6 or lower as winners and clubs of rank 10 or higher as safe; on nil, follow club leads with your highest club.
+Rationale:   One suit plays reversed while the other three play normally, which keeps rounds readable and adds a global rule setter where the pool is short. Trumps still beat clubs and ties still go to the later card, as the core rules state. The owner gains by building around it: a Nil Champion keeps high clubs as dangerous-looking but safe cards that Daring Knight pays for, and a Discard Dominance hand wins club tricks with twos and threes when it needs a trick without spending its high cards. Self-lowering on a club now makes it stronger, a tension the owner has to manage.
+```
+
+## Half-Lit Menorah
+
+```
+Code:        PU-U09
+Name:        Half-Lit Menorah
+Icon:        menorah               (alternates: Watered Wine / wine, Quiet Peace / pacifism)
+Resonance:   Purple
+Rarity:      Uncommon (80 gold)
+Text:        If your team makes its contract while taking 4 or fewer tricks, gain +1× contract multiplier.
+Timing:      Conditional scoring
+Archetypes:  Discard Dominance, Nil Guard; splash Contract Attacker (with PU-U03)
+Family:      Contract-shape rewards / Low contracts (tricks taken)
+Role:        Payoff (Contract multiplier)
+Signature:   scoring, contract made with 4 or fewer tricks | team | contract | multiplier +1× | ×1
+Decision:    Bidding low and then losing on purpose: every trick past the fourth kills the multiplier, so the deck discards, ducks, and gives tricks away once the bid is in.
+Opponent:    Visible at scoring; opponents answer by dumping tricks on your team to push it past four.
+AI note:     Bid your team to 4 or less; once the contract is made, play the lowest card that loses.
+Rationale:   Discard Dominance's low bids cap its base, and this multiplier doubles the large additive pile its discard payoffs build. Counting tricks taken rather than the bid stops a team from underbidding and pocketing bags, so the condition holds in about a third of Discard Dominance's made rounds, about +30 late. For Nil Guard it pays when the partner's nil succeeds and your solo contract lands at 4 or less. It is success-only, so it never deepens a failure.
+Deviation:   Variation narrowed from a contract of N or less to taking N or fewer tricks, because Discard Dominance is on the strong watch list and a bid-size condition would be met almost every round by bidding low.
+```
+
+## Restless Ghost
+
+```
+Code:        PU-U10
+Name:        Restless Ghost
+Icon:        ghost               (alternates: Wild Scribble / scribble, Lurking Virus / virus)
+Resonance:   Purple
+Rarity:      Uncommon (70 gold)
+Text:        Whenever you play a card that doesn't match the suit led, if your team is behind, gain +15 nil value.
+Timing:      When you play another suit
+Archetypes:  Blind Bidder, Nil Champion; splash Discard Dominance (on its nil rounds)
+Family:      Comeback effects / Threshold
+Role:        Payoff (Nil)
+Signature:   you play another suit, team behind | self | your nil | nil value +15 | per off-suit play
+Decision:    On a nil while trailing, which suits to empty early so later tricks become safe off-suit plays that also pay.
+Opponent:    Visible on each trigger; opponents answer by leading the suits the nil bidder still holds.
+AI note:     On a nil while behind, play singletons early to open voids, then discard your highest cards.
+Rationale:   A nil bidder plays off suit two to four times a round (more with Wayward Cat, Borrowed Umbrella, or Tiptoe Sneaker), so a trailing nil gains about +30 to +60 nil value, and every blind nil qualifies because blind nils are only bid from behind. Behind in about 40% of rounds, that is about +10 to +15 EV a round, in the nil band and at its best on the blind nils Desperate Gambit enables. It pays nil value rather than contract value (Rebel Graffiti) and only while trailing, so it switches off as the comeback lands.
+```

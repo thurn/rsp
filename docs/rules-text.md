@@ -124,9 +124,11 @@ These are the game's own terms, beyond standard Spades vocabulary.
 | **longest suit, shortest suit** | Counted in your hand when the effect happens. Used rarely; most sigils name a suit. |
 | **team** | You and your partner. |
 | **gold** | Your personal currency for the shop. |
+| **interest** | Gold you gain after each round for gold you hold: 10 per 50 held, up to 50. |
 | **sigil** | An effect you own for the run, engraved on a card in each new hand. |
 | **resonance** | A sigil's color: Red, Orange, Green, Blue, Teal, Purple, or Gray. "Gray sigils" means sigils of that resonance. |
 | **new card** | A card created by an effect rather than taken from any hand. It is removed after the round. |
+| **beside** | Next to a card in your hand's dealt order. Rearranging your hand doesn't change which cards are beside each other. |
 | **affinity** | The rank or suit a sigil prefers to be engraved on. |
 
 Any other invented term is added here before it appears in rules text.
@@ -147,6 +149,7 @@ Any other invented term is added here before it appears in rules text.
   trick is not passing, and moving cards never changes a completed trick's
   result.
 - **Your bid** means a positive bid; a nil bidder has no bid to make.
+- **Behind** and **ahead** compare the two teams' scores.
 - **Losing a trick:** you lose every trick someone else wins, including your
   partner.
 - **Rank words** such as "face card," "ace," or "two" mean a card's current

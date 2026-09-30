@@ -308,3 +308,208 @@ AI note:     Discard this card at your first void; if you are on nil, pass your 
 Rationale:   Sheds a danger card mid-round after a void opens, the moment a nil or discard deck already aims for; one card, once a round, keeps it a common, and it passes between tricks as exchange rules require.
 Deviation:   Trigger narrowed from any off-suit play to discarding this card, so it passes at most one card and adds one choice per round.
 ```
+
+## Spare Key
+
+```
+Code:        TE-U01
+Name:        Spare Key
+Icon:        key               (alternates: Mirroring Pool / swimming-pool, Twin Toy Cars / toy-car)
+Resonance:   Teal
+Rarity:      Uncommon (75 gold)
+Text:        Before bidding, this card copies a chosen common or uncommon sigil your partner owns.
+Timing:      Before bidding
+Archetypes:  Kingmaker, Nil Guard, Exact Contractor, Swap Meet
+Family:      Duplication and copying / Copy partner
+Role:        Utility
+Signature:   before bidding | self | a common or uncommon sigil your partner owns | copy onto this card | ×1
+Decision:    Which of your partner's sigils to copy, knowing your hand but not the bids: a second Sheltering Castle for a nil-leaning partner, a second Promoted Pawn or Homeward Ship, or a Balanced Yin-Yang of your own.
+Opponent:    The copy is shown when it resolves, so opponents learn one of your partner's sigils; no loss of agency.
+AI note:     Copy the partner's highest-priced non-rare payoff whose condition you can meet from your seat; skip nil-value sigils unless your hand leans nil.
+Rationale:   Teal's copying lives on the partner's collection, which you can already see, so the choice is informed; the copy sits on this card, so a copied "this card" effect applies to it and passing this card carries both effects. Excluding rares keeps it below rare duplication (a second True Aim would be rare value at uncommon price), and a copied before-bidding effect resolves in the same window; copying another copier does nothing.
+```
+
+## Swapped Suitcases
+
+```
+Code:        TE-U02
+Name:        Swapped Suitcases
+Icon:        luggage               (alternates: Crossing Gondolas / cable-car, Shared Surfboard / surfboard)
+Resonance:   Teal
+Rarity:      Uncommon (65 gold)
+Text:        When this card loses a trick, you may trade two cards each with your partner.
+Timing:      When this card loses
+Archetypes:  Heart Chorus, Swap Meet, Exact Contractor; splash Nil Guard, Kingmaker
+Family:      Partner exchange / During play (this card loses)
+Role:        Enabler
+Signature:   this card loses a trick | team | two cards each | optional exchange with partner | ×2
+Decision:    When to spend this card as a loser, and which two cards to move once the round has shown who needs what.
+Opponent:    Visible trade between tricks; opponents see the trade happen and can read which partner is loading up.
+AI note:     Play this card to a trick you would lose anyway after trick 4; send hearts to the partner holding more hearts, winners to the seat short of its bid, or take a nil partner's two highest cards.
+Rationale:   Two cards mid-round is the clear uncommon step up from Open Hand's one card after bidding: a Heart Chorus pair consolidates hearts after seeing the early tricks, an Exact Contractor moves winners to the seat below its bid, and one trade fires Swap Meet's pass payoffs (Valentine Stamp converts both cards received, Deserted Island can pay twice). A random card loses about 75% of the time and you choose the trick, so it nearly always fires.
+Deviation:   Timing moved from the first trick you lose each round to this card losing, and the trade from one card to two, because the first loss comes on trick 1 or 2 almost every round (no timing choice, and too early to fix an exact count), and "When this card loses" is the pool's thinnest major window (3 projected against a floor of 10); it does not depend on discarding this card, as the brief requires.
+```
+
+## Paving the Road
+
+```
+Code:        TE-U03
+Name:        Paving the Road
+Icon:        road               (alternates: Beckoning Hail / hail, Leading Path / path)
+Resonance:   Teal
+Rarity:      Uncommon (70 gold)
+Text:        When you lead with this card, if your partner wins the trick, gain +40 contract value.
+Timing:      When led
+Archetypes:  Kingmaker; splash Exact Contractor
+Family:      Win triggers / This card (led)
+Role:        Payoff (Partner contract)
+Signature:   when led, partner wins the trick | self | contract | contract value +40 | ×1
+Decision:    Which trick to lead this card into: a suit where you passed your partner the top card, or where Shared Map showed their strength; a low engraved card is best, a high one tempts you to win the trick yourself.
+Opponent:    Visible on trigger; opponents who see the lead can overtake your partner's card or trump it to deny the bonus.
+AI note:     Lead this card when your partner holds a card you passed them in its suit or has shown that suit's top card; otherwise lead it once your partner has won a trick in its suit.
+Rationale:   Needs you to hold the lead with this card in hand and your partner to win what you led, about 50% of rounds when planned, so +40 is about +16 EV, the value thin Kingmaker needs at uncommon; it adds to the when-led window and pays for the lead-then-cover pattern that pre-bid passes (Sealed Letter, Two-Way Street) set up.
+Deviation:   Magnitude raised from about +25 to +40, because Opening Bell (OR-C02) pays +20 for leading its card with no condition, so +25 behind a coin-flip condition would pay less than the common.
+```
+
+## Mystery Parcel
+
+```
+Code:        TE-U04
+Name:        Mystery Parcel
+Icon:        package               (alternates: Smuggler's Crate / container, Hitchhiker's Truck / truck)
+Resonance:   Teal
+Rarity:      Uncommon (70 gold)
+Text:        Before bidding, swap a chosen card in your hand with a random card from a chosen opponent who didn't bid nil.
+Timing:      Before bidding
+Archetypes:  Swap Meet; splash Contract Attacker
+Family:      Opponent exchange and theft / Swaps
+Role:        Enabler; opponent-facing
+Signature:   before bidding | self and a chosen opponent not on nil | a chosen card for a random card | swap | ×1
+Decision:    Which card to give away (your worst card, or a singleton to open a void) and which opponent to raid.
+Opponent:    The swap is shown and both players see the cards that moved; the opponent bids knowing what they lost and gained, and it happens once, before bidding.
+AI note:     Give your lowest card outside spades, preferring a singleton; take from the opponent with the larger sigil collection.
+Rationale:   You trade your worst card for an average one, and late in a run the random card often carries an opponent's sigil, which now works for you this round, a memorable Teal steal; it counts as passing for both players, so it fires Swap Meet's pass payoffs, and it is limited to one card, once, before anyone bids. Only a blind nil can exist this early, and excluding nil bidders (as Traders' Handshake does) stops the owner from handing a locked blind-nil bidder a sure winner.
+```
+
+## Sunset Sailboat
+
+```
+Code:        TE-U05
+Name:        Sunset Sailboat
+Icon:        sail               (alternates: Twilight Hot Spring / hot-tub, Evening Breeze / air)
+Resonance:   Teal
+Rarity:      Uncommon (70 gold)
+Text:        Whenever you win one of the last five tricks with a heart, gain +15 contract value.
+Timing:      When you win any trick
+Archetypes:  Heart Chorus
+Family:      Suit payoffs / Winning (late)
+Role:        Payoff (Contract additive)
+Signature:   you win a trick with a heart, tricks 9–13 | self | contract | contract value +15 | per trick, max 5
+Decision:    Holding hearts back through the early tricks, then leading them from trick 9 when Unfolding Butterfly has grown them.
+Opponent:    Visible on trigger; opponents answer by drawing hearts out early or saving trumps for the late heart leads.
+AI note:     Play off-suit cards and low hearts early; from trick 9 on, lead your highest heart.
+Rationale:   A Heart Chorus hand with Unfolding Butterfly wins two or three of the last five tricks with ace-level hearts, about +30 to +45 on a made contract (+25 EV), top of the uncommon band as the brief asks for the thinnest archetype; a deck without heart growth wins about one, so it stays aimed, and the late window keeps it from being a heart copy of Headsman's Axe.
+```
+
+## Rerouted Bus
+
+```
+Code:        TE-U06
+Name:        Rerouted Bus
+Icon:        bus               (alternates: Detour Cone / traffic-cone, Swerving Scooter / scooter)
+Resonance:   Teal
+Rarity:      Uncommon (65 gold)
+Text:        When you play this card, you may raise your partner's bid by one.
+Timing:      When played
+Archetypes:  Exact Contractor; splash Kingmaker
+Family:      Bid adjustment / Partner (increase)
+Role:        Enabler
+Signature:   when played | partner | partner's bid | optional +1 | ×1
+Decision:    How long to hold this card for information, and whether the team's surplus trick is safe enough to add to your partner's bid.
+Opponent:    Visible bid change; a raise makes the contract harder, so opponents can answer by denying the extra trick, and it never rescues a set.
+AI note:     Hold this card until about trick 8; raise the partner's bid if the team has already taken its contract or is sure of an overtrick, otherwise play it without raising.
+Rationale:   Raising the contract by one mid-round turns a sure overtrick into +10 contract value and one fewer bag, lands True Aim and Honest Ruler on an exact count, and sets up a partner's own-bid exact (BL-U06, a partner's Balanced Yin-Yang); a raise is a risk the owner takes, so holding the card late is fair, while decreases stay with Blue behind a cost (BL-U08). Teal adjusts the partner's bid while Blue keeps your own; a nil has no bid to raise, and bids stay at 13 or less. The price drops to 65 because the one-way change is worth less than the old two-way version.
+Deviation:   Direction narrowed from raise or lower to raise only, because a free decrease played on the last trick was uncounterable set insurance that overlapped Blue's BL-U08 and BL-U10; price moved from 70 to 65 and the Nil Guard splash dropped, since a nil partner has no bid to raise.
+```
+
+## Shouldered Backpack
+
+```
+Code:        TE-U07
+Name:        Shouldered Backpack
+Icon:        backpack               (alternates: Rescue Ambulance / ambulance, Helpful Wanderer / walking)
+Resonance:   Teal
+Rarity:      Uncommon (65 gold)
+Text:        Whenever you win a trick, if your partner bid nil, they may pass you a card.
+Timing:      When you win any trick
+Archetypes:  Nil Guard; splash Blind Bidder, Nil Champion (as the nil partner)
+Family:      Partner exchange / During play
+Role:        Enabler
+Signature:   you win a trick, partner bid nil | partner | a card your partner picks | optional one-way pass to you | per trick
+Decision:    For you, covering aggressively so your nil partner gets more chances to shed; for your partner, which danger card to hand over after each of your wins.
+Opponent:    Visible pass between tricks; opponents watch the nil hand shrink and the guard's hand grow, and answer by leading low early, before the guard has won anything.
+AI note:     As the nil partner, pass the highest card of your shortest non-spade suit, or your highest spade if you hold no side-suit danger.
+Rationale:   The nil bidder knows its own danger cards, so it picks, and the guard wins about four tricks in a nil round, so a nil hand sheds its worst cards as the round unfolds, raising success from about 90% (after Sheltering Castle) toward 97% and feeding the guard high cards for its solo contract; bags from the extra cards are the brake.
+```
+
+## Guarded Lock
+
+```
+Code:        TE-U08
+Name:        Guarded Lock
+Icon:        lock               (alternates: Snug Plug / plug-connect, Still Sea / sea-view)
+Resonance:   Teal
+Rarity:      Uncommon (70 gold)
+Text:        If your partner's nil succeeds and you take exactly your bid, gain +60 contract value.
+Timing:      Conditional scoring
+Archetypes:  Nil Guard, Exact Contractor
+Family:      Contract-shape rewards / Exact (nil partner)
+Role:        Payoff (Contract additive; your solo contract)
+Signature:   scoring, partner's nil made and own bid exact | self | contract | contract value +60 | ×1
+Decision:    Covering your nil partner without overtaking your own bid: which tricks to take above their card, and when a trick is safe to duck instead.
+Opponent:    Visible at scoring; opponents answer by dumping extra tricks on the guard or leading through the nil.
+AI note:     When your partner bids nil, bid your honest trick count; once you have taken your bid, duck unless your partner's card would win.
+Rationale:   The condition holds in about a third of partner-nil rounds (nil about 90% with Sheltering Castle, own exact about 40%), so +60 is about +20 EV in those rounds, the uncommon budget for thin Nil Guard; it pulls against Lifeguard's Buoy, which wants every trick, so the guard must choose, and it gives Exact Contractor a payoff when paired with a nil partner.
+Deviation:   Magnitude raised from about +50 to +60, because the payoff fires only in partner-nil rounds and +50 landed below the uncommon budget there.
+```
+
+## Fair Shuffle
+
+```
+Code:        TE-U09
+Name:        Fair Shuffle
+Icon:        shuffle               (alternates: Tidy Paperclip / paperclip, Measured Globe / globe)
+Resonance:   Teal
+Rarity:      Uncommon (75 gold)
+Text:        Whenever you pass cards, if you've already taken your bid, gain +20 contract value.
+Timing:      When you pass cards
+Archetypes:  Exact Contractor, Swap Meet
+Family:      Partner exchange / Triggers (after your bid is taken)
+Role:        Payoff (Contract additive)
+Signature:   you pass cards, own bid already taken | self | contract | contract value +20 | per pass
+Decision:    Saving your passes and trades for after you have taken your bid, then using them to hand away winners you no longer want instead of taking overtricks.
+Opponent:    Visible on trigger; opponents learn you have reached your bid and are shedding winners, and can answer by forcing tricks on you before you trade them away.
+AI note:     Once you have taken your bid, take every optional pass or trade, giving away your highest card; before then, trade only to fix your hand.
+Rationale:   The moment you reach your bid is where Exact Contractor starts ducking (Well-Earned Bath, Balanced Yin-Yang), and a late pass is Teal's way to duck: the winner leaves your hand, so the exact count holds; Swap Meet's late trades (Swapped Suitcases, Tossed Paper Plane, a partner's Traders' Handshake trade with you) pay too, about one or two a round (+20 to +40, about +20 EV). A nil bidder has no bid, so it never fires; a Traders' Handshake trade on an overtrick still pays, but the bag it cost is the brake.
+Deviation:   Redesigned from exact-contract value scaled by passes, which the cross-batch critic ruled a magnitude near-duplicate of Honest Ruler (BL-C10) and the sixth exact-contract payoff; the pass count now meets Exact Contractor's own-bid moment instead, moving the timing from Conditional scoring to When you pass cards and the family to Partner exchange / Triggers.
+```
+
+## Admiring Woman
+
+```
+Code:        TE-U10
+Name:        Admiring Woman
+Icon:        woman               (alternates: Smitten Man / man, Lovers' Beach / beach)
+Resonance:   Teal
+Rarity:      Uncommon (70 gold)
+Text:        Whenever your partner wins a trick you played a heart to, gain +15 contract value.
+Timing:      When your partner wins a trick
+Archetypes:  Heart Chorus, Kingmaker
+Family:      Win triggers / Your heart (partner wins)
+Role:        Payoff (Partner contract)
+Signature:   partner wins a trick, you played a heart to it | self | contract | contract value +15 | per trick
+Decision:    Which hearts to spend under your partner's winners early, growing the rest of your hearts with Unfolding Butterfly, and which to keep for your own late wins.
+Opponent:    Visible on trigger; opponents answer by overtaking the partner's card or leading suits where you can't follow with a heart.
+AI note:     When your partner is winning a trick you can't or needn't win, play your lowest heart.
+Rationale:   A Heart Chorus hand plays a heart under about two of its partner's three or so wins (about +30, +24 EV), and a Kingmaker hand about one; low hearts shed early still count toward Unfolding Butterfly, so both plans pay at once without paying for every partner win (Homeward Ship) or for cards you passed (Promoted Pawn).
+```

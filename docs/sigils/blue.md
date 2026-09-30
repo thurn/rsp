@@ -306,3 +306,229 @@ Opponent:    Fully symmetric and public, so opponents gain the same information 
 AI note:     Treat revealed cards as known in bidding; pass to cover the partner's revealed weak suits and target an opponent whose revealed cards look thin.
 Rationale:   Public reveals feed partner coordination (Kingmaker's passes, Nil Guard's cover) and opponent targeting (Contract Attacker, Swap Meet's trades), and they give RE-C11's revealed-card boost more targets.
 ```
+
+## Stilled Hurricane
+
+```
+Code:        BL-U01
+Name:        Stilled Hurricane
+Icon:        hurricane               (alternates: Evening News / newspaper, Parting Cloud / cloud)
+Resonance:   Blue
+Rarity:      Uncommon (70 gold)
+Text:        From the tenth trick on, no one can win a trick by trumping.
+Timing:      Always on, for you
+Archetypes:  High Card, Exact Contractor, Nil Champion; splash Heart Chorus, While Held
+Family:      Trump and spade-breaking rules / Timed trump (late)
+Role:        Enabler; rule setter
+Signature:   always, tricks 10+ | all players | spades played to tricks of another suit | cannot win | last four tricks
+Decision:    Which winners to hold for the last four tricks, where kings and queens are safe from voids, and when an opponent's late trumps have gone dead.
+Opponent:    Public and symmetric, so opponents plan around it too; they answer by trumping early, before the tenth trick, or by leading spades late.
+AI note:     Hold non-spade kings and queens for tricks 10–13; do not count spades as winners in those tricks except on spade leads; on nil, keep spades to shed late.
+Rationale:   Late tricks are where voids appear, so this is the "Blue trump restriction for the late tricks" that High Card, Heart Chorus, and Diamond Flood's threat notes ask for; a nil bidder forced to play spades late can't win with them, and an exact bidder's last tricks become predictable. It is global, so it stays at uncommon price without being a stat stick.
+Deviation:   Moved the window from the opening tricks to the last four, because fresh hands are rarely void early, so an early ban seldom changes a trick, while the archetype notes want trump restricted late.
+```
+
+## Missing Signature
+
+```
+Code:        BL-U02
+Name:        Missing Signature
+Icon:        signature               (alternates: Vanished Fingerprint / fingerprint, Empty Cloche / dish)
+Resonance:   Blue
+Rarity:      Uncommon (75 gold)
+Text:        A trick this card wins counts for no one.
+Timing:      Always on, for the engraved card
+Archetypes:  Nil Champion, Exact Contractor, While Held; splash Contract Attacker, Nil Guard
+Family:      Trick restrictions / Void trick
+Role:        Enabler
+Signature:   always | self | tricks this card wins | count for no one | ×1
+Decision:    When to spend this card: shed a high card on a nil, absorb an overtrick at an exact count, or take a trick the opponents needed without adding one to your own count.
+Opponent:    Visible when it wins; the winner still leads the next trick, and opponents can overtake or trump it to take the trick normally.
+AI note:     On nil, play this card whenever it would win; at an exact count, play it on a trick your team would otherwise win; otherwise play it to capture a trick the opponents need.
+Rationale:   One card that wins without taking a trick serves nil, exact, and denial plans at once and fills the short engraved-card window; the card still wins, so its holder leads next, but no one's trick count, bags, nil, or trick gold changes.
+```
+
+## Clean Bullseye
+
+```
+Code:        BL-U03
+Name:        Clean Bullseye
+Icon:        bullseye               (alternates: Steady Microscope / microscope, Pure Sparkle / sparkles)
+Resonance:   Blue
+Rarity:      Uncommon (75 gold)
+Text:        If you win four or more tricks with cards that aren't spades, gain +1× contract multiplier.
+Timing:      Conditional scoring
+Archetypes:  High Card; splash Kingmaker, Bonus Chaser
+Family:      Multipliers / Conditional
+Role:        Payoff (Contract multiplier)
+Signature:   scoring, you won 4+ tricks with non-spades | self | contract | multiplier +1× | ×1
+Decision:    Whether to trump in for a sure trick or keep the spade and win with the biggest card of the led suit instead, and how high to bid on side-suit winners.
+Opponent:    Visible at scoring; opponents answer by voiding suits early and trumping your side-suit winners.
+AI note:     Prefer winning with side-suit cards; trump only when the team needs the trick for its contract and you already have four side-suit wins or cannot reach them.
+Rationale:   Four side-suit wins from one seat is more than Unclouded Sun's aces give for free and happens in about a third of a built High Card deck's made rounds (about +45 late); spades never count, so strong Spade Master decks get little from it. It is not success-only, so a met condition on a failed contract doubles the loss, which is rare with four wins.
+```
+
+## Gilded Beaker
+
+```
+Code:        BL-U04
+Name:        Gilded Beaker
+Icon:        beaker               (alternates: Swelling Flask / flask-round, Doubling Calculator / calculator)
+Resonance:   Blue
+Rarity:      Uncommon (65 gold)
+Text:        While this card is in your hand, you gain double gold from your other sigils.
+Timing:      While in hand
+Archetypes:  Gold Miner; splash Diamond Flood, Swap Meet
+Family:      While held / Aura (gold)
+Role:        Payoff (Economy)
+Signature:   while held | self | gold from your other sigils | ×2 gold | all
+Decision:    How long to hold this card while Nest Egg, Lucky Coin, and trade or diamond gold fire, and which gold card to play first.
+Opponent:    Visible whenever doubled gold is paid; no effect on opponents' cards.
+AI note:     Hold this card while any other gold sigil can still pay; play your other gold cards first.
+Rationale:   Doubles in-play gold only (Nest Egg while both are held, Lucky Coin, Glittering Treasure, Gem Cascade, Peddler's Cart), about +30 to +50 gold a round for a miner, strongest early like every economy sigil; it pays nothing alone, so it never repeats Nest Egg, and after-scoring gold is usually outside its window.
+```
+
+## Boiling Thermometer
+
+```
+Code:        BL-U05
+Name:        Boiling Thermometer
+Icon:        thermometer               (alternates: Racing Pulse / pulse, Closing Orbit / science)
+Resonance:   Blue
+Rarity:      Uncommon (65 gold)
+Text:        From the tenth trick on, this card's rank is ace.
+Timing:      Always on, for the engraved card
+Archetypes:  While Held; splash High Card, Exact Contractor
+Family:      Growth over the round / Thresholds (held to a late trick)
+Role:        Enabler
+Signature:   always, tricks 10+ | self | this card | rank set to ace | ×1
+Decision:    Every trick before the tenth, whether to spend this card at its dealt rank or keep another card to follow with so it becomes an ace for the last four tricks.
+Opponent:    Hidden until played; opponents who see it arrive late as an ace can still trump it or overtake it with a boosted card, and can lead its suit early to pull it out.
+AI note:     Never play this card before trick 10 while another legal card exists; from trick 10, count it as a sure trick and play it on a trick the team needs.
+Rationale:   One threshold instead of steady growth gives While Held a single clear goal (hold this card to trick 10) and a late sure winner for High Card and exact counts, and it plays nothing like Late Blossom (GR-C06), which grows a little with every card of its suit; holding to trick 10 succeeds about 55% of the time, and the card only wins if its trick still needs winning, so it stays an enabler at 65.
+Deviation:   Changed from "+1 rank for each completed trick" to a single threshold at the tenth trick, because the critics found the steady counter played like Late Blossom's growing card.
+```
+
+## Attentive Ear
+
+```
+Code:        BL-U06
+Name:        Attentive Ear
+Icon:        ear               (alternates: Nodding Head / head, Proud Scholar / education)
+Resonance:   Blue
+Rarity:      Uncommon (70 gold)
+Text:        If your partner takes exactly their own bid, gain +50 contract value.
+Timing:      Conditional scoring
+Archetypes:  Exact Contractor; splash Kingmaker, High Card
+Family:      Contract-shape rewards / Individual (partner)
+Role:        Payoff (Contract additive)
+Signature:   scoring, partner's own bid exact | self | contract | contract value +50 | ×1
+Decision:    Every trick, whether to overtake your partner's winner or duck under it so their count lands exactly.
+Opponent:    Visible at scoring; opponents answer by dumping extra tricks on your partner.
+AI note:     Once your partner has reached their bid, overtake their winners when you can; before that, duck under them.
+Rationale:   Your partner lands exactly about 35–40% of the time when you steer for it, so +50 is about +15 expected, multiplied by Balanced Yin-Yang or True Aim when they also land; a nil partner has no bid, so it never overlaps TE-U08.
+```
+
+## Quiet Omega
+
+```
+Code:        BL-U07
+Name:        Quiet Omega
+Icon:        omega               (alternates: Watching Eye / eye, Still Camera / camera)
+Resonance:   Blue
+Rarity:      Uncommon (70 gold)
+Text:        Whenever you lose a trick you played last to, gain +10 nil value.
+Timing:      When you lose any trick
+Archetypes:  Nil Champion; splash Blind Bidder, Nil Guard
+Family:      Trick position / Last to play
+Role:        Payoff (Nil)
+Signature:   you lose a trick, you played last | self | your nil | nil value +10 | per trick
+Decision:    When you play last, which card to shed: the highest card that still loses, knowing a tied rank played last wins.
+Opponent:    Visible each time it triggers; opponents answer by leading low from the seat that makes you play last, forcing you to find a card under theirs.
+AI note:     When playing last on nil, play your highest card that still loses; never play a card that ties the current winner.
+Rationale:   You play last in about a quarter of tricks, so it fires about three times a round, about +30 on a successful nil, a little above Vigil Candle and Lowered Lashes as an uncommon should be; it asks for no held winner, so it never overlaps Lowered Lashes (BL-C11).
+Deviation:   Sized at +10 a trick instead of the brief's +5, because the last-seat condition already cuts the triggers to about three a round, and +5 would pay less than a common.
+```
+
+## Amended Scroll
+
+```
+Code:        BL-U08
+Name:        Amended Scroll
+Icon:        scroll               (alternates: Revised Notebook / note-book, Precise Dropper / eyedropper)
+Resonance:   Blue
+Rarity:      Uncommon (65 gold)
+Text:        Affinity: King. When this card loses a trick, you may lower your bid by one.
+Timing:      When this card loses
+Archetypes:  High Card, Exact Contractor; splash Bonus Chaser, Spade Master
+Family:      Bid adjustment / Decrease
+Role:        Enabler
+Signature:   this card loses a trick | self | your bid | may lower by 1 | ×1
+Decision:    When the king is overtaken or trumped, whether to take the smaller safe contract or keep the bid and chase the trick back; or, at an exact count, whether to dump the king on purpose to shave the bid once.
+Opponent:    Visible when used, once a round at most; opponents who beat the king no longer set you for that trick alone, but a second lost trick still sets you.
+AI note:     Lower the bid when the team's remaining sure tricks no longer reach it; on an exact count, lower it when the loss leaves you one under.
+Rationale:   A king is a trick you counted on that often loses to an ace or a trump, so its loss is the natural moment to correct the bid; tying the correction to one card caps it at once per round, and the cost is the bid trick itself (10 contract value times any multiplier), with bids staying at 1 or more. It also fills the short "when this card loses" window.
+Deviation:   Changed from a trigger on every ace or king you lose to a single king-affinity card, because the critics found the repeatable version was unlimited free set insurance.
+```
+
+## Bottled Lightning
+
+```
+Code:        BL-U09
+Name:        Bottled Lightning
+Icon:        bolt               (alternates: Distant Satellite / satellite-dish, Lingering Magnifier / reading-glass)
+Resonance:   Blue
+Rarity:      Uncommon (80 gold)
+Text:        Affinity: Ace. When this card wins a trick, if you've already won four or more tricks this round, gain +1× contract multiplier.
+Timing:      When this card wins
+Archetypes:  High Card, While Held; splash Spade Master
+Family:      While held / Checkpoint (wins after several)
+Role:        Payoff (Contract multiplier)
+Signature:   this card wins, you've won 4+ other tricks | self | contract | multiplier +1× | ×1
+Decision:    Every trick, whether to cash the ace now or hold it until four other wins are in, risking a trump or a forced play.
+Opponent:    Visible when it pays; opponents who read it can void the ace's suit early or lead it to force the ace out.
+AI note:     Win with other cards first; play this card only once you have four wins, or when it would otherwise be trumped or forced.
+Rationale:   The ace affinity makes this card a likely winner, so the real test is holding it until four other wins are in, met in about a third of a High Card deck's rounds (about +40 late), top of the uncommon band at 80 gold; it checks your wins, not the trick number, so it stays apart from Ripening Pear (GR-C10) and Patient Hourglass (DU-S10).
+Deviation:   Added an ace affinity, because a random card rarely wins late and the multiplier would almost never fire.
+```
+
+## Measured Delta
+
+```
+Code:        BL-U10
+Name:        Measured Delta
+Icon:        delta               (alternates: Foreseen Future / future, Updated Directory / phone-book)
+Resonance:   Blue
+Rarity:      Uncommon (70 gold)
+Text:        If this card is still in your hand when the tenth trick begins, you may raise or lower your bid by one.
+Timing:      While in hand (checkpoint at the tenth trick)
+Archetypes:  Exact Contractor, While Held; splash High Card, Bonus Chaser
+Family:      Bid adjustment / Either
+Role:        Enabler
+Signature:   tenth trick begins, this card held | self | your bid | may raise or lower by 1 | ×1
+Decision:    Every trick, which other card can follow suit so this one stays in hand, then at trick 10 which way to move the bid with nine tricks seen.
+Opponent:    Visible when used; opponents who read the holding pattern can lead this card's suit to force it out before trick 10.
+AI note:     Never play this card before trick 10 while another legal card exists; at trick 10, move the bid toward your likely final count.
+Rationale:   A fixed checkpoint keeps the correction a trigger rather than an activated ability, and holding to trick 10 succeeds about 55% of the time; with four tricks left, one step either way turns a near miss into an exact count for Honest Ruler, True Aim, or Balanced Yin-Yang.
+```
+
+## Rosy Spectacles
+
+```
+Code:        BL-U11
+Name:        Rosy Spectacles
+Icon:        glasses               (alternates: Poets' Library / book-library, Tender Lambda / lambda)
+Resonance:   Blue
+Rarity:      Uncommon (70 gold)
+Text:        Hearts can't be trumped.
+Timing:      Always on, for you
+Archetypes:  Heart Chorus; splash High Card, Kingmaker
+Family:      Trump and spade-breaking rules / Conditional trump (named suit)
+Role:        Enabler; rule setter
+Signature:   always | all players | tricks led in hearts | cannot be won by trump | all
+Decision:    Whether to build toward a long hearts suit, and when to lead the grown hearts late, now that a void no longer stops them.
+Opponent:    Public and symmetric, so opponents' hearts are safe too; they answer by holding higher hearts, lowering heart ranks, or draining hearts early.
+AI note:     Lead your highest hearts once they beat the hearts still out; never trump a heart lead.
+Rationale:   Heart Chorus's main threat is opponents running out of hearts and trumping its late ace-level hearts, and this removes it outright, which gives the thinnest archetype real value; it covers every player's hearts rather than your aces, so it differs from Unclouded Sun (DU-S01) in both target and reach.
+Deviation:   Dropped the "until a named-suit trick is won" condition and Diamond Flood and Spade Master as targets, because Heart Chorus's hearts are weak early, so opponents would win the unlocking heart trick first, and Diamond Flood and Spade Master are already ahead of the curve.
+```

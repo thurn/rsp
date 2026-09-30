@@ -288,3 +288,226 @@ AI note:     Play this card as late as follow-suit allows, and not before you ha
 Rationale:   Played late after about 2–3 wins it pays +10–15 (about +10 EV), and a High Card hand winning four tricks before it pays +20; it counts one public number and never checks a trick number, so it doesn't read as Patient Hourglass.
 Deviation:   Changed from +5 per trick held (three times the common budget) and then from a trick-7 checkpoint (ruled too close to Patient Hourglass) to a one-time count of your wins when played, which still rewards holding the card late.
 ```
+
+## Twin Cherries
+
+```
+Code:        OR-U01
+Name:        Twin Cherries
+Icon:        cherry               (alternates: Spinning Record / disc, Replay Controller / joystick)
+Resonance:   Orange
+Rarity:      Uncommon (70 gold)
+Text:        When you play this card, the sigil on the next card you play triggers twice for that trick.
+Timing:      When played
+Archetypes:  Bonus Chaser, Gold Miner, Diamond Flood, Swap Meet
+Family:      When played and re-triggers / Re-trigger
+Role:        Enabler (doubles one card-bound payoff a round)
+Signature:   when played | self | the next card you play | its sigil triggers twice, that trick only | ×1
+Decision:    Sequencing: play this card on a trick you can afford to spend it on, then play your best sigil card on the very next trick, which follow-suit may or may not allow.
+Opponent:    Visible when the doubled sigil resolves; opponents can lead a suit that forces a different next card.
+AI note:     Play this card when your next legal play can be your highest-value "when you play this card" or "when this card wins" sigil card (Golden Ticket, Cracked Safe, Gem Cascade, Crown Jewel); otherwise treat it as unengraved.
+Rationale:   Doubling one card-bound payoff is worth about +15 to +30 (a second Cracked Safe or Gem Cascade payout, a second Golden Ticket purchase, 20 more gold from Lucky Coin), and the next-card condition makes it a sequencing puzzle rather than a free double.
+```
+
+## Folded Banknote
+
+```
+Code:        OR-U02
+Name:        Folded Banknote
+Icon:        currency-note               (alternates: Sold Television / tv)
+Resonance:   Orange
+Rarity:      Uncommon (65 gold)
+Text:        After bidding, you may remove a chosen card from your hand to gain +30 gold.
+Timing:      After bidding
+Archetypes:  Blind Bidder, Gold Miner, Diamond Flood; splash Nil Champion, Discard Dominance
+Family:      Costs / Cards (removal for gold)
+Role:        Payoff (Economy); also a nil survival enabler
+Signature:   after bidding | self | a chosen card in hand | remove it, gold +30 | ×1
+Decision:    Whether to sell a card at all, and which: the ace that threatens a nil, the last card of a suit to open a void, or a dead two when the bid is safe.
+Opponent:    The removed card is shown to the table as it leaves; opponents lose nothing, but know one danger card is gone.
+AI note:     On nil or blind nil, remove your highest card; on a contract, remove your lowest non-spade unless it is the last card of a suit you want to keep; always accept.
+Rationale:   About 30 gold a round, above Nest Egg's floor for a pricier sigil, plus a real survival tool for blind nil (removing an ace raises success by roughly a tenth), and the lost card costs a contract bidder little because a thirteenth-trick two rarely wins.
+```
+
+## Surprise Party
+
+```
+Code:        OR-U03
+Name:        Surprise Party
+Icon:        party               (alternates: Birthday Wish / birthday-cake, Stacked Burger / burger)
+Resonance:   Orange
+Rarity:      Uncommon (70 gold)
+Text:        If you win the first and last tricks of the round, gain +50 contract value.
+Timing:      Conditional scoring
+Archetypes:  Bonus Chaser; splash High Card, While Held
+Family:      Side quests / Objective (first and last trick)
+Role:        Payoff (Contract additive)
+Signature:   scoring, you won the first and the last trick | self | contract | contract value +50 | ×1
+Decision:    Whether to spend a top card on the first trick, and which winner to hold back to the end instead of cashing it early.
+Opponent:    Progress is public after trick 1; opponents who see you won it can hold their own ace or trump for the last trick.
+AI note:     Try to win trick 1 with your highest card; if you do, keep your best remaining ace or top spade until the last trick.
+Rationale:   Unplanned it lands in about one round in eight; planned with a held ace (Unclouded Sun, Opening Volley, Vanguard Shield help) it lands in about a quarter, about +10 EV, deliberately modest because Bonus Chaser is ahead of the curve, and it checks only two public tricks.
+```
+
+## Greedy Magnet
+
+```
+Code:        OR-U04
+Name:        Greedy Magnet
+Icon:        magnet               (alternates: Heavy Barrel / cylinder, Clean Slice / slice)
+Resonance:   Orange
+Rarity:      Uncommon (70 gold)
+Text:        Affinity: Diamond. When this card wins a trick, gain +10 contract value for each diamond in it.
+Timing:      When this card wins
+Archetypes:  Diamond Flood; splash Bonus Chaser
+Family:      Card-bound points / On win
+Role:        Payoff (Contract additive)
+Signature:   this card wins | self | diamonds in that trick | contract value +10 per diamond | ×1
+Decision:    When to lead this diamond: early, while every opponent still follows with diamonds, for up to +40, or later behind Red boosts when it is safer to win but fewer diamonds fall.
+Opponent:    Visible when it pays; opponents can shed their diamonds early, trump in once void, or keep their top diamond to beat it.
+AI note:     Lead this card in the first three tricks if it is the highest diamond you know is out; otherwise play it on a diamond lead you can win.
+Rationale:   A led high diamond collects three or four diamonds and wins about half the time, about +15 EV, below the uncommon budget on purpose because Diamond Flood is ahead of the curve; the affinity keeps it on a diamond, and it counts the whole trick, never your earlier diamonds (Gem Cascade) or those in hand (Cracked Safe).
+```
+
+## Grand Treasury
+
+```
+Code:        OR-U05
+Name:        Grand Treasury
+Icon:        landmark               (alternates: Bulging Wallet / wallet, Growing Dollar / dollar)
+Resonance:   Orange
+Rarity:      Uncommon (65 gold)
+Text:        You can earn up to 100 gold of interest each round instead of 50.
+Timing:      Always on, for you
+Archetypes:  Gold Miner; splash Diamond Flood
+Family:      Gold income / Interest
+Role:        Payoff (Economy)
+Signature:   always | self | interest cap | 50 → 100 gold | ×1
+Decision:    Shopping: whether to keep saving past 250 gold toward 500, where interest and Pharaoh's Pyramid both peak, or spend now.
+Opponent:    Gold is private in effect; no impact on opponents' play.
+AI note:     While you own this, skip purchases below uncommon once you hold 250 gold or more, until you reach 500.
+Rationale:   Worth nothing below 250 gold and up to +50 gold a round at 500, the same 500-gold target as Pharaoh's Pyramid, so it rewards the Gold Miner hoard and feeds late converters (OR-U09, OR-R03); it stays an uncommon because early runs rarely reach the new cap.
+```
+
+## Swapped Sticker
+
+```
+Code:        OR-U06
+Name:        Swapped Sticker
+Icon:        sticker               (alternates: Shared Pizza / pizza, Traded Ice Cream / icecream)
+Resonance:   Orange
+Rarity:      Uncommon (70 gold)
+Text:        Whenever you play a card that was passed to you, gain +10 contract value.
+Timing:      When played (any card you received; watches every trick)
+Archetypes:  Swap Meet; splash Kingmaker, Nil Guard
+Family:      Card-bound points / Targeted
+Role:        Payoff (Contract additive)
+Signature:   you play a card passed to you | self | received cards | contract value +10 | per card
+Decision:    Which partner or opponent to trade with, knowing their card pays when played, and making sure received cards get played before the round ends.
+Opponent:    Visible when it pays; opponents trading with you keep full choice of the card they give.
+AI note:     Take every optional trade or pass; when choosing among legal plays, prefer a received card if it does not cost a needed trick.
+Rationale:   With Traders' Handshake's three trades a round it pays about +30, and one Open Hand or Sheltering Castle exchange pays +10 to +20, top of the uncommon band for thin Swap Meet while leaving per-exchange contract value to Handshake itself.
+Deviation:   Timing moved from "when you pass cards" to a play trigger, as the brief's own text describes, because paying at the moment of the pass would repeat Traders' Handshake and Peddler's Cart.
+```
+
+## Clouded Eight Ball
+
+```
+Code:        OR-U07
+Name:        Clouded Eight Ball
+Icon:        8-ball               (alternates: Unrolled Cube / cube, Roulette Wheel / color-wheel)
+Resonance:   Orange
+Rarity:      Uncommon (70 gold)
+Text:        Your blind nils win or lose 300 points instead of 200.
+Timing:      Always on, for you
+Archetypes:  Blind Bidder; splash Nil Guard (with a blind-nil partner)
+Family:      Blind bidding / Rewards (raised stakes)
+Role:        Payoff (Nil)
+Signature:   always | self | your blind nil | score ±200 → ±300 | ×1
+Decision:    Raises the stakes of the blind-nil call in both directions: go blind only when survival tools (Waning Moon, Folded Banknote, a Castle partner) are in place, and weigh a 300-point swing against the deficit.
+Opponent:    The blind nil is public and so is the owner's sigil once it scores; opponents attack a 300-point target harder, which keeps their play meaningful.
+AI note:     Bid blind nil when eligible only if you expect to survive at least 60% of the time (count your owned lowering and pass sigils), and always when the team trails by 300 or more.
+Rationale:   At 65% survival a blind nil nets +90 instead of +60, and at 75% +150 instead of +100, so it is about +10 to +18 EV at a 30–45% blind rate, and it pays most to the Blind Bidder who invests in survival; unlike Vigil Candle it also raises the loss, and unlike Four-Leaf Clover it pays no gold, so it is a pure Orange gamble on the unseen hand.
+Deviation:   Revision 1: changed from a flat +60 nil value on a blind nil, which read as Vigil Candle on Daring Knight's trigger, to a double-edged stake raise; it is not a nil multiplier (PU-R04's rare space) because it changes only the blind nil's fixed ±200.
+```
+
+## Consolation Tote
+
+```
+Code:        OR-U08
+Name:        Consolation Tote
+Icon:        shopping-bag               (alternates: Sizzling Bacon / bacon, Frosted Cupcake / cupcake)
+Resonance:   Orange
+Rarity:      Uncommon (70 gold)
+Text:        Affinity: Diamond. When this card loses a trick, gain +40 gold.
+Timing:      When this card loses
+Archetypes:  Diamond Flood, Gold Miner; splash Blind Bidder
+Family:      Gold income / Conditional (this card loses)
+Role:        Payoff (Economy)
+Signature:   this card loses | self | you | gold +40 | ×1
+Decision:    Whether to push this diamond for a win (Glittering Treasure, Greedy Magnet, the contract) or let it lose for gold, and when to spend it on a trick you can't win anyway.
+Opponent:    Visible when it pays; opponents who trump your diamonds still take the trick, and choosing not to overtake it denies the gold.
+AI note:     Play this card on a trick you are already losing; lead it only if it is the highest diamond still out.
+Rationale:   It turns Diamond Flood's main threat, opponents trumping its long diamonds, into gold, and it pays about 30–40 gold a round (it loses in most rounds, more when dumped deliberately), a step above Lucky Coin's flat 20 for an uncommon, while filling the thin "when this card loses" window.
+Deviation:   Revision 1: redesigned from gold per diamond played while held, which was Glittering Treasure with a looser trigger and twinned GR-U04; the variation moved from Multipliers to Conditional and the timing from always on to "when this card loses", and the diamond link now comes from the affinity.
+```
+
+## Merchant's Briefcase
+
+```
+Code:        OR-U09
+Name:        Merchant's Briefcase
+Icon:        briefcase               (alternates: Trader's Helm / steering-wheel, Bartered Bread / bread)
+Resonance:   Orange
+Rarity:      Uncommon (65 gold)
+Text:        Whenever you pass cards, you may pay 10 gold to gain +20 contract value.
+Timing:      When you pass cards
+Archetypes:  Gold Miner, Swap Meet; splash Kingmaker, Nil Guard
+Family:      Gold and points conversion / Gold to contract value
+Role:        Payoff (Contract additive, bought with gold)
+Signature:   you pass cards | self | contract | pay 10 gold for contract value +20 | per pass
+Decision:    At each pass or trade, whether the contract looks safe enough to spend gold on it, and whether that gold still matters more at the shop.
+Opponent:    Visible when it fires; no effect on opponents' play.
+AI note:     Pay from round 6 on, or earlier when you hold 150 gold or more, if your team's contract looks safe.
+Rationale:   One pass a round buys +20 for 10 gold, and Traders' Handshake's three trades buy +60 for 30, a better rate than Golden Ticket's 20 for +30 because it needs passes, giving thin Swap Meet contract value and Gold Miner a late gold-to-points outlet.
+```
+
+## Released Balloon
+
+```
+Code:        OR-U10
+Name:        Released Balloon
+Icon:        balloon               (alternates: Round of Beer / beer, Melting Popsicle / popsicle)
+Resonance:   Orange
+Rarity:      Uncommon (70 gold)
+Text:        Whenever you pass cards after bidding nil, gain +25 nil value.
+Timing:      When you pass cards
+Archetypes:  Blind Bidder, Swap Meet; splash Nil Champion, Nil Guard
+Family:      Nil value / Additive
+Role:        Payoff (Nil)
+Signature:   you pass cards, you bid nil | self | your nil | nil value +25 | per pass
+Decision:    Whether to take a post-bid exchange even when the card you would give is safe, and a reason for a nil bidder to seek Teal passes and a Sheltering Castle partner.
+Opponent:    Visible when it fires; opponents still see which way the nil's danger moved only through play.
+AI note:     On nil or blind nil, always take any offered pass or swap, giving your highest card.
+Rationale:   A nil bidder with Open Hand or a Castle partner passes once or twice a round, so +25 to +50 on success, about +20 EV on nil rounds, and every pass that fires it also sheds a danger card, so value and survival rise together.
+```
+
+## Tuned Amplifier
+
+```
+Code:        OR-U11
+Name:        Tuned Amplifier
+Icon:        guitar-amp               (alternates: Squeezed Lemon / lemon, Crisp Waffle / waffle)
+Resonance:   Orange
+Rarity:      Uncommon (65 gold)
+Text:        After bidding, you may pay 20 points to make every card of a chosen suit in your hand gain +4 rank or lose 4 rank.
+Timing:      After bidding
+Archetypes:  Nil Champion, Contract Attacker; splash Blind Bidder
+Family:      Costs / Points
+Role:        Enabler (feeds Nil and Denial)
+Signature:   after bidding | self | all cards of a chosen suit in hand | rank +4 or −4, costs 20 points | ×1
+Decision:    Whether a nil or a set is worth 20 points this round, which suit, and which direction.
+Opponent:    The changed ranks are shown to the table, so opponents can read the new danger and play around it.
+AI note:     On nil or blind nil, pay if you hold a queen or better, lowering the suit that holds it; on a contract, pay only when the opponents bid 7 or more, raising your longest non-spade suit.
+Rationale:   Four ranks is the size that actually demotes an ace (Sinking Anchor's calibration), and a whole suit at once is worth a point cost where a single card (Tipping Scales, Steep Price) is not; 20 points is about what the extra nil safety is worth, so it is taken only when it matters.
+```

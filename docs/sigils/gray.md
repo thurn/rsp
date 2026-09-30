@@ -531,3 +531,328 @@ Opponent:    Visible when played; it costs an ace at most one trick a round, and
 AI note:     Play it into a trick where your nil partner must follow with an ace, or where an opponent's ace is winning and you can follow suit.
 Rationale:   "Count as twos" rather than "can't win" so every trick keeps a winner (a lone led ace still wins as a two); a trump ace still beats non-trump cards.
 ```
+
+## Sprawling Warehouse
+
+```
+Code:        GY-U01
+Name:        Sprawling Warehouse
+Icon:        warehouse               (alternates: Open Cupboard / cupboard, Surplus Box / box)
+Resonance:   Gray
+Rarity:      Uncommon (65 gold)
+Text:        You see four shop offers instead of three.
+Timing:      Always on, for you
+Archetypes:  All; most for Gold Miner, Diamond Flood
+Family:      Shop tools / Extra offers
+Role:        Payoff: Economy
+Signature:   at shop | self | your offers | four instead of three | each shop and reroll
+Decision:    Shopping: a wider choice every shop, and a reroll now shows four new offers.
+Opponent:    No effect on opponents.
+AI note:     Score the fourth offer like the others; reroll a little less often.
+Rationale:   One more offer per shop is a third more chances to find the sigil a plan needs, worth about a free partial reroll each shop; it still allows only one purchase, so gold and the purchase limit keep it modest.
+```
+
+## Thrifted Radio
+
+```
+Code:        GY-U02
+Name:        Thrifted Radio
+Icon:        radio               (alternates: Resold Dress / dress, Pawned Skirt / skirt)
+Resonance:   Gray
+Rarity:      Uncommon (60 gold)
+Text:        Whenever you sell a sigil, gain +20 gold.
+Timing:      When sold (any sigil you sell)
+Archetypes:  All; most for Gold Miner and decks changing direction mid-run
+Family:      Selling / Sale income
+Role:        Payoff: Economy
+Signature:   when you sell any sigil | self | you | gold +20 | per sale
+Decision:    Whether to sell and replace weak early sigils, since turnover becomes nearly free.
+Opponent:    No effect on opponents.
+AI note:     Sell an owned sigil when an offer is worth at least 10 points a round more and the collection is full or gold is short.
+Rationale:   A sale plus +20 never beats the price paid (a 40-gold common sells for 20 + 20), so there is no buy-and-sell loop; it pays when the player trades up, and selling this sigil itself also triggers it.
+```
+
+## Overstocked Fridge
+
+```
+Code:        GY-U03
+Name:        Overstocked Fridge
+Icon:        fridge               (alternates: Bulk Toilet Roll / toilet-roll, Bargain Hunter's Cap / cap)
+Resonance:   Gray
+Rarity:      Uncommon (75 gold)
+Text:        At each shop, you may buy a second sigil if it's a common.
+Timing:      At the shop
+Archetypes:  All; most for Gold Miner, Diamond Flood, Swap Meet
+Family:      Shop tools / Multiple purchases
+Role:        Payoff: Economy
+Signature:   at shop | self | purchases | a second purchase, common only | each shop
+Decision:    Whether to spend a round's gold on two sigils or bank it for interest and a pricier offer.
+Opponent:    No effect on opponents.
+AI note:     Buy a second common when it scores at least 10 a round and gold stays above 50 afterward.
+Rationale:   Gold, not the rule, limits it: two commons cost about 90–100 against about 65 income, so a double purchase comes every two or three shops early, filling the 13-sigil collection faster; it fades once the collection is full, when selling (GY-U02) takes over.
+```
+
+## Early Alarm
+
+```
+Code:        GY-U04
+Name:        Early Alarm
+Icon:        alarm               (alternates: Quick Charger / ev-station, Traded Nut / nut)
+Resonance:   Gray
+Rarity:      Uncommon (65 gold)
+Text:        After scoring, you may give up 20 of your team's points to gain +40 gold.
+Timing:      After scoring
+Archetypes:  Gold Miner, Diamond Flood, Swap Meet; splash Blind Bidder
+Family:      Gold and points conversion / Points to gold
+Role:        Payoff: Economy
+Signature:   after scoring | self (team pays) | team score to your gold | −20 points, +40 gold | per round
+Decision:    Every round: take the trade while gold still buys sigils, stop when it doesn't, then sell it.
+Opponent:    Visible score drop; opponents gain a little ground.
+AI note:     Trade through round 6, and later only when 40 gold brings a wanted offer within reach.
+Rationale:   At about 1 point per gold early, it nets about +20 a round in rounds 1–4 and breaks even around round 7, so it is strongest early by design; trailing by 20 more can also help Blind Bidder qualify under Night Owl (PU-C08) or Desperate Gambit (DU-S09).
+```
+
+## Neighborly Balcony
+
+```
+Code:        GY-U05
+Name:        Neighborly Balcony
+Icon:        balcony               (alternates: Borrowed Chair / chair, Shared Laptop / laptop)
+Resonance:   Gray
+Rarity:      Uncommon (70 gold)
+Text:        After bidding, you may swap the sigils on a chosen card in your hand and a card your partner chooses from theirs.
+Timing:      After bidding
+Archetypes:  Kingmaker, Nil Guard, Swap Meet
+Family:      Engraving control / Movement (to your partner)
+Role:        Enabler
+Signature:   after bidding | team | a chosen card of yours and a card your partner picks | swap sigils | ×1
+Decision:    Which sigil to send, knowing both bids: Pauper's Disguise onto a nil partner's king, Crown Jewel onto a bidding partner's ace; your partner picks where it lands.
+Opponent:    Hidden; opponents see the results only through play.
+AI note:     To a nil partner, send a rank-lowering sigil and the partner picks its highest card; to a partner bidding 4 or more, send a win-trigger or rank-raising sigil and the partner picks its highest spade; otherwise skip.
+Rationale:   No cards move, so no pass payoffs fire; a swap respects one engraving per card, and a card without a sigil simply receives one; it turns your own card-bound sigils into partner support for the two thin partnership archetypes.
+Deviation:   Timing moved from "when this card wins" to after bidding: "move its sigil" would move this sigil itself, hands are hidden so the partner must pick their own card, and after bidding both players know who is on nil.
+```
+
+## Tracing Pencil
+
+```
+Code:        GY-U06
+Name:        Tracing Pencil
+Icon:        pencil               (alternates: Forger's Brush / brush, Echoing Keyboard / keyboard)
+Resonance:   Gray
+Rarity:      Uncommon (70 gold)
+Text:        Before bidding, each opponent shows a random sigil they own, and you choose one for this card to copy for the round.
+Timing:      Before bidding
+Archetypes:  Contract Attacker, Exact Contractor, Swap Meet
+Family:      Duplication and copying / Copy opponent
+Role:        Utility; opponent-facing (information only)
+Signature:   before bidding | self, opponents show | a random sigil from each opponent, this card | copy the chosen one | ×1
+Decision:    Which of two opponent sigils to borrow, and how to bid knowing what both opponents carry.
+Opponent:    Each shows one sigil; they lose nothing else, and the copy is visible when it triggers.
+AI note:     Prefer an always-on contract payoff, then a card-bound sigil that suits this card; never copy a shop or selling sigil, which does nothing during a round.
+Rationale:   Opponents' collections are a sample of good purchases, and a pick of two lands near an average common payoff (about +12) with an occasional rare; the shown sigils are useful information; unlike Surprise Takeaway (GY-C08) the copy is chosen, comes from real opponent collections, and lives on this card.
+Deviation:   Timing moved from after bidding to before bidding, and a random shown sigil replaces "a revealed opponent sigil," because almost no opponent sigil has shown itself by then and a copy made after bidding misses every before-bidding effect.
+```
+
+## Matching Mugs
+
+```
+Code:        GY-U07
+Name:        Matching Mugs
+Icon:        cup               (alternates: Twin Spoons / spoon, Doubled Sandwich / sandwich)
+Resonance:   Gray
+Rarity:      Uncommon (75 gold)
+Text:        This sigil is a copy of a common sigil you own, chosen when you buy it.
+Timing:      Always on, for you (the copy is chosen at purchase)
+Archetypes:  Bonus Chaser, Diamond Flood, Heart Chorus; any collection with a key common
+Family:      Duplication and copying / Duplicate
+Role:        Utility
+Signature:   at purchase | self | this sigil | permanent copy of a chosen common sigil you own | run
+Decision:    Shopping: which common to double for the rest of the run, and when to buy it (after the key common lands).
+Opponent:    The copy acts like any sigil and is shown when it triggers.
+AI note:     Buy only when you own a common worth 12 or more a round, and copy the one with the highest expected value; never a shop or selling common unless the collection is economy-led.
+Rationale:   A second Headsman's Axe or Vigil Candle for the rest of the run is worth about +12 to +25 in a focused deck; the copy is engraved each round like any sigil, keeps the original's affinity, stays if the original is sold, and a copied counter starts its own count; commons only and a one-time choice keep it below GY-R03.
+Deviation:   Redesigned in revision 1: the per-round copy on this card matched Spare Key (TE-U01), which copies a partner's sigil each round, so this duplicates at the collection level with a single choice at purchase.
+```
+
+## Field First Aid
+
+```
+Code:        GY-U08
+Name:        Field First Aid
+Icon:        medical-kit               (alternates: Walk-In Clinic / institution, Late-Night Pharmacy / pharmacy)
+Resonance:   Gray
+Rarity:      Uncommon (65 gold)
+Text:        Before bidding, if you hold no aces, you may turn a chosen card in your hand into an ace.
+Timing:      Before bidding
+Archetypes:  High Card, Spade Master, Kingmaker, Bonus Chaser
+Family:      Hand repair / Threshold (no aces)
+Role:        Enabler
+Signature:   before bidding, no aces | self | a chosen card | rank becomes ace | ×1
+Decision:    Whether to use it, and which suit gets the ace: a low spade for a sure trick, a long side suit's card to run it, or no ace when planning nil.
+Opponent:    Hidden; everyone bids after it.
+AI note:     Turn the lowest spade into an ace unless planning nil; with no spades, the lowest card of the longest suit.
+Rationale:   About 30% of hands hold no ace, so it adds about a trick in those rounds; the chosen card keeps its suit and sigil, so a win trigger can ride on it; distinct from Trusty Wrench (GY-C10), which replaces the lowest card with a random spade.
+```
+
+## Spare Trousers
+
+```
+Code:        GY-U09
+Name:        Spare Trousers
+Icon:        pant               (alternates: Extra Soup / bowl-hot, Tucked-Away Beanie / beanie)
+Resonance:   Gray
+Rarity:      Uncommon (70 gold)
+Text:        Before bidding, add a random new card to your hand.
+Timing:      Before bidding
+Archetypes:  While Held, Discard Dominance, Exact Contractor
+Family:      Creating cards / Additions
+Role:        Enabler (feeds Patient Hourglass, DU-S10)
+Signature:   before bidding | self | your hand | add a random new card | ×1
+Decision:    Which card never gets played: a while-held card kept past the last trick, a spare low card to duck an overtrick, or a follower for a suit you must keep.
+Opponent:    Hidden until the card is played; opponents see your extra card at the end.
+AI note:     Plan to leave unplayed the while-held card, or on nil the highest card; otherwise the lowest card.
+Rationale:   A fourteenth card adds about a quarter of a trick and a choice of what to leave unplayed; it raises Patient Hourglass's hit rate, which the critic should weigh against While Held's watch note; the new card may duplicate a dealt card.
+```
+
+## Saved Hard Drive
+
+```
+Code:        GY-U10
+Name:        Saved Hard Drive
+Icon:        hard-drive               (alternates: Keepsake Pushpin / pin, Reheating Microwave / microwave-oven)
+Resonance:   Gray
+Rarity:      Uncommon (70 gold)
+Text:        After scoring, a copy of a chosen non-ace card you won a trick with this round replaces a random card in your next hand.
+Timing:      After scoring
+Archetypes:  High Card, Spade Master, Kingmaker
+Family:      Opening hand control / Forced cards (held over)
+Role:        Enabler
+Signature:   after scoring | self | a chosen non-ace card you won a trick with | its copy replaces a random card in your next hand | ×1
+Decision:    Which winner to carry forward: a king of spades for trump, a queen of hearts for Heart Chorus, or a high card to pass.
+Opponent:    Hidden until played; the copy may duplicate a card dealt elsewhere.
+AI note:     Choose the highest spade you won with, else the highest card.
+Rationale:   A king or queen of spades every round is worth about half a trick over a random card; the copy keeps the card's suit and rank as the round ended, and "non-ace" uses that rank, so the copy is never an ace; a nil round that wins nothing carries nothing.
+```
+
+## Rinsing Shower
+
+```
+Code:        GY-U11
+Name:        Rinsing Shower
+Icon:        shower               (alternates: Soothing Lotion / lotion, Cooling Fan / fan)
+Resonance:   Gray
+Rarity:      Uncommon (60 gold)
+Text:        If your team's contract is 7 or more tricks, its overtricks add no bags.
+Timing:      Conditional scoring
+Archetypes:  Spade Master, Kingmaker, Bonus Chaser; splash High Card
+Family:      Bag management / Amnesty
+Role:        Utility
+Signature:   scoring, team contract 7+ | team | overtricks | add no bags | ×1
+Decision:    Bidding: stretch the team to 7 to protect overtricks, or bid lower and accept bags.
+Opponent:    Visible from the bids; bagging your team is pointless in those rounds.
+AI note:     When the team's expected tricks are 7 or more, bid at least 7 in total rather than shading down.
+Rationale:   A team bids 7 or more in about a third of rounds, and those rounds produce the most overtricks, so it saves about 7 points a round on average and more for big-bidding decks; the contract can still fail, which keeps the stretch honest.
+```
+
+## Emptied Dishwasher
+
+```
+Code:        GY-U12
+Name:        Emptied Dishwasher
+Icon:        dishwasher               (alternates: Humming Washer / washer, Pampering Cosmetics / self-care)
+Resonance:   Gray
+Rarity:      Uncommon (60 gold)
+Text:        When this card loses a trick, remove two of your team's bags.
+Timing:      When this card loses
+Archetypes:  High Card, Contract Attacker, Spade Master
+Family:      Bag management / Removal
+Role:        Utility
+Signature:   this card loses | team | bags | remove two | ×1
+Decision:    Whether to duck with this card for bag relief or spend it to win a trick.
+Opponent:    Visible; Contract Attacker's bagging line is weaker against you.
+AI note:     Prefer this card when ducking a trick; win with it only when the trick is needed for the bid.
+Rationale:   It fires in about 75% of rounds, removing about 1.5 bags a round from the carried count, so a team taking two bags a round rarely reaches a penalty, about 15 points a round; this round's new bags arrive at scoring, after it acts.
+Deviation:   Timing moved from "when this card wins" to "when this card loses," a short window, because relief on losing matches the ducked tricks that avoid overtricks, and a winning trigger mirrored Overtime Factory (GY-C16).
+```
+
+## Waiting Bench
+
+```
+Code:        GY-U13
+Name:        Waiting Bench
+Icon:        bench               (alternates: Slow-Cooking Oven / oven, Idle Computer / computer-retro)
+Resonance:   Gray
+Rarity:      Uncommon (70 gold)
+Text:        Gain +10 contract value for each shop you've left empty-handed since buying this sigil, up to +40.
+Timing:      Always on, for you (the count rises at the shop)
+Archetypes:  All
+Family:      Scaling sigils / Counters (shops skipped)
+Role:        Payoff: Contract additive
+Signature:   always | self | contract | +10 per shop left without buying since purchase, max +40 | counter
+Decision:    Shopping: skip a weak shop to build the count and save gold, or buy.
+Opponent:    Visible count; no effect on opponents.
+AI note:     Skip a shop when no offer is worth 10 points a round and the count is below +40.
+Rationale:   A skip trades a common (about +12 a round) for a permanent +10 (+8 expected) plus saved gold and interest, an even trade that makes weak shops useful; four skips reach +40 (+32 expected) mid-to-late, and the cap stops a full collection from growing it without limit.
+```
+
+## Sous-Chef's Hat
+
+```
+Code:        GY-U14
+Name:        Sous-Chef's Hat
+Icon:        chef-hat               (alternates: Backup Broadcast / station, Humble Mouse / mouse)
+Resonance:   Gray
+Rarity:      Uncommon (65 gold)
+Text:        Whenever you lose a trick with the second-best card in it, gain +5 contract value.
+Timing:      When you lose any trick
+Archetypes:  Nil Champion, Blind Bidder, Exact Contractor
+Family:      Losing tricks / Close ducks
+Role:        Payoff: Contract additive
+Signature:   you lose a trick, your card second-best | self | contract | +5 | per trick
+Decision:    In late seats, drop your second-best card under the winner (a queen under a king) instead of a low card, shedding a high card safely.
+Opponent:    Visible each time it triggers.
+AI note:     When a trick is already won by another card, play your highest card that stays below it.
+Rationale:   Your card is runner-up in about one lost trick in four, about 2.5 times a round (+12, about +10 expected) and about 3.5 for a nil bidder, whose value goes to the partner's contract; "second-best" means the card that would have won without the winner, so discards never qualify and, when a trump wins, the best remaining card counts.
+```
+
+## Roommates' Apartment
+
+```
+Code:        GY-U15
+Name:        Roommates' Apartment
+Icon:        apartment               (alternates: Neighborhood School / school, Community Hospital / hospital)
+Resonance:   Gray
+Rarity:      Uncommon (70 gold)
+Text:        Gain +10 contract value for each resonance that both you and your partner have sigils of.
+Timing:      Always on, for you
+Archetypes:  Kingmaker, Nil Guard, Swap Meet
+Family:      Resonance synergy / Partnership
+Role:        Payoff: Contract additive
+Signature:   always | self | contract | +10 per resonance in both partners' collections | counter
+Decision:    Shopping toward your partner's resonances, and partner coordination: a human partner can buy to match.
+Opponent:    No effect on opponents.
+AI note:     Add 10 points of value to an offer whose resonance your partner owns and you don't yet.
+Rationale:   Gray is usually shared (+10), and the partner archetypes these decks pair with share a color (Kingmaker with High Card on Red, Nil Guard with Nil Champion on Purple), so +20 to +30 is typical; dual-resonance sigils count for both colors.
+Deviation:   Counts resonances the partners share instead of one resonance across both collections, because a Gray count across both partners is Well-Oiled Gear (GY-C22) with a wider scope.
+```
+
+## Artist's Palette
+
+```
+Code:        GY-U16
+Name:        Artist's Palette
+Icon:        palette               (alternates: Mixed Paint / paint, Colorful Circuit / circuit-board)
+Resonance:   Gray
+Rarity:      Uncommon (65 gold)
+Text:        If you own sigils of five or more resonances, gain +30 contract value.
+Timing:      Conditional scoring
+Archetypes:  Bonus Chaser, Diamond Flood, Heart Chorus; any splashing collection
+Family:      Resonance synergy / Breadth
+Role:        Payoff: Contract additive
+Signature:   scoring, own 5+ resonances | self | contract | +30 | ×1
+Decision:    Shopping: chase a fifth resonance with a splash, weighing off-plan offers higher until it is on.
+Opponent:    No effect on opponents.
+AI note:     Until five resonances are owned, add 15 points of value to an offer of a new resonance.
+Rationale:   A typical collection holds two colors, Gray, and two off-plan sigils, so five is reachable by mid-run with intent, and a signpost counts both its colors; +30 (+24 expected) sits at the top of the uncommon band, below GY-R05's breadth multiplier.
+```
