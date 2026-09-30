@@ -311,7 +311,7 @@ All design work lives in `docs/sigils/`:
 | --- | --- | --- |
 | `slots.md` | Orchestrator | Every slot: code, resonance, rarity, slot type, archetypes served, mechanic family, assigned variation, timing window, and one-line brief |
 | `scoring.md` | Orchestrator | The benchmark curve, the parity rules, and each archetype's planned channel mix |
-| `icons.txt` | Orchestrator | Every available icon: the free filled set of Boxicons minus card-suit icons, one name per line |
+| `icons.txt` | Orchestrator | Every available icon: a curated subset of the free filled Boxicons set, one name per line |
 | `registry.md` | Orchestrator | Every accepted sigil with its name, icon, icon family, and effect signature, in one table |
 | `red.md`, `orange.md`, `green.md`, `blue.md`, `teal.md`, `purple.md`, `gray.md`, `dual.md` | Orchestrator | Full accepted sigil entries, one file per resonance |
 | `escalations.md` | Orchestrator | Slots that exhausted their revision cycles, with each slot's best candidate |
@@ -364,11 +364,13 @@ The orchestrator writes `slots.md` and `scoring.md` before any design begins.
   examples in [rules-text.md](rules-text.md) and Waning Moon from the entry
   format above. Seeded sigils fill 10 common slots, 2 uncommon slots, and 1
   rare slot.
-- `icons.txt` lists the available icons: the free filled Boxicons set from the
-  `svg/filled` directory of the `@boxicons/core` package (1,884 icons at
-  version 1.0.6), minus the card-suit families `spade`, `heart`, `diamond`,
-  `diamonds`, and `club`, which read as playing-card suits. That leaves 1,873
-  icons. The orchestrator regenerates it only when upgrading that package.
+- `icons.txt` lists the available icons: a curated subset of the free filled
+  Boxicons set from the `svg/filled` directory of the `@boxicons/core` package
+  (1,884 icons at version 1.0.6). The curation keeps 754 icons in about 610
+  families, and leaves out the card-suit families (`spade`, `heart`,
+  `diamond`, `diamonds`, and `club`) and icons that read as interface imagery,
+  following the icon guidance in [rules-text.md](rules-text.md). The list is
+  maintained by hand.
 - Each slot receives a **mechanic family** and an **assigned variation** from
   [mechanics.md](mechanics.md). Two slots receive the same family and variation
   only when they differ in rarity and in intended archetype.

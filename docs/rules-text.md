@@ -46,8 +46,8 @@ An affinity, when present, opens the rules text in bold.
 Every sigil has an icon from the free filled set of
 [Boxicons](https://boxicons.com/icons?free=true&p=filled), and a name drawn
 from that icon. [sigils/icons.txt](sigils/icons.txt) lists the available icons:
-the whole set except card-suit icons, which players would read as the suits in
-their hand.
+a curated subset that leaves out card-suit icons, which players would read as
+the suits in their hand, and icons that read as interface imagery.
 
 - **Icons with imagery.** The pool steers clear of icons that read as
   interface or everyday screen imagery: common UI icons, logos, arrows, speech
