@@ -21,15 +21,19 @@
   box-shadow:
     inset 0 0 0 1px rgb(0 0 0 / 0.08),
     var(--shadow-card);
-  transition: filter var(--duration) var(--ease-out);
+  transition:
+    filter var(--duration) var(--ease-out),
+    translate var(--duration) var(--ease-out);
 }
 
 .face[data-red] {
   color: var(--card-red);
 }
 
+/* Unplayable cards sink slightly so legal ones stand proud without muddying the ivory. */
 .dimmed {
-  filter: brightness(0.62) saturate(0.7);
+  filter: brightness(0.8) saturate(0.85);
+  translate: 0 12px;
 }
 
 .corner {
@@ -112,4 +116,24 @@
   height: 34cqw;
   color: var(--gold);
   filter: drop-shadow(0 0 6px rgb(0 0 0 / 0.6));
+}
+
+/* Phones show only a sliver of each card in hand, so the corner index grows. */
+@media (max-width: 700px) {
+  .corner {
+    width: 26cqw;
+  }
+
+  .rank {
+    font-size: 27cqw;
+  }
+
+  .rank[data-wide] {
+    font-size: 23cqw;
+  }
+
+  .cornerSuit {
+    width: 19cqw;
+    height: 19cqw;
+  }
 }

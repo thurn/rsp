@@ -1,12 +1,11 @@
-import { NIL, type TeamResult } from '../game/rules'
+import { NIL, type TeamResult, WINNING_SCORE } from '../game/rules'
 import { Button } from '../ui/Button'
 import { Eyebrow, Panel } from '../ui/Panel'
 import styles from './Prompts.module.css'
 
 export function BidPrompt({ onBid, max }: { onBid: (bid: number) => void; max: number }) {
   return (
-    <Panel className={styles.bid}>
-      <Eyebrow>Your bid</Eyebrow>
+    <Panel className={styles.bid} aria-label="Your bid">
       <div className={styles.bidGrid}>
         <Button variant="token" className={styles.nil} onClick={() => onBid(NIL)}>
           Nil
@@ -55,7 +54,11 @@ export function HandSummary({
   const over = winner !== null
   return (
     <Panel className={styles.center}>
-      {over && <h2 className={styles.title}>{winner === 0 ? 'Victory' : 'Defeat'}</h2>}
+      {over ? (
+        <h2 className={styles.title}>{winner === 0 ? 'Victory' : 'Defeat'}</h2>
+      ) : (
+        <Eyebrow>First to {WINNING_SCORE}</Eyebrow>
+      )}
       <table className={styles.table}>
         <thead>
           <tr>

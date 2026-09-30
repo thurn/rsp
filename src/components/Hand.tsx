@@ -61,7 +61,9 @@ export function Hand({
                 delay: settled ? 0 : i * 0.045,
               },
             }}
-            whileHover={playable ? { y: -22, transition: { duration: 0.15 } } : undefined}
+            whileHover={
+              playable ? { y: -22, zIndex: 50, transition: { duration: 0.15 } } : undefined
+            }
             drag={playable}
             dragSnapToOrigin
             dragElastic={0.9}

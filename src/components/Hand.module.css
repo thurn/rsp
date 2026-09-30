@@ -7,7 +7,7 @@
   justify-content: center;
   width: min(100%, 1040px);
   margin: 0 auto;
-  padding: 24px 0 28px;
+  padding: 24px 0 calc(var(--space-6) + 36 * var(--fan-drop) + 12px);
   touch-action: none;
 }
 
@@ -38,6 +38,5 @@
   .hand {
     --fan-rotate: 0.8deg;
     --fan-drop: 0.3px;
-    padding-bottom: var(--space-3);
   }
 }

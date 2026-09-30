@@ -59,13 +59,6 @@
   background: var(--danger);
 }
 
-.target {
-  font-size: var(--text-sm);
-  color: var(--text-muted);
-  text-align: right;
-  font-weight: 600;
-}
-
 /* Compact single-row layout for narrow screens. */
 @media (max-width: 700px) {
   .board {
@@ -81,9 +74,5 @@
     grid-column: 1 / -1;
     margin-left: 0;
     grid-template-columns: repeat(10, 1fr);
-  }
-
-  .target {
-    display: none;
   }
 }
