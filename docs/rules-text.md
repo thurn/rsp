@@ -87,6 +87,7 @@ rules.
 | When played | "When you play this card, …" |
 | When led | "When you lead with this card, …" |
 | When this card wins | "When this card wins a trick, …" |
+| When this card loses | "When this card loses a trick, …" |
 | When you win any trick | "Whenever you win a trick, …" |
 | When you lose any trick | "Whenever you lose a trick, …" |
 | When your partner wins a trick | "Whenever your partner wins a trick, …" |
@@ -117,11 +118,15 @@ These are the game's own terms, beyond standard Spades vocabulary.
 | **contract multiplier** | Written `+1×`, always a whole number. Multiplies your team's contract, win or lose. |
 | **nil value** | Points added to your nil bid, paid only if the nil succeeds. Contract multipliers never apply to it. |
 | **convert** | Change a card's suit. |
+| **pass** | Give cards from your hand to another player when an effect allows it. A swap or trade counts as passing for both players. |
+| **reveal** | Show a card in your hand to every player. It stays in your hand and stays revealed for the round; playing a card does not reveal it. |
 | **discard** | Play a card that neither follows the suit led nor is trump. Trumping is not discarding. |
 | **longest suit, shortest suit** | Counted in your hand when the effect happens. Used rarely; most sigils name a suit. |
 | **team** | You and your partner. |
 | **gold** | Your personal currency for the shop. |
 | **sigil** | An effect you own for the run, engraved on a card in each new hand. |
+| **resonance** | A sigil's color: Red, Orange, Green, Blue, Teal, Purple, or Gray. "Gray sigils" means sigils of that resonance. |
+| **new card** | A card created by an effect rather than taken from any hand. It is removed after the round. |
 | **affinity** | The rank or suit a sigil prefers to be engraved on. |
 
 Any other invented term is added here before it appears in rules text.
@@ -138,11 +143,14 @@ Any other invented term is added here before it appears in rules text.
   cards."
 - **Passing and trading:** in any pass, swap, or trade, each player picks
   the card they give, and nobody sees the other hand. A swap or trade
-  counts as passing cards for both players.
+  counts as passing cards for both players. Taking a card from a completed
+  trick is not passing, and moving cards never changes a completed trick's
+  result.
+- **Your bid** means a positive bid; a nil bidder has no bid to make.
 - **Losing a trick:** you lose every trick someone else wins, including your
   partner.
 - **Rank words** such as "face card," "ace," or "two" mean a card's current
-  rank.
+  rank, checked before the effect's own change applies.
 - **Ties,** such as two equally long suits, are broken by your choice.
 - **Duration:** rank and suit changes last for the rest of the round. Shorter
   effects say "for this trick."
