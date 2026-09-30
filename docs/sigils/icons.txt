@@ -554,7 +554,6 @@ cloud-snow
 cloud-sun
 cloud
 clover
-club
 cocktail
 code-alt
 code
@@ -646,9 +645,6 @@ desktop
 devices
 dialpad
 diameter
-diamond-alt
-diamond
-diamonds
 dice-1
 dice-2
 dice-3
@@ -939,12 +935,6 @@ headphone-alt-2
 headphone-alt
 headphone-mic
 headphone
-heart-break
-heart-circle
-heart-half
-heart-plus
-heart-square
-heart
 heat-wave
 helmet
 help-circle
@@ -1603,7 +1593,6 @@ sock
 solar-panel
 spa
 spacebar
-spade
 spanner
 sparkle-circle
 sparkle-square

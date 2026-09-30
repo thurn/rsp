@@ -312,7 +312,7 @@ All design work lives in `docs/sigils/`:
 | --- | --- | --- |
 | `slots.md` | Orchestrator | Every slot: code, resonance, rarity, slot type, archetypes served, mechanic family, assigned variation, timing window, and one-line brief |
 | `scoring.md` | Orchestrator | The benchmark curve, gold exchange rate, value bands by rarity, each archetype's engine sketch, and each archetype's running score projection |
-| `icons.txt` | Orchestrator | Every available icon: the free filled set of Boxicons, one name per line |
+| `icons.txt` | Orchestrator | Every available icon: the free filled set of Boxicons minus card-suit icons, one name per line |
 | `registry.md` | Orchestrator | Every accepted sigil with its name, icon, icon family, and effect signature, in one table |
 | `red.md`, `orange.md`, `green.md`, `blue.md`, `teal.md`, `purple.md`, `gray.md`, `dual.md` | Orchestrator | Full accepted sigil entries, one file per resonance |
 
@@ -363,10 +363,11 @@ The orchestrator writes `slots.md` and `scoring.md` before any design begins.
   uncommon, and 16–25 for a rare, all tunable.
 - Each payoff slot's brief names its scoring channel, so every archetype's
   channel mix is set before design begins.
-- `icons.txt` lists the free filled Boxicons set, generated from the
+- `icons.txt` lists the available icons: the free filled Boxicons set from the
   `svg/filled` directory of the `@boxicons/core` package (1,884 icons at
-  version 1.0.6). The orchestrator regenerates it only when upgrading that
-  package.
+  version 1.0.6), minus the card-suit families `spade`, `heart`, `diamond`,
+  `diamonds`, and `club`, which read as playing-card suits. That leaves 1,873
+  icons. The orchestrator regenerates it only when upgrading that package.
 - Each slot receives a **mechanic family** and an **assigned variation** from
   [mechanics.md](mechanics.md). Two slots receive the same family and variation
   only when they differ in rarity and in intended archetype.
@@ -503,9 +504,6 @@ every name is unique. The registry enforces this pool-wide:
 - **Names.** Each name is unique, and each name's icon word, the word that
   points to its icon, appears in only one name. After "Waning Moon," no other
   name uses "Moon."
-- **Suit icons.** `spade`, `heart`, `diamond`, `diamonds`, and `club` are
-  reserved for sigils about that suit, so an icon never suggests a suit the
-  sigil ignores.
 - **Claiming.** Icons are claimed only at acceptance, which the orchestrator
   performs one design at a time. It assigns the designer's first name-and-icon
   pair whose name and icon family are still free, and otherwise the first free

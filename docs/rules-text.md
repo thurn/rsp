@@ -33,8 +33,10 @@ An affinity, when present, opens the rules text in bold.
 ## Names and icons
 
 Every sigil has an icon from the free filled set of
-[Boxicons](https://boxicons.com/icons?free=true&p=filled), listed in
-[sigils/icons.txt](sigils/icons.txt), and a name drawn from that icon.
+[Boxicons](https://boxicons.com/icons?free=true&p=filled), and a name drawn
+from that icon. [sigils/icons.txt](sigils/icons.txt) lists the available icons:
+the whole set except card-suit icons, which players would read as the suits in
+their hand.
 
 - **Two or three words,** in title case.
 - **The name points to the icon.** One word of the name, its **icon word**,
