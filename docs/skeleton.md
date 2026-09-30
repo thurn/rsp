@@ -284,28 +284,32 @@ The orchestrator writes `slots.md` and `glossary.md` before any design begins.
 
 ### Waves
 
-Design proceeds in rarity order, because commons define the pool and later
-rarities build on them.
+Design begins with the signposts, which define each archetype, then proceeds
+in rarity order, because commons define the pool and later rarities build on
+them.
 
 | Wave | Slots | Designers |
 | --- | --- | --- |
-| 1 | 110 commons | 7 in parallel: one per colored resonance and one for Gray |
-| 2 | 97 uncommons, excluding signposts | 7 in parallel |
-| 3 | 43 rares, excluding flex rares | 7 in parallel |
-| 4 | 15 signposts and 5 flex rares | 1 designer with the full registry |
-| 5 | Whole pool | Audit only |
+| 1 | 15 signposts | 1 designer, for consistency across archetypes |
+| 2 | 110 commons | 7 in parallel: one per colored resonance and one for Gray |
+| 3 | 82 uncommons | 7 in parallel |
+| 4 | 38 rares | 7 in parallel |
+| 5 | 5 flex rares | 1 designer with the full registry |
+| 6 | Whole pool | Audit only |
 
 Each designer owns only its resonance's slots in a wave. Designers in later
-waves receive the full registry of earlier waves.
+waves receive the full registry of earlier waves, including every signpost.
 
-**Gate:** the user reviews the accepted commons after wave 1, before wave 2
-begins.
+**Gates:** the user reviews the signposts after wave 1 and the accepted commons
+after wave 2, before the next wave begins.
 
 ### Designer instructions
 
 Each designer receives the core rules, the resonance, archetype, mechanics, and
-skeleton documents, the glossary, the current registry, and its slot list. For
-each slot, the designer:
+skeleton documents, the glossary, the current registry, and its slot list. From
+wave 2 onward, each slot's brief names the signposts it supports, and designers
+treat those signposts as the plan their sigils feed. For each slot, the
+designer:
 
 1. Writes **three candidates** that fill the slot's brief using its assigned
    variation.
@@ -392,15 +396,32 @@ revised.
 - The orchestrator accepts a design by adding its entry to its resonance file
   and its signature to the registry.
 
-### Wave 4: signposts and flex rares
+### Wave 1: signposts
 
-A single designer with the full registry designs all 20 dual-resonance sigils.
-Each signpost states its archetype's plan in 10 words or fewer, using mechanics
-already present in the archetype's commons, so the signpost teaches players
-what to draft. Flex rares go to the archetypes that a support count of waves
-1–3 shows as thinnest.
+The signposts come first because they are the clearest statement of each
+archetype's plan, and every later slot is designed to feed them. A single
+designer writes all 15 so they read as a consistent set and stay distinct from
+one another.
 
-### Wave 5: audit
+Each signpost:
+
+- States its archetype's plan in 10 words or fewer.
+- Pays off a pattern that commons can supply, so the pool can feed it.
+- Plays differently from every other signpost, so each archetype has a
+  recognizable shape at the table.
+- Passes the same rubric and critic passes as every other sigil.
+
+After the signposts are accepted, the orchestrator revises `slots.md`: each
+archetype-lean and bridge brief names the signposts it supports, and each
+archetype receives at least two common slots that directly feed its signpost.
+
+### Wave 5: flex rares
+
+A single designer with the full registry designs the five flex rares. They go
+to the archetypes that a support count of waves 1–4 shows as thinnest, or whose
+plans most need a unique build-around.
+
+### Wave 6: audit
 
 An auditor subagent checks the complete pool against this document:
 
