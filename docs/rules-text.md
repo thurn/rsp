@@ -82,20 +82,40 @@ works, and it is added here before use.
 - **Numbers** are written as digits: "pass 2 cards," "+3 rank."
 - **Punctuation:** full sentences, sentence case, ending with a period.
 
+## Calibration
+
+Magnitudes in rules text are set against these reference facts from ordinary
+Spades play:
+
+- A bid trick is worth 10 points, so +10 contract value is worth one more bid
+  trick. Contract value comes in multiples of 10, which keeps scores round.
+- A seat takes about 3 of the 13 tricks and loses about 10.
+- A partnership makes its contract about 80% of the time.
+- A random card wins its trick about 25% of the time; an ace wins far more
+  often.
+- A card is played once, so a trigger on "this card" fires at most once per
+  round. A "whenever you" trigger can fire many times and needs a smaller
+  amount or a narrower condition.
+- Payoffs target the value bands in [skeleton.md](skeleton.md): about 6–10
+  expected points per round at round 7 for a common, 10–16 for an uncommon, and
+  16–25 for a rare.
+- Gold compares against base income of about 65 gold per round from tricks,
+  plus up to 50 interest.
+
 ## Examples
 
 | # | Name | Resonance · Rarity | Rules text |
 | --- | --- | --- | --- |
 | 1 | Honed Edge | Red · Common | This card gains +3 rank. |
-| 2 | Verdant Banner | Green · Common | While this card is in your hand, cards of your longest suit gain +1 rank. |
+| 2 | Verdant Banner | Green · Common | While this card is in your hand, cards of your longest suit gain +2 rank. |
 | 3 | Nest Egg | Orange · Common | While this card is in your hand, gain 5 gold after each trick. |
-| 4 | Crown Jewel | Red · Common | When this card wins a trick, add +5 contract value. |
-| 5 | Graceful Exit | Purple · Common | Whenever you lose a trick, add +3 contract value. |
+| 4 | Crown Jewel | Red · Common | *Affinity: Ace.* When this card wins a trick, add +20 contract value. |
+| 5 | Graceful Exit | Purple · Common | Whenever you lose a trick with a face card, add +10 contract value. |
 | 6 | Tide | Green · Common | Before bidding, convert 2 cards in your hand to your longest suit. |
-| 7 | Handoff | Teal · Common | After bidding, you and your partner each pass 2 cards to the other. |
-| 8 | Precision | Blue · Uncommon | If your team takes exactly its bid, add +1× contract multiplier. |
-| 9 | Silent Vow | Purple · Common | If your nil bid succeeds, it scores 50 extra points. |
-| 10 | Undertow | Purple · Uncommon | After bidding, each opponent's highest card loses 3 rank. |
+| 7 | Handoff | Teal · Common | After bidding, you and your partner each pass 1 card to the other. |
+| 8 | Precision | Blue · Rare | If your team takes exactly its bid, add +1× contract multiplier. |
+| 9 | Silent Vow | Purple · Common | If your nil bid succeeds, it scores 30 extra points. |
+| 10 | Undertow | Purple · Uncommon | After bidding, each opponent's highest card loses 4 rank. |
 | 11 | Encore | Teal · Uncommon | Once per round, between tricks, you may swap a card in your hand with the last card you played. |
 | 12 | Haggler | Gray · Common | Shop rerolls cost 20 less gold. |
 
@@ -105,12 +125,20 @@ works, and it is added here before use.
 
 The engraved card is 3 ranks stronger for the whole round, up to ace.
 
+**Balance:** an enabler, judged on play rather than points. It turns a middling
+card into a likely winner about once every few rounds, and it is wasted on a
+king or ace, which keeps it a modest common.
+
 ### 2. Verdant Banner: an effect while held
 
-`While this card is in your hand, cards of your longest suit gain +1 rank.`
+`While this card is in your hand, cards of your longest suit gain +2 rank.`
 
 The bonus lasts until this card is played. The longest suit is recounted as your
 hand changes, and this card gains the bonus too if it belongs to that suit.
+
+**Balance:** an enabler. A +1 aura rarely changes a trick; +2 is noticeable
+across a five-card suit, and the bonus ends the moment this card is played,
+which creates a real decision about when to release it.
 
 ### 3. Nest Egg: a reward for holding
 
@@ -119,20 +147,33 @@ hand changes, and this card gains the bonus too if it belongs to that suit.
 Every card is played by the end of the round, so this sigil rewards holding its
 card as long as possible.
 
+**Balance:** held for 6 to 9 tricks, it earns 30–45 gold per round, repaying
+its price in about two rounds. That matches the pace of a Balatro economy joker
+at this game's scale.
+
 ### 4. Crown Jewel: when this card wins
 
-`When this card wins a trick, add +5 contract value.`
+`Affinity: Ace.`
+`When this card wins a trick, add +20 contract value.`
 
 The bonus is paid only if your team makes its contract, and it is multiplied by
 any contract multipliers.
 
-### 5. Graceful Exit: whenever you lose
+**Balance:** about 10 expected points per round. The affinity places it on an
+ace in the roughly 70% of hands that hold one, where it wins most of the time.
+Without the affinity, it would sit on a random card and earn about 4 points.
 
-`Whenever you lose a trick, add +3 contract value.`
+### 5. Graceful Exit: losing with a face card
 
-This watches every trick you play, whichever card you play. A nil bidder's
-sigils still add to the partner's contract, so this sigil suits a nil bidder's
-team.
+`Whenever you lose a trick with a face card, add +10 contract value.`
+
+A face card is a jack, queen, or king. This watches every trick you play.
+
+**Balance:** about 10 expected points per round. A seat holds about 3 face
+cards and loses with one or two of them. An unconditional "whenever you lose a
+trick" bonus would fire about 10 times per round, far above a common's value.
+Losing with high cards is exactly what nil and discard decks do, and a nil
+bidder's sigils still add to the partner's contract.
 
 ### 6. Tide: before bidding
 
@@ -140,12 +181,20 @@ team.
 
 You choose the 2 cards, and everyone bids after the change.
 
+**Balance:** an enabler. Two conversions lengthen a suit and can open a void,
+and everyone bids knowing the result, so it shapes a hand without guaranteeing
+tricks.
+
 ### 7. Handoff: passing cards
 
-`After bidding, you and your partner each pass 2 cards to the other.`
+`After bidding, you and your partner each pass 1 card to the other.`
 
-Each of you chooses which 2 of your own cards to give. Sigils travel with the
-cards they are engraved on.
+Each of you chooses which card to give. Sigils travel with the cards they are
+engraved on.
+
+**Balance:** an enabler. A post-bid exchange is especially strong for nil,
+because the partner knows which card to take. One card each suits a common; a
+two-card exchange belongs at uncommon.
 
 ### 8. Precision: a conditional multiplier
 
@@ -154,19 +203,33 @@ cards they are engraved on.
 An extra trick breaks the condition. A failed contract leaves this multiplier
 inactive, so it never increases a loss.
 
+**Balance:** a partnership playing for its exact bid lands it about 40% of the
+time, and doubling a mid-run contract of about 70 is worth about 28 expected
+points, less the extra failures from playing tight. That is rare-level value,
+so an uncommon version would need a smaller multiplier or a narrower
+condition.
+
 ### 9. Silent Vow: nil
 
-`If your nil bid succeeds, it scores 50 extra points.`
+`If your nil bid succeeds, it scores 30 extra points.`
 
-A successful nil scores 150 instead of 100. Contract multipliers never apply to
+A successful nil scores 130 instead of 100. Contract multipliers never apply to
 nil.
+
+**Balance:** about 11 expected points per round for a nil deck that bids nil in
+half its rounds and succeeds three times in four. Nil-value sigils carry larger
+numbers than contract sigils because multipliers never raise them.
 
 ### 10. Undertow: affecting opponents
 
-`After bidding, each opponent's highest card loses 3 rank.`
+`After bidding, each opponent's highest card loses 4 rank.`
 
 The change is shown to the table, so everyone sees which cards weakened. If an
 opponent has two equally high cards, you choose which one is affected.
+
+**Balance:** an ace becomes a 10 and a king becomes a 9, which costs the
+opponents about half a trick per round after they have bid. At −3, an ace
+becomes a jack and still wins most tricks.
 
 ### 11. Encore: a once-per-round choice
 
@@ -175,8 +238,16 @@ opponent has two equally high cards, you choose which one is affected.
 The played card returns to your hand and its sigil becomes active again, and the
 card you give up takes its place among the played cards.
 
+**Balance:** retrieving a winning ace late in the round is worth about half a
+trick, and retrieving a card with a "when you play this card" sigil replays
+it. Both suit an uncommon.
+
 ### 12. Haggler: an effect for you
 
 `Shop rerolls cost 20 less gold.`
 
 The sigil applies whenever it is relevant, here at every shop.
+
+**Balance:** the first reroll in each shop costs 30 instead of 50, and later
+rerolls in the same shop save 20 each. It rewards players who reroll often,
+without adding purchases.
