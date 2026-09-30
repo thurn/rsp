@@ -129,11 +129,96 @@ those resonances or Gray.
 If archetypes prove too hard to assemble, the first lever is shop weighting:
 offers lean slightly toward resonances the player already owns.
 
+## Scoring parity
+
+Every archetype needs a roughly equal path to 1,000 points. The core scoring
+model in [game-overview.md](game-overview.md) borrows Balatro's split between
+additive bonuses and multipliers:
+
+| Result | Contract score |
+| --- | --- |
+| Made | (10 × bid + additive bonuses) × (1 + summed multipliers) |
+| Failed | −10 × bid × (1 + summed multipliers) |
+
+Nil scores separately at a flat value that only nil-value sigils change, and
+some sigils award points outside the contract. Archetypes draw on these
+channels in very different proportions, so parity is designed deliberately
+rather than left to chance. This is the most important balance constraint in
+the skeleton.
+
+### Benchmark curve
+
+The benchmark is the **reference partnership**: one partner runs the archetype
+with a **typical collection**, and the other runs a neutral collection of Gray
+sigils bought at the same pace. A typical collection is what realistic shop odds
+produce, not the best case: about eight on-plan sigils (mostly common), three
+Gray sigils, and two off-plan sigils by round 13.
+
+Expected round scores include failed contracts, failed nils, and bag penalties
+at 10 points per bag.
+
+| Round | Expected round score | Cumulative score |
+| --- | --- | --- |
+| 1 | 40 | 40 |
+| 4 | 60 | 200 |
+| 7 | 90 | 440 |
+| 10 | 130 | 785 |
+| 12 | 170 | 1,105 |
+| 13 | 195 | 1,300 |
+
+**Parity target:** every archetype's reference partnership reaches 1,000 in
+round 11 or 12, and the fastest and slowest archetypes are at most one round
+apart. Archetypes may take different shapes to get there: a slow start with a
+steep finish, or a fast start with a flatter finish.
+
+### Scoring channels
+
+| Channel | How it scales | Main archetypes |
+| --- | --- | --- |
+| **Contract additive** | Per-event bonuses, earned only on a made contract | Bonus Chaser, Diamond Flood, Heart Chorus, Spade Master, Discard Dominance, Swap Meet |
+| **Contract multiplier** | Multiplies base plus additive; amplifies failures | Exact Contractor, While Held, High Card |
+| **Partner contract** | Raises the partner's wins, which count toward the shared contract | Kingmaker, Nil Guard |
+| **Nil** | Flat nil value raised only by nil-value sigils; unaffected by multipliers | Nil Champion, Blind Bidder, Nil Guard |
+| **Denial** | Opponent point loss and rewards for opponents' failures | Contract Attacker |
+| **Economy** | Gold that becomes sigils early and points late | Gold Miner, Diamond Flood |
+
+### Parity rules
+
+- **Expected value, not ceiling.** Compare archetypes by expected score,
+  including their failure rates. A multiplier archetype with a high ceiling and
+  frequent failures can land below a steady additive archetype.
+- **Both halves of the formula.** Every contract archetype has at least four
+  additive payoffs and at least two multiplier sources among its resonances,
+  its signpost, and Gray. Additive-only archetypes flatten late, and
+  multiplier-only archetypes have little to multiply.
+- **Nil parity.** Nil value ignores multipliers, so nil-value sigils carry
+  larger magnitudes than contract sigils of the same rarity. A nil
+  archetype's nil plus its partner's contract matches the benchmark after
+  accounting for the −100 or −200 failure risk.
+- **Denial parity.** Contract Attacker is measured by score margin: its own
+  points plus the opponents' losses. Its own points alone still reach 1,000 by
+  round 13 in a typical run, because denial cannot win a race to 1,000 by
+  itself.
+- **Economy parity.** Gold is converted to points at an exchange rate that
+  declines over the run, because early gold buys sigils that score for many
+  rounds. Gold Miner's curve starts slow and finishes steep, reaching 1,000 in
+  the same window.
+- **Situational channels.** Blind Bidder scores only while its partnership
+  trails by the blind nil threshold, so its expected value includes the rate at
+  which it qualifies. Threshold-lowering sigils are its main tuning lever.
+- **Partner multipliers.** Multipliers sum across both partners, so each
+  archetype's curve assumes its partner contributes only Gray-level
+  multipliers. Two multiplier archetypes in one partnership exceed the curve,
+  and the uncommon rarity of multipliers keeps that pairing occasional.
+
+Hand estimates guide the design waves. Once sigils are implemented in the
+prototype, AI self-play simulations replace the estimates.
+
 ## Budgets across categories
 
 | Budget | Target |
 | --- | --- |
-| Multipliers | About 20 sigils (8%), uncommon and rare only, concentrated in Blue |
+| Multipliers | About 20 sigils (8%), uncommon and rare only, concentrated in Blue, with at least two sources available to every contract archetype |
 | Global rule setters | About 12 sigils, mostly rare |
 | Economy (Orange and Gray) | About 22 sigils, mostly common and inexpensive |
 | Commons priced at 50 gold or less | At least 40 |
@@ -237,6 +322,7 @@ All design work lives in `docs/sigils/`:
 | --- | --- | --- |
 | `slots.md` | Orchestrator | Every slot: code, resonance, rarity, slot type, archetypes served, mechanic family, assigned variation, timing window, and one-line brief |
 | `glossary.md` | Orchestrator | The keyword glossary |
+| `scoring.md` | Orchestrator | The benchmark curve, gold exchange rate, value bands by rarity, each archetype's engine sketch, and each archetype's running score projection |
 | `registry.md` | Orchestrator | Every accepted sigil with its effect signature, in one table |
 | `red.md`, `orange.md`, `green.md`, `blue.md`, `teal.md`, `purple.md`, `gray.md`, `dual.md` | Orchestrator | Full accepted sigil entries, one file per resonance |
 
@@ -258,6 +344,8 @@ Words:       8
 Timing:      After bidding
 Archetypes:  Nil Champion, Blind Bidder; splash Exact Contractor
 Family:      Lowering your ranks / Post-bid
+Channel:     Nil
+Value:       ~+8 expected points per round at round 7, via fewer failed nils
 Signature:   post-bid | self | hand cards | rank −3 | ×2
 Decision:    Which two cards to lower, knowing your bid.
 Opponent:    Visible only through plays; no loss of agency.
@@ -268,9 +356,18 @@ Rationale:   Rescues a risky nil without a pass.
 The **effect signature** is a normalized description: trigger | controller |
 target | effect | magnitude. Signatures make duplicates easy to detect.
 
-### Phase 0: skeleton and glossary
+### Phase 0: skeleton, glossary, and scoring model
 
-The orchestrator writes `slots.md` and `glossary.md` before any design begins.
+The orchestrator writes `slots.md`, `glossary.md`, and `scoring.md` before any
+design begins.
+
+- `scoring.md` records the benchmark curve and parity rules from this
+  document, a gold-to-points exchange rate by round, and **value bands**: the
+  expected points per round each rarity contributes at round 7. Starting bands
+  are about 6–10 points for a common, 10–16 for an uncommon, and 16–25 for a
+  rare, all tunable.
+- Each slot's brief names its scoring channel, so the pool's channel mix is set
+  before design begins.
 
 - Each slot receives a **mechanic family** and an **assigned variation** from
   [mechanics.md](mechanics.md). Two slots receive the same family and variation
@@ -280,7 +377,8 @@ The orchestrator writes `slots.md` and `glossary.md` before any design begins.
 - The orchestrator checks slot assignments against the support floors and
   budgets in this document.
 
-**Gate:** the user reviews `slots.md` and `glossary.md` before design begins.
+**Gate:** the user reviews `slots.md`, `glossary.md`, and `scoring.md` before
+design begins.
 
 ### Waves
 
@@ -362,8 +460,9 @@ Every candidate answers these questions in writing.
 
 **Balance**
 
-- What is its expected value in contract points or gold per round, compared
-  with other sigils of its rarity?
+- Which scoring channel does it feed?
+- What is its expected value per round at round 7, including the failures it
+  risks, and does that fall within its rarity's value band?
 - How does it scale with multipliers and with a full collection?
 
 ### Critic passes
@@ -378,9 +477,11 @@ work in parallel and receive the batch of new designs plus the registry.
    and one from an opponent's seat, then reports whether the sigil created a
    decision for its owner and whether the opponent's experience was legible
    and fair.
-3. **Systems critic.** Checks rules fit, balance against rarity, duplicates and
-   near-duplicates against the registry and the rest of the batch, and
-   interactions with multipliers, rule setters, and exchanges.
+3. **Systems critic.** Checks rules fit, duplicates and near-duplicates
+   against the registry and the rest of the batch, and interactions with
+   multipliers, rule setters, and exchanges. It independently estimates each
+   design's scoring channel and expected value against the value bands, and
+   reports any disagreement with the designer's estimate.
 
 A **near-duplicate** is a design that matches an existing signature in trigger,
 target, and effect, differing only in magnitude, named suit, or rank. The
@@ -395,6 +496,10 @@ revised.
   records the slot and its best candidate in an escalation list for the user.
 - The orchestrator accepts a design by adding its entry to its resonance file
   and its signature to the registry.
+- After each wave, the orchestrator updates every archetype's score projection
+  in `scoring.md`. An archetype projected outside the parity window receives
+  priority in the next wave's slot briefs: more value for a lagging archetype,
+  or tighter conditions for a leading one.
 
 ### Wave 1: signposts
 
@@ -410,6 +515,12 @@ Each signpost:
 - Plays differently from every other signpost, so each archetype has a
   recognizable shape at the table.
 - Passes the same rubric and critic passes as every other sigil.
+
+The signpost designer also writes an **engine sketch** for each archetype in
+`scoring.md`: its channel mix, a typical 13-sigil collection built from the
+planned slots, and a projected score for rounds 1, 4, 7, 10, and 13 against the
+benchmark curve. The engine sketches are reviewed at the signpost gate, and
+they are the first test of parity.
 
 After the signposts are accepted, the orchestrator revises `slots.md`: each
 archetype-lean and bridge brief names the signposts it supports, and each
@@ -432,6 +543,9 @@ An auditor subagent checks the complete pool against this document:
 - Word counts: all commons and uncommons at 10 words or fewer, and at least 90%
   of the pool.
 - Coverage of each mechanic family in [mechanics.md](mechanics.md).
+- Scoring parity: every archetype's projected reference partnership reaches
+  1,000 in round 11 or 12, within one round of every other archetype, with the
+  channel mix its engine sketch planned.
 - A final duplicate sweep across the registry.
 
 The orchestrator fixes audit findings using the slack slots, then presents the
