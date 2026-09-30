@@ -301,20 +301,9 @@ constraint, and it outranks power, novelty, and flavor.
 - Between two candidates of similar quality, the shorter one wins.
 - Words are counted on the printed rules text, after glossary keywords.
 
-A shared **keyword glossary** keeps text short without hiding meaning. Keywords
-name timing windows and common structures, for example:
-
-| Keyword | Meaning |
-| --- | --- |
-| **Held:** | While this card is in your hand |
-| **Played:** | When you play this card |
-| **Wins:** | When this card wins a trick |
-| **Lose:** | When you lose a trick |
-| **Pre-bid:** | Before bidding |
-| **Post-bid:** | After all bids |
-| **Pass:** | When you complete an exchange |
-| **Longest suit** | Your suit with the most cards; ties chosen by you |
-| **+N value** | +N contract value |
+A shared **keyword glossary** keeps text short without hiding meaning. It
+starts from the keywords, terms, and conventions in
+[rules-text.md](rules-text.md), which fixes the rules text format.
 
 The glossary stays small, around 15 entries. A new keyword is justified only
 when at least five sigils use it.
