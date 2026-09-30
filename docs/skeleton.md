@@ -192,3 +192,226 @@ Champion, and Nil Guard.
    against the cross-category budgets.
 4. **Hold slack.** Reserve about 5% of slots, roughly 12 sigils, for fixes
    after playtesting.
+
+## Appendix: subagent orchestration plan
+
+This plan fills the skeleton using one **orchestrator** agent coordinating
+**designer** and **critic** subagents in waves. It has three goals: every slot
+gets a distinct design, every design is examined from both sides of the table,
+and the simplest workable design wins.
+
+### Simplicity standard
+
+Every sigil's rules text is **10 words or fewer**. This is the primary design
+constraint, and it outranks power, novelty, and flavor.
+
+- All commons and uncommons meet the 10-word limit.
+- A rare may use up to 15 words when the orchestrator approves a written
+  justification. At least 90% of the full pool meets the 10-word limit.
+- Between two candidates of similar quality, the shorter one wins.
+- Words are counted on the printed rules text, after glossary keywords.
+
+A shared **keyword glossary** keeps text short without hiding meaning. Keywords
+name timing windows and common structures, for example:
+
+| Keyword | Meaning |
+| --- | --- |
+| **Held:** | While this card is in your hand |
+| **Played:** | When you play this card |
+| **Wins:** | When this card wins a trick |
+| **Lose:** | When you lose a trick |
+| **Pre-bid:** | Before bidding |
+| **Post-bid:** | After all bids |
+| **Pass:** | When you complete an exchange |
+| **Longest suit** | Your suit with the most cards; ties chosen by you |
+| **+N value** | +N contract value |
+
+The glossary stays small, around 15 entries. A new keyword is justified only
+when at least five sigils use it.
+
+### Artifacts
+
+All design work lives in `docs/sigils/`:
+
+| File | Owner | Contents |
+| --- | --- | --- |
+| `slots.md` | Orchestrator | Every slot: code, resonance, rarity, slot type, archetypes served, mechanic family, assigned variation, timing window, and one-line brief |
+| `glossary.md` | Orchestrator | The keyword glossary |
+| `registry.md` | Orchestrator | Every accepted sigil with its effect signature, in one table |
+| `red.md`, `orange.md`, `green.md`, `blue.md`, `teal.md`, `purple.md`, `gray.md`, `dual.md` | Orchestrator | Full accepted sigil entries, one file per resonance |
+
+Only the orchestrator writes these files. Designers and critics return their
+work as text, so accepted designs enter the registry one at a time and in a
+known order.
+
+### Sigil entry format
+
+Every designer returns each sigil in this format:
+
+```
+Code:        PU-C03
+Name:        Undertow           (three words or fewer)
+Resonance:   Purple
+Rarity:      Common (45 gold)
+Text:        Post-bid: lower two cards in hand by 3.
+Words:       8
+Timing:      After bidding
+Archetypes:  Nil Champion, Blind Bidder; splash Exact Contractor
+Family:      Lowering your ranks / Post-bid
+Signature:   post-bid | self | hand cards | rank −3 | ×2
+Decision:    Which two cards to lower, knowing your bid.
+Opponent:    Visible only through plays; no loss of agency.
+AI note:     Lower the two highest cards of the shortest suit.
+Rationale:   Rescues a risky nil without a pass.
+```
+
+The **effect signature** is a normalized description: trigger | controller |
+target | effect | magnitude. Signatures make duplicates easy to detect.
+
+### Phase 0: skeleton and glossary
+
+The orchestrator writes `slots.md` and `glossary.md` before any design begins.
+
+- Each slot receives a **mechanic family** and an **assigned variation** from
+  [mechanics.md](mechanics.md). Two slots receive the same family and variation
+  only when they differ in rarity and in intended archetype.
+- Each slot's brief states the job, such as "Nil Guard common payoff: reward
+  the partner's successful nil," without prescribing the design.
+- The orchestrator checks slot assignments against the support floors and
+  budgets in this document.
+
+**Gate:** the user reviews `slots.md` and `glossary.md` before design begins.
+
+### Waves
+
+Design proceeds in rarity order, because commons define the pool and later
+rarities build on them.
+
+| Wave | Slots | Designers |
+| --- | --- | --- |
+| 1 | 110 commons | 7 in parallel: one per colored resonance and one for Gray |
+| 2 | 97 uncommons, excluding signposts | 7 in parallel |
+| 3 | 43 rares, excluding flex rares | 7 in parallel |
+| 4 | 15 signposts and 5 flex rares | 1 designer with the full registry |
+| 5 | Whole pool | Audit only |
+
+Each designer owns only its resonance's slots in a wave. Designers in later
+waves receive the full registry of earlier waves.
+
+**Gate:** the user reviews the accepted commons after wave 1, before wave 2
+begins.
+
+### Designer instructions
+
+Each designer receives the core rules, the resonance, archetype, mechanics, and
+skeleton documents, the glossary, the current registry, and its slot list. For
+each slot, the designer:
+
+1. Writes **three candidates** that fill the slot's brief using its assigned
+   variation.
+2. Checks each candidate against the registry and discards any that match an
+   existing signature.
+3. Scores each candidate against the rubric below.
+4. Selects one, favoring the shortest candidate among close scores.
+5. Returns the entry format above, plus one sentence on each discarded
+   candidate and why it lost.
+
+### Design rubric
+
+Every candidate answers these questions in writing.
+
+**Clarity**
+
+- Is the text 10 words or fewer?
+- Does it use only glossary keywords and core-rules terms?
+- Could a new player predict exactly what happens from the text alone?
+
+**Fun to play**
+
+- Which decision does it change: bidding, passing, playing, or shopping?
+  A sigil that changes no decision is a **stat stick**; stat sticks are
+  limited to 20% of commons and appear rarely above common.
+- Does it create a memorable moment when it works?
+- Does it reward the archetype's plan rather than play on autopilot?
+
+**Fun to play against**
+
+- Can opponents see what happened when it triggers?
+- Can opponents respond to it through bidding or play?
+- Does it leave opponents' decisions meaningful? Effects that take cards,
+  disable sigils, or dictate plays are uncommon or rare, visible when they
+  resolve, and limited in scope.
+
+**Fiddliness**
+
+- How much must a player remember across tricks? A common tracks nothing
+  beyond the current trick or a single counter.
+- How many choices does it add per round? A common adds at most one.
+- Can the AI heuristic evaluate its choices?
+
+**Rules fit**
+
+- Does it state timing, target, controller, and duration where the glossary
+  leaves them open?
+- Does it respect the core rules for exchanges, rank clamping, and scoring
+  order?
+
+**Balance**
+
+- What is its expected value in contract points or gold per round, compared
+  with other sigils of its rarity?
+- How does it scale with multipliers and with a full collection?
+
+### Critic passes
+
+Three critic subagents review every candidate that a designer selects. Critics
+work in parallel and receive the batch of new designs plus the registry.
+
+1. **Comprehension critic.** Receives only the name, text, and glossary. It
+   writes what the sigil does, then the orchestrator compares that with the
+   designer's intent. Any mismatch fails clarity.
+2. **Table critic.** Narrates one round with the sigil from the owner's seat
+   and one from an opponent's seat, then reports whether the sigil created a
+   decision for its owner and whether the opponent's experience was legible
+   and fair.
+3. **Systems critic.** Checks rules fit, balance against rarity, duplicates and
+   near-duplicates against the registry and the rest of the batch, and
+   interactions with multipliers, rule setters, and exchanges.
+
+A **near-duplicate** is a design that matches an existing signature in trigger,
+target, and effect, differing only in magnitude, named suit, or rank. The
+systems critic flags near-duplicates, and the later or weaker design is
+revised.
+
+### Revision loop
+
+- A failed design returns to its designer with the critics' notes, and the
+  designer revises or selects another candidate.
+- Each slot receives at most two revision cycles. After two, the orchestrator
+  records the slot and its best candidate in an escalation list for the user.
+- The orchestrator accepts a design by adding its entry to its resonance file
+  and its signature to the registry.
+
+### Wave 4: signposts and flex rares
+
+A single designer with the full registry designs all 20 dual-resonance sigils.
+Each signpost states its archetype's plan in 10 words or fewer, using mechanics
+already present in the archetype's commons, so the signpost teaches players
+what to draft. Flex rares go to the archetypes the wave 5 audit of earlier
+waves shows as thinnest.
+
+### Wave 5: audit
+
+An auditor subagent checks the complete pool against this document:
+
+- Counts by resonance, rarity, and slot type.
+- Every archetype's support floors.
+- Cross-category budgets, including multipliers, rule setters, economy, and
+  opening-shop prices.
+- Word counts: all commons and uncommons at 10 words or fewer, and at least 90%
+  of the pool.
+- Coverage of each mechanic family in [mechanics.md](mechanics.md).
+- A final duplicate sweep across the registry.
+
+The orchestrator fixes audit findings using the slack slots, then presents the
+pool and the escalation list to the user.
