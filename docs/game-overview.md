@@ -132,32 +132,46 @@ tricks taken by the partnership's non-nil bidders.
 
 | Result | Ordinary contract score | New ordinary bags |
 | --- | --- | --- |
-| T ≥ B | 10 × B + (T − B) | T − B |
+| T ≥ B | 10 × B | T − B |
 | T < B | −10 × B | 0 |
 
-Add each nil's +100 or −100 (blind nil ±200) separately. Accumulated bags carry
-across rounds; each group of ten costs 100 points, and the remainder carries
-forward. Apply any explicit sigil changes to contract value, bags, or bonus
-points as well.
+Add each nil's +100 or −100 (blind nil ±200) separately. Apply any explicit
+sigil changes to contract value, bags, or bonus points as well.
+
+### Bags
+
+**Bags are tracked separately from points and are worth no points.** Each
+overtrick adds one bag to the partnership's bag count and nothing to its score.
+Accumulated bags carry across rounds; each group of ten costs 100 points, and
+the remainder carries forward. Bags never count toward 500 and never break
+ties.
+
+In standard Spades each bag also scores 1 point. Because every other component
+is a multiple of 10, the last digit of the score doubles as the bag count, so
+paper scoresheets need no separate bag column. Sigil bonuses that are not
+multiples of 10 break that convention, and Rogue Spades tracks bags as their
+own public count anyway. Dropping the point keeps scores in multiples of 10
+unless a sigil says otherwise and makes bags purely a penalty to manage. The
+strategic change is small: ten bags cost exactly 100 rather than a net 90, and
+overtricks cannot help a partnership reach 500.
 
 **Scoring order:** start with the +10 × B or −10 × B contract component; apply
-effects that specifically alter that component; add nil results, ordinary
-overtrick points, and sigil point bonuses; apply bag penalties. Count each
-component once. A contract multiplier does not multiply nil bonuses, bag
-penalties, overtrick points, or unrelated sigil rewards unless it explicitly
-says so. Effects that remove bags act before the round's bag-penalty check if
-their text specifies that timing.
+effects that specifically alter that component; add nil results and sigil point
+bonuses; add new bags and apply bag penalties. Count each component once. A
+contract multiplier does not multiply nil bonuses, bag penalties, or unrelated
+sigil rewards unless it explicitly says so. Effects that remove bags act before
+the round's bag-penalty check if their text specifies that timing.
 
 ### Worked examples
 
 | Situation | Partnership's round score | Gold for each partner |
 | --- | --- | --- |
-| Bid 6, take 8, no bag threshold crossed | 60 + 2 = **62**; gain 2 bags | 80 |
+| Bid 6, take 8, no bag threshold crossed | **60**; gain 2 bags | 80 |
 | Bid 6, take 5 | **−60** | 50 |
 | Successful nil, partner bids and takes 3 | 100 + 30 = **130** | 130 |
 | Failed nil taking 1 trick, partner bids 3 and takes 3 | −100 + 30 = **−70** | 40 |
-| Successful blind nil, partner bids 4 and takes 5 | 200 + 40 + 1 = **241**; gain 1 bag | 250 |
-| Enter with 8 bags, bid 5, take 8 | 50 + 3 − 100 = **−47**; carry 1 bag | 80 |
+| Successful blind nil, partner bids 4 and takes 5 | 200 + 40 = **240**; gain 1 bag | 250 |
+| Enter with 8 bags, bid 5, take 8 | 50 − 100 = **−50**; carry 1 bag | 80 |
 | Bid 4, take 4, earn 15 sigil bonus points | 40 + 15 = **55** | 40 |
 
 Gold figures exclude interest.

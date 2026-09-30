@@ -52,7 +52,7 @@ export interface TeamResult {
 
 /**
  * Scores one hand. Nil bids score separately; tricks taken by a nil bidder never count toward the
- * partner's contract or bags.
+ * partner's contract or bags. Bags are tracked separately and are worth no points.
  */
 export function scoreHand(
   bids: readonly Bid[],
@@ -79,7 +79,7 @@ export function scoreHand(
     if (contract > 0) {
       if (taken >= contract) {
         newBags = taken - contract
-        contractPoints = 10 * contract + newBags
+        contractPoints = 10 * contract
       } else {
         contractPoints = -10 * contract
       }
