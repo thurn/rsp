@@ -1,0 +1,121 @@
+.app {
+  position: relative;
+  height: 100dvh;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 3fr) minmax(0, 1fr);
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  grid-template-areas:
+    '. north .'
+    'west table east'
+    'south south south';
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 50% 46%,
+      var(--felt-600) 0%,
+      var(--felt-700) 38%,
+      transparent 75%
+    ),
+    radial-gradient(ellipse at 50% 120%, var(--felt-800), var(--felt-900) 70%);
+  overflow: hidden;
+}
+
+.score {
+  position: absolute;
+  top: var(--space-4);
+  left: var(--space-4);
+  z-index: 5;
+}
+
+.north,
+.west,
+.east,
+.south {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-3);
+  z-index: 2;
+}
+
+.north {
+  grid-area: north;
+  padding-top: var(--space-4);
+}
+
+.west {
+  grid-area: west;
+  justify-content: center;
+}
+
+.east {
+  grid-area: east;
+  justify-content: center;
+}
+
+.south {
+  grid-area: south;
+  padding: 0 var(--space-4) var(--space-4);
+  gap: 0;
+}
+
+.table {
+  grid-area: table;
+  position: relative;
+  min-height: calc(var(--card-h) * 2.3);
+}
+
+.felt {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: min(96%, calc(var(--card-w) * 5.6));
+  aspect-ratio: 1.55;
+  max-height: 96%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 1px solid var(--hairline);
+  background: radial-gradient(ellipse at center, rgb(255 255 255 / 0.035), transparent 70%);
+  box-shadow: inset 0 0 60px rgb(0 0 0 / 0.25);
+  transition:
+    border-color var(--duration) var(--ease-out),
+    background var(--duration) var(--ease-out);
+}
+
+.table[data-drop] .felt {
+  border-color: var(--gold);
+  border-style: dashed;
+  background: radial-gradient(ellipse at center, rgb(230 194 122 / 0.12), transparent 70%);
+}
+
+.spadeMark {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: calc(var(--card-w) * 0.55);
+  height: calc(var(--card-w) * 0.55);
+  transform: translate(-50%, -50%);
+  color: rgb(244 236 216 / 0.07);
+  transition: color 600ms var(--ease-out);
+}
+
+.spadeMark[data-broken] {
+  color: rgb(230 194 122 / 0.28);
+}
+
+.bidDock {
+  position: absolute;
+  left: 50%;
+  bottom: var(--space-2);
+  translate: -50% 0;
+  z-index: 10;
+}
+
+.scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  display: grid;
+  place-items: center;
+  background: rgb(3 16 14 / 0.5);
+  backdrop-filter: blur(3px);
+}

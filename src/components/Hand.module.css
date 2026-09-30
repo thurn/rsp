@@ -1,0 +1,27 @@
+.hand {
+  container-type: inline-size;
+  --step: min(calc(var(--card-w) * 0.64), calc((100cqw - var(--card-w)) / max(var(--n) - 1, 1)));
+  display: flex;
+  justify-content: center;
+  width: min(100%, 1040px);
+  margin: 0 auto;
+  padding: 24px 0 28px;
+  touch-action: none;
+}
+
+.slot {
+  flex: none;
+  transform-origin: 50% 120%;
+}
+
+.slot + .slot {
+  margin-left: calc(var(--step) - var(--card-w));
+}
+
+.slot[data-playable] {
+  cursor: grab;
+}
+
+.slot[data-playable]:active {
+  cursor: grabbing;
+}

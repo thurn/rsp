@@ -1,0 +1,75 @@
+.button {
+  appearance: none;
+  border: 1px solid transparent;
+  cursor: pointer;
+  font-family: var(--font-ui);
+  font-weight: 700;
+  font-size: var(--text-md);
+  letter-spacing: 0.01em;
+  transition:
+    transform var(--duration) var(--ease-out),
+    background var(--duration) var(--ease-out),
+    border-color var(--duration) var(--ease-out),
+    box-shadow var(--duration) var(--ease-out);
+}
+
+.button:hover:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+.button:disabled {
+  cursor: default;
+  opacity: 0.4;
+}
+
+.primary {
+  min-height: 48px;
+  padding: 0 var(--space-6);
+  border-radius: var(--radius-pill);
+  background: linear-gradient(180deg, var(--gold-strong), var(--gold));
+  color: var(--text-on-accent);
+  box-shadow: 0 6px 18px rgb(230 194 122 / 0.25);
+}
+
+.primary:hover:not(:disabled) {
+  box-shadow: 0 10px 26px rgb(230 194 122 / 0.35);
+}
+
+.ghost {
+  min-height: 48px;
+  padding: 0 var(--space-6);
+  border-radius: var(--radius-pill);
+  background: transparent;
+  border-color: var(--hairline-strong);
+  color: var(--text);
+}
+
+.ghost:hover:not(:disabled) {
+  border-color: var(--gold);
+  background: rgb(230 194 122 / 0.08);
+}
+
+/* Square-ish numeric token, used for bid choices. */
+.token {
+  min-width: 48px;
+  height: 48px;
+  padding: 0 var(--space-3);
+  border-radius: var(--radius-md);
+  background: rgb(244 236 216 / 0.06);
+  border-color: var(--hairline);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+.token:hover:not(:disabled) {
+  background: rgb(230 194 122 / 0.16);
+  border-color: var(--gold);
+  color: var(--gold-strong);
+}

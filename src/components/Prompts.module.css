@@ -1,0 +1,113 @@
+.bid {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-3);
+  padding: var(--space-4) var(--space-5);
+}
+
+.bidGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 48px);
+  gap: var(--space-2);
+}
+
+.nil {
+  font-family: var(--font-ui);
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: var(--gold-strong);
+}
+
+.center {
+  display: grid;
+  justify-items: center;
+  gap: var(--space-4);
+  min-width: 300px;
+  padding: var(--space-6);
+}
+
+.title {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  line-height: 1.1;
+  color: var(--gold-strong);
+}
+
+.stakes {
+  display: flex;
+  gap: var(--space-4);
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+}
+
+.gain {
+  color: var(--success);
+}
+
+.loss {
+  color: var(--danger);
+}
+
+.actions {
+  display: flex;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+.table {
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.table th,
+.table td {
+  padding: var(--space-2) var(--space-4);
+  text-align: right;
+}
+
+.table tbody th {
+  text-align: left;
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.table thead th {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--team-us);
+}
+
+.table thead th[data-team='them'] {
+  color: var(--team-them);
+}
+
+.table td {
+  min-width: 88px;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+}
+
+.table td[data-sign='1'] {
+  color: var(--success);
+}
+
+.table td[data-sign='-1'] {
+  color: var(--danger);
+}
+
+.delta td,
+.delta th {
+  border-top: 1px solid var(--hairline);
+}
+
+.total td {
+  font-size: var(--text-xl);
+}

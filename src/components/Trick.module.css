@@ -1,0 +1,19 @@
+.slot {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: calc(var(--card-w) / -2);
+  margin-top: calc(var(--card-h) / -2);
+  pointer-events: none;
+}
+
+.glow {
+  border-radius: calc(var(--card-w) * 0.07);
+  transition: box-shadow 300ms var(--ease-out);
+}
+
+.glow[data-on] {
+  box-shadow:
+    0 0 0 3px var(--gold),
+    0 0 28px rgb(230 194 122 / 0.55);
+}

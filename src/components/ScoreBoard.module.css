@@ -1,0 +1,67 @@
+.board {
+  display: grid;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--surface);
+  border: 1px solid var(--hairline);
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.25);
+}
+
+.row {
+  --team: var(--team-us);
+  display: grid;
+  grid-template-columns: 10px 48px 56px auto;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.row[data-team='them'] {
+  --team: var(--team-them);
+}
+
+.swatch {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--team);
+}
+
+.label {
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.score {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  line-height: 1;
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.bags {
+  display: grid;
+  grid-template-columns: repeat(10, 5px);
+  gap: 3px;
+  margin-left: var(--space-2);
+}
+
+.bags i {
+  height: 14px;
+  border-radius: 2px;
+  background: rgb(244 236 216 / 0.14);
+}
+
+.bags i[data-on] {
+  background: var(--danger);
+}
+
+.target {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  text-align: right;
+  font-weight: 600;
+}

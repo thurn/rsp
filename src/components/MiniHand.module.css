@@ -1,0 +1,14 @@
+.fan {
+  display: flex;
+  justify-content: center;
+  height: calc(var(--mini-card-w) * 1.55);
+}
+
+.slot {
+  flex: none;
+  transform-origin: 50% 140%;
+}
+
+.slot + .slot {
+  margin-left: calc(var(--mini-card-w) * -0.72);
+}
