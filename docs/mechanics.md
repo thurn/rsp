@@ -1069,6 +1069,7 @@ Resonance synergy rewards commitment to a resonance or to breadth.
 
 **Variations.**
 
-- *Depth:* +N contract value per sigil of this resonance you own.
+- *Depth:* +N contract value per sigil of this resonance you own, with each
+  dual-resonance sigil counting toward both of its resonances.
 - *Partnership:* count sigils of this resonance in both partners' collections.
 - *Breadth:* a Gray reward for owning sigils of many resonances.

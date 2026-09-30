@@ -1,8 +1,12 @@
 # Rogue Spades: resonance
 
-Every sigil has a **resonance**, one of seven: Red, Orange, Green, Blue, Teal,
-Purple, and Gray. A resonance is a mechanical identity: it names the kinds of
-effects a sigil can have and the kinds of play it rewards.
+There are seven **resonances**: Red, Orange, Green, Blue, Teal, Purple, and
+Gray. A resonance is a mechanical identity: it names the kinds of effects a
+sigil can have and the kinds of play it rewards.
+
+Most sigils have exactly one resonance. A small set of **dual-resonance**
+sigils combine the two colored resonances of one archetype; a dual-resonance
+sigil counts as both resonances for every effect that refers to resonance.
 
 The six colored resonances define the archetypes. Each of the 15 core deck
 archetypes is built on one pair of colored resonances, and every pair belongs to
@@ -12,7 +16,8 @@ archetypes.
 
 A deck draws most of its sigils from its two resonances, fills gaps with Gray,
 and splashes sigils of other colored resonances for specific support. See
-[archetypes.md](archetypes.md) for each archetype's game plan.
+[archetypes.md](archetypes.md) for each archetype's game plan and
+[skeleton.md](skeleton.md) for the target size and shape of the sigil pool.
 
 ## Design principle: shared enablers, focused payoffs
 
