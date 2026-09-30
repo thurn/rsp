@@ -24,11 +24,32 @@ reference for clarity.
 ## Sigil layout
 
 ```
-Name              Resonance · Rarity · Price
-Affinity: King. Rules text.
+[icon]  Name              Resonance · Rarity · Price
+        Affinity: King. Rules text.
 ```
 
 An affinity, when present, opens the rules text in bold.
+
+## Names and icons
+
+Every sigil has an icon from the free filled set of
+[Boxicons](https://boxicons.com/icons?free=true&p=filled), listed in
+[sigils/icons.txt](sigils/icons.txt), and a name drawn from that icon.
+
+- **Two or three words,** in title case.
+- **The name points to the icon.** One word of the name, its **icon word**,
+  names the icon's subject or a close synonym: "Radiant Butterfly" uses
+  `butterfly`, "Chain of Thought" uses `link`, and "Storm's Approach" uses
+  `cloud-lightning`.
+- **A little poetic.** An adjective, possessive, or short phrase gives the name
+  mood: "Radiant Butterfly" rather than "Butterfly Sigil."
+- **Echo the effect where possible.** "Loaded Dice" makes shop rerolls cheaper;
+  "Sinking Anchor" drags opponents' cards down.
+- **Evocative words.** Names use imagery rather than rules vocabulary such as
+  "nil," "contract," or "rank," so a name never reads as rules text.
+- **Unique.** Every name, icon word, and icon family appears on only one sigil
+  in the pool. [skeleton.md](skeleton.md) describes how the design process
+  enforces this.
 
 ## Sentence patterns
 
@@ -110,20 +131,20 @@ Spades play:
 
 ## Examples
 
-| # | Name | Resonance · Rarity | Rules text |
-| --- | --- | --- | --- |
-| 1 | Honed Edge | Red · Common | This card gains +3 rank. |
-| 2 | Verdant Banner | Green · Common | While this card is in your hand, cards of your longest suit gain +2 rank. |
-| 3 | Nest Egg | Orange · Common | While this card is in your hand, gain +5 gold after each trick. |
-| 4 | Crown Jewel | Red · Common | **Affinity: Ace.** When this card wins a trick, gain +20 contract value. |
-| 5 | Graceful Exit | Purple · Common | Whenever you lose a trick you played a face card to, gain +10 contract value. |
-| 6 | Tide | Green · Common | Before bidding, convert 2 cards in your hand to your longest suit. |
-| 7 | Handoff | Teal · Common | After bidding, you and your partner each pass a card to each other. |
-| 8 | Precision | Blue · Rare | If your team makes its contract exactly, gain +1× contract multiplier. |
-| 9 | Silent Vow | Purple · Common | Gain +30 nil contract value. |
-| 10 | Undertow | Purple · Uncommon | After bidding, each opponent's highest card loses 4 rank. |
-| 11 | Encore | Teal · Uncommon | When you play this card, you may swap a card in your hand with a chosen previously played card. |
-| 12 | Haggler | Gray · Common | Shop rerolls cost -20 gold. |
+| # | Name | Icon | Resonance · Rarity | Rules text |
+| --- | --- | --- | --- | --- |
+| 1 | Honed Edge | `sword` | Red · Common | This card gains +3 rank. |
+| 2 | Verdant Banner | `flag` | Green · Common | While this card is in your hand, cards of your longest suit gain +2 rank. |
+| 3 | Nest Egg | `egg` | Orange · Common | While this card is in your hand, gain +5 gold after each trick. |
+| 4 | Crown Jewel | `crown` | Red · Common | **Affinity: Ace.** When this card wins a trick, gain +20 contract value. |
+| 5 | Graceful Exit | `door-open` | Purple · Common | Whenever you lose a trick you played a face card to, gain +10 contract value. |
+| 6 | Turning Tide | `water` | Green · Common | Before bidding, convert 2 cards in your hand to your longest suit. |
+| 7 | Open Hand | `hand` | Teal · Common | After bidding, you and your partner each pass a card to each other. |
+| 8 | True Aim | `target` | Blue · Rare | If your team makes its contract exactly, gain +1× contract multiplier. |
+| 9 | Silent Vow | `candlestick` | Purple · Common | Gain +30 nil contract value. |
+| 10 | Sinking Anchor | `anchor` | Purple · Uncommon | After bidding, each opponent's highest card loses 4 rank. |
+| 11 | Curtain Call | `mask` | Teal · Uncommon | When you play this card, you may swap a card in your hand with a chosen previously played card. |
+| 12 | Loaded Dice | `dice-6` | Gray · Common | Shop rerolls cost -20 gold. |
 
 ### 1. Honed Edge: changing this card
 
@@ -180,7 +201,7 @@ trick" bonus would fire about 10 times per round, far above a common's value.
 Losing with high cards is exactly what nil and discard decks do, and a nil
 bidder's sigils still add to the partner's contract.
 
-### 6. Tide: before bidding
+### 6. Turning Tide: before bidding
 
 `Before bidding, convert 2 cards in your hand to your longest suit.`
 
@@ -190,7 +211,7 @@ You choose the 2 cards, and everyone bids after the change.
 and everyone bids knowing the result, so it shapes a hand without guaranteeing
 tricks.
 
-### 7. Handoff: passing cards
+### 7. Open Hand: passing cards
 
 `After bidding, you and your partner each pass a card to each other.`
 
@@ -201,7 +222,7 @@ engraved on.
 because the partner knows which card to take. One card each suits a common; a
 two-card exchange belongs at uncommon.
 
-### 8. Precision: a conditional multiplier
+### 8. True Aim: a conditional multiplier
 
 `If your team makes its contract exactly, gain +1× contract multiplier.`
 
@@ -225,7 +246,7 @@ scores 130 instead of 100. Contract multipliers never apply to it.
 half its rounds and succeeds three times in four. Nil-value sigils carry larger
 numbers than contract sigils because multipliers never raise them.
 
-### 10. Undertow: affecting opponents
+### 10. Sinking Anchor: affecting opponents
 
 `After bidding, each opponent's highest card loses 4 rank.`
 
@@ -236,7 +257,7 @@ opponent has two equally high cards, you choose which one is affected.
 opponents about half a trick per round after they have bid. At −3, an ace
 becomes a jack and still wins most tricks.
 
-### 11. Encore: an optional choice when played
+### 11. Curtain Call: an optional choice when played
 
 `When you play this card, you may swap a card in your hand with a chosen previously played card.`
 
@@ -245,12 +266,12 @@ hand, and the card you give up takes its place in that completed trick, whose
 result stands. A card taken from an opponent brings its sigil with it, under
 your control for the rest of the round.
 
-**Balance:** Encore spends its own play to retrieve a card, and late in the
+**Balance:** Curtain Call spends its own play to retrieve a card, and late in the
 round the best card played so far is usually an ace or a high spade, worth
 most of a trick. Retrieving a card with a "when you play this card" sigil
-replays it. That places Encore at the top of the uncommon band.
+replays it. That places Curtain Call at the top of the uncommon band.
 
-### 12. Haggler: an effect for you
+### 12. Loaded Dice: an effect for you
 
 `Shop rerolls cost -20 gold.`
 

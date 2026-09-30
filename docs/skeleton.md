@@ -312,7 +312,8 @@ All design work lives in `docs/sigils/`:
 | --- | --- | --- |
 | `slots.md` | Orchestrator | Every slot: code, resonance, rarity, slot type, archetypes served, mechanic family, assigned variation, timing window, and one-line brief |
 | `scoring.md` | Orchestrator | The benchmark curve, gold exchange rate, value bands by rarity, each archetype's engine sketch, and each archetype's running score projection |
-| `registry.md` | Orchestrator | Every accepted sigil with its effect signature, in one table |
+| `icons.txt` | Orchestrator | Every available icon: the free filled set of Boxicons, one name per line |
+| `registry.md` | Orchestrator | Every accepted sigil with its name, icon, icon family, and effect signature, in one table |
 | `red.md`, `orange.md`, `green.md`, `blue.md`, `teal.md`, `purple.md`, `gray.md`, `dual.md` | Orchestrator | Full accepted sigil entries, one file per resonance |
 
 Only the orchestrator writes these files. Designers and critics return their
@@ -325,7 +326,8 @@ Every designer returns each sigil in this format:
 
 ```
 Code:        PU-C03
-Name:        Undertow           (three words or fewer)
+Name:        Waning Moon
+Icon:        moon               (alternates: Falling Feather / feather, Drowsy Owl / owl)
 Resonance:   Purple
 Rarity:      Common (45 gold)
 Text:        After bidding, 2 cards in your hand lose 3 rank.
@@ -340,10 +342,15 @@ AI note:     Lower the two highest cards of the shortest suit.
 Rationale:   Rescues a risky nil without a pass.
 ```
 
+The **name** and **icon** follow [rules-text.md](rules-text.md): a 2–3 word
+name drawn from an icon in `icons.txt`. The designer lists two alternate
+name-and-icon pairs, so the orchestrator can resolve icon conflicts without
+another design cycle.
+
 The **role** is enabler, payoff, or utility. A payoff also records its scoring
 channel and its expected points per round at round 7. The **effect signature**
-is a normalized description: trigger | controller |
-target | effect | magnitude. Signatures make duplicates easy to detect.
+is a normalized description: trigger | controller | target | effect |
+magnitude. Signatures make duplicates easy to detect.
 
 ### Phase 0: skeleton and scoring model
 
@@ -356,7 +363,10 @@ The orchestrator writes `slots.md` and `scoring.md` before any design begins.
   uncommon, and 16–25 for a rare, all tunable.
 - Each payoff slot's brief names its scoring channel, so every archetype's
   channel mix is set before design begins.
-
+- `icons.txt` lists the free filled Boxicons set, generated from the
+  `svg/filled` directory of the `@boxicons/core` package (1,884 icons at
+  version 1.0.6). The orchestrator regenerates it only when upgrading that
+  package.
 - Each slot receives a **mechanic family** and an **assigned variation** from
   [mechanics.md](mechanics.md). Two slots receive the same family and variation
   only when they differ in rarity and in intended archetype.
@@ -391,19 +401,21 @@ after wave 2, before the next wave begins.
 ### Designer instructions
 
 Each designer receives the core rules, the resonance, archetype, mechanics, and
-skeleton documents, [rules-text.md](rules-text.md), the current registry,
-and its slot list. From
-wave 2 onward, each slot's brief names the signposts it supports, and designers
-treat those signposts as the plan their sigils feed. For each slot, the
-designer:
+skeleton documents, [rules-text.md](rules-text.md), `icons.txt`, the current
+registry, and its slot list. From wave 2 onward, each slot's brief names the
+signposts it supports, and designers treat those signposts as the plan their
+sigils feed. For each slot, the designer:
 
 1. Writes **three candidates** that fill the slot's brief using its assigned
    variation.
 2. Checks each candidate against the registry and discards any that match an
    existing signature.
 3. Scores each candidate against the rubric below.
-4. Selects one, favoring the shortest candidate among close scores.
-5. Returns the entry format above, plus one sentence on each discarded
+4. Selects one, favoring the simplest candidate among close scores.
+5. Names it with three name-and-icon pairs in preference order. Each icon
+   appears in `icons.txt`, and each icon family and name is unclaimed in the
+   registry.
+6. Returns the entry format above, plus one sentence on each discarded
    candidate and why it lost.
 
 ### Design rubric
@@ -469,8 +481,8 @@ work in parallel and receive the batch of new designs plus the registry.
    decision for its owner and whether the opponent's experience was legible
    and fair.
 3. **Systems critic.** Checks rules fit, duplicates and near-duplicates
-   against the registry and the rest of the batch, and interactions with
-   multipliers, rule setters, and exchanges. For payoffs, it independently
+   against the registry and the rest of the batch, name and icon validity, and
+   interactions with multipliers, rule setters, and exchanges. For payoffs, it independently
    estimates the scoring channel and expected value against the value bands,
    and reports any disagreement with the designer's estimate.
 
@@ -479,6 +491,40 @@ target, and effect, differing only in magnitude, named suit, or rank. The
 systems critic flags near-duplicates, and the later or weaker design is
 revised.
 
+### Names and icons
+
+Every sigil's icon is unique, so the sigil is recognizable at a glance, and
+every name is unique. The registry enforces this pool-wide:
+
+- **Icon families.** An icon and its variants form a family: `feather`,
+  `feather-alt`, and `feather-plus` are one family. A variant adds a suffix
+  such as `-alt`, `-alt-2`, `-circle`, `-square`, `-plus`, or `-minus`. Each
+  family belongs to at most one sigil, so no two sigils have look-alike icons.
+- **Names.** Each name is unique, and each name's icon word, the word that
+  points to its icon, appears in only one name. After "Waning Moon," no other
+  name uses "Moon."
+- **Suit icons.** `spade`, `heart`, `diamond`, `diamonds`, and `club` are
+  reserved for sigils about that suit, so an icon never suggests a suit the
+  sigil ignores.
+- **Claiming.** Icons are claimed only at acceptance, which the orchestrator
+  performs one design at a time. It assigns the designer's first name-and-icon
+  pair whose name and icon family are still free, and otherwise the first free
+  alternate. When all three are taken, the design returns for new names only,
+  which does not count as a revision cycle. Signposts claim first, in wave 1.
+- **Motifs.** Each resonance draws most of its icons from its own motifs,
+  which gives each resonance a visual identity and keeps parallel designers
+  from reaching for the same icons.
+
+| Resonance | Motifs |
+| --- | --- |
+| Red | Weapons, fire, crowns, trophies |
+| Orange | Coins, dice, treasure, luck |
+| Green | Plants, trees, animals, growth |
+| Blue | Eyes, stars, moons, instruments of measure |
+| Teal | Water, hands, keys, travel |
+| Purple | Masks, ghosts, shadows, night |
+| Gray | Tools, household objects, buildings |
+
 ### Revision loop
 
 - A failed design returns to its designer with the critics' notes, and the
@@ -486,7 +532,7 @@ revised.
 - Each slot receives at most two revision cycles. After two, the orchestrator
   records the slot and its best candidate in an escalation list for the user.
 - The orchestrator accepts a design by adding its entry to its resonance file
-  and its signature to the registry.
+  and its name, icon, icon family, and signature to the registry.
 - After each wave, the orchestrator updates every archetype's score projection
   in `scoring.md`. An archetype projected outside the parity window receives
   priority in the next wave's slot briefs: more value for a lagging archetype,
@@ -537,6 +583,8 @@ An auditor subagent checks the complete pool against this document:
 - Scoring parity: every archetype's projected reference partnership reaches
   1,000 in round 11 or 12, within one round of every other archetype, with the
   channel mix its engine sketch planned.
+- Names and icons: every icon appears in `icons.txt`, and every name, icon
+  family, and icon word is unique.
 - A final duplicate sweep across the registry.
 
 The orchestrator fixes audit findings using the slack slots, then presents the
