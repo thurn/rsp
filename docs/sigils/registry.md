@@ -212,3 +212,40 @@ Every accepted sigil, in acceptance order. Names, icon families, and icon words 
 | GY-U14 | Sous-Chef's Hat | `chef-hat` | chef-hat | chef's hat | Gray | Uncommon | 65 | you lose a trick, your card second-best / self / contract / +5 / per trick | 3 |
 | GY-U15 | Roommates' Apartment | `apartment` | apartment | apartment | Gray | Uncommon | 70 | always / self / contract / +10 per resonance in both partners' collections / counter | 3 |
 | GY-U16 | Artist's Palette | `palette` | palette | palette | Gray | Uncommon | 65 | scoring, own 5+ resonances / self / contract / +30 / ×1 | 3 |
+| RE-R01 | Surplus Muscle | `biceps` | biceps | muscle | Red | Rare | 95 | always / self / this card (affinity ace), excess beyond ace to your highest other card of its suit / rank +3, overflow transfers / ×1 | 4 |
+| RE-R02 | Ticking Bomb | `bomb` | bomb | bomb | Red | Rare | 90 | you trump, fourth time this round / team / contract / multiplier +1× / once per round | 4 |
+| RE-R03 | Perfect Throw | `ball-throw` | ball-throw | throw | Red | Rare | 90 | partner wins a trick with a card you passed them, second time this round / team / contract / multiplier +1× / once per round | 4 |
+| RE-R04 | Crushing Boot | `boot` | boot | boot | Red | Rare | 100 | scoring, opponents' failed contract / team / contract / multiplier +1× / ×1 | 4 |
+| RE-R05 | Lifetime Award | `certification` | certification | award | Red | Rare | 85 | this card wins (affinity king) / self / contract / contract value equal to your contract value so far this round, max +60 / ×1 | 4 |
+| OR-R01 | Gambler's Wheel | `color-wheel` | color-wheel | wheel | Orange | Rare | 90 | this card loses, own bid not yet taken / self / contract / pay 40 points for multiplier +1× / ×1 | 4 |
+| OR-R02 | Layer Cake | `cake-slice` | cake-slice | cake | Orange | Rare | 85 | this card wins / self / contract / contract value +10, stacking for the rest of the run / ×1 | 4 |
+| OR-R03 | Spendthrift's Wallet | `wallet` | wallet | wallet | Orange | Rare | 85 | after scoring / team / your gold / pay up to 100 gold, points +1 per gold / per round | 4 |
+| OR-R04 | Round-Trip Record | `disc` | disc | record | Orange | Rare | 90 | this card passed a second time this round / receiver / contract / multiplier +1× / ×1 | 4 |
+| OR-R05 | Flickering Television | `tv` | tv | television | Orange | Rare | 90 | blind nil decision / self / four random cards in your hand / look (private) / ×1 | 4 |
+| GR-R01 | Armored Beetle | `bug` | bug | beetle | Green | Rare | 90 | always, tricks 1–6 / all players / spade leads / forbidden unless holding only spades / first six tricks | 4 |
+| GR-R02 | Bursting Barn | `barn` | barn | barn | Green | Rare | 95 | when led, you've already played four or more diamonds this round / self / contract / multiplier +1× / ×1 | 4 |
+| GR-R03 | Evening Melody | `music` | music | melody | Green | Rare | 95 | always, tricks 7+ / all players / trump suit / hearts replace spades, any suit may be led / last seven tricks | 4 |
+| GR-R04 | Charged Solar Panel | `solar-panel` | solar-panel | solar panel | Green | Rare | 90 | always / self / this card / can't be played before trick 11, then wins its trick / ×1 | 4 |
+| GR-R05 | Spring Renewal | `recycle` | recycle | renewal | Green | Rare | 90 | fifth discard each round / self / contract / multiplier +1× / ×1 | 4 |
+| BL-R01 | Armistice News | `newspaper` | newspaper | news | Blue | Rare | 90 | this card loses a trick won by trumping / all players / spades played to tricks of another suit / cannot win / rest of round | 4 |
+| BL-R02 | Jeweler's Magnifier | `reading-glass` | reading-glass | magnifier | Blue | Rare | 95 | when you bid / self / contract / pay 100 gold for multiplier +1× / ×1 | 4 |
+| BL-R03 | Steady Pulse | `pulse` | pulse | pulse | Blue | Rare | 90 | eighth trick begins, this card and 2+ other cards of its suit held / self / contract / multiplier +1× / ×1 | 4 |
+| BL-R05 | Empty Cloche | `dish` | dish | cloche | Blue | Rare | 85 | always / all players / bids / only nil or 4+ / all | 4 |
+| TE-R01 | Tandem Scooter | `scooter` | scooter | scooter | Teal | Rare | 90 | always, counter of partner's tricks won since purchase / self / contract / contract value +5 per trick, resets when partner misses own bid / max +80 | 4 |
+| TE-R02 | Spinning Globe | `globe` | globe | globe | Teal | Rare | 95 | before bidding, no blind nil / all players / a chosen card each / pass to left / ×1; you pass cards / self / contract / contract value +10 / per pass | 4 |
+| TE-R03 | Swelling Sea | `sea-view` | sea-view | sea | Teal | Rare | 85 | always, counter of rounds with 3+ heart tricks won since purchase / self / contract / contract value +15 per qualifying round / max +90 | 4 |
+| TE-R04 | Yielding Cone | `traffic-cone` | traffic-cone | cone | Teal | Rare | 90 | you lose a trick, own bid already taken / team / your highest card and partner's lowest / optional swap / max 2 per round | 4 |
+| TE-R05 | Rescuing Ambulance | `ambulance` | ambulance | ambulance | Teal | Rare | 100 | scoring, partner's nil made and own bid made / self / contract / multiplier +1× / ×1 | 4 |
+| PU-R01 | Snipping Scissors | `cut` | cut | scissors | Purple | Rare | 90 | this card loses to an opponent / opponents / the winning opponent's highest card in hand / removed from hand / ×1 | 4 |
+| PU-R02 | Guiding Nightlight | `night-light` | night-light | nightlight | Purple | Rare | 100 | you lose a trick to your partner, on blind nil / self / your nil / nil value +20 / per trick | 4 |
+| PU-R03 | Paired Socks | `sock` | sock | sock | Purple | Rare | 95 | you discard a club / self / contract value your other sigils gain from that discard / ×2 / per discard | 4 |
+| PU-R04 | Widening Circle | `circle` | circle | circle | Purple | Rare | 100 | always / self / your nil value / ×2, at most +150 extra / ×1 | 4 |
+| PU-R05 | Forgiving Scripture | `bible` | bible | scripture | Purple | Rare | 85 | partner on nil wins their first trick / team / that trick / counts for you, not your partner / once per round | 4 |
+| GY-R01 | Trade-In Box | `box` | box | box | Gray | Rare | 85 | at shop / self / one owned sigil for an offer of equal or lower rarity / free trade-in, not a sale or purchase / each shop | 4 |
+| GY-R02 | Stacked Chairs | `chair` | chair | chair | Gray | Rare | 90 | before bidding / self / any of your other sigils / move onto this card / any number | 4 |
+| GY-R03 | Forger's Brush | `brush` | brush | brush | Gray | Rare | 95 | before bidding / self / a chosen other sigil you own, any rarity / copy onto this card / ×1 | 4 |
+| GY-R04 | Four Square | `square` | square | square | Gray | Rare | 95 | after bidding, your bid equals your partner's, 4+ / team / contract / multiplier +1× / ×1 | 4 |
+| GY-R05 | Stained-Glass Church | `church` | church | church | Gray | Rare | 90 | this card wins, own 6+ resonances / self / contract / multiplier +1× / ×1 | 4 |
+| GY-R06 | Solid Core | `core` | core | core | Gray | Rare | 85 | always, own 5+ sigils of one non-Gray resonance / team / contract base per bid trick / 10 → 20 / all | 4 |
+| GY-R07 | Public Hospital | `hospital` | hospital | hospital | Gray | Rare | 90 | always / all players / missed contracts / contract multipliers don't apply / all | 4 |
+| GY-R08 | Fitting-Room Skirt | `skirt` | skirt | skirt | Gray | Rare | 85 | each deal / self / your dealt hand or 13 random new cards / keep the chosen hand / ×1 | 4 |

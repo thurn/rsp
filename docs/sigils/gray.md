@@ -856,3 +856,167 @@ Opponent:    No effect on opponents.
 AI note:     Until five resonances are owned, add 15 points of value to an offer of a new resonance.
 Rationale:   A typical collection holds two colors, Gray, and two off-plan sigils, so five is reachable by mid-run with intent, and a signpost counts both its colors; +30 (+24 expected) sits at the top of the uncommon band, below GY-R05's breadth multiplier.
 ```
+
+## Trade-In Box
+
+```
+Code:        GY-R01
+Name:        Trade-In Box
+Icon:        box               (alternates: Outgrown Dress / dress, Pawnbroker's Cupboard / cupboard)
+Resonance:   Gray
+Rarity:      Rare (85 gold)
+Text:        At each shop, you may trade in one of your sigils for an offer of the same rarity or lower. This is free, and it isn't a sale or your purchase.
+Timing:      At the shop
+Archetypes:  Gold Miner, Diamond Flood, Swap Meet; any collection with a weak early sigil
+Family:      Shop tools / Trade-ins
+Role:        Payoff: Economy
+Signature:   at shop | self | one owned sigil for an offer of equal or lower rarity | free trade-in, not a sale or purchase | each shop
+Decision:    Every shop: which weak or off-plan sigil to give up, and whether the trade-in or the normal purchase should take the better offer.
+Opponent:    No effect on opponents.
+AI note:     Trade in your lowest-value sigil when an offer of equal or lower rarity scores at least 10 a round more; with a full collection, always check the trade-in first.
+Rationale:   A free upgrade each shop, worth a sell-and-buy plus the saved purchase, so a collection keeps improving after it fills at 13; it never grows the collection, and "isn't a sale" keeps Garage Sale, Thrifted Radio, and Tumbling Dryer from firing on every trade-in.
+```
+
+## Stacked Chairs
+
+```
+Code:        GY-R02
+Name:        Stacked Chairs
+Icon:        chair               (alternates: Heaped Noodles / bowl-noodles, Packed Circuit / circuit-board)
+Resonance:   Gray
+Rarity:      Rare (90 gold)
+Text:        Before bidding, you may move any of your other sigils onto this card.
+Timing:      Before bidding
+Archetypes:  While Held, High Card, Kingmaker
+Family:      Engraving control / Stacking
+Role:        Utility (Enabler for card-bound payoffs)
+Signature:   before bidding | self | any of your other sigils | move onto this card | any number
+Decision:    Whether this card, wherever it was engraved, is worth building on: pile rank sigils and win triggers onto it when it can become a winner, while-held sigils when it's a card you can keep, or nothing when it's a weak card you'll have to follow with early; one lost or taken card now costs the whole stack.
+Opponent:    Hidden until the card is played; one Snaring Lasso or forced play against it hits the whole stack, which is fair counterplay.
+AI note:     If this card is a queen or higher, or a spade of 10 or higher, move rank sigils and win triggers onto it; if it's the lowest card of your longest suit, move while-held sigils onto it; otherwise move nothing.
+Rationale:   Engraving stacking as a true build-around, one plain sentence, and never a copy; the stack lands on this sigil's own random card, which keeps it from being degenerate unless Rearranged Desk first moves it to an ace. Rulings: under the new convention a re-triggered or replayed sigil grants its contract multiplier at most once a round, so Twin Cherries or Masked Encore on the stack can't double its multipliers, and effects that name "the sigil" on a card (Spiteful Eraser, Second Home) act on every sigil stacked there.
+Deviation:   Timing moved from Always on, for the engraved card, to Before bidding, because the choice needs a named moment after you see the hand; this leaves the engraved-card window at 9, one short of its floor, for the wave 6 audit.
+```
+
+## Forger's Brush
+
+```
+Code:        GY-R03
+Name:        Forger's Brush
+Icon:        brush               (alternates: Echoing Microphone / microphone, Repeat Broadcast / station)
+Resonance:   Gray
+Rarity:      Rare (95 gold)
+Text:        Before bidding, this card copies a chosen other sigil you own.
+Timing:      Before bidding
+Archetypes:  Exact Contractor, While Held, Nil Champion
+Family:      Duplication and copying / Duplicate
+Role:        Utility
+Signature:   before bidding | self | a chosen other sigil you own, any rarity | copy onto this card | ×1
+Decision:    Which sigil to double for this hand: True Aim for +2× on an exact bid, Vigil Candle for a nil, Crown Jewel if this card is an ace.
+Opponent:    The copy acts like any sigil and is shown when it triggers.
+AI note:     Copy the owned sigil with the highest expected value for this hand, preferring multipliers on contract rounds and nil value on nil rounds; never a shop or selling sigil.
+Rationale:   Doubles the collection's best effect every round, including rares, so a multiplier deck reaches +2× from one key sigil; a copied counter uses the original's current count, and it differs from Spare Key (TE-U01, partner's common or uncommon) and Matching Mugs (GY-U07, one common fixed at purchase).
+```
+
+## Four Square
+
+```
+Code:        GY-R04
+Name:        Four Square
+Icon:        square               (alternates: Nested Spoons / spoon, Twin Beanies / beanie)
+Resonance:   Gray
+Rarity:      Rare (95 gold)
+Text:        After bidding, if you and your partner bid the same number, four or more, gain +1× contract multiplier.
+Timing:      After bidding
+Archetypes:  Bonus Chaser, Diamond Flood, Heart Chorus, Swap Meet, Contract Attacker; any contract deck
+Family:      Contract-shape rewards / Matched bids
+Role:        Payoff: Contract multiplier
+Signature:   after bidding, your bid equals your partner's, 4+ | team | contract | multiplier +1× | ×1
+Decision:    When both hands are strong, whoever bids second chooses to match: stretch up to four or five and risk a doubled miss on a contract of 8 or more, shade a big hand down and take bags, or bid honestly and skip the multiplier.
+Opponent:    Visible from the bids; opponents see the doubled stakes and can bid and play to set a stretched contract.
+AI note:     As the second partner to bid, when your partner bid four or more, match if your honest bid is within one of theirs and the multiplied expected score beats the honest bid's; never stretch by more than one.
+Rationale:   The floor stops shading a normal hand down to match: a matched contract is at least 8 tricks, which needs two strong hands or a real stretch, so it is on in about a third of rounds (about +30 to +45 late), and it applies win or lose; a nil from either partner turns it off, and it differs from True Aim, Balanced Yin-Yang, and Runner-Up Trophy, which check tricks, not bids.
+Deviation:   Family changed from Bid adjustment (raise your bid by two for +1×) to Contract-shape rewards, and timing from When you bid to After bidding: a raise of your own bid costs nothing, because you simply declare two less, so it was the unconditional stat stick again; matching your partner's bid is a cost you can't bid around. Kingmaker dropped from its archetypes, since its partner usually bids more than you. Revision 1 adds the four-or-more floor and renames it off "Perfect" (RE-R03 Perfect Throw).
+```
+
+## Stained-Glass Church
+
+```
+Code:        GY-R05
+Name:        Stained-Glass Church
+Icon:        church               (alternates: Spilled Paint / paint, Colorful Cosmetics / self-care)
+Resonance:   Gray
+Rarity:      Rare (90 gold)
+Text:        Affinity: King. When this card wins a trick, if you own sigils of six or more resonances, gain +1× contract multiplier.
+Timing:      When this card wins
+Archetypes:  High Card, While Held, Exact Contractor, Bonus Chaser; any splashing collection
+Family:      Resonance synergy / Breadth (card-bound)
+Role:        Payoff: Contract multiplier
+Signature:   this card wins, own 6+ resonances | self | contract | multiplier +1× | ×1
+Decision:    Shopping: chase a sixth resonance through splashes and signposts; in play, clear the way for the king (draw the ace, or lead it once the ace is gone).
+Opponent:    Visible when it triggers; opponents can hold their ace to capture the king.
+AI note:     Until six resonances are owned, add 20 points of value to an offer of a new resonance; in play, lead or follow with the king once its suit's ace has fallen.
+Rationale:   A king wins about half the time, so once six resonances are owned it is worth about +50 late, applying win or lose; the king affinity keeps it below an ace's reliability and apart from Bottled Lightning's ace, and six stays above Artist's Palette's five.
+```
+
+## Solid Core
+
+```
+Code:        GY-R06
+Name:        Solid Core
+Icon:        core               (alternates: Old School / school, Single-Color Washer / washer)
+Resonance:   Gray
+Rarity:      Rare (85 gold)
+Text:        If you own five or more sigils of one resonance other than Gray, each trick your team bids is worth 20 points instead of 10, win or lose.
+Timing:      Always on, for you
+Archetypes:  Contract Attacker, Discard Dominance, Heart Chorus, Kingmaker; any focused collection
+Family:      Resonance synergy / Depth (threshold)
+Role:        Payoff: Contract base (raises the stakes of every bid)
+Signature:   always, own 5+ sigils of one non-Gray resonance | team | contract base per bid trick | 10 → 20 | all
+Decision:    Shopping toward five of one color; once on, bidding matters twice as much, so every bid is weighed as a doubled bet.
+Opponent:    Visible from the collection count; a doubled base also doubles your miss, so setting you pays more.
+AI note:     Until the threshold is met, add 15 points of value to offers of your most-owned non-Gray resonance; once on, bid as if each trick is worth 20.
+Rationale:   The depth pole now unlocks a rule change instead of a per-sigil count: the contract's base line becomes 20 × bid in both the made and missed rows, before additive value and multipliers, so a team bidding 7 gains about +40 a round at 1× and more with multipliers; a typical on-plan collection reaches five of one color (dual sigils count for both) around rounds 6 to 9, and it differs from Unopened Gift and Planner's Whiteboard, which add contract value only on a made contract. Spade Master is left off its archetypes because it already bids big and is on the strong watch list.
+Deviation:   Revision 1 redesign: the per-sigil count (+10 per sigil of your most-owned resonance) matched Well-Oiled Gear's shape, so depth now gates a doubled base per bid trick; the role moves from Contract additive to the contract base.
+```
+
+## Public Hospital
+
+```
+Code:        GY-R07
+Name:        Public Hospital
+Icon:        hospital               (alternates: Soothing Lotion / lotion, All-Night Pharmacy / pharmacy)
+Resonance:   Gray
+Rarity:      Rare (90 gold)
+Text:        Contract multipliers don't apply to missed contracts, for either team.
+Timing:      Conditional scoring (always on, all players)
+Archetypes:  High Card, While Held, Exact Contractor; any multiplier deck
+Family:      Multipliers / Failed contracts (global)
+Role:        Utility; rule setter
+Signature:   always | all players | missed contracts | contract multipliers don't apply | all
+Decision:    Bidding: with misses capped at the base loss, multiplier decks can stretch a bid and mid-round multipliers lose their cost.
+Opponent:    Visible rule that helps both teams equally; Hungry Kraken and other denial collect less from a multiplied miss.
+AI note:     While this rule is on, value a contract's miss at −10 × bid regardless of multipliers.
+Rationale:   The rule it changes is the failure line of contract scoring (−10 × bid × multiplier becomes −10 × bid); it saves a +2× deck about 12 to 36 points a round and helps the owner most because the owner builds around it, and no other setter touches this rule.
+```
+
+## Fitting-Room Skirt
+
+```
+Code:        GY-R08
+Name:        Fitting-Room Skirt
+Icon:        skirt               (alternates: Backup Laptop / laptop, Fresh-Start Oven / oven)
+Resonance:   Gray
+Rarity:      Rare (85 gold)
+Text:        Each round, you're dealt a second hand of random new cards, and you keep whichever hand you prefer before your sigils are engraved.
+Timing:      Always on, for you (at the deal)
+Archetypes:  High Card, Spade Master, Kingmaker; splash Nil Champion, Blind Bidder
+Family:      Opening hand control / Second hand
+Role:        Enabler
+Signature:   each deal | self | your dealt hand or 13 random new cards | keep the chosen hand | ×1
+Decision:    Which hand to keep: the stronger for a contract, the one with most hearts or diamonds for a suit deck, or the weaker for nil.
+Opponent:    Hidden; the new cards may duplicate cards in other hands, as with other Gray card creation.
+AI note:     Keep the hand with more expected tricks, or fewer when planning nil or already committed to blind nil.
+Rationale:   The better of two hands is worth about three-quarters of a trick, and the weaker of two makes nil and blind nil much safer; the choice comes before engraving, so affinities land on the kept hand and nothing is re-engraved, and the unkept cards leave the round.
+Deviation:   Timing moved from Before bidding to the deal, so sigils are engraved on the kept hand without a re-engraving rule.
+```

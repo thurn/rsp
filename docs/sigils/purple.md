@@ -509,3 +509,107 @@ Opponent:    Visible on each trigger; opponents answer by leading the suits the 
 AI note:     On a nil while behind, play singletons early to open voids, then discard your highest cards.
 Rationale:   A nil bidder plays off suit two to four times a round (more with Wayward Cat, Borrowed Umbrella, or Tiptoe Sneaker), so a trailing nil gains about +30 to +60 nil value, and every blind nil qualifies because blind nils are only bid from behind. Behind in about 40% of rounds, that is about +10 to +15 EV a round, in the nil band and at its best on the blind nils Desperate Gambit enables. It pays nil value rather than contract value (Rebel Graffiti) and only while trailing, so it switches off as the comeback lands.
 ```
+
+## Snipping Scissors
+
+```
+Code:        PU-R01
+Name:        Snipping Scissors
+Icon:        cut               (alternates: Leeching Syringe / syringe, Spilt Milk / milk-bottle)
+Resonance:   Purple
+Rarity:      Rare (90 gold)
+Text:        When this card loses a trick to an opponent, that opponent removes their highest card from their hand.
+Timing:      When this card loses
+Archetypes:  Contract Attacker; splash High Card, Nil Guard
+Family:      Forced card removal / Opponents (highest card, after bidding)
+Role:        Enabler; opponent-facing (feeds Denial: Hungry Kraken, Grinning Skull, RE-R04)
+Signature:   this card loses to an opponent | opponents | the winning opponent's highest card in hand | removed from hand | ×1
+Decision:    Which trick to sacrifice this card on: early to strip a card that would win later, and under the opponent who still needs tricks rather than one already on a failed nil.
+Opponent:    Visible when it resolves; the victim loses one card once a round, can see the sigil coming in later rounds, and still plays every remaining card as they choose.
+AI note:     Play this card under an opponent's winning card as early as possible when it can't win anyway, preferring an opponent whose team bid a contract.
+Rationale:   The winner's highest card wins about 60–70% of the time, so each trigger costs the opponents about two-thirds of a trick after they've bid, raising their set rate by roughly a third for Hungry Kraken, Grinning Skull, and RE-R04 to cash; the core rules already let a player a card short skip the last trick, and a card removed with a sigil takes that sigil with it for the round.
+Deviation:   Target changed from a random card to the opponent's highest card: a random card costs the victim about a quarter of a trick, too little to build around at rare and pure luck for both sides, while "highest card" reads as plainly as Sinking Anchor (PU-U11) and makes the sacrifice's timing the decision.
+```
+
+## Guiding Nightlight
+
+```
+Code:        PU-R02
+Name:        Guiding Nightlight
+Icon:        night-light               (alternates: Drawn Shutter / shutter, Shared Wine / wine)
+Resonance:   Purple
+Rarity:      Rare (100 gold)
+Text:        Whenever you lose a trick your partner wins, if you bid blind nil, gain +20 nil value.
+Timing:      When you lose any trick
+Archetypes:  Blind Bidder; splash Nil Guard (as the partner)
+Family:      Losing tricks / Partner (blind nil)
+Role:        Payoff (Nil)
+Signature:   you lose a trick to your partner, on blind nil | self | your nil | nil value +20 | per trick
+Decision:    Your partner chooses to cover: overtaking opponents' winners and bidding higher earns nil value but risks bags; you shed your dangerous cards under your partner's winners rather than the opponents'.
+Opponent:    Visible on each trigger; opponents can deny it by winning tricks themselves, which is also how they attack the blind nil.
+AI note:     When the partner is on blind nil, win tricks the opponents would otherwise take whenever you can afford the bag.
+Rationale:   A covering partner wins about four to six tricks in a blind round, so a surviving blind nil gains about +80 to +120, about +55 to +85 per blind round at 70% success; the payout depends on how the partnership plays, not on the dealt hand, because a successful blind nil loses every trick but loses only some of them to the partner, and it rewards the Nil Guard partnership that archetypes.md names as Blind Bidder's best pairing.
+Deviation:   Revision 1: redesigned from nil value for each ace or king lost on blind nil, which on a successful blind nil only counted the dealt aces and kings (a Daring Knight variant); family moved from Nil value to Losing tricks / Partner, keeping the short "When you lose any trick" window.
+```
+
+## Paired Socks
+
+```
+Code:        PU-R03
+Name:        Paired Socks
+Icon:        sock               (alternates: Echoing Piano / piano, Doubled Scribble / scribble)
+Resonance:   Purple
+Rarity:      Rare (95 gold)
+Text:        Whenever you discard a club, you gain twice as much contract value from your other sigils for that discard.
+Timing:      When you discard
+Archetypes:  Discard Dominance; splash Nil Champion
+Family:      When played and re-triggers / Doubling (clubs)
+Role:        Payoff (Contract additive)
+Signature:   you discard a club | self | contract value your other sigils gain from that discard | ×2 | per discard
+Decision:    Which card to discard on a void: spend a club now for the doubled payout, or keep clubs for later voids, which also pulls against voiding clubs themselves.
+Opponent:    Visible on each trigger; opponents can deny discards by leading the suits the owner still holds.
+AI note:     When void in the led suit, discard a club if one is held and a discard payoff is active; otherwise discard as usual.
+Rationale:   Doubles Buried Bone (PU-C09), Scouring Tornado (DU-S12), Rebel Graffiti (PU-C14), and a club Held Breath (GR-U09) on two or three club discards a round, about +25 per discard with two of them, or +40 to +60 a round; doubling contract value rather than re-triggering skips rank changes, sigil moves, and GR-R05's +1×, and naming clubs keeps a strong-watch archetype from doubling every discard.
+Deviation:   Changed from "your discard sigils trigger again" to doubling the contract value they pay: a re-trigger would also repeat Thrown Towel (PU-C05) and Second Home (GY-C07) and turn GR-R05's fifth-discard +1× into +2×.
+```
+
+## Widening Circle
+
+```
+Code:        PU-R04
+Name:        Widening Circle
+Icon:        circle               (alternates: Double-Glazed Donut / donut, Solemn Seal / seal)
+Resonance:   Purple
+Rarity:      Rare (100 gold)
+Text:        Your nil value is doubled, adding at most +150.
+Timing:      Always on, for you
+Archetypes:  Nil Champion, Blind Bidder
+Family:      Nil value / Multiplier
+Role:        Payoff (Nil)
+Signature:   always | self | your nil value | ×2, at most +150 extra | ×1
+Decision:    Shopping: every nil-value sigil is now worth double, so the build pivots toward Vigil Candle, Daring Knight, and the losing-trick nil payoffs; in play, it raises the reward for bidding nil on a marginal hand.
+Opponent:    Visible at scoring; opponents answer by attacking the nil as usual, and a failed nil loses nothing extra.
+AI note:     Count nil value twice (up to +150) when weighing a nil bid.
+Rationale:   A late nil collection holds +50 to +90 of nil value, so this adds that much again on each successful nil, about +25 to +45 a round at a 60% nil rate and 80% success; the cap stops a four-face-card Daring Knight nil with Vigil Candle from adding +200 or more, and nil value ignores contract multipliers, so this is the nil deck's only multiplier.
+```
+
+## Forgiving Scripture
+
+```
+Code:        PU-R05
+Name:        Forgiving Scripture
+Icon:        bible               (alternates: Mending Tape / tape, Kept Peace / pacifism)
+Resonance:   Purple
+Rarity:      Rare (85 gold)
+Text:        If your partner bid nil, the first trick they win counts for you instead.
+Timing:      Always on, for you
+Archetypes:  Nil Guard
+Family:      Nil value / Insurance (partner's nil)
+Role:        Utility (Nil: partner's nil; also Partner contract)
+Signature:   partner on nil wins their first trick | team | that trick | counts for you, not your partner | once per round
+Decision:    Bidding: your partner can bid nil on a hand with one unavoidable winner, and you bid knowing one trick may come your way; in play, your partner can take a forced trick early and keep ducking afterward.
+Opponent:    Visible when it resolves; opponents learn the nil needs two tricks to break and must lead through it twice.
+AI note:     The partner's nil heuristic treats one likely winner as safe; you count half a trick extra toward your own bid when your partner bids nil.
+Rationale:   A nil fails on its first trick, and roughly 40% of failed nils take only one, so partner nil success rises from about 75% to about 90%, worth about +30 per partner-nil round, plus a trick toward your solo contract; your partner still leads the next trick, and if you also bid nil the trick breaks your nil, which a Nil Guard rarely risks.
+Deviation:   Timing label moved from "When your partner wins a trick" to Always on, for you, because the standard "Whenever your partner wins a trick" opening needs an extra "first time" clause; the minor window keeps at least 6.
+```

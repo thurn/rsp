@@ -94,6 +94,7 @@ rules.
 | When you play another suit | "Whenever you play a card that doesn't match the suit led, …" |
 | When you discard | "Whenever you discard, …" |
 | When you pass cards | "Whenever you pass cards, …" |
+| When this card is passed to you | "When this card is passed to you, …" |
 | Conditional scoring | "If your team makes its contract exactly, …" |
 | After scoring | "After scoring, …" |
 | At the shop | "At each shop, …" |
@@ -158,7 +159,8 @@ Any other invented term is added here before it appears in rules text.
 - **Duration:** rank and suit changes last for the rest of the round. Shorter
   effects say "for this trick."
 - **Scoring:** contract value and multipliers follow the core scoring rules.
-  Rules text states only the amount.
+  Rules text states only the amount. Each sigil's contract multiplier counts at most once per round,
+  however many times the sigil triggers.
 - **Visibility:** every triggered effect is shown to the table when it happens,
   as the core rules require.
 - **Numbers** are written as digits, with a sign on gains: "+3 rank," "+5

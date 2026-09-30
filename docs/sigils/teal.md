@@ -513,3 +513,105 @@ Opponent:    Visible on trigger; opponents answer by overtaking the partner's ca
 AI note:     When your partner is winning a trick you can't or needn't win, play your lowest heart.
 Rationale:   A Heart Chorus hand plays a heart under about two of its partner's three or so wins (about +30, +24 EV), and a Kingmaker hand about one; low hearts shed early still count toward Unfolding Butterfly, so both plans pay at once without paying for every partner win (Homeward Ship) or for cards you passed (Promoted Pawn).
 ```
+
+## Tandem Scooter
+
+```
+Code:        TE-R01
+Name:        Tandem Scooter
+Icon:        scooter               (alternates: Chauffeured Car / car, Loyal Wanderer / walking)
+Resonance:   Teal
+Rarity:      Rare (90 gold)
+Text:        Gain +5 contract value for each trick your partner has won since you bought this sigil, up to +80. After scoring, if your partner missed their bid, the count starts over.
+Timing:      Always on, for you (grows when your partner wins a trick; resets after scoring)
+Archetypes:  Kingmaker; splash Nil Guard
+Family:      Scaling sigils / Decay
+Role:        Payoff (Partner contract, scaling)
+Signature:   always, counter of partner's tricks won since purchase | self | contract | contract value +5 per trick, resets when partner misses own bid | max +80
+Decision:    How many winners to pass your partner after bidding so they make their own bid, and how high to let them bid; a partner who overbids risks the whole counter.
+Opponent:    The counter is public; opponents can target the partner's bid to reset it, a clear and satisfying counterplay.
+AI note:     Treat the partner making their own bid as worth the current counter; pass the partner winners until their bid looks safe, and bid the partner conservatively when the counter is high.
+Rationale:   A partner wins about 3.25 tricks a round (about 4 when fed), so the counter reaches the +80 cap in four or five rounds; with the partner missing their own bid about a quarter of the time, it averages about +50 late (about +40 EV), rare value for thin Kingmaker, and the first round it pays like Homeward Ship before the climb; it uses the accepted "since you bought this sigil" counter pattern (Growing City, Waiting Bench) but grows on partner wins, not made contracts, and pays across rounds, unlike Homeward Ship and Triumphal Arch.
+Deviation:   Timing moved from "When your partner wins a trick" to an always-on counter, because the accepted counter pattern states the permanent growth more clearly than "this sigil permanently gains"; the partner-wins window is already above its floor of 3.
+```
+
+## Spinning Globe
+
+```
+Code:        TE-R02
+Name:        Spinning Globe
+Icon:        globe               (alternates: Circling Gondola / cable-car, Traveling Crate / container)
+Resonance:   Teal
+Rarity:      Rare (95 gold)
+Text:        Before bidding, unless someone bid blind nil, every player passes a chosen card to the player on their left. Whenever you pass cards, gain +10 contract value.
+Timing:      Before bidding (rule setter); When you pass cards (payoff)
+Archetypes:  Swap Meet; splash Heart Chorus, Kingmaker
+Family:      Opponent exchange and theft / Directional passing
+Role:        Payoff (Contract additive); global rule setter (table-wide pre-bid pass)
+Signature:   before bidding, no blind nil | all players | a chosen card each | pass to left | ×1; you pass cards | self | contract | contract value +10 | per pass
+Decision:    Which card to hand your left opponent before bidding (junk, or the last card of a suit to open a void for Deserted Island), and how often to trade during the round now that each trade pays.
+Opponent:    Every seat passes and every seat's pass sigils fire, so the rule is visible and symmetric; each opponent picks what they give and bids after the exchange.
+AI note:     Pass the lowest card of the shortest non-spade suit; take every optional trade that doesn't give away a likely winner.
+Rationale:   The table pass guarantees one pass a round without a trick win and fires Swapped Sticker, Valentine Stamp, Deserted Island, and Peddler's Cart; the +10 per pass pays about +20 to +30 a made round without Traders' Handshake and about +40 to +50 with it (+10 per trade, like the Handshake itself), rare value for a Swap Meet whose commons drift to round 13; every seat's left player is an opponent, so the blind nil clause stops the pass from handing a locked blind nil a winner (the same reason Mystery Parcel and the Handshake skip nil bidders).
+```
+
+## Swelling Sea
+
+```
+Code:        TE-R03
+Name:        Swelling Sea
+Icon:        sea-view               (alternates: Steaming Hot Spring / hot-tub, Lovers' Beach / beach)
+Resonance:   Teal
+Rarity:      Rare (85 gold)
+Text:        Gain +15 contract value for each round you've won three or more tricks with hearts since you bought this sigil, up to +90.
+Timing:      Always on, for you (counter checked at scoring)
+Archetypes:  Heart Chorus
+Family:      Scaling sigils / Counters (heart rounds)
+Role:        Payoff (Contract additive, scaling)
+Signature:   always, counter of rounds with 3+ heart tricks won since purchase | self | contract | contract value +15 per qualifying round | max +90
+Decision:    Whether to spend hearts early to reach three heart wins or hold them for the late tricks, and how many heart tricks to bid for.
+Opponent:    The count is public; opponents can hold spades for the late hearts to deny a qualifying round.
+AI note:     Value each round at three or more heart wins as +15 for the rest of the run; with Unfolding Butterfly, hold hearts for the last five tricks.
+Rationale:   A Heart Chorus hand with Unfolding Butterfly wins three heart tricks in about 60% of rounds, so a copy bought around round 5 reaches about +45 by round 10 and nears the cap by round 13 (about +35 to +45 EV late), rare value for the thinnest archetype; the round that qualifies pays at once, and it grows across the run instead of paying a one-round bonus (Schooling Fish, Sunset Sailboat) or raising heart ranks (Unfolding Butterfly).
+Deviation:   Step raised from about +10 to +15 (cap +90) because a rare is usually found mid-run and +10 left the thinnest archetype near +25 EV; timing moved from "After scoring" to the accepted always-on counter pattern (Growing City, Waiting Bench) so the qualifying round pays immediately, and After scoring is already above its floor of 3.
+```
+
+## Yielding Cone
+
+```
+Code:        TE-R04
+Name:        Yielding Cone
+Icon:        traffic-cone               (alternates: Unloading Truck / truck, Hailing Passerby / hail)
+Resonance:   Teal
+Rarity:      Rare (90 gold)
+Text:        Up to twice per round, when you lose a trick after taking your bid, you may swap your highest card for your partner's lowest card.
+Timing:      When you lose any trick
+Archetypes:  Exact Contractor; splash Kingmaker, Swap Meet
+Family:      Partner exchange / During play (after your bid is taken)
+Role:        Enabler (feeds exact-bid multipliers)
+Signature:   you lose a trick, own bid already taken | team | your highest card and partner's lowest | optional swap | max 2 per round
+Decision:    Whether to hand a winner you can't afford to your partner now, weighing whether they still need tricks or would take an overtrick.
+Opponent:    Each swap is shown; opponents see a winner move across the table and can plan to trump or duck it.
+AI note:     Swap when your partner is below their own bid, or when your highest card would otherwise win a trick you don't need.
+Rationale:   Reaching your bid is when Exact Contractor starts ducking, and this sends the card that would break the count to the seat that still needs a trick, raising the rate of True Aim, Balanced Yin-Yang, and Guarded Lock; the cards are fixed (highest for lowest) so the only choice is whether, which the AI handles; it depends on neither this card losing (Swapped Suitcases) nor a nil partner (Shouldered Backpack), and each swap counts as a pass, so Fair Shuffle pays at most twice (+40).
+```
+
+## Rescuing Ambulance
+
+```
+Code:        TE-R05
+Name:        Rescuing Ambulance
+Icon:        ambulance               (alternates: Steady Surfboard / surfboard, Calm Pool / swimming-pool)
+Resonance:   Teal
+Rarity:      Rare (100 gold)
+Text:        If your partner's nil succeeds and you make your bid, gain +1× contract multiplier.
+Timing:      Conditional scoring
+Archetypes:  Nil Guard; splash Nil Champion, Blind Bidder (as the partner)
+Family:      Multipliers / Conditional
+Role:        Payoff (Contract multiplier, success-only)
+Signature:   scoring, partner's nil made and own bid made | self | contract | multiplier +1× | ×1
+Decision:    How high to bid your solo contract beside a nil partner, and how much to spend covering their nil versus winning your own tricks.
+Opponent:    Visible at scoring; opponents answer by attacking the nil or setting the solo contract, either of which switches it off.
+AI note:     Bid the full solo contract beside a nil partner and cover the nil first; favor partner nil when this is owned.
+Rationale:   In a partner-nil round the nil succeeds about 90% with Sheltering Castle and the solo contract is made about 80%, so +1× on a late solo contract of about 100 (with Lifeguard's Buoy) is worth about +70 per nil round and +35 to +45 averaged over a run, rare value for thin Nil Guard; success-only, it never doubles a failed contract, and it asks for your bid made, not exact (Guarded Lock, Balanced Yin-Yang) or low (Half-Lit Menorah), so the guard still wants to win tricks.
+```

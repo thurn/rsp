@@ -509,3 +509,104 @@ Opponent:    Visible after bids; opponents see who leads and why, and keep every
 AI note:     If your partner bid nil, lead yourself; if you hold two or more aces, lead yourself; otherwise keep the normal leader.
 Rationale:   The brief's effect in one plain clause, a splash that lets a Nil Guard lead high through a nil and an exact bidder set the first suit; the price drops from 70 to 60 because choosing one lead a round is a modest edge.
 ```
+
+## Surplus Muscle
+
+```
+Code:        RE-R01
+Name:        Surplus Muscle
+Icon:        biceps               (alternates: Spreading Heat / heat-wave, Overflowing Stairs / steps-up)
+Resonance:   Red
+Rarity:      Rare (95 gold)
+Text:        Affinity: Ace. This card gains +3 rank, and any rank beyond ace it would gain goes to your highest other card of its suit instead.
+Timing:      Always on, for the engraved card
+Archetypes:  High Card; splash Kingmaker, Spade Master
+Family:      Raising your ranks / Overshoot (engraved card)
+Role:        Enabler (feeds win triggers and Unclouded Sun)
+Signature:   always | self | this card (affinity ace), excess beyond ace to your highest other card of its suit | rank +3, overflow transfers | ×1
+Decision:    Where to aim your chosen rank boosts (Tipping Scales, Rosy Champagne, Relay Torch, Opening Volley): piling them on this ace, where they used to be wasted, now builds a second ace, and you choose which of the two aces to cash first.
+Opponent:    The raised card is shown when played like any rank change; opponents face two aces in one suit and can plan to trump the second, or lower it, since the gained rank sits on an ordinary card.
+AI note:     Treat the highest other card of this card's suit as its boosted rank when bidding; direct chosen rank boosts to this card when it is already an ace.
+Rationale:   On an ace, the whole +3 spills, so a jack, queen, or king of the same suit (held about half the time) becomes a second ace and a ten becomes a king, about half a trick a round; every other Red boost stacked on the ace now flows onward too, which makes overshoot a build-around rather than waste, while one recipient card keeps a strong-watch archetype in check; with Unclouded Sun (DU-S01) the second ace is also untrumpable, the intended High Card payoff at 4.5% of runs.
+```
+
+## Ticking Bomb
+
+```
+Code:        RE-R02
+Name:        Ticking Bomb
+Icon:        bomb               (alternates: Blaring Siren / siren, Revving Motorcycle / motorcycle)
+Resonance:   Red
+Rarity:      Rare (90 gold)
+Text:        Once you've trumped four times this round, gain +1× contract multiplier.
+Timing:      When you play another suit
+Archetypes:  Spade Master; splash Contract Attacker
+Family:      Growth over the round / Outcome counters (trumps played)
+Role:        Payoff (Contract multiplier, built during the round)
+Signature:   you trump, fourth time this round | team | contract | multiplier +1× | once per round
+Decision:    Whether to open a second void and trump in over a partner's winner to reach the fourth trump, knowing the +1× then doubles a failed contract too, so the bid must be safe before the count lands.
+Opponent:    The count is public through plays and the multiplier is shown when it lands; opponents can deny it by leading spades to pull trumps or by leading the suits the owner still holds.
+AI note:     Count trumps played; once at three, trump rather than discard when void, and bid a little conservatively when the hand shows two voids.
+Rationale:   A void-and-trump deck with Alchemist's Wand (DU-S02) trumps four times in about a third of rounds, and those rounds are usually made, so the +1× is worth about +30 mid-run and +40 late, inside the rare band and restrained for a strong-watch archetype; it shares Second Strike's (RE-U04) counting phrase but pays a multiplier, not spade rank, and counts no discards (GR-R05).
+```
+
+## Perfect Throw
+
+```
+Code:        RE-R03
+Name:        Perfect Throw
+Icon:        ball-throw               (alternates: Alley-Oop Basketball / basketball, Lofted Football / football)
+Resonance:   Red
+Rarity:      Rare (90 gold)
+Text:        Once your partner has won two tricks with cards you passed them this round, gain +1× contract multiplier.
+Timing:      When your partner wins a trick
+Archetypes:  Kingmaker; splash Swap Meet
+Family:      Win triggers / Partner (passed cards, counted)
+Role:        Payoff (Contract multiplier, built during the round)
+Signature:   partner wins a trick with a card you passed them, second time this round | team | contract | multiplier +1× | once per round
+Decision:    Which cards to pass: two likely winners rather than one bomb and a filler, then whether to duck a trick so your partner can cash the second passed card.
+Opponent:    Passed cards are hidden until played, but each counted win is shown; opponents can trump or overtake the partner's passed winners once they see the plan.
+AI note:     Pass your two highest non-spade cards (or a high spade) when you hold pass effects; as the partner, cash cards received from this player early while they still win.
+Rationale:   With two pass enablers a Kingmaker partner wins about 1.4 passed cards a round (the Promoted Pawn, DU-S03, estimate), so two wins arrive in about 0.4 of rounds, worth about +35 mid-run and +50 late, the multiplier the thinnest Red archetype needs; it pays a multiplier rather than Promoted Pawn's contract value and compares no trick counts (Runner-Up Trophy, RE-U05).
+```
+
+## Crushing Boot
+
+```
+Code:        RE-R04
+Name:        Crushing Boot
+Icon:        boot               (alternates: Tackling Rugby / rugby-ball, Dented Helmet / helmet)
+Resonance:   Red
+Rarity:      Rare (100 gold)
+Text:        If the opponents miss their contract, gain +1× contract multiplier.
+Timing:      Conditional scoring
+Archetypes:  Contract Attacker; splash High Card, Spade Master
+Family:      Opponent denial / Set rewards (multiplier)
+Role:        Payoff (Contract multiplier)
+Signature:   scoring, opponents' failed contract | team | contract | multiplier +1× | ×1
+Decision:    How hard to press for a set: overtaking the opponents' tricks pays double, but the multiplier also doubles your own failure, so you bid safely and attack with the tricks beyond it.
+Opponent:    Visible at scoring; opponents answer by bidding lower, and a nil-only round gives no contract to miss.
+AI note:     Bid your safe count, then play to take tricks the opponents need once your own bid is made.
+Rationale:   Opponents miss about 20% of contracts, near 30% against a Contract Attacker using Hungry Kraken (DU-S04), Hidden Knife, and Purple lowering, and the attacker usually makes its own contract in those rounds, so the +1× is worth about +30 mid-run and +45 late; it lifts Contract Attacker's own points, not just its margin, and differs from Grinning Skull (PU-C07, per trick short) and Hungry Kraken (a share of their loss).
+```
+
+## Lifetime Award
+
+```
+Code:        RE-R05
+Name:        Lifetime Award
+Icon:        certification               (alternates: Prize Rosette / badge, Grand Slam Tennis / tennis-ball)
+Resonance:   Red
+Rarity:      Rare (85 gold)
+Text:        Affinity: King. When this card wins a trick, gain contract value equal to the contract value you've gained so far this round, up to +60.
+Timing:      When this card wins
+Archetypes:  Bonus Chaser; splash High Card
+Family:      When played and re-triggers / Repeat (earlier payouts)
+Role:        Payoff (Contract additive)
+Signature:   this card wins (affinity king) | self | contract | contract value equal to your contract value so far this round, max +60 | ×1
+Decision:    When to cash the king: hold it until your one-shots have paid and the ace has fallen, against the risk that a late trump or discard takes the trick.
+Opponent:    The payout is shown when it resolves; opponents who see a king held late can trump it or keep their ace to beat it.
+AI note:     Play this king only after the suit's ace is gone and your contract value this round is at least +40, or on the last safe trick.
+Rationale:   A late-winning king doubles a Bonus Chaser's round of one-shots (Opening Bell, Golden Ticket, Chasing Rainbows, Crown Jewel) up to the cap, about +20 to +35 expected, more with Regal Summit (RE-C02) turning the king into an ace; the +60 cap keeps a strong-watch archetype from doubling a whole round.
+Deviation:   It doubles all contract value you've gained this round rather than re-paying only when-played, when-led, and this-card-wins sigils, because the running total is easier to read than a list of windows, and the King affinity makes the win, and the timing decision, reliable without adding a fourth Ace-affinity "when this card wins" sigil.
+```

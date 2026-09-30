@@ -511,3 +511,107 @@ Opponent:    The changed ranks are shown to the table, so opponents can read the
 AI note:     On nil or blind nil, pay if you hold a queen or better, lowering the suit that holds it; on a contract, pay only when the opponents bid 7 or more, raising your longest non-spade suit.
 Rationale:   Four ranks is the size that actually demotes an ace (Sinking Anchor's calibration), and a whole suit at once is worth a point cost where a single card (Tipping Scales, Steep Price) is not; 20 points is about what the extra nil safety is worth, so it is taken only when it matters.
 ```
+
+## Gambler's Wheel
+
+```
+Code:        OR-R01
+Name:        Gambler's Wheel
+Icon:        color-wheel               (alternates: Thrown Cube / cube, Bitter Lemon / lemon)
+Resonance:   Orange
+Rarity:      Rare (90 gold)
+Text:        When this card loses a trick before your team has made its contract, you may pay 40 points to gain +1× contract multiplier.
+Timing:      When this card loses
+Archetypes:  Bonus Chaser; splash Gold Miner, Diamond Flood
+Family:      Costs / Points (for a multiplier)
+Role:        Payoff (Contract multiplier, bought with points)
+Signature:   this card loses, own bid not yet taken | self | contract | pay 40 points for multiplier +1× | ×1
+Decision:    Whether to throw this card away while your own bid is still open, betting 40 points and a doubled failure that the round's bonuses will come in.
+Opponent:    Visible when paid, while the contract is still in doubt, so opponents know to press for a set against a doubled contract; they can also deny the trigger by letting this card win.
+AI note:     Pay if your team's contract value (bid plus bonuses so far) is at least 80 and you expect to take your bid with one trick or more to spare; otherwise decline.
+Rationale:   Bought while the owner's bid is still open, the +1× carries real failure risk and is worth about 0.8V − 12 − 40: about +10 early, +45 mid, and +75 on Bonus Chaser's large late contracts, the steep multiplied finish its additive pool lacks; the cost stays at 40 rather than 30 because a partner's overtricks can still make the team contract nearly safe while your own bid is open, and under the once-a-round multiplier convention Twin Cherries or Masked Encore can't stack it.
+Deviation:   Revision 1: the purchase now requires that you haven't yet taken your bid, so it can't be bought after the contract is settled.
+```
+
+## Layer Cake
+
+```
+Code:        OR-R02
+Name:        Layer Cake
+Icon:        cake-slice               (alternates: Hoarder's Barrel / cylinder, Stacked Waffle / waffle)
+Resonance:   Orange
+Rarity:      Rare (85 gold)
+Text:        Affinity: Diamond. When this card wins a trick, gain +10 contract value this round and every later round.
+Timing:      When this card wins
+Archetypes:  Diamond Flood; splash Bonus Chaser
+Family:      Scaling sigils / Counters (this card's wins)
+Role:        Payoff (Contract additive, scaling across the run)
+Signature:   this card wins | self | contract | contract value +10, stacking for the rest of the run | ×1
+Decision:    Each round, how to make this diamond win: lead it once it is the highest diamond left, spend Red rank boosts on it, and keep it away from tricks the opponents can trump.
+Opponent:    The growing total is visible each time it steps up; opponents can trump or overtake this card to stop the step, which rewards tracking which diamond carries it.
+AI note:     Lead this card when it is the highest unplayed diamond or when every opponent has shown diamonds on the last diamond trick; otherwise treat it as a normal diamond.
+Rationale:   A flooded diamond carrying it wins about half the time, so a buyer around round 4 carries about +40 by round 12 and averages +20 to +25 a round, rising further under GR-R02 and GY-R04; the step stays at +10 and at most one a round because Diamond Flood is on the strong watch list, and it never resets, unlike House of Cards (GY-C21).
+```
+
+## Spendthrift's Wallet
+
+```
+Code:        OR-R03
+Name:        Spendthrift's Wallet
+Icon:        wallet               (alternates: Last Dollar / dollar, Brand-New Boombox / boombox)
+Resonance:   Orange
+Rarity:      Rare (85 gold)
+Text:        After scoring, you may pay up to 100 gold, and your team gains that many points.
+Timing:      After scoring
+Archetypes:  Gold Miner; splash Diamond Flood, Swap Meet
+Family:      Gold and points conversion / Gold to points
+Role:        Payoff (Economy: points outside the contract)
+Signature:   after scoring | team | your gold | pay up to 100 gold, points +1 per gold | per round
+Decision:    Every round, how much gold to keep for shops, interest, and Pharaoh's Pyramid, and how much to cash now.
+Opponent:    Visible when paid; the points arrive after scoring, so opponents can see the Gold Miner's pace and bid to close the gap.
+AI note:     Before round 8, pay nothing; from round 8, pay whatever gold you hold above 250 (above 500 with Pharaoh's Pyramid), up to 100; in round 13 or when it wins the run, pay the full 100.
+Rationale:   At 1 point per gold it is the strong late converter the brief asked for, about +100 a round once a miner's income (100 to 165 gold with Grand Treasury) runs a surplus, and nothing early because gold still buys sigils then; the points score on failed contracts too, like the Pyramid's, but spending the gold competes with the Pyramid's holding.
+Deviation:   Capped at 100 gold a round instead of any amount, because an uncapped dump of a 500–800 gold hoard would cross 1,000 in one step and end runs a round or two early.
+```
+
+## Round-Trip Record
+
+```
+Code:        OR-R04
+Name:        Round-Trip Record
+Icon:        disc               (alternates: Loaned Boombox / boombox, Traded Ice Cream / icecream)
+Resonance:   Orange
+Rarity:      Rare (90 gold)
+Text:        When this card is passed to you, if it was already passed after the first trick, gain +1× contract multiplier.
+Timing:      When you pass cards (this card's second pass)
+Archetypes:  Swap Meet; splash Kingmaker, Nil Guard
+Family:      Multipliers / Conditional (this card changed hands twice)
+Role:        Payoff (Contract multiplier)
+Signature:   this card passed a second time this round | receiver | contract | multiplier +1× | ×1
+Decision:    Spending two exchanges on one card: send it to your partner early (Open Hand, Sealed Letter, or a Traders' Handshake trade) and have it sent back later, which ties up trades that could have fixed your hand, and never let it reach the opponents, whose second pass would give them the multiplier.
+Opponent:    Visible when it fires; an opponent handed this card in a trade can pass it on to their own partner to claim the +1× for their contract, so trades with the Swap Meet player carry a visible risk and a chance.
+AI note:     Give this card to your partner in your first pass or trade of the round; as the partner, give it back in the next exchange you make with the owner; never give it to an opponent.
+Rationale:   It pays on the exchange itself, not on a trick win, so it is distinct from Perfect Throw (RE-R03) and Promoted Pawn (DU-S03) and needs no winning card; two passes of one card take the Handshake plus two of your wins, or two pass tools, so it fires in about 40–50% of a Swap Meet deck's rounds for about +45 mid and +60 late, and nothing without pass tools; the once-a-round multiplier convention caps it at +1×.
+Deviation:   Revision 1: redesigned from "+1× when this card wins after being passed", which played the same as Perfect Throw (RE-R03); the trigger moves from "When this card wins" to the pass itself, leaving that window one sigil short of the review's projection.
+```
+
+## Flickering Television
+
+```
+Code:        OR-R05
+Name:        Flickering Television
+Icon:        tv               (alternates: Sneaked Cupcake / cupcake, Scent of Bacon / bacon)
+Resonance:   Orange
+Rarity:      Rare (90 gold)
+Text:        Before you choose whether to bid blind nil, you may look at four random cards in your hand.
+Timing:      When you bid (the blind nil decision, before the deal)
+Archetypes:  Blind Bidder; splash Nil Champion, Nil Guard
+Family:      Blind bidding / Peek
+Role:        Enabler (blind nil survival and selection)
+Signature:   blind nil decision | self | four random cards in your hand | look (private) | ×1
+Decision:    Whether four cards are safe enough to go blind for ±200 (±300 with Clouded Eight Ball), knowing the other nine stay hidden.
+Opponent:    The peek is private and the blind nil is public as usual; opponents play against it exactly as against any blind nil.
+AI note:     Bid blind nil when eligible unless the four cards include a spade queen or higher, two aces or kings, or three or more spades.
+Rationale:   The peek screens out about a quarter of the worst blind hands and lifts survival on the rest from about 0.65 to about 0.75, worth about +20 points and steadier blind-nil gold per eligible round, and more with Clouded Eight Ball (OR-U07), whose ±300 punishes exactly the hands this avoids.
+Deviation:   Dropped the briefed stake cut (±150) and raised the peek from three cards to four, because at ±150 the information roughly cancels the lost stakes (about 60 expected points either way), leaving a rare that changes little; the simpler text also stacks with Clouded Eight Ball without an "instead of" conflict.
+```

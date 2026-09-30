@@ -532,3 +532,84 @@ AI note:     Lead your highest hearts once they beat the hearts still out; never
 Rationale:   Heart Chorus's main threat is opponents running out of hearts and trumping its late ace-level hearts, and this removes it outright, which gives the thinnest archetype real value; it covers every player's hearts rather than your aces, so it differs from Unclouded Sun (DU-S01) in both target and reach.
 Deviation:   Dropped the "until a named-suit trick is won" condition and Diamond Flood and Spade Master as targets, because Heart Chorus's hearts are weak early, so opponents would win the unlocking heart trick first, and Diamond Flood and Spade Master are already ahead of the curve.
 ```
+
+## Armistice News
+
+```
+Code:        BL-R01
+Name:        Armistice News
+Icon:        newspaper               (alternates: Parting Cloud / cloud, Scholar's Truce / education)
+Resonance:   Blue
+Rarity:      Rare (90 gold)
+Text:        Affinity: Queen. When this card loses a trick won by trumping, no one can win a trick by trumping for the rest of the round.
+Timing:      When this card loses
+Archetypes:  High Card; splash Heart Chorus, Nil Champion
+Family:      Trump and spade-breaking rules / Conditional trump (shut off by a sacrifice)
+Role:        Enabler; rule setter
+Signature:   this card loses a trick won by trumping | all players | spades played to tricks of another suit | cannot win | rest of round
+Decision:    When to lead the queen into a suit an opponent (or your partner) has shown void in, trading one queen for trump-proof aces and kings in every trick left.
+Opponent:    Hidden until it fires, then public and symmetric; opponents who know the sigil face a dilemma on a queen lead in their void: trump it and give up trumping, or discard and let the queen win.
+AI note:     Lead the queen once an opponent or your partner has shown a void in its suit and you hold two or more aces or kings in other suits; otherwise hold it and follow normally.
+Rationale:   The trigger needs a void, so it fires mid-round, just when trumping starts to threaten High Card's winners, and it costs a queen that might have won; the queen affinity makes the bait work, because a void opponent trumps a queen that could win but may shed under a low card. Unlike Unclouded Sun (aces only), Stilled Hurricane (last four tricks), or Rosy Spectacles (hearts), it protects every card for whatever is left of the round, and your partner trumping the queen sets it up without losing the trick. It shares Stilled Hurricane's wording and property, so the two never conflict; GR-R01 (must trump) and GR-R03 (late hearts trump) change other properties and coexist with it. Opponents' kings are protected too, which keeps a strong-watch archetype's gain modest.
+```
+
+## Jeweler's Magnifier
+
+```
+Code:        BL-R02
+Name:        Jeweler's Magnifier
+Icon:        reading-glass               (alternates: Banker's Calculator / calculator, Gilt Microscope / microscope)
+Resonance:   Blue
+Rarity:      Rare (95 gold)
+Text:        When you bid, you may pay 100 gold to gain +1× contract multiplier.
+Timing:      When you bid
+Archetypes:  Gold Miner; splash Diamond Flood, Swap Meet
+Family:      Costs / Gold (for a multiplier)
+Role:        Payoff (Contract multiplier)
+Signature:   when you bid | self | contract | pay 100 gold for multiplier +1× | ×1
+Decision:    Every round, with your hand in view, whether it is safe enough to double, and whether 100 gold is worth more as this round's multiplier, a future sigil, interest, or Pharaoh's Pyramid points.
+Opponent:    Visible when you bid; opponents see the doubled stakes and can press to set the contract, which doubles your loss.
+AI note:     From round 8 on, pay whenever the team's contract looks comfortable; before round 8, pay only if you would still hold 250 gold afterward.
+Rationale:   The +1× applies win or lose, worth about +84 mid-run and +116 late, against 100 gold worth about 50 points mid-run and little late, so early it is a bad trade and late it is the hoard's best use, about the 1:1 rate OR-R03 sets. Each payment also costs 20 gold of interest and 10 points a round of Pharaoh's Pyramid, so spending and holding pull against each other instead of stacking, and a late miner's income (about 115–165 gold a round) covers most rounds but not every one.
+```
+
+## Steady Pulse
+
+```
+Code:        BL-R03
+Name:        Steady Pulse
+Icon:        pulse               (alternates: Huddled Sparkles / sparkles)
+Resonance:   Blue
+Rarity:      Rare (90 gold)
+Text:        If this card and two or more other cards of its suit are still in your hand when the eighth trick begins, gain +1× contract multiplier.
+Timing:      While in hand (checkpoint at the eighth trick)
+Archetypes:  While Held; splash Heart Chorus, Diamond Flood
+Family:      Multipliers / While held (checkpoint, several cards)
+Role:        Payoff (Contract multiplier)
+Signature:   eighth trick begins, this card and 2+ other cards of its suit held | self | contract | multiplier +1× | ×1
+Decision:    Through the first seven tricks, never leading this card's suit and following it with suit-mates only when forced, and before bidding, which cards to convert into its suit so three survive.
+Opponent:    Hidden until it pays; opponents who spot a hoarded suit can lead it early to pull the cards out, and since it pays win or lose, a set still costs double.
+AI note:     Don't lead this card's suit before trick 8; when forced to follow it, play another card of the suit; convert cards into its suit whenever a sigil allows.
+Rationale:   This card sits in a suit of about four cards and each lead of that suit forces one out, so the checkpoint is met in about 40% of rounds unassisted and about half with Wandering Compass, Faithful Dog, Turning Tide, or Paused Stopwatch; it isn't success-only, so it is worth about +40 to +55 late, and it can be held beside Patient Hourglass's card for +2×. Paying at trick 8 announces the stakes with six tricks left, and Heart Chorus, which wants hearts late, holds them naturally.
+Deviation:   Changed "two other cards with sigils" to "two or more other cards of its suit", because by mid-run most of a 13-card hand carries sigils, so that count is met automatically and the checkpoint collapses into holding one card, a Patient Hourglass look-alike; suit-mates keep the several-cards test real at every collection size.
+```
+
+## Empty Cloche
+
+```
+Code:        BL-R05
+Name:        Empty Cloche
+Icon:        dish               (alternates: Blinkered Visor / vr-headset, Strict Directory / phone-book)
+Resonance:   Blue
+Rarity:      Rare (85 gold)
+Text:        Every player must bid nil or at least four.
+Timing:      Always on, for you
+Archetypes:  Nil Champion; splash Contract Attacker
+Family:      Bidding constraints / Nil or big
+Role:        Enabler; rule setter
+Signature:   always | all players | bids | only nil or 4+ | all
+Decision:    Bidding: with one to three tricks, whether to dare a nil or stretch to four; for the owner, bidding nil on hands that would otherwise be a cautious two.
+Opponent:    Public from the first bid and symmetric; opponents' weak hands become risky nils (Broken Ring's +100) or overbids (sets Hungry Kraken cashes), and they can answer by bidding nil themselves.
+AI note:     With fewer than four expected tricks, bid nil if you hold at most one ace or king or own a lowering or passing sigil; otherwise bid four.
+Rationale:   About half of dealt hands are worth one to three tricks, so the rule turns most rounds into a nil-or-stretch choice for every seat; the nil deck wants that choice, and opponents forced to four must chase their own tricks instead of attacking your nil. Blind nil is still nil, so eligibility (Night Owl, Desperate Gambit) is unchanged, and later bid changes (Amended Scroll, Measured Delta) still work because the rule governs only declared bids. The cost is real: your partner is held to four too.
+```

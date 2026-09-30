@@ -517,3 +517,104 @@ AI note:     Choose the suit holding your highest card with the fewest low cards
 Rationale:   A nil fails on the one high card it can't duck; a spare two gives one more safe follow in the dangerous suit and leaves one card unplayed at the end, lifting a nil's success by several points (about +15–25 nil EV at +100 to +200), and it works on a blind nil because it resolves after the deal; it helps only nils, which keeps it a splash hook and out of contract decks.
 Deviation:   Family moved from Changing your suits to Creating cards, because every after-bidding conversion to a chosen suit reads as Wandering Compass (BL-C06) scaled up and crowds Autumn Leaf (GR-U02); archetype focus drops Gold Miner, which gains nothing from a nil hook.
 ```
+
+## Armored Beetle
+
+```
+Code:        GR-R01
+Name:        Armored Beetle
+Icon:        bug               (alternates: Pitched Tent / tent, Quiet Campsite / camping)
+Resonance:   Green
+Rarity:      Rare (90 gold)
+Text:        During the first six tricks, no one can lead a spade unless they hold only spades.
+Timing:      Always on, for you (tricks 1–6)
+Archetypes:  Spade Master; splash Discard Dominance
+Family:      Trump and spade-breaking rules / Timed spade leads
+Role:        Enabler; rule setter
+Signature:   always, tricks 1–6 | all players | spade leads | forbidden unless holding only spades | first six tricks
+Decision:    Bidding on ruffs that can't be drawn out early, then shaping the hand for it: open voids fast, keep one or two low side cards to lead after each ruff (your own spades can't be led either), and from the seventh trick decide whether to draw the remaining trumps with your long spades.
+Opponent:    The rule is known before bidding and ends on a fixed trick; opponents can't pull the long-spade hand's trumps early, but they still ruff its side leads, save spades to overtrump, and pick which side suit to lead; opposing nils holding high spades are a little safer early.
+AI note:     Bid about one extra trick with five or more spades and a void or singleton; before the seventh trick, keep a low side card for your next lead; from the seventh trick, lead high spades when you hold the most trumps.
+Rationale:   Opponents leading spades to pull trump is Spade Master's named threat, and this shuts it for half the round: every early lead is a side suit, so a void hand ruffs more often and keeps its length for the late tricks, about half to one extra trick, while its own spade leads are blocked too, so it must keep side cards to lead; the spades-only exception keeps a Wand-converted hand from being stuck; it sets only spade-lead permission in tricks 1–6, a property no accepted rule setter touches, so it stacks cleanly with Arena's Law (RE-U01), Stilled Hurricane (BL-U01), Rosy Spectacles (BL-U11), Rewound Reel (PU-U08), and BL-R01, and it ends exactly where GR-R03's "any suit can be led" begins; it forces no plays and converts no opposing spades (Mauling Bear, GR-U03).
+Deviation:   Revision 1: replaced forced trumping while held, which read as a weaker Arena's Law (RE-U01) on the same property, with a timed spade-lead ban; timing moved from While in hand to Always on, for you, which leaves While in hand one short of its floor (9 of 10) for the wave 6 audit or a flex rare, and the sigil is no longer opponent-facing (that budget is already at its target).
+```
+
+## Bursting Barn
+
+```
+Code:        GR-R02
+Name:        Bursting Barn
+Icon:        barn               (alternates: Split Melon / watermelon, Ripe Avocado / avocado)
+Resonance:   Green
+Rarity:      Rare (95 gold)
+Text:        Affinity: Diamond. When you lead with this card, if you've already played four or more diamonds this round, gain +1× contract multiplier.
+Timing:      When led
+Archetypes:  Diamond Flood; splash Bonus Chaser
+Family:      Suit payoffs / Leading (after a flood)
+Role:        Payoff (Contract multiplier)
+Signature:   when led, you've already played four or more diamonds this round | self | contract | multiplier +1× | ×1
+Decision:    Holding the engraved diamond, often a strong one you'd like to cash early, while four other diamonds run, then winning a trick late enough to lead it, and bidding knowing a multiplier gained mid-round also doubles a failure.
+Opponent:    The lead and the multiplier are shown; opponents who count diamonds can drain the flood with early diamond leads or trump the payoff lead, and a doubled contract that later fails costs its owner double.
+AI note:     Don't lead or follow with the engraved diamond while other diamonds can do the job; once four other diamonds are gone, lead it on your next lead, and bid for it only with six or more diamonds.
+Rationale:   A flooded hand of six or more diamonds runs four of them by about the sixth trick and reaches a lead with this card still held in about 40% of rounds (about 10% otherwise); gained mid-round, the +1× applies win or lose, worth about +45 late (0.4 × (0.8 × 160 − 12)), inside the rare band for the strong-watch archetype; the flood has to happen before the payoff, so it counts diamonds without paying per diamond played (Gem Cascade, DU-S06) or per diamond led (Golden Apple, GR-U04), and it is Diamond Flood's first aimed multiplier alongside GY-R04.
+```
+
+## Evening Melody
+
+```
+Code:        GR-R03
+Name:        Evening Melody
+Icon:        music               (alternates: Crimson Leaf / leaf, Potted Fern / plant-pot)
+Resonance:   Green
+Rarity:      Rare (95 gold)
+Text:        From the seventh trick on, hearts are trump instead of spades, and any suit can be led.
+Timing:      Always on, for you (from the seventh trick)
+Archetypes:  Heart Chorus; splash Kingmaker, Nil Guard
+Family:      Trump replacement / Delayed
+Role:        Enabler; rule setter
+Signature:   always, tricks 7+ | all players | trump suit | hearts replace spades, any suit may be led | last seven tricks
+Decision:    Bidding for late heart trumps, then saving the hearts Unfolding Butterfly (DU-S11) has grown and emptying a side suit before the seventh trick so they can ruff, while spending your spades early, before they turn into an ordinary suit.
+Opponent:    The rule is known before bidding and changes on a fixed trick, so every seat bids and plans for it: opponents cash their spades early, keep hearts to overtrump late, or lead hearts to pull them; from the seventh trick, playing a heart to another suit is trumping and playing a spade there is a discard.
+AI note:     Bid about one extra trick with six or more hearts; before the seventh trick, play spades and low side cards first and keep hearts; from the seventh trick, treat hearts as trump when voiding and leading.
+Rationale:   It lifts the thinnest archetype's late game without wrecking the whole round: the grown hearts win as trump in the late tricks where Sunset Sailboat (TE-U05) and Blooming Lotus (GR-U05) pay and Schooling Fish (GR-C13) and TE-R03 count heart wins, about one extra heart trick a round; the text says which rules change (the trump suit, so trumping and discarding follow it, and lead restrictions, so a late heart or spade lead is never blocked); it makes hearts trump rather than stopping hearts from being trumped (Rosy Spectacles, BL-U11, which still just protects heart leads), raises no heart ranks (Verdant Banner, GR-C09), and coexists with BL-R01 and Stilled Hurricane (BL-U01), which set a different property: with both active, hearts are trump but a heart played to another suit can't win.
+```
+
+## Charged Solar Panel
+
+```
+Code:        GR-R04
+Name:        Charged Solar Panel
+Icon:        solar-panel               (alternates: Sealed Hexagon / hexagon, Winter Carrot / carrot)
+Resonance:   Green
+Rarity:      Rare (90 gold)
+Text:        This card can't be played before the last three tricks, and it wins any trick it's played to.
+Timing:      Always on, for the engraved card
+Archetypes:  While Held; splash Exact Contractor, High Card
+Family:      While held / Holding support (locked card)
+Role:        Enabler
+Signature:   always | self | this card | can't be played before trick 11, then wins its trick | ×1
+Decision:    Bidding one sure trick, playing ten tricks one card short in the engraved card's suit (you follow with other cards or count as void there), and choosing which of the last three tricks to take with it.
+Opponent:    The card is hidden until played, then wins visibly; opponents lose one late trick they can't contest, but they can read the holder's forced voids in its suit and lead that suit to make other cards go.
+AI note:     Count it as one sure trick when bidding and never bid nil with it; play it on the late trick where losing would hurt most, or last if the team has already taken its bid.
+Rationale:   One guaranteed late trick (about +10 of base and a safer bid) at the cost of a locked card makes every hand shape around it, and it is always still held at BL-R03's eighth-trick checkpoint; paired on one card through GY-R02 it guarantees Ripening Pear (GR-C10) or, played on the last trick, Patient Hourglass (DU-S10), a three-sigil build-around rather than a free multiplier; it doesn't set the card to ace (Boiling Thermometer, BL-U05, which trumps can still beat) or excuse following suit once a round (Paused Stopwatch, BL-C13); rulings for the conventions: (a) before the last three tricks you don't have to follow suit with it, so it counts as void in its suit, (b) if removal effects leave it your only card before then, you play it, and (c) it wins by its own text even when a rule setter says no one can win by trumping (BL-R01, Stilled Hurricane) or reverses rank order (Rewound Reel, PU-U08), with two such cards in one trick going to the later one.
+```
+
+## Spring Renewal
+
+```
+Code:        GR-R05
+Name:        Spring Renewal
+Icon:        recycle               (alternates: Wilted Broccoli / broccoli, Unwound Spool / thread-roll)
+Resonance:   Green
+Rarity:      Rare (90 gold)
+Text:        The fifth time each round you discard, gain +1× contract multiplier.
+Timing:      When you discard
+Archetypes:  Discard Dominance; splash Nil Champion
+Family:      Growth over the round / Outcome counters (discards)
+Role:        Payoff (Contract multiplier)
+Signature:   fifth discard each round | self | contract | multiplier +1× | ×1
+Decision:    Bidding low enough to afford five losing discards, spending skip-follow permissions and voids to reach the fifth, and weighing whether a contract that might still fail should be doubled.
+Opponent:    The count is public through plays and the multiplier is shown when gained; opponents slow it by not leading the holder's void suits and by leading suits the holder must follow.
+AI note:     Bid a contract that five discards can't break; once four discards are made, prefer a discard over following with a card that could win.
+Rationale:   A club-void deck with a second void or a skip-follow permission discards four to six times a round, so it reaches five in about 45% of Discard Dominance rounds and rarely otherwise; gained mid-round, the +1× applies win or lose, about +40 late (0.45 × (0.8 × 120 − 12)) on its low-bid contracts, and the fifth discard is itself a lost trick, which keeps a strong-watch archetype honest; it counts discards only, not trumps (RE-R02), and pays no value per void (Scouring Tornado, DU-S12) or per club (Buried Bone, PU-C09).
+```
