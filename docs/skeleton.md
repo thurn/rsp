@@ -379,6 +379,11 @@ The orchestrator writes `slots.md` and `scoring.md` before any design begins.
   the partner's successful nil," without prescribing the design.
 - The orchestrator checks slot assignments against the support floors and
   budgets in this document.
+- A slot row is a starting point, not a contract. Only its resonance and
+  rarity are fixed. Designers may change the family, variation, timing,
+  role, or archetype focus when they see a better design or a problem, and
+  note the change in the entry. On acceptance the orchestrator updates the
+  row to match the design, and the wave audits catch any budget drift.
 
 ### Phase 1: icon pools
 
@@ -442,8 +447,9 @@ skeleton documents, [rules-text.md](rules-text.md), its pool from
 signposts it supports, and designers treat those signposts as the plan their
 sigils feed. For each slot, the designer:
 
-1. Writes **three candidates** that fill the slot's brief using its assigned
-   variation.
+1. Writes **three candidates** for the slot, starting from its brief and
+   assigned variation and departing from them, with a stated reason, when a
+   better design or a problem appears.
 2. Checks each candidate against the registry and drops any that match an
    existing signature.
 3. Scores each candidate against the rubric below.
