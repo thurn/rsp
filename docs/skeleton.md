@@ -229,6 +229,7 @@ prototype, AI self-play simulations replace the estimates.
 | Commons priced at 50 gold or less | At least 40 |
 | Opponent-facing interaction | About 25 sigils, concentrated in Purple |
 | Timing windows | At least 10 sigils in each timing window from the core rules |
+| Suit references | Suit sigils name a suit; relative references such as "your longest suit" on at most about 10% of them, mostly rare or Gray |
 | AI evaluation | Every sigil whose choices the AI heuristic evaluates poorly is flagged |
 
 Global rule setters stay mostly rare because conflicting setters resolve in

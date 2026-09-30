@@ -79,7 +79,7 @@ trump-against-trump fights.
 
 **Enablers.**
 
-- Green suit conversion toward the longest suit, and extra spades in the
+- Green conversion to spades, and extra spades in the
   starting deck.
 - Green void and long-suit rewards, which pay for the same hand shape the deck
   already wants.
@@ -219,7 +219,7 @@ shop tools, so the deck improves its collection faster than its rivals.
 
 **Enablers.**
 
-- Green conversion toward the longest suit and creation of diamonds.
+- Green conversion to diamonds and creation of diamonds.
 - Green long-suit rewards.
 - Gray shop tools, which turn extra gold into better offers.
 
@@ -392,7 +392,7 @@ suit starts modest and dominates the late tricks.
 
 **Enablers.**
 
-- Green conversion toward the longest suit.
+- Green conversion to hearts.
 - Green growth effects, which raise hearts' ranks as tricks pass.
 - Teal returning played cards to hand, and partner passes of hearts.
 

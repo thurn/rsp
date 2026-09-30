@@ -18,6 +18,10 @@ reference for clarity.
   "gain +20 contract value," "gain +5 gold," "gains +3 rank."
 - **Few game terms.** Rules text uses the short list of terms below and
   otherwise uses everyday words.
+- **Name the suit.** Sigils name the suit they affect, such as "your spades
+  gain +2 rank," so each suit keeps the identity described in
+  [resonance.md](resonance.md#suit-identity). "Your longest suit" is a rare
+  exception.
 - **Defaults stay unwritten.** The conventions below cover who chooses, how long
   effects last, and how scoring works, so the text states only what differs.
 
@@ -87,7 +91,7 @@ triggers watch every trick you play, whichever card you play.
 | **nil** | A bid to take no tricks. |
 | **trump** | Play a spade when a different suit was led. |
 | **convert** | Change a card's suit. |
-| **longest suit, shortest suit** | Counted in your hand when the effect happens. |
+| **longest suit, shortest suit** | Counted in your hand when the effect happens. Used rarely; most sigils name a suit. |
 | **team** | You and your partner. |
 | **gold** | Your personal currency for the shop. |
 
@@ -136,11 +140,11 @@ Spades play:
 | # | Name | Icon | Resonance · Rarity | Rules text |
 | --- | --- | --- | --- | --- |
 | 1 | Honed Edge | `sword` | Red · Common | This card gains +3 rank. |
-| 2 | Verdant Banner | `flag` | Green · Common | While this card is in your hand, cards of your longest suit gain +2 rank. |
+| 2 | Verdant Banner | `flag` | Green · Common | While this card is in your hand, your hearts gain +2 rank. |
 | 3 | Nest Egg | `egg` | Orange · Common | While this card is in your hand, gain +5 gold after each trick. |
 | 4 | Crown Jewel | `crown` | Red · Common | **Affinity: Ace.** When this card wins a trick, gain +20 contract value. |
 | 5 | Graceful Exit | `door-open` | Purple · Common | Whenever you lose a trick you played a face card to, gain +10 contract value. |
-| 6 | Turning Tide | `water` | Green · Common | Before bidding, convert 2 cards in your hand to your longest suit. |
+| 6 | Turning Tide | `water` | Green · Common | Before bidding, convert 2 cards in your hand to diamonds. |
 | 7 | Open Hand | `hand` | Teal · Common | After bidding, you and your partner each pass a card to each other. |
 | 8 | True Aim | `target` | Blue · Rare | If your team makes its contract exactly, gain +1× contract multiplier. |
 | 9 | Silent Vow | `candlestick` | Purple · Common | Gain +30 nil contract value. |
@@ -160,14 +164,14 @@ king or ace, which keeps it a modest common.
 
 ### 2. Verdant Banner: an effect while held
 
-`While this card is in your hand, cards of your longest suit gain +2 rank.`
+`While this card is in your hand, your hearts gain +2 rank.`
 
-The bonus lasts until this card is played. The longest suit is recounted as your
-hand changes, and this card gains the bonus too if it belongs to that suit.
+The bonus lasts until this card is played, and this card gains it too if it is
+a heart.
 
-**Balance:** an enabler. A +1 aura rarely changes a trick; +2 is noticeable
-across a five-card suit, and the bonus ends the moment this card is played,
-which creates a real decision about when to release it.
+**Balance:** an enabler for heart decks. A +1 aura rarely changes a trick; +2
+is noticeable across a long heart suit, and the bonus ends the moment this card
+is played, which creates a real decision about when to release it.
 
 ### 3. Nest Egg: a reward for holding
 
@@ -205,13 +209,13 @@ bidder's sigils still add to the partner's contract.
 
 ### 6. Turning Tide: before bidding
 
-`Before bidding, convert 2 cards in your hand to your longest suit.`
+`Before bidding, convert 2 cards in your hand to diamonds.`
 
 You choose the 2 cards, and everyone bids after the change.
 
-**Balance:** an enabler. Two conversions lengthen a suit and can open a void,
-and everyone bids knowing the result, so it shapes a hand without guaranteeing
-tricks.
+**Balance:** an enabler for diamond decks. Two conversions lengthen the diamond
+suit and can open a void elsewhere, and everyone bids knowing the result, so it
+shapes a hand without guaranteeing tricks.
 
 ### 7. Open Hand: passing cards
 

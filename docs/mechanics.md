@@ -54,7 +54,7 @@ game, so its unconditional versions are modest.
 **Variations.**
 
 - *Intrinsic:* the engraved card gains +N rank for the round.
-- *Aura:* while this card is held, cards of a suit or of your longest suit gain
+- *Aura:* while this card is held, cards of a named suit gain
   +N rank.
 - *Targeted:* when played or revealed, choose cards in hand to raise.
 - *Rank-specific:* affinities, bonuses, and rewards tied to aces and kings,
@@ -179,6 +179,11 @@ late-round dominance.
 
 ## Suit
 
+Suit sigils name the suit they affect, following the suit identities in
+[resonance.md](resonance.md#suit-identity): spades for power, hearts for growth
+and partnership, diamonds for wealth, and clubs for sacrifice. Relative
+references such as "your longest suit" are occasional, flexible exceptions.
+
 ### Changing your suits
 
 **Primary:** Green. **Secondary:** Blue (choosing the target at play).
@@ -192,8 +197,8 @@ cards fully belong to their new suit.
 **Variations.**
 
 - *Intrinsic:* the engraved card becomes a named suit.
-- *Directional:* before bidding, convert N cards of your shortest suit to your
-  longest suit.
+- *Directional:* before bidding, convert N cards to a named suit, such as
+  hearts.
 - *Targeted:* when played or revealed, choose cards in hand and change their
   suit.
 - *Suit swapping:* every card of one suit in your hand becomes a second suit,
@@ -247,7 +252,9 @@ whether it also changes lead restrictions and trump classification.
 
 **Variations.**
 
-- *Longest suit:* your longest suit becomes trump for the round.
+- *Named suit:* hearts or diamonds become trump for the round.
+- *Longest suit:* your longest suit becomes trump for the round, a rare
+  flexible version.
 - *No trump:* no suit is trump for a trick or a round.
 - *Delayed:* trump changes after trick N.
 - *Conditional:* trump changes only while this card is held.
@@ -285,7 +292,7 @@ Created cards transform existing cards or join the hand as extra cards.
 **Variations.**
 
 - *Specific:* transform a card in hand into a named card, such as the ace of
-  your longest suit.
+  spades.
 - *Random:* transform cards into random cards, occasionally producing strong
   results.
 - *Copies:* create a copy of a card already in hand, including its suit and
@@ -852,7 +859,8 @@ Suit payoffs pay for doing something with a specific suit.
 - *Playing:* contract value for each card of a suit you play.
 - *Winning:* contract value for each trick you win with a suit.
 - *Discarding:* contract value for each card of a suit you discard off suit.
-- *Named or relative:* a named suit, or your longest suit.
+- *Named or relative:* a named suit by default; relative suits, such as your
+  longest suit, appear rarely.
 
 ### Card-bound points
 

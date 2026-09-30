@@ -24,10 +24,10 @@ and splashes sigils of other colored resonances for specific support. See
 Resonance sigils fall into two broad roles:
 
 - **Enablers** change the state of the game: they move cards, change ranks,
-  change suits, shape hands, and reveal information. Enablers are written
-  generically so they serve many archetypes. They refer to "your longest suit"
-  rather than a named suit, trigger on any off-suit play (which includes
-  trumping), or let the player choose the direction of a change.
+  change suits, shape hands, and reveal information. Enablers are written so
+  they serve several archetypes: they name a suit that several archetypes
+  share, trigger on any off-suit play (which includes trumping), or let the
+  player choose the direction of a change.
 - **Payoffs** turn a specific outcome into points or gold: a successful nil, a
   diamond trick, gold earned while holding a card. Payoffs are focused so each
   archetype keeps a distinct identity.
@@ -40,6 +40,24 @@ Gray takes this one step further. Gray effects help any collection: they improve
 shopping, engraving, and card selection, or they soften common costs. Gray
 effects are modest in power, so a deck's two colored resonances provide its
 strongest sigils and Gray provides consistency.
+
+## Suit identity
+
+Each suit has a mechanical identity, and sigils name the suit they affect:
+"your spades gain +2 rank," "convert 2 cards to diamonds." Named suits make
+every suit feel different in play and give players a clear drafting target.
+Each suit also links several archetypes, which is a major source of overlap.
+
+| Suit | Identity | Resonances | Archetypes |
+| --- | --- | --- | --- |
+| **Spades** | Trump and raw power: higher ranks, trumping, winning | Red, Green | Spade Master, Kingmaker, Contract Attacker |
+| **Hearts** | Growth and partnership: hearts strengthen over the round and pass between partners | Green, Teal | Heart Chorus, Kingmaker, Nil Guard |
+| **Diamonds** | Wealth: gold and one-shot points | Orange, Green | Diamond Flood, Gold Miner, Bonus Chaser |
+| **Clubs** | Sacrifice: discarded, converted away, paid as costs, and lost on purpose | Purple, Green | Discard Dominance, Nil Champion, Blind Bidder |
+
+Relative suit references, such as "your longest suit" or "the suit led,"
+appear occasionally, mostly on rare and Gray sigils where flexibility is the
+point.
 
 ## Red: Force
 
@@ -104,9 +122,9 @@ Green owns:
 - Effects on adjacent cards in hand.
 - Points for playing cards of a suit.
 
-Green's suit effects work across every suit-focused deck by targeting "your
-longest suit" or the suit of the engraved card. Clubs, which have no archetype
-of their own, are the natural raw material Green converts away.
+Green's suit effects name suits, and each named suit carries the identity
+described in [Suit identity](#suit-identity). Clubs, which have no archetype of
+their own, are the natural raw material Green converts away.
 
 **Archetypes:** Spade Master (Red + Green), Diamond Flood (Orange + Green),
 While Held (Green + Blue), Heart Chorus (Green + Teal), Discard Dominance
