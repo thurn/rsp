@@ -122,8 +122,8 @@ Spades play:
 - A partnership makes its contract about 80% of the time.
 - A random card wins its trick about 25% of the time; an ace wins far more
   often.
-- A card is played once, so a trigger on "this card" fires at most once per
-  round. A "whenever you" trigger can fire many times and needs a smaller
+- A card is usually played once, so a trigger on "this card" usually fires at
+  most once per round. A "whenever you" trigger can fire many times and needs a smaller
   amount or a narrower condition.
 - Payoffs target the value bands in [skeleton.md](skeleton.md): about 6–10
   expected points per round at round 7 for a common, 10–16 for an uncommon, and
@@ -145,7 +145,7 @@ Spades play:
 | 8 | True Aim | `target` | Blue · Rare | If your team makes its contract exactly, gain +1× contract multiplier. |
 | 9 | Silent Vow | `candlestick` | Purple · Common | Gain +30 nil contract value. |
 | 10 | Sinking Anchor | `anchor` | Purple · Uncommon | After bidding, each opponent's highest card loses 4 rank. |
-| 11 | Curtain Call | `mask` | Teal · Uncommon | When you play this card, you may swap a card in your hand with a chosen previously played card. |
+| 11 | Curtain Call | `mask` | Teal · Uncommon | When you play this card, you may pick up another card you've previously played this round. |
 | 12 | Loaded Dice | `dice-6` | Gray · Common | Shop rerolls cost -20 gold. |
 
 ### 1. Honed Edge: changing this card
@@ -173,8 +173,8 @@ which creates a real decision about when to release it.
 
 `While this card is in your hand, gain +5 gold after each trick.`
 
-Every card is played by the end of the round, so this sigil rewards holding its
-card as long as possible.
+Hands usually empty over the round, so this sigil rewards holding its card as
+long as possible.
 
 **Balance:** held for 6 to 9 tricks, it earns 30–45 gold per round, repaying
 its price in about two rounds. That matches the pace of a Balatro economy joker
@@ -261,17 +261,15 @@ becomes a jack and still wins most tricks.
 
 ### 11. Curtain Call: an optional choice when played
 
-`When you play this card, you may swap a card in your hand with a chosen previously played card.`
+`When you play this card, you may pick up another card you've previously played this round.`
 
-You choose any card played earlier this round by any player. It returns to your
-hand, and the card you give up takes its place in that completed trick, whose
-result stands. A card taken from an opponent brings its sigil with it, under
-your control for the rest of the round.
+The chosen card leaves its completed trick, whose result stands, and returns to
+your hand with its sigil active again. You now hold one more card than usual,
+so you may finish the round with a card left in hand.
 
-**Balance:** Curtain Call spends its own play to retrieve a card, and late in the
-round the best card played so far is usually an ace or a high spade, worth
-most of a trick. Retrieving a card with a "when you play this card" sigil
-replays it. That places Curtain Call at the top of the uncommon band.
+**Balance:** picking up a winning ace late in the round is worth most of a
+trick, and picking up a card with a "when you play this card" sigil replays
+it. That places Curtain Call at the top of the uncommon band.
 
 ### 12. Loaded Dice: an effect for you
 

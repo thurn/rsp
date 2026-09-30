@@ -351,10 +351,11 @@ partner.
 **Green + Blue.** Keep powerful cards in hand for as many tricks as possible.
 
 **Game plan.** Blue's while-held effects pay each trick they remain in hand.
-Every card is played by the end of the round, so the goal is to keep the
-sigil-bearing cards until the final tricks while other cards satisfy follow-suit
-obligations. Green supplies those other cards and the suit flexibility to play
-them.
+Hands usually empty over the round, so the goal is to keep the sigil-bearing
+cards until the final tricks while other cards satisfy follow-suit obligations.
+Green supplies those other cards and the suit flexibility to play them. Extra
+cards from Green creation or Teal pick-ups let the deck finish the round still
+holding a sigil card, which keeps its effect through scoring.
 
 **Enablers.**
 

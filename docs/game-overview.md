@@ -10,8 +10,9 @@ round.
 
 Four seats form two partnerships, with partners sitting opposite one another. A
 round uses a fresh standard 52-card deck, no jokers, and a 13-card hand for each
-seat. Players take turns clockwise. A **trick** is one card played by each of
-the four seats; a **round** comprises a deal, bidding, 13 tricks, and scoring. A
+seat. Players take turns clockwise. A **trick** is one card played by each
+seat holding cards; a **round** comprises a deal, bidding, 13 tricks, and
+scoring. A
 **run** comprises up to 13 rounds. There is no separate encounter layer.
 
 The game supports single-player and multiplayer with two or four human players.
@@ -53,8 +54,9 @@ maximum and avoids awarding victory according to score-processing order.
   effects. These effects can change the hand or rules after players have
   committed. There is no baseline nil exchange; nil bidders pass cards only when
   a sigil grants it.
-- **Play.** The player left of the dealer leads the first trick. Complete 13
-  tricks, resolving sigils in their stated windows. Between-trick exchanges
+- **Play.** The player left of the dealer leads the first trick. Play 13
+  tricks, or until every hand is empty, resolving sigils in their stated
+  windows. Between-trick exchanges
   occur before anyone plays to the next trick.
 - **Score and pay.** Calculate both partnership scores, including nils, bags,
   and sigil effects, then award individual gold and interest. Check for the end
@@ -103,6 +105,19 @@ contract that round.
 
 A player must follow suit even if this forces them to play an aura card, take an
 unwanted trick, or abandon a build's plan.
+
+### Uneven hands
+
+Sigils can add cards to a hand or remove them, so players may hold different
+numbers of cards.
+
+- A player with an empty hand skips each remaining trick. A trick is complete
+  once every player holding cards has played to it.
+- When the player due to lead holds no cards, the next player clockwise who
+  holds cards leads.
+- The round ends after the 13th trick, or earlier once every hand is empty.
+- Cards still in hand after the last trick stay held through scoring, then
+  leave with the rest of the deal.
 
 ### Rank and suit changes
 
@@ -339,7 +354,8 @@ specify its timing, target, controller, information revealed, and duration.
 ### Passing and control
 
 Sigils may grant exchanges before bids, after bids, or during play. Exchanges
-use equal numbers of remaining cards so hand sizes stay aligned. In-play
+trade equal numbers of cards unless a sigil states otherwise; effects that add,
+remove, or take cards can leave hands uneven (see §3). In-play
 exchanges resolve only between completed tricks, never after a seat has played
 to the next trick.
 
@@ -383,7 +399,8 @@ it does not let an off-suit non-trump card win. Tied eligible ranks still favor
 the later card.
 
 **Hand order:** adjacency effects use fixed slots established at the deal and
-kept through the round. Played cards leave empty slots, and exchanged cards fill
+kept through the round. Cards gained outside an exchange take new slots at the
+end of the hand. Played cards leave empty slots, and exchanged cards fill
 vacated slots. Visual sorting does not change mechanical adjacency, so free
 dragging cannot become an unlimited retargeting ability.
 

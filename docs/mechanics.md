@@ -280,8 +280,7 @@ spread over fewer suits. Singletons become voids after one play.
 **Most interested:** While Held, Diamond Flood, Heart Chorus; Bonus Chaser for
 random creation.
 
-Created cards replace or transform existing cards, keeping every hand at the
-same size.
+Created cards transform existing cards or join the hand as extra cards.
 
 **Variations.**
 
@@ -291,6 +290,8 @@ same size.
   results.
 - *Copies:* create a copy of a card already in hand, including its suit and
   rank.
+- *Additions:* add a created card to your hand, giving you an extra card for
+  the round.
 
 ### Opening hand control
 
@@ -304,8 +305,7 @@ Opening hand control shapes the deal itself.
 
 - *Forced cards:* a named card, such as the ace of spades, is dealt to you when
   it is available.
-- *Extra cards:* receive N extra random cards at the deal, then return N cards,
-  keeping 13.
+- *Extra cards:* receive N extra created cards at the deal.
 - *Redeal:* before bidding, replace N cards in hand with random cards.
 
 ### Hand repair
@@ -418,9 +418,8 @@ Spade Master.
 
 Taking cards from opponents weakens them and strengthens you in one move. An
 engraved card brings its sigil with it, so theft can capture an opponent's
-effects for the round. The thief returns a card from hand for each card taken,
-keeping hand sizes aligned; theft differs from a swap in that the thief chooses
-both cards.
+effects for the round. Theft is one-way, leaving the thief with an extra card
+and the victim a card short; a swap trades cards evenly.
 
 **Variations.**
 
@@ -439,8 +438,8 @@ both cards.
 **Most interested:** Contract Attacker; splashed by High Card and Discard
 Dominance.
 
-Forced discards remove key cards from opponents' hands. A discarded card is
-replaced with a created card, keeping hand sizes aligned.
+Forced discards remove key cards from opponents' hands, leaving them a card
+short.
 
 **Variations.**
 
@@ -516,8 +515,8 @@ played.
 Champion for dumping cards.
 
 Playing two cards to one trick concentrates power or sheds a dangerous card.
-The extra card leaves the hand one card short, so each such sigil defines how
-the hand stays aligned.
+The extra card leaves its holder a card short, so they skip the last trick
+they cannot play to.
 
 **Variations.**
 
@@ -527,8 +526,8 @@ the hand stays aligned.
   one competes.
 - *Dump:* when you play this card, also play a second card face up as a
   discard.
-- *Alignment:* the extra card is replaced with a created card, or its holder
-  sits out the final trick.
+- *Replacement:* the extra card is replaced with a created card, keeping the
+  holder's hand size.
 
 ### Lead control
 
@@ -715,9 +714,10 @@ holding).
 
 **Most interested:** While Held, Gold Miner, Nil Champion, High Card.
 
-While-held effects apply until their card leaves the hand. Every card is played
-by the end of the round, so while-held payoffs accrue per trick held or at a
-named checkpoint.
+While-held effects apply until their card leaves the hand. Hands usually empty
+over the 13 tricks, so while-held payoffs accrue per trick held or at a named
+checkpoint. A hand with extra cards can still hold a card after the last
+trick, keeping its effect through scoring.
 
 **Variations.**
 
