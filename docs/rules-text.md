@@ -45,7 +45,7 @@ Affinity sits on its own line and is excluded from the word count.
 | **Wins:** | When this card wins a trick |
 | **Take:** | When you take any trick |
 | **Lose:** | When you play to a trick another seat takes |
-| **Off-suit:** | When you play any card of another suit than the led suit, whether it trumps or is discarded |
+| **Off-suit:** | When you play a card outside the led suit, whether it trumps or is discarded |
 | **Pass:** | When you complete an exchange |
 | **Once:** | Once per round, between tricks, at a moment you choose |
 
