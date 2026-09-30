@@ -1,4 +1,4 @@
-# Rogue Spades: game rules and consolidated archetypes
+# Rogue Spades: game rules
 
 Rogue Spades is partnership Spades with a persistent collection of **sigils**
 that changes what a freshly dealt hand can do. Win tricks to make your bid, earn
@@ -15,57 +15,56 @@ the four seats; a **round** comprises a deal, bidding, 13 tricks, and scoring. A
 **run** comprises up to 13 rounds. There is no separate encounter layer.
 
 The game supports single-player and multiplayer with two or four human players.
-Opponents can have sigils. By AI fills remaining seats, and two humans form one
-partnership.
+AI fills the remaining seats, and two humans form one partnership. AI seats earn
+gold, shop, and own sigils under exactly the same rules as humans, choosing
+purchases with a simple heuristic.
 
 Partnership scores and bag counts start at zero and persist through the run.
-Scores can become negative; no additional negative-score elimination rule is
-assumed. Gold and sigil collections belong to individual players. The
-partnership wins by reaching **500 points**, or by having the higher score after
-**round 13** if neither side has reached 500.
+Scores can become negative; there is no negative-score elimination rule. Gold
+and sigil collections belong to individual players. The partnership wins by
+reaching **500 points**, or by having the higher score after **round 13** if
+neither side has reached 500.
 
-**Proposed terminal procedure:** finish both partnerships' round scoring before
-checking victory. If either reaches 500, the higher-scoring partnership wins; if
-neither does, continue unless round 13 has ended. Equal scores at a terminal
-check produce a draw. This preserves the 13-round maximum and avoids awarding
-victory according to score-processing order. Terminal ties were not settled in
-the interview.
+**Terminal procedure:** finish both partnerships' round scoring before checking
+victory. If either reaches 500, the higher-scoring partnership wins; if neither
+does, continue unless round 13 has ended, in which case the higher score wins.
+Equal scores at a terminal check produce a **draw**. This preserves the 13-round
+maximum and avoids awarding victory according to score-processing order.
 
 ## 2. The lifecycle of a round
 
-The following order is a **proposed timing framework** around the agreed deal,
-bidding, play, scoring, and shop loop.
-
-- **Prepare.** Before round one, each player can purchase one of three offered
-   sigils. Select the first dealer randomly and rotate the dealer clockwise
-   after each round.
-- **Bid Blind.** A partnership which is at least 200 points behind may have one
-  partner bid "blind nil" before cards are dealt.
+- **Prepare.** Before round one, each player visits an opening shop (see §5).
+  Select the first dealer randomly and rotate the dealer clockwise after each
+  round.
+- **Bid blind.** A partnership which is at least 100 points behind may have one
+  partner bid blind nil (see §7) before cards are dealt.
 - **Deal and engrave.** Shuffle the standard deck, deal 13 cards to each seat,
-   and assign each owned sigil to one card. Apply intrinsic rank and suit
-   modifiers. Players inspect their hands; a blind-nil bidder's commitment is
-   already locked.
+  and assign each owned sigil to one card. Apply intrinsic rank and suit
+  modifiers. Players inspect their hands; a blind-nil bidder's commitment is
+  already locked.
 - **Before bidding.** Resolve effects explicitly scheduled before bidding,
-   including global rules and pre-bid exchanges. Players can account for these
-   changes in ordinary bids.
+  including global rules and pre-bid exchanges. Players can account for these
+  changes in ordinary bids.
 - **Bid.** Starting left of the dealer, each player declares a bid in clockwise
-   order. Ordinary bids are locked once declared unless a sigil explicitly
-   permits a later adjustment.
-- **After bidding.** Resolve any enabled baseline nil exchange, then
-   sigil-granted post-bid exchanges and start-of-play effects. These effects can
-   change the hand or rules after players have committed.
+  order. Ordinary bids are locked once declared unless a sigil explicitly
+  permits a later adjustment.
+- **After bidding.** Resolve sigil-granted post-bid exchanges and start-of-play
+  effects. These effects can change the hand or rules after players have
+  committed. There is no baseline nil exchange; nil bidders pass cards only when
+  a sigil grants it.
 - **Play.** The player left of the dealer leads the first trick. Complete 13
-   tricks, resolving sigils in their stated windows. Between-trick exchanges
-   occur before anyone plays to the next trick.
+  tricks, resolving sigils in their stated windows. Between-trick exchanges
+  occur before anyone plays to the next trick.
 - **Score and pay.** Calculate both partnership scores, including nils, bags,
-   and sigil effects, then award individual gold. Check for the end of the run.
+  and sigil effects, then award individual gold and interest. Check for the end
+  of the run.
 - **Shop if continuing.** Each player may buy at most one of three offered
-   sigils for the next round. Begin the next round with a fresh standard deal.
+  sigils for the next round. Begin the next round with a fresh standard deal.
 
-There is no strategically relevant shop after the run ends. A full 13-round run
-therefore offers **13 purchase opportunities**: one before round one and 12
-between rounds. Skipping or being unable to afford a purchase can leave a player
-with fewer than 13 sigils.
+There is no shop after the run ends. A full 13-round run therefore offers **13
+purchase opportunities**: one before round one and 12 between rounds. Skipping,
+selling, or being unable to afford a purchase can leave a player with fewer than
+13 sigils.
 
 ## 3. Bids, legal plays, and trick winners
 
@@ -78,8 +77,10 @@ qualifying tricks to make its contract.
 
 **Nil** is a separate promise to take no tricks, worth +100 if successful and
 −100 if the bidder takes any trick. Nil is not a bid to make zero partnership
-tricks: the other partner still has an ordinary contract. Both partners may bid
-nil, with each nil scored separately.
+tricks: the other partner still has an ordinary contract. Tricks taken by a nil
+bidder never count toward the partner's contract and never become bags. Both
+partners may bid nil; each nil is scored separately and the partnership has no
+contract that round.
 
 ### Following suit and trump
 
@@ -100,7 +101,7 @@ nil, with each nil scored separately.
   playing the resulting spade off suit does.
 
 A player must follow suit even if this forces them to play an aura card, take an
-unwanted trick, or abandon an archetype's plan.
+unwanted trick, or abandon a build's plan.
 
 ### Rank and suit changes
 
@@ -127,16 +128,17 @@ played card.
 ## 4. Partnership scoring
 
 For an ordinary contract, let **B** be the sum of positive bids and **T** the
-tricks eligible to satisfy those bids.
+tricks taken by the partnership's non-nil bidders.
 
 | Result | Ordinary contract score | New ordinary bags |
 | --- | --- | --- |
 | T ≥ B | 10 × B + (T − B) | T − B |
 | T < B | −10 × B | 0 |
 
-Add each nil's +100 or −100 separately. Accumulated bags carry across rounds;
-each group of ten costs 100 points, and the remainder carries forward. Apply any
-explicit sigil changes to contract value, bags, or bonus points as well.
+Add each nil's +100 or −100 (blind nil ±200) separately. Accumulated bags carry
+across rounds; each group of ten costs 100 points, and the remainder carries
+forward. Apply any explicit sigil changes to contract value, bags, or bonus
+points as well.
 
 **Scoring order:** start with the +10 × B or −10 × B contract component; apply
 effects that specifically alter that component; add nil results, ordinary
@@ -153,8 +155,12 @@ their text specifies that timing.
 | Bid 6, take 8, no bag threshold crossed | 60 + 2 = **62**; gain 2 bags | 80 |
 | Bid 6, take 5 | **−60** | 50 |
 | Successful nil, partner bids and takes 3 | 100 + 30 = **130** | 130 |
+| Failed nil taking 1 trick, partner bids 3 and takes 3 | −100 + 30 = **−70** | 40 |
+| Successful blind nil, partner bids 4 and takes 5 | 200 + 40 + 1 = **241**; gain 1 bag | 250 |
 | Enter with 8 bags, bid 5, take 8 | 50 + 3 − 100 = **−47**; carry 1 bag | 80 |
 | Bid 4, take 4, earn 15 sigil bonus points | 40 + 15 = **55** | 40 |
+
+Gold figures exclude interest.
 
 An average of roughly 39 points per round reaches 500 within 13 rounds, but it
 is a pacing reference, not a guarantee of victory: the opponents can reach 500
@@ -163,24 +169,52 @@ if their own score reaches 500.
 
 ## 5. Gold, shops, and permanent progression
 
-After each round, each partner separately gains 10 gold per trick won and 100
-gold per completed nil bid. The award is copied into both wallets, not split.
-Negative scoring does not remove saved gold. Unspent gold persists within the
-run.
+The economy is modeled on Balatro's cost structure at roughly ×10 scale. All
+numbers below are tunable starting values.
+
+### Income
+
+After each round, each partner separately gains 10 gold per trick the
+partnership won (including tricks taken by a nil bidder), 100 gold per completed
+nil bid, and 200 gold per completed blind nil. The award is copied into both
+wallets, not split. Negative scoring does not remove saved gold. Unspent gold
+persists within the run.
+
+**Interest:** before the round's award is added, each player gains 10 gold per
+50 gold held, capped at 50 gold per round (reached at 250 held). A typical
+round earns about 65 gold from tricks, so interest roughly matches Balatro's
+ratio of interest to base income.
 
 Sigils may explicitly grant personal bonus gold. Award it to the controller
 identified when the effect triggers; do not also credit the partner.
 
-At a shop, buy at most one of three offered sigils or skip. Purchasing a sigil
-permanently adds it to that player's collection for the run. A collection has at
-most 13 sigils.
+### Shops
 
-Prices, starting gold, and offer probabilities need a balance table; the
-starting wallet should afford a starter offer. Paid rerolls refresh the three
-offers without resetting the one-purchase limit.
+Each player starts the run with **50 gold**. Each player rolls their own three
+offers; a player is never offered a sigil they already own, though different
+players may own the same sigil. At a shop, buy at most one offered sigil or
+skip. Purchasing a sigil permanently adds it to that player's collection for the
+run. A collection has at most 13 sigils.
 
-An income build is useful only if extra gold changes which sigil can be afforded
-or, with rerolls enabled, which offers can be found. Extra gold cannot buy a
+| Rarity | Offer odds | Price |
+| --- | --- | --- |
+| Common | 70% | 40–60 |
+| Uncommon | 25% | 60–80 |
+| Rare | 5% | 80–100 |
+
+Each sigil has a fixed price within its rarity band. The opening shop always
+includes at least one sigil costing 50 or less.
+
+**Rerolls** refresh all three offers for 50 gold, rising by 10 for each further
+reroll in the same shop, and reset to 50 at the next shop. Rerolling does not
+reset the one-purchase limit.
+
+**Selling:** at any shop, a player may sell owned sigils for half their price,
+rounded down to the nearest 5 gold. Selling does not count as the shop's
+purchase, frees a collection slot, and can fund rerolls or a pricier offer.
+
+An income build is useful only if extra gold changes which sigil can be
+afforded or which offers can be found through rerolls. Extra gold cannot buy a
 second sigil from the same shop. Economy cards bought too late to influence
 another meaningful purchase are usually poor investments.
 
@@ -189,15 +223,14 @@ another meaningful purchase are usually poor investments.
 ### Engraving and persistence
 
 Every round, each owned sigil is engraved on one card in its owner's newly dealt
-hand. A card has **at most one engraving**. A sigil with **Affinity** has
-specific rules on how it gets engraved. Affinity prefers a particular rank or
-suit when possible; remaining placements are random.
+hand. A card has **at most one engraving**. A sigil with **Affinity** prefers a
+particular rank or suit when possible; remaining placements are random.
 
-**Proposed placement procedure:** place affinity sigils first, randomizing order
-where they compete for eligible cards, then assign other sigils to remaining
-cards. Evaluate affinity against the fresh dealt cards before applying
-conversions. If no matching unengraved card remains, use a random unengraved
-card. No affinity promises a matching card on every deal.
+**Placement procedure:** place affinity sigils first, randomizing order where
+they compete for eligible cards, then assign other sigils to remaining cards.
+Evaluate affinity against the fresh dealt cards before applying conversions. If
+no matching unengraved card remains, use a random unengraved card. No affinity
+promises a matching card on every deal.
 
 One engraving per card does not prevent one sigil from affecting other cards. A
 while-held aura can strengthen cards engraved with different sigils, and a
@@ -235,22 +268,19 @@ specify its timing, target, controller, information revealed, and duration.
 ### Passing and control
 
 Sigils may grant exchanges before bids, after bids, or during play. Exchanges
-use equal numbers of remaining cards so hand sizes stay aligned. **Proposed
-ordinary timing:** resolve in-play exchanges between completed tricks; an
-exchange after one seat has played to the next trick requires separately
-specified rules and is not assumed here.
+use equal numbers of remaining cards so hand sizes stay aligned. In-play
+exchanges resolve only between completed tricks, never after a seat has played
+to the next trick.
 
 Unless a sigil says otherwise, each participant selects the card they
 contribute. Selection does not give permission to inspect the other hand. A
 required exchange cannot occur when a participant lacks enough remaining cards.
 
-**Proposed ownership model:** the engraving travels with the passed card. The
-new holder controls future card-bound effects; “you” means that controller,
-including for harmful effects. Permanent collection ownership does not change.
-An already-revealed round effect remains attached to the controller who revealed
-it, and an already-triggered reward keeps its recorded recipient. This resolves
-the source documents' open ownership question without making it a confirmed
-rule.
+**Ownership:** the engraving travels with the passed card. The new holder
+controls future card-bound effects; “you” means that controller, including for
+harmful effects. Permanent collection ownership does not change. An
+already-revealed round effect remains attached to the controller who revealed
+it, and an already-triggered reward keeps its recorded recipient.
 
 ### Information and simultaneous effects
 
@@ -263,12 +293,12 @@ Blind-nil bidders must commit before seeing their deal or any deal-dependent
 reveals. Public knowledge of collections is permitted; private inspection of an
 engraved hand is not.
 
-**Proposed resolution convention:** resolve simultaneous effects in clockwise
+**Resolution order:** resolve simultaneous effects seat by seat in clockwise
 order, starting with the active player for a play event and left of the dealer
-for shared round windows. When one player controls several simultaneous effects,
-they choose their order. Complete the current event before checking the next
-event. Resolve each trigger once per event; do not permit unbounded pass-trigger
-chains.
+for shared round windows. Within one controller's effects, resolve by
+**timestamp**: the sigil purchased earliest resolves first. Players never choose
+the order. Complete the current event before checking the next event. Resolve
+each trigger once per event; do not permit unbounded pass-trigger chains.
 
 Global rule setters that conflict on the same property use the latest resolved
 setter; setters for different properties can coexist. A sigil replacing trump
@@ -277,16 +307,16 @@ classification. “Lowest wins” reverses rank comparison within the eligible s
 it does not let an off-suit non-trump card win. Tied eligible ranks still favor
 the later card.
 
-Adjacency effects require a defined hand order. **Proposed default:** establish
-fixed slots at the deal, keep them through the round, leave empty slots when
-cards are played, and place exchanged cards in vacated slots. Visual sorting
-does not change mechanical adjacency. This prevents free dragging from silently
-becoming an unlimited retargeting ability.
+**Hand order:** adjacency effects use fixed slots established at the deal and
+kept through the round. Played cards leave empty slots, and exchanged cards fill
+vacated slots. Visual sorting does not change mechanical adjacency, so free
+dragging cannot become an unlimited retargeting ability.
 
-## 7. Blind Nil Bids
+## 7. Blind nil bids
 
-
-A player may bid **Blind nil:** before inspecting the hand or any deal-dependent
+A player may bid **blind nil:** before inspecting the hand or any deal-dependent
 information, commit to taking zero tricks for +200 on success or −200 on
-failure. Ordinary partner scoring remains separate. Players may only submit a
-Blind Nil bid when they are at least 100 points behind their opponents.
+failure. Success also pays 200 gold. Ordinary partner scoring remains separate.
+A blind nil is allowed only when the bidder's partnership is at least 100 points
+behind its opponents, and at most one partner per partnership may bid blind nil
+in a round.
