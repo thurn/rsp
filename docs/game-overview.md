@@ -323,6 +323,10 @@ standard deck unless a future rule explicitly adds it.
 | Trump or discard trigger | Responds to a legal off-suit play | At play, unless it also requires a win |
 | Pass trigger | Responds to a specified exchange | After that exchange completes |
 
+Every sigil effect is triggered or ongoing, and each resolves in its stated
+window. Players make choices only as part of a resolving effect, such as a
+trigger that says "you may."
+
 **Triggered** effects happen when their conditions occur. **Ongoing** effects
 continually modify applicable rules during their stated lifetime. Ongoing does
 not mean permanent across rounds: a while-held aura ends when played, whereas a

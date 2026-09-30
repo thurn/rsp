@@ -11,6 +11,11 @@ family lists:
   archetypes first and splashing archetypes after.
 - **Variations:** the ways the family can be expressed on individual sigils.
 
+Every sigil effect is ongoing or triggered, as defined in
+[rules-text.md](rules-text.md). Each variation below is expressed through a
+timing window: always on, before or after bidding, while held, when played, or
+when a trick is won or lost.
+
 See [resonance.md](resonance.md) for each resonance's identity and
 [archetypes.md](archetypes.md) for each archetype's game plan. Sigil timing,
 engraving, exchange, and scoring rules are defined in
@@ -301,7 +306,7 @@ Opening hand control shapes the deal itself.
   it is available.
 - *Extra cards:* receive N extra random cards at the deal, then return N cards,
   keeping 13.
-- *Redeal:* discard and redraw a portion of the opening hand.
+- *Redeal:* before bidding, replace N cards in hand with random cards.
 
 ### Hand repair
 
@@ -336,8 +341,8 @@ seats, so broad changes reach opponents' deals too.
 - *Additions:* add extra spades or duplicates of a suit to the starting deck.
 - *Jokers:* add jokers to the deck as the two highest trumps.
 - *Removals:* remove low cards or a suit's small cards.
-- *Permanent modification:* between rounds, permanently raise a card's rank or
-  change its suit.
+- *Permanent modification:* at the end of each round, permanently raise a
+  card's rank or change its suit.
 - *Randomization:* remove random cards or add random duplicates each round.
 - *Owned cards:* cards added by your sigil are always dealt to you.
 
@@ -351,8 +356,10 @@ Card selection lets a player find the card the hand is missing.
 
 **Variations.**
 
-- *Look and keep:* look at three created cards and swap one into your hand.
-- *Discard swaps:* swap a card in hand with a card from a completed trick (see
+- *Look and keep:* before bidding, look at 3 created cards and swap one into
+  your hand.
+- *Discard swaps:* when you play this card, swap a card in hand with a card
+  from a completed trick (see
   Recursion).
 - *Shop cards:* buy specific cards in the shop for your next opening hand.
 
@@ -370,10 +377,13 @@ which replays their effects or restores a card the deck needs.
 
 **Variations.**
 
-- *Your cards:* swap a card in hand with a card you played earlier this round.
-- *Opponents' cards:* swap a card in hand with a card an opponent played,
+- *Your cards:* when you play this card, swap a card in hand with a card you
+  played earlier this round.
+- *Opponents' cards:* when you win a trick, swap a card in hand with a card an
+  opponent played to it,
   taking over its engraving.
-- *Any played card:* swap with any card from a completed trick.
+- *Any played card:* when you lose a trick, swap with any card from a completed
+  trick.
 - *Triggered:* recursion fires when you lose a trick or when a suit is led.
 
 ### Partner exchange
@@ -393,7 +403,8 @@ away from a nil partner.
 - *Before bidding:* both partners bid with improved hands.
 - *After bidding:* the exchange rescues a nil or strengthens a contract after
   commitments.
-- *During play:* exchanges between tricks react to how the round develops.
+- *During play:* exchanges triggered by a won or lost trick resolve before the
+  next trick and react to how the round develops.
 - *Selection:* each partner chooses their own cards, or one partner chooses from
   the other's hand.
 - *Triggers:* completed passes pay rewards to one or both partners.
@@ -413,9 +424,11 @@ both cards.
 
 **Variations.**
 
-- *Chosen theft:* take a chosen card, which pairs with reveals.
-- *Random theft:* take a random card, cheaper and less reliable.
-- *Swaps:* exchange a card with an opponent, choosing what you give.
+- *Chosen theft:* after bidding, take a chosen card, which pairs with reveals.
+- *Random theft:* when you win a trick, take a random card, cheaper and less
+  reliable.
+- *Swaps:* before bidding, exchange a card with an opponent, choosing what you
+  give.
 - *Directional passing:* every seat passes cards to its left before bidding or
   before play, in the style of Hearts.
 
@@ -455,7 +468,8 @@ led suit.
 **Variations.**
 
 - *Card-bound:* this card may be played off suit at any time.
-- *Limited:* once per round, ignore the follow-suit requirement.
+- *Triggered:* after you lose a trick, you may skip following suit on the next
+  trick.
 - *Suit-bound:* you may decline to follow a named suit.
 - *Protective:* while this card is held, it is never required to follow suit.
 
@@ -507,9 +521,12 @@ the hand stays aligned.
 
 **Variations.**
 
-- *Support:* a second card adds its rank to the first card.
-- *Choice:* play two cards and choose which one competes.
-- *Dump:* play a second card face up as a discard.
+- *Support:* when you play this card, a second card from your hand adds its
+  rank to it.
+- *Choice:* when you play this card, also play a second card and choose which
+  one competes.
+- *Dump:* when you play this card, also play a second card face up as a
+  discard.
 - *Alignment:* the extra card is replaced with a created card, or its holder
   sits out the final trick.
 
@@ -524,9 +541,9 @@ Controlling the lead controls which suit each trick is about.
 
 **Variations.**
 
-- *Steal:* take the lead after a trick you lose.
-- *Starting player:* choose who leads the first trick.
-- *Hand-off:* give the lead to your partner.
+- *Steal:* when you lose a trick, you may take the lead.
+- *Starting player:* after bidding, choose who leads the first trick.
+- *Hand-off:* when you win a trick, you may give the lead to your partner.
 
 ## Bidding and contracts
 
@@ -543,9 +560,10 @@ Bid adjustment changes a contract after it is declared.
 **Variations.**
 
 - *Increase:* raise your bid by one after trick N.
-- *Decrease:* lower your bid by one, at a cost in points or gold.
-- *Either:* change your bid by one in either direction once per round.
-- *Partner:* adjust your partner's bid.
+- *Decrease:* after trick N, lower your bid by one, at a cost in points or
+  gold.
+- *Either:* after trick 6, you may change your bid by one in either direction.
+- *Partner:* after trick N, adjust your partner's bid.
 - *Opponents:* raise the opponents' contract, making it harder to fulfil.
 
 ### Bidding constraints
@@ -666,7 +684,8 @@ Information lets a player bid accurately and play at the right moment.
 **Variations.**
 
 - *Before bidding:* reveal N random cards from each opponent's hand.
-- *During play:* reveal an opponent's card between tricks.
+- *During play:* when you win a trick, reveal a random card from an opponent's
+  hand.
 - *Shape:* reveal an opponent's suit counts or voids.
 - *Public reveals:* every player reveals N random cards before bidding.
 - *Sigils:* reveal where opponents' sigils are engraved.
@@ -803,15 +822,18 @@ Adjacency effects use the fixed hand slots defined in the core rules.
 
 **Most interested:** Bonus Chaser, Gold Miner, Blind Bidder, Contract Attacker.
 
-Costs let a sigil exceed its normal power in exchange for a sacrifice.
+Costs let a sigil exceed its normal power in exchange for a sacrifice. A cost
+is paid as part of a trigger, as in "when you play this card, you may pay 20
+gold to …"
 
 **Variations.**
 
-- *Points:* pay N points to gain a powerful effect.
-- *Gold:* pay N gold to gain a powerful effect.
-- *Cards:* replace a high card in hand with a created two to gain a powerful
+- *Points:* when you play this card, you may pay N points for a powerful
   effect.
-- *Bags:* take N bags to gain a powerful effect.
+- *Gold:* before bidding, you may pay N gold for a powerful effect.
+- *Cards:* before bidding, you may replace a high card in hand with a created
+  two for a powerful effect.
+- *Bags:* when this card wins a trick, take N bags for a powerful effect.
 
 ## Scoring
 
@@ -948,8 +970,10 @@ Conversion links the economy to the score in either direction.
 
 **Variations.**
 
-- *Gold to points:* spend gold for points, strongest late in the run.
-- *Points to gold:* trade points for gold, strongest early in the run.
+- *Gold to points:* at the end of each round, convert N gold into points,
+  strongest late in the run.
+- *Points to gold:* at the end of each round, trade N points for gold,
+  strongest early in the run.
 
 ### Shop tools
 
@@ -996,7 +1020,8 @@ Engraving control places sigils on the cards where they work best.
 **Variations.**
 
 - *Choice:* choose which cards receive your sigils.
-- *Movement:* move a sigil between your cards during the round.
+- *Movement:* when you play this card, move its sigil to another card in your
+  hand.
 - *Stacking:* engrave two sigils on one card.
 - *Random engravings:* engrave random temporary sigils on unengraved cards.
 

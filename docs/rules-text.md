@@ -10,8 +10,12 @@ reference for clarity.
   understands with minimal game knowledge.
 - **One sentence.** A sigil does one thing, stated once. A rare may use two
   sentences.
+- **Ongoing or triggered.** Every sigil is always on, or it triggers at a
+  moment the text names. Choices happen inside a trigger, as in "you may."
 - **When, then what.** A triggered effect opens with when it happens, then says
-  what happens: "When this card wins a trick, add +5 contract value."
+  what happens: "When this card wins a trick, gain +20 contract value."
+- **Gain with a sign.** Rewards and changes use "gain" and a signed number:
+  "gain +20 contract value," "gain +5 gold," "gains +3 rank."
 - **Few game terms.** Rules text uses the short list of terms below and
   otherwise uses everyday words.
 - **Defaults stay unwritten.** The conventions below cover who chooses, how long
@@ -21,9 +25,10 @@ reference for clarity.
 
 ```
 Name              Resonance · Rarity · Price
-Affinity: King    (optional)
-Rules text.
+Affinity: King. Rules text.
 ```
+
+An affinity, when present, opens the rules text in bold.
 
 ## Sentence patterns
 
@@ -32,7 +37,7 @@ Each timing window from the core rules has one standard opening.
 | Timing | Opening |
 | --- | --- |
 | Always on, for the engraved card | "This card gains +3 rank." |
-| Always on, for you | "Shop rerolls cost 20 less gold." |
+| Always on, for you | "Shop rerolls cost -20 gold." |
 | Before bidding | "Before bidding, …" |
 | After bidding | "After bidding, …" |
 | While in hand | "While this card is in your hand, …" |
@@ -43,8 +48,7 @@ Each timing window from the core rules has one standard opening.
 | When you lose any trick | "Whenever you lose a trick, …" |
 | When you play another suit | "Whenever you play a card that doesn't match the suit led, …" |
 | When you pass cards | "Whenever you pass cards, …" |
-| Once per round, your choice | "Once per round, between tricks, you may …" |
-| Conditional scoring | "If your team takes exactly its bid, …" |
+| Conditional scoring | "If your team makes its contract exactly, …" |
 
 "This card" always means the card the sigil is engraved on. "Whenever you"
 triggers watch every trick you play, whichever card you play.
@@ -56,6 +60,7 @@ triggers watch every trick you play, whichever card you play.
 | **rank** | A card's strength, from 2 up to ace. Ranks never go above ace or below 2. |
 | **contract value** | Points added to your team's contract, paid only if the contract is made. |
 | **contract multiplier** | Written `+1×`. Multiplies your team's contract, win or lose. |
+| **nil contract value** | Points added to your nil bid, paid only if the nil succeeds. Contract multipliers never apply to it. |
 | **nil** | A bid to take no tricks. |
 | **trump** | Play a spade when a different suit was led. |
 | **convert** | Change a card's suit. |
@@ -79,7 +84,8 @@ works, and it is added here before use.
   Rules text states only the amount.
 - **Visibility:** every triggered effect is shown to the table when it happens,
   as the core rules require.
-- **Numbers** are written as digits: "pass 2 cards," "+3 rank."
+- **Numbers** are written as digits, with a sign on gains and costs: "+3 rank,"
+  "+5 gold," "-20 gold." A single card is "a card"; more are "2 cards."
 - **Punctuation:** full sentences, sentence case, ending with a period.
 
 ## Calibration
@@ -108,16 +114,16 @@ Spades play:
 | --- | --- | --- | --- |
 | 1 | Honed Edge | Red · Common | This card gains +3 rank. |
 | 2 | Verdant Banner | Green · Common | While this card is in your hand, cards of your longest suit gain +2 rank. |
-| 3 | Nest Egg | Orange · Common | While this card is in your hand, gain 5 gold after each trick. |
-| 4 | Crown Jewel | Red · Common | *Affinity: Ace.* When this card wins a trick, add +20 contract value. |
-| 5 | Graceful Exit | Purple · Common | Whenever you lose a trick with a face card, add +10 contract value. |
+| 3 | Nest Egg | Orange · Common | While this card is in your hand, gain +5 gold after each trick. |
+| 4 | Crown Jewel | Red · Common | **Affinity: Ace.** When this card wins a trick, gain +20 contract value. |
+| 5 | Graceful Exit | Purple · Common | Whenever you lose a trick you played a face card to, gain +10 contract value. |
 | 6 | Tide | Green · Common | Before bidding, convert 2 cards in your hand to your longest suit. |
-| 7 | Handoff | Teal · Common | After bidding, you and your partner each pass 1 card to the other. |
-| 8 | Precision | Blue · Rare | If your team takes exactly its bid, add +1× contract multiplier. |
-| 9 | Silent Vow | Purple · Common | If your nil bid succeeds, it scores 30 extra points. |
+| 7 | Handoff | Teal · Common | After bidding, you and your partner each pass a card to each other. |
+| 8 | Precision | Blue · Rare | If your team makes its contract exactly, gain +1× contract multiplier. |
+| 9 | Silent Vow | Purple · Common | Gain +30 nil contract value. |
 | 10 | Undertow | Purple · Uncommon | After bidding, each opponent's highest card loses 4 rank. |
-| 11 | Encore | Teal · Uncommon | Once per round, between tricks, you may swap a card in your hand with the last card you played. |
-| 12 | Haggler | Gray · Common | Shop rerolls cost 20 less gold. |
+| 11 | Encore | Teal · Uncommon | When you play this card, you may swap a card in your hand with the last card you played. |
+| 12 | Haggler | Gray · Common | Shop rerolls cost -20 gold. |
 
 ### 1. Honed Edge: changing this card
 
@@ -142,7 +148,7 @@ which creates a real decision about when to release it.
 
 ### 3. Nest Egg: a reward for holding
 
-`While this card is in your hand, gain 5 gold after each trick.`
+`While this card is in your hand, gain +5 gold after each trick.`
 
 Every card is played by the end of the round, so this sigil rewards holding its
 card as long as possible.
@@ -153,8 +159,7 @@ at this game's scale.
 
 ### 4. Crown Jewel: when this card wins
 
-`Affinity: Ace.`
-`When this card wins a trick, add +20 contract value.`
+`Affinity: Ace. When this card wins a trick, gain +20 contract value.`
 
 The bonus is paid only if your team makes its contract, and it is multiplied by
 any contract multipliers.
@@ -165,7 +170,7 @@ Without the affinity, it would sit on a random card and earn about 4 points.
 
 ### 5. Graceful Exit: losing with a face card
 
-`Whenever you lose a trick with a face card, add +10 contract value.`
+`Whenever you lose a trick you played a face card to, gain +10 contract value.`
 
 A face card is a jack, queen, or king. This watches every trick you play.
 
@@ -187,7 +192,7 @@ tricks.
 
 ### 7. Handoff: passing cards
 
-`After bidding, you and your partner each pass 1 card to the other.`
+`After bidding, you and your partner each pass a card to each other.`
 
 Each of you chooses which card to give. Sigils travel with the cards they are
 engraved on.
@@ -198,7 +203,7 @@ two-card exchange belongs at uncommon.
 
 ### 8. Precision: a conditional multiplier
 
-`If your team takes exactly its bid, add +1× contract multiplier.`
+`If your team makes its contract exactly, gain +1× contract multiplier.`
 
 An extra trick breaks the condition. A failed contract leaves this multiplier
 inactive, so it never increases a loss.
@@ -211,10 +216,10 @@ condition.
 
 ### 9. Silent Vow: nil
 
-`If your nil bid succeeds, it scores 30 extra points.`
+`Gain +30 nil contract value.`
 
-A successful nil scores 130 instead of 100. Contract multipliers never apply to
-nil.
+Nil contract value is paid only when your nil succeeds, so a successful nil
+scores 130 instead of 100. Contract multipliers never apply to it.
 
 **Balance:** about 11 expected points per round for a nil deck that bids nil in
 half its rounds and succeeds three times in four. Nil-value sigils carry larger
@@ -231,20 +236,22 @@ opponent has two equally high cards, you choose which one is affected.
 opponents about half a trick per round after they have bid. At −3, an ace
 becomes a jack and still wins most tricks.
 
-### 11. Encore: a once-per-round choice
+### 11. Encore: an optional choice when played
 
-`Once per round, between tricks, you may swap a card in your hand with the last card you played.`
+`When you play this card, you may swap a card in your hand with the last card you played.`
 
-The played card returns to your hand and its sigil becomes active again, and the
-card you give up takes its place among the played cards.
+"The last card you played" is the card you played to the previous trick. It
+returns to your hand with its sigil active again, and the card you give up
+takes its place in that completed trick. The trick's result stands.
 
-**Balance:** retrieving a winning ace late in the round is worth about half a
-trick, and retrieving a card with a "when you play this card" sigil replays
-it. Both suit an uncommon.
+**Balance:** Encore spends its own play to retrieve a card, so its value comes
+from what it brings back: a winning ace late in the round is worth about half a
+trick, and a card with a "when you play this card" sigil replays it. Both suit
+an uncommon.
 
 ### 12. Haggler: an effect for you
 
-`Shop rerolls cost 20 less gold.`
+`Shop rerolls cost -20 gold.`
 
 The sigil applies whenever it is relevant, here at every shop.
 

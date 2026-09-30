@@ -242,7 +242,7 @@ Champion, and Nil Guard.
 **Color-wide enablers (8).**
 
 - Common: lower your own ranks; lower cards after bidding; small bonus when you
-  lose a trick; skip following suit once; off-suit play trigger; force
+  lose a trick; skip following suit after losing a trick; off-suit play trigger; force
   opponents to discard.
 - Uncommon: disable an opponent's sigil; change an opponent's rank in either
   direction.
