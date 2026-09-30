@@ -515,8 +515,8 @@ played.
 Champion for dumping cards.
 
 Playing two cards to one trick concentrates power or sheds a dangerous card.
-The extra card leaves its holder a card short, so they skip the last trick
-they cannot play to.
+The extra card leaves its holder a card short, so their hand runs out a trick
+early and they skip the final trick.
 
 **Variations.**
 
