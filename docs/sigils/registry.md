@@ -249,3 +249,8 @@ Every accepted sigil, in acceptance order. Names, icon families, and icon words 
 | GY-R06 | Solid Core | `core` | core | core | Gray | Rare | 85 | always, own 5+ sigils of one non-Gray resonance / team / contract base per bid trick / 10 → 20 / all | 4 |
 | GY-R07 | Public Hospital | `hospital` | hospital | hospital | Gray | Rare | 90 | always / all players / missed contracts / contract multipliers don't apply / all | 4 |
 | GY-R08 | Fitting-Room Skirt | `skirt` | skirt | skirt | Gray | Rare | 85 | each deal / self / your dealt hand or 13 random new cards / keep the chosen hand / ×1 | 4 |
+| DU-R01 | Laurel Finale | `laurel-wreath` | laurel-wreath | laurel | Green + Teal | Rare | 90 | scoring, team wins the last trick with a heart / team / contract / multiplier +1× / ×1 | 5 |
+| DU-R02 | Barter Bridge | `bridge` | bridge | bridge | Orange + Teal | Rare | 90 | you discard / team / one card each / optional exchange with partner / per discard | 5 |
+| DU-R03 | Devoted Bishop | `chess-bishop` | chess-bishop | bishop | Red + Teal | Rare | 90 | you lose a trick your partner wins / self / a card you pick / optional one-way pass to partner / per trick | 5 |
+| DU-R04 | Sentinel Rook | `chess-rook` | chess-rook | rook | Teal + Purple | Rare | 90 | partner bids 1 or 2 / partner / partner's bid / may change to nil / ×1 | 5 |
+| DU-R05 | Reckless Rocket | `rocket` | rocket | rocket | Orange + Purple | Rare | 90 | you bid blind nil / team / contract / multiplier +2× / ×1 | 5 |

@@ -313,3 +313,107 @@ AI note:     Bid your own hand plus one trick when your partner is likely to go 
 Rationale:   Stripping a nil hand's two highest cards raises success from about 75% to about 90%, worth about +30 per partner nil (+80 on a blind nil), and the received high cards support the solo contract. The swap gives partner-nil value exactly where Nil Guard is thinnest.
 Deviation:   Slot said Nil value / Partner's nil, paying Partner contract; changed to Partner exchange / After bidding, paying Nil through the partner's nil, because protecting the nil adds more value (+30 per nil) than a flat bonus and PU-C11 already pays the partner's nil.
 ```
+
+## Laurel Finale
+
+```
+Code:        DU-R01
+Name:        Laurel Finale
+Icon:        laurel-wreath               (alternates: Homecoming Comet / meteor, Serenading Planet / planet)
+Resonance:   Green + Teal
+Rarity:      Rare (90 gold)
+Text:        If your team wins the last trick with a heart, gain +1× contract multiplier.
+Timing:      Conditional scoring
+Archetypes:  Heart Chorus; splash Kingmaker, Nil Guard
+Family:      Multipliers / Conditional (last trick)
+Role:        Payoff (Contract multiplier)
+Signature:   scoring, team wins the last trick with a heart | team | contract | multiplier +1× | ×1
+Decision:    Keeping your biggest grown heart until the end, then arranging to win trick 12 so you lead it, or emptying your side suits so hearts are led to you; the partner can also finish on a heart.
+Opponent:    Visible at the last trick. Opponents can answer by keeping a spade to trump a final heart lead, or by winning trick 12 and leading a suit you still hold.
+AI note:     Hold the highest heart as the last card. From trick 10 on, win tricks when that lets you lead the final heart.
+Rationale:   It crowns the Heart Chorus plan, a suit that starts modest and dominates the late tricks. Every heart enabler becomes a payoff route: Verdant Banner, Late Blossom, Rosy Champagne, Growing Colony, Unfolding Butterfly, Rosy Spectacles (no trumping a heart lead), and Evening Melody (late hearts are trump). A dedicated deck qualifies in about 35% of rounds, and about 50% with Melody or Spectacles. Like Blooming Lotus, the multiplier also applies to a failed contract that meets the condition. That makes it worth about +45 a round late, which is rare multiplier value and gives the thinnest archetype a second aimed multiplier. It checks one heart win rather than a count of wins, so it doesn't duplicate Clean Bullseye (BL-U03), Schooling Fish (GR-C13), or Swelling Sea (TE-R03), and it doesn't check plays across the last four tricks like Blooming Lotus (GR-U05). The team clause gives Teal's partnership hearts a role.
+Deviation:   The slot suggested "When you play another suit". I moved it to Conditional scoring because a heart played to another suit wins only under Evening Melody, which would make the payoff depend on a second rare.
+```
+
+## Barter Bridge
+
+```
+Code:        DU-R02
+Name:        Barter Bridge
+Icon:        bridge               (alternates: Market Crossroads / split, Trading Puzzle / puzzle)
+Resonance:   Orange + Teal
+Rarity:      Rare (90 gold)
+Text:        Whenever you discard, you may trade a card with your partner.
+Timing:      When you discard
+Archetypes:  Swap Meet; splash Kingmaker, Nil Guard, Discard Dominance
+Family:      Partner exchange / During play (triggered by discards)
+Role:        Enabler (feeds every pass payoff)
+Signature:   you discard | team | one card each | optional exchange with partner | per discard
+Decision:    Whether each discard is worth a trade: what to give (junk, or the last card of a suit, which opens a void and sets up more discards) and whether receiving a card might break a void you still need.
+Opponent:    The trade is visible between tricks. Opponents can limit it by leading suits you still hold, so you have to follow instead of discarding.
+AI note:     Trade whenever you own a pass payoff or your partner bid nil. Give your lowest card from a suit you aren't void in, preferring the last card of a suit. The partner gives its highest card if it bid nil, and otherwise its lowest.
+Rationale:   It gives Swap Meet a trade engine that doesn't need Traders' Handshake or a trick win: two to four trades a round, each firing both players' pass payoffs (Peddler's Cart, Deserted Island, Swapped Sticker, Merchant's Briefcase, Fair Shuffle, Spinning Globe, Valentine Stamp, Relay Torch). That is about +30 a round with one common payoff and +60 to +80 with an uncommon, rare value from an enabler. Passing the last card of a suit opens a void, which creates more discards and more trades, so the engine feeds itself. Trading with the partner keeps it out of the full opponent-facing budget. It differs from Tossed Paper Plane (TE-C14: one-way, only when this card is discarded), Swapped Suitcases (TE-U02: when this card loses), and the Handshake (after a win, any player).
+```
+
+## Devoted Bishop
+
+```
+Code:        DU-R03
+Name:        Devoted Bishop
+Icon:        chess-bishop               (alternates: Unbroken Chain / link, Twin Helix / dna)
+Resonance:   Red + Teal
+Rarity:      Rare (90 gold)
+Text:        Up to twice per round, when you lose a trick your partner wins, you may pass them a card.
+Timing:      When you lose any trick
+Archetypes:  Kingmaker; splash Swap Meet, Exact Contractor
+Family:      Partner exchange / During play (triggered by your partner's wins)
+Role:        Enabler (feeds partner-win and passed-card payoffs)
+Signature:   you lose a trick your partner wins | self | a card you pick | optional one-way pass to partner | per trick
+Decision:    After each partner win, which winner to hand over next, since the partner now leads and can cash it, and when to stop before your own hand runs dry and bags pile up.
+Opponent:    Each pass is visible between tricks, and opponents watch the partner's hand grow. They can deny the trigger by winning tricks themselves, or trump the fed winners once they are void.
+AI note:     Pass your highest card that your partner can lead and win with, such as an ace or high spade, while your team is short of its contract; stop once the contract is made.
+Rationale:   It turns every partner win into another delivery, and it gives Kingmaker's payoffs a chain to fire on. Promoted Pawn pays +20 per passed-card win, Perfect Throw gives +1× on the second, Runner-Up Trophy and Homeward Ship count the partner's growing share, and Relay Torch raises each passed card by +3. With Promoted Pawn, a feed of three winners is worth about +60. One-way passes leave you short of cards, so you skip the last tricks while your partner holds spares. That is the intended brake, together with bags. It mirrors Shouldered Backpack (TE-U07: your partner passes to you when you win, only on a partner nil). It differs from Yielding Cone (TE-R04: a forced highest-for-lowest swap after your bid is taken, twice a round) and from Tossed Paper Plane (when this card is discarded, once).
+Deviation:   The slot suggested a global rule setter. I made it a personal engine because the table-wide version ("anyone who loses a trick to their partner may pass them a card") also lets opposing nil bidders shed danger cards to their partners, which helps opponents as much as Kingmaker.
+```
+
+## Sentinel Rook
+
+```
+Code:        DU-R04
+Name:        Sentinel Rook
+Icon:        chess-rook               (alternates: Hushed Pagoda / temple, Promised Infinity / infinite)
+Resonance:   Teal + Purple
+Rarity:      Rare (90 gold)
+Text:        When your partner bids 1 or 2, you may change their bid to nil.
+Timing:      When you bid (your partner's bid, as it is declared)
+Archetypes:  Nil Guard; splash Nil Champion, Blind Bidder
+Family:      Bid adjustment / Partner (to nil)
+Role:        Enabler (creates partner-nil rounds for every Nil Guard payoff)
+Signature:   partner bids 1 or 2 | partner | partner's bid | may change to nil | ×1
+Decision:    Whether your own hand and protection (Sheltering Castle, Spare Moustache, Shouldered Backpack, high cards to cover with) can carry a nil for a partner who showed a weak hand by bidding low.
+Opponent:    The change is public at bid time, so opponents who bid later account for it, and every opponent can attack the new nil by leading low.
+AI note:     Change the bid when you hold two or more aces or kings to cover with, or own Sheltering Castle or Spare Moustache. Change a bid of 1 more readily than a bid of 2.
+Rationale:   Every Nil Guard payoff except Roommates' Apartment needs a partner nil, and a neutral partner rarely bids one. A partner bids 1 or 2 in about a third of rounds, so this roughly triples partner-nil rounds without depending on the partner's nil heuristic. In each one, Sheltering Castle, Shared Blanket, Lifeguard's Buoy, Guarded Lock, Rescuing Ambulance, Shouldered Backpack, and Half-Lit Menorah (a solo contract of 4 or less) can all fire. A converted nil is worth about +50 at a 75% success rate, against the 10–20 contract points given up, before any of those payoffs. The change resolves when the partner bids, before the after-bidding window, so Sheltering Castle and Spare Moustache see the nil whatever their timestamp. It is the first sigil that turns a bid into nil. Rerouted Bus (TE-U06) and Bold Stance (RE-U10) only move a bid by one.
+Deviation:   The slot suggested Losing tricks or Nil value, "When you lose any trick", and a rule setter. I moved it to Bid adjustment in the bid window because paying in non-nil rounds would duplicate Tidying Broom (PU-C12) or split Nil Guard from its plan. Creating the partner nil makes all of its existing payoffs fire in the rounds that lacked one. The opening "When your partner bids" adapts "When you bid" the way Flickering Television adapts it for the blind nil decision.
+```
+
+## Reckless Rocket
+
+```
+Code:        DU-R05
+Name:        Reckless Rocket
+Icon:        rocket               (alternates: Unseen Saucer / ufo, Doubling Blast / explosion)
+Resonance:   Orange + Purple
+Rarity:      Rare (90 gold)
+Text:        When you bid blind nil, gain +2× contract multiplier.
+Timing:      When you bid (the blind nil decision, before the deal)
+Archetypes:  Blind Bidder; splash Nil Guard (as the partner)
+Family:      Blind bidding / Rewards (multiplier on the partner's contract)
+Role:        Payoff (Contract multiplier)
+Signature:   you bid blind nil | team | contract | multiplier +2× | ×1
+Decision:    Whether to gamble on a blind nil now that it also triples your partner's contract, win or lose. Your partner then bids after the deal, knowing a failure costs three times as much.
+Opponent:    Visible when the blind nil is declared, before anyone sees a card. Opponents answer by attacking either half: leading low into the blind nil, or setting the tripled contract.
+AI note:     Bid blind nil whenever eligible and the partner's contract has been made in most recent rounds. As the partner, bid about one trick under the hand's strength.
+Rationale:   Blind Bidder had no multiplier, though its partner's contract is about 35% of its points. This is the rare "larger multiplier" role, used as Orange's reward for the gamble itself. Late, a partner's solo contract of about 90 gains about +128 per blind round (+80 mid-run). Averaged over rounds, that is about +30 at Night Owl's qualifying rate and about +50 at Desperate Gambit's, which is inside the rare band. It also doubles the rounds when Rousing Speaker (GY-C25) pays most, because blind nils happen while behind. It changes neither the blind nil deficit (Night Owl, Desperate Gambit) nor nil value (Clouded Eight Ball, Guiding Nightlight), and it pays nothing per off-suit play (Restless Ghost). Public Hospital (GY-R07) removes its downside, which is the intended combination.
+Deviation:   The slot suggested "When you play another suit" and a payoff for shedding cards on a blind nil. I moved it to the blind nil bid window and the Contract multiplier channel for two reasons: a blind nil always trails, so any off-suit nil payoff would duplicate Restless Ghost (PU-U10), and blind nil value is already covered by Clouded Eight Ball, Released Balloon, and Guiding Nightlight.
+```
