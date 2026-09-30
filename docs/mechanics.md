@@ -338,18 +338,19 @@ Hand repair sets a floor on the deal, reducing the swing of a bad hand.
 
 **Most interested:** Spade Master, Diamond Flood, Heart Chorus.
 
-Deck construction introduces a persistent deck layer across rounds. The core
-rules deal a fresh standard deck each round, so these mechanics need a rule
-defining how the deck carries changes forward. The deck is shared by all four
-seats, so broad changes reach opponents' deals too.
+Deck construction changes the round's deck. Every round starts from the
+standard 52 cards, these sigils reapply their changes each round, and the core
+rules deal the whole deck evenly, so a changed deck can leave hands uneven. The
+deck is shared by all four seats, so broad changes reach opponents' deals too.
+The family is unproven, so the pool holds only a few of these sigils.
 
 **Variations.**
 
-- *Additions:* add extra spades or duplicates of a suit to the starting deck.
+- *Additions:* add extra spades or duplicates of a suit to each round's deck.
 - *Jokers:* add jokers to the deck as the two highest trumps.
 - *Removals:* remove low cards or a suit's small cards.
-- *Permanent modification:* at the end of each round, permanently raise a
-  card's rank or change its suit.
+- *Growing changes:* the sigil's change grows each round, such as adding one
+  more spade every round.
 - *Randomization:* remove random cards or add random duplicates each round.
 - *Owned cards:* cards added by your sigil are always dealt to you.
 
@@ -365,7 +366,7 @@ Card selection lets a player find the card the hand is missing.
 
 - *Look and keep:* before bidding, look at 3 created cards and swap one into
   your hand.
-- *Discard swaps:* when you play this card, swap a card in hand with a card
+- *Trick swaps:* when you play this card, swap a card in hand with a card
   from a completed trick (see
   Recursion).
 - *Shop cards:* buy specific cards in the shop for your next opening hand.
@@ -438,22 +439,22 @@ and the victim a card short; a swap trades cards evenly.
 - *Directional passing:* every seat passes cards to its left before bidding or
   before play, in the style of Hearts.
 
-### Forced discards
+### Forced card removal
 
-**Primary:** Purple. **Secondary:** Orange (random discards).
+**Primary:** Purple. **Secondary:** Orange (random removal).
 
 **Most interested:** Contract Attacker; splashed by High Card and Discard
 Dominance.
 
-Forced discards remove key cards from opponents' hands, leaving them a card
-short.
+Forced removal takes key cards out of opponents' hands without being played,
+leaving them a card short. These sigils are uncommon or rare.
 
 **Variations.**
 
-- *Opponents:* each opponent discards a card of the victim's choice, the
-  controller's choice, or at random.
-- *All players:* every seat discards, which favors the deck that planned for
-  it.
+- *Opponents:* each opponent removes a card from their hand, chosen by the
+  victim, by the controller, or at random.
+- *All players:* every seat removes a card, which favors the deck that planned
+  for it.
 - *Timing:* before bidding (disrupting bids) or after bidding (disrupting
   contracts).
 - *Replacement:* the replacement is random, a low card, or a card of a named
@@ -531,8 +532,7 @@ early and they skip the final trick.
   rank to it.
 - *Choice:* when you play this card, also play a second card and choose which
   one competes.
-- *Dump:* when you play this card, also play a second card face up as a
-  discard.
+- *Dump:* when you play this card, also play a second card that cannot win.
 - *Replacement:* the extra card is replaced with a created card, keeping the
   holder's hand size.
 
@@ -858,7 +858,7 @@ Suit payoffs pay for doing something with a specific suit.
 
 - *Playing:* contract value for each card of a suit you play.
 - *Winning:* contract value for each trick you win with a suit.
-- *Discarding:* contract value for each card of a suit you discard off suit.
+- *Discarding:* contract value for each card of a suit you discard.
 - *Named or relative:* a named suit by default; relative suits, such as your
   longest suit, appear rarely.
 

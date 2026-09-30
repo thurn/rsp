@@ -8,9 +8,10 @@ round.
 
 ## 1. The table, the run, and victory
 
-Four seats form two partnerships, with partners sitting opposite one another. A
-round uses a fresh standard 52-card deck, no jokers, and a 13-card hand for each
-seat. Players take turns clockwise. A **trick** is one card played by each
+Four seats form two partnerships, with partners sitting opposite one another. Each
+round starts from a fresh standard 52-card deck with no jokers, which deals a
+13-card hand to each seat. Sigils can add cards to the round's deck or remove
+them (§6). Players take turns clockwise. A **trick** is one card played by each
 seat holding cards; a **round** comprises a deal, bidding, 13 tricks, and
 scoring. A
 **run** comprises up to 13 rounds. There is no separate encounter layer.
@@ -40,8 +41,10 @@ maximum and avoids awarding victory according to score-processing order.
 - **Bid blind.** A partnership which is at least 200 points behind may have one
   partner bid blind nil (see §7) before cards are dealt. Eligible players are
   offered blind nil in bidding order, starting left of the dealer.
-- **Deal and engrave.** Shuffle the standard deck, deal 13 cards to each seat,
-  and assign each owned sigil to one card. Apply intrinsic rank and suit
+- **Deal and engrave.** Build the round's deck from the standard 52 cards plus
+  any sigil changes, shuffle it, and deal every card one at a time clockwise,
+  starting left of the dealer. A deck larger or smaller than 52 cards leaves
+  hands uneven (see §3). Assign each owned sigil to one card. Apply intrinsic rank and suit
   modifiers. Players inspect their hands; a blind-nil bidder's commitment is
   already locked.
 - **Before bidding.** Resolve effects explicitly scheduled before bidding,
@@ -177,14 +180,14 @@ Both partners' contract sigils apply to the partnership's single contract:
 additive bonuses combine and multipliers sum across both collections. A nil
 bidder's contract sigils still modify their partner's contract.
 
-- **Additive bonuses** add points to the contract, such as “+2 contract value
-  per diamond trick won” or “+3 per bid trick.” They are only earned: a failed
+- **Additive bonuses** add points to the contract in multiples of 5, such as
+  “+10 contract value per diamond trick won” or “+5 per bid trick.” They are only earned: a failed
   contract loses them all. A trick-triggered bonus still pays on an overtrick,
   which also adds a bag.
-- **Multipliers** are written as “+N×” and are summed, not compounded, on top
-  of a base of 1×: two “+1×” sigils make the contract worth 3×. Multipliers cut
-  both ways: a failed contract loses its base value times every active
-  multiplier. A multiplier conditioned on success, such as “+1× if you take
+- **Multipliers** are written as “+N×”, where N is a whole number, and are
+  summed, not compounded, on top of a base of 1×: two “+1×” sigils make the
+  contract worth 3×. Multipliers cut both ways: a failed contract loses its
+  base value times every active multiplier. A multiplier conditioned on success, such as “+1× if you take
   exactly your bid,” is simply inactive when the contract fails.
 
 | Result | Contract score |
@@ -212,10 +215,10 @@ ties.
 
 In standard Spades each bag also scores 1 point. Because every other component
 is a multiple of 10, the last digit of the score doubles as the bag count, so
-paper scoresheets need no separate bag column. Sigil bonuses that are not
-multiples of 10 break that convention, and Rogue Spades tracks bags as their
-own public count anyway. Dropping the point keeps scores in multiples of 10
-unless a sigil says otherwise and makes bags purely a penalty to manage. The
+paper scoresheets need no separate bag column. Sigil bonuses come in multiples
+of 5, which breaks that convention, and Rogue Spades tracks bags as their own
+public count anyway. Dropping the point keeps scores in multiples of 5 and
+makes bags purely a penalty to manage. The
 strategic change is small: ten bags cost exactly 100 rather than a net 90, and
 overtricks cannot help a partnership reach 1,000.
 
@@ -237,8 +240,8 @@ the round's bag-penalty check if their text specifies that timing.
 | Failed nil taking 1 trick, partner bids 3 and takes 3 | −100 + 30 = **−70** | 40 |
 | Successful blind nil, partner bids 4 and takes 5 | 200 + 40 = **240**; gain 1 bag | 250 |
 | Enter with 8 bags, bid 5, take 8 | 50 − 100 = **−50**; carry 1 bag | 80 |
-| Bid 5, take 6, two diamond tricks at +2 each, one +1× sigil | (50 + 4) × 2 = **108**; gain 1 bag | 60 |
-| Bid 5, take 4, two diamond tricks at +2 each, one +1× sigil | −50 × 2 = **−100**; bonuses lost | 40 |
+| Bid 5, take 6, two diamond tricks at +10 each, one +1× sigil | (50 + 20) × 2 = **140**; gain 1 bag | 60 |
+| Bid 5, take 4, two diamond tricks at +10 each, one +1× sigil | −50 × 2 = **−100**; bonuses lost | 40 |
 | Bid 4, take exactly 4, “+1× if exact” and “+1× if bid 4+” | 40 × 3 = **120** | 40 |
 
 Gold figures exclude interest.
@@ -321,8 +324,10 @@ those separate cards rather than require multiple engravings on a single card.
 
 Card changes, temporary effects, and transferred cards reset after the round.
 Purchased sigils return to their permanent owners' collections for the next
-deal. There is no permanent card acquisition or permanent conversion of the
-standard deck unless a future rule explicitly adds it.
+deal. Every round starts again from the standard 52 cards, and sigils that add
+or remove cards reapply their changes to each round's deck. Growth across a run
+lives on sigils: a sigil can change itself between rounds, and the cards it is
+engraved on stay fresh each deal.
 
 ### Effect types and timing
 
@@ -337,6 +342,11 @@ standard deck unless a future rule explicitly adds it.
 | Win or loss trigger | Rewards or reacts to the resolved outcome | After the trick winner is determined |
 | Trump or discard trigger | Responds to a legal off-suit play | At play, unless it also requires a win |
 | Pass trigger | Responds to a specified exchange | After that exchange completes |
+| End-of-round trigger | Responds to the round's result | After scoring |
+| Shop effect | Changes shopping, or responds to buying or selling | At each shop |
+
+[rules-text.md](rules-text.md) lists every timing window with its standard
+opening, and each window belongs to one of these types.
 
 Every sigil effect is triggered or ongoing, and each resolves in its stated
 window. Players make choices only as part of a resolving effect, such as a

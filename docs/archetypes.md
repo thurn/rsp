@@ -146,7 +146,7 @@ is strongest beside a partner running High Card or Spade Master.
 
 **Game plan.** The deck attacks the opponents' score directly. Its main line
 takes more tricks than the opponents can afford: Red raises its own cards while
-Purple lowers theirs, forces their discards, and disables their sigils. Its
+Purple lowers theirs, strips cards from their hands, and disables their sigils. Its
 second line feeds a conservative partnership overtricks and punishes their bags.
 Because a failed contract loses its base value times every multiplier, the
 attack grows more damaging as the opponents' collections grow stronger.
@@ -154,7 +154,7 @@ attack grows more damaging as the opponents' collections grow stronger.
 **Enablers.**
 
 - Red rank increases and Purple rank lowering on opponents' cards.
-- Purple forced discards and sigil disabling.
+- Purple forced card removal and sigil disabling.
 - Blue reveals, which show where the opponents' tricks will come from.
 
 **Payoffs.**
@@ -271,7 +271,7 @@ Orange converts the surplus into points.
 - *Following suit forces while-held cards out of hand.* Gray engraving control
   places while-held sigils on cards in long suits, where other cards can follow
   instead.
-- *Opponents steal cards or force discards.* Spread income across several
+- *Opponents steal cards or force them out of hand.* Spread income across several
   sigils rather than one large earner.
 - *The partnership's score lags while the deck invests.* Gold Miner pairs well
   with a partner running a points-focused archetype, and eventually both
@@ -284,14 +284,14 @@ Orange converts the surplus into points.
 **Orange + Teal.** Trade constantly and profit from every exchange.
 
 **Game plan.** Teal passes and swaps cards with the partner, the opponents, and
-the discard pile. Orange and Teal pass triggers pay for each completed trade.
+completed tricks. Orange and Teal pass triggers pay for each completed trade.
 Every exchange also improves the hand, so the deck reshapes a mediocre deal
 into the hand it wants.
 
 **Enablers.**
 
 - Teal passes to the partner at every window.
-- Teal swaps with opponents and with played or discarded cards.
+- Teal swaps with opponents and with cards from completed tricks.
 - Blue reveals, which show which cards to take.
 
 **Payoffs.**
@@ -374,7 +374,7 @@ holding a sigil card, which keeps its effect through scoring.
 
 - *Following suit forces a sigil card out.* Keep enough other cards of each suit,
   and use cards that count as any suit to follow instead.
-- *Opponents force discards or steal cards.* Spread while-held value across
+- *Opponents steal cards or force them out of hand.* Spread while-held value across
   several cards.
 - *Opponents lead the suit of a sigil card repeatedly.* Teal returning played
   cards to hand brings a forced-out sigil card back.
@@ -429,7 +429,7 @@ deck takes few tricks, so it pairs naturally with a low contract or a nil.
 
 **Payoffs.**
 
-- Purple rewards for discarding off suit.
+- Purple rewards for discarding.
 - Purple rewards for low contracts.
 - Purple off-suit play triggers, which also count trumps.
 

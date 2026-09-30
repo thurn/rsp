@@ -14,10 +14,14 @@ reference for clarity.
   moment the text names. Choices happen inside a trigger, as in "you may."
 - **When, then what.** A triggered effect opens with when it happens, then says
   what happens: "When this card wins a trick, gain +20 contract value."
-- **Gain with a sign.** Rewards and changes use "gain" and a signed number:
-  "gain +20 contract value," "gain +5 gold," "gains +3 rank."
-- **Few game terms.** Rules text uses the short list of terms below and
-  otherwise uses everyday words.
+- **Gain with a sign.** Increases use "gain" and a signed number: "gain +20
+  contract value," "gain +5 gold," "gains +3 rank." Decreases use a plain verb
+  and an unsigned number: "loses 4 rank," "Shop rerolls cost 20 gold less."
+- **Spades words and plain English.** Rules text uses the ordinary vocabulary
+  of Spades freely: trick, lead, follow suit, void, trump, nil, blind nil,
+  bags. Everything else is everyday English. A new term is invented only when
+  no plain phrasing works, and every invented term appears in the table
+  below.
 - **Name the suit.** Sigils name the suit they affect, such as "your spades
   gain +2 rank," so each suit keeps the identity described in
   [resonance.md](resonance.md#suit-identity). "Your longest suit" is a rare
@@ -59,13 +63,16 @@ their hand.
 
 ## Sentence patterns
 
-Each timing window from the core rules has one standard opening.
+This table is the canonical list of timing windows. Each window has one
+standard opening, and each belongs to one of the effect types in the core
+rules.
 
 | Timing | Opening |
 | --- | --- |
 | Always on, for the engraved card | "This card gains +3 rank." |
-| Always on, for you | "Shop rerolls cost -20 gold." |
+| Always on, for you | "Shop rerolls cost 20 gold less." |
 | Before bidding | "Before bidding, …" |
+| When you bid | "When you bid, …" |
 | After bidding | "After bidding, …" |
 | While in hand | "While this card is in your hand, …" |
 | When played | "When you play this card, …" |
@@ -73,30 +80,41 @@ Each timing window from the core rules has one standard opening.
 | When this card wins | "When this card wins a trick, …" |
 | When you win any trick | "Whenever you win a trick, …" |
 | When you lose any trick | "Whenever you lose a trick, …" |
+| When your partner wins a trick | "Whenever your partner wins a trick, …" |
 | When you play another suit | "Whenever you play a card that doesn't match the suit led, …" |
+| When you discard | "Whenever you discard, …" |
 | When you pass cards | "Whenever you pass cards, …" |
 | Conditional scoring | "If your team makes its contract exactly, …" |
+| After scoring | "After scoring, …" |
+| At the shop | "At each shop, …" |
+| When sold | "When you sell this sigil, …" |
 
 "This card" always means the card the sigil is engraved on. "Whenever you"
 triggers watch every trick you play, whichever card you play.
 
+**Discard** has its Spades meaning: play a card that neither follows the suit
+led nor is trump. "A card that doesn't match the suit led" includes trumps. A
+card leaving a hand without being played is described in plain words, such as
+"remove a card from your hand."
+
 ## Terms
+
+These are the game's own terms, beyond standard Spades vocabulary.
 
 | Term | Meaning |
 | --- | --- |
-| **rank** | A card's strength, from 2 up to ace. Ranks never go above ace or below 2. |
-| **contract value** | Points added to your team's contract, paid only if the contract is made. |
-| **contract multiplier** | Written `+1×`. Multiplies your team's contract, win or lose. |
-| **nil contract value** | Points added to your nil bid, paid only if the nil succeeds. Contract multipliers never apply to it. |
-| **nil** | A bid to take no tricks. |
-| **trump** | Play a spade when a different suit was led. |
+| **rank** | A card's strength, from 2 up to ace. Ranks stay between 2 and ace. |
+| **contract value** | Points added to your team's contract, in multiples of 5, paid only if the contract is made. |
+| **contract multiplier** | Written `+1×`, always a whole number. Multiplies your team's contract, win or lose. |
+| **nil value** | Points added to your nil bid, paid only if the nil succeeds. Contract multipliers never apply to it. |
 | **convert** | Change a card's suit. |
 | **longest suit, shortest suit** | Counted in your hand when the effect happens. Used rarely; most sigils name a suit. |
 | **team** | You and your partner. |
 | **gold** | Your personal currency for the shop. |
+| **sigil** | An effect you own for the run, engraved on a card in each new hand. |
+| **affinity** | The rank or suit a sigil prefers to be engraved on. |
 
-A term outside this list appears in rules text only when no everyday phrasing
-works, and it is added here before use.
+Any other invented term is added here before it appears in rules text.
 
 ## Conventions
 
@@ -111,8 +129,9 @@ works, and it is added here before use.
   Rules text states only the amount.
 - **Visibility:** every triggered effect is shown to the table when it happens,
   as the core rules require.
-- **Numbers** are written as digits, with a sign on gains and costs: "+3 rank,"
-  "+5 gold," "-20 gold." A single card is "a card"; more are "2 cards."
+- **Numbers** are written as digits, with a sign on gains: "+3 rank," "+5
+  gold." Decreases are unsigned: "loses 4 rank." A single card is "a card";
+  more are "2 cards."
 - **Punctuation:** full sentences, sentence case, ending with a period.
 
 ## Calibration
@@ -121,7 +140,7 @@ Magnitudes in rules text are set against these reference facts from ordinary
 Spades play:
 
 - A bid trick is worth 10 points, so +10 contract value is worth one more bid
-  trick. Contract value comes in multiples of 10, which keeps scores round.
+  trick. Contract value comes in multiples of 5, which keeps scores round.
 - A seat takes about 3 of the 13 tricks and loses about 10.
 - A partnership makes its contract about 80% of the time.
 - A random card wins its trick about 25% of the time; an ace wins far more
@@ -129,13 +148,13 @@ Spades play:
 - A card is usually played once, so a trigger on "this card" usually fires at
   most once per round. A "whenever you" trigger can fire many times and needs a smaller
   amount or a narrower condition.
-- Payoffs target the value bands in [skeleton.md](skeleton.md): about 6–10
-  expected points per round at round 7 for a common, 10–16 for an uncommon, and
-  16–25 for a rare.
 - Gold compares against base income of about 65 gold per round from tricks,
   plus up to 50 interest.
 
 ## Examples
+
+These examples are real sigils in the pool. Wave 0 of the design process in
+[skeleton.md](skeleton.md) seeds them into their slots.
 
 | # | Name | Icon | Resonance · Rarity | Rules text |
 | --- | --- | --- | --- | --- |
@@ -147,10 +166,10 @@ Spades play:
 | 6 | Turning Tide | `water` | Green · Common | Before bidding, convert 2 cards in your hand to diamonds. |
 | 7 | Open Hand | `hand` | Teal · Common | After bidding, you and your partner each pass a card to each other. |
 | 8 | True Aim | `target` | Blue · Rare | If your team makes its contract exactly, gain +1× contract multiplier. |
-| 9 | Silent Vow | `candlestick` | Purple · Common | Gain +30 nil contract value. |
+| 9 | Silent Vow | `candlestick` | Purple · Common | Gain +30 nil value. |
 | 10 | Sinking Anchor | `anchor` | Purple · Uncommon | After bidding, each opponent's highest card loses 4 rank. |
 | 11 | Curtain Call | `mask` | Teal · Uncommon | When you play this card, you may pick up another card you've previously played this round. |
-| 12 | Loaded Dice | `dice-6` | Gray · Common | Shop rerolls cost -20 gold. |
+| 12 | Loaded Dice | `dice-6` | Gray · Common | Shop rerolls cost 20 gold less. |
 
 ### 1. Honed Edge: changing this card
 
@@ -238,14 +257,13 @@ inactive, so it never increases a loss.
 **Balance:** a partnership playing for its exact bid lands it about 40% of the
 time, and doubling a mid-run contract of about 70 is worth about 28 expected
 points, less the extra failures from playing tight. That is rare-level value,
-so an uncommon version would need a smaller multiplier or a narrower
-condition.
+and an uncommon version needs a narrower condition.
 
 ### 9. Silent Vow: nil
 
-`Gain +30 nil contract value.`
+`Gain +30 nil value.`
 
-Nil contract value is paid only when your nil succeeds, so a successful nil
+Nil value is paid only when your nil succeeds, so a successful nil
 scores 130 instead of 100. Contract multipliers never apply to it.
 
 **Balance:** about 11 expected points per round for a nil deck that bids nil in
@@ -273,11 +291,11 @@ so you may finish the round with a card left in hand.
 
 **Balance:** picking up a winning ace late in the round is worth most of a
 trick, and picking up a card with a "when you play this card" sigil replays
-it. That places Curtain Call at the top of the uncommon band.
+it. That places Curtain Call among the strongest uncommons.
 
 ### 12. Loaded Dice: an effect for you
 
-`Shop rerolls cost -20 gold.`
+`Shop rerolls cost 20 gold less.`
 
 The sigil applies whenever it is relevant, here at every shop.
 

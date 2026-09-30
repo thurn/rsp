@@ -102,7 +102,7 @@ that states the archetype's plan in a single sigil. A player who sees a
 signpost learns what the archetype is trying to do.
 
 The five **flex rares** are assigned during design, favoring archetypes whose
-plans most need a unique build-around and archetypes that playtest weakest.
+plans most need a unique build-around and archetypes whose support is thinnest.
 
 ## Support per archetype
 
@@ -126,9 +126,6 @@ An archetype's two resonances hold about 24% of the pool. About 56% of shops
 show at least one offer from those resonances, and about 83% show an offer from
 those resonances or Gray.
 
-If archetypes prove too hard to assemble, the first lever is shop weighting:
-offers lean slightly toward resonances the player already owns.
-
 ## Scoring parity
 
 Every archetype needs a roughly equal path to 1,000 points. The core scoring
@@ -149,7 +146,7 @@ Parity is a property of each archetype's **payoffs**, measured across a whole
 collection. Most sigils are enablers, utility, or interaction that score
 nothing directly: they make the payoffs happen more often, protect a plan, or
 change a decision. Those sigils are judged on play quality, and only payoffs
-carry scoring targets.
+are judged against the benchmark curve.
 
 ### Benchmark curve
 
@@ -157,7 +154,8 @@ The benchmark is the **reference partnership**: one partner runs the archetype
 with a **typical collection**, and the other runs a neutral collection of Gray
 sigils bought at the same pace. A typical collection is what realistic shop odds
 produce, not the best case: about eight on-plan sigils (mostly common), three
-Gray sigils, and two off-plan sigils by round 13.
+Gray sigils, and two off-plan sigils by round 13. The reference partnership's
+opponents score exactly the benchmark curve every round.
 
 Expected round scores include failed contracts, failed nils, and bag penalties
 at 10 points per bag.
@@ -201,23 +199,23 @@ steep finish, or a fast start with a flatter finish.
   archetype's nil plus its partner's contract matches the benchmark after
   accounting for the −100 or −200 failure risk.
 - **Denial parity.** Contract Attacker is measured by score margin: its own
-  points plus the opponents' losses. Its own points alone still reach 1,000 by
-  round 13 in a typical run, because denial cannot win a race to 1,000 by
-  itself.
-- **Economy parity.** Gold is converted to points at an exchange rate that
-  declines over the run, because early gold buys sigils that score for many
-  rounds. Gold Miner's curve starts slow and finishes steep, reaching 1,000 in
+  points plus the opponents' losses, compared against the benchmark curve. Its
+  own points alone still reach 1,000 by round 13 in a typical run, because
+  denial cannot win a race to 1,000 by itself.
+- **Economy parity.** Gold is worth more points early in the run than late,
+  because early gold buys sigils that score for many rounds. Gold Miner's curve starts slow and finishes steep, reaching 1,000 in
   the same window.
 - **Situational channels.** Blind Bidder scores only while its partnership
-  trails by the blind nil threshold, so its expected value includes the rate at
-  which it qualifies. Threshold-lowering sigils are its main tuning lever.
+  trails the benchmark-curve opponents by the blind nil threshold, so its
+  expected value includes the rate at which it qualifies. Threshold-lowering sigils are its main tuning lever.
 - **Partner multipliers.** Multipliers sum across both partners, so each
   archetype's curve assumes its partner contributes only Gray-level
   multipliers. Two multiplier archetypes in one partnership exceed the curve,
   and the uncommon rarity of multipliers keeps that pairing occasional.
 
-Hand estimates guide the design waves. Once sigils are implemented in the
-prototype, AI self-play simulations replace the estimates.
+Parity is a qualitative judgment: at the signpost gate and in the final audit,
+each archetype needs a credible path to 1,000 within the parity target, reasoned
+from its channel mix and support rather than computed per sigil.
 
 ## Budgets across categories
 
@@ -227,9 +225,10 @@ prototype, AI self-play simulations replace the estimates.
 | Global rule setters | About 12 sigils, mostly rare |
 | Economy (Orange and Gray) | About 22 sigils, mostly common and inexpensive |
 | Commons priced at 50 gold or less | At least 40 |
-| Opponent-facing interaction | About 25 sigils, concentrated in Purple |
-| Timing windows | At least 10 sigils in each timing window from the core rules |
-| Suit references | Suit sigils name a suit; relative references such as "your longest suit" on at most about 10% of them, mostly rare or Gray |
+| Opponent-facing interaction | About 15 sigils, concentrated in Purple; effects that remove or take opponents' cards, disable sigils, or dictate plays are uncommon or rare |
+| Timing windows | Across the windows in [rules-text.md](rules-text.md): at least 10 sigils in each major window, and at least 3 in each minor window (when led, when you bid, when your partner wins a trick, when you pass cards, after scoring, at the shop, and when sold) |
+| Suit references | Suit sigils name a suit, mostly from that suit's home resonances; relative references such as "your longest suit" on at most about 10% of them, mostly rare or Gray |
+| Deck changes | A few sigils, since adding cards to the round's deck or removing them is unproven |
 | AI evaluation | Every sigil whose choices the AI heuristic evaluates poorly is flagged |
 
 Global rule setters stay mostly rare because conflicting setters resolve in
@@ -243,8 +242,8 @@ Champion, and Nil Guard.
 **Color-wide enablers (8).**
 
 - Common: lower your own ranks; lower cards after bidding; small bonus when you
-  lose a trick; skip following suit after losing a trick; off-suit play trigger; force
-  opponents to discard.
+  lose a trick; skip following suit after losing a trick; discard trigger;
+  convert cards to clubs.
 - Uncommon: disable an opponent's sigil; change an opponent's rank in either
   direction.
 
@@ -254,7 +253,7 @@ Champion, and Nil Guard.
 | --- | --- | --- | --- |
 | Contract Attacker | Bonus when opponents miss their contract | Heavier penalties for opponents' bags | A failed opposing contract costs extra |
 | Blind Bidder | Lower blind nil threshold | Higher blind nil value | Blind nil at any score |
-| Discard Dominance | Each off-suit discard pays | Skip following a named suit | Off-suit plays pay double |
+| Discard Dominance | Each discard pays | Skip following a named suit | Discards pay double |
 | Nil Champion | Higher nil value | A failed nil costs less | Nil multiplier |
 | Nil Guard | Bonus to your partner's nil | Lower your partner's cards | Your partner's nil survives one trick |
 
@@ -269,20 +268,19 @@ Champion, and Nil Guard.
 **Splash hooks (2).**
 
 - Lower the opponents' highest card, for High Card and Kingmaker.
-- Off-suit play trigger that counts trumps, for Spade Master.
+- Trigger on any play that doesn't match the suit led, including trumps, for
+  Spade Master.
 
 ## Process
 
-1. **Fill the skeleton.** Create a spreadsheet row for every slot with a slot
+1. **Fill the skeleton.** Create a row in `slots.md` for every slot with a slot
    code and a one-line brief, such as `PU-C03: Purple common, nil lean, lowers
    own ranks after bidding`. Columns: slot code, resonance, rarity, slot type,
    archetypes served, mechanic family, timing window, payoff type, and price.
-2. **Design commons first.** Commons make up 70% of offers and define what can
-   be drafted.
+2. **Design signposts, then commons.** Signposts define each archetype's plan,
+   and commons make up 70% of offers and define what can be drafted.
 3. **Audit.** Check every archetype against its support floors and the pool
    against the cross-category budgets.
-4. **Hold slack.** Reserve about 5% of slots, roughly 12 sigils, for fixes
-   after playtesting.
 
 ## Appendix: subagent orchestration plan
 
@@ -312,7 +310,7 @@ All design work lives in `docs/sigils/`:
 | File | Owner | Contents |
 | --- | --- | --- |
 | `slots.md` | Orchestrator | Every slot: code, resonance, rarity, slot type, archetypes served, mechanic family, assigned variation, timing window, and one-line brief |
-| `scoring.md` | Orchestrator | The benchmark curve, gold exchange rate, value bands by rarity, each archetype's engine sketch, and each archetype's running score projection |
+| `scoring.md` | Orchestrator | The benchmark curve, the parity rules, and each archetype's planned channel mix |
 | `icons.txt` | Orchestrator | Every available icon: the free filled set of Boxicons minus card-suit icons, one name per line |
 | `registry.md` | Orchestrator | Every accepted sigil with its name, icon, icon family, and effect signature, in one table |
 | `red.md`, `orange.md`, `green.md`, `blue.md`, `teal.md`, `purple.md`, `gray.md`, `dual.md` | Orchestrator | Full accepted sigil entries, one file per resonance |
@@ -350,7 +348,7 @@ name-and-icon pairs, so the orchestrator can resolve icon conflicts without
 another design cycle.
 
 The **role** is enabler, payoff, or utility. A payoff also records its scoring
-channel and its expected points per round at round 7. The **effect signature**
+channel. The **effect signature**
 is a normalized description: trigger | controller | target | effect |
 magnitude. Signatures make duplicates easy to detect.
 
@@ -359,12 +357,13 @@ magnitude. Signatures make duplicates easy to detect.
 The orchestrator writes `slots.md` and `scoring.md` before any design begins.
 
 - `scoring.md` records the benchmark curve and parity rules from this
-  document, a gold-to-points exchange rate by round, and **value bands** for
-  payoffs: the expected points per round a payoff of each rarity contributes at
-  round 7. Starting bands are about 6–10 points for a common, 10–16 for an
-  uncommon, and 16–25 for a rare, all tunable.
+  document, and each archetype's planned channel mix.
 - Each payoff slot's brief names its scoring channel, so every archetype's
   channel mix is set before design begins.
+- The orchestrator assigns each **seeded sigil** to a matching slot: the 12
+  examples in [rules-text.md](rules-text.md) and Waning Moon from the entry
+  format above. Seeded sigils fill 10 common slots, 2 uncommon slots, and 1
+  rare slot.
 - `icons.txt` lists the available icons: the free filled Boxicons set from the
   `svg/filled` directory of the `@boxicons/core` package (1,884 icons at
   version 1.0.6), minus the card-suit families `spade`, `heart`, `diamond`,
@@ -382,16 +381,17 @@ The orchestrator writes `slots.md` and `scoring.md` before any design begins.
 
 ### Waves
 
-Design begins with the signposts, which define each archetype, then proceeds
-in rarity order, because commons define the pool and later rarities build on
-them.
+Design begins by accepting the seeded sigils, then the signposts, which
+define each archetype, then proceeds in rarity order, because commons define
+the pool and later rarities build on them.
 
 | Wave | Slots | Designers |
 | --- | --- | --- |
+| 0 | 13 seeded sigils | None: the three critics review them, and the orchestrator applies fixes |
 | 1 | 15 signposts | 1 designer, for consistency across archetypes |
-| 2 | 110 commons | 7 in parallel: one per colored resonance and one for Gray |
-| 3 | 82 uncommons | 7 in parallel |
-| 4 | 38 rares | 7 in parallel |
+| 2 | 100 remaining commons | 7 in parallel: one per colored resonance and one for Gray |
+| 3 | 80 remaining uncommons | 7 in parallel |
+| 4 | 37 remaining rares | 7 in parallel |
 | 5 | 5 flex rares | 1 designer with the full registry |
 | 6 | Whole pool | Audit only |
 
@@ -408,13 +408,13 @@ state of `docs/sigils/` and pushes it to the remote master branch, so every
 wave's results are recorded and reviewable.
 
 - Each commit includes every artifact the wave changed: the resonance files,
-  `registry.md`, `slots.md`, `scoring.md` with updated projections, and the
-  escalation list in `escalations.md`.
+  `registry.md`, `slots.md`, `scoring.md`, and the escalation list in
+  `escalations.md`.
 - Messages follow Conventional Commits and name the wave, for example
   `docs(sigils): accept wave 2 commons` or
   `docs(sigils): apply wave 6 audit fixes`.
-- The body summarizes the wave: slots filled, designs escalated, and each
-  archetype's projected round to reach 1,000.
+- The body summarizes the wave: slots filled, designs escalated, and any
+  archetype whose support looks thin.
 - Gates follow the checkpoint commit, so the user reviews exactly the pushed
   state.
 - Fixes made after a gate, or after the audit, get their own commits.
@@ -429,14 +429,14 @@ sigils feed. For each slot, the designer:
 
 1. Writes **three candidates** that fill the slot's brief using its assigned
    variation.
-2. Checks each candidate against the registry and discards any that match an
+2. Checks each candidate against the registry and drops any that match an
    existing signature.
 3. Scores each candidate against the rubric below.
 4. Selects one, favoring the simplest candidate among close scores.
 5. Names it with three name-and-icon pairs in preference order. Each icon
    appears in `icons.txt`, and each icon family and name is unclaimed in the
    registry.
-6. Returns the entry format above, plus one sentence on each discarded
+6. Returns the entry format above, plus one sentence on each dropped
    candidate and why it lost.
 
 ### Design rubric
@@ -447,7 +447,8 @@ Every candidate answers these questions in writing.
 
 - Is it one plain English sentence following the patterns in
   [rules-text.md](rules-text.md)?
-- Does it use only the game terms listed there?
+- Does it use only Spades vocabulary, everyday words, and the game terms
+  listed there?
 - Could a new player predict exactly what happens from the text alone?
 
 **Fun to play**
@@ -462,9 +463,9 @@ Every candidate answers these questions in writing.
 
 - Can opponents see what happened when it triggers?
 - Can opponents respond to it through bidding or play?
-- Does it leave opponents' decisions meaningful? Effects that take cards,
-  disable sigils, or dictate plays are uncommon or rare, visible when they
-  resolve, and limited in scope.
+- Does it leave opponents' decisions meaningful? Effects that remove or take
+  opponents' cards, disable sigils, or dictate plays are uncommon or rare,
+  visible when they resolve, and limited in scope.
 
 **Fiddliness**
 
@@ -483,9 +484,8 @@ Every candidate answers these questions in writing.
 **Balance**
 
 - Does it feel worth its price at its rarity?
-- For a payoff: which scoring channel does it feed, and does its expected value
-  per round at round 7, including the failures it risks, fall within its
-  rarity's value band?
+- For a payoff: which scoring channel does it feed, and how much does it move
+  its archetype toward the benchmark curve, including the failures it risks?
 - How does it scale with multipliers and with a full collection?
 
 ### Critic passes
@@ -503,9 +503,9 @@ work in parallel and receive the batch of new designs plus the registry.
    and fair.
 3. **Systems critic.** Checks rules fit, duplicates and near-duplicates
    against the registry and the rest of the batch, name and icon validity, and
-   interactions with multipliers, rule setters, and exchanges. For payoffs, it independently
-   estimates the scoring channel and expected value against the value bands,
-   and reports any disagreement with the designer's estimate.
+   interactions with multipliers, rule setters, and exchanges. For payoffs, it
+   checks the scoring channel and whether the payoff's strength suits its
+   price and rarity.
 
 A **near-duplicate** is a design that matches an existing signature in trigger,
 target, and effect, differing only in magnitude, named suit, or rank. The
@@ -528,7 +528,8 @@ every name is unique. The registry enforces this pool-wide:
   performs one design at a time. It assigns the designer's first name-and-icon
   pair whose name and icon family are still free, and otherwise the first free
   alternate. When all three are taken, the design returns for new names only,
-  which does not count as a revision cycle. Signposts claim first, in wave 1.
+  which does not count as a revision cycle. Seeded sigils claim first, in wave
+  0, then signposts, in wave 1.
 - **Motifs.** Each resonance draws most of its icons from its own motifs,
   which gives each resonance a visual identity and keeps parallel designers
   from reaching for the same icons.
@@ -551,10 +552,10 @@ every name is unique. The registry enforces this pool-wide:
   records the slot and its best candidate in an escalation list for the user.
 - The orchestrator accepts a design by adding its entry to its resonance file
   and its name, icon, icon family, and signature to the registry.
-- After each wave, the orchestrator updates every archetype's score projection
-  in `scoring.md`. An archetype projected outside the parity window receives
-  priority in the next wave's slot briefs: more value for a lagging archetype,
-  or tighter conditions for a leading one.
+- After each wave, the orchestrator reviews every archetype's support and
+  channel mix. An archetype that looks weak or strong against the parity
+  target receives priority in the next wave's slot briefs: more value for a
+  lagging archetype, or tighter conditions for a leading one.
 
 ### Wave 1: signposts
 
@@ -609,11 +610,8 @@ names without the pairing and matches each signpost to its archetype. Any
 signpost it misassigns, or any two it finds interchangeable, returns to the
 designer.
 
-The signpost designer also writes an **engine sketch** for each archetype in
-`scoring.md`: its channel mix, a typical 13-sigil collection built from the
-planned slots, and a projected score for rounds 1, 4, 7, 10, and 13 against the
-benchmark curve. The engine sketches are reviewed at the signpost gate, and
-they are the first test of parity.
+At the signpost gate, the user reviews each archetype's signpost alongside its
+planned channel mix in `scoring.md`, as the first qualitative test of parity.
 
 After the signposts are accepted, the orchestrator revises `slots.md`: each
 archetype-lean and bridge brief names the signposts it supports, and each
@@ -636,12 +634,11 @@ An auditor subagent checks the complete pool against this document:
 - Rules text: every sigil follows [rules-text.md](rules-text.md), and every
   sigil passed the comprehension critic.
 - Coverage of each mechanic family in [mechanics.md](mechanics.md).
-- Scoring parity: every archetype's projected reference partnership reaches
-  1,000 in round 11 or 12, within one round of every other archetype, with the
-  channel mix its engine sketch planned.
+- Scoring parity: every archetype has a credible path to 1,000 within the
+  parity target, using the channel mix `scoring.md` planned.
 - Names and icons: every icon appears in `icons.txt`, and every name, icon
   family, and icon word is unique.
 - A final duplicate sweep across the registry.
 
-The orchestrator fixes audit findings using the slack slots, then presents the
-pool and the escalation list to the user.
+The orchestrator fixes audit findings by revising sigils in place, then
+presents the pool and the escalation list to the user.

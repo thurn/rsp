@@ -26,7 +26,8 @@ Resonance sigils fall into two broad roles:
 - **Enablers** change the state of the game: they move cards, change ranks,
   change suits, shape hands, and reveal information. Enablers are written so
   they serve several archetypes: they name a suit that several archetypes
-  share, trigger on any off-suit play (which includes trumping), or let the
+  share, trigger on any play that doesn't match the suit led (which includes
+  trumping), or let the
   player choose the direction of a change.
 - **Payoffs** turn a specific outcome into points or gold: a successful nil, a
   diamond trick, gold earned while holding a card. Payoffs are focused so each
@@ -54,6 +55,11 @@ Each suit also links several archetypes, which is a major source of overlap.
 | **Hearts** | Growth and partnership: hearts strengthen over the round and pass between partners | Green, Teal | Heart Chorus, Kingmaker, Nil Guard |
 | **Diamonds** | Wealth: gold and one-shot points | Orange, Green | Diamond Flood, Gold Miner, Bonus Chaser |
 | **Clubs** | Sacrifice: discarded, converted away, paid as costs, and lost on purpose | Purple, Green | Discard Dominance, Nil Champion, Blind Bidder |
+
+The Resonances column names each suit's **home**: most sigils that name the
+suit belong to those resonances. Any resonance may name a suit when the sigil
+serves one of that suit's archetypes, such as a Blue sigil that makes hearts
+trump for Heart Chorus. Blue and Teal sigils name suits least often.
 
 Relative suit references, such as "your longest suit" or "the suit led,"
 appear occasionally, mostly on rare and Gray sigils where flexibility is the
@@ -114,11 +120,10 @@ Green owns:
 - Creating specific cards in hand.
 - Changing the suit of your own cards, and cards that count as any suit.
 - Rewards for long suits, singletons, and voids.
-- Adding cards to the starting deck, such as extra spades.
+- Adding cards to each round's deck, such as extra spades, or removing them.
 - Forcing chosen cards into the opening hand.
 - Cards that grow stronger as the round goes on, and sigils that grow across
   the run.
-- Permanent changes to the deck between rounds.
 - Effects on adjacent cards in hand.
 - Points for playing cards of a suit.
 
@@ -165,7 +170,7 @@ Teal owns:
 
 - Passing cards to your partner, before bidding, after bidding, or during play.
 - Swapping cards with opponents and stealing cards from them.
-- Swapping cards in hand with played or discarded cards.
+- Swapping cards in hand with cards from completed tricks.
 - Returning played cards to your hand.
 - Pass triggers that reward completed exchanges.
 - Effects that target your partner's cards.
@@ -181,7 +186,8 @@ high cards away from a nil partner.
 
 ## Purple: Shadow
 
-Purple loses on purpose and makes opponents lose.
+Purple loses on purpose. Nil is its core, and a smaller set of sabotage effects
+makes opponents lose.
 
 Purple owns:
 
@@ -192,15 +198,16 @@ Purple owns:
 - Reversing rank order so the lowest card wins.
 - "When you lose a trick" triggers.
 - Nil and blind nil value, and the blind nil threshold.
-- Rewards for discarding off suit, and permission to skip following suit.
-- Forcing opponents or all players to discard.
+- Rewards for discarding, and permission to skip following suit.
+- Making opponents or all players remove cards from their hands.
 - Disabling opponents' sigils.
 - Rewards when opponents miss their contract.
 - Making opponents lose points, including heavier penalties for their bags.
 - Rewards for low contracts.
 - Effects that grow stronger while the partnership trails.
 
-Purple is home to all three nil archetypes. Its sabotage and discard effects
+Purple is home to all three nil archetypes, and most Purple sigils serve them.
+Its sabotage effects, uncommon or rare and concentrated on Contract Attacker,
 extend it to decks that win tricks aggressively.
 
 **Archetypes:** Contract Attacker (Red + Purple), Blind Bidder (Orange +
