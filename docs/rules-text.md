@@ -124,8 +124,8 @@ Any other invented term is added here before it appears in rules text.
 - **You** means whoever currently holds the card. A card passed to another
   player brings its effect with it.
 - **Cards** mentioned in rules text are cards in your hand unless the text
-  names another place. The text says who picks them: "2 chosen cards" or "2
-  random cards."
+  names another place. The text says who picks them: "two chosen cards" or
+  "two random cards."
 - **Ties,** such as two equally long suits, are broken by your choice.
 - **Duration:** rank and suit changes last for the rest of the round. Shorter
   effects say "for this trick."
@@ -134,8 +134,8 @@ Any other invented term is added here before it appears in rules text.
 - **Visibility:** every triggered effect is shown to the table when it happens,
   as the core rules require.
 - **Numbers** are written as digits, with a sign on gains: "+3 rank," "+5
-  gold." Decreases are unsigned: "loses 4 rank." A single card is "a card";
-  more are "2 cards."
+  gold." Decreases are unsigned: "loses 4 rank." Counts of cards are words: "a
+  card," "two cards," "three random cards."
 - **Punctuation:** full sentences, sentence case, ending with a period.
 
 ## Calibration
@@ -167,7 +167,7 @@ These examples are real sigils in the pool. Wave 0 of the design process in
 | 3 | Nest Egg | `egg` | Orange · Common | While this card is in your hand, gain +5 gold after each trick. |
 | 4 | Crown Jewel | `crown` | Red · Common | **Affinity: Ace.** When this card wins a trick, gain +20 contract value. |
 | 5 | Graceful Exit | `door-open` | Purple · Common | Whenever you lose a trick you played a face card to, gain +10 contract value. |
-| 6 | Turning Tide | `water` | Green · Common | Before bidding, convert 2 chosen cards in your hand to diamonds. |
+| 6 | Turning Tide | `water` | Green · Common | Before bidding, convert two chosen cards in your hand to diamonds. |
 | 7 | Open Hand | `hand` | Teal · Common | After bidding, you and your partner each pass a card to each other. |
 | 8 | True Aim | `target` | Blue · Rare | If your team makes its contract exactly, gain +1× contract multiplier. |
 | 9 | Silent Vow | `candlestick` | Purple · Common | Gain +30 nil value. |
@@ -232,7 +232,7 @@ bidder's sigils still add to the partner's contract.
 
 ### 6. Turning Tide: before bidding
 
-`Before bidding, convert 2 chosen cards in your hand to diamonds.`
+`Before bidding, convert two chosen cards in your hand to diamonds.`
 
 Everyone bids after the change.
 

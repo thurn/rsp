@@ -330,7 +330,7 @@ Name:        Waning Moon
 Icon:        moon               (alternates: Falling Feather / feather, Drowsy Owl / owl)
 Resonance:   Purple
 Rarity:      Common (45 gold)
-Text:        After bidding, 2 chosen cards in your hand lose 3 rank.
+Text:        After bidding, two chosen cards in your hand lose 3 rank.
 Timing:      After bidding
 Archetypes:  Nil Champion, Blind Bidder; splash Exact Contractor
 Family:      Lowering your ranks / Post-bid
