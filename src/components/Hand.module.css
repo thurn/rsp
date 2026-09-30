@@ -1,4 +1,6 @@
 .hand {
+  --fan-rotate: 1.8deg;
+  --fan-drop: 0.8px;
   container-type: inline-size;
   --step: min(calc(var(--card-w) * 0.64), calc((100cqw - var(--card-w)) / max(var(--n) - 1, 1)));
   display: flex;
@@ -11,6 +13,12 @@
 
 .slot {
   flex: none;
+}
+
+/* The resting fan lives in CSS so motion's transforms (deal, hover, drag) compose on top. */
+.arc {
+  rotate: calc(var(--o) * var(--fan-rotate));
+  translate: 0 calc(var(--o) * var(--o) * var(--fan-drop));
   transform-origin: 50% 120%;
 }
 
@@ -24,4 +32,12 @@
 
 .slot[data-playable]:active {
   cursor: grabbing;
+}
+
+@media (max-width: 700px) {
+  .hand {
+    --fan-rotate: 0.8deg;
+    --fan-drop: 0.3px;
+    padding-bottom: var(--space-3);
+  }
 }

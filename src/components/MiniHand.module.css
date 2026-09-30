@@ -12,3 +12,13 @@
 .slot + .slot {
   margin-left: calc(var(--mini-card-w) * -0.72);
 }
+
+@media (max-width: 700px) {
+  .fan {
+    --mini-card-w: 24px;
+  }
+
+  .slot + .slot {
+    margin-left: calc(var(--mini-card-w) * -0.8);
+  }
+}

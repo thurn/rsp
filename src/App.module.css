@@ -119,3 +119,39 @@
   background: rgb(3 16 14 / 0.5);
   backdrop-filter: blur(3px);
 }
+
+/* Portrait phones: scoreboard on top, all three opponents in one row above the table. */
+@media (max-width: 700px) {
+  .app {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: auto auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      'score score score'
+      'west north east'
+      'table table table'
+      'south south south';
+  }
+
+  .score {
+    position: static;
+    grid-area: score;
+    padding: var(--space-3) var(--space-4) 0;
+  }
+
+  .north,
+  .west,
+  .east {
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    padding-top: var(--space-4);
+    gap: var(--space-2);
+  }
+
+  .north {
+    flex-direction: column;
+  }
+
+  .bidDock {
+    bottom: 0;
+  }
+}

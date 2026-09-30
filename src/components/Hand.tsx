@@ -43,17 +43,16 @@ export function Hand({
       {sorted.map((card, i) => {
         const offset = i - mid
         const playable = active && legal.has(card)
-        const rest = { y: offset * offset * 0.8, rotate: offset * 1.8 }
         return (
           <motion.div
             key={card}
             layout="position"
             className={styles.slot}
             data-playable={playable || undefined}
-            style={{ zIndex: i }}
-            initial={{ y: 220, opacity: 0, rotate: 0 }}
+            style={{ zIndex: i, '--o': offset } as CSSProperties}
+            initial={{ y: 220, opacity: 0 }}
             animate={{
-              ...rest,
+              y: 0,
               opacity: 1,
               transition: {
                 type: 'spring',
@@ -62,12 +61,12 @@ export function Hand({
                 delay: settled ? 0 : i * 0.045,
               },
             }}
-            whileHover={playable ? { y: rest.y - 22, transition: { duration: 0.15 } } : undefined}
+            whileHover={playable ? { y: -22, transition: { duration: 0.15 } } : undefined}
             drag={playable}
             dragSnapToOrigin
             dragElastic={0.9}
             dragMomentum={false}
-            whileDrag={{ scale: 1.08, rotate: 0, zIndex: 100 }}
+            whileDrag={{ scale: 1.08, zIndex: 100 }}
             onDragStart={() => onDragChange(true)}
             onDragEnd={(_, info) => {
               onDragChange(false)
@@ -77,7 +76,9 @@ export function Hand({
             }}
             onTap={() => playable && onPlay(card)}
           >
-            <PlayingCard card={card} faceDown={faceDown} dimmed={active && !playable} />
+            <div className={styles.arc}>
+              <PlayingCard card={card} faceDown={faceDown} dimmed={active && !playable} />
+            </div>
           </motion.div>
         )
       })}

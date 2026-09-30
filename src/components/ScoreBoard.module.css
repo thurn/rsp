@@ -65,3 +65,25 @@
   text-align: right;
   font-weight: 600;
 }
+
+/* Compact single-row layout for narrow screens. */
+@media (max-width: 700px) {
+  .board {
+    grid-template-columns: 1fr 1fr;
+    column-gap: var(--space-4);
+  }
+
+  .row {
+    grid-template-columns: 10px auto 1fr;
+  }
+
+  .bags {
+    grid-column: 1 / -1;
+    margin-left: 0;
+    grid-template-columns: repeat(10, 1fr);
+  }
+
+  .target {
+    display: none;
+  }
+}
