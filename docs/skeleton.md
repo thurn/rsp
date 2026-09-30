@@ -312,6 +312,7 @@ All design work lives in `docs/sigils/`:
 | `slots.md` | Orchestrator | Every slot: code, resonance, rarity, slot type, archetypes served, mechanic family, assigned variation, timing window, and one-line brief |
 | `scoring.md` | Orchestrator | The benchmark curve, the parity rules, and each archetype's planned channel mix |
 | `icons.txt` | Orchestrator | Every available icon: a curated subset of the free filled Boxicons set, one name per line |
+| `icon-pools.md` | Orchestrator | Every icon in `icons.txt` assigned to exactly one pool: a resonance or the dual-resonance pool |
 | `registry.md` | Orchestrator | Every accepted sigil with its name, icon, icon family, and effect signature, in one table |
 | `red.md`, `orange.md`, `green.md`, `blue.md`, `teal.md`, `purple.md`, `gray.md`, `dual.md` | Orchestrator | Full accepted sigil entries, one file per resonance |
 | `escalations.md` | Orchestrator | Slots that exhausted their revision cycles, with each slot's best candidate |
@@ -343,7 +344,7 @@ Rationale:   Rescues a risky nil without a pass.
 ```
 
 The **name** and **icon** follow [rules-text.md](rules-text.md): a 2–3 word
-name drawn from an icon in `icons.txt`. The designer lists two alternate
+name drawn from an icon in the designer's pool. The designer lists two alternate
 name-and-icon pairs, so the orchestrator can resolve icon conflicts without
 another design cycle.
 
@@ -366,11 +367,10 @@ The orchestrator writes `slots.md` and `scoring.md` before any design begins.
   rare slot.
 - `icons.txt` lists the available icons: a curated subset of the free filled
   Boxicons set from the `svg/filled` directory of the `@boxicons/core` package
-  (1,884 icons at version 1.0.6). The curation keeps 754 icons in about 610
-  families, and leaves out the card-suit families (`spade`, `heart`,
-  `diamond`, `diamonds`, and `club`) and icons that read as interface imagery,
-  following the icon guidance in [rules-text.md](rules-text.md). The list is
-  maintained by hand.
+  (1,884 icons at version 1.0.6). The curation keeps 431 icons, one for each
+  distinct image, and leaves out card-suit icons, near-identical variants, and
+  icons that read as interface imagery, following the icon guidance in
+  [rules-text.md](rules-text.md). The list is maintained by hand.
 - Each slot receives a **mechanic family** and an **assigned variation** from
   [mechanics.md](mechanics.md). Two slots receive the same family and variation
   only when they differ in rarity and in intended archetype.
@@ -379,7 +379,27 @@ The orchestrator writes `slots.md` and `scoring.md` before any design begins.
 - The orchestrator checks slot assignments against the support floors and
   budgets in this document.
 
-**Gate:** the user reviews `slots.md` and `scoring.md` before design begins.
+### Phase 1: icon pools
+
+Parallel designers who choose from one shared icon list reach for the same
+appealing icons, and every collision costs a naming round trip. Phase 1 splits
+the icons before design begins, so each designer chooses from icons no other
+designer can take.
+
+- The orchestrator assigns every icon in `icons.txt` to exactly one pool in
+  `icon-pools.md`: one pool per resonance, plus a dual-resonance pool for the
+  signposts and flex rares.
+- Pool sizes follow slot counts, at about 1.7 icons per slot: 85 for Gray, 52
+  for each colored resonance, and 34 for the dual-resonance pool.
+- Assignments follow the resonance motifs in [Names and icons](#names-and-icons),
+  so each resonance keeps a visual identity. Icons without an obvious home fill
+  the pools with room left.
+- Icons that share an icon word, such as `cloud` and `cloud-lightning`, go to
+  the same pool, so two resonances never compete for one word.
+- Each seeded sigil's icon goes to its own resonance's pool, already claimed.
+
+**Gate:** the user reviews `slots.md`, `scoring.md`, and `icon-pools.md` before
+design begins.
 
 ### Waves
 
@@ -405,7 +425,7 @@ after wave 2, before the next wave begins.
 
 ### Checkpoint commits
 
-At the end of Phase 0 and of every wave, the orchestrator commits the current
+At the end of Phases 0 and 1 and of every wave, the orchestrator commits the current
 state of `docs/sigils/` and pushes it to the remote master branch, so every
 wave's results are recorded and reviewable.
 
@@ -424,8 +444,8 @@ wave's results are recorded and reviewable.
 ### Designer instructions
 
 Each designer receives the core rules, the resonance, archetype, mechanics, and
-skeleton documents, [rules-text.md](rules-text.md), `icons.txt`, the current
-registry, and its slot list. From wave 2 onward, each slot's brief names the
+skeleton documents, [rules-text.md](rules-text.md), its pool from
+`icon-pools.md`, the current registry, and its slot list. From wave 2 onward, each slot's brief names the
 signposts it supports, and designers treat those signposts as the plan their
 sigils feed. For each slot, the designer:
 
@@ -436,8 +456,8 @@ sigils feed. For each slot, the designer:
 3. Scores each candidate against the rubric below.
 4. Selects one, favoring the simplest candidate among close scores.
 5. Names it with three name-and-icon pairs in preference order. Each icon
-   appears in `icons.txt`, and each icon family and name is unclaimed in the
-   registry.
+   comes from the designer's own pool, and each icon, icon word, and name is
+   unclaimed in the registry and unused elsewhere in the designer's batch.
 6. Returns the entry format above, plus one sentence on each dropped
    candidate and why it lost.
 
@@ -539,9 +559,11 @@ every name is unique. The registry enforces this pool-wide:
   alternate. When all three are taken, the design returns for new names only,
   which does not count as a revision cycle. Seeded sigils claim first, in wave
   0, then signposts, in wave 1.
-- **Motifs.** Each resonance draws most of its icons from its own motifs,
-  which gives each resonance a visual identity and keeps parallel designers
-  from reaching for the same icons.
+- **Pools.** Each designer chooses icons only from its own pool in
+  `icon-pools.md`, so parallel designers never compete for an icon, and
+  claiming resolves only clashes within one designer's batch.
+- **Motifs.** Pools follow each resonance's motifs, which gives each resonance
+  a visual identity.
 
 | Resonance | Motifs |
 | --- | --- |
@@ -645,8 +667,8 @@ An auditor subagent checks the complete pool against this document:
 - Coverage of each mechanic family in [mechanics.md](mechanics.md).
 - Scoring parity: every archetype has a credible path to 1,000 within the
   parity target, using the channel mix `scoring.md` planned.
-- Names and icons: every icon appears in `icons.txt`, and every name, icon
-  family, and icon word is unique.
+- Names and icons: every icon appears in its sigil's pool in `icon-pools.md`,
+  and every name, icon family, and icon word is unique.
 - A final duplicate sweep across the registry.
 
 The orchestrator fixes audit findings by revising sigils in place, then
