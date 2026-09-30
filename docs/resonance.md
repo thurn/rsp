@@ -49,8 +49,9 @@ Red owns:
   or winning every trick.
 - Rewards for winning tricks without trump.
 - Rewards for high contracts and effects that raise a contract.
-- Stealing the lead.
+- Stealing the lead and "when you lead this card" triggers.
 - Forcing opponents to overtrump.
+- Playing multiple cards to one trick.
 
 Red is the most splashable colored resonance, because a higher card helps
 almost any deck that wants to win tricks. Its generic rank effects are modest,
@@ -92,7 +93,10 @@ Green owns:
 - Rewards for long suits, singletons, and voids.
 - Adding cards to the starting deck, such as extra spades.
 - Forcing chosen cards into the opening hand.
-- Cards that grow stronger as the round goes on.
+- Cards that grow stronger as the round goes on, and sigils that grow across
+  the run.
+- Permanent changes to the deck between rounds.
+- Effects on adjacent cards in hand.
 - Points for playing cards of a suit.
 
 Green's suit effects work across every suit-focused deck by targeting "your
@@ -119,6 +123,9 @@ Blue owns:
   are broken, legal bid totals, and required bid sizes.
 - Choices of direction, such as whether an ace plays high or low or whether a
   card's rank goes up or down.
+- Replacing the trump suit.
+- Transforming cards already played to the current trick.
+- Triggers based on a card's position within a trick.
 
 Blue rewards the player who knows what is coming and plays at the right moment.
 Its choice-of-direction effects bridge decks that want to win tricks and decks
@@ -140,6 +147,7 @@ Teal owns:
 - Pass triggers that reward completed exchanges.
 - Effects that target your partner's cards.
 - Rewards when your partner wins a trick.
+- Copying your partner's or opponents' sigils.
 
 Teal's partner exchanges serve both directions of partnership support: one
 exchange lets a Kingmaker send high cards to a partner and lets a Nil Guard take
@@ -155,7 +163,10 @@ Purple loses on purpose and makes opponents lose.
 Purple owns:
 
 - Lowering the rank of your own cards.
-- Lowering the rank of opponents' cards.
+- Changing the rank of opponents' cards, lowering them to protect your
+  winners or raising them to feed opponents tricks.
+- Changing the suit of opponents' cards.
+- Reversing rank order so the lowest card wins.
 - "When you lose a trick" triggers.
 - Nil and blind nil value, and the blind nil threshold.
 - Rewards for discarding off suit, and permission to skip following suit.
@@ -164,6 +175,7 @@ Purple owns:
 - Rewards when opponents miss their contract.
 - Making opponents lose points, including heavier penalties for their bags.
 - Rewards for low contracts.
+- Effects that grow stronger while the partnership trails.
 
 Purple is home to all three nil archetypes. Its sabotage and discard effects
 extend it to decks that win tricks aggressively.
@@ -183,6 +195,7 @@ Gray owns:
 - Engraving control: choosing which cards receive sigils, moving sigils between
   your cards, and engraving two sigils on one card.
 - Duplicating your existing sigils.
+- Selling sigils, including sigils that gain value or trigger when sold.
 - Card selection: looking at several cards and choosing one to add to your
   hand.
 - Repairing a weak opening hand, such as one with no spades or no face cards.
