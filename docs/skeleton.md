@@ -213,8 +213,8 @@ steep finish, or a fast start with a flatter finish.
   multipliers. Two multiplier archetypes in one partnership exceed the curve,
   and the uncommon rarity of multipliers keeps that pairing occasional.
 
-Parity is a qualitative judgment: at the signpost gate and in the final audit,
-each archetype needs a credible path to 1,000 within the parity target, reasoned
+Parity is a qualitative judgment: at the signpost check after wave 1 and in the
+final audit, each archetype needs a credible path to 1,000 within the parity target, reasoned
 from its channel mix and support rather than computed per sigil.
 
 ## Budgets across categories
@@ -287,7 +287,8 @@ Champion, and Nil Guard.
 This plan fills the skeleton using one **orchestrator** agent coordinating
 **designer** and **critic** subagents in waves. It has three goals: every slot
 gets a distinct design, every design is examined from both sides of the table,
-and the simplest workable design wins.
+and the simplest workable design wins. The orchestrator runs every phase and
+wave in order without pausing for review.
 
 ### Simplicity standard
 
@@ -398,9 +399,6 @@ designer can take.
   the same pool, so two resonances never compete for one word.
 - Each seeded sigil's icon goes to its own resonance's pool, already claimed.
 
-**Gate:** the user reviews `slots.md`, `scoring.md`, and `icon-pools.md` before
-design begins.
-
 ### Waves
 
 Design begins by accepting the seeded sigils, then the signposts, which
@@ -420,9 +418,6 @@ the pool and later rarities build on them.
 Each designer owns only its resonance's slots in a wave. Designers in later
 waves receive the full registry of earlier waves, including every signpost.
 
-**Gates:** the user reviews the signposts after wave 1 and the accepted commons
-after wave 2, before the next wave begins.
-
 ### Checkpoint commits
 
 At the end of Phases 0 and 1 and of every wave, the orchestrator commits the current
@@ -437,9 +432,7 @@ wave's results are recorded and reviewable.
   `docs(sigils): apply wave 6 audit fixes`.
 - The body summarizes the wave: slots filled, designs escalated, and any
   archetype whose support looks thin.
-- Gates follow the checkpoint commit, so the user reviews exactly the pushed
-  state.
-- Fixes made after a gate, or after the audit, get their own commits.
+- Fixes made after the audit get their own commit.
 
 ### Designer instructions
 
@@ -580,7 +573,8 @@ every name is unique. The registry enforces this pool-wide:
 - A failed design returns to its designer with the critics' notes, and the
   designer revises or selects another candidate.
 - Each slot receives at most two revision cycles. After two, the orchestrator
-  records the slot and its best candidate in an escalation list for the user.
+  accepts the slot's best candidate, fixing any clarity failure itself, and
+  records the slot in `escalations.md` so the audit examines it closely.
 - The orchestrator accepts a design by adding its entry to its resonance file
   and its name, icon, icon family, and signature to the registry.
 - After each wave, the orchestrator reviews every archetype's support and
@@ -639,10 +633,13 @@ multipliers checked while a card is held, and multipliers bought with a cost.
 reviews all 15 together. It receives the 15 signposts and the 15 archetype
 names without the pairing and matches each signpost to its archetype. Any
 signpost it misassigns, or any two it finds interchangeable, returns to the
-designer.
+designer as a revision cycle.
 
-At the signpost gate, the user reviews each archetype's signpost alongside its
-planned channel mix in `scoring.md`, as the first qualitative test of parity.
+**Signpost check.** The orchestrator then reads each archetype's signpost
+alongside its planned channel mix in `scoring.md`, as the first qualitative
+test of parity. A signpost that leaves its archetype without a credible path to
+1,000 returns to the designer, or the orchestrator adjusts that archetype's
+channel mix and slot briefs.
 
 After the signposts are accepted, the orchestrator revises `slots.md`: each
 archetype-lean and bridge brief names the signposts it supports, and each
@@ -671,5 +668,5 @@ An auditor subagent checks the complete pool against this document:
   and every name, icon family, and icon word is unique.
 - A final duplicate sweep across the registry.
 
-The orchestrator fixes audit findings by revising sigils in place, then
-presents the pool and the escalation list to the user.
+The orchestrator fixes audit findings by revising sigils in place, runs each
+revised sigil through the three critics, and commits the final pool.
