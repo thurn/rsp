@@ -11,7 +11,8 @@ exactly one archetype, so each colored resonance appears in five archetypes.
 archetypes.
 
 A deck draws most of its sigils from its two resonances, fills gaps with Gray,
-and splashes sigils of other colored resonances for specific support.
+and splashes sigils of other colored resonances for specific support. See
+[archetypes.md](archetypes.md) for each archetype's game plan.
 
 ## Design principle: shared enablers, focused payoffs
 
@@ -46,6 +47,7 @@ Red owns:
 - "When this card wins a trick" triggers.
 - Rewards for winning tricks in sequence, winning the first tricks of a round,
   or winning every trick.
+- Rewards for winning tricks without trump.
 - Rewards for high contracts and effects that raise a contract.
 - Stealing the lead.
 - Forcing opponents to overtrump.
@@ -137,6 +139,7 @@ Teal owns:
 - Returning played cards to your hand.
 - Pass triggers that reward completed exchanges.
 - Effects that target your partner's cards.
+- Rewards when your partner wins a trick.
 
 Teal's partner exchanges serve both directions of partnership support: one
 exchange lets a Kingmaker send high cards to a partner and lets a Nil Guard take
@@ -158,6 +161,7 @@ Purple owns:
 - Rewards for discarding off suit, and permission to skip following suit.
 - Forcing opponents or all players to discard.
 - Disabling opponents' sigils.
+- Rewards when opponents miss their contract.
 - Making opponents lose points, including heavier penalties for their bags.
 - Rewards for low contracts.
 
@@ -190,28 +194,3 @@ they reward any archetype once its colored sigils are in place. Its bag relief
 and card selection smooth out the swings every deck faces.
 
 **Archetypes:** all 15, as support.
-
-## Archetype pairs
-
-| Archetype | Resonances | How the pair works |
-| --- | --- | --- |
-| High Card | Red + Blue | Red builds aces; Blue's rule setters and reveals keep them from being trumped. |
-| Spade Master | Red + Green | Green fills the hand with spades and creates voids; Red makes the trumps unbeatable. |
-| Kingmaker | Red + Teal | Red builds high cards; Teal hands them to the partner. |
-| Contract Attacker | Red + Purple | Your cards rise, opponents' cards fall, and opponents pay more for their bags. |
-| Bonus Chaser | Red + Orange | Orange's side quests and one-shot points combine with Red's trick-winning triggers. |
-| Diamond Flood | Orange + Green | Green adds diamonds; Orange makes them pay. |
-| Gold Miner | Orange + Blue | Orange earns gold; Blue holds cards that keep earning while held. |
-| Swap Meet | Orange + Teal | Teal moves cards; Orange pays for each trade. |
-| Blind Bidder | Orange + Purple | Purple's nil and low ranks meet Orange's appetite for risk. |
-| While Held | Green + Blue | Blue's while-held effects; Green's extra cards and flexible suits keep them in hand. |
-| Heart Chorus | Green + Teal | Green builds hearts over the round; Teal brings played hearts back for another turn. |
-| Discard Dominance | Green + Purple | Green creates voids; Purple rewards discards and bends the follow-suit rule. |
-| Exact Contractor | Blue + Teal | Blue's bid precision; Teal shifts winning cards to or from the partner mid-round. |
-| Nil Champion | Blue + Purple | Purple lowers ranks; Blue reveals danger and keeps high cards safely in hand. |
-| Nil Guard | Teal + Purple | Teal's partner exchanges and Purple's nil payoffs, aimed at the partner's nil. |
-
-The three opposed pairs each form an archetype that resolves their tension:
-Red and Purple (winning and losing) form Contract Attacker, Orange and Blue
-(spending and saving) form Gold Miner, and Green and Teal (keeping and giving)
-form Heart Chorus.
