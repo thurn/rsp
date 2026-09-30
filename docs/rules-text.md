@@ -122,7 +122,7 @@ Spades play:
 | 8 | Precision | Blue · Rare | If your team makes its contract exactly, gain +1× contract multiplier. |
 | 9 | Silent Vow | Purple · Common | Gain +30 nil contract value. |
 | 10 | Undertow | Purple · Uncommon | After bidding, each opponent's highest card loses 4 rank. |
-| 11 | Encore | Teal · Uncommon | When you play this card, you may swap a card in your hand with the last card you played. |
+| 11 | Encore | Teal · Uncommon | When you play this card, you may swap a card in your hand with a chosen previously played card. |
 | 12 | Haggler | Gray · Common | Shop rerolls cost -20 gold. |
 
 ### 1. Honed Edge: changing this card
@@ -238,16 +238,17 @@ becomes a jack and still wins most tricks.
 
 ### 11. Encore: an optional choice when played
 
-`When you play this card, you may swap a card in your hand with the last card you played.`
+`When you play this card, you may swap a card in your hand with a chosen previously played card.`
 
-"The last card you played" is the card you played to the previous trick. It
-returns to your hand with its sigil active again, and the card you give up
-takes its place in that completed trick. The trick's result stands.
+You choose any card played earlier this round by any player. It returns to your
+hand, and the card you give up takes its place in that completed trick, whose
+result stands. A card taken from an opponent brings its sigil with it, under
+your control for the rest of the round.
 
-**Balance:** Encore spends its own play to retrieve a card, so its value comes
-from what it brings back: a winning ace late in the round is worth about half a
-trick, and a card with a "when you play this card" sigil replays it. Both suit
-an uncommon.
+**Balance:** Encore spends its own play to retrieve a card, and late in the
+round the best card played so far is usually an ace or a high spade, worth
+most of a trick. Retrieving a card with a "when you play this card" sigil
+replays it. That places Encore at the top of the uncommon band.
 
 ### 12. Haggler: an effect for you
 
