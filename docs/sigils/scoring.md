@@ -1,6 +1,6 @@
 # Scoring model
 
-This file is the Phase 0 scoring model for sigil design. It restates the benchmark curve and parity rules from [skeleton.md](../skeleton.md#scoring-parity), turns them into calibration numbers designers can size effects against, and gives each archetype's planned channel mix with the payoff and multiplier slots from `slots.md` that carry it. Parity is judged per archetype from its payoffs across a whole collection. Enablers and utility are judged on play quality, not points.
+This file is the scoring model for sigil design, written in Phase 0 and revised after wave 1. It restates the benchmark curve and parity rules from [skeleton.md](../skeleton.md#scoring-parity), turns them into calibration numbers designers can size effects against, records each archetype's accepted signpost, and gives each archetype's channel mix with the payoff and multiplier slots from `slots.md` that carry it. Parity is judged per archetype from its payoffs across a whole collection. Enablers and utility are judged on play quality, not points.
 
 ## Benchmark
 
@@ -37,7 +37,7 @@ Interpolated for every round (the in-between values are chosen so the cumulative
 | 12 | +180 | +70 |
 | 13 | +210 | +85 |
 
-A typical collection seldom holds a multiplier. 12 of the 19 contract-multiplier slots are rare, and one specific uncommon shows up in only about 10% of runs without rerolls. The benchmark therefore has to be reachable mostly on the **additive-only path**, with multipliers as the upside that lifts a run toward round 11. Late in a run, the partnership's roughly 10 payoff sigils (from both partners) must together supply about +180. That averages out to the per-rarity budgets below.
+A typical collection seldom holds a multiplier. 14 of the 20 contract-multiplier slots are rare (after wave 1, DU-S01 left the multiplier count and GR-R05 and PU-R02 joined it), and one specific uncommon shows up in only about 10% of runs without rerolls. The benchmark therefore has to be reachable mostly on the **additive-only path**, with multipliers as the upside that lifts a run toward round 11. Late in a run, the partnership's roughly 10 payoff sigils (from both partners) must together supply about +180. That averages out to the per-rarity budgets below.
 
 ## Parity rules
 
@@ -47,7 +47,7 @@ A typical collection seldom holds a multiplier. 12 of the 19 contract-multiplier
 - Nil value ignores multipliers, so nil-value sigils are larger than contract sigils of the same rarity. Nil plus the partner's solo contract must reach the benchmark after failure risk.
 - Contract Attacker is measured by score margin (its own points plus the opponents' losses). Its own points alone must still reach 1,000 by round 13.
 - Gold is worth more points early than late. Gold Miner starts slow and finishes steep but still lands in the same window.
-- Blind Bidder's expected value is scaled by how often it qualifies. Threshold reduction is its tuning lever.
+- Blind Bidder's expected value is scaled by how often it qualifies. Threshold reduction is its tuning lever. The threshold ladder (base 200, PU-C08 at about 100, Desperate Gambit at any deficit) is an intended exception to the near-duplicate rule.
 - Each curve assumes the partner contributes only Gray-level multipliers. Two multiplier archetypes in one partnership are allowed to beat the curve.
 - Parity is a qualitative judgment at the wave-1 signpost check and at the final audit, not a per-sigil computation.
 
@@ -101,7 +101,7 @@ An unconditional +1× is worth about half a late benchmark round, which is rare 
 
 A typical nil collection should hold about +50 to +90 of nil value by round 12, spread over three or four nil payoffs. Nil is naturally over-rate early, which pays for the late ramp.
 
-Blind nil EV is 200(2p − 1) + pX, plus 200 gold on success. That is 0 at p = 0.5 and +80 at p = 0.7. The partnership only qualifies when it trails by 200. A reference partnership running at the benchmark qualifies in perhaps 10–15% of rounds, so threshold reduction must raise that to about 35–50% for blind nil to be a real channel.
+Blind nil EV is 200(2p − 1) + pX, plus 200 gold on success. That is 0 at p = 0.5 and +80 at p = 0.7. The partnership only qualifies when it trails by 200. A reference partnership running at the benchmark qualifies in perhaps 10–15% of rounds, so threshold reduction must raise that to about 35–50% for blind nil to be a real channel. The accepted ladder does this in two steps: PU-C08 (a common, found in most Blind Bidder runs) lowers the threshold to about 100, for roughly 25–30% of rounds, and Desperate Gambit (DU-S09) allows blind nil whenever the team is behind, for about 40–50%.
 
 **Gold to points.** Base income is about 65 gold per round plus up to 50 interest. Extra gold only matters when it changes which sigil is bought or funds rerolls, because each shop allows one purchase.
 
@@ -112,58 +112,91 @@ Blind nil EV is 200(2p − 1) + pX, plus 200 gold on success. That is 0 at p = 0
 | Rounds 9–11 | about 0.25 | There are few rounds left to score. |
 | Rounds 12–13 | about 0 unless converted | Nothing left to buy changes the result. |
 
-A common economy payoff of about +15 gold per round is fair early and worthless late. Conversion effects set the late rate directly. At 1 point per gold, a Gold Miner banking a surplus of about 100 gold gains about +100 per round, roughly 60% of a round-12 benchmark. That is right for the rare build-around (OR-R03). The signpost (DU-S07) should convert at about 0.5 point per gold or with a cap.
+A common economy payoff of about +15 gold per round is fair early and worthless late. Conversion effects set the late rate directly. At 1 point per gold, a Gold Miner banking a surplus of about 100 gold gains about +100 per round, roughly 60% of a round-12 benchmark. That is right for the rare build-around (OR-R03), which now spends surplus gold, including gold above the signpost's cap. The accepted signpost, Pharaoh's Pyramid (DU-S07), pays +5 points for every 50 gold held after scoring, capped at +50, without spending the gold: +25 at the 250-gold interest cap, and +50 once a dedicated miner holds 500 gold, around round 8.
+
+## Signposts (wave 1)
+
+Each archetype's accepted signpost, the channel it scores through, and what it adds to a reference partnership that finds it. A specific uncommon appears in only about 10% of runs, so each archetype must still reach the curve through commons that feed the signpost's pattern (see the Signposts column of `slots.md`).
+
+| Archetype | Signpost | Shape | Channel | Expected contribution |
+| --- | --- | --- | --- | --- |
+| High Card | Unclouded Sun (DU-S01): your aces can't be trumped | Rule-bender | Contract base (enabler; feeds win triggers) | Every ace is a sure trick: about +0.3 tricks a round (+3 to +5 EV at 1×), more with rank boosts that make aces (RE-C01, RE-C02, RE-R01); no longer a multiplier source |
+| Spade Master | Alchemist's Wand (DU-S02): clubs become spades before bidding | Transformation | Contract base (enabler; feeds trump payoffs) | About +1.5 to +2 tricks (+16 EV of base at 1×) and roughly double the triggers on per-spade payoffs; the strongest enabler in the set |
+| Kingmaker | Promoted Pawn (DU-S03): +20 when your partner wins with a card you passed | Engine | Partner contract | About +22 EV (two passed winners at 70%) |
+| Contract Attacker | Hungry Kraken (DU-S04): half the opponents' contract loss | Scaling | Denial (pays your own score) | +6 to +10 EV early, +20 to +30 late as opponents' multipliers grow |
+| Bonus Chaser | Chasing Rainbows (DU-S05): +60 if a random revealed card wins | Enabler and payoff | Contract additive | About +13 EV (wins 25–30%), below budget; RE-C11, GR-C14, and RE-C03 lift it |
+| Diamond Flood | Gem Cascade (DU-S06): +5 value and +5 gold per earlier diamond | Scaling | Contract additive and Economy | About +20 to +25 contract value and 20 to 25 gold with 4–5 earlier diamonds |
+| Gold Miner | Pharaoh's Pyramid (DU-S07): +5 points per 50 gold held, max +50 | Scaling | Economy (points outside the contract) | +25 early at 250 gold, +50 from about round 8; scores on failed contracts too |
+| Swap Meet | Traders' Handshake (DU-S08): optional trade after each win, +10 | Engine | Contract additive | About +26 EV (about 3.25 wins a round), a little above budget |
+| Blind Bidder | Desperate Gambit (DU-S09): blind nil whenever behind | Rule-bender | Nil (qualifying) | Blind nil rate from about 12% to 40–50% of rounds; about +60 points and 130 gold per blind round at p = 0.65 |
+| While Held | Patient Hourglass (DU-S10): +1× if held when the last trick begins | Multiplier | Contract multiplier | q ≈ 0.45, not success-only: about +23 early, +38 mid, +52 late |
+| Heart Chorus | Unfolding Butterfly (DU-S11): hearts +1 rank per earlier heart | Enabler and payoff | Contract additive (through heart payoffs) | Last two hearts reach ace level; its points arrive through GR-C13, TE-U05, and GR-U05 |
+| Discard Dominance | Scouring Tornado (DU-S12): +5 per void on each discard | Engine | Contract additive | About +20 EV, +32 in a void deck |
+| Exact Contractor | Balanced Yin-Yang (DU-S13): +1× if you take exactly your own bid | Multiplier | Contract multiplier (success-only) | q ≈ 0.4 of made rounds: about +51 late, close to True Aim |
+| Nil Champion | Daring Knight (DU-S14): +15 nil value per face card or ace when you bid nil | Scaling | Nil | +30 to +60 nil value per dared nil; a blind nil counts nothing |
+| Nil Guard | Sheltering Castle (DU-S15): swap your two lowest for your nil partner's two highest | Transformation | Nil (partner's nil) | Partner's nil success from about 75% to 90%: about +30 per partner nil (+80 on a blind nil), plus two high cards for your solo contract; only about +5 a round unless the partner's AI credits the swap when choosing nil |
+
+Signpost check: every archetype has a credible path to 1,000 with its signpost, provided the fixes the wave 1 systems critic named hold (the Pyramid's cap, the PU-C08 ruling, the re-briefed Kingmaker and Swap Meet payoffs, and the partner-nil AI note on Sheltering Castle).
 
 ## Archetype channel mix
 
-The Gray payoffs that fit every archetype (GY-C17, GY-C20, GY-C21, GY-U13) are omitted below. So are the Gray shop tools (GY-C01–C05, GY-U01–U03), except for Gold Miner. GY-R04 is a generic multiplier with no archetype condition, so any contract deck can use it. It is listed as "generic" where it is not aimed at the archetype. Signposts are provisional until wave 1.
+The Gray payoffs that fit every archetype (GY-C17, GY-C20, GY-C21, GY-U13) are omitted below. So are the Gray shop tools (GY-C01–C05, GY-U01–U03), except for Gold Miner. GY-R04 is a generic multiplier with no archetype condition, so any contract deck can use it. It is listed as "generic" where it is not aimed at the archetype. Signposts that score through the contract base (DU-S01, DU-S02) or feed other payoffs (DU-S11) are listed as enablers, not payoffs.
 
 | Archetype | Main channels (≈ % of expected points) | Curve shape | Additive payoffs (and other channel payoffs) | Multiplier sources |
 | --- | --- | --- | --- | --- |
-| High Card | Base 40, Additive 25, Multiplier 30, Bag relief 5 | Steady; steepens mid-run once a Blue multiplier lands | RE-C05, RE-C06, RE-C07, RE-U03, RE-U08 (partner), OR-C14 (splash), GY-C18, GY-C19; econ GY-C16 | BL-U03, BL-U09, DU-S01, GY-R05, GY-R04 (generic) |
-| Spade Master | Base 40, Additive 40, Multiplier 15, Other 5 | Fast and linear; flattens late | RE-C05, RE-C06, RE-C08, RE-C13, GR-C02, GR-C05, GR-C07, GR-C12, PU-C14 (splash), GY-C18, GY-C19, GY-R06, DU-S02; econ GY-C16 | RE-R02, GY-R05, GY-R04 (generic) — all rare |
-| Kingmaker | Base 35, Partner contract 40, Multiplier 20, Additive 5 | Slow start while passes come online, then steady | RE-C06, GY-C18, GY-C19, GY-U15; partner RE-U05, RE-U08, TE-C07, TE-U03, TE-U10, TE-R01, DU-S03 | RE-R03, GY-R04 — all rare |
-| Contract Attacker | Own points: Base 40, Additive 25, Denial rewards 20, Multiplier 10, Econ 5; plus the opponents' losses in margin | Flat own curve; margin grows late as opponents' multipliers grow | RE-C05, RE-C10, RE-C13, GY-C19, GY-C25, GY-R06; denial PU-C07, PU-C13, PU-U03, PU-R01, DU-S04; econ GY-C16 | RE-R04, GY-R04 (generic) — all rare |
-| Bonus Chaser | Base 30, Additive 55, Multiplier 10, Econ 5 | Fast start; flatter finish | RE-C06, RE-C11, RE-U07, RE-R05, OR-C02, OR-C03, OR-C07, OR-C12, OR-C13, OR-U03, GY-C18, GY-U16, DU-S05; econ OR-C01, OR-C06 | OR-R01, GY-R04 — all rare |
-| Diamond Flood | Base 30, Additive 40, Economy 15, Multiplier 15 | Fast start; economy sustains the middle | OR-C02, OR-C03, OR-C12, OR-U04, OR-R02, GR-C02, GR-C05, GR-C12, GR-C13, GR-U04, PU-C14 (splash), GY-U16, DU-S06; econ OR-C01, OR-C06, OR-C08, OR-U02, OR-U08, GY-U04, GY-R01 | GR-R02, GY-R04 — all rare |
-| Gold Miner | Base 35, Economy-bought points 40, Multiplier 15, Additive 10 | Slow start, steep finish | OR-C02, GY-C22, GY-C25; econ OR-C01, OR-C06, OR-C09, OR-U02, OR-U05, OR-U08, OR-U09, OR-R03, BL-C08, BL-U04, GY-U04, GY-R01, DU-S07, plus Gray shop tools | BL-R02, BL-R03 (off-lean, fits while-held), GY-R04 (generic) — all rare |
-| Swap Meet | Base 35, Additive 35, Economy 15, Multiplier 15 | Steady | OR-C03, OR-U06, TE-C08, TE-R02, GY-C22, GY-U15, DU-S08; econ OR-C01, OR-C10, OR-U09, GY-U04, GY-R01 | OR-R04, GY-R04 — all rare |
-| Blind Bidder | Nil 45 (ordinary and blind), Partner's contract 40, Economy 10, Additive 5 | Lumpy catch-up bursts; strong early | OR-C13, PU-C02, PU-C05, GY-C25, GY-U14; nil OR-U07, OR-U10, PU-U04, PU-U10, DU-S09; econ OR-C11, OR-U02 | None aimed; GY-R04 (generic) for the partner's contract |
-| While Held | Base 35, Additive 20, Multiplier 45 | Slow start, steep finish | GR-C10, GR-U06, BL-C09, OR-C14 (splash), GY-C22 | BL-U09, BL-R03, DU-S10, GY-R05 |
-| Heart Chorus | Base 35, Additive 40, Multiplier 15, Partner contract 10 | Steady; each round ramps late | GR-C05, GR-C13, TE-U05, GY-U16, GY-R06, DU-S11; partner TE-U10 | GR-U05, GY-R04 |
-| Discard Dominance | Base 20 (low bids), Additive 55, Multiplier 15, Nil 10 | Fast start; low base caps late growth | GR-C02, GR-C05, GR-C11, GR-R05, PU-C02, PU-C05, PU-C09, PU-R03, GY-U14, GY-R06, DU-S12 | PU-U09, GY-R04 |
-| Exact Contractor | Base 35, Additive 15, Multiplier 50 | Slow start, steepest finish | BL-C10, BL-U06, TE-C10, TE-U08, GY-C22 | BL-R04, DU-S13, GY-R05, TE-R05 (off-lean) |
+| High Card | Base 45, Additive 25, Multiplier 25, Bag relief 5 | Steady; steepens mid-run once a Blue multiplier lands | RE-C05, RE-C06, RE-C07, RE-U03, RE-U08 (partner), OR-C14 (splash), GY-C18, GY-C19; base enabler DU-S01; econ GY-C16 | BL-U03, BL-U09, GY-R05, GY-R04 (generic) |
+| Spade Master | Base 45, Additive 35, Multiplier 15, Other 5 | Fast and linear; flattens late | RE-C05, RE-C06, RE-C08, RE-C13, GR-C02, GR-C05, GR-C07, GR-C12, PU-C14 (splash), GY-C18, GY-C19, GY-R06; base enabler DU-S02; econ GY-C16 | RE-R02, GY-R05, GY-R04 (generic) — all rare |
+| Kingmaker | Base 35, Partner contract 40, Multiplier 20, Additive 5 | Slow start while passes come online, then steady | RE-C06, GY-C18, GY-C19, GY-U15; partner RE-U05 (partner's high bid), RE-U08, TE-C07, TE-U03 (leads to partner), TE-U10, TE-R01, DU-S03 | RE-R03, GY-R04 — all rare |
+| Contract Attacker | Own points: Base 40, Additive 30, Denial rewards 15, Multiplier 10, Econ 5; plus the opponents' losses in margin | Flat own curve; margin grows late as opponents' multipliers grow | RE-C05, RE-C10, RE-C13, PU-C07 (paid on a set), GY-C19, GY-C25, GY-R06; denial PU-C13, PU-U03, PU-R01 (point loss), DU-S04; econ GY-C16 | RE-R04, GY-R04 (generic) — all rare |
+| Bonus Chaser | Base 30, Additive 55, Multiplier 10, Econ 5 | Fast start; flatter finish | RE-C06, RE-U07, RE-R05, OR-C02, OR-C03, OR-C07, OR-C12, OR-C13, OR-U03, GY-C18, GY-U16, DU-S05; revealed-card enablers RE-C11, GR-C14; econ OR-C01, OR-C06 | OR-R01, GY-R04 — all rare |
+| Diamond Flood | Base 30, Additive 40, Economy 15, Multiplier 15 | Fast start; economy sustains the middle | OR-C02, OR-C03, OR-C12, OR-U04 (diamonds in a won trick), OR-R02, GR-C02, GR-C05, GR-C12, GR-C13, GR-U04, PU-C14 (splash), GY-U16, DU-S06 (also gold); econ OR-C01, OR-C06, OR-C08, OR-U02, OR-U08, GY-U04, GY-R01 | GR-R02, GY-R04 — all rare |
+| Gold Miner | Base 35, Economy-bought points 40, Multiplier 15, Additive 10 | Slow start, steep finish | OR-C02, BL-C08 (gold held at bid), GY-C22, GY-C25; points DU-S07, OR-R03 (spends surplus); econ OR-C01, OR-C06, OR-C09, OR-U02, OR-U05, OR-U08, OR-U09, BL-U04, GY-U04, GY-R01, plus Gray shop tools | BL-R02, DU-S10 (splash), BL-R03 (off-lean), GY-R04 (generic) |
+| Swap Meet | Base 35, Additive 40, Economy 10, Multiplier 15 | Steady | OR-C03, OR-C10 (also gold), OR-U06 (received cards pay), TE-C08 (void-opening exchanges), TE-R02, GY-C22, GY-U15, DU-S08; econ OR-C01, OR-U09, GY-U04, GY-R01 | OR-R04, GY-R04 — all rare |
+| Blind Bidder | Nil 45 (ordinary and blind), Partner's contract 35, Economy 10, Multiplier 5, Additive 5 | Lumpy catch-up bursts; strong early | OR-C13, PU-C02, PU-C05, GY-C25, GY-U14; nil OR-U07, OR-U10, PU-U04, PU-U10; qualifying PU-C08 (about 100), DU-S09 (any deficit); econ OR-C11, OR-U02 | PU-R02 (blind six, rare), GY-R04 (generic) |
+| While Held | Base 35, Additive 20, Multiplier 45 | Slow start, steep finish | GR-C10, GR-U06, BL-C09 (last of suit), OR-C14 (splash), GY-C22 | BL-U09, BL-R03 (engraved cards held mid-round), DU-S10, GY-R05 |
+| Heart Chorus | Base 40, Additive 35, Multiplier 15, Partner contract 10 | Steady; each round ramps late | GR-C05, GR-C13, TE-U05, GY-U16, GY-R06; enabler DU-S11; partner TE-U10 | GR-U05, GY-R04 |
+| Discard Dominance | Base 20 (low bids), Additive 55, Multiplier 15, Nil 10 | Fast start; low base caps late growth | GR-C02, GR-C05, GR-C11, PU-C02, PU-C05, PU-C09, PU-R03, GY-U14, GY-R06, DU-S12 | PU-U09, GR-R05 (builds with discards), GY-R04 |
+| Exact Contractor | Base 35, Additive 15, Multiplier 50 | Slow start, steepest finish | BL-C10, BL-U06 (partner exact), TE-C10 (reaches your own bid), TE-U08, GY-C22 | BL-R04, DU-S13, GY-R05 |
 | Nil Champion | Nil 50, Additive via losing tricks 25, Partner's base 20, Multiplier 5 | Fast start; flat finish unless PU-R04 lands | PU-C02, PU-C05, GY-U14; nil BL-C11, BL-U07, PU-C10, PU-C12, PU-U10, PU-R04 (nil multiplier), DU-S14 | No contract multiplier aimed; GY-R04 (generic) and off-lean Blue (BL-U03) for the partner's contract |
-| Nil Guard | Own solo contract base 40, Partner's nil 30, Additive 15, Multiplier 10, Denial 5 | Fast start, flat finish | TE-U08, GY-U14, GY-U15, DU-S15 (partner contract); nil PU-C11, PU-C12; denial PU-C13 | TE-R05, PU-U09, GY-R04 |
+| Nil Guard | Own solo contract base 40, Partner's nil 30, Additive 15, Multiplier 10, Denial 5 | Fast start, flat finish | TE-U08, GY-U14, GY-U15; nil DU-S15, PU-C11 (about +30), PU-C12; denial PU-C13 | TE-R05 (partner's nil plus your bid made), PU-U09, GY-R04 |
 
 Only two splash hooks are payoffs (OR-C14 and PU-C14). The other ten are enablers and add no points to their target archetypes.
 
 ### Paths to 1,000
 
-- **High Card:** High bids from Red rank boosts give the biggest base in the game. Eight additive payoffs cover the additive-only path, and it has the most uncommon multipliers (BL-U03, BL-U09, DU-S01), so it should reach 1,000 in round 11.
-- **Spade Master:** Thirteen additive payoffs across two resonances easily supply +180 by round 12 even without its rare-only multipliers, so it should reach 1,000 in round 11 or 12.
-- **Kingmaker:** Six partner-contract payoffs, including TE-R01, which grows permanently, fill the additive path once passing is online, so it should reach 1,000 in round 12.
-- **Contract Attacker:** Its Red additive payoffs on high bids, plus PU-C07 and PU-C13 paying its own score, keep its own points near the curve. Margin from sets and bag penalties makes up the rest, so it should reach 1,000 in round 12 on margin and by round 13 on its own points.
-- **Bonus Chaser:** It has the deepest additive pool (13 payoffs plus economy), so it front-loads and should reach 1,000 in round 11. Watch that it does not arrive early.
-- **Diamond Flood:** It scores both additive and gold on the same diamond triggers, and the gold compounds into purchases, so it should reach 1,000 in round 11.
-- **Gold Miner:** Early gold buys rarer off-plan payoffs and multipliers through rerolls, and OR-R03, DU-S07, and BL-R02 cash out late, reaching 1,000 in round 12 only if a converter reliably shows up.
-- **Swap Meet:** Pass triggers fire several times a round, and the gold on the side funds rerolls, giving a steady path to 1,000 in round 12.
-- **Blind Bidder:** Ordinary nil is strong early and blind nil gives +80 catch-up bursts, but most of its nil payoffs only work on blind nil or while trailing, so it reaches round 12 only if PU-C08 or DU-S09 makes qualifying common.
-- **While Held:** Four multiplier sources, three of them uncommon or signpost, make its late rounds the largest after Exact Contractor, so it should reach 1,000 in round 12.
-- **Heart Chorus:** Six additive payoffs plus an uncommon multiplier that builds within the round (GR-U05) give a steady path to 1,000 in round 12.
-- **Discard Dominance:** Void decks fire +5 per off-suit play four to six times a round, which covers the additive path despite low bids, so it should reach 1,000 in round 11 or 12.
-- **Exact Contractor:** Four multiplier sources, the rare ones conditioned on exact bids (q around 0.4–0.5), give it the steepest finish, so it should reach 1,000 in round 12.
-- **Nil Champion:** Six nil payoffs plus contract additive from losing tricks (which fire on all 13 tricks while on nil) exceed the +50 to +90 of nil value needed by round 12, so it should reach 1,000 in round 11 or 12.
-- **Nil Guard:** The partner's high cards give it a solid solo contract, but its partner is a Gray player who must choose to bid nil, and its nil payoffs are only two commons, so it only reaches round 12 if DU-S15 and PU-C11 make the partner's nil pay reliably.
+- **High Card:** Unclouded Sun and Red rank boosts make aces sure tricks, giving the biggest base in the game. Eight additive payoffs cover the additive-only path, and two uncommon multipliers remain (BL-U03, BL-U09), so it should reach 1,000 in round 11.
+- **Spade Master:** Twelve additive payoffs across two resonances easily supply +180 by round 12 even without its rare-only multipliers, and Alchemist's Wand roughly doubles their triggers, so it should reach 1,000 in round 11 or 12. Runs that find the Wand may arrive in round 10.
+- **Kingmaker:** Seven partner-contract payoffs, including Promoted Pawn, the re-briefed RE-U05 and TE-U03, and TE-R01, which grows permanently, fill the additive path once passing is online, so it should reach 1,000 in round 12.
+- **Contract Attacker:** Its Red additive payoffs on high bids, plus PU-C07 paying contract value on a set and Hungry Kraken paying half the opponents' loss, keep its own points near the curve. Margin from sets and bag penalties makes up the rest, so it should reach 1,000 in round 12 on margin and by round 13 on its own points.
+- **Bonus Chaser:** It has the deepest additive pool (12 payoffs plus economy), so it front-loads and should reach 1,000 in round 11. Chasing Rainbows is below budget and RE-C11 is now an enabler, which keeps it from arriving early.
+- **Diamond Flood:** It scores both additive and gold on the same diamond triggers, Gem Cascade cashes both at once, and the gold compounds into purchases, so it should reach 1,000 in round 11.
+- **Gold Miner:** Early gold buys rarer off-plan payoffs and multipliers through rerolls. Pharaoh's Pyramid pays up to +50 points a round from about round 8, BL-C08 lifts the contract from the same hoard, and OR-R03 spends the surplus, so it reaches 1,000 in round 12 when either the Pyramid or OR-R03 shows up.
+- **Swap Meet:** Traders' Handshake trades about three times a round, the re-briefed TE-C08 and OR-U06 pay for what those exchanges do, and the gold on the side funds rerolls, giving a steady path to 1,000 in round 12.
+- **Blind Bidder:** Ordinary nil is strong early and blind nil gives +80 catch-up bursts. PU-C08 makes qualifying common in typical runs and Desperate Gambit makes it frequent, which turns on the blind-only payoffs, so it should reach 1,000 in round 12. PU-R02 (blind six) gives it a gamble for rounds it leads.
+- **While Held:** Four multiplier sources, two of them uncommon (BL-U09 and Patient Hourglass), make its late rounds the largest after Exact Contractor, so it should reach 1,000 in round 12.
+- **Heart Chorus:** Five additive payoffs, fed by Unfolding Butterfly's late ace-level hearts, plus an uncommon multiplier that builds within the round (GR-U05) give a steady path to 1,000 in round 12.
+- **Discard Dominance:** Void decks fire Scouring Tornado and the other discard payoffs four to six times a round, which covers the additive path despite low bids, and GR-R05 now adds a rare multiplier, so it should reach 1,000 in round 11 or 12.
+- **Exact Contractor:** Three multiplier sources, two of them conditioned on exact counts (q around 0.4–0.5) with Balanced Yin-Yang as the uncommon one, give it the steepest finish, so it should reach 1,000 in round 12.
+- **Nil Champion:** Seven nil payoffs, including Daring Knight, plus contract additive from losing tricks (which fire on all 13 tricks while on nil) exceed the +50 to +90 of nil value needed by round 12, so it should reach 1,000 in round 11 or 12.
+- **Nil Guard:** The partner's high cards (two more from Sheltering Castle) give it a solid solo contract, and Castle and PU-C11 make the partner's nil pay about +60 together. It still depends on a Gray partner choosing to bid nil, so it reaches round 12 only if the partner's AI credits the Castle swap.
 
 ### Thin and strong against the target
 
-Priority for later wave briefs, highest first:
+Priority for later wave briefs, highest first. The wave 1 slot revision already applied the value changes named here.
 
-1. **Blind Bidder (thin, highest).** It has no aimed multiplier. OR-U07, PU-U04, and PU-U10 only work when blind or trailing, and only PU-C08 (plus the rare PU-R02) lowers the threshold. Brief DU-S09 to pay on ordinary nil as well, size PU-C08 to about a 100-point deficit, and make it the first flex-rare candidate.
-2. **Nil Guard (thin, high).** It has three aimed additive payoffs, below the floor of four, and two common nil payoffs. Everything depends on a Gray partner choosing to bid nil. Brief DU-S15 to make the partner's nil pay well, and make it a flex-rare candidate.
-3. **Gold Miner (thin, high).** Points come from a single rare converter (OR-R03) that a typical collection rarely sees. Its aimed additive payoffs are three, below the floor. DU-S07 must be a dependable gold-to-points converter at an uncommon rate, and it is a flex-rare candidate.
-4. **Contract Attacker (medium).** Its own points are adequate through Red, but its multipliers are rare-only and RE-R04 also multiplies the opponents' contracts. Size PU-C07 to pay its own score, not just margin.
-5. **Nil Champion (low).** Its many nil payoffs compensate for having no aimed contract multiplier. The risk is the opposite: losing-trick payoffs firing 13 times on a nil.
-6. **Rare-only multiplier decks: Spade Master, Kingmaker, Bonus Chaser, Diamond Flood, Swap Meet (watch).** The additive depth of Spade Master, Bonus Chaser, and Diamond Flood compensates. Kingmaker and Swap Meet are closer to the line. Consider moving one of RE-R03 or OR-R04 into an uncommon-rate condition, or giving them a flex rare.
-7. **Strong: Bonus Chaser, Diamond Flood, High Card (watch for round-10 arrivals); Exact Contractor, While Held (watch ceilings and amplified failures).** Hold their commons to the per-rarity budget and keep their multiplier conditions near q = 0.3–0.5.
+1. **Blind Bidder (thin, highest).** The ruling keeps PU-C08 as a common threshold cut to about 100 and makes Desperate Gambit the top of the ladder. PU-R02 moved to a blind six, its first aimed multiplier. OR-C11 doubles on a blind nil, and PU-U10 now fires whenever the team trails. The remaining risk is blind nil survival (it needs p ≥ 0.6 from Purple lowering and Teal passes). It is the first flex-rare candidate.
+2. **Nil Guard (thin, high).** It still has only three aimed additive payoffs (TE-U08, GY-U14, GY-U15), below the floor of four, and everything depends on the partner choosing nil. The revision sized PU-C11 to about +30, loosened TE-U08 (paid on a made bid, doubled on exact), and loosened TE-R05 (partner's nil plus your bid made, no exact). It is a flex-rare candidate, and the next wave should add a solo-contract additive.
+3. **Gold Miner (thin, high).** Pharaoh's Pyramid is a dependable capped converter, and BL-C08 now pays contract value from the hoard, which brings its aimed additive payoffs to the floor of four (OR-C02, BL-C08, GY-C22, GY-C25). OR-R03 spends surplus above the Pyramid's cap. Watch that the Pyramid, BL-C08, and BL-R02 together do not over-reward idle gold.
+4. **Kingmaker (medium).** RE-U05 (partner's high bid) and TE-U03 (leads to partner) are now distinct partner-contract payoffs, and TE-C07 is sized at the top of the common band. Its multipliers are still rare-only (RE-R03, GY-R04), so it is a flex-rare candidate if it lags in play.
+5. **Swap Meet (medium).** TE-C08 and OR-U06 are narrower payoffs that complement Traders' Handshake, and OR-C10 now pays contract value as well as gold. Its pass payoffs fire from Handshake trades only if the rules count a trade as a pass (see below). Multipliers are rare-only (OR-R04, GY-R04).
+6. **Contract Attacker (medium).** PU-C07 now pays contract value on a set, and Hungry Kraken pays its own score, so its own points are adequate. Its multipliers are rare-only and RE-R04 also multiplies the opponents' contracts.
+7. **Nil Champion (low).** Its many nil payoffs compensate for having no aimed contract multiplier. The risk is the opposite: losing-trick payoffs firing 13 times on a nil, and Daring Knight plus a partner's Sheltering Castle making four-high-card nils safe.
+8. **Rare-only multiplier decks: Spade Master, Kingmaker, Bonus Chaser, Diamond Flood, Swap Meet, Contract Attacker (watch).** The additive depth of Spade Master, Bonus Chaser, and Diamond Flood compensates. Kingmaker and Swap Meet are closer to the line.
+9. **Strong: Bonus Chaser, Diamond Flood, High Card, Spade Master (watch for round-10 arrivals); Exact Contractor, While Held (watch ceilings and amplified failures).** Hold their commons to the per-rarity budget and keep their multiplier conditions near q = 0.3–0.5. Spade Master runs that find Alchemist's Wand are the likeliest round-10 arrivals. Exact Contractor can stack True Aim, Balanced Yin-Yang, and Patient Hourglass to 3× or 4×, which is its intended ceiling. Patient Hourglass with holding support (BL-C13, GR-C04) may push q to 0.6. If playtests show Balanced Yin-Yang's q above 0.45, narrow it to "your own bid of 3 or more".
+
+### Wave 1 systems critic follow-ups
+
+- **Trades and swaps as passes.** Add the convention "A trade or swap is a pass by both players" to `rules-text.md`, so Traders' Handshake trades and the Sheltering Castle swap fire pass payoffs (Promoted Pawn, TE-C08, OR-U06, OR-C10, OR-R04). Swap Meet's path assumes it; without it, pass payoffs that don't name trades (Promoted Pawn, OR-R04) ignore Handshake trades. Watch OR-R04, which gains about three steps a round from Handshake.
+- **Channel labels.** Unclouded Sun and Alchemist's Wand score through the contract base, not a payoff channel, and Sheltering Castle scores through the partner's nil, not Partner contract. The channel mix above and the DU-S rows in `slots.md` record them that way.
+- **Recursion and Chasing Rainbows.** Masked Encore, TE-C04, TE-C09, and TE-U02 can return a revealed card that lost, giving it another chance to win. That fits Bonus Chaser and is bounded to once per round.
+- **Sheltering Castle and the partner's AI.** Nil Guard's parity rests on the partner's nil heuristic judging nil as if its two highest cards were gone. Verify it in the prototype before judging Nil Guard's curve.

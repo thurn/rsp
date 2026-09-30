@@ -117,6 +117,7 @@ These are the game's own terms, beyond standard Spades vocabulary.
 | **contract multiplier** | Written `+1×`, always a whole number. Multiplies your team's contract, win or lose. |
 | **nil value** | Points added to your nil bid, paid only if the nil succeeds. Contract multipliers never apply to it. |
 | **convert** | Change a card's suit. |
+| **discard** | Play a card that neither follows the suit led nor is trump. Trumping is not discarding. |
 | **longest suit, shortest suit** | Counted in your hand when the effect happens. Used rarely; most sigils name a suit. |
 | **team** | You and your partner. |
 | **gold** | Your personal currency for the shop. |
@@ -135,6 +136,9 @@ Any other invented term is added here before it appears in rules text.
   names another place. A card you play still counts as yours until its trick
   ends. The text says who picks them: "two chosen cards" or "two random
   cards."
+- **Passing and trading:** in any pass, swap, or trade, each player picks
+  the card they give, and nobody sees the other hand. A swap or trade
+  counts as passing cards for both players.
 - **Losing a trick:** you lose every trick someone else wins, including your
   partner.
 - **Rank words** such as "face card," "ace," or "two" mean a card's current
