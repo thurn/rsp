@@ -128,10 +128,17 @@ Any other invented term is added here before it appears in rules text.
 ## Conventions
 
 - **You** means whoever currently holds the card. A card passed to another
-  player brings its effect with it.
+  player brings its effect with it. Effects that never mention "this card"
+  or holding it, such as nil value, shop, and scoring effects, stay with the
+  sigil's owner for the whole round.
 - **Cards** mentioned in rules text are cards in your hand unless the text
-  names another place. The text says who picks them: "two chosen cards" or
-  "two random cards."
+  names another place. A card you play still counts as yours until its trick
+  ends. The text says who picks them: "two chosen cards" or "two random
+  cards."
+- **Losing a trick:** you lose every trick someone else wins, including your
+  partner.
+- **Rank words** such as "face card," "ace," or "two" mean a card's current
+  rank.
 - **Ties,** such as two equally long suits, are broken by your choice.
 - **Duration:** rank and suit changes last for the rest of the round. Shorter
   effects say "for this trick."
@@ -176,9 +183,9 @@ These examples are real sigils in the pool. Wave 0 of the design process in
 | 6 | Turning Tide | `water` | Green · Common | Before bidding, convert two chosen cards in your hand to diamonds. |
 | 7 | Open Hand | `hand` | Teal · Common | After bidding, you and your partner each pass a card to each other. |
 | 8 | True Aim | `target` | Blue · Rare | If your team makes its contract exactly, gain +1× contract multiplier. |
-| 9 | Silent Vow | `candlestick` | Purple · Common | Gain +30 nil value. |
+| 9 | Vigil Candle | `candlestick` | Purple · Common | Gain +30 nil value. |
 | 10 | Sinking Anchor | `anchor` | Purple · Uncommon | After bidding, each opponent's highest card loses 4 rank. |
-| 11 | Curtain Call | `mask` | Teal · Uncommon | When you play this card, you may pick up another card you've previously played this round. |
+| 11 | Masked Encore | `mask` | Teal · Uncommon | When you play this card, you may pick up another card you've previously played this round. |
 | 12 | Loaded Dice | `dice-6` | Gray · Common | Shop rerolls cost 20 gold less. |
 
 ### 1. Honed Edge: changing this card
@@ -188,15 +195,15 @@ These examples are real sigils in the pool. Wave 0 of the design process in
 The engraved card is 3 ranks stronger for the whole round, up to ace.
 
 **Balance:** an enabler, judged on play rather than points. It turns a middling
-card into a likely winner about once every few rounds, and it is wasted on a
-king or ace, which keeps it a modest common.
+card into a likely winner about once every few rounds, and its excess is
+wasted on face cards and aces, which keeps it a modest common.
 
 ### 2. Verdant Banner: an effect while held
 
 `While this card is in your hand, your hearts gain +2 rank.`
 
-The bonus lasts until this card is played, and this card gains it too if it is
-a heart.
+The bonus lasts until this card is played, including for hearts already played
+to the current trick.
 
 **Balance:** an enabler for heart decks. A +1 aura rarely changes a trick; +2
 is noticeable across a long heart suit, and the bonus ends the moment this card
@@ -269,7 +276,7 @@ time, and doubling a mid-run contract of about 70 is worth about 28 expected
 points, less the extra failures from playing tight. That is rare-level value,
 and an uncommon version needs a narrower condition.
 
-### 9. Silent Vow: nil
+### 9. Vigil Candle: nil
 
 `Gain +30 nil value.`
 
@@ -291,7 +298,7 @@ opponent has two equally high cards, you choose which one is affected.
 opponents about half a trick per round after they have bid. At −3, an ace
 becomes a jack and still wins most tricks.
 
-### 11. Curtain Call: an optional choice when played
+### 11. Masked Encore: an optional choice when played
 
 `When you play this card, you may pick up another card you've previously played this round.`
 
@@ -301,7 +308,7 @@ so you may finish the round with a card left in hand.
 
 **Balance:** picking up a winning ace late in the round is worth most of a
 trick, and picking up a card with a "when you play this card" sigil replays
-it. That places Curtain Call among the strongest uncommons.
+it. That places Masked Encore among the strongest uncommons.
 
 ### 12. Loaded Dice: an effect for you
 

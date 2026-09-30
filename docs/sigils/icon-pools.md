@@ -271,7 +271,7 @@ Exchange: hands, keys, water, travel, and things passed between people.
 | `luggage` | suitcase |  |
 | `man` | man |  |
 | `map` | map |  |
-| `mask` | mask | Claimed: Curtain Call |
+| `mask` | mask | Claimed: Masked Encore |
 | `package` | parcel |  |
 | `paper-plane` | paper plane | Shares "plane" with plane |
 | `paperclip` | paperclip |  |
@@ -312,7 +312,7 @@ Shadow: ghosts, night, disguise, zeroes, poison, and giving up on purpose.
 | `block` | ban | Prohibition sign |
 | `bone` | bone |  |
 | `broom` | broom |  |
-| `candlestick` | candle | Claimed: Silent Vow |
+| `candlestick` | candle | Claimed: Vigil Candle |
 | `cat` | black cat |  |
 | `circle` | circle | Zero |
 | `cocktail` | cocktail | Nightlife |
