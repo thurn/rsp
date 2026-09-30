@@ -22,11 +22,11 @@ purchases with a simple heuristic.
 Partnership scores and bag counts start at zero and persist through the run.
 Scores can become negative; there is no negative-score elimination rule. Gold
 and sigil collections belong to individual players. The partnership wins by
-reaching **500 points**, or by having the higher score after **round 13** if
-neither side has reached 500.
+reaching **1,000 points**, or by having the higher score after **round 13** if
+neither side has reached 1,000.
 
 **Terminal procedure:** finish both partnerships' round scoring before checking
-victory. If either reaches 500, the higher-scoring partnership wins; if neither
+victory. If either reaches 1,000, the higher-scoring partnership wins; if neither
 does, continue unless round 13 has ended, in which case the higher score wins.
 Equal scores at a terminal check produce a **draw**. This preserves the 13-round
 maximum and avoids awarding victory according to score-processing order.
@@ -36,7 +36,7 @@ maximum and avoids awarding victory according to score-processing order.
 - **Prepare.** Before round one, each player visits an opening shop (see §5).
   Select the first dealer randomly and rotate the dealer clockwise after each
   round.
-- **Bid blind.** A partnership which is at least 100 points behind may have one
+- **Bid blind.** A partnership which is at least 200 points behind may have one
   partner bid blind nil (see §7) before cards are dealt.
 - **Deal and engrave.** Shuffle the standard deck, deal 13 cards to each seat,
   and assign each owned sigil to one card. Apply intrinsic rank and suit
@@ -136,14 +136,45 @@ tricks taken by the partnership's non-nil bidders.
 | T < B | −10 × B | 0 |
 
 Add each nil's +100 or −100 (blind nil ±200) separately. Apply any explicit
-sigil changes to contract value, bags, or bonus points as well.
+sigil changes to contract value, bags, or nil value as well.
+
+### Contract value and sigils
+
+Sigils do not score tricks directly; they change what the partnership's
+**contract** is worth. A stronger collection raises the stakes of every bid,
+so accurate bidding matters more as the run goes on.
+
+- **Additive bonuses** add points to the contract, such as “+2 contract value
+  per diamond trick won” or “+3 per bid trick.” They are only earned: a failed
+  contract loses them all. A trick-triggered bonus still pays on an overtrick,
+  which also adds a bag.
+- **Multipliers** are written as “+N×” and are summed, not compounded, on top
+  of a base of 1×: two “+1×” sigils make the contract worth 3×. Multipliers cut
+  both ways: a failed contract loses its base value times every active
+  multiplier. A multiplier conditioned on success, such as “+1× if you take
+  exactly your bid,” is simply inactive when the contract fails.
+
+| Result | Contract score |
+| --- | --- |
+| T ≥ B | (10 × B + additive bonuses) × multiplier |
+| T < B | −10 × B × multiplier |
+
+Nil keeps its flat value, and contract multipliers never apply to it. Nil
+builds grow nil through sigils that explicitly change nil value, so nil
+naturally matters less late in a run unless a player invests in it. Sigil
+scoring flows through the contract or nil; a sigil that awards points outside
+both must say so.
+
+Target growth is roughly 4–5× over a run: round scores rise from about 40 to
+about 200 as collections fill out. Keep multipliers additive and uncommon to
+stay near that curve.
 
 ### Bags
 
 **Bags are tracked separately from points and are worth no points.** Each
 overtrick adds one bag to the partnership's bag count and nothing to its score.
 Accumulated bags carry across rounds; each group of ten costs 100 points, and
-the remainder carries forward. Bags never count toward 500 and never break
+the remainder carries forward. Bags never count toward 1,000 and never break
 ties.
 
 In standard Spades each bag also scores 1 point. Because every other component
@@ -153,11 +184,12 @@ multiples of 10 break that convention, and Rogue Spades tracks bags as their
 own public count anyway. Dropping the point keeps scores in multiples of 10
 unless a sigil says otherwise and makes bags purely a penalty to manage. The
 strategic change is small: ten bags cost exactly 100 rather than a net 90, and
-overtricks cannot help a partnership reach 500.
+overtricks cannot help a partnership reach 1,000.
 
-**Scoring order:** start with the +10 × B or −10 × B contract component; apply
-effects that specifically alter that component; add nil results and sigil point
-bonuses; add new bags and apply bag penalties. Count each component once. A
+**Scoring order:** start with the +10 × B or −10 × B contract component; if the
+contract was made, add additive bonuses; apply the summed multiplier; add nil
+results and any sigil points awarded outside the contract; add new bags and
+apply bag penalties. Count each component once. A
 contract multiplier does not multiply nil bonuses, bag penalties, or unrelated
 sigil rewards unless it explicitly says so. Effects that remove bags act before
 the round's bag-penalty check if their text specifies that timing.
@@ -172,14 +204,17 @@ the round's bag-penalty check if their text specifies that timing.
 | Failed nil taking 1 trick, partner bids 3 and takes 3 | −100 + 30 = **−70** | 40 |
 | Successful blind nil, partner bids 4 and takes 5 | 200 + 40 = **240**; gain 1 bag | 250 |
 | Enter with 8 bags, bid 5, take 8 | 50 − 100 = **−50**; carry 1 bag | 80 |
-| Bid 4, take 4, earn 15 sigil bonus points | 40 + 15 = **55** | 40 |
+| Bid 5, take 6, two diamond tricks at +2 each, one +1× sigil | (50 + 4) × 2 = **108**; gain 1 bag | 60 |
+| Bid 5, take 4, two diamond tricks at +2 each, one +1× sigil | −50 × 2 = **−100**; bonuses lost | 40 |
+| Bid 4, take exactly 4, “+1× if exact” and “+1× if bid 4+” | 40 × 3 = **120** | 40 |
 
 Gold figures exclude interest.
 
-An average of roughly 39 points per round reaches 500 within 13 rounds, but it
-is a pacing reference, not a guarantee of victory: the opponents can reach 500
-earlier or finish with more points. Denial builds can also win before round 13
-if their own score reaches 500.
+With round scores growing from about 40 to about 200, totals reach 1,000
+around rounds 11–12. The last round is only about 13% of a final total, so
+early rounds still matter. This is a pacing reference, not a guarantee of
+victory: the opponents can reach 1,000 earlier or finish with more points.
+Denial builds can also win before round 13 if their own score reaches 1,000.
 
 ## 5. Gold, shops, and permanent progression
 
@@ -331,6 +366,6 @@ dragging cannot become an unlimited retargeting ability.
 A player may bid **blind nil:** before inspecting the hand or any deal-dependent
 information, commit to taking zero tricks for +200 on success or −200 on
 failure. Success also pays 200 gold. Ordinary partner scoring remains separate.
-A blind nil is allowed only when the bidder's partnership is at least 100 points
+A blind nil is allowed only when the bidder's partnership is at least 200 points
 behind its opponents, and at most one partner per partnership may bid blind nil
 in a round.
