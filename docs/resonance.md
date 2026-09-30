@@ -1,13 +1,17 @@
 # Rogue Spades: resonance
 
-Every sigil has a **resonance**, one of six colors: Red, Orange, Green, Blue,
-Teal, and Purple. A resonance is a mechanical identity: it names the kinds of
+Every sigil has a **resonance**, one of seven: Red, Orange, Green, Blue, Teal,
+Purple, and Gray. A resonance is a mechanical identity: it names the kinds of
 effects a sigil can have and the kinds of play it rewards.
 
-Each of the 15 core deck archetypes is built on one pair of resonances, and
-every pair belongs to exactly one archetype. Each resonance therefore appears in
-five archetypes. A deck draws most of its sigils from its two resonances and
-splashes sigils of other resonances for specific support.
+The six colored resonances define the archetypes. Each of the 15 core deck
+archetypes is built on one pair of colored resonances, and every pair belongs to
+exactly one archetype, so each colored resonance appears in five archetypes.
+**Gray** is the utility resonance: it sits outside the pairs and supports all 15
+archetypes.
+
+A deck draws most of its sigils from its two resonances, fills gaps with Gray,
+and splashes sigils of other colored resonances for specific support.
 
 ## Design principle: shared enablers, focused payoffs
 
@@ -22,9 +26,14 @@ Resonance sigils fall into two broad roles:
   diamond trick, gold earned while holding a card. Payoffs are focused so each
   archetype keeps a distinct identity.
 
-Most of the overlap between archetypes lives in enablers. A good sigil is wanted
-by the two or three archetypes that need it most and splashed by one or two
-more.
+Most of the overlap between archetypes lives in enablers. A good colored sigil
+is wanted by the two or three archetypes that need it most and splashed by one
+or two more.
+
+Gray takes this one step further. Gray effects help any collection: they improve
+shopping, engraving, and card selection, or they soften common costs. Gray
+effects are modest in power, so a deck's two colored resonances provide its
+strongest sigils and Gray provides consistency.
 
 ## Red: Force
 
@@ -41,7 +50,7 @@ Red owns:
 - Stealing the lead.
 - Forcing opponents to overtrump.
 
-Red is the most broadly splashable resonance, because a higher card helps
+Red is the most splashable colored resonance, because a higher card helps
 almost any deck that wants to win tricks. Its generic rank effects are modest,
 and its larger effects are conditioned on winning.
 
@@ -55,11 +64,10 @@ Orange is gold and gambles.
 Orange owns:
 
 - Gold when a card is played, while it is held, or when a condition is met.
+- Multipliers on gold gains and a higher interest cap.
 - Conversion between gold and points.
-- Shop manipulation: discounts, cheaper rerolls, higher rarity, and extra
-  offers.
 - Powerful effects that cost points, gold, or a good card.
-- Random effects: random cards, random engravings.
+- Random effects, such as creating random cards.
 - One-shot points from played cards and side quests.
 - Re-triggering or doubling "when played" effects.
 - Rewards for bidding blind.
@@ -77,13 +85,11 @@ Green shapes the hand and builds up how many cards of a suit you hold.
 
 Green owns:
 
-- Creating cards in hand.
+- Creating specific cards in hand.
 - Changing the suit of your own cards, and cards that count as any suit.
-- Rewards for long suits and for voids, which are two views of the same hand
-  shape.
+- Rewards for long suits, singletons, and voids.
 - Adding cards to the starting deck, such as extra spades.
-- Controlling or improving the opening hand, including repairing a hand that
-  lacks spades or face cards.
+- Forcing chosen cards into the opening hand.
 - Cards that grow stronger as the round goes on.
 - Points for playing cards of a suit.
 
@@ -103,7 +109,6 @@ Blue owns:
 
 - Revealing cards in opponents' hands, before bidding or during play.
 - Learning about your partner's hand before bidding.
-- Looking at several cards and choosing one to keep.
 - Adjusting a bid after it is declared, and rewards for making exactly your
   bid or your individual bid.
 - While-held effects and while-held multipliers.
@@ -130,7 +135,6 @@ Teal owns:
 - Swapping cards with opponents and stealing cards from them.
 - Swapping cards in hand with played or discarded cards.
 - Returning played cards to your hand.
-- Moving sigils between your cards.
 - Pass triggers that reward completed exchanges.
 - Effects that target your partner's cards.
 
@@ -154,16 +158,38 @@ Purple owns:
 - Rewards for discarding off suit, and permission to skip following suit.
 - Forcing opponents or all players to discard.
 - Disabling opponents' sigils.
-- Making opponents lose points.
-- Bag relief: removing bags and softening bag penalties.
+- Making opponents lose points, including heavier penalties for their bags.
 - Rewards for low contracts.
 
-Purple is home to all three nil archetypes. Its sabotage, discard, and bag
-effects extend it to decks that win tricks aggressively.
+Purple is home to all three nil archetypes. Its sabotage and discard effects
+extend it to decks that win tricks aggressively.
 
 **Archetypes:** Contract Attacker (Red + Purple), Blind Bidder (Orange +
 Purple), Discard Dominance (Green + Purple), Nil Champion (Blue + Purple), Nil
 Guard (Teal + Purple).
+
+## Gray: Utility
+
+Gray makes any collection work more reliably.
+
+Gray owns:
+
+- Shop tools: discounts, cheaper rerolls, higher rarity, extra offers, and
+  buying more than one sigil from a shop.
+- Engraving control: choosing which cards receive sigils, moving sigils between
+  your cards, and engraving two sigils on one card.
+- Duplicating your existing sigils.
+- Card selection: looking at several cards and choosing one to add to your
+  hand.
+- Repairing a weak opening hand, such as one with no spades or no face cards.
+- Bag relief: removing your bags and softening your bag penalties.
+- Small, unconditional additions to contract value.
+
+Gray's shop and engraving tools help a player assemble and aim a collection, so
+they reward any archetype once its colored sigils are in place. Its bag relief
+and card selection smooth out the swings every deck faces.
+
+**Archetypes:** all 15, as support.
 
 ## Archetype pairs
 
@@ -172,10 +198,10 @@ Guard (Teal + Purple).
 | High Card | Red + Blue | Red builds aces; Blue's rule setters and reveals keep them from being trumped. |
 | Spade Master | Red + Green | Green fills the hand with spades and creates voids; Red makes the trumps unbeatable. |
 | Kingmaker | Red + Teal | Red builds high cards; Teal hands them to the partner. |
-| Contract Attacker | Red + Purple | Your cards rise, opponents' cards fall, and bags cost less. |
+| Contract Attacker | Red + Purple | Your cards rise, opponents' cards fall, and opponents pay more for their bags. |
 | Bonus Chaser | Red + Orange | Orange's side quests and one-shot points combine with Red's trick-winning triggers. |
 | Diamond Flood | Orange + Green | Green adds diamonds; Orange makes them pay. |
-| Gold Miner | Orange + Blue | Orange earns gold; Blue saves it through interest, while-held income, and shop foresight. |
+| Gold Miner | Orange + Blue | Orange earns gold; Blue holds cards that keep earning while held. |
 | Swap Meet | Orange + Teal | Teal moves cards; Orange pays for each trade. |
 | Blind Bidder | Orange + Purple | Purple's nil and low ranks meet Orange's appetite for risk. |
 | While Held | Green + Blue | Blue's while-held effects; Green's extra cards and flexible suits keep them in hand. |
