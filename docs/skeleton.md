@@ -330,7 +330,7 @@ Name:        Waning Moon
 Icon:        moon               (alternates: Falling Feather / feather, Drowsy Owl / owl)
 Resonance:   Purple
 Rarity:      Common (45 gold)
-Text:        After bidding, 2 cards in your hand lose 3 rank.
+Text:        After bidding, 2 chosen cards in your hand lose 3 rank.
 Timing:      After bidding
 Archetypes:  Nil Champion, Blind Bidder; splash Exact Contractor
 Family:      Lowering your ranks / Post-bid
@@ -449,7 +449,9 @@ Every candidate answers these questions in writing.
   [rules-text.md](rules-text.md)?
 - Does it use only Spades vocabulary, everyday words, and the game terms
   listed there?
-- Could a new player predict exactly what happens from the text alone?
+- Could a new player predict exactly what happens from the text alone: when
+  it happens, which cards or players it affects, who picks them, and what
+  changes?
 
 **Fun to play**
 
@@ -493,10 +495,14 @@ Every candidate answers these questions in writing.
 Three critic subagents review every candidate that a designer selects. Critics
 work in parallel and receive the batch of new designs plus the registry.
 
-1. **Comprehension critic.** Receives only the name, the text, and
-   [rules-text.md](rules-text.md). It writes what the sigil does, then the
-   orchestrator compares that with the designer's intent. Any mismatch fails
-   clarity.
+1. **Comprehension critic.** Receives only the name, the text, and the Terms
+   table from [rules-text.md](rules-text.md), and reads as a Spades player
+   seeing the sigil for the first time. It writes what the sigil does and
+   answers four questions from the text alone: when it happens, which cards or
+   players it affects, who picks them, and what changes. It lists every
+   question the text leaves open, such as "are these cards random, or do I pick
+   them?" Any open question on those four points, or any mismatch with the
+   designer's intent, fails clarity.
 2. **Table critic.** Narrates one round with the sigil from the owner's seat
    and one from an opponent's seat, then reports whether the sigil created a
    decision for its owner and whether the opponent's experience was legible
