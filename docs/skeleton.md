@@ -397,8 +397,8 @@ revised.
 A single designer with the full registry designs all 20 dual-resonance sigils.
 Each signpost states its archetype's plan in 10 words or fewer, using mechanics
 already present in the archetype's commons, so the signpost teaches players
-what to draft. Flex rares go to the archetypes the wave 5 audit of earlier
-waves shows as thinnest.
+what to draft. Flex rares go to the archetypes that a support count of waves
+1–3 shows as thinnest.
 
 ### Wave 5: audit
 
