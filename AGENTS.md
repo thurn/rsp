@@ -1,4 +1,6 @@
-# Working on Rogue Spades
+# Working on the Rogue Spades Prototype
+
+This is a throwaway web-based prototype for a roguelike card game based on Spades. Do not write tests. Do not overarchitect. Treat all code as disposable.
 
 Immediately commit all changes using Conventional Commits syntax.
 
