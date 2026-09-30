@@ -1,18 +1,21 @@
 # Rogue Spades: sigil rules text
 
 This document fixes the format of sigil rules text. Every sigil in the pool
-follows it, and the design process in [skeleton.md](skeleton.md) starts its
-keyword glossary from the keywords defined here.
+follows it, and the design process in [skeleton.md](skeleton.md) uses it as the
+reference for clarity.
 
 ## Principles
 
-- **Ten words or fewer.** Rules text fits in 10 words, counted as described
-  below. Rares may reach 15 words with approval.
-- **One sentence.** A sigil does one thing, stated once.
-- **Keyword first.** Text opens with a timing keyword, or with no keyword when
-  the effect is always on.
-- **Defaults stay unwritten.** Conventions below cover controller, targets,
-  duration, and scoring, so the text states only what differs.
+- **Plain English.** Rules text is a natural sentence that a new player
+  understands with minimal game knowledge.
+- **One sentence.** A sigil does one thing, stated once. A rare may use two
+  sentences.
+- **When, then what.** A triggered effect opens with when it happens, then says
+  what happens: "When this card wins a trick, add +5 contract value."
+- **Few game terms.** Rules text uses the short list of terms below and
+  otherwise uses everyday words.
+- **Defaults stay unwritten.** The conventions below cover who chooses, how long
+  effects last, and how scoring works, so the text states only what differs.
 
 ## Sigil layout
 
@@ -22,174 +25,158 @@ Affinity: King    (optional)
 Rules text.
 ```
 
-Affinity sits on its own line and is excluded from the word count.
+## Sentence patterns
 
-## Word counting
+Each timing window from the core rules has one standard opening.
 
-- A timing keyword with its colon counts as one word: `Pre-bid:`.
-- A number with its sign or symbol counts as one word: `+3`, `−3`, `+1×`,
-  `20`.
-- A hyphenated term counts as one word: `off-suit`.
-- Everything else counts normally.
-
-## Timing keywords
-
-| Keyword | Resolves |
+| Timing | Opening |
 | --- | --- |
-| *(none)* | Always on while you own the sigil, or for the engraved card all round |
-| **Pre-bid:** | Before bidding, after the deal and engraving |
-| **Post-bid:** | After all bids, before the first trick |
-| **Held:** | Continuously while this card is in your hand |
-| **Played:** | When you play this card, before the trick resolves |
-| **Led:** | When you lead a trick with this card |
-| **Wins:** | When this card wins a trick |
-| **Take:** | When you take any trick |
-| **Lose:** | When you play to a trick another seat takes |
-| **Off-suit:** | When you play a card outside the led suit, whether it trumps or is discarded |
-| **Pass:** | When you complete an exchange |
-| **Once:** | Once per round, between tricks, at a moment you choose |
+| Always on, for the engraved card | "This card gains +3 rank." |
+| Always on, for you | "Shop rerolls cost 20 less gold." |
+| Before bidding | "Before bidding, …" |
+| After bidding | "After bidding, …" |
+| While in hand | "While this card is in your hand, …" |
+| When played | "When you play this card, …" |
+| When led | "When you lead with this card, …" |
+| When this card wins | "When this card wins a trick, …" |
+| When you win any trick | "Whenever you win a trick, …" |
+| When you lose any trick | "Whenever you lose a trick, …" |
+| When you play another suit | "Whenever you play a card that doesn't match the suit led, …" |
+| When you pass cards | "Whenever you pass cards, …" |
+| Once per round, your choice | "Once per round, between tricks, you may …" |
+| Conditional scoring | "If your team takes exactly its bid, …" |
+
+"This card" always means the card the sigil is engraved on. "Whenever you"
+triggers watch every trick you play, whichever card you play.
 
 ## Terms
 
 | Term | Meaning |
 | --- | --- |
-| **value** | Contract value. `+5 value` adds 5 to your partnership's contract. |
-| **+N×** | A contract multiplier, summed with other multipliers. |
-| **nil value** | The score of your nil bid. |
-| **rank** | Effective rank, from 2 to 14 after modifiers. |
+| **rank** | A card's strength, from 2 up to ace. Ranks never go above ace or below 2. |
+| **contract value** | Points added to your team's contract, paid only if the contract is made. |
+| **contract multiplier** | Written `+1×`. Multiplies your team's contract, win or lose. |
+| **nil** | A bid to take no tricks. |
+| **trump** | Play a spade when a different suit was led. |
 | **convert** | Change a card's suit. |
-| **longest suit, shortest suit** | Counted in your hand when the effect resolves. |
-| **trump** | Play a spade to a trick that led another suit. |
-| **exact** | Your partnership took exactly its contract. |
-| **gold** | Personal gold, paid to you. |
+| **longest suit, shortest suit** | Counted in your hand when the effect happens. |
+| **team** | You and your partner. |
+| **gold** | Your personal currency for the shop. |
+
+A term outside this list appears in rules text only when no everyday phrasing
+works, and it is added here before use.
 
 ## Conventions
 
-- **You** means the sigil's current controller. An engraved card that changes
-  hands brings its effect to its new holder.
-- **Card targets** are cards in your hand, chosen by you. Random targets say
-  "random."
-- **Ties** among targets, such as two equally long suits, are chosen by you.
-- **Duration:** rank and suit changes last for the round. Shorter effects say
-  "this trick."
-- **Each trick** in a `Held:` effect pays when each trick resolves while the
-  card is still in hand.
-- **Value** follows the core scoring rules: earned only on a made contract, and
-  multiplied by the partnership's summed multipliers. Rules text states only
-  the amount.
-- **Visibility:** every triggered effect is public when it resolves, as the core
-  rules require. Rules text states secrecy only when an effect hides its
-  result.
-- **Numbers** are written as digits: `swap 2 cards`, `+3 rank`.
-- **Capitalization and punctuation:** sentence case after the keyword, ending
-  with a period.
+- **You** means whoever currently holds the card. A card passed to another
+  player brings its effect with it.
+- **Cards** mentioned in rules text are cards in your hand, chosen by you,
+  unless the text says "random."
+- **Ties,** such as two equally long suits, are broken by your choice.
+- **Duration:** rank and suit changes last for the rest of the round. Shorter
+  effects say "for this trick."
+- **Scoring:** contract value and multipliers follow the core scoring rules.
+  Rules text states only the amount.
+- **Visibility:** every triggered effect is shown to the table when it happens,
+  as the core rules require.
+- **Numbers** are written as digits: "pass 2 cards," "+3 rank."
+- **Punctuation:** full sentences, sentence case, ending with a period.
 
 ## Examples
 
-| # | Name | Resonance · Rarity | Rules text | Words |
-| --- | --- | --- | --- | --- |
-| 1 | Honed Edge | Red · Common | +3 rank. | 2 |
-| 2 | Verdant Banner | Green · Common | Held: your longest suit gets +1 rank. | 7 |
-| 3 | Nest Egg | Orange · Common | Held: +5 gold each trick. | 5 |
-| 4 | Crown Jewel | Red · Common | Wins: +5 value. | 3 |
-| 5 | Graceful Exit | Purple · Common | Lose: +3 value. | 3 |
-| 6 | Tide | Green · Common | Pre-bid: convert 2 cards to your longest suit. | 8 |
-| 7 | Handoff | Teal · Common | Post-bid: swap 2 cards with your partner. | 7 |
-| 8 | Precision | Blue · Uncommon | +1× if exact. | 3 |
-| 9 | Silent Vow | Purple · Common | +50 nil value. | 3 |
-| 10 | Undertow | Purple · Uncommon | Post-bid: each opponent's highest card gets −3 rank. | 8 |
-| 11 | Encore | Teal · Uncommon | Once: swap a card in hand with your last played card. | 10 |
-| 12 | Haggler | Gray · Common | Rerolls cost 20 gold less. | 5 |
+| # | Name | Resonance · Rarity | Rules text |
+| --- | --- | --- | --- |
+| 1 | Honed Edge | Red · Common | This card gains +3 rank. |
+| 2 | Verdant Banner | Green · Common | While this card is in your hand, cards of your longest suit gain +1 rank. |
+| 3 | Nest Egg | Orange · Common | While this card is in your hand, gain 5 gold after each trick. |
+| 4 | Crown Jewel | Red · Common | When this card wins a trick, add +5 contract value. |
+| 5 | Graceful Exit | Purple · Common | Whenever you lose a trick, add +3 contract value. |
+| 6 | Tide | Green · Common | Before bidding, convert 2 cards in your hand to your longest suit. |
+| 7 | Handoff | Teal · Common | After bidding, you and your partner each pass 2 cards to the other. |
+| 8 | Precision | Blue · Uncommon | If your team takes exactly its bid, add +1× contract multiplier. |
+| 9 | Silent Vow | Purple · Common | If your nil bid succeeds, it scores 50 extra points. |
+| 10 | Undertow | Purple · Uncommon | After bidding, each opponent's highest card loses 3 rank. |
+| 11 | Encore | Teal · Uncommon | Once per round, between tricks, you may swap a card in your hand with the last card you played. |
+| 12 | Haggler | Gray · Common | Shop rerolls cost 20 less gold. |
 
-### 1. Honed Edge: an intrinsic modifier
+### 1. Honed Edge: changing this card
 
-`+3 rank.`
+`This card gains +3 rank.`
 
-With no keyword, the effect applies to the engraved card all round. The card's
-rank rises by 3 and clamps at ace.
+The engraved card is 3 ranks stronger for the whole round, up to ace.
 
-### 2. Verdant Banner: an aura
+### 2. Verdant Banner: an effect while held
 
-`Held: your longest suit gets +1 rank.`
+`While this card is in your hand, cards of your longest suit gain +1 rank.`
 
-While this card stays in hand, every card of your longest suit gains +1 rank,
-including this card if it belongs to that suit. The longest suit is counted as
-the hand changes, and the bonus ends when this card is played.
+The bonus lasts until this card is played. The longest suit is recounted as your
+hand changes, and this card gains the bonus too if it belongs to that suit.
 
-### 3. Nest Egg: a per-trick payout
+### 3. Nest Egg: a reward for holding
 
-`Held: +5 gold each trick.`
+`While this card is in your hand, gain 5 gold after each trick.`
 
-Each time a trick resolves with this card still in hand, you gain 5 gold. Every
-card is played by the round's end, so the payout rewards holding this card as
-long as possible.
+Every card is played by the end of the round, so this sigil rewards holding its
+card as long as possible.
 
-### 4. Crown Jewel: a card-bound win trigger
+### 4. Crown Jewel: when this card wins
 
-`Wins: +5 value.`
+`When this card wins a trick, add +5 contract value.`
 
-When this card wins a trick, the contract gains 5 value. The bonus is lost if
-the contract fails, and it is multiplied by the partnership's multipliers.
+The bonus is paid only if your team makes its contract, and it is multiplied by
+any contract multipliers.
 
-### 5. Graceful Exit: a player-level trigger
+### 5. Graceful Exit: whenever you lose
 
-`Lose: +3 value.`
+`Whenever you lose a trick, add +3 contract value.`
 
-`Lose:` watches every trick you play to, rather than this card. Each trick
-another seat takes adds 3 value to your partnership's contract. A nil bidder's
-contract sigils modify the partner's contract, so this sigil pays a nil bidder's
-partnership too.
+This watches every trick you play, whichever card you play. A nil bidder's
+sigils still add to the partner's contract, so this sigil suits a nil bidder's
+team.
 
-### 6. Tide: a before-bidding effect
+### 6. Tide: before bidding
 
-`Pre-bid: convert 2 cards to your longest suit.`
+`Before bidding, convert 2 cards in your hand to your longest suit.`
 
-Before bidding, you choose 2 cards in hand and change them to your longest
-suit. Players bid knowing the result. The conversion lasts all round.
+You choose the 2 cards, and everyone bids after the change.
 
-### 7. Handoff: an exchange
+### 7. Handoff: passing cards
 
-`Post-bid: swap 2 cards with your partner.`
+`After bidding, you and your partner each pass 2 cards to the other.`
 
-After all bids, you and your partner each choose 2 cards from your own hands
-and exchange them, following the core exchange rules. Engravings travel with
-the cards.
+Each of you chooses which 2 of your own cards to give. Sigils travel with the
+cards they are engraved on.
 
 ### 8. Precision: a conditional multiplier
 
-`+1× if exact.`
+`If your team takes exactly its bid, add +1× contract multiplier.`
 
-If your partnership takes exactly its contract, the contract is worth one more
-multiple of its value. The condition fails on an overtrick, and a failed
-contract leaves this multiplier inactive.
+An extra trick breaks the condition. A failed contract leaves this multiplier
+inactive, so it never increases a loss.
 
-### 9. Silent Vow: nil value
+### 9. Silent Vow: nil
 
-`+50 nil value.`
+`If your nil bid succeeds, it scores 50 extra points.`
 
-Your successful nil scores 150 instead of 100. Contract multipliers never apply
-to nil value.
+A successful nil scores 150 instead of 100. Contract multipliers never apply to
+nil.
 
-### 10. Undertow: an opponent-facing effect
+### 10. Undertow: affecting opponents
 
-`Post-bid: each opponent's highest card gets −3 rank.`
+`After bidding, each opponent's highest card loses 3 rank.`
 
-After all bids, each opponent's highest-ranked card loses 3 rank for the round.
-The effect resolves publicly, so both opponents and your partner see which
-cards changed. When an opponent holds tied highest cards, you choose among
-them.
+The change is shown to the table, so everyone sees which cards weakened. If an
+opponent has two equally high cards, you choose which one is affected.
 
-### 11. Encore: a timed choice
+### 11. Encore: a once-per-round choice
 
-`Once: swap a card in hand with your last played card.`
+`Once per round, between tricks, you may swap a card in your hand with the last card you played.`
 
-Once per round, between tricks, you may return your most recently played card to
-your hand, placing a card from your hand in its place among played cards. The
-returned card's engraving becomes active again.
+The played card returns to your hand and its sigil becomes active again, and the
+card you give up takes its place among the played cards.
 
-### 12. Haggler: an always-on Gray effect
+### 12. Haggler: an effect for you
 
-`Rerolls cost 20 gold less.`
+`Shop rerolls cost 20 less gold.`
 
-With no keyword and no card effect, the sigil applies to you whenever the text
-is relevant, here at every shop.
+The sigil applies whenever it is relevant, here at every shop.

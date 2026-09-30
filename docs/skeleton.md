@@ -292,21 +292,17 @@ and the simplest workable design wins.
 
 ### Simplicity standard
 
-Every sigil's rules text is **10 words or fewer**. This is the primary design
-constraint, and it outranks power, novelty, and flavor.
+Every sigil does one simple thing, described in a plain English sentence that a
+new player understands with minimal game knowledge. Simplicity is the primary
+design constraint, and it outranks power, novelty, and flavor.
 
-- All commons and uncommons meet the 10-word limit.
-- A rare may use up to 15 words when the orchestrator approves a written
-  justification. At least 90% of the full pool meets the 10-word limit.
-- Between two candidates of similar quality, the shorter one wins.
-- Words are counted on the printed rules text, after glossary keywords.
-
-A shared **keyword glossary** keeps text short without hiding meaning. It
-starts from the keywords, terms, and conventions in
-[rules-text.md](rules-text.md), which fixes the rules text format.
-
-The glossary stays small, around 15 entries. A new keyword is justified only
-when at least five sigils use it.
+- Rules text follows the sentence patterns, terms, and conventions in
+  [rules-text.md](rules-text.md).
+- Rules text is one sentence. A rare may use two.
+- Simplicity is measured by comprehension, not word count: the comprehension
+  critic's reading is the test.
+- Between two candidates of similar quality, the simpler one wins: fewer
+  conditions, fewer choices, and fewer game terms.
 
 ### Artifacts
 
@@ -315,7 +311,6 @@ All design work lives in `docs/sigils/`:
 | File | Owner | Contents |
 | --- | --- | --- |
 | `slots.md` | Orchestrator | Every slot: code, resonance, rarity, slot type, archetypes served, mechanic family, assigned variation, timing window, and one-line brief |
-| `glossary.md` | Orchestrator | The keyword glossary |
 | `scoring.md` | Orchestrator | The benchmark curve, gold exchange rate, value bands by rarity, each archetype's engine sketch, and each archetype's running score projection |
 | `registry.md` | Orchestrator | Every accepted sigil with its effect signature, in one table |
 | `red.md`, `orange.md`, `green.md`, `blue.md`, `teal.md`, `purple.md`, `gray.md`, `dual.md` | Orchestrator | Full accepted sigil entries, one file per resonance |
@@ -333,8 +328,7 @@ Code:        PU-C03
 Name:        Undertow           (three words or fewer)
 Resonance:   Purple
 Rarity:      Common (45 gold)
-Text:        Post-bid: lower two cards in hand by 3.
-Words:       8
+Text:        After bidding, 2 cards in your hand lose 3 rank.
 Timing:      After bidding
 Archetypes:  Nil Champion, Blind Bidder; splash Exact Contractor
 Family:      Lowering your ranks / Post-bid
@@ -351,10 +345,9 @@ channel and its expected points per round at round 7. The **effect signature**
 is a normalized description: trigger | controller |
 target | effect | magnitude. Signatures make duplicates easy to detect.
 
-### Phase 0: skeleton, glossary, and scoring model
+### Phase 0: skeleton and scoring model
 
-The orchestrator writes `slots.md`, `glossary.md`, and `scoring.md` before any
-design begins.
+The orchestrator writes `slots.md` and `scoring.md` before any design begins.
 
 - `scoring.md` records the benchmark curve and parity rules from this
   document, a gold-to-points exchange rate by round, and **value bands** for
@@ -372,8 +365,7 @@ design begins.
 - The orchestrator checks slot assignments against the support floors and
   budgets in this document.
 
-**Gate:** the user reviews `slots.md`, `glossary.md`, and `scoring.md` before
-design begins.
+**Gate:** the user reviews `slots.md` and `scoring.md` before design begins.
 
 ### Waves
 
@@ -399,7 +391,8 @@ after wave 2, before the next wave begins.
 ### Designer instructions
 
 Each designer receives the core rules, the resonance, archetype, mechanics, and
-skeleton documents, the glossary, the current registry, and its slot list. From
+skeleton documents, [rules-text.md](rules-text.md), the current registry,
+and its slot list. From
 wave 2 onward, each slot's brief names the signposts it supports, and designers
 treat those signposts as the plan their sigils feed. For each slot, the
 designer:
@@ -419,8 +412,9 @@ Every candidate answers these questions in writing.
 
 **Clarity**
 
-- Is the text 10 words or fewer?
-- Does it use only glossary keywords and core-rules terms?
+- Is it one plain English sentence following the patterns in
+  [rules-text.md](rules-text.md)?
+- Does it use only the game terms listed there?
 - Could a new player predict exactly what happens from the text alone?
 
 **Fun to play**
@@ -448,8 +442,8 @@ Every candidate answers these questions in writing.
 
 **Rules fit**
 
-- Does it state timing, target, controller, and duration where the glossary
-  leaves them open?
+- Does it state timing, target, controller, and duration where the
+  conventions in [rules-text.md](rules-text.md) leave them open?
 - Does it respect the core rules for exchanges, rank clamping, and scoring
   order?
 
@@ -466,9 +460,10 @@ Every candidate answers these questions in writing.
 Three critic subagents review every candidate that a designer selects. Critics
 work in parallel and receive the batch of new designs plus the registry.
 
-1. **Comprehension critic.** Receives only the name, text, and glossary. It
-   writes what the sigil does, then the orchestrator compares that with the
-   designer's intent. Any mismatch fails clarity.
+1. **Comprehension critic.** Receives only the name, the text, and
+   [rules-text.md](rules-text.md). It writes what the sigil does, then the
+   orchestrator compares that with the designer's intent. Any mismatch fails
+   clarity.
 2. **Table critic.** Narrates one round with the sigil from the owner's seat
    and one from an opponent's seat, then reports whether the sigil created a
    decision for its owner and whether the opponent's experience was legible
@@ -506,7 +501,7 @@ one another.
 
 Each signpost:
 
-- States its archetype's plan in 10 words or fewer.
+- States its archetype's plan in one plain sentence.
 - Pays off a pattern that commons can supply, so the pool can feed it.
 - Plays differently from every other signpost, so each archetype has a
   recognizable shape at the table.
@@ -536,8 +531,8 @@ An auditor subagent checks the complete pool against this document:
 - Every archetype's support floors.
 - Cross-category budgets, including multipliers, rule setters, economy, and
   opening-shop prices.
-- Word counts: all commons and uncommons at 10 words or fewer, and at least 90%
-  of the pool.
+- Rules text: every sigil follows [rules-text.md](rules-text.md), and every
+  sigil passed the comprehension critic.
 - Coverage of each mechanic family in [mechanics.md](mechanics.md).
 - Scoring parity: every archetype's projected reference partnership reaches
   1,000 in round 11 or 12, within one round of every other archetype, with the
