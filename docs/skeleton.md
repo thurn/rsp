@@ -552,6 +552,44 @@ Each signpost:
   recognizable shape at the table.
 - Passes the same rubric and critic passes as every other sigil.
 
+#### Signpost variety
+
+Fifteen signposts that each read "gain a contract multiplier when you do X"
+would make every archetype feel like the same sigil with a different
+condition. The signposts are designed as a set, with deliberate variety in
+shape.
+
+Before writing any text, the designer assigns each archetype a **signpost
+shape** from this list, spreading the 15 archetypes across the shapes:
+
+| Shape | What it does | Example direction |
+| --- | --- | --- |
+| **Rule-bender** | Changes how the archetype plays a trick | Discard Dominance: skip following suit in clubs |
+| **Engine** | Pays repeatedly for the archetype's core action | Swap Meet: gold every time you pass |
+| **Enabler and payoff** | Creates the pattern it rewards | Heart Chorus: hearts grow after each heart played |
+| **Scaling** | Grows across the round or the run | Gold Miner: value that rises with gold held |
+| **Transformation** | Changes cards or bids in a signature way | Kingmaker: your spades become your partner's |
+| **Multiplier** | Multiplies the contract under the archetype's condition | Exact Contractor: multiplier for an exact contract |
+
+- At most four signposts use the multiplier shape, and no shape holds more than
+  four signposts.
+- No two signposts share both a timing window and a scoring channel.
+- Each signpost's key verb is unique among the 15: win, lose, pass, hold,
+  discard, convert, pick up, and so on.
+
+Every archetype still needs a way to scale multiplicatively. That scaling comes
+mainly from the archetype's uncommon and rare slots and from Gray, following the
+parity rule that every contract archetype has at least two multiplier sources.
+Multipliers themselves vary in shape across the pool: conditional multipliers,
+multipliers that build during a round, multipliers that grow across the run,
+multipliers checked while a card is held, and multipliers bought with a cost.
+
+**Set critic.** After the signposts pass their individual critics, a set critic
+reviews all 15 together. It receives the 15 signposts and the 15 archetype
+names without the pairing and matches each signpost to its archetype. Any
+signpost it misassigns, or any two it finds interchangeable, returns to the
+designer.
+
 The signpost designer also writes an **engine sketch** for each archetype in
 `scoring.md`: its channel mix, a typical 13-sigil collection built from the
 planned slots, and a projected score for rounds 1, 4, 7, 10, and 13 against the
