@@ -37,7 +37,8 @@ maximum and avoids awarding victory according to score-processing order.
   Select the first dealer randomly and rotate the dealer clockwise after each
   round.
 - **Bid blind.** A partnership which is at least 200 points behind may have one
-  partner bid blind nil (see §7) before cards are dealt.
+  partner bid blind nil (see §7) before cards are dealt. Eligible players are
+  offered blind nil in bidding order, starting left of the dealer.
 - **Deal and engrave.** Shuffle the standard deck, deal 13 cards to each seat,
   and assign each owned sigil to one card. Apply intrinsic rank and suit
   modifiers. Players inspect their hands; a blind-nil bidder's commitment is
@@ -143,6 +144,10 @@ sigil changes to contract value, bags, or nil value as well.
 Sigils do not score tricks directly; they change what the partnership's
 **contract** is worth. A stronger collection raises the stakes of every bid,
 so accurate bidding matters more as the run goes on.
+
+Both partners' contract sigils apply to the partnership's single contract:
+additive bonuses combine and multipliers sum across both collections. A nil
+bidder's contract sigils still modify their partner's contract.
 
 - **Additive bonuses** add points to the contract, such as “+2 contract value
   per diamond trick won” or “+3 per bid trick.” They are only earned: a failed
@@ -333,14 +338,18 @@ it, and an already-triggered reward keeps its recorded recipient.
 
 ### Information and simultaneous effects
 
-Your hand and its engraving locations are private. Other players see a sigil
-when it activates or explicitly reveals itself. Bids, played cards, trick
-counts, partnership scores, and bags are public. Public trigger resolution
-reveals enough information to understand its result.
+Your hand and its engraving locations are private. Each player sees their own
+and their partner's sigil collections; opponents' sigils become known when they
+activate or explicitly reveal themselves. Bids, played cards, trick counts,
+partnership scores, and bags are public. Public trigger resolution reveals
+enough information to understand its result. AI seats receive exactly the same
+information as a human in their seat.
+
+Partners communicate only through bids, plays, and public activations, as in
+standard Spades.
 
 Blind-nil bidders must commit before seeing their deal or any deal-dependent
-reveals. Public knowledge of collections is permitted; private inspection of an
-engraved hand is not.
+reveals.
 
 **Resolution order:** resolve simultaneous effects seat by seat in clockwise
 order, starting with the active player for a play event and left of the dealer
@@ -368,4 +377,5 @@ information, commit to taking zero tricks for +200 on success or −200 on
 failure. Success also pays 200 gold. Ordinary partner scoring remains separate.
 A blind nil is allowed only when the bidder's partnership is at least 200 points
 behind its opponents, and at most one partner per partnership may bid blind nil
-in a round.
+in a round. Eligible players decide in bidding order starting left of the
+dealer, so the first partner to declare takes the partnership's blind nil.
