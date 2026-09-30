@@ -145,6 +145,19 @@ Sigils do not score tricks directly; they change what the partnership's
 **contract** is worth. A stronger collection raises the stakes of every bid,
 so accurate bidding matters more as the run goes on.
 
+**Relation to Balatro:** the model borrows Balatro's split between flat
+bonuses and multipliers, where adding to the base is steady and multiplying it
+is where a collection comes together, but not its literal chips and mult or its
+runaway growth. The mental model: a bid is a bet, and your sigils set the
+payout odds. In Balatro, your jokers make each hand you play worth more; here,
+your sigils make each contract you commit to worth more, win or lose. Additive
+bonuses are like gains you pick up during play and only get paid out if the
+bet comes in, while multipliers raise the stakes in both directions. The build
+fantasy is therefore not an ever-larger number but a collection that pays
+enormously for precise bidding, so the Spades skill of judging your hand and
+your partner's stays at the center, with sigils amplifying it rather than
+replacing it.
+
 Both partners' contract sigils apply to the partnership's single contract:
 additive bonuses combine and multipliers sum across both collections. A nil
 bidder's contract sigils still modify their partner's contract.
