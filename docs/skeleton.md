@@ -508,7 +508,8 @@ work in parallel and receive the batch of new designs plus the registry.
    decision for its owner and whether the opponent's experience was legible
    and fair.
 3. **Systems critic.** Checks rules fit, duplicates and near-duplicates
-   against the registry and the rest of the batch, name and icon validity, and
+   against the registry and the rest of the batch, name and icon validity
+   (including the icon guidance in [rules-text.md](rules-text.md)), and
    interactions with multipliers, rule setters, and exchanges. For payoffs, it
    checks the scoring channel and whether the payoff's strength suits its
    price and rarity.
