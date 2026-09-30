@@ -143,8 +143,13 @@ additive bonuses and multipliers:
 Nil scores separately at a flat value that only nil-value sigils change, and
 some sigils award points outside the contract. Archetypes draw on these
 channels in very different proportions, so parity is designed deliberately
-rather than left to chance. This is the most important balance constraint in
-the skeleton.
+rather than left to chance.
+
+Parity is a property of each archetype's **payoffs**, measured across a whole
+collection. Most sigils are enablers, utility, or interaction that score
+nothing directly: they make the payoffs happen more often, protect a plan, or
+change a decision. Those sigils are judged on play quality, and only payoffs
+carry scoring targets.
 
 ### Benchmark curve
 
@@ -344,8 +349,7 @@ Words:       8
 Timing:      After bidding
 Archetypes:  Nil Champion, Blind Bidder; splash Exact Contractor
 Family:      Lowering your ranks / Post-bid
-Channel:     Nil
-Value:       ~+8 expected points per round at round 7, via fewer failed nils
+Role:        Enabler (feeds Nil)
 Signature:   post-bid | self | hand cards | rank −3 | ×2
 Decision:    Which two cards to lower, knowing your bid.
 Opponent:    Visible only through plays; no loss of agency.
@@ -353,7 +357,9 @@ AI note:     Lower the two highest cards of the shortest suit.
 Rationale:   Rescues a risky nil without a pass.
 ```
 
-The **effect signature** is a normalized description: trigger | controller |
+The **role** is enabler, payoff, or utility. A payoff also records its scoring
+channel and its expected points per round at round 7. The **effect signature**
+is a normalized description: trigger | controller |
 target | effect | magnitude. Signatures make duplicates easy to detect.
 
 ### Phase 0: skeleton, glossary, and scoring model
@@ -362,12 +368,12 @@ The orchestrator writes `slots.md`, `glossary.md`, and `scoring.md` before any
 design begins.
 
 - `scoring.md` records the benchmark curve and parity rules from this
-  document, a gold-to-points exchange rate by round, and **value bands**: the
-  expected points per round each rarity contributes at round 7. Starting bands
-  are about 6–10 points for a common, 10–16 for an uncommon, and 16–25 for a
-  rare, all tunable.
-- Each slot's brief names its scoring channel, so the pool's channel mix is set
-  before design begins.
+  document, a gold-to-points exchange rate by round, and **value bands** for
+  payoffs: the expected points per round a payoff of each rarity contributes at
+  round 7. Starting bands are about 6–10 points for a common, 10–16 for an
+  uncommon, and 16–25 for a rare, all tunable.
+- Each payoff slot's brief names its scoring channel, so every archetype's
+  channel mix is set before design begins.
 
 - Each slot receives a **mechanic family** and an **assigned variation** from
   [mechanics.md](mechanics.md). Two slots receive the same family and variation
@@ -460,9 +466,10 @@ Every candidate answers these questions in writing.
 
 **Balance**
 
-- Which scoring channel does it feed?
-- What is its expected value per round at round 7, including the failures it
-  risks, and does that fall within its rarity's value band?
+- Does it feel worth its price at its rarity?
+- For a payoff: which scoring channel does it feed, and does its expected value
+  per round at round 7, including the failures it risks, fall within its
+  rarity's value band?
 - How does it scale with multipliers and with a full collection?
 
 ### Critic passes
@@ -479,9 +486,9 @@ work in parallel and receive the batch of new designs plus the registry.
    and fair.
 3. **Systems critic.** Checks rules fit, duplicates and near-duplicates
    against the registry and the rest of the batch, and interactions with
-   multipliers, rule setters, and exchanges. It independently estimates each
-   design's scoring channel and expected value against the value bands, and
-   reports any disagreement with the designer's estimate.
+   multipliers, rule setters, and exchanges. For payoffs, it independently
+   estimates the scoring channel and expected value against the value bands,
+   and reports any disagreement with the designer's estimate.
 
 A **near-duplicate** is a design that matches an existing signature in trigger,
 target, and effect, differing only in magnitude, named suit, or rank. The
