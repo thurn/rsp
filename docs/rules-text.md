@@ -49,13 +49,11 @@ from that icon. [sigils/icons.txt](sigils/icons.txt) lists the available icons:
 the whole set except card-suit icons, which players would read as the suits in
 their hand.
 
-- **Fantasy-flavored icons.** The best icons are objects a fantasy world could
-  hold: swords, crowns, moons, keys, animals, potions, lanterns. The pool
-  steers clear of icons that read as interface or everyday screen imagery:
-  common UI icons, logos, arrows, speech bubbles, files and folders, tables and
-  charts, and faces or emoji. Food and modern technology, such as pizza,
-  popcorn, laptops, and phones, are a last resort. Fantasy icons are too few to
-  fill the pool, so timeless objects, nature, and shapes fill the rest.
+- **Icons with imagery.** The pool steers clear of icons that read as
+  interface or everyday screen imagery: common UI icons, logos, arrows, speech
+  bubbles, files and folders, tables and charts, and faces or emoji. Food and
+  modern technology, such as pizza, popcorn, laptops, and phones, are a last
+  resort.
 - **Two or three words,** in title case.
 - **The name points to the icon.** One word of the name, its **icon word**,
   names the icon's subject or a close synonym: "Radiant Butterfly" uses
