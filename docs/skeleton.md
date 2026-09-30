@@ -316,6 +316,7 @@ All design work lives in `docs/sigils/`:
 | `icons.txt` | Orchestrator | Every available icon: the free filled set of Boxicons minus card-suit icons, one name per line |
 | `registry.md` | Orchestrator | Every accepted sigil with its name, icon, icon family, and effect signature, in one table |
 | `red.md`, `orange.md`, `green.md`, `blue.md`, `teal.md`, `purple.md`, `gray.md`, `dual.md` | Orchestrator | Full accepted sigil entries, one file per resonance |
+| `escalations.md` | Orchestrator | Slots that exhausted their revision cycles, with each slot's best candidate |
 
 Only the orchestrator writes these files. Designers and critics return their
 work as text, so accepted designs enter the registry one at a time and in a
@@ -399,6 +400,24 @@ waves receive the full registry of earlier waves, including every signpost.
 
 **Gates:** the user reviews the signposts after wave 1 and the accepted commons
 after wave 2, before the next wave begins.
+
+### Checkpoint commits
+
+At the end of Phase 0 and of every wave, the orchestrator commits the current
+state of `docs/sigils/` and pushes it to the remote master branch, so every
+wave's results are recorded and reviewable.
+
+- Each commit includes every artifact the wave changed: the resonance files,
+  `registry.md`, `slots.md`, `scoring.md` with updated projections, and the
+  escalation list in `escalations.md`.
+- Messages follow Conventional Commits and name the wave, for example
+  `docs(sigils): accept wave 2 commons` or
+  `docs(sigils): apply wave 6 audit fixes`.
+- The body summarizes the wave: slots filled, designs escalated, and each
+  archetype's projected round to reach 1,000.
+- Gates follow the checkpoint commit, so the user reviews exactly the pushed
+  state.
+- Fixes made after a gate, or after the audit, get their own commits.
 
 ### Designer instructions
 
