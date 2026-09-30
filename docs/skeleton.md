@@ -516,8 +516,10 @@ work in parallel and receive the batch of new designs plus the registry.
    answers four questions from the text alone: when it happens, which cards or
    players it affects, who picks them, and what changes. It lists every
    question the text leaves open, such as "are these cards random, or do I pick
-   them?" Any open question on those four points, or any mismatch with the
-   designer's intent, fails clarity.
+   them?" A mismatch with the designer's intent fails clarity. An open
+   question fails clarity only when a player would genuinely misplay the
+   sigil and one or two words would fix it; edge cases the rules conventions
+   answer stay unwritten, because short text outranks exhaustive text.
 2. **Table critic.** Narrates one round with the sigil from the owner's seat
    and one from an opponent's seat, then reports whether the sigil created a
    decision for its owner and whether the opponent's experience was legible
