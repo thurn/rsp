@@ -90,7 +90,7 @@ function Table({ state }: { state: GameState }) {
     state.trickDone && state.trickWinIndex !== null
       ? state.trick[state.trickWinIndex].seat
       : lastWinner
-        ? lastWinner.plays[lastWinner.winIndex]?.seat ?? null
+        ? (lastWinner.plays[lastWinner.winIndex]?.seat ?? null)
         : null
 
   const prompt = state.prompt && state.prompt.seat === human ? state.prompt : null
@@ -137,7 +137,11 @@ function Table({ state }: { state: GameState }) {
           data-broken={state.spadesBroken || undefined}
           aria-label={state.spadesBroken ? 'Spades broken' : 'Spades not broken'}
         />
-        <Trick plays={trick} winIndex={state.trickDone ? state.trickWinIndex : null} winner={exitTo} />
+        <Trick
+          plays={trick}
+          winIndex={state.trickDone ? state.trickWinIndex : null}
+          winner={exitTo}
+        />
         <AnimatePresence>
           {humanBidding && (
             <motion.div key="bid" className={styles.bidDock} {...fade}>

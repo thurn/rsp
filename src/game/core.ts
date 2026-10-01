@@ -65,7 +65,8 @@ export function locate(s: GameState, id: number): Location | null {
   return null
 }
 
-export const label = (s: GameState, c: Card): string => viewLabel({ suit: c.suit, rank: rank(s, c) })
+export const label = (s: GameState, c: Card): string =>
+  viewLabel({ suit: c.suit, rank: rank(s, c) })
 
 export function nextSlot(s: GameState, seat: Seat): number {
   return Math.max(-1, ...s.hands[seat].map((c) => c.slot)) + 1
@@ -246,6 +247,23 @@ export function pulseKey(inst: { owner: Seat; code: string; card: Card | null })
   return inst.card ? `card:${inst.card.id}` : `${inst.owner}:${inst.code}`
 }
 
+/** Runs a query-style hook (such as score) and marks its sigil triggered if it acted. */
+export function runHook(s: GameState, inst: Instance, fn: (ctx: SigilCtx) => void) {
+  const task: Task = {
+    window: 'hook',
+    event: QUERY_EVENT,
+    seat: inst.seat,
+    owner: inst.owner,
+    code: inst.code,
+    effective: inst.effective,
+    answers: [],
+    rolls: [],
+  }
+  const run: Run = { task, answerIdx: 0, rollIdx: 0, touched: false }
+  fn(new SigilCtx(s, inst, run))
+  if (run.touched) markTriggered(s, inst, newId(s))
+}
+
 function markTriggered(s: GameState, inst: Instance, eventId: number) {
   if (inst.card) inst.card.shown = true
   else {
@@ -321,9 +339,7 @@ export class SigilCtx implements Ctx {
   }
   get sigil(): OwnedSigil | null {
     const own = this.state.players[this.owner].sigils
-    return (
-      own.find((o) => o.code === this.code) ?? own.find((o) => o.code === this.source) ?? null
-    )
+    return own.find((o) => o.code === this.code) ?? own.find((o) => o.code === this.source) ?? null
   }
   get isCopy() {
     return this.code !== this.source
@@ -378,7 +394,11 @@ export class SigilCtx implements Ctx {
   gainMultiplier(n: number) {
     this.touch()
     const l = this.state.ledger
-    if (l.entries.some((e) => e.kind === 'multiplier' && e.source === this.code && e.seat === this.seat)) {
+    if (
+      l.entries.some(
+        (e) => e.kind === 'multiplier' && e.source === this.code && e.seat === this.seat,
+      )
+    ) {
       return
     }
     l.multiplier[this.team] += n
@@ -404,7 +424,14 @@ export class SigilCtx implements Ctx {
     this.touch()
     const s = this.state
     s.ledger.points[team] += n
-    record(s, this.code, team === this.team ? this.seat : nextSeat(this.seat), this.event.id, 'points', n)
+    record(
+      s,
+      this.code,
+      team === this.team ? this.seat : nextSeat(this.seat),
+      this.event.id,
+      'points',
+      n,
+    )
     if (s.scored || s.phase === 'shop') {
       s.scores[team] += n
       if (s.lastResult) {
@@ -438,7 +465,9 @@ export class SigilCtx implements Ctx {
     card.base = clampRank(r)
     card.mod = 0
     const after = rank(this.state, card)
-    this.logLine(`${viewLabel({ suit: card.suit, rank: before })} → ${viewLabel({ suit: card.suit, rank: after })}`)
+    this.logLine(
+      `${viewLabel({ suit: card.suit, rank: before })} → ${viewLabel({ suit: card.suit, rank: after })}`,
+    )
     if (after < before) rankLoss(this.state, card, before - after)
   }
   setSuit(card: Card, suit: Suit) {
@@ -452,7 +481,9 @@ export class SigilCtx implements Ctx {
     const card = makeCard(this.state, seat, suit, r)
     card.created = true
     this.state.hands[seat].push(card)
-    this.logLine(`+${seat === this.state.human ? viewLabel({ suit, rank: r }) : 'card'} ${SEAT_NAMES[seat]}`)
+    this.logLine(
+      `+${seat === this.state.human ? viewLabel({ suit, rank: r }) : 'card'} ${SEAT_NAMES[seat]}`,
+    )
     return card
   }
   removeCard(card: Card) {
@@ -465,11 +496,13 @@ export class SigilCtx implements Ctx {
   pass(from: Seat, to: Seat, cards: Card[]) {
     if (cards.length === 0) return
     this.touch()
+    this.logLine('pass')
     passCards(this.state, from, to, cards)
   }
   swap(a: Seat, aCards: Card[], b: Seat, bCards: Card[]) {
     if (aCards.length === 0 && bCards.length === 0) return
     this.touch()
+    this.logLine('swap')
     swapCards(this.state, a, aCards, b, bCards)
   }
   reveal(card: Card) {
@@ -498,6 +531,10 @@ export class SigilCtx implements Ctx {
     this.touch()
     this.state.bids[seat] = bid
     this.logLine(`${SEAT_NAMES[seat]} bid ${bid}`)
+  }
+  note(text: string) {
+    this.touch()
+    this.logLine(text)
   }
   tell(seat: Seat, text: string) {
     this.touch()

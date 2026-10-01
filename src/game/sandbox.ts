@@ -1,5 +1,15 @@
 import { affinityOf, getSigil, isEngraving } from '../sigils/registry'
-import { type Card, type Seat, type Suit, ACE, JACK, KING, clampRank, shuffled, teamOf } from './cards'
+import {
+  type Card,
+  type Seat,
+  type Suit,
+  ACE,
+  JACK,
+  KING,
+  clampRank,
+  shuffled,
+  teamOf,
+} from './cards'
 import {
   SEAT_NAMES,
   findCard,
@@ -157,8 +167,10 @@ export function applySandbox(s: GameState, e: SandboxEdit) {
         if (direct) s.bags[team] = Math.max(0, s.bags[team] + e.amount)
         else l.bagDelta[team] += e.amount
       }
-      if (e.field === 'gold') s.players[e.seat].gold = Math.max(0, s.players[e.seat].gold + e.amount)
-      if (e.field !== 'gold') record(s, SOURCE, e.seat, 0, e.field === 'contract' ? 'contract' : e.field, e.amount)
+      if (e.field === 'gold')
+        s.players[e.seat].gold = Math.max(0, s.players[e.seat].gold + e.amount)
+      if (e.field !== 'gold')
+        record(s, SOURCE, e.seat, 0, e.field === 'contract' ? 'contract' : e.field, e.amount)
       log(s, `${SEAT_NAMES[e.seat]} ${e.amount >= 0 ? '+' : '−'}${Math.abs(e.amount)} ${e.field}`)
       return
     }
@@ -175,7 +187,12 @@ export function applySandbox(s: GameState, e: SandboxEdit) {
       return
     case 'addSigil':
       if (!getSigil(e.code) || s.players[e.seat].sigils.some((o) => o.code === e.code)) return
-      s.players[e.seat].sigils.push({ code: e.code, boughtRound: s.round, counter: 0, sellBonus: 0 })
+      s.players[e.seat].sigils.push({
+        code: e.code,
+        boughtRound: s.round,
+        counter: 0,
+        sellBonus: 0,
+      })
       log(s, `${SEAT_NAMES[e.seat]} +sigil`, { source: e.code })
       return
     case 'removeSigil':
@@ -218,7 +235,11 @@ export function engraveSeat(s: GameState, seat: Seat) {
       tiers.push(free.filter((c) => c.suit === aff.suit))
     } else if (aff && 'rank' in aff) tiers.push(free.filter((c) => c.base === aff.rank))
     else if (aff && 'low' in aff) tiers.push(free.filter((c) => c.base <= 6))
-    tiers.push(free.filter(isFace), free.filter((c) => c.base === ACE), free)
+    tiers.push(
+      free.filter(isFace),
+      free.filter((c) => c.base === ACE),
+      free,
+    )
     const tier = tiers.find((t) => t.length > 0)!
     tier[Math.floor(Math.random() * tier.length)].sigils.push({
       code: o.code,

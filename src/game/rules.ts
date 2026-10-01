@@ -8,7 +8,7 @@ import type {
   TrickRules,
 } from '../sigils/handlers/api'
 import { type Card, type Seat, SPADES, nextSeat, partnerOf, teamOf } from './cards'
-import { SigilCtx, handlerOf, instances, instancesFrom, rank } from './core'
+import { SigilCtx, handlerOf, instances, instancesFrom, rank, runHook } from './core'
 import {
   type Bid,
   type GameState,
@@ -65,7 +65,11 @@ export function legalMoves(s: GameState, seat: Seat): Card[] {
 // ---------------------------------------------------------------------------------------------
 // Trick winners
 
-export function trickRules(s: GameState, plays: readonly Play[], trick = trickNumber(s)): TrickRules {
+export function trickRules(
+  s: GameState,
+  plays: readonly Play[],
+  trick = trickNumber(s),
+): TrickRules {
   const f = s.flags
   const rules: TrickRules = {
     plays,
@@ -243,7 +247,7 @@ export function scoreRound(s: GameState): [TeamResult, TeamResult] {
   }
   for (const inst of instancesFrom(s, nextSeat(s.dealer))) {
     const h = handlerOf(inst.effective)
-    if (h.score) h.score(new SigilCtx(s, inst, null), calc)
+    if (h.score) runHook(s, inst, (ctx) => h.score!(ctx, calc))
   }
   const results = calc.teams.map((t): TeamResult => {
     const l = s.ledger

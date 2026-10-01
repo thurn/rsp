@@ -59,7 +59,12 @@ function bestOf(cards: SimCard[], idx: number[], lowest: boolean): number {
 }
 
 /** Winner index: trump beats the led suit unless shielded; equal ranks go to the later card. */
-export function simWinner(rules: SimRules, cards: SimCard[], seats: number[], trickNo: number): number {
+export function simWinner(
+  rules: SimRules,
+  cards: SimCard[],
+  seats: number[],
+  trickNo: number,
+): number {
   const led = cards[0].suit
   const ledIdx = cards.flatMap((c, i) => (c.suit === led ? [i] : []))
   const ledBest = bestOf(cards, ledIdx, rules.lowestWins.includes(led))
@@ -166,8 +171,7 @@ function evaluate(sim: Sim): [number, number] {
 
 const value = (c: SimCard): number => c.rank + (c.suit === SPADES ? 13 : 0)
 const lowest = (cards: SimCard[]): SimCard => cards.reduce((a, b) => (value(b) < value(a) ? b : a))
-const highest = (cards: SimCard[]): SimCard =>
-  cards.reduce((a, b) => (value(b) > value(a) ? b : a))
+const highest = (cards: SimCard[]): SimCard => cards.reduce((a, b) => (value(b) > value(a) ? b : a))
 
 /** A card is a boss if no other hand holds a card of its suit at least as high. */
 function isBoss(sim: Sim, card: SimCard, seat: number): boolean {
@@ -442,7 +446,8 @@ export function estimateTricks(hand: readonly SimCard[]): number {
   return tricks * (hand.length > 13 ? hand.length / 13 : 1)
 }
 
-const heuristicBid = (hand: readonly SimCard[]): Bid => Math.max(1, Math.round(estimateTricks(hand)))
+const heuristicBid = (hand: readonly SimCard[]): Bid =>
+  Math.max(1, Math.round(estimateTricks(hand)))
 
 function nearest(options: Bid[], want: number): Bid {
   const ordinary = options.filter((b) => b > 0)

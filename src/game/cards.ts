@@ -88,7 +88,9 @@ export function shuffled<T>(items: readonly T[], rand: () => number = Math.rando
 /** Display order alternates colors: spades, hearts, clubs, diamonds; high to low. */
 const DISPLAY_SUIT_ORDER = [SPADES, HEARTS, CLUBS, DIAMONDS]
 
-export function sortForDisplay<T extends { id: number; suit: number; rank: number }>(hand: readonly T[]): T[] {
+export function sortForDisplay<T extends { id: number; suit: number; rank: number }>(
+  hand: readonly T[],
+): T[] {
   return hand
     .slice()
     .sort(

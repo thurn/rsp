@@ -8,7 +8,10 @@ type RGBA = [number, number, number, number]
 function parseColors(value: string): RGBA[] {
   const out: RGBA[] = []
   for (const m of value.matchAll(/rgba?\(([^)]+)\)/g)) {
-    const parts = m[1].split(/[\s,/]+/).filter(Boolean).map(Number)
+    const parts = m[1]
+      .split(/[\s,/]+/)
+      .filter(Boolean)
+      .map(Number)
     out.push([parts[0], parts[1], parts[2], parts.length > 3 ? parts[3] : 1])
   }
   return out
@@ -70,7 +73,8 @@ function visible(el: Element): boolean {
   if (r.width === 0 || r.height === 0) return false
   for (let n: Element | null = el; n; n = n.parentElement) {
     const cs = getComputedStyle(n)
-    if (cs.display === 'none' || cs.visibility === 'hidden' || Number(cs.opacity) < 0.05) return false
+    if (cs.display === 'none' || cs.visibility === 'hidden' || Number(cs.opacity) < 0.05)
+      return false
   }
   return true
 }
@@ -98,7 +102,8 @@ export function uiAudit() {
       seen.add(el)
       textEls.push(el)
     }
-    if (!el.closest('[data-prose]')) {
+    // Sigil prose and the sandbox dev tool sit outside the word budget.
+    if (!el.closest('[data-prose], [data-layer="sandbox"]')) {
       words = words.concat(text.split(/\s+/).filter((w) => /[A-Za-z]{2,}/.test(w)))
     }
   }

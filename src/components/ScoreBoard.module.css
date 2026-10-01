@@ -81,19 +81,19 @@
   }
 
   .round {
-  font-family: var(--font-display);
-  font-size: var(--text-md);
-  font-weight: 600;
-  color: var(--text);
-  font-variant-numeric: tabular-nums;
-}
+    font-family: var(--font-display);
+    font-size: var(--text-md);
+    font-weight: 600;
+    color: var(--text);
+    font-variant-numeric: tabular-nums;
+  }
 
-.round span {
-  color: var(--text-muted);
-  font-size: var(--text-sm);
-}
+  .round span {
+    color: var(--text-muted);
+    font-size: var(--text-sm);
+  }
 
-.row {
+  .row {
     grid-template-columns: 10px auto 1fr;
   }
 

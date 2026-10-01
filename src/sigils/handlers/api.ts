@@ -209,6 +209,8 @@ export interface Ctx {
   setFlag(key: string, value: unknown): void
   setLeader(seat: Seat): void
   setBid(seat: Seat, bid: Bid): void
+  /** Mark this sigil triggered and write an event log line (at most eight words). */
+  note(text: string): void
   /** Show a line to one seat (at most eight words). */
   tell(seat: Seat, text: string): void
   /** Grow this sigil's run-long counter (no-op for copies). */

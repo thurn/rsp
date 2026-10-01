@@ -1,4 +1,10 @@
-type Tip = { codes: string[]; x: number; top: number; bottom: number; extra?: string | number } | null
+type Tip = {
+  codes: string[]
+  x: number
+  top: number
+  bottom: number
+  extra?: string | number
+} | null
 
 let tip: Tip = null
 const listeners = new Set<() => void>()
@@ -37,7 +43,6 @@ export function tipHandlers(codes: string[], extra?: string | number) {
     onPointerUp: () => clearTimeout(pressTimer),
   }
 }
-
 
 export const getTip = () => tip
 

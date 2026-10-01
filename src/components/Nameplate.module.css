@@ -161,11 +161,11 @@
   }
 
   .gold {
-  font-size: var(--text-md);
-  padding: 0 var(--space-1);
-}
+    font-size: var(--text-md);
+    padding: 0 var(--space-1);
+  }
 
-.stat {
+  .stat {
     padding: 0 6px;
   }
 }

@@ -8,6 +8,7 @@
     '. north .'
     'west table east'
     'south south south';
+  transition: padding var(--duration) var(--ease-out);
   background:
     radial-gradient(
       ellipse 70% 60% at 50% 46%,
@@ -172,4 +173,14 @@
   top: 50%;
   translate: -50% -50%;
   z-index: 12;
+}
+
+@media (min-width: 1000px) {
+  .app[data-sandbox] {
+    padding-right: 380px;
+  }
+
+  .app[data-sandbox] .score {
+    left: var(--space-4);
+  }
 }

@@ -83,7 +83,10 @@ export function newGame(opts: GameOptions): GameState {
     bags: [0, 0],
     lastResult: null,
     winner: null,
-    players: [0, 1, 2, 3].map((seat) => ({ gold: opts.gold, sigils: owned(opts.give[seat] ?? []) })),
+    players: [0, 1, 2, 3].map((seat) => ({
+      gold: opts.gold,
+      sigils: owned(opts.give[seat] ?? []),
+    })),
     ledger: freshLedger(),
     flags: freshFlags(),
     mem: {},
@@ -272,9 +275,7 @@ function runStep(s: GameState, step: Step) {
     }
     case 'advancePlay': {
       const played = new Set(s.trick.map((p) => p.seat))
-      const next = seatsFrom(s.leader).find(
-        (seat) => !played.has(seat) && s.hands[seat].length > 0,
-      )
+      const next = seatsFrom(s.leader).find((seat) => !played.has(seat) && s.hands[seat].length > 0)
       if (next === undefined) s.steps.push({ kind: 'resolveTrick' })
       else s.turn = next
       return
@@ -405,17 +406,32 @@ function resolveTrick(s: GameState) {
   s.trickWinIndex = winIndex
   s.trickCredit = credit
   if (credit !== null) s.tricksWon[credit]++
-  log(s, `${SEAT_NAMES[winner]} wins${credit === null ? ', counts for no one' : credit !== winner ? ` for ${SEAT_NAMES[credit]}` : ''}`, { seat: winner })
+  log(
+    s,
+    `${SEAT_NAMES[winner]} wins${credit === null ? ', counts for no one' : credit !== winner ? ` for ${SEAT_NAMES[credit]}` : ''}`,
+    { seat: winner },
+  )
   const led = plays[0].card.suit
   const trumped = plays[winIndex].card.suit === SPADES && led !== SPADES
   plays.forEach((p, i) => {
-    if (i === winIndex) emit(s, 'thisCardWins', { seat: p.seat, cardId: p.card.id, data: { trick: n } })
-    else emit(s, 'thisCardLoses', { seat: p.seat, cardId: p.card.id, data: { winner, trumped, trick: n } })
+    if (i === winIndex)
+      emit(s, 'thisCardWins', { seat: p.seat, cardId: p.card.id, data: { trick: n } })
+    else
+      emit(s, 'thisCardLoses', {
+        seat: p.seat,
+        cardId: p.card.id,
+        data: { winner, trumped, trick: n },
+      })
   })
   emit(s, 'youWin', { seat: winner, cardId: plays[winIndex].card.id, data: { trick: n } })
-  emit(s, 'partnerWins', { seat: partnerOf(winner), cardId: plays[winIndex].card.id, data: { trick: n } })
+  emit(s, 'partnerWins', {
+    seat: partnerOf(winner),
+    cardId: plays[winIndex].card.id,
+    data: { trick: n },
+  })
   for (const p of plays) {
-    if (p.seat !== winner) emit(s, 'youLose', { seat: p.seat, cardId: p.card.id, data: { winner, trick: n } })
+    if (p.seat !== winner)
+      emit(s, 'youLose', { seat: p.seat, cardId: p.card.id, data: { winner, trick: n } })
   }
 }
 

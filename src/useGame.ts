@@ -29,7 +29,8 @@ export function useDriver(state: GameState | null, paused: boolean) {
     const version = state.version
     let cancelled = false
     const timers: ReturnType<typeof setTimeout>[] = []
-    const later = (ms: number, f: () => void) => timers.push(setTimeout(() => !cancelled && f(), ms))
+    const later = (ms: number, f: () => void) =>
+      timers.push(setTimeout(() => !cancelled && f(), ms))
 
     const bidding = state.phase === 'bidding' && ai(state.turn)
     const playing = state.phase === 'playing' && !state.trickDone && ai(state.turn)
