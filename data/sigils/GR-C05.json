@@ -4,9 +4,9 @@
   "resonances": [
     "Green"
   ],
-  "rarity": "Common",
+  "rarity": "Uncommon",
   "category": "Engraving",
-  "price": 55,
+  "price": 65,
   "wave": 2,
   "icon": "honey",
   "iconFamily": "honey",
@@ -39,6 +39,6 @@
   "decision": "When to play this card: a high card early, so its copy wins again later, or a card of your flood suit to lengthen it.",
   "opponent": "The copy is shown when created; opponents see a second card of that suit and rank coming.",
   "aiNote": "Play this card as soon as it can win a trick, then play the copy when it can win again.",
-  "rationale": "One extra card of the same suit and rank: on an ace or king it is often a second winner (about +half a trick), and on a flood suit it is one more diamond or heart for its payoffs. The copy carries no sigil, so it never repeats itself.",
+  "rationale": "One extra card of the same suit and rank: engraving places it on a face card, so the copy is usually a second winner (about +half a trick), which makes it an uncommon, and on a flood suit it is one more diamond or heart for its payoffs. The copy carries no sigil, so it never repeats itself.",
   "deviation": "Totally redesigned from a run-long counter of off-suit plays, which was far too complicated."
 }

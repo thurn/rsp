@@ -12,7 +12,7 @@
   "iconFamily": "crown",
   "iconWord": "crown",
   "iconAlternates": [],
-  "text": "Affinity: Spades. When this card wins a trick, gain +25 contract value.",
+  "text": "When this card wins a trick, gain +25 contract value.",
   "timing": "When this card wins",
   "prototype": "automated",
   "signature": [
@@ -24,12 +24,12 @@
       "frequency": "once per round"
     }
   ],
-  "archetypes": "Spade Master; splash High Card, Bonus Chaser",
+  "archetypes": "High Card; splash Spade Master, Bonus Chaser",
   "family": "Win triggers / This card",
   "role": "Payoff (Contract additive)",
-  "decision": "When to cash the spade: a high spade wins once its suit is safe, and a low one waits for a void to trump into.",
-  "opponent": "Visible on trigger; opponents can trump the ace to deny it.",
-  "aiNote": "Lead the engraved ace early in a suit opponents still hold.",
-  "rationale": "A random spade wins about 45% of the time, so this is about 9 expected points per round, with a wide spread: an ace of spades nearly always pays, and a low spade pays only if you open a void to trump with it.",
-  "deviation": "Affinity changed from Ace to Spade, so the engraved card varies from hand to hand and the decision of how to make it win varies with it."
+  "decision": "When to cash the face card: once the higher cards of its suit are gone, or as a trump if it is a spade.",
+  "opponent": "Visible on trigger; opponents can trump or overtake the card to deny it.",
+  "aiNote": "Play the engraved card once it is the highest card of its suit still out, or trump with it if it is a spade.",
+  "rationale": "Engraving places it on a face card, which wins about 40% of the time, so this is about 10 expected points per round: a king pays often, and a jack waits for the higher cards of its suit to fall.",
+  "deviation": "Affinity changed from Ace to Spade, then dropped once Engraving sigils began preferring face cards, which already vary from hand to hand."
 }

@@ -21,7 +21,7 @@
       "icon": "self-care"
     }
   ],
-  "text": "When this card loses a trick, remove two of your team's bags.",
+  "text": "When this card loses a trick, remove three of your team's bags.",
   "timing": "When this card loses",
   "prototype": "automated",
   "signature": [
@@ -29,7 +29,7 @@
       "trigger": "this card loses",
       "scope": "team",
       "target": "bags",
-      "effect": "remove two",
+      "effect": "remove three",
       "frequency": "×1"
     }
   ],
@@ -39,6 +39,6 @@
   "decision": "Whether to duck with this card for bag relief or spend it to win a trick.",
   "opponent": "Visible; Contract Attacker's bagging line is weaker against you.",
   "aiNote": "Prefer this card when ducking a trick; win with it only when the trick is needed for the bid.",
-  "rationale": "It fires in about 75% of rounds, removing about 1.5 bags a round from the carried count, so a team taking two bags a round rarely reaches a penalty, about 15 points a round; this round's new bags arrive at scoring, after it acts.",
+  "rationale": "Engraving places it on a face card, which loses about 60% of the time, so it removes about 1.8 bags a round from the carried count and a team taking two bags a round rarely reaches a penalty, about 15 points a round; this round's new bags arrive at scoring, after it acts.",
   "deviation": "Timing moved from \"when this card wins\" to \"when this card loses,\" a short window, because relief on losing matches the ducked tricks that avoid overtricks, and a winning trigger mirrored Overtime Factory (GY-C16)."
 }

@@ -21,7 +21,7 @@
       "icon": "watermelon"
     }
   ],
-  "text": "When this card wins one of the last four tricks, gain +30 contract value.",
+  "text": "When this card wins one of the last four tricks, gain +20 contract value.",
   "timing": "When this card wins",
   "prototype": "automated",
   "signature": [
@@ -29,7 +29,7 @@
       "trigger": "this card wins one of the last four tricks",
       "scope": "self",
       "target": "contract",
-      "effect": "contract value +30",
+      "effect": "contract value +20",
       "frequency": "×1"
     }
   ],
@@ -39,5 +39,5 @@
   "decision": "Holding the card through the early tricks while other cards follow suit, then timing its win.",
   "opponent": "Visible on trigger; opponents who read it can lead its suit early to force it out.",
   "aiNote": "Don't play it before the tenth trick while another legal card exists; from then on, play it when it can win.",
-  "rationale": "A random card held late wins about 30% of the time, and a high card placed by engraving control about 60%, for about +7 to +14 EV; the late condition rewards exactly the holding While Held does for Patient Hourglass."
+  "rationale": "Engraving places it on a face card, which wins about half the late tricks it is held for, so +20 is about +10 EV; the late condition rewards exactly the holding While Held does for Patient Hourglass."
 }

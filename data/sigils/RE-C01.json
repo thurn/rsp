@@ -12,7 +12,7 @@
   "iconFamily": "sword",
   "iconWord": "sword",
   "iconAlternates": [],
-  "text": "This card gains +3 rank.",
+  "text": "This card gains +1 rank.",
   "timing": "Always on, for the engraved card",
   "prototype": "automated",
   "signature": [
@@ -20,7 +20,7 @@
       "trigger": "always",
       "scope": "self",
       "target": "this card",
-      "effect": "rank +3",
+      "effect": "rank +1",
       "frequency": "×1"
     }
   ],
@@ -30,5 +30,5 @@
   "decision": "None directly; shapes bidding by adding a likely winner.",
   "opponent": "Invisible until played; a normal-looking strong card.",
   "aiNote": "Count the engraved card at its raised rank when bidding.",
-  "rationale": "The baseline Red enabler; its excess is wasted on face cards and aces."
+  "rationale": "The baseline Red enabler: engraving places it on a face card, where +1 turns a jack into a queen or a king into an ace, about as many extra wins as +3 on a random card."
 }

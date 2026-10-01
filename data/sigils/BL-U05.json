@@ -21,7 +21,7 @@
       "icon": "science"
     }
   ],
-  "text": "From the tenth trick on, this card becomes an ace.",
+  "text": "Affinity: Low cards. From the tenth trick on, this card becomes an ace.",
   "timing": "Always on, for the engraved card",
   "prototype": "automated",
   "signature": [
@@ -39,6 +39,6 @@
   "decision": "Every trick before the tenth, whether to spend this card at its dealt rank or keep another card to follow with so it becomes an ace for the last four tricks.",
   "opponent": "Hidden until played; opponents who see it arrive late as an ace can still trump it or overtake it with a boosted card, and can lead its suit early to pull it out.",
   "aiNote": "Never play this card before trick 10 while another legal card exists; from trick 10, count it as a sure trick and play it on a trick the team needs.",
-  "rationale": "One threshold instead of steady growth gives While Held a single clear goal (hold this card to trick 10) and a late sure winner for High Card and exact counts, and it plays nothing like Late Blossom (GR-C06), which grows a little with every card of its suit; holding to trick 10 succeeds about 55% of the time, and the card only wins if its trick still needs winning, so it stays an enabler at 65.",
+  "rationale": "The low-card affinity puts it on a card that would rarely win, so the late ace is a real gain. One threshold instead of steady growth gives While Held a single clear goal (hold this card to trick 10) and a late sure winner for High Card and exact counts, and it plays nothing like Late Blossom (GR-C06), which grows a little with every card of its suit; holding to trick 10 succeeds about 55% of the time, and the card only wins if its trick still needs winning, so it stays an enabler at 65.",
   "deviation": "Changed from \"+1 rank for each completed trick\" to a single threshold at the tenth trick, because the critics found the steady counter played like Late Blossom's growing card."
 }

@@ -303,7 +303,7 @@ A specific rare appears in about 4.5% of runs, so rares shape the ceiling, not t
 | Kingmaker | Tandem Scooter (TE-R01, up to +80), Alley-Oop Basketball (RE-R03); enabler Devoted Bishop (DU-R03) |
 | Contract Attacker | Crushing Boot (RE-R04), Solid Core (GY-R06); disruption Snipping Scissors (PU-R01) |
 | Bonus Chaser | Lifetime Award (RE-R05, up to +60), Gambler's Wheel (OR-R01) |
-| Diamond Flood | Layer Cake (OR-R02, +10 per win, permanent), Bursting Barn (GR-R02) |
+| Diamond Flood | Layer Cake (OR-R02, +5 per win, permanent), Bursting Barn (GR-R02) |
 | Gold Miner | Spendthrift's Wallet (OR-R03), Jeweler's Magnifier (BL-R02) |
 | Swap Meet | Spinning Globe (TE-R02), Round-Trip Record (OR-R04); enabler Barter Bridge (DU-R02) |
 | Blind Bidder | Guiding Nightlight (PU-R02), Reckless Rocket (DU-R05); selection Flickering Television (OR-R05) |

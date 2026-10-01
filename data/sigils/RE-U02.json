@@ -21,7 +21,7 @@
       "icon": "bomb"
     }
   ],
-  "text": "When you play this card, you may remove a chosen card from your hand; if you do, this card gains +6 rank.",
+  "text": "When you play this card, you may remove a chosen card from your hand; if you do, this card gains +3 rank.",
   "timing": "When played",
   "prototype": "manual",
   "prototypeNote": "As you play this card, use Remove card on the chosen card and Edit card to give this card +6 rank.",
@@ -30,16 +30,16 @@
       "trigger": "when played",
       "scope": "self",
       "target": "this card (costs a chosen hand card)",
-      "effect": "rank +6",
+      "effect": "rank +3",
       "frequency": "×1"
     }
   ],
   "archetypes": "High Card, Contract Attacker, Spade Master",
   "family": "Playing multiple cards / Support",
   "role": "Enabler",
-  "decision": "Whether this trick is worth a card: spend your worst card to lift a nine to an ace, or keep the hand whole and play the card as it is.",
+  "decision": "Whether this trick is worth a card: spend your worst card to lift a face card to an ace, or keep the hand whole and play the card as it is.",
   "opponent": "Visible when it resolves; opponents see the removed card and the raised rank, and later seats can still trump it or play over it.",
   "aiNote": "Use it when the boost turns a losing card into the likely winner (last to play, or leading a suit whose higher cards are gone); remove your lowest card of your longest non-spade suit.",
-  "rationale": "Spending a card to power up the engraved card is the Support variation in one clause; the cost is real but small (your hand runs out a trick early and you skip the last trick), and +6 makes an eight or better into an ace-level card for one key trick, about half a trick a round.",
+  "rationale": "Spending a card to power up the engraved card is the Support variation in one clause; the cost is real but small (your hand runs out a trick early and you skip the last trick), and +3 makes any face card an ace for one key trick, about half a trick a round.",
   "deviation": "The extra card is removed from your hand rather than played into the trick beside this card, which needs no new rule for a second card in the trick and keeps the rank change a flat +6 instead of an addition of two ranks."
 }

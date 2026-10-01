@@ -21,7 +21,7 @@
       "icon": "path"
     }
   ],
-  "text": "When you lead with this card, if your partner wins the trick, gain +40 contract value.",
+  "text": "Affinity: Low cards. When you lead with this card, if your partner wins the trick, gain +40 contract value.",
   "timing": "When led",
   "prototype": "automated",
   "signature": [
@@ -36,7 +36,7 @@
   "archetypes": "Kingmaker; splash Exact Contractor",
   "family": "Win triggers / This card (led)",
   "role": "Payoff (Partner contract)",
-  "decision": "Which trick to lead this card into: a suit where you passed your partner the top card, or where Shared Map showed their strength; a low engraved card is best, a high one tempts you to win the trick yourself.",
+  "decision": "Which trick to lead this card into: a suit where you passed your partner the top card, or where Shared Map showed their strength; the low-card affinity keeps the card from winning the trick itself.",
   "opponent": "Visible on trigger; opponents who see the lead can overtake your partner's card or trump it to deny the bonus.",
   "aiNote": "Lead this card when your partner holds a card you passed them in its suit or has shown that suit's top card; otherwise lead it once your partner has won a trick in its suit.",
   "rationale": "Needs you to hold the lead with this card in hand and your partner to win what you led, about 50% of rounds when planned, so +40 is about +16 EV, the value thin Kingmaker needs at uncommon; it adds to the when-led window and pays for the lead-then-cover pattern that pre-bid passes (Sealed Letter, Two-Way Street) set up.",

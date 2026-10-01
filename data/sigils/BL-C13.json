@@ -21,7 +21,7 @@
       "icon": "future"
     }
   ],
-  "text": "If this card is still in your hand when the tenth trick begins, gain +25 contract value.",
+  "text": "If this card is still in your hand when the tenth trick begins, gain +15 contract value.",
   "timing": "While in hand (checkpoint at the tenth trick)",
   "prototype": "automated",
   "signature": [
@@ -29,7 +29,7 @@
       "trigger": "the tenth trick begins with this card in your hand",
       "scope": "self",
       "target": "contract",
-      "effect": "contract value +25",
+      "effect": "contract value +15",
       "frequency": "once per round"
     }
   ],
@@ -39,6 +39,6 @@
   "decision": "Whether to keep this card back through the middle of the round, even when playing it would win or shed a trick you'd like to.",
   "opponent": "Opponents can lead its suit repeatedly to force it out early.",
   "aiNote": "Play this card only when it's your last card of the suit led and no other legal play exists, until the tenth trick.",
-  "rationale": "Holding one card through nine tricks succeeds about 60–70% of the time, so it pays about +15 EV, the common budget; it is the common step below Patient Hourglass (DU-S10, last trick, +1×) and checks the same tenth trick as Measured Delta (BL-U10).",
+  "rationale": "Engraving places it on a face card, which players keep through the middle of the round about 60–70% of the time, so +15 is about +10 EV, the common budget; it is the common step below Patient Hourglass (DU-S10, last trick, +1×) and checks the same tenth trick as Measured Delta (BL-U10).",
   "deviation": "Redesigned from a permission to play off suit when your only cards of the suit led had sigils, which was complicated and rarely mattered."
 }

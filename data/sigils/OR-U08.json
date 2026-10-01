@@ -21,7 +21,7 @@
       "icon": "cupcake"
     }
   ],
-  "text": "When this card loses a trick, gain +40 gold.",
+  "text": "When this card loses a trick, gain +60 gold.",
   "timing": "When this card loses",
   "prototype": "automated",
   "signature": [
@@ -29,7 +29,7 @@
       "trigger": "this card loses",
       "scope": "self",
       "target": "you",
-      "effect": "gold +40",
+      "effect": "gold +60",
       "frequency": "×1"
     }
   ],
@@ -39,6 +39,6 @@
   "decision": "When to spend this card as a loser: on a trick you can't win anyway, rather than pushing it for a win.",
   "opponent": "Visible when it pays; opponents who trump your diamonds still take the trick, and choosing not to overtake it denies the gold.",
   "aiNote": "Play this card on a trick you are already losing; lead it only if it is the highest diamond still out.",
-  "rationale": "A random card loses about 75% of the time, and you choose which trick to lose it on, so it pays about 30–40 gold a round, a step above Lucky Coin's flat 20 for an uncommon, while filling the thin \"when this card loses\" window. Nil rounds lose nearly every card, so it fires almost every time.",
+  "rationale": "Engraving places it on a face card, which loses about 60% of the time, and losing it gives up a likely winner, so +60 pays for the sacrifice, about 35 gold a round; it fills the thin \"when this card loses\" window. Nil rounds lose nearly every card, so it fires almost every time.",
   "deviation": "Removed the diamond affinity, which didn't change how the effect played."
 }

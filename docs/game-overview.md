@@ -322,15 +322,19 @@ Engraving sigil, and every other sigil is Ongoing.
 ### Engraving and persistence
 
 Every round, each owned Engraving sigil is engraved on one card in its owner's
-newly dealt hand. A card has **at most one engraving** at the deal. An
-Engraving sigil with **Affinity** prefers a particular rank or suit when
-possible; remaining placements are random.
+newly dealt hand. A card has **at most one engraving** at the deal. Engraving
+sigils prefer **face cards** (jacks, queens, and kings), then aces. An
+Engraving sigil with **Affinity** prefers a particular suit, a particular rank,
+or **low cards** (twos through sixes) instead; a suit affinity takes a face
+card of its suit when one is available.
 
 **Placement procedure:** place affinity sigils first, randomizing order where
-they compete for eligible cards, then assign other sigils to remaining cards.
-Evaluate affinity against the fresh dealt cards before applying conversions. If
-no matching unengraved card remains, use a random unengraved card. No affinity
-promises a matching card on every deal.
+they compete for eligible cards. Then place the other Engraving sigils on face
+cards, then on aces, then on random cards, randomizing order where they
+compete. Evaluate affinity and rank against the fresh dealt cards before
+applying conversions. An affinity sigil with no matching unengraved card
+follows the same face card, ace, and random order. No affinity promises a
+matching card on every deal.
 
 One engraving per card does not prevent one sigil from affecting other cards. A
 while-held aura can strengthen cards engraved with different sigils, and a

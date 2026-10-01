@@ -6,7 +6,7 @@
   ],
   "rarity": "Common",
   "category": "Engraving",
-  "price": 50,
+  "price": 60,
   "wave": 2,
   "icon": "donate-heart",
   "iconFamily": "donate-heart",
@@ -39,6 +39,6 @@
   "decision": "When to cash this heart: later means more hearts already played.",
   "opponent": "Visible when it pays; opponents who see a heart deck can trump or overtake its late hearts to deny it.",
   "aiNote": "Hold this card until you've played three other hearts, then play it when it is likely to win.",
-  "rationale": "Heart Chorus had one common payoff; a heart deck plays three or four other hearts before cashing this one, and Unfolding Butterfly or Verdant Banner make that late heart a likely winner, so it pays about +15 to +20 when it wins, about +12 EV; it differs from Gem Cascade (DU-S06), which pays on play and also pays gold, and from Sunset Sailboat (TE-U05), which pays per late heart trick.",
+  "rationale": "Engraving places it on a face heart, which wins about twice as often as a random heart, so it sits at the top of the common band. Heart Chorus had one common payoff; a heart deck plays three or four other hearts before cashing this one, and Unfolding Butterfly or Verdant Banner make that late heart a likely winner, so it pays about +15 to +20 when it wins, about +12 EV; it differs from Gem Cascade (DU-S06), which pays on play and also pays gold, and from Sunset Sailboat (TE-U05), which pays per late heart trick.",
   "deviation": "Wave 6 audit: changed from a Recursion enabler (swap a hand card for a played heart) to a Heart Chorus contract payoff, because Heart Chorus had one common payoff and When this card wins was one short of its floor."
 }

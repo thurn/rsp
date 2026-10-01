@@ -6,7 +6,7 @@
   ],
   "rarity": "Common",
   "category": "Engraving",
-  "price": 45,
+  "price": 55,
   "wave": 2,
   "icon": "duck",
   "iconFamily": "duck",
@@ -39,6 +39,6 @@
   "decision": "Whether to save this card for a suit you're void in, where it joins the suit led and can win the trick instead of being thrown off.",
   "opponent": "Each conversion is shown; opponents see the engraved card join your trump or flooded suit and can lead to pull it.",
   "aiNote": "When void in the suit led, play this card if its rank beats the cards already played.",
-  "rationale": "Once you're void, this card plays as the suit led, so a high card in a short suit wins a trick it would otherwise throw away, about a third of a trick a round. Following suit or leading leaves it unchanged, so the only decision is when to hold it for a void.",
+  "rationale": "Once you're void, this card plays as the suit led, and engraving places it on a face card, so it usually wins a trick it would otherwise throw away, about half a trick a round, near the top of the common band. Following suit or leading leaves it unchanged, so the only decision is when to hold it for a void.",
   "deviation": "Simplified from converting this card whenever you played another card off suit, which was hard to follow."
 }

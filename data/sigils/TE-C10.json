@@ -21,7 +21,7 @@
       "icon": "scooter"
     }
   ],
-  "text": "When this card loses a trick after you've taken your bid, gain +20 contract value.",
+  "text": "When this card loses a trick after you've taken your bid, gain +30 contract value.",
   "timing": "When this card loses (card-bound mirror of \"When this card wins\")",
   "prototype": "automated",
   "signature": [
@@ -29,7 +29,7 @@
       "trigger": "this card loses, you have taken your bid",
       "scope": "self",
       "target": "contract",
-      "effect": "contract value +20",
+      "effect": "contract value +30",
       "frequency": "×1"
     }
   ],
@@ -39,6 +39,6 @@
   "decision": "Holding this card until your bid is reached, then spending it on a trick you can safely lose instead of taking a bag.",
   "opponent": "Visible on trigger; opponents answer by dumping tricks on you before you can duck.",
   "aiNote": "Do not play this card until you have taken your bid; then play it to the first trick you can lose.",
-  "rationale": "Rewards the exact moment Balanced Yin-Yang wants you to start ducking; most cards can lose when you pick the trick, so it pays in about 60% of rounds (about +10 EV), and a nil is not a bid, so a nil bidder never qualifies.",
+  "rationale": "Rewards the exact moment Balanced Yin-Yang wants you to start ducking; engraving places it on a face card, so ducking with it spends a winner you no longer need, and it pays in about half of rounds (about +15 EV). A nil is not a bid, so a nil bidder never qualifies.",
   "deviation": "Changed from this card winning the bid-reaching trick to this card losing after the bid is reached, because the win version fires on about 10% of random cards and has no reliable plan."
 }

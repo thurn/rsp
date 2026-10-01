@@ -74,8 +74,10 @@ reference for clarity.
   A card you got this way "came from another player's hand."
 - **Swaps where both pick are between partners.** A swap in which each player
   picks the card they give happens between you and your partner.
-- **Affinities matter.** An affinity changes how the effect plays out, such as
-  a spade affinity on a sigil that pays when its card wins. Affinities are
+- **Affinities matter.** Engraving sigils sit on face cards unless an
+  affinity says otherwise, so an affinity appears when another card plays
+  better, such as a spade affinity on a sigil that pays when its card trumps,
+  or "Affinity: Low cards" on a sigil that turns a weak card into a winner. Affinities are
   plural: "Affinity: Spades," "Affinity: Kings."
 - **Name the play.** Text names the play it means: "when you trump" rather
   than "when you play a spade to a trick of another suit," and "create a two"
@@ -193,7 +195,8 @@ These are the game's own terms, beyond standard Spades vocabulary.
 | **resonance** | A sigil's color: Red, Orange, Green, Blue, Teal, Purple, or Gray. "Gray sigils" means sigils of that resonance. |
 | **create** | Make a card that comes from no hand, such as "create a two of its suit in your hand." A created card is removed after the round. |
 | **beside** | Next to a card in your hand's dealt order. Rearranging your hand doesn't change which cards are beside each other. |
-| **affinity** | The suit, or rank below ace, an Engraving sigil prefers to be engraved on. |
+| **affinity** | The suit, rank below ace, or low cards an Engraving sigil prefers to be engraved on. Without one, it prefers face cards, then aces. |
+| **low cards** | Twos through sixes, as in "Affinity: Low cards." |
 
 Any other invented term is added here before it appears in rules text.
 
@@ -239,7 +242,10 @@ Spades play:
 - A seat takes about 3 of the 13 tricks and loses about 10.
 - A partnership makes its contract about 80% of the time.
 - A random card wins its trick about 25% of the time; an ace wins far more
-  often.
+  often. A face card, where Engraving sigils usually sit, wins about 40% of the
+  time, and a low card about 10%.
+- A rank boost on a face card soon reaches ace: +1 adds about as many wins
+  to a face card as +3 adds to a random card.
 - A card is usually played once, so a trigger on "this card" usually fires at
   most once per round. A "whenever you" trigger can fire many times and needs a smaller
   amount or a narrower condition.
@@ -253,10 +259,10 @@ These examples are real sigils in the pool. Wave 0 of the design process in
 
 | # | Name | Icon | Resonance · Rarity · Category | Rules text |
 | --- | --- | --- | --- | --- |
-| 1 | Honed Edge | `sword` | Red · Common · Engraving | This card gains +3 rank. |
+| 1 | Honed Edge | `sword` | Red · Common · Engraving | This card gains +1 rank. |
 | 2 | Verdant Banner | `flag` | Green · Common · Engraving | While this card is in your hand, your hearts gain +2 rank. |
 | 3 | Nest Egg | `egg` | Orange · Common · Engraving | While this card is in your hand, gain +5 gold after each trick. |
-| 4 | Crown Jewel | `crown` | Red · Common · Engraving | **Affinity: Spades.** When this card wins a trick, gain +25 contract value. |
+| 4 | Crown Jewel | `crown` | Red · Common · Engraving When this card wins a trick, gain +25 contract value. |
 | 5 | Graceful Exit | `door-open` | Purple · Common · Ongoing | Whenever you lose a trick you played a face card to, gain +10 contract value. |
 | 6 | Turning Tide | `water` | Green · Common · Ongoing | Before bidding, convert two chosen cards in your hand to diamonds. |
 | 7 | Open Hand | `hand` | Teal · Common · Ongoing | After bidding, swap a card with your partner. |
@@ -268,13 +274,14 @@ These examples are real sigils in the pool. Wave 0 of the design process in
 
 ### 1. Honed Edge: changing this card
 
-`This card gains +3 rank.`
+`This card gains +1 rank.`
 
-The engraved card is 3 ranks stronger for the whole round, up to ace.
+The engraved card is 1 rank stronger for the whole round, up to ace.
 
-**Balance:** an enabler, judged on play rather than points. It turns a middling
-card into a likely winner about once every few rounds, and its excess is
-wasted on face cards and aces, which keeps it a modest common.
+**Balance:** an enabler, judged on play rather than points. Engraving places
+it on a face card, so it turns a jack into a queen or a king into an ace, about
+as many extra wins as +3 on a random card. Engraved-card boosts stay small
+because a face card reaches ace after a few ranks.
 
 ### 2. Verdant Banner: an effect while held
 
@@ -300,16 +307,15 @@ at this game's scale.
 
 ### 4. Crown Jewel: when this card wins
 
-`Affinity: Spades. When this card wins a trick, gain +25 contract value.`
+`When this card wins a trick, gain +25 contract value.`
 
 The bonus is paid only if your team makes its contract, and it is multiplied by
 any contract multipliers.
 
-**Balance:** about 9 expected points per round. The affinity places it on a
-random spade, which wins about 45% of the time: an ace of spades nearly always
-pays, and a low spade pays when you open a void to trump with it. Affinities
-name a suit or a rank below ace, so the engraved card varies from hand to hand
-and so does the plan for making it win.
+**Balance:** about 10 expected points per round. Engraving places it on a
+face card, which wins about 40% of the time: a king pays often, and a jack
+waits for the higher cards of its suit to fall. The face card varies from hand
+to hand, and so does the plan for making it win.
 
 ### 5. Graceful Exit: losing with a face card
 

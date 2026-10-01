@@ -6,7 +6,7 @@
   ],
   "rarity": "Common",
   "category": "Engraving",
-  "price": 45,
+  "price": 55,
   "wave": 2,
   "icon": "dog",
   "iconFamily": "dog",
@@ -40,6 +40,6 @@
   "decision": "Which trick to spend it on: following in place of a held card or a winner, or keeping it for later.",
   "opponent": "Visible when it follows a suit it isn't, and it competes in that suit at its own rank; opponents can lead that suit again to force the next card.",
   "aiNote": "Follow with it when your only other card of the led suit carries a while-held sigil or is a winner you want to keep.",
-  "rationale": "Following suit is never a problem for this card: you can always play it, and it competes in whatever suit is led. It counts as a spade too, so it can trump any trick and lead spades early, which makes it a strong common at a modest price because the card itself is random.",
+  "rationale": "Following suit is never a problem for this card: you can always play it, and it competes in whatever suit is led. It counts as a spade too, so it can trump any trick and lead spades early, and engraving places it on a face card, which makes it a strong winner in every suit, priced near the top of the common band.",
   "deviation": "The Any suit variation is written as an optional follow, because \"counts as any suit\" means you're never void, which forces the card out on your first void and duplicates BL-C06's void tension; GR-U09's optional-follow brief now overlaps this and should move (for example to a two-suit card)."
 }

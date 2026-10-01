@@ -21,7 +21,7 @@
       "icon": "flower"
     }
   ],
-  "text": "While this card is in your hand, whenever anyone plays a card of its suit, it gains +1 rank.",
+  "text": "Affinity: Low cards. While this card is in your hand, whenever anyone plays a card of its suit, it gains +1 rank.",
   "timing": "While in hand",
   "prototype": "automated",
   "signature": [
@@ -39,6 +39,6 @@
   "decision": "How long to hold the card while its suit is played around it.",
   "opponent": "Its grown rank is seen when it is played, and the count is public because played cards are on the table; opponents can drain its suit's high cards early or trump it late.",
   "aiNote": "Hold it until about half its suit has been played, then play it when it can win.",
-  "rationale": "A seven held until six cards of its suit are gone plays as a king, just as the higher cards leave; played early, it barely changes. Counting everyone's plays on one card keeps it clear of Unfolding Butterfly, which counts your hearts for all your hearts.",
+  "rationale": "The low-card affinity starts it where growth matters: a five held until six cards of its suit are gone plays as a jack, just as the higher cards leave; played early, it barely changes. Counting everyone's plays on one card keeps it clear of Unfolding Butterfly, which counts your hearts for all your hearts.",
   "deviation": "Role drops the stat-stick tag, because the growth creates a real decision about when to release the card."
 }

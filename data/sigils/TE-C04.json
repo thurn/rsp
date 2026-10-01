@@ -21,7 +21,7 @@
       "icon": "dribbling"
     }
   ],
-  "text": "When this card loses a trick to your partner, gain +25 contract value.",
+  "text": "When this card loses a trick to your partner, gain +40 contract value.",
   "timing": "When this card loses",
   "prototype": "automated",
   "signature": [
@@ -29,7 +29,7 @@
       "trigger": "this card loses a trick your partner wins",
       "scope": "self",
       "target": "contract",
-      "effect": "contract value +25",
+      "effect": "contract value +40",
       "frequency": "once per round"
     }
   ],
@@ -39,6 +39,6 @@
   "decision": "Which of your partner's winning tricks to spend this card on: follow under their winner with it rather than winning yourself.",
   "opponent": "Visible on trigger; opponents can overtake your partner's card so the trick doesn't go to your team.",
   "aiNote": "Play this card when your partner is winning the trick and this card can't beat their card.",
-  "rationale": "Your partner wins about three tricks a round and you can usually follow under one of them with this card, so it pays about +25 in about 40% of rounds, about +8 EV, a simple common that rewards letting your partner win.",
+  "rationale": "Engraving places it on a face card, so your partner needs an ace or a trump to win over it, and it pays in about a quarter of rounds, about +10 EV, a simple common that rewards letting your partner win.",
   "deviation": "Redesigned and renamed from Snaring Lasso, which took the winning card out of the trick and was too complicated for a common."
 }

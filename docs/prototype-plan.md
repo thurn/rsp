@@ -192,7 +192,8 @@ shop → blind → deal → beforeBidding → bidding → afterBidding
 ```
 
 - **Deal.** Build the deck (Untrodden Snowfall), deal, engrave each Engraving
-  sigil (affinity sigils first, then random), and apply intrinsic modifiers.
+  sigil (affinity sigils first, then face cards, then aces, then random), and
+  apply intrinsic modifiers.
   Ongoing sigils need no placement.
 - **Windows.** Each window runs `resolveWindow(state, window, event)`. It
   visits seats clockwise from the window's start seat, and within a seat
@@ -222,7 +223,7 @@ interface SigilHandler {
   on?: Partial<Record<Window, (ctx: Ctx, event: GameEvent) => void>>
 }
 
-// Crown Jewel: Affinity: Spades. When this card wins a trick, gain +25 contract value.
+// Crown Jewel: When this card wins a trick, gain +25 contract value.
 'RE-C07': { on: { thisCardWins: (ctx) => ctx.gainContract(25) } },
 ```
 
@@ -324,7 +325,7 @@ sequence. Phase 6 then fans out to subagents.
 2. **Economy and shop.** Add gold, trick and nil income, interest, an opening
    shop, between-round shops with three offers rolled by rarity odds, buy one,
    rerolls, selling, the 13-sigil cap, and AI shopping. Engrave Engraving
-   sigils at the deal by affinity, then random.
+   sigils at the deal by affinity, then face cards, then aces, then random.
    *Check:* a run shows a shop each round, and gold math matches the worked
    examples in game-overview.md §4.
 3. **Card rendering.** Add the Ongoing collection trays, corner badges, the
