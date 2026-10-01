@@ -1,7 +1,8 @@
 import { motion } from 'motion/react'
 import { type CSSProperties, type RefObject, useEffect, useState } from 'react'
-import { type Card, sortForDisplay } from '../game/cards'
+import { sortForDisplay } from '../game/cards'
 import { PlayingCard } from '../ui/PlayingCard'
+import type { DisplayCard } from './display'
 import styles from './Hand.module.css'
 
 const DRAG_PLAY_DISTANCE = 90
@@ -11,16 +12,21 @@ export function Hand({
   faceDown,
   legal,
   active,
+  selectable,
   dropZone,
   onPlay,
+  onSelect,
   onDragChange,
 }: {
-  cards: Card[]
+  cards: DisplayCard[]
   faceDown: boolean
-  legal: Set<Card>
+  legal: Set<number>
   active: boolean
+  /** Card ids a prompt lets you pick. */
+  selectable: Set<number> | null
   dropZone: RefObject<HTMLElement | null>
-  onPlay: (card: Card) => void
+  onPlay: (id: number) => void
+  onSelect: (id: number) => void
   onDragChange: (dragging: boolean) => void
 }) {
   // Stagger the deal animation, then let cards respond immediately.
@@ -42,13 +48,15 @@ export function Hand({
     <div className={styles.hand} style={{ '--n': sorted.length } as CSSProperties}>
       {sorted.map((card, i) => {
         const offset = i - mid
-        const playable = active && legal.has(card)
+        const pickable = selectable?.has(card.id) ?? false
+        const playable = !selectable && active && legal.has(card.id)
+        const lift = playable || pickable
         return (
           <motion.div
-            key={card}
+            key={card.id}
             layout="position"
             className={styles.slot}
-            data-playable={playable || undefined}
+            data-playable={lift || undefined}
             style={{ zIndex: i, '--o': offset } as CSSProperties}
             initial={{ y: 220, opacity: 0 }}
             animate={{
@@ -61,9 +69,8 @@ export function Hand({
                 delay: settled ? 0 : i * 0.045,
               },
             }}
-            whileHover={
-              playable ? { y: -22, zIndex: 50, transition: { duration: 0.15 } } : undefined
-            }
+            whileHover={lift ? { y: -22, zIndex: 50, transition: { duration: 0.15 } } : undefined}
+            whileTap={lift ? { y: -12, scale: 0.98 } : undefined}
             drag={playable}
             dragSnapToOrigin
             dragElastic={0.9}
@@ -73,13 +80,18 @@ export function Hand({
             onDragEnd={(_, info) => {
               onDragChange(false)
               if (inDropZone(info.point.x, info.point.y) || info.offset.y < -DRAG_PLAY_DISTANCE) {
-                onPlay(card)
+                onPlay(card.id)
               }
             }}
-            onTap={() => playable && onPlay(card)}
+            onTap={() => (pickable ? onSelect(card.id) : playable && onPlay(card.id))}
           >
             <div className={styles.arc}>
-              <PlayingCard card={card} faceDown={faceDown} dimmed={active && !playable} />
+              <PlayingCard
+                card={card}
+                faceDown={faceDown}
+                selectable={pickable}
+                dimmed={(active && !playable && !selectable) || (!!selectable && !pickable)}
+              />
             </div>
           </motion.div>
         )

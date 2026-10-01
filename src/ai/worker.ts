@@ -1,13 +1,11 @@
 import { chooseBid, chooseCard } from './engine'
 import type { AIView } from './view'
 
-export type AIRequest = { id: number; kind: 'bid' | 'play'; view: AIView }
+export type AIRequest = { id: number; kind: 'bid' | 'play'; view: AIView; thinkMs: number }
 export type AIResponse = { id: number; value: number }
 
-const THINK_MS = 700
-
 self.onmessage = (e: MessageEvent<AIRequest>) => {
-  const { id, kind, view } = e.data
-  const value = kind === 'bid' ? chooseBid(view) : chooseCard(view, THINK_MS)
+  const { id, kind, view, thinkMs } = e.data
+  const value = kind === 'bid' ? chooseBid(view, thinkMs < 200 ? 40 : 160) : chooseCard(view, thinkMs)
   self.postMessage({ id, value } satisfies AIResponse)
 }

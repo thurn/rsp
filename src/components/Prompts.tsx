@@ -1,17 +1,25 @@
-import { NIL, type TeamResult, WINNING_SCORE } from '../game/rules'
+import { type Bid, type TeamResult, NIL } from '../game/types'
+import { ROUNDS } from '../game/rules'
 import { Button } from '../ui/Button'
+import { CoinIcon } from '../ui/Coin'
 import { Eyebrow, Panel } from '../ui/Panel'
+import { LedgerRows, type LedgerRow } from './LedgerRows'
 import styles from './Prompts.module.css'
 
-export function BidPrompt({ onBid, max }: { onBid: (bid: number) => void; max: number }) {
+export function BidPrompt({ onBid, options }: { onBid: (bid: number) => void; options: Bid[] }) {
   return (
     <Panel className={styles.bid} aria-label="Your bid">
       <div className={styles.bidGrid}>
-        <Button variant="token" className={styles.nil} onClick={() => onBid(NIL)}>
+        <Button
+          variant="token"
+          className={styles.nil}
+          disabled={!options.includes(NIL)}
+          onClick={() => onBid(NIL)}
+        >
           Nil
         </Button>
         {Array.from({ length: 13 }, (_, i) => i + 1).map((n) => (
-          <Button key={n} variant="token" disabled={n > max} onClick={() => onBid(n)}>
+          <Button key={n} variant="token" disabled={!options.includes(n)} onClick={() => onBid(n)}>
             {n}
           </Button>
         ))}
@@ -40,24 +48,42 @@ export function BlindPrompt({ onChoose }: { onChoose: (declare: boolean) => void
 
 const signed = (n: number) => (n > 0 ? `+${n}` : n < 0 ? `−${-n}` : '0')
 
-export function HandSummary({
+export function RoundSummary({
   result,
   scores,
+  round,
   winner,
+  ledger,
   onContinue,
 }: {
   result: [TeamResult, TeamResult]
   scores: number[]
-  winner: 0 | 1 | null
+  round: number
+  winner: 0 | 1 | 'draw' | null
+  ledger: LedgerRow[]
   onContinue: () => void
 }) {
   const over = winner !== null
+  const row = (label: string, values: (string | number)[], signs?: number[]) => (
+    <tr>
+      <th>{label}</th>
+      {values.map((v, t) => (
+        <td key={t} data-sign={signs?.[t]}>
+          {v}
+        </td>
+      ))}
+    </tr>
+  )
   return (
-    <Panel className={styles.center}>
+    <Panel className={`${styles.center} ${styles.summary}`}>
       {over ? (
-        <h2 className={styles.title}>{winner === 0 ? 'Victory' : 'Defeat'}</h2>
+        <h2 className={styles.title}>
+          {winner === 'draw' ? 'Draw' : winner === 0 ? 'Victory' : 'Defeat'}
+        </h2>
       ) : (
-        <Eyebrow>First to {WINNING_SCORE}</Eyebrow>
+        <Eyebrow>
+          {round} / {ROUNDS}
+        </Eyebrow>
       )}
       <table className={styles.table}>
         <thead>
@@ -68,40 +94,34 @@ export function HandSummary({
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <th>Bid</th>
-            {result.map((r, t) => (
-              <td key={t}>{r.contract || '—'}</td>
-            ))}
-          </tr>
-          <tr>
-            <th>Won</th>
-            {result.map((r, t) => (
-              <td key={t}>{r.contract ? r.tricks : '—'}</td>
-            ))}
-          </tr>
-          {result.some((r) => r.nilPoints !== 0) && (
-            <tr>
-              <th>Nil</th>
-              {result.map((r, t) => (
-                <td key={t} data-sign={Math.sign(r.nilPoints)}>
-                  {r.nilPoints ? signed(r.nilPoints) : '—'}
-                </td>
-              ))}
-            </tr>
+          {row(
+            'Bid',
+            result.map((r) => r.contract || '—'),
           )}
-          {result.some((r) => r.bagPenalty !== 0) && (
-            <tr>
-              <th>Bags</th>
-              {result.map((r, t) => (
-                <td key={t} data-sign={Math.sign(r.bagPenalty)}>
-                  {r.bagPenalty ? signed(r.bagPenalty) : '—'}
-                </td>
-              ))}
-            </tr>
+          {row(
+            'Won',
+            result.map((r) => (r.contract ? r.tricks : '—')),
           )}
+          {result.some((r) => r.multiplier > 1) &&
+            row(
+              '×',
+              result.map((r) => `${r.multiplier}×`),
+            )}
+          {result.some((r) => r.nilPoints !== 0) &&
+            row(
+              'Nil',
+              result.map((r) => (r.nilPoints ? signed(r.nilPoints) : '—')),
+              result.map((r) => Math.sign(r.nilPoints)),
+            )}
+          {result.some((r) => r.bagPenalty !== 0) &&
+            row(
+              'Bags',
+              result.map((r) => (r.bagPenalty ? signed(r.bagPenalty) : '—')),
+              result.map((r) => Math.sign(r.bagPenalty)),
+            )}
+          <LedgerRows rows={ledger} />
           <tr className={styles.delta}>
-            <th>Hand</th>
+            <th>Round</th>
             {result.map((r, t) => (
               <td key={t} data-sign={Math.sign(r.total)}>
                 {signed(r.total)}
@@ -114,11 +134,19 @@ export function HandSummary({
               <td key={t}>{s}</td>
             ))}
           </tr>
+          <tr className={styles.goldRow}>
+            <th>
+              <CoinIcon className={styles.coin} />
+            </th>
+            {result.map((r, t) => (
+              <td key={t}>+{r.income}</td>
+            ))}
+          </tr>
         </tbody>
       </table>
       <div className={styles.actions}>
         <Button onClick={onContinue} autoFocus>
-          {over ? 'Play again' : 'Next hand'}
+          {over ? 'Play again' : 'Next'}
         </Button>
       </div>
     </Panel>

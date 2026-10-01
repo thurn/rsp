@@ -1,8 +1,7 @@
 import { AnimatePresence, motion } from 'motion/react'
 import type { Seat } from '../game/cards'
-import { winningIndex } from '../game/rules'
-import type { Play } from '../game/state'
 import { PlayingCard } from '../ui/PlayingCard'
+import type { DisplayCard } from './display'
 import { SEAT_VECTORS } from './seats'
 import styles from './Trick.module.css'
 
@@ -29,13 +28,20 @@ const variants = {
   }),
 }
 
-export function Trick({ trick, winner }: { trick: Play[]; winner: Seat | null }) {
-  const winning = trick.length === 4 ? trick[winningIndex(trick.map((p) => p.card))].seat : null
+export function Trick({
+  plays,
+  winIndex,
+  winner,
+}: {
+  plays: { seat: Seat; card: DisplayCard }[]
+  winIndex: number | null
+  winner: Seat | null
+}) {
   return (
     <AnimatePresence custom={winner}>
-      {trick.map((p, i) => (
+      {plays.map((p, i) => (
         <motion.div
-          key={p.card}
+          key={p.card.id}
           className={styles.slot}
           style={{ zIndex: i }}
           custom={winner}
@@ -45,7 +51,7 @@ export function Trick({ trick, winner }: { trick: Play[]; winner: Seat | null })
           exit="exit"
           transition={{ type: 'spring', stiffness: 260, damping: 26 }}
         >
-          <div className={styles.glow} data-on={winning === p.seat || undefined}>
+          <div className={styles.glow} data-on={winIndex === i || undefined}>
             <PlayingCard card={p.card} />
           </div>
         </motion.div>

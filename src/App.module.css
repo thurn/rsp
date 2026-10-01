@@ -158,3 +158,18 @@
     flex-direction: column;
   }
 }
+
+.loading {
+  height: 100dvh;
+  display: grid;
+  place-items: center;
+  color: var(--text-muted);
+}
+
+.promptDock {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  z-index: 12;
+}

@@ -31,9 +31,20 @@
   --card-back: #5b1a2a;
   --card-back-deep: #3b0f1b;
 
+  /* Resonances: 5:1 or better on --card-face, so glyphs always sit on a card face. */
+  --res-red: #a3262a;
+  --res-orange: #ad4e0e;
+  --res-green: #2d6a35;
+  --res-blue: #22559a;
+  --res-teal: #0b6a68;
+  --res-purple: #5d3790;
+  --res-gray: #525960;
+
   /* Type */
   --font-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
   --font-ui: 'Manrope', system-ui, sans-serif;
+  /* Counters only; UI text is --text-sm or larger. */
+  --text-xs: 12px;
   --text-sm: 14px;
   --text-md: 16px;
   --text-lg: 20px;
@@ -60,6 +71,12 @@
   --shadow-lift: 0 2px 2px rgb(0 0 0 / 0.2), 0 18px 32px rgb(0 0 0 / 0.38);
   --shadow-panel: 0 24px 60px rgb(0 0 0 / 0.45);
 
+  /* Sigil chips: a glyph on a small card-face tile. */
+  --chip: 28px;
+  --chip-glyph: 20px;
+  --chip-radius: 6px;
+  --tray-gap: 4px;
+
   /* Layout */
   --card-w: clamp(64px, min(8.4vw, 11.5vh), 112px);
   --card-h: calc(var(--card-w) * 1.4);
@@ -68,4 +85,5 @@
   /* Motion */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --duration: 220ms;
+  --duration-pulse: 450ms;
 }

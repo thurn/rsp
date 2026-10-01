@@ -1,0 +1,46 @@
+.tray {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--tray-gap);
+  max-width: calc(var(--chip) * 7 + var(--tray-gap) * 6);
+}
+
+.item,
+.button {
+  display: inline-grid;
+}
+
+.tray:has(.button) {
+  gap: 0;
+  max-width: none;
+}
+
+.pulse {
+  display: inline-grid;
+}
+
+.button {
+  appearance: none;
+  padding: 8px;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  border-radius: var(--radius-sm);
+  transition: transform var(--duration) var(--ease-out);
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:active {
+  transform: translateY(1px) scale(0.96);
+}
+
+@media (max-width: 700px) {
+  .tray {
+    --chip: 24px;
+    max-width: calc(24px * 4 + var(--tray-gap) * 3);
+  }
+}

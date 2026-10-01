@@ -1,0 +1,123 @@
+.shop {
+  display: grid;
+  gap: var(--space-4);
+  width: min(760px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gold {
+  font-size: var(--text-xl);
+}
+
+.count {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.count span {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+.offers {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: var(--space-3);
+}
+
+.offer {
+  appearance: none;
+  display: grid;
+  align-content: start;
+  gap: var(--space-2);
+  min-height: 44px;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--hairline);
+  background: var(--felt-800);
+  color: var(--text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+  transition:
+    transform var(--duration) var(--ease-out),
+    border-color var(--duration) var(--ease-out),
+    background var(--duration) var(--ease-out);
+}
+
+.offer:hover:not(:disabled) {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+}
+
+.offer:active:not(:disabled) {
+  transform: translateY(1px);
+  background: var(--felt-700);
+}
+
+.offer:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+
+.offerHead {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.name {
+  flex: 1;
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.price {
+  font-size: var(--text-md);
+}
+
+.text {
+  font-size: var(--text-sm);
+  line-height: 1.45;
+  color: var(--text);
+}
+
+.tray {
+  justify-content: flex-start;
+  max-width: none;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-3);
+}
+
+.rerollCost {
+  margin-left: var(--space-2);
+  font-size: var(--text-md);
+}
+
+@media (max-width: 700px) {
+  .shop {
+    gap: var(--space-3);
+    padding: var(--space-4);
+  }
+
+  .offers {
+    grid-template-columns: 1fr;
+    gap: var(--space-2);
+  }
+}

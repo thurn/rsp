@@ -2,6 +2,9 @@ import { StrictMode, lazy, Suspense } from 'react'
 import { createRoot } from 'react-dom/client'
 import './index.css'
 import App from './App.tsx'
+import { uiAudit } from './dev/uiAudit'
+
+if (import.meta.env.DEV) window.uiAudit = uiAudit
 
 // eslint-disable-next-line react-refresh/only-export-components
 const SigilsApp = lazy(() => import('./sigils/SigilsApp.tsx'))

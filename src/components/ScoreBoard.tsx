@@ -1,3 +1,4 @@
+import { ROUNDS } from '../game/rules'
 import styles from './ScoreBoard.module.css'
 
 const TEAMS = [
@@ -5,9 +6,21 @@ const TEAMS = [
   { label: 'Them', team: 'them' },
 ] as const
 
-export function ScoreBoard({ scores, bags }: { scores: number[]; bags: number[] }) {
+export function ScoreBoard({
+  scores,
+  bags,
+  round,
+}: {
+  scores: number[]
+  bags: number[]
+  round: number
+}) {
   return (
     <div className={styles.board}>
+      <div className={styles.round} title="Round">
+        {round}
+        <span>/{ROUNDS}</span>
+      </div>
       {TEAMS.map(({ label, team }, t) => (
         <div key={team} className={styles.row} data-team={team}>
           <span className={styles.swatch} />

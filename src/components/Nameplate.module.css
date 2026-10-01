@@ -1,3 +1,10 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-2);
+}
+
 .plate {
   --team: var(--team-us);
   display: inline-flex;
@@ -62,6 +69,11 @@
   font-weight: 700;
   font-size: var(--text-md);
   padding-right: var(--space-1);
+}
+
+.gold {
+  font-size: var(--text-md);
+  padding: 0 var(--space-1);
 }
 
 .stat {
@@ -148,7 +160,12 @@
     display: none;
   }
 
-  .stat {
+  .gold {
+  font-size: var(--text-md);
+  padding: 0 var(--space-1);
+}
+
+.stat {
     padding: 0 6px;
   }
 }

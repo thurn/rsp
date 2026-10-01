@@ -10,10 +10,10 @@ worker.onmessage = (e: MessageEvent<AIResponse>) => {
   pending.delete(e.data.id)
 }
 
-export function askAI(kind: AIRequest['kind'], view: AIView): Promise<number> {
+export function askAI(kind: AIRequest['kind'], view: AIView, thinkMs: number): Promise<number> {
   const id = nextId++
   return new Promise((resolve) => {
     pending.set(id, resolve)
-    worker.postMessage({ id, kind, view } satisfies AIRequest)
+    worker.postMessage({ id, kind, view, thinkMs } satisfies AIRequest)
   })
 }

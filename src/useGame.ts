@@ -1,76 +1,68 @@
-import { useEffect, useMemo, useReducer } from 'react'
+import { useEffect, useMemo, useSyncExternalStore } from 'react'
 import { askAI } from './ai/client'
 import { viewFor } from './ai/view'
-import type { Card, Seat } from './game/cards'
+import type { Seat } from './game/cards'
 import { legalMoves } from './game/rules'
-import { HUMAN, newGame, reducer } from './game/state'
+import { PARAMS, dispatch, getState, subscribe } from './game/store'
+import type { GameState } from './game/types'
 
-// Dev flags: `?auto` lets the AI play the human seat, `?behind` starts 150 points down.
-const params = new URLSearchParams(location.search)
-const AUTOPLAY = params.has('auto')
-const START_SCORES: [number, number] = params.has('behind') ? [0, 150] : [0, 0]
+export const HUMAN: Seat = 0
 
-const AI_MIN_DELAY = AUTOPLAY ? 150 : 650
-const TRICK_PAUSE = AUTOPLAY ? 500 : 1100
+const AI_MIN_DELAY = PARAMS.fast ? 0 : PARAMS.auto ? 150 : 650
+const TRICK_PAUSE = PARAMS.fast ? 0 : PARAMS.auto ? 500 : 1100
+const THINK_MS = PARAMS.fast ? 50 : 700
+const ROUND_PAUSE = PARAMS.fast ? 50 : 2500
 
 const wait = (ms: number) => new Promise((r) => setTimeout(r, ms))
 
-export function useGame() {
-  const [state, dispatch] = useReducer(reducer, START_SCORES, newGame)
-  const { phase, turn, trick } = state
+const idle = (s: GameState) => s.queue.length === 0 && s.prompt === null && s.steps.length === 0
 
-  // AI seats bid and play; results arriving after the state moved on are ignored by the reducer.
+export function useGameState(): GameState | null {
+  return useSyncExternalStore(subscribe, getState)
+}
+
+/** Runs AI seats, trick collection, and (under ?auto) the human seat's decisions. */
+export function useDriver(state: GameState | null, paused: boolean) {
   useEffect(() => {
-    if (turn === HUMAN && !AUTOPLAY) return
-    if (phase === 'blind' && AUTOPLAY) dispatch({ type: 'blind', declare: false })
-    const bidding = phase === 'bidding'
-    const playing = phase === 'playing' && trick.length < 4
-    if (!bidding && !playing) return
+    if (!state || paused || !idle(state)) return
+    const ai = (seat: Seat) => seat !== state.human
+    const version = state.version
     let cancelled = false
-    const view = viewFor(state, turn)
-    Promise.all([askAI(bidding ? 'bid' : 'play', view), wait(AI_MIN_DELAY)]).then(([value]) => {
-      if (cancelled) return
-      dispatch(
-        bidding
-          ? { type: 'bid', seat: turn, bid: value }
-          : { type: 'play', seat: turn, card: value },
+    const timers: ReturnType<typeof setTimeout>[] = []
+    const later = (ms: number, f: () => void) => timers.push(setTimeout(() => !cancelled && f(), ms))
+
+    const bidding = state.phase === 'bidding' && ai(state.turn)
+    const playing = state.phase === 'playing' && !state.trickDone && ai(state.turn)
+    if (bidding || playing) {
+      const seat = state.turn
+      const view = viewFor(state, seat)
+      Promise.all([askAI(bidding ? 'bid' : 'play', view, THINK_MS), wait(AI_MIN_DELAY)]).then(
+        ([value]) => {
+          if (cancelled || getState()?.version !== version) return
+          dispatch(
+            bidding ? { type: 'bid', seat, bid: value } : { type: 'play', seat, cardId: value },
+          )
+        },
       )
-    })
+    } else if (state.phase === 'playing' && state.trickDone) {
+      later(TRICK_PAUSE, () => dispatch({ type: 'collect' }))
+    } else if (state.phase === 'roundOver' && state.human === null) {
+      later(ROUND_PAUSE, () => dispatch({ type: 'nextRound' }))
+    }
     return () => {
       cancelled = true
+      timers.forEach(clearTimeout)
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps -- re-run only when the turn changes
-  }, [phase, turn, trick.length, state.handNumber])
-
-  useEffect(() => {
-    if (trick.length !== 4) return
-    const id = setTimeout(() => dispatch({ type: 'collect' }), TRICK_PAUSE)
-    return () => clearTimeout(id)
-  }, [trick.length])
-
-  const humanTurn = !AUTOPLAY && phase === 'playing' && turn === HUMAN && trick.length < 4
-  const legal = useMemo(
-    () =>
-      new Set(
-        humanTurn
-          ? legalMoves(
-              state.hands[HUMAN],
-              trick.map((p) => p.card),
-              state.spadesBroken,
-            )
-          : [],
-      ),
-    [humanTurn, state.hands, trick, state.spadesBroken],
-  )
-
-  return {
-    state,
-    legal,
-    humanTurn,
-    play: (card: Card) => legal.has(card) && dispatch({ type: 'play', seat: HUMAN, card }),
-    bid: (bid: number) => dispatch({ type: 'bid', seat: HUMAN as Seat, bid }),
-    blind: (declare: boolean) => dispatch({ type: 'blind', declare }),
-    nextHand: () => dispatch({ type: 'nextHand' }),
-    newGame: () => dispatch({ type: 'newGame', scores: START_SCORES }),
-  }
+  }, [state, paused])
 }
+
+export function useLegal(state: GameState | null): Set<number> {
+  return useMemo(() => {
+    if (!state || state.human === null) return new Set<number>()
+    const yourTurn =
+      state.phase === 'playing' && state.turn === state.human && !state.trickDone && idle(state)
+    return new Set(yourTurn ? legalMoves(state, state.human).map((c) => c.id) : [])
+  }, [state])
+}
+
+export { idle }

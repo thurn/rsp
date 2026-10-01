@@ -137,3 +137,19 @@
     min-width: 72px;
   }
 }
+
+.summary {
+  max-height: calc(100dvh - 32px);
+  overflow-y: auto;
+}
+
+.goldRow td {
+  color: var(--gold-strong);
+  font-size: var(--text-md);
+}
+
+.coin {
+  width: 18px;
+  height: 18px;
+  vertical-align: middle;
+}

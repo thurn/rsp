@@ -1,48 +1,83 @@
-import { type Card, type Seat, suitOf } from '../game/cards'
-import type { Bid } from '../game/rules'
-import type { GameState, Play } from '../game/state'
+import type { Seat } from '../game/cards'
+import { rank } from '../game/core'
+import { bidOptions, legalMoves, trickRules } from '../game/rules'
+import type { Bid, GameState } from '../game/types'
+
+/** A card as the AI sees it: effective suit and rank, taken when the view is built. */
+export interface SimCard {
+  id: number
+  suit: number
+  rank: number
+}
+
+export interface SimRules {
+  trump: number | null
+  noTrump: boolean
+  noTrumpFromTrick: number | null
+  untrumpable: { suit?: number; rank?: number; seat?: number; team?: number }[]
+  lowestWins: number[]
+}
 
 /** Everything a seat is allowed to know. The AI only ever receives this, never GameState. */
 export interface AIView {
   seat: Seat
   dealer: Seat
-  hand: Card[]
+  leader: Seat
+  hand: SimCard[]
+  /** Card ids the seat may legally play now. */
+  legal: number[]
+  bidOptions: Bid[]
   handSizes: number[]
   bids: (Bid | null)[]
   tricksWon: number[]
-  trick: Play[]
+  tricksPlayed: number
+  trick: { seat: number; card: SimCard }[]
   spadesBroken: boolean
-  /** Cards already played, including the current trick. */
-  played: Card[]
+  /** Effective snapshots of every card in the other three hands. */
+  pool: SimCard[]
   /** voids[seat][suit] is true once a seat has shown out of a suit. */
   voids: boolean[][]
   bags: number[]
   scores: number[]
+  rules: SimRules
 }
 
-export function viewFor(state: GameState, seat: Seat): AIView {
+export function viewFor(s: GameState, seat: Seat): AIView {
+  const snap = (c: GameState['hands'][number][number]): SimCard => ({
+    id: c.id,
+    suit: c.suit,
+    rank: rank(s, c),
+  })
   const voids = [0, 1, 2, 3].map(() => [false, false, false, false])
-  const played: Card[] = []
-  for (const trick of [...state.history, state.trick]) {
-    if (trick.length === 0) continue
-    const led = suitOf(trick[0].card)
-    for (const p of trick) {
-      played.push(p.card)
-      if (suitOf(p.card) !== led) voids[p.seat][led] = true
-    }
+  for (const t of [...s.history.map((h) => h.plays), s.trick]) {
+    if (t.length === 0) continue
+    const led = t[0].card.suit
+    for (const p of t) if (p.card.suit !== led) voids[p.seat][led] = true
   }
+  const tr = trickRules(s, [])
   return {
     seat,
-    dealer: state.dealer,
-    hand: state.hands[seat].slice(),
-    handSizes: state.hands.map((h) => h.length),
-    bids: state.bids.slice(),
-    tricksWon: state.tricksWon.slice(),
-    trick: state.trick.slice(),
-    spadesBroken: state.spadesBroken,
-    played,
+    dealer: s.dealer,
+    leader: s.leader,
+    hand: s.hands[seat].map(snap),
+    legal: s.phase === 'playing' ? legalMoves(s, seat).map((c) => c.id) : [],
+    bidOptions: s.phase === 'bidding' ? bidOptions(s, seat) : [],
+    handSizes: s.hands.map((h) => h.length),
+    bids: s.bids.slice(),
+    tricksWon: s.tricksWon.slice(),
+    tricksPlayed: s.history.length,
+    trick: s.trick.map((p) => ({ seat: p.seat, card: snap(p.card) })),
+    spadesBroken: s.spadesBroken || s.flags.spadesLeadAnytime,
+    pool: s.hands.flatMap((h, i) => (i === seat ? [] : h.map(snap))),
     voids,
-    bags: state.bags.slice(),
-    scores: state.scores.slice(),
+    bags: s.bags.slice(),
+    scores: s.scores.slice(),
+    rules: {
+      trump: tr.trump,
+      noTrump: tr.noTrump,
+      noTrumpFromTrick: s.flags.noTrumpFromTrick ?? null,
+      untrumpable: tr.untrumpable,
+      lowestWins: tr.lowestWins,
+    },
   }
 }

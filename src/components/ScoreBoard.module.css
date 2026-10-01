@@ -8,10 +8,23 @@
   box-shadow: 0 8px 24px rgb(0 0 0 / 0.25);
 }
 
+.round {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.round span {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
 .row {
   --team: var(--team-us);
   display: grid;
-  grid-template-columns: 10px 48px 56px auto;
+  grid-template-columns: 10px 48px 68px auto;
   align-items: center;
   gap: var(--space-2);
 }
@@ -62,11 +75,25 @@
 /* Compact single-row layout for narrow screens. */
 @media (max-width: 700px) {
   .board {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 1fr 1fr;
     column-gap: var(--space-4);
+    align-items: center;
   }
 
-  .row {
+  .round {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 600;
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.round span {
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+}
+
+.row {
     grid-template-columns: 10px auto 1fr;
   }
 
