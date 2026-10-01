@@ -20,13 +20,13 @@
       "icon": "rugby-ball"
     }
   ],
-  "text": "Whenever you pass cards, each card you pass gains +3 rank.",
-  "timing": "When you pass cards",
+  "text": "Whenever you pass or swap a card, it gains +3 rank.",
+  "timing": "When you pass or swap cards",
   "signature": [
     {
-      "trigger": "you pass cards",
+      "trigger": "you pass or swap a card",
       "scope": "self",
-      "target": "each card you pass",
+      "target": "that card",
       "effect": "rank +3",
       "frequency": "per card"
     }

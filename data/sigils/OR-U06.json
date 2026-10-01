@@ -20,8 +20,8 @@
       "icon": "icecream"
     }
   ],
-  "text": "Whenever you play a card that was passed to you, gain +10 contract value.",
-  "timing": "When played (any card you received; watches every trick)",
+  "text": "Whenever you play a card that came from another player's hand, gain +10 contract value.",
+  "timing": "When played (any card you received)",
   "signature": [
     {
       "trigger": "you play a card passed to you",
@@ -37,6 +37,6 @@
   "decision": "Which partner or opponent to trade with, knowing their card pays when played, and making sure received cards get played before the round ends.",
   "opponent": "Visible when it pays; opponents trading with you keep full choice of the card they give.",
   "aiNote": "Take every optional trade or pass; when choosing among legal plays, prefer a received card if it does not cost a needed trick.",
-  "rationale": "With Traders' Handshake's three trades a round it pays about +30, and one Open Hand or Sheltering Castle exchange pays +10 to +20, top of the uncommon band for thin Swap Meet while leaving per-exchange contract value to Handshake itself.",
+  "rationale": "With Traders' Handshake's three swaps a round it pays about +30, and one Open Hand or Sheltering Castle exchange pays +10 to +20, top of the uncommon band for thin Swap Meet while leaving per-exchange contract value to Handshake itself.",
   "deviation": "Timing moved from \"when you pass cards\" to a play trigger, as the brief's own text describes, because paying at the moment of the pass would repeat Traders' Handshake and Peddler's Cart."
 }

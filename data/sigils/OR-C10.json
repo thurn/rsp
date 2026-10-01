@@ -20,24 +20,23 @@
       "icon": "briefcase"
     }
   ],
-  "text": "Whenever you pass cards, gain +15 gold.",
-  "timing": "When you pass cards",
+  "text": "Whenever you pass or swap cards, gain +15 gold.",
+  "timing": "When you pass or swap cards",
   "signature": [
     {
-      "trigger": "you pass cards",
+      "trigger": "you pass or swap cards",
       "scope": "self",
-      "target": "you",
-      "effect": "gold +15",
-      "frequency": "per pass"
+      "target": "gold",
+      "effect": "+15 gold",
+      "frequency": "per pass or swap"
     }
   ],
   "archetypes": "Swap Meet; splash Gold Miner, Kingmaker, Nil Guard",
   "family": "Gold income / Conditional",
   "role": "Payoff (Economy)",
-  "decision": "Whether to take each optional exchange (a Traders' Handshake trade, a partner pass), since every one now pays.",
+  "decision": "Whether to take each optional pass or swap (a Traders' Handshake swap, a partner pass), since every one now pays.",
   "opponent": "Visible gold gain; opponents who trade with you also get the card they chose.",
   "aiNote": "Take every optional pass or trade that doesn't hand an opponent a winner.",
-  "rationale": "With Traders' Handshake's three trades a round it pays about 45 gold, Nest Egg's top rate, and with a single Open Hand pass it pays 15, so it rewards committing to exchanges early in a run while Handshake and TE-C08 supply the contract value.",
-  "deviation": "Changed from a pass-count quest to a per-pass reward, which is simpler (no counter) and is exactly \"Orange gold for each completed trade\" from the Swap Meet plan; per the orchestrator's ruling it pays gold only, leaving per-exchange contract value to Traders' Handshake. OR-U09 (shop gold by passes) should move further from this.",
-  "notes": "This seems like it should apply to all of the various forms of passing, swapping, and exchanging. And also, we should use consistent terminology. "
+  "rationale": "With Traders' Handshake's three swaps a round it pays about 45 gold, Nest Egg's top rate, and with a single Open Hand swap it pays 15, so it rewards committing to passing early in a run while Handshake and TE-C08 supply the contract value.",
+  "deviation": "Changed from a pass-count quest to a per-pass reward, which is simpler (no counter) and is exactly \"Orange gold for each completed trade\" from the Swap Meet plan; per the orchestrator's ruling it pays gold only, leaving per-exchange contract value to Traders' Handshake. OR-U09 (shop gold by passes) should move further from this."
 }

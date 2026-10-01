@@ -20,7 +20,7 @@
       "icon": "sock"
     }
   ],
-  "text": "Gain +15 contract value for each bag the opponents take this round.",
+  "text": "Gain +15 contract value for each bag the opponents take in a round.",
   "timing": "Conditional scoring",
   "signature": [
     {

@@ -20,8 +20,8 @@
       "icon": "popsicle"
     }
   ],
-  "text": "Whenever you pass cards after bidding nil, gain +25 nil value.",
-  "timing": "When you pass cards",
+  "text": "Whenever you pass or swap cards after bidding nil, gain +25 nil value.",
+  "timing": "When you pass or swap cards",
   "signature": [
     {
       "trigger": "you pass cards, you bid nil",

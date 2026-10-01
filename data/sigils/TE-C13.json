@@ -20,15 +20,15 @@
       "icon": "paperclip"
     }
   ],
-  "text": "Whenever you pass cards, convert the cards you receive to hearts.",
-  "timing": "When you pass cards",
+  "text": "Whenever you receive a card from another player, convert it to a heart.",
+  "timing": "When you receive cards",
   "signature": [
     {
-      "trigger": "you pass cards",
+      "trigger": "you receive a card from another player",
       "scope": "self",
-      "target": "cards you receive",
-      "effect": "convert to hearts",
-      "frequency": "each"
+      "target": "that card",
+      "effect": "convert to a heart",
+      "frequency": "per card"
     }
   ],
   "archetypes": "Heart Chorus, Swap Meet",

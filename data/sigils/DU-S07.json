@@ -21,14 +21,14 @@
       "icon": "infinite"
     }
   ],
-  "text": "After scoring, your team gains +5 points for every 50 gold you have.",
+  "text": "After scoring, your team gains +10 points for every 50 gold you have.",
   "timing": "After scoring",
   "signature": [
     {
       "trigger": "after scoring",
       "scope": "team",
       "target": "score",
-      "effect": "+5 points per 50 gold held",
+      "effect": "+10 points per 50 gold held",
       "frequency": "once per round"
     }
   ],
@@ -38,6 +38,5 @@
   "decision": "At every shop, whether to spend gold on a sigil or bank it for points.",
   "opponent": "Visible each round; no effect on opponents' cards.",
   "aiNote": "Spend normally through round 8, then buy only offers worth more than 10 gold per point and bank the rest.",
-  "rationale": "Pays about +25 to +50 flat points each round without spending the gold; a dedicated miner holds 250 to 500 gold mid-run, so the late value sits at the top of the uncommon band and OR-R03 stays the big converter. Holding more gold than that means skipping purchases, which limits it in place of a cap. Gold is counted before the round's income, and the points count toward this round's 1,000 check.",
-  "notes": "Is this really enough gold? It doesn't seem like very much. "
+  "rationale": "Pays about +50 flat points a round at the 250 gold where interest stops growing, and about +100 at 500, without spending the gold. Holding that much means skipping purchases, so the cost is the sigils you don't buy; it compares with Spendthrift's Wallet (OR-R03), which pays 1 point per gold once, by paying 0.2 per gold every round. Gold is counted before the round's income, and the points count toward this round's 1,000 check."
 }

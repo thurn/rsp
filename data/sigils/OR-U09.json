@@ -20,8 +20,8 @@
       "icon": "bread"
     }
   ],
-  "text": "Whenever you pass cards, you may pay 10 gold to gain +20 contract value.",
-  "timing": "When you pass cards",
+  "text": "Whenever you pass or swap cards, you may pay 10 gold to gain +20 contract value.",
+  "timing": "When you pass or swap cards",
   "signature": [
     {
       "trigger": "you pass cards",
@@ -37,5 +37,5 @@
   "decision": "At each pass or trade, whether the contract looks safe enough to spend gold on it, and whether that gold still matters more at the shop.",
   "opponent": "Visible when it fires; no effect on opponents' play.",
   "aiNote": "Pay from round 6 on, or earlier when you hold 150 gold or more, if your team's contract looks safe.",
-  "rationale": "One pass a round buys +20 for 10 gold, and Traders' Handshake's three trades buy +60 for 30, a better rate than Golden Ticket's 20 for +30 because it needs passes, giving thin Swap Meet contract value and Gold Miner a late gold-to-points outlet."
+  "rationale": "One pass a round buys +20 for 10 gold, and Traders' Handshake's three swaps buy +60 for 30, a better rate than Golden Ticket's 20 for +30 because it needs passes, giving thin Swap Meet contract value and Gold Miner a late gold-to-points outlet."
 }

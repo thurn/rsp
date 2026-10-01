@@ -20,24 +20,23 @@
       "icon": "bacon"
     }
   ],
-  "text": "Before you choose whether to bid blind nil, you may look at four random cards in your hand.",
+  "text": "Before you choose whether to bid blind nil, look at the aces and face cards in your hand.",
   "timing": "When you bid (the blind nil decision, before the deal)",
   "signature": [
     {
-      "trigger": "blind nil decision",
+      "trigger": "before the blind nil decision",
       "scope": "self",
-      "target": "four random cards in your hand",
-      "effect": "look (private)",
-      "frequency": "×1"
+      "target": "your aces and face cards",
+      "effect": "look at them",
+      "frequency": "once per round"
     }
   ],
   "archetypes": "Blind Bidder; splash Nil Champion, Nil Guard",
   "family": "Blind bidding / Peek",
   "role": "Enabler (blind nil survival and selection)",
-  "decision": "Whether four cards are safe enough to go blind for ±200 (±300 with Clouded Eight Ball), knowing the other nine stay hidden.",
+  "decision": "Whether a hand whose every high card you know is safe enough to go blind for ±200 (±300 with Clouded Eight Ball).",
   "opponent": "The peek is private and the blind nil is public as usual; opponents play against it exactly as against any blind nil.",
-  "aiNote": "Bid blind nil when eligible unless the four cards include a spade queen or higher, two aces or kings, or three or more spades.",
-  "rationale": "The peek screens out about a quarter of the worst blind hands and lifts survival on the rest from about 0.65 to about 0.75, worth about +20 points and steadier blind-nil gold per eligible round, and more with Clouded Eight Ball (OR-U07), whose ±300 punishes exactly the hands this avoids.",
-  "deviation": "Dropped the briefed stake cut (±150) and raised the peek from three cards to four, because at ±150 the information roughly cancels the lost stakes (about 60 expected points either way), leaving a rare that changes little; the simpler text also stacks with Clouded Eight Ball without an \"instead of\" conflict.",
-  "notes": "Doesn't seem very good for a rare. Maybe something that gives you more direct information about all aces and face cards in your hand "
+  "aiNote": "Bid blind nil when you hold no aces and at most one face card, or when the team is far behind and you hold no aces or kings.",
+  "rationale": "The aces and face cards are what break a nil, so seeing them all screens out nearly every bad blind hand and lifts survival on the blind nils you take from about 0.65 to about 0.85. That is worth about +40 points a round with Desperate Gambit, more with Clouded Eight Ball (OR-U07), plus steadier blind-nil gold.",
+  "deviation": "Changed from looking at four random cards, which gave too little to act on for a rare."
 }

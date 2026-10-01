@@ -20,7 +20,7 @@
       "icon": "walking"
     }
   ],
-  "text": "When this card loses a trick, you may swap a chosen card in your hand with the card that won it.",
+  "text": "When this card loses a trick, you may take the card that won it, putting a chosen card from your hand in its place.",
   "timing": "When this card loses",
   "signature": [
     {

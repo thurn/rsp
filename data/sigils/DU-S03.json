@@ -21,7 +21,7 @@
       "icon": "chess-bishop"
     }
   ],
-  "text": "Whenever your partner wins a trick with a card you passed them, gain +20 contract value.",
+  "text": "Whenever your partner wins a trick with a card that came from your hand, gain +20 contract value.",
   "timing": "When your partner wins a trick",
   "signature": [
     {

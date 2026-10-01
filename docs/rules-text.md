@@ -16,9 +16,17 @@ reference for clarity.
   rarely ties itself to a narrow moment, such as "when this card loses a
   trick" or "the first time each round."
 - **Growth as a trigger.** Rank or value that builds over a round is written as
-  the trigger that builds it: "Whenever you play a heart, your hearts gain +1
-  rank." A threshold that builds over a round opens with "Each round, once
-  …": "Each round, once you've trumped twice, your spades gain +3 rank."
+  the trigger that builds it: "Whenever you play a heart, your hearts in hand
+  gain +1 rank." A threshold that builds over a round opens with "Each round,
+  once …": "Each round, once you've trumped twice, your spades in hand gain +3
+  rank." Value that builds while a card waits in hand is a while-held trigger:
+  "While this card is in your hand, whenever you play a diamond, gain +5
+  contract value."
+- **"In hand" after a play.** A trigger that changes your cards right after
+  you play one says "in hand," so the card just played is clearly left out.
+- **Rounds without "this."** Conditions and counts that hold for every round
+  say "in a round" or "each round": "If you throw off two or more cards in a
+  round, gain +30 contract value."
 - **Set ranks plainly.** An effect that turns one rank into another says
   "become": "Your kings become aces."
 - **Flat modifiers.** An effect that adds to other gains adds a flat amount to
@@ -26,7 +34,7 @@ reference for clarity.
   more."
 - **Caps where they bind.** A cap appears only when ordinary play reaches it.
 - **"Other" fits every card.** "Other" and "earlier" phrases read correctly
-  whichever card the sigil is engraved on: "each diamond you played earlier
+  whichever card the sigil is engraved on: "each heart you played earlier
   this round."
 - **When, then what.** A triggered effect opens with when it happens, then says
   what happens: "When this card wins a trick, gain +20 contract value."
@@ -46,8 +54,14 @@ reference for clarity.
   which cards or players it affects, who picks them, and what changes. The
   text says "chosen" when the player picks and "random" when nobody does.
 - **Bids belong to their bidders.** A sigil changes only its owner's own bid.
-- **Exchanges are between partners.** An exchange, where each player picks
-  the card they give, happens between you and your partner.
+- **Pass and swap.** A card moving from your hand to another player's is
+  passed, or swapped when a card comes back. These are the only two words for
+  it, and payoffs name both: "Whenever you pass or swap cards, gain +15 gold."
+  A card you got this way "came from another player's hand."
+- **Swaps where both pick are between partners.** A swap in which each player
+  picks the card they give happens between you and your partner.
+- **Affinities matter.** An affinity changes how the effect plays out, such as
+  a spade affinity on a sigil that pays when its card wins.
 - **Scores say points.** Comparisons of the two teams' scores say "behind on
   points" or "ahead on points."
 - **Defaults stay unwritten.** The conventions below cover edge cases, how long
@@ -114,8 +128,8 @@ rules.
 | When your partner wins a trick | "Whenever your partner wins a trick, …" |
 | When you play another suit | "Whenever you play a card that doesn't match the suit led, …" |
 | When you throw off a card | "Whenever you throw off a card, …" |
-| When you pass cards | "Whenever you pass cards, …" |
-| When this card is passed to you | "When this card is passed to you, …" |
+| When you pass or swap cards | "Whenever you pass or swap cards, …" |
+| When you receive cards | "Whenever you receive a card from another player, …" |
 | Conditional scoring | "If your team makes its contract exactly, …" |
 | After scoring | "After scoring, …" |
 | At the shop | "At each shop, …" |
@@ -140,9 +154,8 @@ These are the game's own terms, beyond standard Spades vocabulary.
 | **contract multiplier** | Written `+1×`, always a whole number. Multiplies your team's contract, win or lose. |
 | **nil value** | Points added to your nil bid, paid only if the nil succeeds. Contract multipliers never apply to it. |
 | **convert** | Change a card's suit. |
-| **pass** | Give cards from your hand to another player when an effect allows it. An exchange or swap counts as passing for both players. |
-| **exchange** | You and your partner each secretly choose a card from your hand, then give them to each other at the same time. "Exchange two cards" moves two cards each way. |
-| **swap** | Move the specific cards the text names between two hands, such as "swap your highest card for your partner's lowest card." |
+| **pass** | Give a card from your hand to another player, who gives nothing back. |
+| **swap** | You and another player each give the other a card at the same time. Each player secretly picks the card they give, unless the text names the cards: "swap your highest card for your partner's lowest card." "Swap two cards" moves two cards each way. |
 | **reveal** | Show a card in your hand to every player. It stays in your hand and stays revealed for the round; playing a card does not reveal it. |
 | **throw off** | Play a card that neither follows the suit led nor is trump. Trumping is not throwing off. |
 | **longest suit, shortest suit** | Counted in your hand when the effect happens. Used rarely; most sigils name a suit. |
@@ -167,11 +180,10 @@ Any other invented term is added here before it appears in rules text.
   names another place. A card you play still counts as yours until its trick
   ends. The text says who picks them: "two chosen cards" or "two random
   cards."
-- **Passing and exchanging:** in a pass or exchange, each player picks the
-  card they give, and nobody sees the other hand. A swap moves the cards the
-  text names. An exchange or swap counts as passing cards for both players. Taking a card from a completed
-  trick is not passing, and moving cards never changes a completed trick's
-  result.
+- **Passing and swapping:** in a pass or swap, each player picks the card
+  they give unless the text names it, and nobody sees the other hand. Taking
+  a card from a completed trick is neither, and moving cards never changes a
+  completed trick's result.
 - **Your bid** means a positive bid; a nil bidder has no bid to make.
 - **Behind on points** and **ahead on points** compare the two teams' scores.
 - **Losing a trick:** you lose every trick someone else wins, including your
@@ -221,7 +233,7 @@ These examples are real sigils in the pool. Wave 0 of the design process in
 | 4 | Crown Jewel | `crown` | Red · Common | **Affinity: Spade.** When this card wins a trick, gain +25 contract value. |
 | 5 | Graceful Exit | `door-open` | Purple · Common | Whenever you lose a trick you played a face card to, gain +10 contract value. |
 | 6 | Turning Tide | `water` | Green · Common | Before bidding, convert two chosen cards in your hand to diamonds. |
-| 7 | Open Hand | `hand` | Teal · Common | After bidding, exchange a card with your partner. |
+| 7 | Open Hand | `hand` | Teal · Common | After bidding, swap a card with your partner. |
 | 8 | True Aim | `target` | Blue · Rare | If your team makes its contract exactly, gain +1× contract multiplier. |
 | 9 | Vigil Candle | `candlestick` | Purple · Common | Gain +30 nil value. |
 | 10 | Sinking Anchor | `anchor` | Purple · Uncommon | After bidding, each opponent's highest card loses 4 rank. |
@@ -295,16 +307,16 @@ Everyone bids after the change.
 suit and can open a void elsewhere, and everyone bids knowing the result, so it
 shapes a hand without guaranteeing tricks.
 
-### 7. Open Hand: exchanging cards
+### 7. Open Hand: swapping cards
 
-`After bidding, exchange a card with your partner.`
+`After bidding, swap a card with your partner.`
 
 Each of you secretly chooses which card to give. Sigils travel with the cards they are
 engraved on.
 
-**Balance:** an enabler. A post-bid exchange is especially strong for nil,
+**Balance:** an enabler. A post-bid swap is especially strong for nil,
 because the partner knows which card to take. One card each suits a common; a
-two-card exchange belongs at uncommon.
+two-card swap belongs at uncommon.
 
 ### 8. True Aim: a conditional multiplier
 

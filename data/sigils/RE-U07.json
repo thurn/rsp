@@ -20,7 +20,7 @@
       "icon": "baseball"
     }
   ],
-  "text": "If you lead three different suits this round, gain +50 contract value.",
+  "text": "If you lead three different suits in a round, gain +50 contract value.",
   "timing": "Conditional scoring",
   "signature": [
     {

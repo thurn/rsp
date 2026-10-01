@@ -16,7 +16,7 @@
       "icon": "fridge"
     }
   ],
-  "text": "Before bidding, look at three random new cards, and you may swap one of them for a chosen card in your hand.",
+  "text": "Before bidding, look at three random new cards, and you may replace a chosen card in your hand with one of them.",
   "timing": "Before bidding",
   "signature": [
     {

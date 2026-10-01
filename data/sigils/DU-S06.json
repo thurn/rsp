@@ -21,15 +21,15 @@
       "icon": "bridge"
     }
   ],
-  "text": "When you play this card, gain +5 contract value and +5 gold for each diamond you played earlier this round.",
-  "timing": "When played",
+  "text": "While this card is in your hand, whenever you play a diamond, gain +5 contract value and +5 gold.",
+  "timing": "While in hand",
   "signature": [
     {
-      "trigger": "you play this card",
+      "trigger": "you play a diamond while this card is in your hand",
       "scope": "self",
       "target": "contract and gold",
-      "effect": "+5 contract value and +5 gold per diamond you played earlier this round",
-      "frequency": "once per round"
+      "effect": "+5 contract value and +5 gold",
+      "frequency": "per diamond"
     }
   ],
   "archetypes": "Diamond Flood; splash Bonus Chaser, Gold Miner",
@@ -38,7 +38,6 @@
   "decision": "How long to hold this card while the diamonds go out first, without being forced to play it early.",
   "opponent": "Visible on trigger; opponents can barely respond, but its value is still lost on a failed contract.",
   "aiNote": "Play this card after your other diamonds, or at the last safe moment if it is not a diamond.",
-  "rationale": "One cash-out paying both points and gold states the flood plan; with Turning Tide and GR conversions supplying 4–5 earlier diamonds it pays about +20–25 contract value and 20–25 gold. The icon word is diamond, but the name uses \"Gem\" so it doesn't read as the suit.",
-  "deviation": "Slot said Suit payoffs / Playing, paying Contract additive; changed to Card-bound points / Escalating that pays Contract additive and Economy, which adds a decision about when to play the card and keeps Diamond Flood's plan of points and gold together.",
-  "notes": "You could probably phrase this as a while-held trigger. "
+  "rationale": "Each diamond played while it waits pays both points and gold; with Turning Tide and GR conversions supplying 4–5 diamonds before it leaves your hand, it pays about +20–25 contract value and 20–25 gold. The icon word is diamond, but the name uses \"Gem\" so it doesn't read as the suit.",
+  "deviation": "Slot said Suit payoffs / Playing, paying Contract additive; changed to Card-bound points / Escalating that pays Contract additive and Economy, which adds a decision about when to play the card and keeps Diamond Flood's plan of points and gold together."
 }

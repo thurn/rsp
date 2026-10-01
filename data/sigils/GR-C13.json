@@ -20,7 +20,7 @@
       "icon": "bacteria"
     }
   ],
-  "text": "If you win three or more tricks with hearts or diamonds this round, gain +25 contract value.",
+  "text": "If you win three or more tricks with hearts or diamonds in a round, gain +25 contract value.",
   "timing": "Conditional scoring",
   "signature": [
     {

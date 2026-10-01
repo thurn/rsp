@@ -20,7 +20,7 @@
       "icon": "cupcake"
     }
   ],
-  "text": "Affinity: Diamond. When this card loses a trick, gain +40 gold.",
+  "text": "When this card loses a trick, gain +40 gold.",
   "timing": "When this card loses",
   "signature": [
     {
@@ -31,13 +31,12 @@
       "frequency": "×1"
     }
   ],
-  "archetypes": "Diamond Flood, Gold Miner; splash Blind Bidder",
+  "archetypes": "Gold Miner, Diamond Flood; splash Blind Bidder, Nil Champion",
   "family": "Gold income / Conditional (this card loses)",
   "role": "Payoff (Economy)",
-  "decision": "Whether to push this diamond for a win (Glittering Treasure, Greedy Magnet, the contract) or let it lose for gold, and when to spend it on a trick you can't win anyway.",
+  "decision": "When to spend this card as a loser: on a trick you can't win anyway, rather than pushing it for a win.",
   "opponent": "Visible when it pays; opponents who trump your diamonds still take the trick, and choosing not to overtake it denies the gold.",
   "aiNote": "Play this card on a trick you are already losing; lead it only if it is the highest diamond still out.",
-  "rationale": "It turns Diamond Flood's main threat, opponents trumping its long diamonds, into gold, and it pays about 30–40 gold a round (it loses in most rounds, more when dumped deliberately), a step above Lucky Coin's flat 20 for an uncommon, while filling the thin \"when this card loses\" window.",
-  "deviation": "Revision 1: redesigned from gold per diamond played while held, which was Glittering Treasure with a looser trigger and twinned GR-U04; the variation moved from Multipliers to Conditional and the timing from always on to \"when this card loses\", and the diamond link now comes from the affinity.",
-  "notes": "These two things seem sort of unrelated to each other. I guess I'm not really sure if the diamond thing matters. "
+  "rationale": "A random card loses about 75% of the time, and you choose which trick to lose it on, so it pays about 30–40 gold a round, a step above Lucky Coin's flat 20 for an uncommon, while filling the thin \"when this card loses\" window. Nil rounds lose nearly every card, so it fires almost every time.",
+  "deviation": "Removed the diamond affinity, which didn't change how the effect played."
 }

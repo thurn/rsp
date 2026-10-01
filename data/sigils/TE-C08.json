@@ -20,8 +20,8 @@
       "icon": "truck"
     }
   ],
-  "text": "Whenever you pass the last card of a suit in your hand, gain +10 contract value.",
-  "timing": "When you pass cards",
+  "text": "Whenever you pass or swap the last card of a suit in your hand, gain +10 contract value.",
+  "timing": "When you pass or swap cards",
   "signature": [
     {
       "trigger": "you pass cards",
@@ -37,5 +37,5 @@
   "decision": "Which card to give in each pass or trade: a singleton that opens a void rather than your worst card.",
   "opponent": "Visible on trigger; opponents learn you just went void in a suit and can avoid leading it.",
   "aiNote": "In any pass or trade, give a singleton outside spades when you have one.",
-  "rationale": "Trades count as passes, so Traders' Handshake trades, Open Hand, and TE-C02 all feed it; a hand opens one or two voids a round this way (about +12 EV), and each void also sets up trumps and discards; it pays only for void-opening exchanges, as the brief requires."
+  "rationale": "Trades count as passes, so Traders' Handshake swaps, Open Hand, and TE-C02 all feed it; a hand opens one or two voids a round this way (about +12 EV), and each void also sets up trumps and discards; it pays only for void-opening exchanges, as the brief requires."
 }

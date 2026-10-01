@@ -31,7 +31,7 @@
       "frequency": "×1"
     }
   ],
-  "archetypes": "Blind Bidder, Contract Attacker, Gold Miner",
+  "archetypes": "Contract Attacker, Gold Miner; splash Blind Bidder",
   "family": "Comeback effects / Deficit scaling",
   "role": "Payoff: Contract additive (feeds Desperate Gambit, DU-S09)",
   "decision": "Bidding while behind: a bigger payout tempts a bolder bid, and it still pays your partner's contract when you bid nil or blind nil.",

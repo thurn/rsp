@@ -21,13 +21,13 @@
       "icon": "bridge"
     }
   ],
-  "text": "Whenever you play a heart, your hearts gain +1 rank.",
+  "text": "Whenever you play a heart, your hearts in hand gain +1 rank.",
   "timing": "When played (any heart you play)",
   "signature": [
     {
       "trigger": "you play a heart",
       "scope": "self",
-      "target": "your hearts",
+      "target": "your hearts in hand",
       "effect": "rank +1",
       "frequency": "per heart played"
     }
@@ -38,7 +38,6 @@
   "decision": "Spending low hearts early so the high hearts dominate late.",
   "opponent": "Visible as hearts grow; opponents answer by trumping hearts late or draining them early.",
   "aiNote": "Lead or follow with your lowest heart while ahead of need; save the highest hearts for the last tricks.",
-  "rationale": "Playing hearts creates the growth it rewards: with five or six hearts from TE-C13 and GR-C08-style conversions, the last two hearts are ace-level. The heart you play gains the bonus too, since a card you play counts as yours until its trick ends. Counting only your own hearts keeps the growth steady and in your control.",
-  "deviation": "Role changed from a Contract additive payoff to an enabler-and-payoff that feeds the heart payoffs (GR-C05, GR-C13, TE-U05), following the skeleton's example direction for Heart Chorus.",
-  "notes": "\"your hearts in hand\""
+  "rationale": "Playing hearts creates the growth it rewards: with five or six hearts from TE-C13 and GR-C08-style conversions, the last two hearts are ace-level. Counting only your own hearts keeps the growth steady and in your control.",
+  "deviation": "Role changed from a Contract additive payoff to an enabler-and-payoff that feeds the heart payoffs (GR-C05, GR-C13, TE-U05), following the skeleton's example direction for Heart Chorus."
 }

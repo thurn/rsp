@@ -20,23 +20,23 @@
       "icon": "joystick"
     }
   ],
-  "text": "When you play this card, the sigil on the next card you play triggers twice for that trick.",
+  "text": "When you play this card, the next time another of your sigils triggers, it triggers twice.",
   "timing": "When played",
   "signature": [
     {
-      "trigger": "when played",
+      "trigger": "you play this card",
       "scope": "self",
-      "target": "the next card you play",
-      "effect": "its sigil triggers twice, that trick only",
-      "frequency": "×1"
+      "target": "your next other sigil to trigger",
+      "effect": "triggers twice",
+      "frequency": "once per round"
     }
   ],
   "archetypes": "Bonus Chaser, Gold Miner, Diamond Flood, Swap Meet",
   "family": "When played and re-triggers / Re-trigger",
-  "role": "Enabler (doubles one card-bound payoff a round)",
-  "decision": "Sequencing: play this card on a trick you can afford to spend it on, then play your best sigil card on the very next trick, which follow-suit may or may not allow.",
+  "role": "Enabler (doubles one triggered payoff a round)",
+  "decision": "When to play this card: right before your best trigger, such as a big win payoff, a pass payoff, or a when-played card, rather than ahead of a small one.",
   "opponent": "Visible when the doubled sigil resolves; opponents can lead a suit that forces a different next card.",
-  "aiNote": "Play this card when your next legal play can be your highest-value \"when you play this card\" or \"when this card wins\" sigil card (Golden Ticket, Cracked Safe, Gem Cascade, Crown Jewel); otherwise treat it as unengraved.",
-  "rationale": "Doubling one card-bound payoff is worth about +15 to +30 (a second Cracked Safe or Gem Cascade payout, a second Golden Ticket purchase, 20 more gold from Lucky Coin), and the next-card condition makes it a sequencing puzzle rather than a free double.",
-  "notes": "This needs to make it clear how it interacts with sigils that do not trigger when played . It seems quite limited since the great majority of sigils do not trigger when played.  "
+  "aiNote": "Play this card on a trick you expect to lose, when your next likely trigger is worth at least +15 or 20 gold.",
+  "rationale": "Doubling one triggered payoff is worth about +15 to +30 (a second Crown Jewel or Cracked Safe payout, 20 more gold from Lucky Coin, a second Handshake swap bonus). Always-on sigils don't trigger, so they are unaffected, and a contract multiplier counts once per round however many times its sigil triggers.",
+  "deviation": "Broadened from the sigil on the next card you play, because most sigils don't trigger when played."
 }
