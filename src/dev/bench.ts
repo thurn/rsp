@@ -236,7 +236,15 @@ function playGame(st: Stats, o: BenchOptions, give: string[][], logLines: string
       logLines.push(`stall in ${s.phase} round ${s.round}`)
       break
     }
+    const runaways = st.runaways
     s = reduce(s, action)
+    if (st.runaways > runaways) {
+      const tasks = s.queue.slice(0, 8).map((q) => `${q.code}/${q.window}`)
+      const lines = s.log.slice(-8).map((l) => `${l.source ?? ''} ${l.text}`)
+      logLines.push(
+        `runaway after ${action.type}: queue ${tasks.join(' ')}; log ${lines.join(' | ')}`,
+      )
+    }
     // A round takes a few hundred actions; far more means an action keeps being ignored.
     if (++actions > 3000 * Math.max(1, s.round)) {
       st.stalls++

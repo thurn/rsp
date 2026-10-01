@@ -60,6 +60,7 @@ Every trigger names a window. The scope decides which sigils hear the event:
 | `bid`           | seat  | This seat bid (blind nil included)                                  | `data.bid` (`-1` blind nil, `0` nil)             |
 | `afterBidding`  | all   | All bids are in                                                     |                                                  |
 | `trickStart`    | all   | A trick begins: checkpoints such as "the tenth trick"               | `data.trick` (1-based)                           |
+| `playing`       | seat  | Your card entered the trick; play events haven't fired yet          | `cardId`                                         |
 | `played`        | seat  | You played a card                                                   | `cardId`                                         |
 | `led`           | seat  | You led                                                             | `cardId`                                         |
 | `offSuit`       | seat  | You played a card that doesn't match the suit led (trumps included) | `cardId`                                         |
@@ -84,6 +85,9 @@ Every trigger names a window. The scope decides which sigils hear the event:
 Rules text maps onto windows like this:
 
 - "When you play this card" → `played` with `if (!ctx.isEventCard) return`.
+- "Choose this card's rank or suit as you play it" → `playing`. The card is already
+  in `s.trick`, and `played`, `led`, `offSuit`, `trump`, `throwOff`, `anyPlayed`, and
+  spades breaking all see the changed card (Fickle Storm, Faithful Dog, Falling Star).
 - "Whenever you play a heart" (Ongoing) → `played`; look up the card with
   `ctx.findCard(e.cardId!)`.
 - "While this card is in your hand, whenever …" → the matching seat window with
@@ -128,6 +132,12 @@ Cards:
 - `modRank(card, n)` — a stored modifier for the round; decreases emit `rankLoss`.
 - `setRank(card, r)` — "becomes": sets the base and clears stored modifiers.
 - `setSuit(card, suit)`, `reveal(card)`.
+- `showTo(seat, cards)` — private knowledge: adds `seat` to each card's `knownTo`, and
+  the human seat sees the cards listed. Passes and swaps set a moved card's `knownTo`
+  to the giver. Use it instead of `tell` whenever a seat learns specific cards.
+- `pickUp(card)` — returns one of the controller's cards played earlier this round
+  to their hand; the trick record keeps a `returned` display copy and trick counts
+  don't change (Masked Encore).
 - `createCard(seat, suit, rank)` — added to the end of the hand.
 - `removeCard(card)` — from a hand only.
 - `pass(from, to, cards)`, `swap(a, aCards, b, bCards)` — emit `pass` and
@@ -149,8 +159,19 @@ Round:
 - `addCounter(n)`, `addSellBonus(n)` — run-long growth; no-ops for copies.
 - `setCopyOf(code)` — which sigil this one copies; the engine then runs the
   copy's handler, engraving it at each deal when the copy is an Engraving sigil.
+  `copyForRound(ctx, code)` in `GY.ts` copies for one round and engraves a copied
+  Engraving sigil on a face card (Tracing Pencil, Forger's Brush, Spare Key).
 - `setTrickCredit(seat | null)` — during the trick's win triggers, move whom
   the trick counts for.
+
+Engine mechanisms with no `Ctx` primitive:
+
+- **Carry.** `players[seat].carry` lists `{ suit, rank }` pairs (base rank) that the
+  next deal swaps into the seat's hand for random cards (Tailored Shirt, Saved Hard
+  Drive). The first seat clockwise from the dealer's left wins a contested card.
+- **Doubling.** Twin Cherries counts pending doublings in `flags['OR-U01:<seat>']`.
+  The next task or score hook of that seat's sigils that changes anything runs again
+  straight away; Twin Cherries and its copies are never doubled.
 
 Prefer primitives. Writing `ctx.state` directly is fine for a one-off field with
 no primitive, such as `ctx.state.shop.seats[ctx.seat].freeNext = true`.

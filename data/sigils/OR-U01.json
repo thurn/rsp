@@ -23,8 +23,7 @@
   ],
   "text": "When you play this card, the next time another of your sigils triggers, it triggers twice.",
   "timing": "When played",
-  "prototype": "manual",
-  "prototypeNote": "After playing this card, apply the next sigil trigger from the event log a second time with Ledger or Edit card.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you play this card",

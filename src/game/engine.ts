@@ -3,6 +3,7 @@ import {
   type Seat,
   type Suit,
   ACE,
+  SEATS,
   SPADES,
   SUITS,
   nextSeat,
@@ -11,7 +12,18 @@ import {
   shuffled,
   teamOf,
 } from './cards'
-import { NeedPrompt, SEAT_NAMES, emit, label, log, makeCard, newId, runTask, signed } from './core'
+import {
+  NeedPrompt,
+  SEAT_NAMES,
+  emit,
+  label,
+  log,
+  makeCard,
+  newId,
+  runTask,
+  signed,
+  takeDouble,
+} from './core'
 import {
   ROUNDS,
   STARTING_GOLD,
@@ -198,7 +210,10 @@ export function drain(s: GameState) {
     if (task) {
       const snap = s.human !== null ? structuredClone(s) : null
       try {
-        runTask(s, task)
+        // Twin Cherries: a trigger that changed something runs again, right away.
+        if (runTask(s, task) && takeDouble(s, task)) {
+          s.queue.splice(1, 0, { ...task, answers: [], rolls: [] })
+        }
         s.queue.shift()
       } catch (e) {
         if (e instanceof NeedPrompt && snap) {
@@ -273,6 +288,8 @@ function runStep(s: GameState, step: Step) {
       emit(s, 'trickStart', { data: { trick: trickNumber(s) } })
       return
     }
+    case 'played':
+      return played(s, step.seat, step.cardId)
     case 'advancePlay': {
       const played = new Set(s.trick.map((p) => p.seat))
       const next = seatsFrom(s.leader).find((seat) => !played.has(seat) && s.hands[seat].length > 0)
@@ -314,6 +331,7 @@ export function startRound(s: GameState) {
   const deck: { suit: Suit; rank: number }[] = []
   for (const suit of SUITS) for (let r = 2; r <= ACE; r++) deck.push({ suit, rank: r })
   dealDeck(s, shuffled(deck))
+  applyCarry(s)
   emit(s, 'deal')
   s.steps.push({ kind: 'engrave' })
 }
@@ -328,6 +346,37 @@ export function dealDeck(s: GameState, deck: { suit: Suit; rank: number }[]) {
     card.slot = s.hands[seat].length
     s.hands[seat].push(card)
   })
+}
+
+/** Swaps each carried card into its seat's hand for a random card that isn't carried. */
+function applyCarry(s: GameState) {
+  const claimed = new Set<number>()
+  for (const seat of seatsFrom(nextSeat(s.dealer))) {
+    const p = s.players[seat]
+    const carry = p.carry ?? []
+    delete p.carry
+    const carried = (c: { suit: number; base: number }) =>
+      carry.some((w) => w.suit === c.suit && w.rank === c.base)
+    for (const want of carry) {
+      const from = SEATS.find((x) =>
+        s.hands[x].some((c) => c.suit === want.suit && c.base === want.rank),
+      )
+      if (from === undefined) continue
+      const card = s.hands[from].find((c) => c.suit === want.suit && c.base === want.rank)!
+      if (claimed.has(card.id)) continue
+      claimed.add(card.id)
+      if (from === seat) continue
+      const pool = s.hands[seat].filter((c) => !carried(c) && !claimed.has(c.id))
+      const give = pool[Math.floor(Math.random() * pool.length)]
+      if (!give) continue
+      s.hands[from] = s.hands[from].map((c) => (c === card ? give : c))
+      s.hands[seat] = s.hands[seat].map((c) => (c === give ? card : c))
+      ;[card.slot, give.slot] = [give.slot, card.slot]
+      ;[card.dealtTo, give.dealtTo] = [give.dealtTo, card.dealtTo]
+      const shown = s.human === null || seat === s.human
+      log(s, `${shown ? label(s, card) : 'Kept card'} → ${SEAT_NAMES[seat]}`, { seat })
+    }
+  }
 }
 
 /** Engraves each owned Engraving sigil: affinity sigils first, then face cards, aces, random. */
@@ -384,6 +433,14 @@ function play(s: GameState, seat: Seat, cardId: number) {
   if (!card || !legalMoves(s, seat).includes(card)) return
   s.hands[seat] = s.hands[seat].filter((c) => c.id !== cardId)
   s.trick.push({ seat, card })
+  // Playing triggers (Fickle Storm, Faithful Dog) may change the card before play events fire.
+  emit(s, 'playing', { seat, cardId })
+  s.steps.push({ kind: 'played', seat, cardId })
+}
+
+function played(s: GameState, seat: Seat, cardId: number) {
+  const card = s.trick.find((p) => p.card.id === cardId)?.card
+  if (!card) return
   const led = s.trick[0].card.suit
   if (card.suit === SPADES) s.spadesBroken = true
   log(s, `${SEAT_NAMES[seat]} ${label(s, card)}`, { seat })

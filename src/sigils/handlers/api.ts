@@ -16,6 +16,7 @@ export const WINDOW_SCOPES = {
   bid: 'seat', // data.bid
   afterBidding: 'all',
   trickStart: 'all', // data.trick (1-based): checkpoints such as the tenth trick
+  playing: 'seat', // cardId; your card is entering the trick: change its rank or suit here
   played: 'seat', // cardId; you played a card
   led: 'seat', // cardId; you led
   offSuit: 'seat', // cardId; you played a card that doesn't match the suit led (trumps included)
@@ -201,6 +202,10 @@ export interface Ctx {
   pass(from: Seat, to: Seat, cards: Card[]): void
   swap(a: Seat, aCards: Card[], b: Seat, bCards: Card[]): void
   reveal(card: Card): void
+  /** Let `seat` know where these cards are; the human seat also sees them listed. */
+  showTo(seat: Seat, cards: Card[]): void
+  /** Return one of the controller's played cards from this round's tricks to their hand. */
+  pickUp(card: Card): void
   /** Mark this sigil's activation public (engraving shown, tray chip revealed). */
   show(): void
   engrave(card: Card, code: string, copyOf?: string): void

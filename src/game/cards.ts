@@ -50,6 +50,10 @@ export interface Card {
   created?: boolean
   /** Arrived through a pass or swap. */
   received?: boolean
+  /** Seats that know where this card is (passes, swaps, Shared Map). */
+  knownTo?: Seat[]
+  /** A history display copy of a card picked back up (Masked Encore). */
+  returned?: boolean
 }
 
 /** What the UI and the AI see of a card: its effective values. */

@@ -23,8 +23,7 @@
   ],
   "text": "When you play this card, choose its rank.",
   "timing": "When played",
-  "prototype": "manual",
-  "prototypeNote": "As you play this card, use Edit card to set its rank.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you play this card",

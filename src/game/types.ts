@@ -40,6 +40,8 @@ export interface PlayerState {
   gold: number
   /** In purchase order, which is the timestamp order. */
   sigils: OwnedSigil[]
+  /** Cards the next deal puts in this seat's hand (Tailored Shirt, Saved Hard Drive). */
+  carry?: { suit: Suit; rank: number }[]
 }
 
 export type LedgerKind = 'contract' | 'multiplier' | 'nil' | 'gold' | 'points' | 'bags'
@@ -162,6 +164,7 @@ export type Step =
   | { kind: 'afterBidding' }
   | { kind: 'startPlay' }
   | { kind: 'startTrick' }
+  | { kind: 'played'; seat: Seat; cardId: number }
   | { kind: 'advancePlay' }
   | { kind: 'resolveTrick' }
   | { kind: 'endTrick' }

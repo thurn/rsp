@@ -374,4 +374,16 @@ export const handlers: HandlerMap = {
       },
     },
   },
+  // Twin Cherries: When you play this card, the next time another of your sigils triggers, it
+  // triggers twice. The engine repeats the next trigger that changes anything this round.
+  'OR-U01': {
+    on: {
+      played: (ctx) => {
+        if (!ctx.isEventCard) return
+        const key = `OR-U01:${ctx.seat}`
+        ctx.setFlag(key, ((ctx.state.flags[key] as number | undefined) ?? 0) + 1)
+        ctx.note('next trigger doubles')
+      },
+    },
+  },
 }

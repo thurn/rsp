@@ -23,8 +23,7 @@
   ],
   "text": "Before bidding, this sigil copies another chosen sigil you own.",
   "timing": "Before bidding",
-  "prototype": "manual",
-  "prototypeNote": "Before bidding, use Engrave to add a copy of the chosen sigil to this card.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before bidding",

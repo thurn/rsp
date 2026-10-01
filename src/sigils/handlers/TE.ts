@@ -3,6 +3,7 @@ import { passCards } from '../../game/core'
 import { BLIND_NIL, type GameEvent, isNil } from '../../game/types'
 import { getSigil } from '../registry'
 import type { Ctx, HandlerMap } from './api'
+import { COPIERS, bestCopy, copyForRound, nameOf } from './GY'
 import * as ai from './ai'
 
 const lowest = (ctx: Ctx, cards: Card[]) =>
@@ -445,6 +446,62 @@ export const handlers: HandlerMap = {
           pick(ctx.partner),
         )
         ctx.swap(ctx.seat, give, ctx.partner, get)
+      },
+    },
+  },
+  // Spare Key: Before bidding, this sigil copies a chosen common or uncommon sigil your partner
+  // owns. Chosen at the deal, so the copy hears the blind window onward.
+  'TE-U01': {
+    on: {
+      afterDeal: (ctx) => {
+        const rarities = ['Common', 'Uncommon']
+        const codes = ctx.state.players[ctx.partner].sigils
+          .map((o) => o.code)
+          .filter((c) => !COPIERS.has(c) && rarities.includes(getSigil(c)?.rarity ?? ''))
+        if (codes.length === 0) return
+        const i = ctx.choose('Copy which sigil?', codes.map(nameOf), () => bestCopy(codes))
+        copyForRound(ctx, codes[i])
+      },
+    },
+  },
+  // Shared Map: Before bidding, you and your partner reveal two chosen cards to each other.
+  'TE-C03': {
+    on: {
+      beforeBidding: (ctx) => {
+        const show = (seat: Seat) =>
+          ai.chooseCards(ctx, seat, 'Show your partner which card?', ctx.hand(seat), 2, (left) =>
+            highest(ctx, left),
+          )
+        const mine = show(ctx.seat)
+        const theirs = show(ctx.partner)
+        ctx.showTo(ctx.partner, mine)
+        ctx.showTo(ctx.seat, theirs)
+      },
+    },
+  },
+  // Masked Encore: When you play this card, you may pick up another card you've previously played
+  // this round.
+  'TE-U11': {
+    on: {
+      played: (ctx) => {
+        if (!ctx.isEventCard) return
+        const s = ctx.state
+        const mine = s.history.flatMap((t) =>
+          t.plays.filter((p) => p.seat === ctx.seat && !p.card.returned).map((p) => p.card),
+        )
+        const pick = (cards: Card[]) => {
+          const bid = ctx.bid() ?? 0
+          if (ai.plansNil(ctx) || s.tricksWon[ctx.seat] >= bid) return null
+          const won = s.history
+            .map((t) => t.plays[t.winIndex].card)
+            .filter((c) => cards.includes(c))
+          const encore = cards.filter((c) =>
+            c.sigils.some((e) => getSigil(e.copyOf ?? e.code)?.timing?.startsWith('When played')),
+          )
+          return won.length ? highest(ctx, won) : (encore[0] ?? null)
+        }
+        const card = ctx.chooseCard(ctx.seat, 'Pick up which card?', mine, pick, true)
+        if (card) ctx.pickUp(card)
       },
     },
   },

@@ -8,6 +8,7 @@ import {
   SPADES,
   SUITS,
   SUIT_SYMBOLS,
+  rankLabel,
   viewLabel,
 } from '../../game/cards'
 import { type OwnedSigil, isNil } from '../../game/types'
@@ -21,16 +22,17 @@ const lowest = (ctx: Ctx, cards: Card[]) =>
   cards.reduce((a, b) => (ctx.rank(b) < ctx.rank(a) ? b : a))
 const highest = (ctx: Ctx, cards: Card[]) =>
   cards.reduce((a, b) => (ctx.rank(b) > ctx.rank(a) ? b : a))
+const RANK_LABELS = Array.from({ length: 13 }, (_, i) => rankLabel(i + 2))
 const randomRank = (ctx: Ctx) => 2 + Math.floor(ctx.rand() * 13)
 const randomSuit = (ctx: Ctx) => SUITS[Math.floor(ctx.rand() * 4)]
-const nameOf = (code: string) => getSigil(code)?.name ?? code
+export const nameOf = (code: string) => getSigil(code)?.name ?? code
 
 /** Colors in a collection, by each sigil's own code. */
 const colors = (sigils: OwnedSigil[]) =>
   new Set(sigils.flatMap((o) => getSigil(o.code)?.resonances ?? []))
 
 /** Sigils that copy other sigils, which Matching Mugs can't copy. */
-const COPIERS = new Set(['GY-R03', 'GY-U06', 'GY-U07', 'TE-U01'])
+export const COPIERS = new Set(['GY-R03', 'GY-U06', 'GY-U07', 'TE-U01'])
 
 /** A sigil only works at the shop or when sold. */
 const shopOnly = (code: string) => /^(Shop tools|Selling)/.test(getSigil(code)?.family ?? '')
@@ -41,7 +43,7 @@ const copyValue = (code: string) => {
   if (HANDLERS[code]?.score) return 3
   return isEngraving(code) ? 2 : 1
 }
-const bestCopy = (codes: string[]) =>
+export const bestCopy = (codes: string[]) =>
   codes.reduce(
     (best, c, i) =>
       copyValue(c) > copyValue(codes[best]) ||
@@ -51,6 +53,16 @@ const bestCopy = (codes: string[]) =>
         : best,
     0,
   )
+
+/** Copies `code` for the round; a copied Engraving sigil goes on a face card when it can. */
+export function copyForRound(ctx: Ctx, code: string) {
+  ctx.setCopyOf(code)
+  ctx.sigil!.roundCopy = true
+  if (!isEngraving(code)) return
+  const free = ctx.hand().filter((c) => c.sigils.length === 0)
+  const card = ctx.pick(free.filter((c) => c.base >= JACK)) ?? ctx.pick(free)
+  if (card) ctx.engrave(card, ctx.source, code)
+}
 
 const payCounter = (ctx: Ctx) => {
   const n = ctx.sigil?.counter ?? 0
@@ -451,13 +463,8 @@ export const handlers: HandlerMap = {
         if (!o) return
         const code = o.copyOf ?? o.code
         o.revealed = true
-        ctx.setCopyOf(code)
-        ctx.sigil!.roundCopy = true
         ctx.note(nameOf(code))
-        if (!isEngraving(code)) return
-        const free = ctx.hand().filter((c) => c.sigils.length === 0)
-        const card = ctx.pick(free.filter((c) => c.base >= JACK)) ?? ctx.pick(free)
-        if (card) ctx.engrave(card, ctx.source, code)
+        copyForRound(ctx, code)
       },
     },
   },
@@ -570,6 +577,94 @@ export const handlers: HandlerMap = {
           ai.plansNil(ctx) ? null : ai.lowest(ctx, spades.length ? spades : ai.longestSuit(hand))
         const card = ctx.chooseCard(ctx.seat, 'Make which card an ace?', hand, pick, true)
         if (card) ctx.setRank(card, ACE)
+      },
+    },
+  },
+  // Tailored Shirt: At each shop, you may pay 30 gold to choose a card. That card starts in your
+  // hand next round.
+  'GY-C13': {
+    on: {
+      shopLeave: (ctx) => {
+        const p = ctx.state.players[ctx.seat]
+        if (p.gold < 30) return
+        const want = () => ctx.state.round + 1 >= 6 || p.gold - 30 > 150
+        if (!ctx.confirm('Pay 30 for a card?', want, ctx.seat, ['Pay', 'Skip'])) return
+        const suit = ctx.choose('Which suit?', [...SUIT_SYMBOLS], () => SPADES) as Suit
+        const r = ctx.choose('Which rank?', RANK_LABELS, () => ACE - 2) + 2
+        ctx.gainGold(-30)
+        p.carry = [...(p.carry ?? []), { suit, rank: r }]
+        ctx.tell(ctx.seat, `Next deal: ${viewLabel({ suit, rank: r })}`)
+      },
+    },
+  },
+  // Saved Hard Drive: After scoring, choose a card you won a trick with this round. That card
+  // starts in your hand next round.
+  'GY-U10': {
+    on: {
+      afterScoring: (ctx) => {
+        const won = ctx.state.history
+          .map((t) => t.plays[t.winIndex])
+          .filter((p) => p.seat === ctx.seat && !p.card.returned)
+          .map((p) => p.card)
+        const pick = (cards: Card[]) => {
+          const spades = cards.filter((c) => c.suit === SPADES)
+          return (spades.length ? spades : cards).reduce((a, b) => (b.base > a.base ? b : a))
+        }
+        const card = ctx.chooseCard(ctx.seat, 'Keep which card?', won, pick)
+        if (!card) return
+        const p = ctx.state.players[ctx.seat]
+        p.carry = [...(p.carry ?? []), { suit: card.suit, rank: card.base }]
+        ctx.note('keeps a card')
+      },
+    },
+  },
+  // Trade-In Box: At each shop, you may exchange one of your sigils with one of the offered sigils.
+  // It acts as you press Done, so it sees the offers after rerolls and purchases.
+  'GY-R01': {
+    on: {
+      shopLeave: (ctx) => {
+        const s = ctx.state
+        const shop = s.shop?.seats[ctx.seat]
+        const p = s.players[ctx.seat]
+        const mine = p.sigils.filter((o) => o.code !== ctx.source)
+        if (!shop || shop.offers.length === 0 || mine.length === 0) return
+        const price = (c: string) => getSigil(c)?.price ?? 0
+        const offers = shop.offers
+        const usable = offers.filter((c) => ctx.seat === s.human || isAutomated(c))
+        const worst = mine.reduce((a, b) => (price(b.code) < price(a.code) ? b : a))
+        const best = usable.reduce<string | null>(
+          (a, b) => (!a || price(b) > price(a) ? b : a),
+          null,
+        )
+        const trade = best !== null && price(best) >= price(worst.code) + 30
+        const labels = [...mine.map((o) => nameOf(o.code)), 'Skip']
+        const i = ctx.choose('Trade in which sigil?', labels, () =>
+          trade ? mine.indexOf(worst) : mine.length,
+        )
+        if (i >= mine.length) return
+        const j = ctx.choose('Take which offer?', offers.map(nameOf), () =>
+          Math.max(0, offers.indexOf(best ?? '')),
+        )
+        const give = mine[i].code
+        const take = offers[j]
+        p.sigils = p.sigils.filter((o) => o.code !== give)
+        p.sigils.push({ code: take, boughtRound: s.round, counter: 0, sellBonus: 0 })
+        shop.offers = offers.map((c) => (c === take ? give : c))
+        ctx.note(`${nameOf(give)} for ${nameOf(take)}`)
+      },
+    },
+  },
+  // Forger's Brush: Before bidding, this sigil copies another chosen sigil you own. Chosen at the
+  // deal, so the copy hears the blind window onward.
+  'GY-R03': {
+    on: {
+      afterDeal: (ctx) => {
+        const codes = ctx.state.players[ctx.owner].sigils
+          .map((o) => o.code)
+          .filter((c) => c !== ctx.source && !COPIERS.has(c))
+        if (codes.length === 0) return
+        const i = ctx.choose('Copy which sigil?', codes.map(nameOf), () => bestCopy(codes))
+        copyForRound(ctx, codes[i])
       },
     },
   },

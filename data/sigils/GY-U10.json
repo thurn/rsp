@@ -23,8 +23,7 @@
   ],
   "text": "After scoring, choose a card you won a trick with this round. That card starts in your hand next round.",
   "timing": "After scoring",
-  "prototype": "manual",
-  "prototypeNote": "After scoring, note a card that won you a trick; after the next deal, use Move card to swap that card into your hand for a random card of yours.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after scoring",

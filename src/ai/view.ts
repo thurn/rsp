@@ -51,7 +51,10 @@ export function viewFor(s: GameState, seat: Seat): AIView {
   for (const t of [...s.history.map((h) => h.plays), s.trick]) {
     if (t.length === 0) continue
     const led = t[0].card.suit
-    for (const p of t) if (p.card.suit !== led) voids[p.seat][led] = true
+    // Faithful Dog names its own suit, so it shows nothing about voids.
+    const dog = (c: GameState['hands'][number][number]) =>
+      c.sigils.some((e) => (e.copyOf ?? e.code) === 'GR-C04')
+    for (const p of t) if (p.card.suit !== led && !dog(p.card)) voids[p.seat][led] = true
   }
   const tr = trickRules(s, [])
   return {

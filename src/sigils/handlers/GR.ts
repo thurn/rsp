@@ -1,4 +1,13 @@
-import { type Card, type Suit, CLUBS, DIAMONDS, HEARTS, SPADES, SUITS } from '../../game/cards'
+import {
+  type Card,
+  type Suit,
+  CLUBS,
+  DIAMONDS,
+  HEARTS,
+  SPADES,
+  SUITS,
+  SUIT_SYMBOLS,
+} from '../../game/cards'
 import { type GameEvent, isNil } from '../../game/types'
 import type { Ctx, HandlerMap } from './api'
 import * as ai from './ai'
@@ -363,6 +372,23 @@ export const handlers: HandlerMap = {
         }
         const card = ctx.chooseCard(ctx.seat, 'Make which card a ♠?', side, pick)
         if (card) ctx.setSuit(card, SPADES)
+      },
+    },
+  },
+  // Faithful Dog: This card counts as all suits. It is always a legal play, and its holder names
+  // its suit as it enters the trick.
+  'GR-C04': {
+    legal: (ctx, q) => {
+      if (ctx.card && ctx.inHand && ctx.seat === q.seat) q.allow.add(ctx.card.id)
+    },
+    on: {
+      playing: (ctx) => {
+        const card = ctx.card
+        if (!ctx.isEventCard || !card) return
+        const first = ctx.state.trick[0].card
+        const want = () => (first === card ? card.suit : first.suit)
+        const suit = ctx.choose('Count it as which suit?', [...SUIT_SYMBOLS], want) as Suit
+        if (suit !== card.suit) ctx.setSuit(card, suit)
       },
     },
   },

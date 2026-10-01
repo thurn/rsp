@@ -65,6 +65,15 @@ Updated at the end of each phase of [prototype-plan.md](prototype-plan.md).
   - Spendthrift's Wallet offers 0, 25, 50, 75, or 100 gold, capped by the gold held.
   - Turning Tide, Waning Moon, Rosy Champagne, and Spare Moustache pick their two cards one prompt at a time.
   - Prompt AI answers share `src/sigils/handlers/ai.ts` (`plansNil`, `estimate`, suit-length helpers, `chooseCards`). Rosy Champagne's and Two-Way Street's `aiNote` texts were rewritten to match their answers.
+- Full automation (hv-frfo.3), the 11 sigils that needed engine mechanisms:
+  - Faithful Dog is always a legal play. Its holder names its suit as it enters the trick, and play events use that suit. AI void inference skips plays of a card engraved with Faithful Dog.
+  - Trade-In Box and Tailored Shirt act on `shopLeave` (pressing Done), so they see the offers after rerolls and purchases. A trade is an exchange: one log line and no shop events. Trade-In Box can't trade itself.
+  - Saved Hard Drive and Tailored Shirt carry a suit and base rank. The next deal gives the card with that suit and rank to the seat in exchange for a random card of theirs; a contested card goes to the first seat clockwise from the dealer's left.
+  - Forger's Brush and Spare Key choose at `afterDeal`, which is before bidding. The copy works from the `blind` window onward, and its `deal` and `afterDeal` effects only start in a round it is already copying, as with Tracing Pencil. Copies last the round.
+  - Falling Star and Fickle Storm lower a card's rank when they make it a lower rank, so `rankLoss` payoffs fire.
+  - Twin Cherries doubles the owner's next triggered sigil that changes state, including score hooks, and expires at the end of the round. Twin Cherries never doubles itself or a copy of itself (Surprise Takeaway can engrave one).
+  - Masked Encore returns the card to the hand; its trick still counts, and the trick record shows a faded copy.
+  - Open Book now uses `showTo`, so AI seats know their partner's hand too.
 
 ## New `RoundFlags` fields and `Ctx` primitives
 
@@ -76,6 +85,7 @@ Added by the main agent while building the engine (phase 4):
 - Phase 6 (GY): `OwnedSigil.roundCopy` lets Tracing Pencil's copy clear itself in `finishRound`.
 - Phase 6 (GR, PU): Mauling Bear and Borrowed Umbrella keep per-owner state in `RoundFlags` under keys like `GR-U03:<owner>`, through the existing index signature, rather than adding named fields.
 - Phase 6 (OR, TE): `OR.ts` imports `emit` from `game/core` and `TE.ts` imports `passCards`, for Unopened Gift's bid event and Spinning Globe's simultaneous passes.
+- hv-frfo.3: the `playing` window (seat scope), the `played` step, `Card.knownTo` with `Ctx.showTo`, `Card.returned` with `Ctx.pickUp`, `PlayerState.carry`, and Twin Cherries' doubling through `runTask`'s touched result and `takeDouble` in `core.ts`.
 - Windows beyond the plan's table: `deal`, `afterDeal`, `blind`, `trickStart`, `trump`, `anyPlayed`, `afterTrick`, `rankLoss`, `buy`.
 
 ## Downgraded sigils
@@ -153,6 +163,8 @@ Recorded for later:
 | --- | --- | --- |
 | hv-frfo.2 | 21 sigils, `--plain --give` in two batches, 13 rounds, AI seats and `--human 0` | Every sigil fired; 0 errors, runaway drains, and stalls |
 | hv-frfo.2 | `--all-sigils --iterations 100`, with and without `--human 0` | 24 games each; 0 errors, runaway drains, and stalls; 344 and 257 `manual` lines from the 11 sigils still manual |
+| hv-frfo.3 | 11 sigils, `--plain --give` 13 rounds, AI seats and `--human 0`; Trade-In Box with `--random-sigils 4` | Every sigil fired; 0 errors, runaway drains, and stalls |
+| hv-frfo.3 | `--all-sigils` at seeds 1–3, with and without `--human 0` | 0 errors, 0 `manual` lines, 0 runaway drains, 0 stalls; a first run found Twin Cherries doubling its own Surprise Takeaway copy forever, now fixed |
 
 ## Action items
 

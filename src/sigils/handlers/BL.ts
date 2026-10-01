@@ -7,6 +7,7 @@ import {
   SUIT_SYMBOLS,
   rankLabel,
 } from '../../game/cards'
+import { winningIndex } from '../../game/rules'
 import { isNil } from '../../game/types'
 import type { Ctx, HandlerMap } from './api'
 import * as ai from './ai'
@@ -24,18 +25,6 @@ const sureTricks = (ctx: Ctx) =>
 /** The tricks your own cards have won so far this round. */
 const winsBy = (ctx: Ctx, seat: Seat) =>
   ctx.state.history.filter((t) => t.plays[t.winIndex].seat === seat)
-/** A hand as "♠AK7 ♥Q9 …", high to low within each suit. */
-const handText = (ctx: Ctx, cards: Card[]) =>
-  ([3, 2, 0, 1] as Suit[])
-    .map((suit) => {
-      const ranks = cards
-        .filter((c) => c.suit === suit)
-        .map((c) => ctx.rank(c))
-        .sort((a, b) => b - a)
-      return ranks.length ? SUIT_SYMBOLS[suit] + ranks.map(rankLabel).join('') : ''
-    })
-    .filter(Boolean)
-    .join(' ')
 
 export const handlers: HandlerMap = {
   // Scout's Binoculars: Before bidding, reveal two random cards in each opponent's hand.
@@ -156,7 +145,7 @@ export const handlers: HandlerMap = {
   // Open Book: After bidding, your partner reveals their hand to you.
   'BL-C14': {
     on: {
-      afterBidding: (ctx) => ctx.tell(ctx.seat, handText(ctx, ctx.hand(ctx.partner))),
+      afterBidding: (ctx) => ctx.showTo(ctx.seat, ctx.hand(ctx.partner)),
     },
   },
   // Armistice News: When this card loses a trick won by trumping, opponents can't win a trick
@@ -346,6 +335,45 @@ export const handlers: HandlerMap = {
         if (!card) return
         const up = ctx.choose('Raise or lower?', ['Raise', 'Lower'], () => (nil ? 1 : 0)) === 0
         ctx.modRank(card, up ? 3 : -3)
+      },
+    },
+  },
+  // Falling Star: You may play your aces as twos. Asked as the ace enters the trick.
+  'BL-C03': {
+    on: {
+      playing: (ctx, e) => {
+        const card = ctx.findCard(e.cardId!)
+        if (!card || ctx.rank(card) !== ACE) return
+        const s = ctx.state
+        const want = () => {
+          if (ai.plansNil(ctx)) return true
+          const bid = ctx.bid() ?? 0
+          if (bid > 0 && s.tricksWon[ctx.seat] >= bid) return true
+          const before = s.trick.filter((p) => p.card !== card)
+          return before.length > 0 && before[winningIndex(s, before)].seat === ctx.partner
+        }
+        if (ctx.confirm('Play it as a two?', want, ctx.seat, ['Two', 'Ace'])) ctx.setRank(card, 2)
+      },
+    },
+  },
+  // Fickle Storm: When you play this card, choose its rank.
+  'BL-C12': {
+    on: {
+      playing: (ctx) => {
+        const card = ctx.card
+        if (!ctx.isEventCard || !card) return
+        const s = ctx.state
+        const want = () => {
+          const led = s.trick[0].card.suit
+          if (ai.plansNil(ctx) || (card.suit !== led && card.suit !== SPADES)) return 0
+          const team = [ctx.seat, ctx.partner].filter((x) => !isNil(ctx.bid(x)))
+          const need = team.reduce<number>((n, x) => n + (ctx.bid(x) ?? 0) - s.tricksWon[x], 0)
+          const trumped = s.trick.some((p) => p.card !== card && p.card.suit === SPADES)
+          return need > 0 && (led === SPADES || !trumped || card.suit === SPADES) ? ACE - 2 : 0
+        }
+        const labels = Array.from({ length: 13 }, (_, i) => rankLabel(i + 2))
+        const r = ctx.choose('Play it as which rank?', labels, want) + 2
+        if (r !== ctx.rank(card)) ctx.setRank(card, r)
       },
     },
   },

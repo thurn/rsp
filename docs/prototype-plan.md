@@ -28,16 +28,16 @@ fields.
 | Prefix | Automated | Manual |
 | --- | --- | --- |
 | RE | 30 | 0 |
-| OR | 29 | 1 |
-| GR | 29 | 1 |
-| BL | 28 | 2 |
-| TE | 27 | 3 |
+| OR | 30 | 0 |
+| GR | 30 | 0 |
+| BL | 30 | 0 |
+| TE | 30 | 0 |
 | PU | 30 | 0 |
-| GY | 46 | 4 |
+| GY | 50 | 0 |
 | DU | 20 | 0 |
-| **Total** | **239** | **11** |
+| **Total** | **250** | **0** |
 
-By category, 63 of the 67 Engraving sigils and 176 of the 183 Ongoing sigils
+By category, 67 of the 67 Engraving sigils and 183 of the 183 Ongoing sigils
 are automated.
 
 ### The line between them

@@ -23,8 +23,7 @@
   ],
   "text": "At each shop, you may exchange one of your sigils with one of the offered sigils.",
   "timing": "At the shop",
-  "prototype": "manual",
-  "prototypeNote": "At the shop, use Collection to swap one of your sigils for an offer, and put your sigil into the offers.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "at shop",

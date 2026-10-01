@@ -18,6 +18,7 @@ import {
   partnerOf,
   seatsFrom,
   teamOf,
+  rankLabel,
   viewLabel,
   SUIT_SYMBOLS,
 } from './cards'
@@ -213,16 +214,17 @@ interface Run {
   touched: boolean
 }
 
-export function runTask(s: GameState, task: Task) {
+/** Runs one queued trigger; returns whether it changed anything. */
+export function runTask(s: GameState, task: Task): boolean {
   const fn = handlerOf(task.effective).on?.[task.window as Window]
-  if (!fn) return
+  if (!fn) return false
   let card: Card | null = null
   let seat = task.seat
   let inHand = false
   if (task.cardId !== undefined) {
     card = findCard(s, task.cardId) ?? null
     const eng = card?.sigils.find((e) => e.code === task.code)
-    if (!card || !eng || eng.disabled) return
+    if (!card || !eng || eng.disabled) return false
     const loc = locate(s, card.id)
     if (loc) {
       seat = loc.seat
@@ -241,6 +243,17 @@ export function runTask(s: GameState, task: Task) {
   }
   fn(new SigilCtx(s, inst, run, task.event), task.event)
   if (run.touched) markTriggered(s, inst, task.event.id)
+  return run.touched
+}
+
+/** Twin Cherries: uses up one pending doubling for the owner, unless the trigger is a Twin
+ * Cherries (or a copy of one). */
+export function takeDouble(s: GameState, t: { owner: Seat; code: string; effective: string }) {
+  const key = `OR-U01:${t.owner}`
+  const n = (s.flags[key] as number | undefined) ?? 0
+  if (n <= 0 || t.code === 'OR-U01' || t.effective === 'OR-U01') return false
+  s.flags[key] = n - 1
+  return true
 }
 
 export function pulseKey(inst: { owner: Seat; code: string; card: Card | null }): string {
@@ -261,7 +274,11 @@ export function runHook(s: GameState, inst: Instance, fn: (ctx: SigilCtx) => voi
   }
   const run: Run = { task, answerIdx: 0, rollIdx: 0, touched: false }
   fn(new SigilCtx(s, inst, run))
-  if (run.touched) markTriggered(s, inst, newId(s))
+  if (!run.touched) return
+  markTriggered(s, inst, newId(s))
+  if (takeDouble(s, inst)) {
+    fn(new SigilCtx(s, inst, { task, answerIdx: 0, rollIdx: 0, touched: false }))
+  }
 }
 
 function markTriggered(s: GameState, inst: Instance, eventId: number) {
@@ -513,6 +530,27 @@ export class SigilCtx implements Ctx {
   show() {
     this.touch()
   }
+  showTo(seat: Seat, cards: Card[]) {
+    if (cards.length === 0) return
+    this.touch()
+    for (const c of cards) if (!c.knownTo?.includes(seat)) c.knownTo = [...(c.knownTo ?? []), seat]
+    const holder = locate(this.state, cards[0].id)?.seat
+    const who = holder === undefined ? '' : `${SEAT_NAMES[holder]}: `
+    this.tell(seat, who + cardsText(this.state, cards))
+  }
+  pickUp(card: Card) {
+    const s = this.state
+    for (const t of s.history) {
+      const play = t.plays.find((p) => p.card.id === card.id && p.seat === this.seat)
+      if (!play) continue
+      this.touch()
+      play.card = { ...card, id: newId(s), sigils: [], returned: true }
+      card.slot = nextSlot(s, this.seat)
+      s.hands[this.seat].push(card)
+      this.logLine(`${label(s, card)} back to hand`)
+      return
+    }
+  }
   engrave(card: Card, code: string, copyOf?: string) {
     this.touch()
     card.sigils.push({ code, owner: this.owner, ...(copyOf ? { copyOf } : {}) })
@@ -685,6 +723,20 @@ export function rankLoss(s: GameState, card: Card, amount: number) {
   if (loc) emit(s, 'rankLoss', { seat: loc.seat, cardId: card.id, data: { amount } })
 }
 
+/** Cards as "♠AK7 ♥Q9", high to low within each suit. */
+export function cardsText(s: GameState, cards: Card[]): string {
+  return [3, 2, 0, 1]
+    .map((suit) => {
+      const ranks = cards
+        .filter((c) => c.suit === suit)
+        .map((c) => rank(s, c))
+        .sort((x, y) => y - x)
+      return ranks.length ? SUIT_SYMBOLS[suit] + ranks.map(rankLabel).join('') : ''
+    })
+    .filter(Boolean)
+    .join(' ')
+}
+
 function describeMove(s: GameState, from: Seat, to: Seat, cards: Card[]) {
   const shown = s.human === null || from === s.human || to === s.human
   return shown ? cards.map((c) => label(s, c)).join(' ') : `${cards.length}`
@@ -698,6 +750,7 @@ export function passCards(s: GameState, from: Seat, to: Seat, cards: Card[]) {
   for (const c of moving) {
     c.slot = nextSlot(s, to)
     c.received = true
+    c.knownTo = [from]
     s.hands[to].push(c)
   }
   log(s, `${SEAT_NAMES[from]} → ${SEAT_NAMES[to]} ${describeMove(s, from, to, moving)}`)
@@ -720,6 +773,7 @@ export function swapCards(s: GameState, a: Seat, aCards: Card[], b: Seat, bCards
     incoming.forEach((c, i) => {
       c.slot = vacated[i]?.slot ?? nextSlot(s, seat)
       c.received = true
+      c.knownTo = [seat === a ? b : a]
       s.hands[seat].push(c)
     })
   }

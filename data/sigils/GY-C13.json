@@ -23,8 +23,7 @@
   ],
   "text": "At each shop, you may pay 30 gold to choose a card. That card starts in your hand next round.",
   "timing": "At the shop",
-  "prototype": "manual",
-  "prototypeNote": "At the shop, use Ledger to pay 30 gold; after the next deal, use Move card to swap the chosen card into your hand for a random card of yours.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "at shop",
