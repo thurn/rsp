@@ -38,5 +38,6 @@
   "opponent": "Visible swap; the trick's result stands, but the winning card now sits in your hand and can beat them later.",
   "aiNote": "Play this card under an ace or high trump when you must lose anyway, then swap your lowest card for the winner unless you are on nil.",
   "rationale": "Recursion that fires once, with one choice: a lost trick turns into a future winner, a heart that won comes back for Heart Chorus, and an Exact Contractor gains a card it can choose to win with; a random card loses about 75% of the time, and the swap costs a card, which suits a 50-gold common.",
-  "deviation": "Trigger moved from \"whenever you discard\" to this card losing, and the target from your earlier cards to the trick's winner, because GY-C12's brief already swaps on every discard and a repeating swap adds a choice every discard."
+  "deviation": "Trigger moved from \"whenever you discard\" to this card losing, and the target from your earlier cards to the trick's winner, because GY-C12's brief already swaps on every discard and a repeating swap adds a choice every discard.",
+  "notes": "too complicated for common."
 }

@@ -37,5 +37,6 @@
   "decision": "For you, covering aggressively so your nil partner gets more chances to shed; for your partner, which danger card to hand over after each of your wins.",
   "opponent": "Visible pass between tricks; opponents watch the nil hand shrink and the guard's hand grow, and answer by leading low early, before the guard has won anything.",
   "aiNote": "As the nil partner, pass the highest card of your shortest non-spade suit, or your highest spade if you hold no side-suit danger.",
-  "rationale": "The nil bidder knows its own danger cards, so it picks, and the guard wins about four tricks in a nil round, so a nil hand sheds its worst cards as the round unfolds, raising success from about 90% (after Sheltering Castle) toward 97% and feeding the guard high cards for its solo contract; bags from the extra cards are the brake."
+  "rationale": "The nil bidder knows its own danger cards, so it picks, and the guard wins about four tricks in a nil round, so a nil hand sheds its worst cards as the round unfolds, raising success from about 90% (after Sheltering Castle) toward 97% and feeding the guard high cards for its solo contract; bags from the extra cards are the brake.",
+  "notes": "too strong maybe? once per round restriction?"
 }
