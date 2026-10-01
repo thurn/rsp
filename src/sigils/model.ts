@@ -11,6 +11,8 @@ export type Sigil = {
   name: string
   resonances: string[]
   rarity: string
+  /** Engraving sigils sit on a card and say "this card"; Ongoing sigils work for their owner all round. */
+  category: Category
   price: number
   wave: number
   icon: string
@@ -37,6 +39,8 @@ export type Sigil = {
 
 export const RESONANCES = ['Red', 'Orange', 'Green', 'Blue', 'Teal', 'Purple', 'Gray'] as const
 export const RARITIES = ['Common', 'Uncommon', 'Rare'] as const
+export const CATEGORIES = ['Ongoing', 'Engraving'] as const
+export type Category = (typeof CATEGORIES)[number]
 export const PROTOTYPES = ['automated', 'manual'] as const
 export type Prototype = (typeof PROTOTYPES)[number]
 

@@ -5,6 +5,7 @@
     "Purple"
   ],
   "rarity": "Common",
+  "category": "Ongoing",
   "price": 50,
   "wave": 2,
   "icon": "spray-can",
@@ -33,7 +34,7 @@
     }
   ],
   "archetypes": "Spade Master, Diamond Flood (splash); Discard Dominance",
-  "family": "Voids, singletons, and long suits / Ongoing",
+  "family": "Voids, singletons, and long suits / Per trick",
   "role": "Payoff (Contract additive)",
   "decision": "Which side suits to empty early so later tricks become off-suit plays, and whether to trump or discard once void.",
   "opponent": "Visible on trigger; opponents answer by leading suits you still hold.",

@@ -3,8 +3,8 @@
 Rogue Spades is partnership Spades with a persistent collection of **sigils**
 that changes what a freshly dealt hand can do. Win tricks to make your bid, earn
 partnership points, and use individual gold to buy sigils between rounds. Your
-sigil collection persists through the run; the cards carrying it change every
-round.
+sigil collection persists through the run. **Ongoing** sigils work for you all
+round, and **Engraving** sigils sit on cards that change every round.
 
 ## 1. The table, the run, and victory
 
@@ -44,8 +44,8 @@ maximum and avoids awarding victory according to score-processing order.
 - **Deal and engrave.** Build the round's deck from the standard 52 cards plus
   any sigil changes, shuffle it, and deal every card one at a time clockwise,
   starting left of the dealer. A deck larger or smaller than 52 cards leaves
-  hands uneven (see §3). Assign each owned sigil to one card. Apply intrinsic rank and suit
-  modifiers. Players inspect their hands; a blind-nil bidder's commitment is
+  hands uneven (see §3). Engrave each owned Engraving sigil on one card.
+  Apply intrinsic rank and suit modifiers. Players inspect their hands; a blind-nil bidder's commitment is
   already locked.
 - **Before bidding.** Resolve effects explicitly scheduled before bidding,
   including global rules and pre-bid exchanges. Players can account for these
@@ -305,11 +305,26 @@ another meaningful purchase are usually poor investments.
 
 ## 6. Sigils and their rules
 
+### Ongoing and Engraving sigils
+
+Every sigil belongs to one of two categories:
+
+- **Ongoing** sigils stay in their owner's collection and work for that owner
+  all round: "Whenever you win a trick, gain +5 contract value." "You" in an
+  Ongoing sigil always means its owner.
+- **Engraving** sigils are placed on a card at each deal, and their rules text
+  says "this card": "When this card wins a trick, gain +25 contract value."
+  "You" in an Engraving sigil means whoever holds the card.
+
+The rules text decides the category: a sigil whose text says "this card" is an
+Engraving sigil, and every other sigil is Ongoing.
+
 ### Engraving and persistence
 
-Every round, each owned sigil is engraved on one card in its owner's newly dealt
-hand. A card has **at most one engraving** at the deal. A sigil with **Affinity** prefers a
-particular rank or suit when possible; remaining placements are random.
+Every round, each owned Engraving sigil is engraved on one card in its owner's
+newly dealt hand. A card has **at most one engraving** at the deal. An
+Engraving sigil with **Affinity** prefers a particular rank or suit when
+possible; remaining placements are random.
 
 **Placement procedure:** place affinity sigils first, randomizing order where
 they compete for eligible cards, then assign other sigils to remaining cards.
@@ -326,14 +341,14 @@ Card changes, temporary effects, and transferred cards reset after the round.
 Purchased sigils return to their permanent owners' collections for the next
 deal. Every round starts again from the standard 52 cards, and sigils that add
 or remove cards reapply their changes to each round's deck. Growth across a run
-lives on sigils: a sigil can change itself between rounds, and the cards it is
-engraved on stay fresh each deal.
+lives on sigils: a sigil can change itself between rounds, and the cards
+Engraving sigils sit on stay fresh each deal.
 
 ### Effect types and timing
 
 | Type | What it does | Example window |
 | --- | --- | --- |
-| Intrinsic card modifier | Changes the engraved card's rank or suit | After engraving, before inspection and bidding |
+| Intrinsic card modifier | Changes the rank or suit of an Engraving sigil's card | After engraving, before inspection and bidding |
 | Before-bidding reveal | Establishes information, a rule, or a preparation effect | Before ordinary bids |
 | Bid reveal | Changes a bid or its eventual value | When its controller bids |
 | Start-of-play reveal | Changes the round after commitments | After all bids and scheduled exchanges |
@@ -348,13 +363,13 @@ engraved on stay fresh each deal.
 [rules-text.md](rules-text.md) lists every timing window with its standard
 opening, and each window belongs to one of these types.
 
-Every sigil effect is triggered or ongoing, and each resolves in its stated
+Every sigil effect is triggered or always on, and each resolves in its stated
 window. Players make choices only as part of a resolving effect, such as a
 trigger that says "you may."
 
-**Triggered** effects happen when their conditions occur. **Ongoing** effects
-continually modify applicable rules during their stated lifetime. Ongoing does
-not mean permanent across rounds: a while-held aura ends when played, whereas a
+**Triggered** effects happen when their conditions occur. **Always-on** effects
+continually modify applicable rules during their stated lifetime. Always on
+does not mean permanent across rounds: a while-held aura ends when played, whereas a
 “for this round” reveal survives its source card leaving the hand.
 
 Additional conditions can reference the led suit, trick position, partnership
@@ -373,9 +388,10 @@ Unless a sigil says otherwise, each participant selects the card they
 contribute. Selection does not give permission to inspect the other hand. A
 required exchange cannot occur when a participant lacks enough remaining cards.
 
-**Ownership:** the engraving travels with the passed card. The new holder
-controls future card-bound effects; “you” means that controller, including for
-harmful effects. Permanent collection ownership does not change. An
+**Ownership:** an Engraving sigil travels with the passed card. The new holder
+controls its future effects; “you” means that controller, including for
+harmful effects. Ongoing sigils stay with their owner, and permanent collection
+ownership does not change. An
 already-revealed round effect remains attached to the controller who revealed
 it, and an already-triggered reward keeps its recorded recipient.
 

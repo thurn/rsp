@@ -10,7 +10,12 @@ reference for clarity.
   understands with minimal game knowledge.
 - **One sentence.** A sigil does one thing, stated once. A rare may use two
   sentences.
-- **Ongoing or triggered.** Every sigil is always on, or it triggers at a
+- **Ongoing or Engraving.** A sigil whose effect lives on one card says "this
+  card," which makes it an Engraving sigil, engraved on a card at each deal.
+  Every other sigil is Ongoing and works for its owner all round. Text that
+  ties an effect to a card says "this card" so the category is clear from
+  the text alone.
+- **Always on or triggered.** Every sigil is always on, or it triggers at a
   moment the text names. Choices happen inside a trigger, as in "you may."
   A trigger fires every time its moment comes; a sigil that should fire
   rarely ties itself to a narrow moment, such as "when this card loses a
@@ -82,11 +87,12 @@ reference for clarity.
 ## Sigil layout
 
 ```
-[icon]  Name              Resonance · Rarity · Price
+[icon]  Name              Resonance · Rarity · Category · Price
         Affinity: Kings. Rules text.
 ```
 
-An affinity, when present, opens the rules text in bold.
+The category is Ongoing or Engraving. An affinity, when present, opens an
+Engraving sigil's rules text in bold.
 
 ## Names and icons
 
@@ -148,7 +154,7 @@ rules.
 | At the shop | "At each shop, …" |
 | When sold | "When you sell this sigil, …" |
 
-"This card" always means the card the sigil is engraved on. "Whenever you"
+"This card" always means the card an Engraving sigil is engraved on. "Whenever you"
 triggers watch every trick you play, whichever card you play.
 
 **Throw off** means play a card that neither follows the suit led nor is
@@ -175,20 +181,21 @@ These are the game's own terms, beyond standard Spades vocabulary.
 | **team** | You and your partner. |
 | **gold** | Your personal currency for the shop. |
 | **interest** | Gold you gain after each round for gold you hold: 10 per 50 held, up to 50. |
-| **sigil** | An effect you own for the run, engraved on a card in each new hand. |
+| **sigil** | An effect you own for the run. Each is Ongoing or Engraving. |
+| **Ongoing sigil** | A sigil that works for its owner all round without sitting on a card. Its text never says "this card." |
+| **Engraving sigil** | A sigil engraved on a card in each new hand. Its text says "this card." |
 | **resonance** | A sigil's color: Red, Orange, Green, Blue, Teal, Purple, or Gray. "Gray sigils" means sigils of that resonance. |
 | **create** | Make a card that comes from no hand, such as "create a two of its suit in your hand." A created card is removed after the round. |
 | **beside** | Next to a card in your hand's dealt order. Rearranging your hand doesn't change which cards are beside each other. |
-| **affinity** | The suit, or rank below ace, a sigil prefers to be engraved on. |
+| **affinity** | The suit, or rank below ace, an Engraving sigil prefers to be engraved on. |
 
 Any other invented term is added here before it appears in rules text.
 
 ## Conventions
 
-- **You** means whoever currently holds the card. A card passed to another
-  player brings its effect with it. Effects that never mention "this card"
-  or holding it, such as nil value, shop, and scoring effects, stay with the
-  sigil's owner for the whole round.
+- **You** in an Engraving sigil means whoever currently holds its card, and a
+  card passed to another player brings its effect with it. **You** in an
+  Ongoing sigil means the sigil's owner for the whole round.
 - **Cards** mentioned in rules text are cards in your hand unless the text
   names another place. A card you play still counts as yours until its trick
   ends. The text says who picks them: "two chosen cards" or "two random
@@ -238,20 +245,20 @@ Spades play:
 These examples are real sigils in the pool. Wave 0 of the design process in
 [skeleton.md](skeleton.md) seeds them into their slots.
 
-| # | Name | Icon | Resonance · Rarity | Rules text |
+| # | Name | Icon | Resonance · Rarity · Category | Rules text |
 | --- | --- | --- | --- | --- |
-| 1 | Honed Edge | `sword` | Red · Common | This card gains +3 rank. |
-| 2 | Verdant Banner | `flag` | Green · Common | While this card is in your hand, your hearts gain +2 rank. |
-| 3 | Nest Egg | `egg` | Orange · Common | While this card is in your hand, gain +5 gold after each trick. |
-| 4 | Crown Jewel | `crown` | Red · Common | **Affinity: Spades.** When this card wins a trick, gain +25 contract value. |
-| 5 | Graceful Exit | `door-open` | Purple · Common | Whenever you lose a trick you played a face card to, gain +10 contract value. |
-| 6 | Turning Tide | `water` | Green · Common | Before bidding, convert two chosen cards in your hand to diamonds. |
-| 7 | Open Hand | `hand` | Teal · Common | After bidding, swap a card with your partner. |
-| 8 | True Aim | `target` | Blue · Rare | If your team makes its contract exactly, gain +1× contract multiplier. |
-| 9 | Vigil Candle | `candlestick` | Purple · Common | Gain +30 nil value. |
-| 10 | Sinking Anchor | `anchor` | Purple · Uncommon | After bidding, each opponent's highest card loses 4 rank. |
-| 11 | Masked Encore | `mask` | Teal · Uncommon | When you play this card, you may pick up another card you've previously played this round. |
-| 12 | Loaded Dice | `dice-6` | Gray · Common | Shop rerolls cost 20 gold less. |
+| 1 | Honed Edge | `sword` | Red · Common · Engraving | This card gains +3 rank. |
+| 2 | Verdant Banner | `flag` | Green · Common · Engraving | While this card is in your hand, your hearts gain +2 rank. |
+| 3 | Nest Egg | `egg` | Orange · Common · Engraving | While this card is in your hand, gain +5 gold after each trick. |
+| 4 | Crown Jewel | `crown` | Red · Common · Engraving | **Affinity: Spades.** When this card wins a trick, gain +25 contract value. |
+| 5 | Graceful Exit | `door-open` | Purple · Common · Ongoing | Whenever you lose a trick you played a face card to, gain +10 contract value. |
+| 6 | Turning Tide | `water` | Green · Common · Ongoing | Before bidding, convert two chosen cards in your hand to diamonds. |
+| 7 | Open Hand | `hand` | Teal · Common · Ongoing | After bidding, swap a card with your partner. |
+| 8 | True Aim | `target` | Blue · Rare · Ongoing | If your team makes its contract exactly, gain +1× contract multiplier. |
+| 9 | Vigil Candle | `candlestick` | Purple · Common · Ongoing | Gain +30 nil value. |
+| 10 | Sinking Anchor | `anchor` | Purple · Uncommon · Ongoing | After bidding, each opponent's highest card loses 4 rank. |
+| 11 | Masked Encore | `mask` | Teal · Uncommon · Engraving | When you play this card, you may pick up another card you've previously played this round. |
+| 12 | Loaded Dice | `dice-6` | Gray · Common · Ongoing | Shop rerolls cost 20 gold less. |
 
 ### 1. Honed Edge: changing this card
 
@@ -324,8 +331,8 @@ shapes a hand without guaranteeing tricks.
 
 `After bidding, swap a card with your partner.`
 
-Each of you secretly chooses which card to give. Sigils travel with the cards they are
-engraved on.
+Each of you secretly chooses which card to give. Engraving sigils travel with
+the cards they are engraved on.
 
 **Balance:** an enabler. A post-bid swap is especially strong for nil,
 because the partner knows which card to take. One card each suits a common; a

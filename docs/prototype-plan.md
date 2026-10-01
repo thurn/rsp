@@ -35,6 +35,9 @@ fields.
 | DU | 20 | 0 |
 | **Total** | **212** | **38** |
 
+By category, 58 of the 70 Engraving sigils and 154 of the 180 Ongoing sigils
+are automated.
+
 ### The line between them
 
 A sigil is **automated** when its effect fits the shared engine mechanisms
@@ -93,9 +96,12 @@ const isAutomated = (s: Sigil) => s.prototype === 'automated' && s.code in HANDL
 - **Engraving visibility.** Your own hand always shows its engravings. Other
   seats' cards show their sigil once the card is face up and the sigil has
   triggered, or always if the card belongs to your partner's collection.
-- **Controller.** "Always on, for you" and "Whenever you" sigils work all
-  round for the seat holding the engraved card, or the seat that last held it
-  after it is played. Card-bound effects ("this card") follow the card.
+- **Ongoing visibility.** Ongoing sigils sit in a collection tray beside each
+  nameplate. Your own and your partner's trays always show; an opponent's
+  Ongoing sigil appears in their tray once it has triggered.
+- **Controller.** An Ongoing sigil always works for its owner. An Engraving
+  sigil works for whoever holds its card, or the seat that last held it after
+  it is played.
 - **Debug URL parameters.** These join the existing `?auto` and `?behind`:
   - `?give=RE-C04,GR-U06` starts the human seat owning those sigils.
   - `?ai-give=1:RE-C01,3:BL-R04` gives sigils to AI seats.
@@ -115,7 +121,7 @@ type Suit = 0 | 1 | 2 | 3 // clubs, diamonds, hearts, spades
 interface Engraving {
   code: string
   owner: Seat // permanent collection owner
-  copyOf?: string // set by Matching Mugs, Surprise Takeaway, Tracing Pencil
+  copyOf?: string // set by Surprise Takeaway, or when a copy sigil copies an Engraving sigil
   disabled?: boolean // Spiteful Eraser
 }
 
@@ -124,7 +130,7 @@ interface Card {
   suit: Suit // current suit, after any setter
   base: number // current base rank 2..14, after any setter
   mod: number // sum of stored rank modifiers
-  sigils: Engraving[] // the deal places at most one; the sandbox can stack
+  sigils: Engraving[] // Engraving sigils only; the deal places at most one, the sandbox can stack
   dealtTo: Seat // for "came from your hand" and "came from another player's hand"
   slot: number // deal position, for Growing Colony adjacency
   shown: boolean // engraving is public
@@ -185,8 +191,9 @@ shop → blind → deal → beforeBidding → bidding → afterBidding
      → scoring → afterScoring → victory check → shop
 ```
 
-- **Deal.** Build the deck (Untrodden Snowfall), deal, place engravings
-  (affinity sigils first, then random), and apply intrinsic modifiers.
+- **Deal.** Build the deck (Untrodden Snowfall), deal, engrave each Engraving
+  sigil (affinity sigils first, then random), and apply intrinsic modifiers.
+  Ongoing sigils need no placement.
 - **Windows.** Each window runs `resolveWindow(state, window, event)`. It
   visits seats clockwise from the window's start seat, and within a seat
   visits sigils in purchase order.
@@ -219,7 +226,8 @@ interface SigilHandler {
 'RE-C07': { on: { thisCardWins: (ctx) => ctx.gainContract(25) } },
 ```
 
-`Ctx` exposes `controller`, `owner`, `card` (the engraved card), the
+`Ctx` exposes `controller`, `owner`, `card` (the engraved card for an
+Engraving sigil, null for an Ongoing one), the
 `OwnedSigil`, read access to state, and these primitives:
 
 - **Ledger:** `gainContract`, `gainMultiplier`, `gainNil`, `gainGold`,
@@ -255,7 +263,8 @@ Round-Trip Record, …) also fire for faked passes.
 
 ## Card rendering
 
-`PlayingCard` gains an optional `sigils` prop of `{ sigil, automated }`.
+Only Engraving sigils render on cards. `PlayingCard` gains an optional
+`sigils` prop of `{ sigil, automated }`.
 
 - **Corner badges.** The sigil's Boxicons glyph sits in the **top-right** and
   **bottom-left** corners. The bottom-left glyph is rotated 180° to mirror a
@@ -273,6 +282,11 @@ Round-Trip Record, …) also fire for faked passes.
 - **Where it applies.** Badges render on cards in hand and in the trick,
   following the visibility rule above. Mini face-down hands never show them.
   `Hand` and `Trick` switch their React keys from card numbers to `card.id`.
+- **Collection tray.** Each nameplate gets a row of small sigil badges for
+  that seat's Ongoing sigils, in purchase order, following the visibility rule
+  above. A badge shows the same resonance-filled glyph, a small gear when
+  automated, a counter for scaling sigils such as Growing City, and the same
+  hover details as cards. A badge pulses when its sigil triggers.
 
 ## Sandbox
 
@@ -309,13 +323,13 @@ sequence. Phase 6 then fans out to subagents.
    *Check:* `?auto` plays a full run to completion with no console errors.
 2. **Economy and shop.** Add gold, trick and nil income, interest, an opening
    shop, between-round shops with three offers rolled by rarity odds, buy one,
-   rerolls, selling, the 13-sigil cap, and AI shopping. Engrave sigils at the
-   deal by affinity, then random.
+   rerolls, selling, the 13-sigil cap, and AI shopping. Engrave Engraving
+   sigils at the deal by affinity, then random.
    *Check:* a run shows a shop each round, and gold math matches the worked
    examples in game-overview.md §4.
-3. **Card rendering.** Add corner badges, the center gear (driven by
-   `isAutomated`, which is false for all sigils until handlers exist), the
-   details tooltip, and the visibility rule.
+3. **Card rendering.** Add the Ongoing collection trays, corner badges, the
+   center gear (driven by `isAutomated`, which is false for all sigils until
+   handlers exist), the details tooltip, and the visibility rules.
    *Check:* a screenshot of a hand from `?give=` with a mix of sigils.
 4. **Engine and sandbox.** Add the ledger, flags, event log, windows,
    prompts, handler API, the scoring pipeline from game-overview.md §4,
@@ -336,8 +350,7 @@ sequence. Phase 6 then fans out to subagents.
    with `?give=` and `?ai-give=`.
    *Check:* every automated sigil has a handler, `tsc` and `eslint` pass, and
    a `?auto` run with random AI collections completes.
-7. **Playtest polish.** Add a sigil collection panel per seat, ledger
-   breakdown in the round summary, and trigger flashes on cards. Fix whatever
+7. **Playtest polish.** Add a ledger breakdown in the round summary, and trigger flashes on cards. Fix whatever
    the first human playtests surface.
 
 Browser checks use the Playwright MCP service, per the user's global setup.
@@ -355,7 +368,13 @@ reading below unless you say otherwise.
   nil." This sigil is manual, so it is a note for testers only.
 - **Copied counters** (Matching Mugs, Tracing Pencil) read and write the
   original sigil's counter.
-- **Surprise Takeaway** draws only from automated commons, so the AI can use
-  it.
+- **Copying an Ongoing sigil onto a card** (Forger's Brush, Spare Key,
+  Tracing Pencil) makes the copy work like the original for whoever holds the
+  card, for the round.
+- **Matching Mugs** copying an Engraving common is engraved at each deal like
+  the original; copying an Ongoing common works as an Ongoing sigil.
+- **Surprise Takeaway** draws only from automated Engraving commons, since it
+  engraves the sigil on a card.
+- **Stacked Chairs** moves only Engraving sigils onto its card.
 - **Gilded Beaker** doubles gold from other sigils' gold calls only, not
   income or interest.

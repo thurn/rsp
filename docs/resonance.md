@@ -222,8 +222,8 @@ Gray owns:
 
 - Shop tools: discounts, cheaper rerolls, higher rarity, extra offers, and
   buying more than one sigil from a shop.
-- Engraving control: choosing which cards receive sigils, moving sigils between
-  your cards, and engraving two sigils on one card.
+- Engraving control: choosing which cards receive Engraving sigils, moving
+  them between your cards, and engraving two on one card.
 - Duplicating your existing sigils.
 - Selling sigils, including sigils that gain value or trigger when sold.
 - Card selection: looking at several cards and choosing one to add to your

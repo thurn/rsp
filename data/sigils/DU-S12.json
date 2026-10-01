@@ -6,6 +6,7 @@
     "Purple"
   ],
   "rarity": "Uncommon",
+  "category": "Ongoing",
   "price": 70,
   "wave": 1,
   "icon": "tornado",
@@ -34,11 +35,11 @@
     }
   ],
   "archetypes": "Discard Dominance; splash Nil Champion, Diamond Flood",
-  "family": "Voids, singletons, and long suits / Ongoing",
+  "family": "Voids, singletons, and long suits / Per trick",
   "role": "Payoff (Contract additive)",
   "decision": "Which short suits to empty early so later discards pay more.",
   "opponent": "Visible on trigger; opponents answer by leading the suits you still hold.",
   "aiNote": "Discard singletons first to open voids; keep the long suit to follow.",
   "rationale": "One sentence covers both halves of the plan (open voids, profit from discards). With discard excluding trumps, a Discard Dominance hand makes 2–4 true discards with one or two voids, about +15–35 (+20 EV), still inside the uncommon band. Excluding trumps also keeps it away from Spade Master. GR-R05's brief matches this and should be revised.",
-  "deviation": "Slot said Following-suit relief / Suit-bound; changed to Voids / Ongoing, because following-suit relief pays nothing itself and PU-C06 and PU-U05 already provide it."
+  "deviation": "Slot said Following-suit relief / Suit-bound; changed to Voids / Per trick, because following-suit relief pays nothing itself and PU-C06 and PU-U05 already provide it."
 }

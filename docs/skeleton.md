@@ -13,7 +13,7 @@ See [resonance.md](resonance.md) for resonance identities,
 
 The pool targets **250 sigils**.
 
-| Category | Count | Common | Uncommon | Rare |
+| Group | Count | Common | Uncommon | Rare |
 | --- | --- | --- | --- | --- |
 | Gray utility | 50 | 26 | 16 | 8 |
 | Colored, 6 × 30 | 180 | 84 | 66 | 30 |
@@ -217,7 +217,7 @@ Parity is a qualitative judgment: at the signpost check after wave 1 and in the
 final audit, each archetype needs a credible path to 1,000 within the parity target, reasoned
 from its channel mix and support rather than computed per sigil.
 
-## Budgets across categories
+## Budgets across the pool
 
 | Budget | Target |
 | --- | --- |
@@ -280,7 +280,7 @@ Champion, and Nil Guard.
 2. **Design signposts, then commons.** Signposts define each archetype's plan,
    and commons make up 70% of offers and define what can be drafted.
 3. **Audit.** Check every archetype against its support floors and the pool
-   against the cross-category budgets.
+   against the pool-wide budgets.
 
 ## Appendix: subagent orchestration plan
 
@@ -332,6 +332,7 @@ Name:        Waning Moon
 Icon:        moon               (alternates: Falling Feather / feather, Drowsy Owl / owl)
 Resonance:   Purple
 Rarity:      Common (45 gold)
+Category:    Ongoing
 Text:        After bidding, two chosen cards in your hand lose 3 rank.
 Timing:      After bidding
 Archetypes:  Nil Champion, Blind Bidder; splash Exact Contractor
@@ -343,6 +344,10 @@ Opponent:    Visible only through plays; no loss of agency.
 AI note:     Lower the two highest cards of the shortest suit.
 Rationale:   Rescues a risky nil without a pass.
 ```
+
+The **category** follows from the text, as
+[rules-text.md](rules-text.md) defines: Engraving when the text says "this
+card," and Ongoing otherwise.
 
 The **name** and **icon** follow [rules-text.md](rules-text.md): a 2–3 word
 name drawn from an icon in the designer's pool. The designer lists two alternate
@@ -673,7 +678,7 @@ An auditor subagent checks the complete pool against this document:
 
 - Counts by resonance, rarity, and slot type.
 - Every archetype's support floors.
-- Cross-category budgets, including multipliers, rule setters, economy, and
+- Pool-wide budgets, including multipliers, rule setters, economy, and
   opening-shop prices.
 - Rules text: every sigil follows [rules-text.md](rules-text.md), and every
   sigil passed the comprehension critic.

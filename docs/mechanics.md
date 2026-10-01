@@ -11,8 +11,8 @@ family lists:
   archetypes first and splashing archetypes after.
 - **Variations:** the ways the family can be expressed on individual sigils.
 
-Every sigil effect is ongoing or triggered, as defined in
-[rules-text.md](rules-text.md). Each variation below is expressed through a
+Every sigil is Ongoing or Engraving, and every sigil effect is always on or
+triggered, as defined in [rules-text.md](rules-text.md). Each variation below is expressed through a
 timing window: always on, before or after bidding, while held, when played, or
 when a trick is won or lost.
 
@@ -275,7 +275,7 @@ spread over fewer suits. Singletons become voids after one play.
 
 - *Deal-time:* rewards based on hand shape at the start of play, after
   conversions.
-- *Ongoing:* rewards for each trick played while void in a suit.
+- *Per trick:* rewards for each trick played while void in a suit.
 - *Long-suit thresholds:* rewards for holding five or more cards of a suit.
 - *Singletons:* rewards for playing a singleton, or effects that make a
   singleton the strongest card of its suit.
@@ -694,7 +694,7 @@ Information lets a player bid accurately and play at the right moment.
   hand.
 - *Shape:* reveal an opponent's suit counts or voids.
 - *Public reveals:* every player reveals N random cards before bidding.
-- *Sigils:* reveal where opponents' sigils are engraved.
+- *Sigils:* reveal where opponents' Engraving sigils are engraved.
 
 ### Partner information
 
@@ -1023,15 +1023,16 @@ Selling turns sigils back into gold.
 **Most interested:** While Held, Kingmaker, High Card, and every archetype with
 affinity-dependent sigils.
 
-Engraving control places sigils on the cards where they work best.
+Engraving control places Engraving sigils on the cards where they work best.
 
 **Variations.**
 
-- *Choice:* choose which cards receive your sigils.
+- *Choice:* choose which cards receive your Engraving sigils.
 - *Movement:* when you play this card, move its sigil to another card in your
   hand.
 - *Stacking:* engrave two sigils on one card.
-- *Random engravings:* engrave random temporary sigils on unengraved cards.
+- *Random engravings:* engrave random temporary Engraving sigils on unengraved
+  cards.
 
 ### Duplication and copying
 
@@ -1043,7 +1044,7 @@ Duplication multiplies a collection's best effect.
 
 **Variations.**
 
-- *Duplicate:* a copy of one of your sigils is engraved each round.
+- *Duplicate:* a copy of one of your sigils works for you each round.
 - *Copy partner:* copy one of your partner's sigils for the round.
 - *Copy opponent:* copy a revealed opponent sigil for the round.
 
@@ -1058,7 +1059,7 @@ Disabling sigils shuts off opponents' effects.
 **Variations.**
 
 - *Targeted:* disable a revealed opponent sigil for the round.
-- *Category:* disable all opponents' while-held effects.
+- *Broad:* disable all opponents' while-held effects.
 - *Card-bound:* the next card an opponent plays has no engraving.
 
 ## Run-level progression

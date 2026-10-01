@@ -1,9 +1,11 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Icon } from './Icon'
 import {
+  type Category,
   type Clause,
   type Prototype,
   type Sigil,
+  CATEGORIES,
   PROTOTYPES,
   RARITIES,
   RESONANCES,
@@ -150,6 +152,17 @@ export function SigilDetail({ sigil, icons, iconNames, onCommit, onClose, onStep
               >
                 {RARITIES.map((r) => (
                   <option key={r}>{r}</option>
+                ))}
+              </select>
+            </Field>
+            <Field label="Category">
+              <select
+                className={styles.input}
+                value={sigil.category}
+                onChange={(e) => commit({ category: e.target.value as Category })}
+              >
+                {CATEGORIES.map((c) => (
+                  <option key={c}>{c}</option>
                 ))}
               </select>
             </Field>
