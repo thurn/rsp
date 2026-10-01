@@ -25,3 +25,6 @@ dist-ssr
 
 # Playwright MCP snapshots and screenshots
 .playwright-mcp
+
+# Agent worktrees
+.claude/worktrees
