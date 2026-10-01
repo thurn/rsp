@@ -4,14 +4,13 @@ import {
   type Suit,
   ACE,
   JACK,
-  QUEEN,
   SPADES,
   SUITS,
   SUIT_SYMBOLS,
   rankLabel,
   viewLabel,
 } from '../../game/cards'
-import { type OwnedSigil, isNil } from '../../game/types'
+import type { OwnedSigil } from '../../game/types'
 import { sigilValue } from '../../ai/shop'
 import { SIGILS, getSigil, isAutomated, isEngraving } from '../registry'
 import { HANDLERS } from '.'
@@ -195,12 +194,8 @@ export const handlers: HandlerMap = {
         const hand = ctx.hand()
         if (hand.length === 0) return
         const top = highest(ctx, hand)
-        const rest = hand.filter((c) => c !== top)
-        const nilish =
-          isNil(ctx.bid()) ||
-          (rest.every((c) => ctx.rank(c) < QUEEN) &&
-            rest.filter((c) => c.suit === SPADES && ctx.rank(c) >= 10).length === 0)
-        if (ctx.confirm('Turn your highest into a two?', () => nilish, ctx.seat, ['Turn', 'Keep']))
+        const nilish = () => ai.plansNil(ctx)
+        if (ctx.confirm('Turn your highest into a two?', nilish, ctx.seat, ['Turn', 'Keep']))
           ctx.setRank(top, 2)
       },
     },

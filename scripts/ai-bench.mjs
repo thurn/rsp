@@ -1,4 +1,6 @@
 // Runs src/dev/bench.ts through Vite's SSR loader so the game code needs no build step.
+import os from 'node:os'
+import path from 'node:path'
 import { createServer } from 'vite'
 
 const USAGE = `scripts/ai-bench [--plain | --random-sigils N | --all-sigils [--min-per-sigil 3]]
@@ -50,8 +52,9 @@ const server = await createServer({
   server: { middlewareMode: true, ws: false },
   appType: 'custom',
   logLevel: 'error',
-  // Parallel runs would race on the client dependency cache, which the bench doesn't use.
+  // Parallel runs would race on a shared dependency cache, which the bench doesn't use.
   optimizeDeps: { noDiscovery: true },
+  cacheDir: path.join(os.tmpdir(), `rsp-ai-bench-${process.pid}`),
 })
 try {
   const { runBench } = await server.ssrLoadModule('/src/dev/bench.ts')

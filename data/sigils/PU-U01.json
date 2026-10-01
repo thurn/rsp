@@ -38,7 +38,7 @@
   "role": "Enabler; opponent-facing",
   "decision": "Which trick to lose this card on: under an opponent's ace or high trump the copy becomes a sure winner later, so the owner times the sacrifice; a nil bidder declines the copy.",
   "opponent": "Visible when it resolves; opponents answer by winning tricks with lower cards when they can see this card coming.",
-  "aiNote": "If not on nil, play this card under an opponent's winning ace or spade and take the copy; on nil, decline it.",
+  "aiNote": "If not on nil, play this card under an opponent's winning ace or spade and take the copy while you still need tricks; on nil or with your bid made, decline it.",
   "rationale": "Engraving places it on a face card that loses to an opponent in about half of rounds, and the copy of the winner, usually an ace or a trump, is about one extra trick later in the round, so the owner wins back the trick they gave up, about +10 to +15 a round. The copy is a created card: it carries no sigils and is removed after the round.",
   "deviation": "Revision 1: replaced Spiteful Eraser, which disabled the winning card's sigil and did nothing until opponents won with engraved cards."
 }

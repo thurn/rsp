@@ -349,11 +349,9 @@ export const handlers: HandlerMap = {
     on: {
       beforeBidding: (ctx) => {
         const hand = ctx.hand()
-        const pick = () => {
-          if (ai.plansNil(ctx)) return ai.highest(ctx, hand)
-          const singles = hand.filter((c) => c.suit !== SPADES && ai.count(hand, c.suit) === 1)
-          return singles.length ? ai.lowest(ctx, singles) : null
-        }
+        // Remove the card whose loss best fits the plan, or keep the hand when that fits best.
+        const pick = () =>
+          ai.bestBy(ctx, ctx.seat, [null, ...hand], (c) => hand.filter((x) => x !== c))
         const card = ctx.chooseCard(ctx.seat, 'Remove which card?', hand, pick, true)
         if (card) ctx.removeCard(card)
       },

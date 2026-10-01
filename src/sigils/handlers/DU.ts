@@ -4,6 +4,7 @@ import { canBlindNil, teamBid } from '../../game/rules'
 import { BLIND_NIL, isNil } from '../../game/types'
 import { aiBlindNil } from '../../ai/probe'
 import type { Ctx, HandlerMap } from './api'
+import * as ai from './ai'
 
 const lowest = (ctx: Ctx, cards: Card[]) =>
   cards.reduce((a, b) => (ctx.rank(b) < ctx.rank(a) ? b : a))
@@ -61,11 +62,12 @@ export const handlers: HandlerMap = {
         const mine = ctx.hand()
         const theirs = ctx.hand(ctx.partner)
         if (mine.length === 0 || theirs.length === 0) return
-        const partnerNil = isNil(ctx.bid(ctx.partner))
         if (!ctx.confirm('Swap with your partner?', () => true, ctx.seat, ['Swap', 'Skip'])) return
-        const give = ctx.chooseCard(ctx.seat, 'Give which card?', mine, (c) => lowest(ctx, c))
+        const give = ctx.chooseCard(ctx.seat, 'Give which card?', mine, (c) =>
+          ai.giveToPartner(ctx, ctx.seat, c),
+        )
         const get = ctx.chooseCard(ctx.partner, 'Give which card?', theirs, (c) =>
-          partnerNil ? highest(ctx, c) : lowest(ctx, c),
+          ai.takeFromPartner(ctx, c),
         )
         if (give && get) ctx.swap(ctx.seat, [give], ctx.partner, [get])
       },
@@ -199,15 +201,14 @@ export const handlers: HandlerMap = {
         const theirs = ctx.hand(ctx.partner)
         if (mine.length === 0 || theirs.length === 0) return
         if (!ctx.confirm('Swap with your partner?', () => true, ctx.seat, ['Swap', 'Skip'])) return
-        const partnerNil = isNil(ctx.bid(ctx.partner))
-        const feed = partnerNil && !isNil(ctx.bid())
+        const nilTeam = ai.plansNil(ctx) || ai.plansNil(ctx, ctx.partner)
         const give = ctx.chooseCard(ctx.seat, 'Give which card?', mine, (c) => {
-          if (feed) return highest(ctx, c)
+          if (nilTeam) return ai.giveToPartner(ctx, ctx.seat, c)
           const single = c.filter((x) => c.filter((y) => y.suit === x.suit).length === 1)
           return lowest(ctx, single.length ? single : c)
         })
         const get = ctx.chooseCard(ctx.partner, 'Give which card?', theirs, (c) =>
-          partnerNil ? highest(ctx, c) : lowest(ctx, c),
+          ai.takeFromPartner(ctx, c),
         )
         if (!give || !get) return
         ctx.swap(ctx.seat, [give], ctx.partner, [get])

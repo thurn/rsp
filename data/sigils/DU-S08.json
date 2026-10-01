@@ -39,7 +39,7 @@
   "role": "Payoff (Contract additive)",
   "decision": "After each win, whether to swap and which card to give, such as a singleton to open a void or a winner your partner can cash.",
   "opponent": "Each swap is shown to the table, but not the cards.",
-  "aiNote": "Swap after every win; give your weakest singleton, or your highest card if your partner bid nil and you didn't. The partner gives its lowest card, or its highest if it bid nil.",
+  "aiNote": "Swap after every win; give your weakest singleton, or, when either of you is on nil, your most dangerous card if you are the nil and your lowest if your partner is. The partner chooses its card the same way.",
   "rationale": "An optional exchange after each win is a real decision that reshapes both hands and pays. About three wins a round give about +26 EV, a little above budget, which suits Swap Meet on the thin list. Partner-only exchanges keep every choice inside the team and help a nil partner shed danger cards. It differs from Barter Bridge (DU-R02: after throw-offs, no pay).",
   "deviation": "Timing moved from When you pass cards to When you win any trick, because every existing exchange was mandatory. Later narrowed from any player not on nil to your partner, so each exchange stays simple to read."
 }

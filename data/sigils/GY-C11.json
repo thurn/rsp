@@ -38,6 +38,6 @@
   "role": "Enabler (feeds Nil)",
   "decision": "Whether to give up your best card: yes turns a borderline hand into a nil, no keeps a winner for a contract.",
   "opponent": "Hidden; everyone bids after it.",
-  "aiNote": "Replace when the hand would bid nil without its highest card; otherwise keep it.",
+  "aiNote": "Replace when you plan nil; otherwise keep it.",
   "rationale": "Removes the ace or top spade that sinks most nils, before bidding so the nil decision is informed, and a blind nil bidder gets it too; the two is created, so it may duplicate a dealt two."
 }

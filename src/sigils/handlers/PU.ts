@@ -201,7 +201,9 @@ export const handlers: HandlerMap = {
         const s = ctx.state
         const win = s.trickWinIndex === null ? undefined : s.trick[s.trickWinIndex]?.card
         if (!win || e.data?.trick === 13 || !ctx.opponents.includes(e.data?.winner as Seat)) return
-        if (!ctx.confirm('Copy the winning card?', () => !isNil(ctx.bid()))) return
+        // A copy only helps a contract that still needs tricks; past the bid it makes bags.
+        const want = () => !isNil(ctx.bid()) && s.tricksWon[ctx.seat] < (ctx.bid() ?? 0)
+        if (!ctx.confirm('Copy the winning card?', want)) return
         ctx.createCard(ctx.seat, win.suit, ctx.rank(win))
       },
     },

@@ -182,6 +182,18 @@ Single 200-round runs are too noisy to compare AI changes: two runs of nearly th
 - hv-frfo.9 (3f): `src/ai/shop.ts` holds the shop AI and `sigilValue` (rarity 1/1.6/2.4, +0.3 per owned sigil sharing a color, +0.2 per owned sigil sharing an archetype). AI seats sell Heirloom Cabinet from round 9, Garage Sale when an uncommon or rare is offered, Tumbling Dryer at 7 team bags, and any sigil whose sell value has grown by 30; a sale's `sold` triggers run at once, so Garage Sale's free buy applies to the same visit. They buy the most expensive affordable offer, synergy value breaking ties, and a second one when a sigil allows it. Trade-In Box trades by `sigilValue`.
 - The plan's shop rules lost points, so the AI keeps price-first buying. On `--random-sigils 8` (master: 124.3 points per team-round and 637 gold unspent over seeds 1–5): ranking by value per 100 gold, with the 50-gold interest-step rule, rerolls, and upgrade selling at 13 sigils, scored 104.5 and left 842 gold; ranking by value, then price, with a 100-gold interest floor, 117.0 and 751; price plus 40 × value with rerolls and upgrades, 116.0 and 609. The delivered rule scored 119.9 and left 655 gold. Seeds differ by about 13 points, so this is level with master. Synergy-ranked buys favoured cheap commons, and rerolls and upgrade sales churned away power.
 - Target gap after hv-frfo.9: gold unspent at game end is 655 against the 637 reference, inside the noise; unspent gold mostly reflects one or two buys per shop against about 180 gold of income and interest a round.
+- hv-frfo.8 (3e): `src/sigils/handlers/ai.ts` adds `plan`, `danger`, `handFit`, `bestBy`, `giveToPartner`, and `takeFromPartner`. All 87 `confirm`, `choose`, and `chooseCard` answers were audited; the 32 hv-frfo.2/3 handlers already followed the seat's plan. Changed answers, with their `aiNote` rewritten to match:
+  - Traders' Handshake no longer hands its highest card to a nil partner; both sides use the give helpers.
+  - Barter Bridge and Open Hand give by `giveToPartner`: the most dangerous card on nil, the lowest to a nil partner, a winner to a partner short of its bid.
+  - Swapped Suitcases' two-card exchange uses the same helpers.
+  - Spinning Globe's left pass gives the most dangerous card when the seat plans nil.
+  - Yielding Cone's swap also fires when the seat plans nil.
+  - Humble Cottage turns its highest card into a two exactly when the seat plans nil.
+  - Molting Feather removes the card whose loss best fits the plan (`bestBy`), or keeps the hand.
+  - Rustler's Lasso copies the winning card only while its contract still needs tricks.
+- On `--random-sigils 8` seeds 1–5, hv-frfo.8 scored 130.8 points per team-round against 119.9, with set rate 24.4% (27.1%) and multiplied set rate 17.8% (19.5%). `--all-sigils` at seeds 1 and 2 and with `--human 0` showed 0 errors, manual lines, runaway drains, stalls, and probe errors.
+- Spare Moustache's `aiNote` asks the owner's AI partner to bid as if two high cards were already lowered; bidding reads the probed score model and rollouts instead, which see the cards as they are.
+- The bench gives each process its own Vite cache directory, since parallel runs crashed on a shared one.
 - Target gap after hv-frfo.6: the random-8 set rate with a multiplier above 1× is 32.7% against a target of the plain rate plus 5 points (27.2%).
 - Target gap after hv-frfo.5: wasted overtakes are 2.7% against a target of 25% of the 5.8% baseline (1.5%). Nil success (≥ 75%) and mean bid error (below baseline) are met; plain set rate is 22.2% against 18%.
 - The random-8 set rate rise is inside that mode's run-to-run noise: an earlier hv-frfo.4 variant measured 45.4% on the same seeds.

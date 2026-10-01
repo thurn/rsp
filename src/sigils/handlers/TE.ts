@@ -178,7 +178,9 @@ export const handlers: HandlerMap = {
           const hand = ctx.hand(seat)
           const sides = hand.filter((c) => c.suit !== SPADES)
           return ctx.chooseCard(seat, 'Pass which card left?', hand, () =>
-            lowOfShortest(ctx, sides.length ? sides : hand),
+            ai.plansNil(ctx, seat)
+              ? hand.reduce((a, b) => (ai.danger(ctx, b, hand) > ai.danger(ctx, a, hand) ? b : a))
+              : lowOfShortest(ctx, sides.length ? sides : hand),
           )
         })
         ctx.setFlag('TE-R02', true)
@@ -220,9 +222,11 @@ export const handlers: HandlerMap = {
         ctx.mem.pending = false
         if (ctx.hand().length === 0 || ctx.hand(ctx.partner).length === 0) return
         const nil = isNil(ctx.bid(ctx.partner))
-        const ai = () =>
-          !nil && (!tookBid(ctx, ctx.partner) || ctx.rank(highest(ctx, ctx.hand())) >= KING)
-        if (!ctx.confirm('Swap with your partner?', ai, ctx.seat, ['Swap', 'Skip'])) return
+        // You give your highest for their lowest: good for your nil, or for a partner short of tricks.
+        const want = () =>
+          ai.plansNil(ctx) ||
+          (!nil && (!tookBid(ctx, ctx.partner) || ctx.rank(highest(ctx, ctx.hand())) >= KING))
+        if (!ctx.confirm('Swap with your partner?', want, ctx.seat, ['Swap', 'Skip'])) return
         const give = extreme(ctx, ctx.seat, true)
         const get = extreme(ctx, ctx.partner, false)
         if (give && get) ctx.swap(ctx.seat, [give], ctx.partner, [get])
@@ -343,8 +347,7 @@ export const handlers: HandlerMap = {
         const mine = ctx.hand()
         const theirs = ctx.hand(ctx.partner)
         if (mine.length === 0 || theirs.length === 0) return
-        const give = (seat: Seat) => (cards: Card[]) =>
-          isNil(ctx.bid(seat)) ? highest(ctx, cards) : lowest(ctx, cards)
+        const give = (seat: Seat) => (cards: Card[]) => ai.giveToPartner(ctx, seat, cards)
         const a = ctx.chooseCard(ctx.seat, 'Swap which card?', mine, give(ctx.seat))
         const b = ctx.chooseCard(ctx.partner, 'Swap which card?', theirs, give(ctx.partner))
         if (a && b) ctx.swap(ctx.seat, [a], ctx.partner, [b])
@@ -413,10 +416,10 @@ export const handlers: HandlerMap = {
         const want = () => nil !== partnerNil
         if (!ctx.confirm('Swap two with your partner?', want, ctx.seat, ['Swap', 'Skip'])) return
         const give = ai.chooseCards(ctx, ctx.seat, 'Give which card?', mine, n, (c) =>
-          nil ? highest(ctx, c) : lowest(ctx, c),
+          ai.giveToPartner(ctx, ctx.seat, c),
         )
         const get = ai.chooseCards(ctx, ctx.partner, 'Give which card?', theirs, n, (c) =>
-          partnerNil ? highest(ctx, c) : lowest(ctx, c),
+          ai.takeFromPartner(ctx, c),
         )
         ctx.swap(ctx.seat, give, ctx.partner, get)
       },

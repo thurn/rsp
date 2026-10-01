@@ -38,7 +38,7 @@
   "role": "Enabler",
   "decision": "Which card to shed before bidding: a singleton to open a void for trumping and throwing off, or a high card that would break a nil.",
   "opponent": "The removal is shown, but not the card.",
-  "aiNote": "If bidding nil, remove your highest card; otherwise remove a singleton outside spades, or keep the hand.",
+  "aiNote": "Remove the card whose loss best fits your plan (on nil your most dangerous, otherwise a card that leaves a useful void), or keep the hand when every removal hurts.",
   "rationale": "Removing one card opens a void about a third of the time (any singleton) and makes nils much safer, at the cost of one card to win with. It feeds Empty Basket, Scouring Tornado, and every throw-off payoff without adding a counter.",
   "deviation": "Redesigned from a payoff for emptying suits in the first six tricks, which was complicated for little reward."
 }

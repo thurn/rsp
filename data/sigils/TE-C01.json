@@ -29,6 +29,6 @@
   "role": "Enabler",
   "decision": "Which card to give, knowing both bids.",
   "opponent": "Visible exchange; opponents learn a pass happened.",
-  "aiNote": "A nil bidder passes its highest card; its partner passes its lowest.",
+  "aiNote": "A nil bidder passes its most dangerous card; its partner passes its lowest; a seat that can spare a winner passes it to a partner short of its bid.",
   "rationale": "One card each suits a common; a two-card exchange is uncommon."
 }
