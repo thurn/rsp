@@ -39,6 +39,12 @@ export function toDisplay(s: GameState, card: Card): DisplayCard {
         })
       : [],
     revealed: card.revealed,
-    pulse: s.pulses[`card:${card.id}`],
+    pulse: recentPulse(s, `card:${card.id}`),
   }
+}
+
+/** A trigger flash only for triggers in the last few engine steps, so remounts don't replay it. */
+export function recentPulse(s: GameState, key: string): number | undefined {
+  const id = s.pulses[key]
+  return id !== undefined && id > s.nextId - 60 ? id : undefined
 }

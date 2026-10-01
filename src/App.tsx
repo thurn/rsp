@@ -12,7 +12,7 @@ import { Shop } from './components/Shop'
 import { TooltipLayer } from './components/Tooltip'
 import { Trick } from './components/Trick'
 import { type TrayChip } from './components/Tray'
-import { toDisplay, viewerOf } from './components/display'
+import { recentPulse, toDisplay, viewerOf } from './components/display'
 import { ledgerRows } from './components/ledger'
 import { type Seat, partnerOf } from './game/cards'
 import { bidOptions } from './game/rules'
@@ -36,7 +36,7 @@ function trayFor(s: GameState, seat: Seat): TrayChip[] {
   const known = seat === viewer || seat === partnerOf(viewer)
   return s.players[seat].sigils
     .filter((o) => !isEngraving(o.copyOf ?? o.code) && (known || o.revealed))
-    .map((o) => ({ code: o.code, counter: o.counter, pulse: s.pulses[`${seat}:${o.code}`] }))
+    .map((o) => ({ code: o.code, counter: o.counter, pulse: recentPulse(s, `${seat}:${o.code}`) }))
 }
 
 export default function App() {
