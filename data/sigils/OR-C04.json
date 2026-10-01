@@ -38,5 +38,6 @@
   "opponent": "The new rank is shown to the table; opponents can read it and play around it.",
   "aiNote": "On nil or blind nil, pay to lower your highest card if it is a queen or better; on a contract, pay only if you expect to fall a trick short, raising your best card of a long suit.",
   "rationale": "The direction is guaranteed and the size is a gamble: a lowered ace or a raised two lands on about an eight on average, so it defuses most dangers after a blind nil (Desperate Gambit) and buys contract insurance with gold that Gold Miner and Diamond Flood have spare.",
-  "deviation": "Orchestrator ruling: \"an ace or a two\" was BL-C12's effect and the cube read as dice, so the rank change is now random within the chosen direction and the name and icon moved off dice imagery."
+  "deviation": "Orchestrator ruling: \"an ace or a two\" was BL-C12's effect and the cube read as dice, so the rank change is now random within the chosen direction and the name and icon moved off dice imagery.",
+  "notes": "Why would I want to do this? Seems extremely bad. It's literally just randomizing the rank?"
 }

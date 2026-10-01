@@ -37,5 +37,6 @@
   "decision": "Sequencing: play this card on a trick you can afford to spend it on, then play your best sigil card on the very next trick, which follow-suit may or may not allow.",
   "opponent": "Visible when the doubled sigil resolves; opponents can lead a suit that forces a different next card.",
   "aiNote": "Play this card when your next legal play can be your highest-value \"when you play this card\" or \"when this card wins\" sigil card (Golden Ticket, Cracked Safe, Gem Cascade, Crown Jewel); otherwise treat it as unengraved.",
-  "rationale": "Doubling one card-bound payoff is worth about +15 to +30 (a second Cracked Safe or Gem Cascade payout, a second Golden Ticket purchase, 20 more gold from Lucky Coin), and the next-card condition makes it a sequencing puzzle rather than a free double."
+  "rationale": "Doubling one card-bound payoff is worth about +15 to +30 (a second Cracked Safe or Gem Cascade payout, a second Golden Ticket purchase, 20 more gold from Lucky Coin), and the next-card condition makes it a sequencing puzzle rather than a free double.",
+  "notes": "This needs to make it clear how it interacts with sigils that do not trigger when played . It seems quite limited since the great majority of sigils do not trigger when played.  "
 }

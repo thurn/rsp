@@ -37,5 +37,6 @@
   "decision": "Each round, whether to bid blind and how many tricks to gamble on; your partner then bids seeing their own hand.",
   "opponent": "The blind bid is public; opponents can target the blind bidder's likely weak suits.",
   "aiNote": "Bid 3 blind when the team is not ahead by 100 or more; otherwise bid normally.",
-  "rationale": "A blind 3 pays +30 on a made contract while raising the team's failure rate by about a tenth, about +10 EV, and it gives Blind Bidder a blind gamble in rounds it cannot bid blind nil."
+  "rationale": "A blind 3 pays +30 on a made contract while raising the team's failure rate by about a tenth, about +10 EV, and it gives Blind Bidder a blind gamble in rounds it cannot bid blind nil.",
+  "notes": "This is a good design, but it is more of a high card design, not a blind bidder design, because it doesn't support bidding blind nil. "
 }

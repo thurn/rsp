@@ -38,5 +38,6 @@
   "opponent": "Visible when paid, while the contract is still in doubt, so opponents know to press for a set against a doubled contract; they can also deny the trigger by letting this card win.",
   "aiNote": "Pay if your team's contract value (bid plus bonuses so far) is at least 80 and you expect to take your bid with one trick or more to spare; otherwise decline.",
   "rationale": "Bought while the owner's bid is still open, the +1× carries real failure risk and is worth about 0.8V − 12 − 40: about +10 early, +45 mid, and +75 on Bonus Chaser's large late contracts, the steep multiplied finish its additive pool lacks; the cost stays at 40 rather than 30 because a partner's overtricks can still make the team contract nearly safe while your own bid is open, and under the once-a-round multiplier convention Twin Cherries or Masked Encore can't stack it.",
-  "deviation": "Revision 1: the purchase now requires that you haven't yet taken your bid, so it can't be bought after the contract is settled."
+  "deviation": "Revision 1: the purchase now requires that you haven't yet taken your bid, so it can't be bought after the contract is settled.",
+  "notes": "This seems complicated and also very easy to trigger consistently. Not sure if it's really fun. "
 }

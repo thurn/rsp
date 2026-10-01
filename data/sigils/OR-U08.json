@@ -38,5 +38,6 @@
   "opponent": "Visible when it pays; opponents who trump your diamonds still take the trick, and choosing not to overtake it denies the gold.",
   "aiNote": "Play this card on a trick you are already losing; lead it only if it is the highest diamond still out.",
   "rationale": "It turns Diamond Flood's main threat, opponents trumping its long diamonds, into gold, and it pays about 30–40 gold a round (it loses in most rounds, more when dumped deliberately), a step above Lucky Coin's flat 20 for an uncommon, while filling the thin \"when this card loses\" window.",
-  "deviation": "Revision 1: redesigned from gold per diamond played while held, which was Glittering Treasure with a looser trigger and twinned GR-U04; the variation moved from Multipliers to Conditional and the timing from always on to \"when this card loses\", and the diamond link now comes from the affinity."
+  "deviation": "Revision 1: redesigned from gold per diamond played while held, which was Glittering Treasure with a looser trigger and twinned GR-U04; the variation moved from Multipliers to Conditional and the timing from always on to \"when this card loses\", and the diamond link now comes from the affinity.",
+  "notes": "These two things seem sort of unrelated to each other. I guess I'm not really sure if the diamond thing matters. "
 }

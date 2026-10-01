@@ -34,5 +34,6 @@
   "opponent": "Progress is visible in the discards; opponents can lead your void suit less, or force trumps instead.",
   "aiNote": "Play out your shortest non-spade suit first; when void, discard rather than trump unless the trick is needed for the bid.",
   "rationale": "A normal hand discards twice in about 35–40% of rounds and a void-building hand in about 70%, so +30 is about +10 to +17 EV, and it counts a single number.",
-  "deviation": "Timing moved from \"whenever you discard\" to conditional scoring, and the brief's example (three different suits) became a count, so the quest tracks one counter rather than a set of suits."
+  "deviation": "Timing moved from \"whenever you discard\" to conditional scoring, and the brief's example (three different suits) became a count, so the quest tracks one counter rather than a set of suits.",
+  "notes": "\"in a round\""
 }

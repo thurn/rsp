@@ -38,5 +38,6 @@
   "opponent": "Visible gold gain; opponents who trade with you also get the card they chose.",
   "aiNote": "Take every optional pass or trade that doesn't hand an opponent a winner.",
   "rationale": "With Traders' Handshake's three trades a round it pays about 45 gold, Nest Egg's top rate, and with a single Open Hand pass it pays 15, so it rewards committing to exchanges early in a run while Handshake and TE-C08 supply the contract value.",
-  "deviation": "Changed from a pass-count quest to a per-pass reward, which is simpler (no counter) and is exactly \"Orange gold for each completed trade\" from the Swap Meet plan; per the orchestrator's ruling it pays gold only, leaving per-exchange contract value to Traders' Handshake. OR-U09 (shop gold by passes) should move further from this."
+  "deviation": "Changed from a pass-count quest to a per-pass reward, which is simpler (no counter) and is exactly \"Orange gold for each completed trade\" from the Swap Meet plan; per the orchestrator's ruling it pays gold only, leaving per-exchange contract value to Traders' Handshake. OR-U09 (shop gold by passes) should move further from this.",
+  "notes": "This seems like it should apply to all of the various forms of passing, swapping, and exchanging. And also, we should use consistent terminology. "
 }
