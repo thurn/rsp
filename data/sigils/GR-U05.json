@@ -38,5 +38,6 @@
   "opponent": "Opponents who read it can lead hearts early to drain the suit, or keep a side suit you still hold for the late tricks to force a non-heart play; the hearts you save are Unfolding Butterfly's grown ones, so they also fight for those tricks.",
   "aiNote": "From the eighth trick on, keep at least as many hearts as tricks left; play non-hearts first when following or leading, and lead hearts after winning late.",
   "rationale": "It pays for the plan's shape (hearts held back while they grow, then dominating the late tricks) rather than a count of heart wins; a Heart Chorus hand with five or six hearts and a short side suit meets it in about 35–40% of rounds, worth about +40 late, inside the uncommon multiplier band, and other decks almost never qualify; it counts plays, not wins, so it stays apart from Schooling Fish (GR-C13), TE-U05, and BL-U03.",
-  "deviation": "Timing moved from When you win any trick to Conditional scoring, and the growing multiplier became one late-round condition on hearts played, because a multiplier that climbs per heart win has no natural cap and any count of heart wins repeats Schooling Fish (GR-C13) and BL-U03."
+  "deviation": "Timing moved from When you win any trick to Conditional scoring, and the growing multiplier became one late-round condition on hearts played, because a multiplier that climbs per heart win has no natural cap and any count of heart wins repeats Schooling Fish (GR-C13) and BL-U03.",
+  "notes": "\"in a round\""
 }

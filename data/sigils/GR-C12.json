@@ -37,5 +37,6 @@
   "decision": "Aiming conversions and passes to reach five spades or diamonds.",
   "opponent": "Visible at the trigger; opponents learn you hold a long spade or diamond suit.",
   "aiNote": "Convert toward whichever of spades or diamonds is longer until it reaches five.",
-  "rationale": "About a third of natural hands qualify, and with Turning Tide or Alchemist's Wand most do, for about +12–16 EV; one sentence bridges both floods through their shared hand shape."
+  "rationale": "About a third of natural hands qualify, and with Turning Tide or Alchemist's Wand most do, for about +12–16 EV; one sentence bridges both floods through their shared hand shape.",
+  "notes": "This is trying too hard to work in two different archetypes. I would probably just use, say, five of the same suit. "
 }

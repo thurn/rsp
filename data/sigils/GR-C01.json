@@ -37,5 +37,6 @@
   "decision": "Which suit to trump or discard with, since that choice also decides what this card becomes.",
   "opponent": "Each conversion is shown; opponents see the engraved card join your trump or flooded suit and can lead to pull it.",
   "aiNote": "When choosing between off-suit plays, prefer the suit you want longer (spades, then your flooded suit); no other choice.",
-  "rationale": "A singleton club carrying it becomes a spade after your first trump, opening a club void and adding a trump; in a flood, discarding a diamond or heart adds one more for Gem Cascade or Unfolding Butterfly. No choice of its own keeps it a clean common."
+  "rationale": "A singleton club carrying it becomes a spade after your first trump, opening a club void and adding a trump; in a flood, discarding a diamond or heart adds one more for Gem Cascade or Unfolding Butterfly. No choice of its own keeps it a clean common.",
+  "notes": "This is extremely confusing to understand. It would be simpler if it converted this card when played. Too complicated as is for a common."
 }

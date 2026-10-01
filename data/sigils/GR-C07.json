@@ -38,5 +38,6 @@
   "opponent": "Visible on trigger; opponents can lead spades to force it out as a follow.",
   "aiNote": "Never lead this card or follow spades with it while another spade can; trump with it at the first chance.",
   "rationale": "Spade Master trumps three or more times a round, so the engraved spade trumps about 70% of the time (about +11 EV), and the payout does not require winning, which keeps it apart from RE-C13.",
-  "deviation": "Family changed from Suit payoffs / Playing to Card-bound points with a spade affinity, because \"each spade you play to a trick of another suit\" is a subset of PU-C14 (+5 for every off-suit play) at the same size."
+  "deviation": "Family changed from Suit payoffs / Playing to Card-bound points with a spade affinity, because \"each spade you play to a trick of another suit\" is a subset of PU-C14 (+5 for every off-suit play) at the same size.",
+  "notes": "I think this would make more sense if you just phrased it as \"when you trump.\" Also, affinities should be plural, so like \"affinity: spades\". "
 }

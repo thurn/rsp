@@ -38,5 +38,6 @@
   "opponent": "The new two is shown; opponents know you hold one more of that suit and can plan to lead or avoid it.",
   "aiNote": "On the first off-suit play, prefer trumping low if spades are the plan, otherwise discard from the suit its collection pays for (diamonds, then hearts, then clubs).",
   "rationale": "One reliable card of the suit you're already shedding or trumping, once a round: another trump for Spade Master, another diamond for Gem Cascade, another heart for Unfolding Butterfly, another club for Buried Bone, and a spare follower (and a card left at the end) for While Held; a two is safe to add, while a copy of the played card would hand Spade Master a second ace of spades.",
-  "deviation": "Variation moved from Jokers to Additions: \"joker\" isn't a rules term, and a new two of the played suit says the same thing with the Terms table's \"new card\"; it shares Fallen Acorn's (GR-C03) effect but not its trigger, feeding the short off-suit window instead of a card-bound play."
+  "deviation": "Variation moved from Jokers to Additions: \"joker\" isn't a rules term, and a new two of the played suit says the same thing with the Terms table's \"new card\"; it shares Fallen Acorn's (GR-C03) effect but not its trigger, feeding the short off-suit window instead of a card-bound play.",
+  "notes": "\"create\". "
 }

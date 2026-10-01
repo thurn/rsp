@@ -38,5 +38,6 @@
   "opponent": "Everyone bids after the swap and sees the new suits through play; no loss of agency.",
   "aiNote": "Swap your longest non-spade suit with the suit your collection pays for (diamonds, then hearts); in a club-discard collection, swap your longest non-club side suit with clubs.",
   "rationale": "The longest side suit averages about 4.5 cards against 3.25 for any named suit, so a swap usually adds one to three cards to the flood, and more on lopsided hands, with no void opened, which keeps it below Turning Tide plus a void; excluding spades keeps it clear of Alchemist's Wand (DU-S02) and off Spade Master's strong list.",
-  "deviation": "Archetype focus drops Spade Master, because the swap can never touch spades."
+  "deviation": "Archetype focus drops Spade Master, because the swap can never touch spades.",
+  "notes": "Pretty hard to understand. Maybe just like turn all your hearts into diamonds or turn all your diamonds into hearts?"
 }

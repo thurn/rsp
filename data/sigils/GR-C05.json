@@ -38,5 +38,6 @@
   "opponent": "The counter is visible; opponents can slow it by leading suits you still hold.",
   "aiNote": "Buy it by round 5 in a void or flood deck; no in-round choices.",
   "rationale": "Void decks make 4–5 off-suit plays a round, so it grows about +5 every round and a half: about +15 by mid-run and +30 by round 12 if bought early, averaging near the common budget. One run counter, trumps and discards both count.",
-  "deviation": "Timing moved to After bidding, because the payout lands once each round from the counter so far (this round's off-suit plays count from next round), while the off-suit plays only feed the counter."
+  "deviation": "Timing moved to After bidding, because the payout lands once each round from the counter so far (this round's off-suit plays count from next round), while the off-suit plays only feed the counter.",
+  "notes": "This is literally not even close to being simple enough for common and is probably, in fact, just too complicated to be rare. Please totally redesign this. "
 }

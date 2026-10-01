@@ -38,5 +38,6 @@
   "opponent": "Visible when it follows a suit it isn't, and it competes in that suit at its own rank; opponents can lead that suit again to force the next card.",
   "aiNote": "Follow with it when your only other card of the led suit carries a while-held sigil or is a winner you want to keep.",
   "rationale": "The holding support Patient Hourglass counts on: it follows once in place of the card you need to keep, and because following is optional it never forces itself out or blocks a void. Counting as the led suit means a spade dog can't trump at will and a dog follow never counts as a discard, while a heart or diamond follow feeds Unfolding Butterfly and Gem Cascade.",
-  "deviation": "The Any suit variation is written as an optional follow, because \"counts as any suit\" means you're never void, which forces the card out on your first void and duplicates BL-C06's void tension; GR-U09's optional-follow brief now overlaps this and should move (for example to a two-suit card)."
+  "deviation": "The Any suit variation is written as an optional follow, because \"counts as any suit\" means you're never void, which forces the card out on your first void and duplicates BL-C06's void tension; GR-U09's optional-follow brief now overlaps this and should move (for example to a two-suit card).",
+  "notes": "\"This card counts as all suits\""
 }
