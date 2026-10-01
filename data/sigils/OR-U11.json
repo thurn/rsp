@@ -1,0 +1,41 @@
+{
+  "code": "OR-U11",
+  "name": "Tuned Amplifier",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "guitar-amp",
+  "iconFamily": "guitar-amp",
+  "iconWord": "amplifier",
+  "iconAlternates": [
+    {
+      "name": "Squeezed Lemon",
+      "icon": "lemon"
+    },
+    {
+      "name": "Crisp Waffle",
+      "icon": "waffle"
+    }
+  ],
+  "text": "After bidding, you may pay 20 points to make every card of a chosen suit in your hand gain +4 rank or lose 4 rank.",
+  "timing": "After bidding",
+  "signature": [
+    {
+      "trigger": "after bidding",
+      "scope": "self",
+      "target": "all cards of a chosen suit in hand",
+      "effect": "rank +4 or −4, costs 20 points",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Nil Champion, Contract Attacker; splash Blind Bidder",
+  "family": "Costs / Points",
+  "role": "Enabler (feeds Nil and Denial)",
+  "decision": "Whether a nil or a set is worth 20 points this round, which suit, and which direction.",
+  "opponent": "The changed ranks are shown to the table, so opponents can read the new danger and play around it.",
+  "aiNote": "On nil or blind nil, pay if you hold a queen or better, lowering the suit that holds it; on a contract, pay only when the opponents bid 7 or more, raising your longest non-spade suit.",
+  "rationale": "Four ranks is the size that actually demotes an ace (Sinking Anchor's calibration), and a whole suit at once is worth a point cost where a single card (Tipping Scales, Steep Price) is not; 20 points is about what the extra nil safety is worth, so it is taken only when it matters."
+}

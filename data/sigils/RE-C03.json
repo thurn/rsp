@@ -1,0 +1,41 @@
+{
+  "code": "RE-C03",
+  "name": "Rallying Megaphone",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "megaphone",
+  "iconFamily": "megaphone",
+  "iconWord": "megaphone",
+  "iconAlternates": [
+    {
+      "name": "Loose Puck",
+      "icon": "puck"
+    },
+    {
+      "name": "Blaring Siren",
+      "icon": "siren"
+    }
+  ],
+  "text": "Once per round, when you lose a trick, you may lead the next trick.",
+  "timing": "When you lose any trick",
+  "signature": [
+    {
+      "trigger": "you lose a trick",
+      "scope": "self",
+      "target": "next trick",
+      "effect": "may take the lead",
+      "frequency": "once per round"
+    }
+  ],
+  "archetypes": "Bonus Chaser, Spade Master, Contract Attacker, High Card",
+  "family": "Lead control / Steal",
+  "role": "Enabler",
+  "decision": "Which lost trick to spend it on: take the lead to cash your aces, lead the Chasing Rainbows card, or set up a ruff, rather than using it at the first chance.",
+  "opponent": "Visible on trigger; the trick winner keeps the trick but loses the lead, and opponents can still plan around a known leader.",
+  "aiNote": "Use it after losing a trick to an opponent when you hold a top card or the Chasing Rainbows card to lead; decline when your partner won and should keep leading.",
+  "rationale": "One chosen lead a round is worth about a quarter of a trick, and the once-per-round cap keeps a strong effect at common with one counter and one choice, where an uncapped steal would fire about ten times a round."
+}

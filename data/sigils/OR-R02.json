@@ -1,0 +1,41 @@
+{
+  "code": "OR-R02",
+  "name": "Layer Cake",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Rare",
+  "price": 85,
+  "wave": 4,
+  "icon": "cake-slice",
+  "iconFamily": "cake-slice",
+  "iconWord": "cake",
+  "iconAlternates": [
+    {
+      "name": "Hoarder's Barrel",
+      "icon": "cylinder"
+    },
+    {
+      "name": "Stacked Waffle",
+      "icon": "waffle"
+    }
+  ],
+  "text": "Affinity: Diamond. When this card wins a trick, gain +10 contract value this round and every later round.",
+  "timing": "When this card wins",
+  "signature": [
+    {
+      "trigger": "this card wins",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +10, stacking for the rest of the run",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Diamond Flood; splash Bonus Chaser",
+  "family": "Scaling sigils / Counters (this card's wins)",
+  "role": "Payoff (Contract additive, scaling across the run)",
+  "decision": "Each round, how to make this diamond win: lead it once it is the highest diamond left, spend Red rank boosts on it, and keep it away from tricks the opponents can trump.",
+  "opponent": "The growing total is visible each time it steps up; opponents can trump or overtake this card to stop the step, which rewards tracking which diamond carries it.",
+  "aiNote": "Lead this card when it is the highest unplayed diamond or when every opponent has shown diamonds on the last diamond trick; otherwise treat it as a normal diamond.",
+  "rationale": "A flooded diamond carrying it wins about half the time, so a buyer around round 4 carries about +40 by round 12 and averages +20 to +25 a round, rising further under GR-R02 and GY-R04; the step stays at +10 and at most one a round because Diamond Flood is on the strong watch list, and it never resets, unlike House of Cards (GY-C21)."
+}

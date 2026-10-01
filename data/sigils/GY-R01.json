@@ -1,0 +1,41 @@
+{
+  "code": "GY-R01",
+  "name": "Trade-In Box",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Rare",
+  "price": 85,
+  "wave": 4,
+  "icon": "box",
+  "iconFamily": "box",
+  "iconWord": "box",
+  "iconAlternates": [
+    {
+      "name": "Outgrown Dress",
+      "icon": "dress"
+    },
+    {
+      "name": "Pawnbroker's Cupboard",
+      "icon": "cupboard"
+    }
+  ],
+  "text": "At each shop, you may trade in one of your sigils for an offer of the same rarity or lower. This is free, and it isn't a sale or your purchase.",
+  "timing": "At the shop",
+  "signature": [
+    {
+      "trigger": "at shop",
+      "scope": "self",
+      "target": "one owned sigil for an offer of equal or lower rarity",
+      "effect": "free trade-in, not a sale or purchase",
+      "frequency": "each shop"
+    }
+  ],
+  "archetypes": "Gold Miner, Diamond Flood, Swap Meet; any collection with a weak early sigil",
+  "family": "Shop tools / Trade-ins",
+  "role": "Payoff: Economy",
+  "decision": "Every shop: which weak or off-plan sigil to give up, and whether the trade-in or the normal purchase should take the better offer.",
+  "opponent": "No effect on opponents.",
+  "aiNote": "Trade in your lowest-value sigil when an offer of equal or lower rarity scores at least 10 a round more; with a full collection, always check the trade-in first.",
+  "rationale": "A free upgrade each shop, worth a sell-and-buy plus the saved purchase, so a collection keeps improving after it fills at 13; it never grows the collection, and \"isn't a sale\" keeps Garage Sale, Thrifted Radio, and Tumbling Dryer from firing on every trade-in."
+}

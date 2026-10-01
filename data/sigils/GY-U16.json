@@ -1,0 +1,41 @@
+{
+  "code": "GY-U16",
+  "name": "Artist's Palette",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "palette",
+  "iconFamily": "palette",
+  "iconWord": "palette",
+  "iconAlternates": [
+    {
+      "name": "Mixed Paint",
+      "icon": "paint"
+    },
+    {
+      "name": "Colorful Circuit",
+      "icon": "circuit-board"
+    }
+  ],
+  "text": "If you own sigils of five or more resonances, gain +30 contract value.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, own 5+ resonances",
+      "scope": "self",
+      "target": "contract",
+      "effect": "+30",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Bonus Chaser, Diamond Flood, Heart Chorus; any splashing collection",
+  "family": "Resonance synergy / Breadth",
+  "role": "Payoff: Contract additive",
+  "decision": "Shopping: chase a fifth resonance with a splash, weighing off-plan offers higher until it is on.",
+  "opponent": "No effect on opponents.",
+  "aiNote": "Until five resonances are owned, add 15 points of value to an offer of a new resonance.",
+  "rationale": "A typical collection holds two colors, Gray, and two off-plan sigils, so five is reachable by mid-run with intent, and a signpost counts both its colors; +30 (+24 expected) sits at the top of the uncommon band, below GY-R05's breadth multiplier."
+}

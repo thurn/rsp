@@ -1,0 +1,41 @@
+{
+  "code": "GY-C05",
+  "name": "Collector's Album",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "photo-album",
+  "iconFamily": "photo-album",
+  "iconWord": "album",
+  "iconAlternates": [
+    {
+      "name": "Discerning Palette",
+      "icon": "palette"
+    },
+    {
+      "name": "Fine Porcelain Mug",
+      "icon": "cup"
+    }
+  ],
+  "text": "At least one of your shop offers is always uncommon or rare.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "at shop",
+      "scope": "self",
+      "target": "your offers",
+      "effect": "at least one uncommon or rare",
+      "frequency": "each shop and reroll"
+    }
+  ],
+  "archetypes": "All; most for Gold Miner, Diamond Flood",
+  "family": "Shop tools / Rarity",
+  "role": "Payoff: Economy",
+  "decision": "Whether to save gold for the guaranteed uncommon and whether a reroll is worth it.",
+  "opponent": "No effect on opponents.",
+  "aiNote": "Keep at least 70 gold on hand when possible so the guaranteed offer is affordable; score offers as usual.",
+  "rationale": "Changes only the 34% of offer sets that show three commons (rerolls included), and the better offer costs more gold, so it stays modest."
+}

@@ -1,0 +1,41 @@
+{
+  "code": "GY-U14",
+  "name": "Sous-Chef's Hat",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "chef-hat",
+  "iconFamily": "chef-hat",
+  "iconWord": "chef's hat",
+  "iconAlternates": [
+    {
+      "name": "Backup Broadcast",
+      "icon": "station"
+    },
+    {
+      "name": "Humble Mouse",
+      "icon": "mouse"
+    }
+  ],
+  "text": "Whenever you lose a trick with the second-best card in it, gain +5 contract value.",
+  "timing": "When you lose any trick",
+  "signature": [
+    {
+      "trigger": "you lose a trick, your card second-best",
+      "scope": "self",
+      "target": "contract",
+      "effect": "+5",
+      "frequency": "per trick"
+    }
+  ],
+  "archetypes": "Nil Champion, Blind Bidder, Exact Contractor",
+  "family": "Losing tricks / Close ducks",
+  "role": "Payoff: Contract additive",
+  "decision": "In late seats, drop your second-best card under the winner (a queen under a king) instead of a low card, shedding a high card safely.",
+  "opponent": "Visible each time it triggers.",
+  "aiNote": "When a trick is already won by another card, play your highest card that stays below it.",
+  "rationale": "Your card is runner-up in about one lost trick in four, about 2.5 times a round (+12, about +10 expected) and about 3.5 for a nil bidder, whose value goes to the partner's contract; \"second-best\" means the card that would have won without the winner, so discards never qualify and, when a trump wins, the best remaining card counts."
+}

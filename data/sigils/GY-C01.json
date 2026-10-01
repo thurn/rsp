@@ -1,0 +1,32 @@
+{
+  "code": "GY-C01",
+  "name": "Loaded Dice",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 0,
+  "icon": "dice-6",
+  "iconFamily": "dice-6",
+  "iconWord": "dice",
+  "iconAlternates": [],
+  "text": "Shop rerolls cost 20 gold less.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "at shop",
+      "scope": "self",
+      "target": "rerolls",
+      "effect": "cost −20",
+      "frequency": "each"
+    }
+  ],
+  "archetypes": "All",
+  "family": "Shop tools / Rerolls",
+  "role": "Utility (Economy)",
+  "decision": "How often to reroll.",
+  "opponent": "No effect on opponents.",
+  "aiNote": "Reroll when no offer fits the collection and gold allows.",
+  "rationale": "First reroll costs 30 instead of 50."
+}

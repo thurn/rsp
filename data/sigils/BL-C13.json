@@ -1,0 +1,42 @@
+{
+  "code": "BL-C13",
+  "name": "Paused Stopwatch",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Common",
+  "price": 55,
+  "wave": 2,
+  "icon": "stopwatch",
+  "iconFamily": "stopwatch",
+  "iconWord": "stopwatch",
+  "iconAlternates": [
+    {
+      "name": "Stubborn Fingerprint",
+      "icon": "fingerprint"
+    },
+    {
+      "name": "Distant Future",
+      "icon": "future"
+    }
+  ],
+  "text": "Once per round, when your only cards of the suit led have sigils, you may play a card of another suit.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always, once per round",
+      "scope": "self",
+      "target": "your follow-suit obligation when only sigil cards can follow",
+      "effect": "may play another suit",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "While Held, Gold Miner; splash Nil Champion",
+  "family": "While held / Holding support",
+  "role": "Enabler",
+  "decision": "Which forced-out sigil card to save with the one escape, and whether to discard or trump with it.",
+  "opponent": "Visible when used; opponents who lead a held card's suit twice still force it out.",
+  "aiNote": "Use it the first time a Patient Hourglass, Nest Egg, or aura card would be forced out; otherwise save it.",
+  "rationale": "Protects any held sigil card once, pushing Patient Hourglass (DU-S10) from about 45% toward 60%, which the scoring notes already allow for; unlike BL-U05 it protects any card once rather than one card always.",
+  "deviation": "Timing moved from Always on, for the engraved card to Always on, for you, because a card carries only one engraving, so a sigil that shields its own card shields nothing."
+}

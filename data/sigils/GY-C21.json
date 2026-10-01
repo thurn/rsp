@@ -1,0 +1,42 @@
+{
+  "code": "GY-C21",
+  "name": "House of Cards",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 55,
+  "wave": 2,
+  "icon": "building-house",
+  "iconFamily": "building-house",
+  "iconWord": "townhouse",
+  "iconAlternates": [
+    {
+      "name": "Trickle Charger",
+      "icon": "ev-station"
+    },
+    {
+      "name": "Balanced Pushpin",
+      "icon": "pin"
+    }
+  ],
+  "text": "Gain +10 contract value for each contract your team has made in a row, up to +30.",
+  "timing": "Always on, for you (the streak updates after scoring)",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "contract",
+      "effect": "+10 per consecutive made contract, max +30",
+      "frequency": "counter"
+    }
+  ],
+  "archetypes": "All",
+  "family": "Scaling sigils / Decay",
+  "role": "Payoff: Contract additive",
+  "decision": "Protecting the streak: a miss resets it, so it rewards safe bids and punishes a gamble.",
+  "opponent": "Visible count; setting your team now also breaks the streak.",
+  "aiNote": "With a streak of two or more, bid a half trick more conservatively.",
+  "rationale": "Counts the team's current streak, including rounds before purchase, so it pays at once; at an 80% make rate it averages about +20 (about +16 expected) and reaches the cap after three made contracts, while GY-C20 never resets but starts from zero.",
+  "deviation": "Timing moved from After scoring to always on, and a cap added, so a long streak stays at common size and the sigil never dominates or is dominated by GY-C20."
+}

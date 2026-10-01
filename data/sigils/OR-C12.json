@@ -1,0 +1,38 @@
+{
+  "code": "OR-C12",
+  "name": "Cracked Safe",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "safe",
+  "iconFamily": "safe",
+  "iconWord": "vault",
+  "iconAlternates": [
+    {
+      "name": "First Slice",
+      "icon": "slice"
+    }
+  ],
+  "text": "When you play this card, gain +5 contract value for each diamond in your hand.",
+  "timing": "When played",
+  "signature": [
+    {
+      "trigger": "when played",
+      "scope": "self",
+      "target": "diamonds still in hand",
+      "effect": "contract value +5 per diamond",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Diamond Flood, Bonus Chaser",
+  "family": "Card-bound points / Targeted",
+  "role": "Payoff (Contract additive)",
+  "decision": "How early to play this card: early while the hand is full of diamonds, at the cost of holding those diamonds back.",
+  "opponent": "Visible when it fires; no effect on opponents' play.",
+  "aiNote": "Play this card on the first trick where it can lose cheaply or follow suit, as long as you hold three or more diamonds.",
+  "rationale": "The mirror of Gem Cascade (which counts diamonds already played): a flooded hand of five or six diamonds pays +25–30 when played early, about +15 EV normally, and owning both creates a real tension over timing.",
+  "deviation": "Instead of switching on a rest-of-round payment for each diamond played (a flag plus per-card triggers), it counts the diamonds in hand once, when played, so there is nothing to track."
+}

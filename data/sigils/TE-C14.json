@@ -1,0 +1,42 @@
+{
+  "code": "TE-C14",
+  "name": "Tossed Paper Plane",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Common",
+  "price": 55,
+  "wave": 2,
+  "icon": "paper-plane",
+  "iconFamily": "paper-plane",
+  "iconWord": "paper plane",
+  "iconAlternates": [
+    {
+      "name": "Passing Breeze",
+      "icon": "air"
+    },
+    {
+      "name": "Borrowed Surfboard",
+      "icon": "surfboard"
+    }
+  ],
+  "text": "When you discard this card, you may pass a card to your partner.",
+  "timing": "When you discard (card-bound)",
+  "signature": [
+    {
+      "trigger": "you discard this card",
+      "scope": "self",
+      "target": "a card you pick",
+      "effect": "optional one-way pass to partner",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Blind Bidder, Nil Champion, Discard Dominance (splash)",
+  "family": "Partner exchange / During play",
+  "role": "Enabler",
+  "decision": "Which suit to empty so this card can be discarded, and which dangerous card to send across once it is.",
+  "opponent": "Visible pass after the trick; opponents know the nil bidder shed a card and the partner now holds one more.",
+  "aiNote": "Discard this card at your first void; if you are on nil, pass your highest card.",
+  "rationale": "Sheds a danger card mid-round after a void opens, the moment a nil or discard deck already aims for; one card, once a round, keeps it a common, and it passes between tricks as exchange rules require.",
+  "deviation": "Trigger narrowed from any off-suit play to discarding this card, so it passes at most one card and adds one choice per round."
+}

@@ -1,0 +1,32 @@
+{
+  "code": "RE-C01",
+  "name": "Honed Edge",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Common",
+  "price": 40,
+  "wave": 0,
+  "icon": "sword",
+  "iconFamily": "sword",
+  "iconWord": "sword",
+  "iconAlternates": [],
+  "text": "This card gains +3 rank.",
+  "timing": "Always on, for the engraved card",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "this card",
+      "effect": "rank +3",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "High Card, Spade Master, Kingmaker, Contract Attacker",
+  "family": "Raising your ranks / Intrinsic",
+  "role": "Enabler (stat stick)",
+  "decision": "None directly; shapes bidding by adding a likely winner.",
+  "opponent": "Invisible until played; a normal-looking strong card.",
+  "aiNote": "Count the engraved card at its raised rank when bidding.",
+  "rationale": "The baseline Red enabler; its excess is wasted on face cards and aces."
+}

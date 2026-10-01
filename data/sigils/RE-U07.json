@@ -1,0 +1,42 @@
+{
+  "code": "RE-U07",
+  "name": "Tricolor Triangle",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "triangle",
+  "iconFamily": "triangle",
+  "iconWord": "triangle",
+  "iconAlternates": [
+    {
+      "name": "Three-Point Basketball",
+      "icon": "basketball"
+    },
+    {
+      "name": "Triple-Play Baseball",
+      "icon": "baseball"
+    }
+  ],
+  "text": "If you lead three different suits this round, gain +50 contract value.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, you led three or more different suits",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +50",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Bonus Chaser; splash Contract Attacker, High Card",
+  "family": "Side quests / Objective (lead three suits)",
+  "role": "Payoff (Contract additive)",
+  "decision": "What to lead each time you hold the lead: switch to a new suit for the quest, or keep cashing winners in the suit that is working, with spades counting only once they are broken.",
+  "opponent": "Visible as the round goes, since leads are public; opponents who read the quest can keep the lead away from the owner by winning tricks.",
+  "aiNote": "When you lead, prefer a suit you haven't led yet this round unless a sure winner in a repeated suit is at stake; value the lead itself higher while the quest is open.",
+  "rationale": "A seat leads three or four times a round, usually repeating its winning suit, so three different suits come in about a third of rounds unaided and more with Rallying Megaphone (RE-C03) or a first-trick lead, about +15 EV, restrained because Bonus Chaser is ahead of the curve; it measures leads rather than trick wins, so it reads as a side quest, not a Red win trigger.",
+  "deviation": "Changed from a quest on trick wins to a quest on leads, and from pay per suit to a single +50 completion, because the win-with-each-suit versions read as Early Sprint's \"+10 per qualifying win\" shape and as the Chasing Rainbows draft wave 1 rejected; Family stays Side quests, Variation moves from Rewards to Objective, and Timing moves to Conditional scoring."
+}

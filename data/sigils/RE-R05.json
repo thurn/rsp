@@ -1,0 +1,42 @@
+{
+  "code": "RE-R05",
+  "name": "Lifetime Award",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Rare",
+  "price": 85,
+  "wave": 4,
+  "icon": "certification",
+  "iconFamily": "certification",
+  "iconWord": "award",
+  "iconAlternates": [
+    {
+      "name": "Prize Rosette",
+      "icon": "badge"
+    },
+    {
+      "name": "Grand Slam Tennis",
+      "icon": "tennis-ball"
+    }
+  ],
+  "text": "Affinity: King. When this card wins a trick, gain contract value equal to the contract value you've gained so far this round, up to +60.",
+  "timing": "When this card wins",
+  "signature": [
+    {
+      "trigger": "this card wins (affinity king)",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value equal to your contract value so far this round, max +60",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Bonus Chaser; splash High Card",
+  "family": "When played and re-triggers / Repeat (earlier payouts)",
+  "role": "Payoff (Contract additive)",
+  "decision": "When to cash the king: hold it until your one-shots have paid and the ace has fallen, against the risk that a late trump or discard takes the trick.",
+  "opponent": "The payout is shown when it resolves; opponents who see a king held late can trump it or keep their ace to beat it.",
+  "aiNote": "Play this king only after the suit's ace is gone and your contract value this round is at least +40, or on the last safe trick.",
+  "rationale": "A late-winning king doubles a Bonus Chaser's round of one-shots (Opening Bell, Golden Ticket, Chasing Rainbows, Crown Jewel) up to the cap, about +20 to +35 expected, more with Regal Summit (RE-C02) turning the king into an ace; the +60 cap keeps a strong-watch archetype from doubling a whole round.",
+  "deviation": "It doubles all contract value you've gained this round rather than re-paying only when-played, when-led, and this-card-wins sigils, because the running total is easier to read than a list of windows, and the King affinity makes the win, and the timing decision, reliable without adding a fourth Ace-affinity \"when this card wins\" sigil."
+}

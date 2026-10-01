@@ -1,0 +1,41 @@
+{
+  "code": "RE-U11",
+  "name": "Serving Shuttlecock",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Uncommon",
+  "price": 60,
+  "wave": 3,
+  "icon": "shuttlecock",
+  "iconFamily": "shuttlecock",
+  "iconWord": "shuttlecock",
+  "iconAlternates": [
+    {
+      "name": "Kickoff Rugby",
+      "icon": "rugby-ball"
+    },
+    {
+      "name": "Opening Dribble",
+      "icon": "dribbling"
+    }
+  ],
+  "text": "After bidding, choose who leads the first trick.",
+  "timing": "After bidding",
+  "signature": [
+    {
+      "trigger": "after bidding",
+      "scope": "self",
+      "target": "first trick's leader",
+      "effect": "choose any player",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Nil Guard, Exact Contractor, Swap Meet; splash High Card",
+  "family": "Lead control / Starting player",
+  "role": "Utility",
+  "decision": "Who leads, knowing every bid: yourself to cash aces or lead through a nil, your nil partner's opponent so your partner plays after, or whoever sets up a trade.",
+  "opponent": "Visible after bids; opponents see who leads and why, and keep every normal response.",
+  "aiNote": "If your partner bid nil, lead yourself; if you hold two or more aces, lead yourself; otherwise keep the normal leader.",
+  "rationale": "The brief's effect in one plain clause, a splash that lets a Nil Guard lead high through a nil and an exact bidder set the first suit; the price drops from 70 to 60 because choosing one lead a round is a modest edge."
+}

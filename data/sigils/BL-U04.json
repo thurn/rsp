@@ -1,0 +1,41 @@
+{
+  "code": "BL-U04",
+  "name": "Gilded Beaker",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "beaker",
+  "iconFamily": "beaker",
+  "iconWord": "beaker",
+  "iconAlternates": [
+    {
+      "name": "Swelling Flask",
+      "icon": "flask-round"
+    },
+    {
+      "name": "Doubling Calculator",
+      "icon": "calculator"
+    }
+  ],
+  "text": "While this card is in your hand, you gain double gold from your other sigils.",
+  "timing": "While in hand",
+  "signature": [
+    {
+      "trigger": "while held",
+      "scope": "self",
+      "target": "gold from your other sigils",
+      "effect": "×2 gold",
+      "frequency": "all"
+    }
+  ],
+  "archetypes": "Gold Miner; splash Diamond Flood, Swap Meet",
+  "family": "While held / Aura (gold)",
+  "role": "Payoff (Economy)",
+  "decision": "How long to hold this card while Nest Egg, Lucky Coin, and trade or diamond gold fire, and which gold card to play first.",
+  "opponent": "Visible whenever doubled gold is paid; no effect on opponents' cards.",
+  "aiNote": "Hold this card while any other gold sigil can still pay; play your other gold cards first.",
+  "rationale": "Doubles in-play gold only (Nest Egg while both are held, Lucky Coin, Glittering Treasure, Gem Cascade, Peddler's Cart), about +30 to +50 gold a round for a miner, strongest early like every economy sigil; it pays nothing alone, so it never repeats Nest Egg, and after-scoring gold is usually outside its window."
+}

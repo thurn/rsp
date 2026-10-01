@@ -1,0 +1,41 @@
+{
+  "code": "TE-C06",
+  "name": "Borrowed Fuel",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "petrol-pump",
+  "iconFamily": "petrol-pump",
+  "iconWord": "fuel",
+  "iconAlternates": [
+    {
+      "name": "Rising Gondola",
+      "icon": "cable-car"
+    },
+    {
+      "name": "Charging Plug",
+      "icon": "plug-connect"
+    }
+  ],
+  "text": "When you play this card, your partner's card already in this trick gains +4 rank.",
+  "timing": "When played",
+  "signature": [
+    {
+      "trigger": "when played",
+      "scope": "partner",
+      "target": "partner's card already in this trick",
+      "effect": "rank +4",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Kingmaker, Exact Contractor, Heart Chorus",
+  "family": "Changing played cards / Raise a card",
+  "role": "Enabler",
+  "decision": "Which trick to spend this card on, playing after your partner so their card overtakes.",
+  "opponent": "Visible rank change; a player still to act can overtrump or overtake the raised card.",
+  "aiNote": "Play this card after your partner when +4 lifts their card above the current winner; never raise a nil partner's card.",
+  "rationale": "A queen becomes an ace and a nine a king, so the partner wins a trick you would have lost, feeding Promoted Pawn and TE-C07 or moving a win to the seat that needs it for an exact count; +4 because this card is spent as a loser, and \"already in this trick\" names the played card as the rules require."
+}

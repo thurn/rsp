@@ -1,0 +1,41 @@
+{
+  "code": "OR-U03",
+  "name": "Surprise Party",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "party",
+  "iconFamily": "party",
+  "iconWord": "party",
+  "iconAlternates": [
+    {
+      "name": "Birthday Wish",
+      "icon": "birthday-cake"
+    },
+    {
+      "name": "Stacked Burger",
+      "icon": "burger"
+    }
+  ],
+  "text": "If you win the first and last tricks of the round, gain +50 contract value.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, you won the first and the last trick",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +50",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Bonus Chaser; splash High Card, While Held",
+  "family": "Side quests / Objective (first and last trick)",
+  "role": "Payoff (Contract additive)",
+  "decision": "Whether to spend a top card on the first trick, and which winner to hold back to the end instead of cashing it early.",
+  "opponent": "Progress is public after trick 1; opponents who see you won it can hold their own ace or trump for the last trick.",
+  "aiNote": "Try to win trick 1 with your highest card; if you do, keep your best remaining ace or top spade until the last trick.",
+  "rationale": "Unplanned it lands in about one round in eight; planned with a held ace (Unclouded Sun, Opening Volley, Vanguard Shield help) it lands in about a quarter, about +10 EV, deliberately modest because Bonus Chaser is ahead of the curve, and it checks only two public tricks."
+}

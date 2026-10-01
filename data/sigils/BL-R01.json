@@ -1,0 +1,41 @@
+{
+  "code": "BL-R01",
+  "name": "Armistice News",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Rare",
+  "price": 90,
+  "wave": 4,
+  "icon": "newspaper",
+  "iconFamily": "newspaper",
+  "iconWord": "news",
+  "iconAlternates": [
+    {
+      "name": "Parting Cloud",
+      "icon": "cloud"
+    },
+    {
+      "name": "Scholar's Truce",
+      "icon": "education"
+    }
+  ],
+  "text": "Affinity: Queen. When this card loses a trick won by trumping, no one can win a trick by trumping for the rest of the round.",
+  "timing": "When this card loses",
+  "signature": [
+    {
+      "trigger": "this card loses a trick won by trumping",
+      "scope": "all players",
+      "target": "spades played to tricks of another suit",
+      "effect": "cannot win",
+      "frequency": "rest of round"
+    }
+  ],
+  "archetypes": "High Card; splash Heart Chorus, Nil Champion",
+  "family": "Trump and spade-breaking rules / Conditional trump (shut off by a sacrifice)",
+  "role": "Enabler; rule setter",
+  "decision": "When to lead the queen into a suit an opponent (or your partner) has shown void in, trading one queen for trump-proof aces and kings in every trick left.",
+  "opponent": "Hidden until it fires, then public and symmetric; opponents who know the sigil face a dilemma on a queen lead in their void: trump it and give up trumping, or discard and let the queen win.",
+  "aiNote": "Lead the queen once an opponent or your partner has shown a void in its suit and you hold two or more aces or kings in other suits; otherwise hold it and follow normally.",
+  "rationale": "The trigger needs a void, so it fires mid-round, just when trumping starts to threaten High Card's winners, and it costs a queen that might have won; the queen affinity makes the bait work, because a void opponent trumps a queen that could win but may shed under a low card. Unlike Unclouded Sun (aces only), Stilled Hurricane (last four tricks), or Rosy Spectacles (hearts), it protects every card for whatever is left of the round, and your partner trumping the queen sets it up without losing the trick. It shares Stilled Hurricane's wording and property, so the two never conflict; GR-R01 (must trump) and GR-R03 (late hearts trump) change other properties and coexist with it. Opponents' kings are protected too, which keeps a strong-watch archetype's gain modest."
+}

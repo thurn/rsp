@@ -1,0 +1,41 @@
+{
+  "code": "PU-U01",
+  "name": "Spiteful Eraser",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Uncommon",
+  "price": 75,
+  "wave": 3,
+  "icon": "eraser",
+  "iconFamily": "eraser",
+  "iconWord": "eraser",
+  "iconAlternates": [
+    {
+      "name": "Barred Entry",
+      "icon": "no-entry"
+    },
+    {
+      "name": "Parting Ban",
+      "icon": "block"
+    }
+  ],
+  "text": "When this card loses a trick to an opponent, the winning card's sigil stops working for the rest of the round.",
+  "timing": "When this card loses",
+  "signature": [
+    {
+      "trigger": "this card loses to an opponent",
+      "scope": "opponents",
+      "target": "the winning card's sigil",
+      "effect": "disabled",
+      "frequency": "rest of round"
+    }
+  ],
+  "archetypes": "Contract Attacker, Nil Champion, Blind Bidder, Nil Guard",
+  "family": "Disabling sigils / Targeted (the card that beat it)",
+  "role": "Utility; opponent-facing",
+  "decision": "Which trick to lose this card on: hold it until an opponent wins with a card carrying a sigil worth stopping, such as a trick-winning payoff or a rule setter.",
+  "opponent": "Shown when it resolves and limited to one sigil a round; opponents answer by winning with unengraved cards when they can see this card coming.",
+  "aiNote": "Play this card under an opponent's winning card that carries a sigil, preferring ongoing and \"whenever\" sigils; on a nil, shed it on the first such trick.",
+  "rationale": "One disable a round, aimed by the owner's timing rather than by choosing from hidden sigils, and it lands in the short \"when this card loses\" window. It is weak early, when few opposing cards carry sigils, and strong late, when most do and affinities put them on the aces that win; that curve matches Contract Attacker's margin growing as opposing collections grow. \"To an opponent\" keeps it from switching off a partner's sigil. The winning card's own triggers from that trick resolve under the core resolution order; the disable covers everything after."
+}

@@ -1,0 +1,41 @@
+{
+  "code": "PU-U04",
+  "name": "Sleepwalker's Bed",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "bed",
+  "iconFamily": "bed",
+  "iconWord": "bed",
+  "iconAlternates": [
+    {
+      "name": "Warm Milk",
+      "icon": "milk-bottle"
+    },
+    {
+      "name": "Faint Nightlight",
+      "icon": "night-light"
+    }
+  ],
+  "text": "Whenever you lose a trick, if you bid blind nil, your highest card loses 3 rank.",
+  "timing": "When you lose any trick",
+  "signature": [
+    {
+      "trigger": "you lose a trick, on blind nil",
+      "scope": "self",
+      "target": "your highest card",
+      "effect": "rank −3",
+      "frequency": "per trick"
+    }
+  ],
+  "archetypes": "Blind Bidder; splash Nil Guard (beside a blind partner)",
+  "family": "Lowering your ranks / Triggered by losses (blind nil)",
+  "role": "Enabler (feeds Nil)",
+  "decision": "Whether to gamble blind when eligible, and in the first tricks which high card to shed while the rest of the hand is still being sanded down.",
+  "opponent": "Visible on every trigger; opponents answer by attacking early, before the hand has worn down, with low leads in the blind bidder's short suits.",
+  "aiNote": "With this sigil, bid blind nil whenever eligible; early in the round, follow with your highest safe card.",
+  "rationale": "A blind nil loses almost every trick until it fails, so this fires about a dozen times: after five tricks an ace, king, queen, and two jacks have all dropped to ten or below. That lifts blind nil survival from about 0.5 to about 0.65, worth about +60 points and 130 gold per blind round, and blind rounds come in about a third of rounds with Night Owl or Desperate Gambit. It triggers on losing, not on discards (Thrown Towel), and only on blind nils, so ordinary nils stay with Nil Champion."
+}

@@ -1,0 +1,42 @@
+{
+  "code": "GY-C24",
+  "name": "Tailor's Hanger",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "hanger",
+  "iconFamily": "hanger",
+  "iconWord": "hanger",
+  "iconAlternates": [
+    {
+      "name": "Spare Trousers",
+      "icon": "pant"
+    },
+    {
+      "name": "Pressed Skirt",
+      "icon": "skirt"
+    }
+  ],
+  "text": "Before bidding, you may replace all cards of one chosen suit in your hand with random new cards.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "self",
+      "target": "all hand cards of one chosen suit",
+      "effect": "replace with random new cards",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "All, for weak deals; splash Discard Dominance, Exact Contractor",
+  "family": "Opening hand control / Redeal",
+  "role": "Enabler",
+  "decision": "Which suit to throw back, if any: a short, weak suit for fresh cards, knowing each new card could land in the same suit.",
+  "opponent": "Hidden; everyone bids after it.",
+  "aiNote": "Replace the non-spade suit with the lowest average rank when it holds no card above a ten; otherwise keep the hand.",
+  "rationale": "A mulligan for a weak deal's worst suit; the new cards are created, a quarter of them land back in the thrown-back suit, so it thins a suit without reliably making a void, and sigils on replaced cards leave with them.",
+  "deviation": "Brief said replace a chosen card with a random card; changed to a whole chosen suit because GY-C09 (swap one card for one of three shown) would strictly beat a blind one-card replacement."
+}

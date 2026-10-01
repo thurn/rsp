@@ -1,0 +1,42 @@
+{
+  "code": "TE-R03",
+  "name": "Swelling Sea",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Rare",
+  "price": 85,
+  "wave": 4,
+  "icon": "sea-view",
+  "iconFamily": "sea-view",
+  "iconWord": "sea",
+  "iconAlternates": [
+    {
+      "name": "Steaming Hot Spring",
+      "icon": "hot-tub"
+    },
+    {
+      "name": "Lovers' Beach",
+      "icon": "beach"
+    }
+  ],
+  "text": "Gain +15 contract value for each round you've won three or more tricks with hearts since you bought this sigil, up to +90.",
+  "timing": "Always on, for you (counter checked at scoring)",
+  "signature": [
+    {
+      "trigger": "always, counter of rounds with 3+ heart tricks won since purchase",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +15 per qualifying round",
+      "frequency": "max +90"
+    }
+  ],
+  "archetypes": "Heart Chorus",
+  "family": "Scaling sigils / Counters (heart rounds)",
+  "role": "Payoff (Contract additive, scaling)",
+  "decision": "Whether to spend hearts early to reach three heart wins or hold them for the late tricks, and how many heart tricks to bid for.",
+  "opponent": "The count is public; opponents can hold spades for the late hearts to deny a qualifying round.",
+  "aiNote": "Value each round at three or more heart wins as +15 for the rest of the run; with Unfolding Butterfly, hold hearts for the last five tricks.",
+  "rationale": "A Heart Chorus hand with Unfolding Butterfly wins three heart tricks in about 60% of rounds, so a copy bought around round 5 reaches about +45 by round 10 and nears the cap by round 13 (about +35 to +45 EV late), rare value for the thinnest archetype; the round that qualifies pays at once, and it grows across the run instead of paying a one-round bonus (Schooling Fish, Sunset Sailboat) or raising heart ranks (Unfolding Butterfly).",
+  "deviation": "Step raised from about +10 to +15 (cap +90) because a rare is usually found mid-run and +10 left the thinnest archetype near +25 EV; timing moved from \"After scoring\" to the accepted always-on counter pattern (Growing City, Waiting Bench) so the qualifying round pays immediately, and After scoring is already above its floor of 3."
+}

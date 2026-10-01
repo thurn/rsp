@@ -1,0 +1,42 @@
+{
+  "code": "GY-C19",
+  "name": "Etched Microchip",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "microchip",
+  "iconFamily": "microchip",
+  "iconWord": "microchip",
+  "iconAlternates": [
+    {
+      "name": "Busy Circuit",
+      "icon": "circuit-board"
+    },
+    {
+      "name": "Faithful Computer",
+      "icon": "computer-retro"
+    }
+  ],
+  "text": "Whenever you win a trick with a card that has a sigil, gain +5 contract value.",
+  "timing": "When you win any trick",
+  "signature": [
+    {
+      "trigger": "you win a trick with a card carrying a sigil",
+      "scope": "self",
+      "target": "contract",
+      "effect": "+5",
+      "frequency": "per trick"
+    }
+  ],
+  "archetypes": "High Card, Spade Master, Contract Attacker; any large collection",
+  "family": "Additive contract value / During play",
+  "role": "Payoff: Contract additive",
+  "decision": "Which cards to win with (ones with sigils first), and with GY-C06 where to put sigils so they land on winners.",
+  "opponent": "Visible as it triggers; no effect on opponents.",
+  "aiNote": "When two cards can win a trick, win with the one that has a sigil unless that sigil needs its card held.",
+  "rationale": "Scales with the collection: with four sigils in a 13-card hand it fires about once a round (+4 expected), and with ten or more nearly every win counts (+12 to +13 expected), matching the curve's growth; the condition is about the collection, not a suit or a partner.",
+  "deviation": "Redesigned in revision 1: plain \"whenever you win a trick\" near-duplicated RE-C08 and TE-C07, so the condition now counts cards that carry a sigil, a Gray axis; renamed from Turning Cog, which echoed Turning Tide and looked like GY-C22's gear."
+}

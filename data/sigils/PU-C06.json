@@ -1,0 +1,41 @@
+{
+  "code": "PU-C06",
+  "name": "Wayward Cat",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "cat",
+  "iconFamily": "cat",
+  "iconWord": "black cat",
+  "iconAlternates": [
+    {
+      "name": "Passing Ghost",
+      "icon": "ghost"
+    },
+    {
+      "name": "Formless Blob",
+      "icon": "blob"
+    }
+  ],
+  "text": "You may play this card even if you could follow suit.",
+  "timing": "Always on, for the engraved card",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "this card",
+      "effect": "may be played without following suit",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Discard Dominance, Nil Champion, Blind Bidder",
+  "family": "Following-suit relief / Card-bound",
+  "role": "Enabler",
+  "decision": "Which trick to spend it on: shedding it as a danger card on a nil, adding a discard, or trumping in with it if it is a spade.",
+  "opponent": "Visible when played; one surprise off-suit play a round.",
+  "aiNote": "On a nil, play it off suit on the first trick an opponent is winning if it is a face card or ace; otherwise save it for a discard trigger.",
+  "rationale": "One free off-suit play a round: a nil bidder sheds its engraved card safely, and a discard deck gets a discard even without a void."
+}

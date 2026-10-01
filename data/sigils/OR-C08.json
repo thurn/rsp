@@ -1,0 +1,41 @@
+{
+  "code": "OR-C08",
+  "name": "Glittering Treasure",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "treasure-chest",
+  "iconFamily": "treasure-chest",
+  "iconWord": "treasure",
+  "iconAlternates": [
+    {
+      "name": "Brimming Barrel",
+      "icon": "cylinder"
+    },
+    {
+      "name": "Golden Record",
+      "icon": "disc"
+    }
+  ],
+  "text": "Whenever you win a trick with a diamond, gain +15 gold.",
+  "timing": "When you win any trick",
+  "signature": [
+    {
+      "trigger": "you win a trick",
+      "scope": "self",
+      "target": "your winning diamond",
+      "effect": "gold +15",
+      "frequency": "per trick"
+    }
+  ],
+  "archetypes": "Diamond Flood; splash Gold Miner",
+  "family": "Gold income / Conditional",
+  "role": "Payoff (Economy)",
+  "decision": "Whether to cash top diamonds early by leading them, rather than trumping or holding them for Gem Cascade.",
+  "opponent": "Visible gold gain; opponents can trump diamonds once they are void.",
+  "aiNote": "Lead your highest diamond while opponents still hold diamonds; in a flooded hand, lead diamonds from the top.",
+  "rationale": "About 0.8 diamond wins a round (2 when flooded) pays 12–30 gold, a common economy payoff that grows with the flood."
+}

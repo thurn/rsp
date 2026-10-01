@@ -1,0 +1,42 @@
+{
+  "code": "DU-S14",
+  "name": "Daring Knight",
+  "resonances": [
+    "Blue",
+    "Purple"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 1,
+  "icon": "chess-knight",
+  "iconFamily": "chess-knight",
+  "iconWord": "knight",
+  "iconAlternates": [
+    {
+      "name": "Defiant Rook",
+      "icon": "chess-rook"
+    },
+    {
+      "name": "Fearless Rocket",
+      "icon": "rocket"
+    }
+  ],
+  "text": "When you bid nil, gain +15 nil value for each face card or ace in your hand.",
+  "timing": "When you bid",
+  "signature": [
+    {
+      "trigger": "when you bid nil",
+      "scope": "self",
+      "target": "face cards and aces in hand",
+      "effect": "nil value +15 each",
+      "frequency": "per card"
+    }
+  ],
+  "archetypes": "Nil Champion; splash Discard Dominance, Nil Guard",
+  "family": "Nil value / Additive (scaled by risk)",
+  "role": "Payoff (Nil)",
+  "decision": "Whether a hand with three or four high cards is a daring nil, counting on lowering and passes after bidding.",
+  "opponent": "The count is shown when you bid, so opponents know the nil is dangerous and can attack it.",
+  "aiNote": "Bid nil with up to four high cards if you own an after-bidding lowering or passing sigil; otherwise at most two.",
+  "rationale": "Rewards the archetype's signature gamble (bid nil, then lower your own cards with PU-C01 or PU-C03): a three-high-card nil pays +45. Its Scaling label means value that rises with the hand's danger, like the skeleton's Gold Miner example. A blind nil counts nothing, because it is declared before the hand exists."
+}

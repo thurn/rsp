@@ -1,0 +1,41 @@
+{
+  "code": "GY-C03",
+  "name": "Heirloom Cabinet",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 40,
+  "wave": 2,
+  "icon": "cabinet",
+  "iconFamily": "cabinet",
+  "iconWord": "cabinet",
+  "iconAlternates": [
+    {
+      "name": "Rainy Day Cupboard",
+      "icon": "cupboard"
+    },
+    {
+      "name": "Vintage Radio",
+      "icon": "radio"
+    }
+  ],
+  "text": "After scoring, this sigil's sell value gains +20 gold.",
+  "timing": "After scoring",
+  "signature": [
+    {
+      "trigger": "after scoring",
+      "scope": "self",
+      "target": "this sigil's sell value",
+      "effect": "+20 gold",
+      "frequency": "per round"
+    }
+  ],
+  "archetypes": "All; most for Gold Miner and decks changing direction mid-run",
+  "family": "Selling / Growing value",
+  "role": "Payoff: Economy",
+  "decision": "When to cash it in: keep it growing, or sell to afford a key offer or reroll.",
+  "opponent": "No effect on opponents.",
+  "aiNote": "Buy when no offer fits; sell when the gold brings a wanted offer within reach, or at the first shop after round 9.",
+  "rationale": "Starts at 20 and sells for 80 after three rounds, a savings bond for a weak shop; the gold earns no interest while locked and the purchase bought nothing else, which keeps it modest."
+}

@@ -1,0 +1,41 @@
+{
+  "code": "GY-C11",
+  "name": "Humble Cottage",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 40,
+  "wave": 2,
+  "icon": "tiny-home",
+  "iconFamily": "tiny-home",
+  "iconWord": "cottage",
+  "iconAlternates": [
+    {
+      "name": "Plain Vest",
+      "icon": "undershirt"
+    },
+    {
+      "name": "Quiet Bench",
+      "icon": "bench"
+    }
+  ],
+  "text": "Before bidding, you may replace your highest card with a random new two.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "self",
+      "target": "your highest card",
+      "effect": "replace with a random new two",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Nil Champion, Nil Guard, Discard Dominance; splash Blind Bidder",
+  "family": "Hand repair / Reverse repair",
+  "role": "Enabler (feeds Nil)",
+  "decision": "Whether to give up your best card: yes turns a borderline hand into a nil, no keeps a winner for a contract.",
+  "opponent": "Hidden; everyone bids after it.",
+  "aiNote": "Replace when the hand would bid nil without its highest card; otherwise keep it.",
+  "rationale": "Removes the ace or top spade that sinks most nils, before bidding so the nil decision is informed, and a blind nil bidder gets it too; the two is created, so it may duplicate a dealt two."
+}

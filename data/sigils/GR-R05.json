@@ -1,0 +1,41 @@
+{
+  "code": "GR-R05",
+  "name": "Spring Renewal",
+  "resonances": [
+    "Green"
+  ],
+  "rarity": "Rare",
+  "price": 90,
+  "wave": 4,
+  "icon": "recycle",
+  "iconFamily": "recycle",
+  "iconWord": "renewal",
+  "iconAlternates": [
+    {
+      "name": "Wilted Broccoli",
+      "icon": "broccoli"
+    },
+    {
+      "name": "Unwound Spool",
+      "icon": "thread-roll"
+    }
+  ],
+  "text": "The fifth time each round you discard, gain +1× contract multiplier.",
+  "timing": "When you discard",
+  "signature": [
+    {
+      "trigger": "fifth discard each round",
+      "scope": "self",
+      "target": "contract",
+      "effect": "multiplier +1×",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Discard Dominance; splash Nil Champion",
+  "family": "Growth over the round / Outcome counters (discards)",
+  "role": "Payoff (Contract multiplier)",
+  "decision": "Bidding low enough to afford five losing discards, spending skip-follow permissions and voids to reach the fifth, and weighing whether a contract that might still fail should be doubled.",
+  "opponent": "The count is public through plays and the multiplier is shown when gained; opponents slow it by not leading the holder's void suits and by leading suits the holder must follow.",
+  "aiNote": "Bid a contract that five discards can't break; once four discards are made, prefer a discard over following with a card that could win.",
+  "rationale": "A club-void deck with a second void or a skip-follow permission discards four to six times a round, so it reaches five in about 45% of Discard Dominance rounds and rarely otherwise; gained mid-round, the +1× applies win or lose, about +40 late (0.45 × (0.8 × 120 − 12)) on its low-bid contracts, and the fifth discard is itself a lost trick, which keeps a strong-watch archetype honest; it counts discards only, not trumps (RE-R02), and pays no value per void (Scouring Tornado, DU-S12) or per club (Buried Bone, PU-C09)."
+}

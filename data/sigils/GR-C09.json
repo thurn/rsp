@@ -1,0 +1,32 @@
+{
+  "code": "GR-C09",
+  "name": "Verdant Banner",
+  "resonances": [
+    "Green"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 0,
+  "icon": "flag",
+  "iconFamily": "flag",
+  "iconWord": "banner",
+  "iconAlternates": [],
+  "text": "While this card is in your hand, your hearts gain +2 rank.",
+  "timing": "While in hand",
+  "signature": [
+    {
+      "trigger": "while held",
+      "scope": "self",
+      "target": "your hearts",
+      "effect": "rank +2",
+      "frequency": "all"
+    }
+  ],
+  "archetypes": "Heart Chorus; splash Kingmaker, Nil Guard",
+  "family": "Raising your ranks / Aura",
+  "role": "Enabler",
+  "decision": "When to release the card, ending the aura.",
+  "opponent": "Visible as hearts winning above their printed rank.",
+  "aiNote": "Hold the engraved card until hearts are no longer needed.",
+  "rationale": "+2 across a long heart suit is noticeable, including hearts in the current trick; the release timing is the decision."
+}

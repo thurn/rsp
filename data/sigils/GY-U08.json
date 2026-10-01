@@ -1,0 +1,41 @@
+{
+  "code": "GY-U08",
+  "name": "Field First Aid",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "medical-kit",
+  "iconFamily": "medical-kit",
+  "iconWord": "first aid",
+  "iconAlternates": [
+    {
+      "name": "Walk-In Clinic",
+      "icon": "institution"
+    },
+    {
+      "name": "Late-Night Pharmacy",
+      "icon": "pharmacy"
+    }
+  ],
+  "text": "Before bidding, if you hold no aces, you may turn a chosen card in your hand into an ace.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding, no aces",
+      "scope": "self",
+      "target": "a chosen card",
+      "effect": "rank becomes ace",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "High Card, Spade Master, Kingmaker, Bonus Chaser",
+  "family": "Hand repair / Threshold (no aces)",
+  "role": "Enabler",
+  "decision": "Whether to use it, and which suit gets the ace: a low spade for a sure trick, a long side suit's card to run it, or no ace when planning nil.",
+  "opponent": "Hidden; everyone bids after it.",
+  "aiNote": "Turn the lowest spade into an ace unless planning nil; with no spades, the lowest card of the longest suit.",
+  "rationale": "About 30% of hands hold no ace, so it adds about a trick in those rounds; the chosen card keeps its suit and sigil, so a win trigger can ride on it; distinct from Trusty Wrench (GY-C10), which replaces the lowest card with a random spade."
+}

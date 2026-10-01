@@ -1,0 +1,41 @@
+{
+  "code": "RE-U01",
+  "name": "Arena's Law",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "stadium",
+  "iconFamily": "stadium",
+  "iconWord": "arena",
+  "iconAlternates": [
+    {
+      "name": "Pentagon's Decree",
+      "icon": "pentagon"
+    },
+    {
+      "name": "Shrieking Siren",
+      "icon": "siren"
+    }
+  ],
+  "text": "Once a trick has been trumped, anyone who can't follow suit must overtrump if they can.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "all players",
+      "target": "void players in a trumped trick",
+      "effect": "must overtrump if able",
+      "frequency": "all tricks"
+    }
+  ],
+  "archetypes": "Spade Master, Contract Attacker, High Card",
+  "family": "Trick restrictions / Overtrumping (Red)",
+  "role": "Enabler; rule setter; opponent-facing",
+  "decision": "How high to trump: a trump no void opponent can top ends the trick, while a low trump forces their higher spades out, often over their own partner.",
+  "opponent": "A visible table rule; opponents lose the option to discard under a trump, so they burn spades over their partner and a void nil bidder can be forced to take a trick, but they can plan around it from the first trick.",
+  "aiNote": "Buy with a long or high spade suit; when trumping, play your lowest spade that no later void opponent can beat, and the forced overtrumps themselves are automatic.",
+  "rationale": "The one Red global rule setter at uncommon: it makes spades fly, so the team with the longest and highest spades (Spade Master with Red rank boosts) wins the attrition, and it doubles as Contract Attacker's tool against void nil bidders and cautious discarders; it binds the owner's team too, which is the price of a table-wide rule."
+}

@@ -1,0 +1,41 @@
+{
+  "code": "OR-U10",
+  "name": "Released Balloon",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "balloon",
+  "iconFamily": "balloon",
+  "iconWord": "balloon",
+  "iconAlternates": [
+    {
+      "name": "Round of Beer",
+      "icon": "beer"
+    },
+    {
+      "name": "Melting Popsicle",
+      "icon": "popsicle"
+    }
+  ],
+  "text": "Whenever you pass cards after bidding nil, gain +25 nil value.",
+  "timing": "When you pass cards",
+  "signature": [
+    {
+      "trigger": "you pass cards, you bid nil",
+      "scope": "self",
+      "target": "your nil",
+      "effect": "nil value +25",
+      "frequency": "per pass"
+    }
+  ],
+  "archetypes": "Blind Bidder, Swap Meet; splash Nil Champion, Nil Guard",
+  "family": "Nil value / Additive",
+  "role": "Payoff (Nil)",
+  "decision": "Whether to take a post-bid exchange even when the card you would give is safe, and a reason for a nil bidder to seek Teal passes and a Sheltering Castle partner.",
+  "opponent": "Visible when it fires; opponents still see which way the nil's danger moved only through play.",
+  "aiNote": "On nil or blind nil, always take any offered pass or swap, giving your highest card.",
+  "rationale": "A nil bidder with Open Hand or a Castle partner passes once or twice a round, so +25 to +50 on success, about +20 EV on nil rounds, and every pass that fires it also sheds a danger card, so value and survival rise together."
+}

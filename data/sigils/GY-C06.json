@@ -1,0 +1,41 @@
+{
+  "code": "GY-C06",
+  "name": "Rearranged Desk",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "desk",
+  "iconFamily": "desk",
+  "iconWord": "desk",
+  "iconAlternates": [
+    {
+      "name": "Rewired Keyboard",
+      "icon": "keyboard"
+    },
+    {
+      "name": "Nimble Mouse",
+      "icon": "mouse"
+    }
+  ],
+  "text": "Before bidding, you may swap the sigils on two chosen cards in your hand.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "self",
+      "target": "two chosen cards",
+      "effect": "swap sigils",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "While Held, High Card, Kingmaker; any collection with card-bound sigils",
+  "family": "Engraving control / Choice",
+  "role": "Enabler (feeds Patient Hourglass, DU-S10)",
+  "decision": "Which sigil goes where: Crown Jewel onto an ace, Honed Edge onto a queen, Patient Hourglass onto the card least likely to be forced out.",
+  "opponent": "Hidden; opponents see only the results through play.",
+  "aiNote": "Move win-trigger and rank sigils to the highest card, and while-held sigils to the top spade or the lowest card of the longest suit.",
+  "rationale": "A card without a sigil can be one of the two, which simply moves the sigil; one swap a round keeps it a common, and it works even late in the run when most cards carry a sigil."
+}

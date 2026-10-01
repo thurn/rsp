@@ -1,0 +1,43 @@
+{
+  "code": "DU-R05",
+  "name": "Reckless Rocket",
+  "resonances": [
+    "Orange",
+    "Purple"
+  ],
+  "rarity": "Rare",
+  "price": 90,
+  "wave": 5,
+  "icon": "rocket",
+  "iconFamily": "rocket",
+  "iconWord": "rocket",
+  "iconAlternates": [
+    {
+      "name": "Unseen Saucer",
+      "icon": "ufo"
+    },
+    {
+      "name": "Doubling Blast",
+      "icon": "explosion"
+    }
+  ],
+  "text": "When you bid blind nil, gain +2× contract multiplier.",
+  "timing": "When you bid (the blind nil decision, before the deal)",
+  "signature": [
+    {
+      "trigger": "you bid blind nil",
+      "scope": "team",
+      "target": "contract",
+      "effect": "multiplier +2×",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Blind Bidder; splash Nil Guard (as the partner)",
+  "family": "Blind bidding / Rewards (multiplier on the partner's contract)",
+  "role": "Payoff (Contract multiplier)",
+  "decision": "Whether to gamble on a blind nil now that it also triples your partner's contract, win or lose. Your partner then bids after the deal, knowing a failure costs three times as much.",
+  "opponent": "Visible when the blind nil is declared, before anyone sees a card. Opponents answer by attacking either half: leading low into the blind nil, or setting the tripled contract.",
+  "aiNote": "Bid blind nil whenever eligible and the partner's contract has been made in most recent rounds. As the partner, bid about one trick under the hand's strength.",
+  "rationale": "Blind Bidder had no multiplier, though its partner's contract is about 35% of its points. This is the rare \"larger multiplier\" role, used as Orange's reward for the gamble itself. Late, a partner's solo contract of about 90 gains about +128 per blind round (+80 mid-run). Averaged over rounds, that is about +30 at Night Owl's qualifying rate and about +50 at Desperate Gambit's, which is inside the rare band. It also doubles the rounds when Rousing Speaker (GY-C25) pays most, because blind nils happen while behind. It changes neither the blind nil deficit (Night Owl, Desperate Gambit) nor nil value (Clouded Eight Ball, Guiding Nightlight), and it pays nothing per off-suit play (Restless Ghost). Public Hospital (GY-R07) removes its downside, which is the intended combination.",
+  "deviation": "The slot suggested \"When you play another suit\" and a payoff for shedding cards on a blind nil. I moved it to the blind nil bid window and the Contract multiplier channel for two reasons: a blind nil always trails, so any off-suit nil payoff would duplicate Restless Ghost (PU-U10), and blind nil value is already covered by Clouded Eight Ball, Released Balloon, and Guiding Nightlight."
+}

@@ -1,0 +1,41 @@
+{
+  "code": "RE-C04",
+  "name": "Vanguard Shield",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "shield",
+  "iconFamily": "shield",
+  "iconWord": "shield",
+  "iconAlternates": [
+    {
+      "name": "Drawn Bow",
+      "icon": "bow"
+    },
+    {
+      "name": "Bold Stance",
+      "icon": "body"
+    }
+  ],
+  "text": "When you lead with this card, it gains +5 rank.",
+  "timing": "When led",
+  "signature": [
+    {
+      "trigger": "when led",
+      "scope": "self",
+      "target": "this card",
+      "effect": "rank +5",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "High Card, Spade Master, Bonus Chaser",
+  "family": "Trick position / Leading",
+  "role": "Enabler",
+  "decision": "Hold the card for a trick you lead rather than following with it; a led nine plays as an ace.",
+  "opponent": "Visible when led; opponents see the raised card before they follow and can trump it if void.",
+  "aiNote": "Treat the card as its raised rank when you hold the lead, and lead it early in a suit opponents still hold.",
+  "rationale": "A bigger bonus than Honed Edge (+3 always) paid for by the lead condition; a card led as an ace also counts as an ace for Unclouded Sun (DU-S01), and RE-C03 supplies the lead when needed."
+}

@@ -1,0 +1,42 @@
+{
+  "code": "OR-C01",
+  "name": "Lucky Coin",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Common",
+  "price": 40,
+  "wave": 2,
+  "icon": "coin",
+  "iconFamily": "coin",
+  "iconWord": "coin",
+  "iconAlternates": [
+    {
+      "name": "Crisp Banknote",
+      "icon": "currency-note"
+    },
+    {
+      "name": "Silver Dollar",
+      "icon": "dollar"
+    }
+  ],
+  "text": "When you play this card to a trick of another suit, gain +30 gold.",
+  "timing": "When you play another suit",
+  "signature": [
+    {
+      "trigger": "when played to a trick of another suit",
+      "scope": "self",
+      "target": "you",
+      "effect": "gold +30",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Gold Miner, Diamond Flood, Swap Meet, Bonus Chaser; splash Discard Dominance",
+  "family": "Gold income / Conditional",
+  "role": "Payoff (Economy)",
+  "decision": "Saving this card for a trick you can't follow, rather than following suit or leading with it.",
+  "opponent": "Visible gold gain; no effect on opponents' play.",
+  "aiNote": "Play this card at the first trick you can't follow unless it must win; value it as 15 gold per round when shopping, falling off after round 8.",
+  "rationale": "It pays in about 55% of rounds, more in void decks, so about 15–20 gold a round, a little below Nest Egg's 30–45 for 5 gold less; it shares Swooping Bird's (GR-C07) trigger but pays gold on any card rather than contract value on a spade.",
+  "deviation": "Wave 6 audit: the trigger moved from any play to a play off suit and the gold from 20 to 30, so it is no longer a stat stick and fills the When you play another suit window."
+}

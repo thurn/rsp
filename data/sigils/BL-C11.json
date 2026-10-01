@@ -1,0 +1,41 @@
+{
+  "code": "BL-C11",
+  "name": "Lowered Lashes",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "eye-closed",
+  "iconFamily": "eye-closed",
+  "iconWord": "lashes",
+  "iconAlternates": [
+    {
+      "name": "Bowed Head",
+      "icon": "head"
+    },
+    {
+      "name": "Still Hurricane",
+      "icon": "hurricane"
+    }
+  ],
+  "text": "Whenever you lose a trick while holding a card that could have won it, gain +5 nil value.",
+  "timing": "When you lose any trick",
+  "signature": [
+    {
+      "trigger": "you lose a trick, holding a card that beats its winner",
+      "scope": "self",
+      "target": "your nil",
+      "effect": "nil value +5",
+      "frequency": "per trick"
+    }
+  ],
+  "archetypes": "Nil Champion; splash Blind Bidder",
+  "family": "Losing tricks / Ducking",
+  "role": "Payoff (Nil)",
+  "decision": "On a nil, whether to keep a dangerous high card for later ducks or shed it early while it is safe.",
+  "opponent": "Visible each time it triggers, which tells opponents you still hold a winner in that suit, so they can lead it again to force it out.",
+  "aiNote": "On nil, follow with your highest card that still loses, keeping cards above it; shed a held winner only when it can no longer lose safely.",
+  "rationale": "\"Could have won\" means you still hold a legal card that beats the card that won; a nil hand ducks under its own higher cards about four to six times a round, about +25 on a successful nil, near Vigil Candle, and more on Daring Knight's (DU-S14) high-card nils, which is the risk it rewards."
+}

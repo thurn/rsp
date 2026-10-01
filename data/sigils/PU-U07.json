@@ -1,0 +1,41 @@
+{
+  "code": "PU-U07",
+  "name": "Spare Moustache",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "moustache",
+  "iconFamily": "moustache",
+  "iconWord": "moustache",
+  "iconAlternates": [
+    {
+      "name": "Soft-Pedal Piano",
+      "icon": "piano"
+    },
+    {
+      "name": "Dimming Bulb",
+      "icon": "light-bulb"
+    }
+  ],
+  "text": "After bidding, if your partner bid nil, your partner chooses two cards in their hand to lose 4 rank.",
+  "timing": "After bidding",
+  "signature": [
+    {
+      "trigger": "after bidding, partner on nil",
+      "scope": "partner",
+      "target": "two cards your partner chooses",
+      "effect": "rank −4",
+      "frequency": "×2"
+    }
+  ],
+  "archetypes": "Nil Guard; splash Blind Bidder, Nil Champion (as the partner of a nil bidder)",
+  "family": "Lowering your ranks / Post-bid (aimed at your partner)",
+  "role": "Enabler (feeds Nil: partner's nil)",
+  "decision": "Your solo bid, knowing your partner's nil is safer, and for your partner, which two dangers to dull, since they know their own hand.",
+  "opponent": "The two changes are shown after bids; opponents know the nil lost two teeth and aim their low leads elsewhere.",
+  "aiNote": "The nil partner lowers its two most dangerous cards, preferring high cards in short suits; an AI partner of this sigil's owner treats two of its highest cards as four ranks lower when deciding whether to bid nil.",
+  "rationale": "The partner picks because only they see their hand, which keeps the owner free of hidden information and makes every lowering count. Four ranks turns an ace into a ten and a king into a nine, lifting a partner's nil from about 75% to about 85%, about +20 per partner nil, and it stacks with Sheltering Castle, which then takes the next two highest cards. It lowers only the partner's cards (not Waning Moon's own hand) and moves no cards (not Sheltering Castle)."
+}

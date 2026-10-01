@@ -1,0 +1,42 @@
+{
+  "code": "OR-R05",
+  "name": "Flickering Television",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Rare",
+  "price": 90,
+  "wave": 4,
+  "icon": "tv",
+  "iconFamily": "tv",
+  "iconWord": "television",
+  "iconAlternates": [
+    {
+      "name": "Sneaked Cupcake",
+      "icon": "cupcake"
+    },
+    {
+      "name": "Scent of Bacon",
+      "icon": "bacon"
+    }
+  ],
+  "text": "Before you choose whether to bid blind nil, you may look at four random cards in your hand.",
+  "timing": "When you bid (the blind nil decision, before the deal)",
+  "signature": [
+    {
+      "trigger": "blind nil decision",
+      "scope": "self",
+      "target": "four random cards in your hand",
+      "effect": "look (private)",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Blind Bidder; splash Nil Champion, Nil Guard",
+  "family": "Blind bidding / Peek",
+  "role": "Enabler (blind nil survival and selection)",
+  "decision": "Whether four cards are safe enough to go blind for ±200 (±300 with Clouded Eight Ball), knowing the other nine stay hidden.",
+  "opponent": "The peek is private and the blind nil is public as usual; opponents play against it exactly as against any blind nil.",
+  "aiNote": "Bid blind nil when eligible unless the four cards include a spade queen or higher, two aces or kings, or three or more spades.",
+  "rationale": "The peek screens out about a quarter of the worst blind hands and lifts survival on the rest from about 0.65 to about 0.75, worth about +20 points and steadier blind-nil gold per eligible round, and more with Clouded Eight Ball (OR-U07), whose ±300 punishes exactly the hands this avoids.",
+  "deviation": "Dropped the briefed stake cut (±150) and raised the peek from three cards to four, because at ±150 the information roughly cancels the lost stakes (about 60 expected points either way), leaving a rare that changes little; the simpler text also stacks with Clouded Eight Ball without an \"instead of\" conflict."
+}

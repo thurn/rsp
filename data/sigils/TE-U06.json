@@ -1,0 +1,42 @@
+{
+  "code": "TE-U06",
+  "name": "Rerouted Bus",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "bus",
+  "iconFamily": "bus",
+  "iconWord": "bus",
+  "iconAlternates": [
+    {
+      "name": "Detour Cone",
+      "icon": "traffic-cone"
+    },
+    {
+      "name": "Swerving Scooter",
+      "icon": "scooter"
+    }
+  ],
+  "text": "When you play this card, you may raise your partner's bid by one.",
+  "timing": "When played",
+  "signature": [
+    {
+      "trigger": "when played",
+      "scope": "partner",
+      "target": "partner's bid",
+      "effect": "optional +1",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Exact Contractor; splash Kingmaker",
+  "family": "Bid adjustment / Partner (increase)",
+  "role": "Enabler",
+  "decision": "How long to hold this card for information, and whether the team's surplus trick is safe enough to add to your partner's bid.",
+  "opponent": "Visible bid change; a raise makes the contract harder, so opponents can answer by denying the extra trick, and it never rescues a set.",
+  "aiNote": "Hold this card until about trick 8; raise the partner's bid if the team has already taken its contract or is sure of an overtrick, otherwise play it without raising.",
+  "rationale": "Raising the contract by one mid-round turns a sure overtrick into +10 contract value and one fewer bag, lands True Aim and Honest Ruler on an exact count, and sets up a partner's own-bid exact (BL-U06, a partner's Balanced Yin-Yang); a raise is a risk the owner takes, so holding the card late is fair, while decreases stay with Blue behind a cost (BL-U08). Teal adjusts the partner's bid while Blue keeps your own; a nil has no bid to raise, and bids stay at 13 or less. The price drops to 65 because the one-way change is worth less than the old two-way version.",
+  "deviation": "Direction narrowed from raise or lower to raise only, because a free decrease played on the last trick was uncounterable set insurance that overlapped Blue's BL-U08 and BL-U10; price moved from 70 to 65 and the Nil Guard splash dropped, since a nil partner has no bid to raise."
+}

@@ -1,0 +1,32 @@
+{
+  "code": "PU-C01",
+  "name": "Waning Moon",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 0,
+  "icon": "moon",
+  "iconFamily": "moon",
+  "iconWord": "moon",
+  "iconAlternates": [],
+  "text": "After bidding, two chosen cards in your hand lose 3 rank.",
+  "timing": "After bidding",
+  "signature": [
+    {
+      "trigger": "after bidding",
+      "scope": "self",
+      "target": "two chosen cards",
+      "effect": "rank −3",
+      "frequency": "×2"
+    }
+  ],
+  "archetypes": "Nil Champion, Blind Bidder, Discard Dominance; splash Exact Contractor",
+  "family": "Lowering your ranks / Post-bid",
+  "role": "Enabler (feeds Nil)",
+  "decision": "Which two cards to lower, knowing your bid.",
+  "opponent": "The change is shown to the table after bids; no loss of agency.",
+  "aiNote": "Lower the two highest cards of the shortest suit.",
+  "rationale": "Rescues a risky nil without a pass."
+}

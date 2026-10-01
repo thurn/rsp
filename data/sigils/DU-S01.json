@@ -1,0 +1,43 @@
+{
+  "code": "DU-S01",
+  "name": "Unclouded Sun",
+  "resonances": [
+    "Red",
+    "Blue"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 1,
+  "icon": "sun",
+  "iconFamily": "sun",
+  "iconWord": "sun",
+  "iconAlternates": [
+    {
+      "name": "Steadfast Rook",
+      "icon": "chess-rook"
+    },
+    {
+      "name": "Victor's Laurel",
+      "icon": "laurel-wreath"
+    }
+  ],
+  "text": "Your aces can't be trumped.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "your aces",
+      "effect": "cannot be beaten by trump",
+      "frequency": "all"
+    }
+  ],
+  "archetypes": "High Card; splash Contract Attacker, Kingmaker",
+  "family": "Trick restrictions / Block trumping (aimed at your aces)",
+  "role": "Enabler (rule-bender; feeds contract base and win triggers); opponent-facing",
+  "decision": "Bidding every ace as a sure trick, and shopping for rank boosts that make more aces.",
+  "opponent": "Visible the first time a trump fails to take an ace; they answer by lowering the ace's rank or forcing it out on an unwanted lead.",
+  "aiNote": "Count each ace as a certain trick when bidding and lead aces whenever their suit is still live.",
+  "rationale": "States the plan exactly (the biggest card of the led suit wins, trump is the enemy) and pays off the aces that commons make (RE-C01, RE-C02, Crown Jewel's affinity); RE-R01's brief overlaps and should move away from beating trump.",
+  "deviation": "Slot said Win triggers / Trump, paying Contract multiplier; changed to a rule-bender (Trick restrictions) because High Card already has two uncommon multipliers (BL-U03, BL-U09), the set needs varied shapes, and the conditional-scoring multiplier window went to Exact Contractor."
+}

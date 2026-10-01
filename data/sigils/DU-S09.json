@@ -1,0 +1,43 @@
+{
+  "code": "DU-S09",
+  "name": "Desperate Gambit",
+  "resonances": [
+    "Orange",
+    "Purple"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 1,
+  "icon": "strategy",
+  "iconFamily": "strategy",
+  "iconWord": "gambit",
+  "iconAlternates": [
+    {
+      "name": "Unseen Saucer",
+      "icon": "ufo"
+    },
+    {
+      "name": "Reckless Rocket",
+      "icon": "rocket"
+    }
+  ],
+  "text": "You may bid blind nil whenever your team is behind.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "blind nil eligibility",
+      "effect": "deficit 200 → any",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Blind Bidder; splash Nil Champion, Nil Guard",
+  "family": "Blind bidding / Threshold (lowered to any deficit)",
+  "role": "Enabler (rule-bender; Nil channel)",
+  "decision": "Each round your team trails, whether to gamble blind for ±200 and 200 gold or bid normally.",
+  "opponent": "The blind nil is public before the deal; opponents answer by leading low through the blind bidder.",
+  "aiNote": "Bid blind nil when behind if you own at least one self-lowering or passing sigil; otherwise only when 100 or more behind.",
+  "rationale": "Qualifying is Blind Bidder's bottleneck; this raises its blind nil rate from about 12% to about 40% of rounds, turns on its blind-only payoffs (OR-U07, PU-U04, PU-U10), and turns off naturally once a success pulls the team ahead. Commons (PU-C01, PU-C03, TE-C01) supply the survival.",
+  "deviation": "Slot said Blind bidding / Rewards; changed to the Threshold variation as a rule-bender, because qualifying, not reward size, is Blind Bidder's bottleneck in scoring.md."
+}

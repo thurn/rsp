@@ -1,0 +1,32 @@
+{
+  "code": "GR-C08",
+  "name": "Turning Tide",
+  "resonances": [
+    "Green"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 0,
+  "icon": "water",
+  "iconFamily": "water",
+  "iconWord": "tide",
+  "iconAlternates": [],
+  "text": "Before bidding, convert two chosen cards in your hand to diamonds.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "self",
+      "target": "two chosen cards",
+      "effect": "convert to diamonds",
+      "frequency": "×2"
+    }
+  ],
+  "archetypes": "Diamond Flood; splash Discard Dominance, Bonus Chaser",
+  "family": "Changing your suits / Directional",
+  "role": "Enabler",
+  "decision": "Which two cards to convert: lengthen diamonds or open a void.",
+  "opponent": "Everyone bids after the change; visible through play.",
+  "aiNote": "Convert the two cards of the shortest non-diamond suit.",
+  "rationale": "Shapes the hand toward diamonds without guaranteeing tricks."
+}

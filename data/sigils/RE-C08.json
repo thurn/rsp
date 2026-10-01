@@ -1,0 +1,41 @@
+{
+  "code": "RE-C08",
+  "name": "Headsman's Axe",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "axe",
+  "iconFamily": "axe",
+  "iconWord": "axe",
+  "iconAlternates": [
+    {
+      "name": "Iron Helmet",
+      "icon": "helmet"
+    },
+    {
+      "name": "Hidden Knife",
+      "icon": "knife"
+    }
+  ],
+  "text": "Whenever you win a trick with a spade, gain +10 contract value.",
+  "timing": "When you win any trick",
+  "signature": [
+    {
+      "trigger": "you win a trick with a spade",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +10",
+      "frequency": "per trick"
+    }
+  ],
+  "archetypes": "Spade Master; splash High Card, Contract Attacker",
+  "family": "Suit payoffs / Winning",
+  "role": "Payoff (Contract additive)",
+  "decision": "When to spend spades: trump in early for the bonus, or hold them to win spade leads later.",
+  "opponent": "Visible on each trigger; opponents can lead spades to pull trump or avoid leading suits the owner is void in.",
+  "aiNote": "Trump in whenever void and the trick is not already your partner's; lead spades once your spade length exceeds the opponents'.",
+  "rationale": "A named-suit win is the calibration table's +10 case; a Spade Master wins two or three tricks with spades (more after Alchemist's Wand), about +16 to +24 EV, which suits its additive-heavy channel mix."
+}

@@ -1,0 +1,42 @@
+{
+  "code": "BL-U08",
+  "name": "Amended Scroll",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "scroll",
+  "iconFamily": "scroll",
+  "iconWord": "scroll",
+  "iconAlternates": [
+    {
+      "name": "Revised Notebook",
+      "icon": "note-book"
+    },
+    {
+      "name": "Precise Dropper",
+      "icon": "eyedropper"
+    }
+  ],
+  "text": "Affinity: King. When this card loses a trick, you may lower your bid by one.",
+  "timing": "When this card loses",
+  "signature": [
+    {
+      "trigger": "this card loses a trick",
+      "scope": "self",
+      "target": "your bid",
+      "effect": "may lower by 1",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "High Card, Exact Contractor; splash Bonus Chaser, Spade Master",
+  "family": "Bid adjustment / Decrease",
+  "role": "Enabler",
+  "decision": "When the king is overtaken or trumped, whether to take the smaller safe contract or keep the bid and chase the trick back; or, at an exact count, whether to dump the king on purpose to shave the bid once.",
+  "opponent": "Visible when used, once a round at most; opponents who beat the king no longer set you for that trick alone, but a second lost trick still sets you.",
+  "aiNote": "Lower the bid when the team's remaining sure tricks no longer reach it; on an exact count, lower it when the loss leaves you one under.",
+  "rationale": "A king is a trick you counted on that often loses to an ace or a trump, so its loss is the natural moment to correct the bid; tying the correction to one card caps it at once per round, and the cost is the bid trick itself (10 contract value times any multiplier), with bids staying at 1 or more. It also fills the short \"when this card loses\" window.",
+  "deviation": "Changed from a trigger on every ace or king you lose to a single king-affinity card, because the critics found the repeatable version was unlimited free set insurance."
+}

@@ -1,0 +1,41 @@
+{
+  "code": "GY-C14",
+  "name": "Tumbling Dryer",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 40,
+  "wave": 2,
+  "icon": "dryer",
+  "iconFamily": "dryer",
+  "iconWord": "dryer",
+  "iconAlternates": [
+    {
+      "name": "Rinsing Shower",
+      "icon": "shower"
+    },
+    {
+      "name": "Emptied Dishwasher",
+      "icon": "dishwasher"
+    }
+  ],
+  "text": "When you sell this sigil, remove all your team's bags.",
+  "timing": "When sold",
+  "signature": [
+    {
+      "trigger": "when sold",
+      "scope": "team",
+      "target": "bags",
+      "effect": "remove all",
+      "frequency": "once"
+    }
+  ],
+  "archetypes": "Bonus Chaser, Diamond Flood, Swap Meet",
+  "family": "Bag management / Removal",
+  "role": "Utility",
+  "decision": "When to cash it in: sell just before the team reaches ten bags.",
+  "opponent": "Visible; opponents can no longer count on your bag penalty.",
+  "aiNote": "Sell when the team holds seven or more bags.",
+  "rationale": "Saves up to one 100-point bag penalty once, plus 20 gold back, which suits overtricking decks."
+}

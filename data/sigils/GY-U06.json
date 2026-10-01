@@ -1,0 +1,42 @@
+{
+  "code": "GY-U06",
+  "name": "Tracing Pencil",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "pencil",
+  "iconFamily": "pencil",
+  "iconWord": "pencil",
+  "iconAlternates": [
+    {
+      "name": "Forger's Brush",
+      "icon": "brush"
+    },
+    {
+      "name": "Echoing Keyboard",
+      "icon": "keyboard"
+    }
+  ],
+  "text": "Before bidding, each opponent shows a random sigil they own, and you choose one for this card to copy for the round.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "self, opponents show",
+      "target": "a random sigil from each opponent, this card",
+      "effect": "copy the chosen one",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Contract Attacker, Exact Contractor, Swap Meet",
+  "family": "Duplication and copying / Copy opponent",
+  "role": "Utility; opponent-facing (information only)",
+  "decision": "Which of two opponent sigils to borrow, and how to bid knowing what both opponents carry.",
+  "opponent": "Each shows one sigil; they lose nothing else, and the copy is visible when it triggers.",
+  "aiNote": "Prefer an always-on contract payoff, then a card-bound sigil that suits this card; never copy a shop or selling sigil, which does nothing during a round.",
+  "rationale": "Opponents' collections are a sample of good purchases, and a pick of two lands near an average common payoff (about +12) with an occasional rare; the shown sigils are useful information; unlike Surprise Takeaway (GY-C08) the copy is chosen, comes from real opponent collections, and lives on this card.",
+  "deviation": "Timing moved from after bidding to before bidding, and a random shown sigil replaces \"a revealed opponent sigil,\" because almost no opponent sigil has shown itself by then and a copy made after bidding misses every before-bidding effect."
+}

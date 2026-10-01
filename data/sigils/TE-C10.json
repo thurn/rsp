@@ -1,0 +1,42 @@
+{
+  "code": "TE-C10",
+  "name": "Well-Earned Bath",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "bath",
+  "iconFamily": "bath",
+  "iconWord": "bath",
+  "iconAlternates": [
+    {
+      "name": "Idle Hot Spring",
+      "icon": "hot-tub"
+    },
+    {
+      "name": "Parked Scooter",
+      "icon": "scooter"
+    }
+  ],
+  "text": "When this card loses a trick after you've taken your bid, gain +20 contract value.",
+  "timing": "When this card loses (card-bound mirror of \"When this card wins\")",
+  "signature": [
+    {
+      "trigger": "this card loses, you have taken your bid",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +20",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Exact Contractor; splash Nil Guard (solo contract)",
+  "family": "Card-bound points / On loss",
+  "role": "Payoff (Contract additive)",
+  "decision": "Holding this card until your bid is reached, then spending it on a trick you can safely lose instead of taking a bag.",
+  "opponent": "Visible on trigger; opponents answer by dumping tricks on you before you can duck.",
+  "aiNote": "Do not play this card until you have taken your bid; then play it to the first trick you can lose.",
+  "rationale": "Rewards the exact moment Balanced Yin-Yang wants you to start ducking; most cards can lose when you pick the trick, so it pays in about 60% of rounds (about +10 EV), and a nil is not a bid, so a nil bidder never qualifies.",
+  "deviation": "Changed from this card winning the bid-reaching trick to this card losing after the bid is reached, because the win version fires on about 10% of random cards and has no reliable plan."
+}

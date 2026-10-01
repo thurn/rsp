@@ -1,0 +1,42 @@
+{
+  "code": "OR-C14",
+  "name": "Aged Cheese",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Common",
+  "price": 40,
+  "wave": 2,
+  "icon": "cheese",
+  "iconFamily": "cheese",
+  "iconWord": "cheese",
+  "iconAlternates": [
+    {
+      "name": "Saved Cupcake",
+      "icon": "cupcake"
+    },
+    {
+      "name": "Slow Popsicle",
+      "icon": "popsicle"
+    }
+  ],
+  "text": "When you play this card, gain +5 contract value for each trick you've won this round.",
+  "timing": "When played",
+  "signature": [
+    {
+      "trigger": "when played",
+      "scope": "self",
+      "target": "tricks you've won this round",
+      "effect": "contract value +5 per trick",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "High Card, While Held; splash Gold Miner",
+  "family": "Card-bound points / Escalating",
+  "role": "Payoff (Contract additive)",
+  "decision": "How long to hold this card back while other cards win tricks, often a held-back ace that then wins late (Unclouded Sun keeps it safe).",
+  "opponent": "Visible when it fires; trick counts are public, so opponents can see the payout growing.",
+  "aiNote": "Play this card as late as follow-suit allows, and not before you have won two tricks unless it is needed to win or follow.",
+  "rationale": "Played late after about 2–3 wins it pays +10–15 (about +10 EV), and a High Card hand winning four tricks before it pays +20; it counts one public number and never checks a trick number, so it doesn't read as Patient Hourglass.",
+  "deviation": "Changed from +5 per trick held (three times the common budget) and then from a trick-7 checkpoint (ruled too close to Patient Hourglass) to a one-time count of your wins when played, which still rewards holding the card late."
+}

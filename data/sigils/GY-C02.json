@@ -1,0 +1,41 @@
+{
+  "code": "GY-C02",
+  "name": "Corner Shop",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "store",
+  "iconFamily": "store",
+  "iconWord": "shop",
+  "iconAlternates": [
+    {
+      "name": "Clearance Warehouse",
+      "icon": "warehouse"
+    },
+    {
+      "name": "Thrifty Cap",
+      "icon": "cap"
+    }
+  ],
+  "text": "Sigils in your shop cost 15 gold less.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "at shop",
+      "scope": "self",
+      "target": "sigil prices",
+      "effect": "cost −15",
+      "frequency": "each purchase"
+    }
+  ],
+  "archetypes": "All; most for Gold Miner, Diamond Flood",
+  "family": "Shop tools / Discounts",
+  "role": "Payoff: Economy",
+  "decision": "Which offer to buy, since 15 gold can bring an uncommon or rare within reach or leave enough for a reroll.",
+  "opponent": "No effect on opponents.",
+  "aiNote": "Treat every offer as 15 gold cheaper when comparing price to value.",
+  "rationale": "About 15 gold per shop, the scoring model's fair rate for a common economy payoff, worded to match Loaded Dice."
+}

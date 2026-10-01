@@ -1,0 +1,41 @@
+{
+  "code": "RE-R04",
+  "name": "Crushing Boot",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Rare",
+  "price": 100,
+  "wave": 4,
+  "icon": "boot",
+  "iconFamily": "boot",
+  "iconWord": "boot",
+  "iconAlternates": [
+    {
+      "name": "Tackling Rugby",
+      "icon": "rugby-ball"
+    },
+    {
+      "name": "Dented Helmet",
+      "icon": "helmet"
+    }
+  ],
+  "text": "If the opponents miss their contract, gain +1× contract multiplier.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, opponents' failed contract",
+      "scope": "team",
+      "target": "contract",
+      "effect": "multiplier +1×",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Contract Attacker; splash High Card, Spade Master",
+  "family": "Opponent denial / Set rewards (multiplier)",
+  "role": "Payoff (Contract multiplier)",
+  "decision": "How hard to press for a set: overtaking the opponents' tricks pays double, but the multiplier also doubles your own failure, so you bid safely and attack with the tricks beyond it.",
+  "opponent": "Visible at scoring; opponents answer by bidding lower, and a nil-only round gives no contract to miss.",
+  "aiNote": "Bid your safe count, then play to take tricks the opponents need once your own bid is made.",
+  "rationale": "Opponents miss about 20% of contracts, near 30% against a Contract Attacker using Hungry Kraken (DU-S04), Hidden Knife, and Purple lowering, and the attacker usually makes its own contract in those rounds, so the +1× is worth about +30 mid-run and +45 late; it lifts Contract Attacker's own points, not just its margin, and differs from Grinning Skull (PU-C07, per trick short) and Hungry Kraken (a share of their loss)."
+}

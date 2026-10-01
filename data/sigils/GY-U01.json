@@ -1,0 +1,41 @@
+{
+  "code": "GY-U01",
+  "name": "Sprawling Warehouse",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "warehouse",
+  "iconFamily": "warehouse",
+  "iconWord": "warehouse",
+  "iconAlternates": [
+    {
+      "name": "Open Cupboard",
+      "icon": "cupboard"
+    },
+    {
+      "name": "Surplus Box",
+      "icon": "box"
+    }
+  ],
+  "text": "You see four shop offers instead of three.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "at shop",
+      "scope": "self",
+      "target": "your offers",
+      "effect": "four instead of three",
+      "frequency": "each shop and reroll"
+    }
+  ],
+  "archetypes": "All; most for Gold Miner, Diamond Flood",
+  "family": "Shop tools / Extra offers",
+  "role": "Payoff: Economy",
+  "decision": "Shopping: a wider choice every shop, and a reroll now shows four new offers.",
+  "opponent": "No effect on opponents.",
+  "aiNote": "Score the fourth offer like the others; reroll a little less often.",
+  "rationale": "One more offer per shop is a third more chances to find the sigil a plan needs, worth about a free partial reroll each shop; it still allows only one purchase, so gold and the purchase limit keep it modest."
+}

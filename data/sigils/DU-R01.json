@@ -1,0 +1,43 @@
+{
+  "code": "DU-R01",
+  "name": "Laurel Finale",
+  "resonances": [
+    "Green",
+    "Teal"
+  ],
+  "rarity": "Rare",
+  "price": 90,
+  "wave": 5,
+  "icon": "laurel-wreath",
+  "iconFamily": "laurel-wreath",
+  "iconWord": "laurel",
+  "iconAlternates": [
+    {
+      "name": "Homecoming Comet",
+      "icon": "meteor"
+    },
+    {
+      "name": "Serenading Planet",
+      "icon": "planet"
+    }
+  ],
+  "text": "If your team wins the last trick with a heart, gain +1× contract multiplier.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, team wins the last trick with a heart",
+      "scope": "team",
+      "target": "contract",
+      "effect": "multiplier +1×",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Heart Chorus; splash Kingmaker, Nil Guard",
+  "family": "Multipliers / Conditional (last trick)",
+  "role": "Payoff (Contract multiplier)",
+  "decision": "Keeping your biggest grown heart until the end, then arranging to win trick 12 so you lead it, or emptying your side suits so hearts are led to you; the partner can also finish on a heart.",
+  "opponent": "Visible at the last trick. Opponents can answer by keeping a spade to trump a final heart lead, or by winning trick 12 and leading a suit you still hold.",
+  "aiNote": "Hold the highest heart as the last card. From trick 10 on, win tricks when that lets you lead the final heart.",
+  "rationale": "It crowns the Heart Chorus plan, a suit that starts modest and dominates the late tricks. Every heart enabler becomes a payoff route: Verdant Banner, Late Blossom, Rosy Champagne, Growing Colony, Unfolding Butterfly, Rosy Spectacles (no trumping a heart lead), and Evening Melody (late hearts are trump). A dedicated deck qualifies in about 35% of rounds, and about 50% with Melody or Spectacles. Like Blooming Lotus, the multiplier also applies to a failed contract that meets the condition. That makes it worth about +45 a round late, which is rare multiplier value and gives the thinnest archetype a second aimed multiplier. It checks one heart win rather than a count of wins, so it doesn't duplicate Clean Bullseye (BL-U03), Schooling Fish (GR-C13), or Swelling Sea (TE-R03), and it doesn't check plays across the last four tricks like Blooming Lotus (GR-U05). The team clause gives Teal's partnership hearts a role.",
+  "deviation": "The slot suggested \"When you play another suit\". I moved it to Conditional scoring because a heart played to another suit wins only under Evening Melody, which would make the payoff depend on a second rare."
+}

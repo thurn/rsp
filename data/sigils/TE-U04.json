@@ -1,0 +1,41 @@
+{
+  "code": "TE-U04",
+  "name": "Mystery Parcel",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "package",
+  "iconFamily": "package",
+  "iconWord": "parcel",
+  "iconAlternates": [
+    {
+      "name": "Smuggler's Crate",
+      "icon": "container"
+    },
+    {
+      "name": "Hitchhiker's Truck",
+      "icon": "truck"
+    }
+  ],
+  "text": "Before bidding, swap a chosen card in your hand with a random card from a chosen opponent who didn't bid nil.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "self and a chosen opponent not on nil",
+      "target": "a chosen card for a random card",
+      "effect": "swap",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Swap Meet; splash Contract Attacker",
+  "family": "Opponent exchange and theft / Swaps",
+  "role": "Enabler; opponent-facing",
+  "decision": "Which card to give away (your worst card, or a singleton to open a void) and which opponent to raid.",
+  "opponent": "The swap is shown and both players see the cards that moved; the opponent bids knowing what they lost and gained, and it happens once, before bidding.",
+  "aiNote": "Give your lowest card outside spades, preferring a singleton; take from the opponent with the larger sigil collection.",
+  "rationale": "You trade your worst card for an average one, and late in a run the random card often carries an opponent's sigil, which now works for you this round, a memorable Teal steal; it counts as passing for both players, so it fires Swap Meet's pass payoffs, and it is limited to one card, once, before anyone bids. Only a blind nil can exist this early, and excluding nil bidders (as Traders' Handshake does) stops the owner from handing a locked blind-nil bidder a sure winner."
+}

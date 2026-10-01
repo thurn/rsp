@@ -1,0 +1,32 @@
+{
+  "code": "TE-C01",
+  "name": "Open Hand",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 0,
+  "icon": "hand",
+  "iconFamily": "hand",
+  "iconWord": "hand",
+  "iconAlternates": [],
+  "text": "After bidding, you and your partner each pass a card to each other.",
+  "timing": "After bidding",
+  "signature": [
+    {
+      "trigger": "after bidding",
+      "scope": "team",
+      "target": "one card each",
+      "effect": "exchange with partner",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Nil Guard, Kingmaker, Exact Contractor, Swap Meet",
+  "family": "Partner exchange / After bidding",
+  "role": "Enabler",
+  "decision": "Which card to give, knowing both bids.",
+  "opponent": "Visible exchange; opponents learn a pass happened.",
+  "aiNote": "A nil bidder passes its highest card; its partner passes its lowest.",
+  "rationale": "One card each suits a common; a two-card exchange is uncommon."
+}

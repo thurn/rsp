@@ -1,0 +1,42 @@
+{
+  "code": "GY-C15",
+  "name": "Cushioned Couch",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "couch",
+  "iconFamily": "couch",
+  "iconWord": "couch",
+  "iconAlternates": [
+    {
+      "name": "Soothing Lotion",
+      "icon": "lotion"
+    },
+    {
+      "name": "Cooling Fan",
+      "icon": "fan"
+    }
+  ],
+  "text": "Bag penalties cost your team 50 fewer points.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "team",
+      "target": "bag penalty",
+      "effect": "−50 points",
+      "frequency": "each penalty"
+    }
+  ],
+  "archetypes": "Spade Master, Kingmaker, High Card",
+  "family": "Bag management / Waiver",
+  "role": "Utility; stat stick",
+  "decision": "Little: overtricks get cheaper, so conservative bids hurt less.",
+  "opponent": "No direct effect; Contract Attacker's bag pressure is weaker against you.",
+  "aiNote": "Value a bag at 5 points instead of 10 when bidding.",
+  "rationale": "A team taking about two bags a round pays a penalty every five rounds, so this saves about 10 points a round; a copy from each partner would make penalties free, which is rare and acceptable.",
+  "deviation": "Brief said skip your next bag penalty while keeping the bags; changed to a flat reduction because a one-time waiver leaves a dead sigil for the rest of the run, and keeping ten bags re-triggers the penalty at once."
+}

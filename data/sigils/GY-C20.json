@@ -1,0 +1,42 @@
+{
+  "code": "GY-C20",
+  "name": "Growing City",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 55,
+  "wave": 2,
+  "icon": "city",
+  "iconFamily": "city",
+  "iconWord": "city",
+  "iconAlternates": [
+    {
+      "name": "Rising Apartment",
+      "icon": "apartment"
+    },
+    {
+      "name": "Graduating School",
+      "icon": "school"
+    }
+  ],
+  "text": "Gain +5 contract value for each contract your team has made since you bought this sigil.",
+  "timing": "Always on, for you (the count rises after scoring)",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "contract",
+      "effect": "+5 per made contract since purchase",
+      "frequency": "counter"
+    }
+  ],
+  "archetypes": "All",
+  "family": "Scaling sigils / Counters",
+  "role": "Payoff: Contract additive",
+  "decision": "Shopping: worth much more bought early; it also favors safe contracts.",
+  "opponent": "Visible count; no effect on opponents.",
+  "aiNote": "Buy through round 6; skip after round 9.",
+  "rationale": "Bought in round 3 with 80% of contracts made, it reaches about +20 by round 8 and +35 by round 12 (about +17 expected over its life), matching the curve's late growth; the current round's contract counts from the next round.",
+  "deviation": "Timing moved from Conditional scoring to always on, because the count is the effect and reads more simply than \"this sigil gains contract value.\""
+}

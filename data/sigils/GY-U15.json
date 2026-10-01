@@ -1,0 +1,42 @@
+{
+  "code": "GY-U15",
+  "name": "Roommates' Apartment",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "apartment",
+  "iconFamily": "apartment",
+  "iconWord": "apartment",
+  "iconAlternates": [
+    {
+      "name": "Neighborhood School",
+      "icon": "school"
+    },
+    {
+      "name": "Community Hospital",
+      "icon": "hospital"
+    }
+  ],
+  "text": "Gain +10 contract value for each resonance that both you and your partner have sigils of.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "contract",
+      "effect": "+10 per resonance in both partners' collections",
+      "frequency": "counter"
+    }
+  ],
+  "archetypes": "Kingmaker, Nil Guard, Swap Meet",
+  "family": "Resonance synergy / Partnership",
+  "role": "Payoff: Contract additive",
+  "decision": "Shopping toward your partner's resonances, and partner coordination: a human partner can buy to match.",
+  "opponent": "No effect on opponents.",
+  "aiNote": "Add 10 points of value to an offer whose resonance your partner owns and you don't yet.",
+  "rationale": "Gray is usually shared (+10), and the partner archetypes these decks pair with share a color (Kingmaker with High Card on Red, Nil Guard with Nil Champion on Purple), so +20 to +30 is typical; dual-resonance sigils count for both colors.",
+  "deviation": "Counts resonances the partners share instead of one resonance across both collections, because a Gray count across both partners is Well-Oiled Gear (GY-C22) with a wider scope."
+}

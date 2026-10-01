@@ -1,0 +1,41 @@
+{
+  "code": "OR-U04",
+  "name": "Greedy Magnet",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "magnet",
+  "iconFamily": "magnet",
+  "iconWord": "magnet",
+  "iconAlternates": [
+    {
+      "name": "Heavy Barrel",
+      "icon": "cylinder"
+    },
+    {
+      "name": "Clean Slice",
+      "icon": "slice"
+    }
+  ],
+  "text": "Affinity: Diamond. When this card wins a trick, gain +10 contract value for each diamond in it.",
+  "timing": "When this card wins",
+  "signature": [
+    {
+      "trigger": "this card wins",
+      "scope": "self",
+      "target": "diamonds in that trick",
+      "effect": "contract value +10 per diamond",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Diamond Flood; splash Bonus Chaser",
+  "family": "Card-bound points / On win",
+  "role": "Payoff (Contract additive)",
+  "decision": "When to lead this diamond: early, while every opponent still follows with diamonds, for up to +40, or later behind Red boosts when it is safer to win but fewer diamonds fall.",
+  "opponent": "Visible when it pays; opponents can shed their diamonds early, trump in once void, or keep their top diamond to beat it.",
+  "aiNote": "Lead this card in the first three tricks if it is the highest diamond you know is out; otherwise play it on a diamond lead you can win.",
+  "rationale": "A led high diamond collects three or four diamonds and wins about half the time, about +15 EV, below the uncommon budget on purpose because Diamond Flood is ahead of the curve; the affinity keeps it on a diamond, and it counts the whole trick, never your earlier diamonds (Gem Cascade) or those in hand (Cracked Safe)."
+}

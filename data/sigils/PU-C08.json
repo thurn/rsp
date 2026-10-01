@@ -1,0 +1,41 @@
+{
+  "code": "PU-C08",
+  "name": "Night Owl",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "owl",
+  "iconFamily": "owl",
+  "iconWord": "owl",
+  "iconAlternates": [
+    {
+      "name": "Sleepwalker's Bed",
+      "icon": "bed"
+    },
+    {
+      "name": "Dim Nightlight",
+      "icon": "night-light"
+    }
+  ],
+  "text": "You may bid blind nil whenever your team is at least 100 points behind.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "blind nil eligibility",
+      "effect": "deficit 200 → 100",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Blind Bidder; splash Nil Champion",
+  "family": "Blind bidding / Threshold",
+  "role": "Enabler (Nil channel)",
+  "decision": "In each round your team trails by 100 to 199, whether to gamble blind for ±200 and 200 gold or bid normally.",
+  "opponent": "The blind nil is public before the deal; opponents answer by leading low through you.",
+  "aiNote": "When eligible, bid blind nil if you own a self-lowering or passing sigil; otherwise only when 150 or more behind.",
+  "rationale": "The first rung of the threshold ladder in scoring.md: blind nil from about 12% to 25–30% of rounds, with Desperate Gambit (any deficit) at the top. The overlap with the Gambit is the intended exception to the near-duplicate rule."
+}

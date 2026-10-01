@@ -1,0 +1,43 @@
+{
+  "code": "DU-S05",
+  "name": "Chasing Rainbows",
+  "resonances": [
+    "Red",
+    "Orange"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 1,
+  "icon": "rainbow",
+  "iconFamily": "rainbow",
+  "iconWord": "rainbow",
+  "iconAlternates": [
+    {
+      "name": "Unfinished Puzzle",
+      "icon": "puzzle"
+    },
+    {
+      "name": "Collector's Laurel",
+      "icon": "laurel-wreath"
+    }
+  ],
+  "text": "Before bidding, reveal a random card in your hand; if it wins a trick this round, gain +60 contract value.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "self",
+      "target": "a random card in hand, revealed",
+      "effect": "contract value +60 if it wins",
+      "frequency": "once per round"
+    }
+  ],
+  "archetypes": "Bonus Chaser; splash High Card, Contract Attacker",
+  "family": "Side quests / Objective (random target)",
+  "role": "Enabler and payoff (Contract additive)",
+  "decision": "How to make an unlikely card win (lead it into a void, trump with it, steal the lead for it) and whether to bid on the bounty.",
+  "opponent": "The revealed card is public, so opponents know the target and can hold a cover card or a trump for it.",
+  "aiNote": "Count the marked card as half a trick; lead it once higher cards of its suit are gone, or trump with it if it is a spade.",
+  "rationale": "A random public bounty each round is a gamble-flavored side quest with a one-shot payoff, and \"if … this round\" frames it as an objective rather than a repeating win trigger. Few commons feed it today: only lead control (RE-C03), suit-wide auras such as Verdant Banner, and BL-C04's after-bidding nudge to a chosen card help the revealed card, because rank commons boost the engraved card instead. It wins about 25–30% of the time, about +13 EV, below budget, which is acceptable for Bonus Chaser (strong watch list). Wave 2 should give it at least one common that raises or protects the revealed card.",
+  "deviation": "Slot said Card-bound points / Engraved, paying from the win window; changed to a random before-bidding side quest because the set critic read the suit-collection version as a Red trick-winning payoff (High Card/Spade Master)."
+}

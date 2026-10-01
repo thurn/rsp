@@ -1,0 +1,42 @@
+{
+  "code": "TE-C13",
+  "name": "Valentine Stamp",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "stamp",
+  "iconFamily": "stamp",
+  "iconWord": "stamp",
+  "iconAlternates": [
+    {
+      "name": "Blushing Pool",
+      "icon": "swimming-pool"
+    },
+    {
+      "name": "Bound Paperclip",
+      "icon": "paperclip"
+    }
+  ],
+  "text": "Whenever you pass cards, convert the cards you receive to hearts.",
+  "timing": "When you pass cards",
+  "signature": [
+    {
+      "trigger": "you pass cards",
+      "scope": "self",
+      "target": "cards you receive",
+      "effect": "convert to hearts",
+      "frequency": "each"
+    }
+  ],
+  "archetypes": "Heart Chorus, Swap Meet",
+  "family": "Changing your suits / Targeted (cards received)",
+  "role": "Enabler",
+  "decision": "Which exchanges to make, knowing whatever arrives becomes a heart, including a trump you might rather keep.",
+  "opponent": "The conversion is shown; opponents learn your hearts are growing and can draw them out early.",
+  "aiNote": "Take every optional trade or pass; a partner who knows about this sigil sends high non-spades.",
+  "rationale": "Every pass or trade lengthens hearts for Unfolding Butterfly, and trades with Traders' Handshake make it fire about three times a round without adding a choice to each trade.",
+  "deviation": "Target changed from a chosen card in hand to the cards you receive, so repeated passes add no extra choices."
+}

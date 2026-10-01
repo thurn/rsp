@@ -1,0 +1,43 @@
+{
+  "code": "DU-S15",
+  "name": "Sheltering Castle",
+  "resonances": [
+    "Teal",
+    "Purple"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 1,
+  "icon": "castle",
+  "iconFamily": "castle",
+  "iconWord": "castle",
+  "iconAlternates": [
+    {
+      "name": "Armored Dinosaur",
+      "icon": "dino"
+    },
+    {
+      "name": "Rescue Saucer",
+      "icon": "ufo"
+    }
+  ],
+  "text": "After bidding, if your partner bid nil, swap your two lowest cards for their two highest.",
+  "timing": "After bidding",
+  "signature": [
+    {
+      "trigger": "after bidding, partner on nil",
+      "scope": "team",
+      "target": "your two lowest and partner's two highest",
+      "effect": "exchange",
+      "frequency": "×2"
+    }
+  ],
+  "archetypes": "Nil Guard; splash Blind Bidder, Kingmaker",
+  "family": "Partner exchange / After bidding (selection)",
+  "role": "Enabler and payoff (Nil: partner's nil; strengthens your solo contract)",
+  "decision": "Bidding your solo contract knowing two of your partner's top cards will arrive, and covering their weak suits.",
+  "opponent": "The swap is shown after bids; opponents know the nil bidder lost their top cards and aim low leads at it.",
+  "aiNote": "Bid your own hand plus one trick when your partner is likely to go nil, and cover their shortest suit; an AI partner of this sigil's owner counts the swap (ignoring its two highest cards) when deciding whether to bid nil.",
+  "rationale": "Stripping a nil hand's two highest cards raises success from about 75% to about 90%, worth about +30 per partner nil (+80 on a blind nil), and the received high cards support the solo contract. The swap gives partner-nil value exactly where Nil Guard is thinnest.",
+  "deviation": "Slot said Nil value / Partner's nil, paying Partner contract; changed to Partner exchange / After bidding, paying Nil through the partner's nil, because protecting the nil adds more value (+30 per nil) than a flat bonus and PU-C11 already pays the partner's nil."
+}

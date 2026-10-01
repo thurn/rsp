@@ -1,0 +1,42 @@
+{
+  "code": "OR-R01",
+  "name": "Gambler's Wheel",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Rare",
+  "price": 90,
+  "wave": 4,
+  "icon": "color-wheel",
+  "iconFamily": "color-wheel",
+  "iconWord": "wheel",
+  "iconAlternates": [
+    {
+      "name": "Thrown Cube",
+      "icon": "cube"
+    },
+    {
+      "name": "Bitter Lemon",
+      "icon": "lemon"
+    }
+  ],
+  "text": "When this card loses a trick before your team has made its contract, you may pay 40 points to gain +1× contract multiplier.",
+  "timing": "When this card loses",
+  "signature": [
+    {
+      "trigger": "this card loses, own bid not yet taken",
+      "scope": "self",
+      "target": "contract",
+      "effect": "pay 40 points for multiplier +1×",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Bonus Chaser; splash Gold Miner, Diamond Flood",
+  "family": "Costs / Points (for a multiplier)",
+  "role": "Payoff (Contract multiplier, bought with points)",
+  "decision": "Whether to throw this card away while your own bid is still open, betting 40 points and a doubled failure that the round's bonuses will come in.",
+  "opponent": "Visible when paid, while the contract is still in doubt, so opponents know to press for a set against a doubled contract; they can also deny the trigger by letting this card win.",
+  "aiNote": "Pay if your team's contract value (bid plus bonuses so far) is at least 80 and you expect to take your bid with one trick or more to spare; otherwise decline.",
+  "rationale": "Bought while the owner's bid is still open, the +1× carries real failure risk and is worth about 0.8V − 12 − 40: about +10 early, +45 mid, and +75 on Bonus Chaser's large late contracts, the steep multiplied finish its additive pool lacks; the cost stays at 40 rather than 30 because a partner's overtricks can still make the team contract nearly safe while your own bid is open, and under the once-a-round multiplier convention Twin Cherries or Masked Encore can't stack it.",
+  "deviation": "Revision 1: the purchase now requires that you haven't yet taken your bid, so it can't be bought after the contract is settled."
+}

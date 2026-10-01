@@ -1,0 +1,42 @@
+{
+  "code": "GY-C25",
+  "name": "Rousing Speaker",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "speaker",
+  "iconFamily": "speaker",
+  "iconWord": "speaker",
+  "iconAlternates": [
+    {
+      "name": "Recovery Clinic",
+      "icon": "institution"
+    },
+    {
+      "name": "Underdog's Laptop",
+      "icon": "laptop"
+    }
+  ],
+  "text": "When you bid, gain +5 contract value for every 50 points your team is behind.",
+  "timing": "When you bid",
+  "signature": [
+    {
+      "trigger": "when you bid",
+      "scope": "self",
+      "target": "contract",
+      "effect": "+5 per 50 points behind",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Blind Bidder, Contract Attacker, Gold Miner",
+  "family": "Comeback effects / Deficit scaling",
+  "role": "Payoff: Contract additive (feeds Desperate Gambit, DU-S09)",
+  "decision": "Bidding while behind: a bigger payout tempts a bolder bid, and it still pays your partner's contract when you bid nil or blind nil.",
+  "opponent": "Visible when you bid; opponents who lead see exactly what their lead is worth to you.",
+  "aiNote": "Add the bonus to the value of making the contract when choosing between a safe and an ambitious bid.",
+  "rationale": "Behind by 100 it pays +10, by 300 +30, and nothing when level or ahead; Blind Bidder trails often by design (PU-C08, Desperate Gambit), so it earns about +10 to +20 there.",
+  "deviation": "Timing moved from always on to When you bid, which fixes when the deficit is measured and adds a sigil to a minor window."
+}

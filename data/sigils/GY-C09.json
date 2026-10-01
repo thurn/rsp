@@ -1,0 +1,37 @@
+{
+  "code": "GY-C09",
+  "name": "Tasting Spoon",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "spoon",
+  "iconFamily": "spoon",
+  "iconWord": "spoon",
+  "iconAlternates": [
+    {
+      "name": "Open Fridge",
+      "icon": "fridge"
+    }
+  ],
+  "text": "Before bidding, look at three random new cards, and you may swap one of them for a chosen card in your hand.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "self",
+      "target": "one chosen hand card",
+      "effect": "swap for one of three random new cards shown",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "All",
+  "family": "Card selection / Look and keep",
+  "role": "Enabler",
+  "decision": "Which card to take and which to give up: fill a suit, finish a void, add a winner, or (for nil) trade away a danger card.",
+  "opponent": "Hidden; everyone bids after it.",
+  "aiNote": "Take the highest offered card (a spade on ties) for the lowest card of the shortest non-spade suit; when planning nil, take the lowest for the highest.",
+  "rationale": "The three are new cards, not cards from other hands, so they may duplicate dealt cards and the swap is not a pass; a sigil on the card you give up leaves with it, which makes engraved cards a real cost to trade."
+}

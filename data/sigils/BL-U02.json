@@ -1,0 +1,41 @@
+{
+  "code": "BL-U02",
+  "name": "Missing Signature",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Uncommon",
+  "price": 75,
+  "wave": 3,
+  "icon": "signature",
+  "iconFamily": "signature",
+  "iconWord": "signature",
+  "iconAlternates": [
+    {
+      "name": "Vanished Fingerprint",
+      "icon": "fingerprint"
+    },
+    {
+      "name": "Empty Cloche",
+      "icon": "dish"
+    }
+  ],
+  "text": "A trick this card wins counts for no one.",
+  "timing": "Always on, for the engraved card",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "tricks this card wins",
+      "effect": "count for no one",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Nil Champion, Exact Contractor, While Held; splash Contract Attacker, Nil Guard",
+  "family": "Trick restrictions / Void trick",
+  "role": "Enabler",
+  "decision": "When to spend this card: shed a high card on a nil, absorb an overtrick at an exact count, or take a trick the opponents needed without adding one to your own count.",
+  "opponent": "Visible when it wins; the winner still leads the next trick, and opponents can overtake or trump it to take the trick normally.",
+  "aiNote": "On nil, play this card whenever it would win; at an exact count, play it on a trick your team would otherwise win; otherwise play it to capture a trick the opponents need.",
+  "rationale": "One card that wins without taking a trick serves nil, exact, and denial plans at once and fills the short engraved-card window; the card still wins, so its holder leads next, but no one's trick count, bags, nil, or trick gold changes."
+}

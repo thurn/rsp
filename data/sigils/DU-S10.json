@@ -1,0 +1,43 @@
+{
+  "code": "DU-S10",
+  "name": "Patient Hourglass",
+  "resonances": [
+    "Green",
+    "Blue"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 1,
+  "icon": "hourglass",
+  "iconFamily": "hourglass",
+  "iconWord": "hourglass",
+  "iconAlternates": [
+    {
+      "name": "Lingering Planet",
+      "icon": "planet"
+    },
+    {
+      "name": "Endless Infinity",
+      "icon": "infinite"
+    }
+  ],
+  "text": "If this card is still in your hand when the last trick begins, gain +1× contract multiplier.",
+  "timing": "While in hand (checkpoint at the last trick)",
+  "signature": [
+    {
+      "trigger": "last trick begins, this card held",
+      "scope": "self",
+      "target": "contract",
+      "effect": "multiplier +1×",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "While Held; splash Gold Miner, High Card",
+  "family": "Multipliers / While held (checkpoint)",
+  "role": "Payoff (Contract multiplier)",
+  "decision": "Every trick, which other card can follow suit so this one stays in hand.",
+  "opponent": "Hidden until it pays; opponents who read it can lead its suit repeatedly to force it out.",
+  "aiNote": "Never play this card while another legal card exists; prefer following with its suit-mates.",
+  "rationale": "Holding one card through 12 tricks succeeds about 40–50% of the time with care, more with wild-suit and holding commons (GR-C04, BL-C06, BL-C13); it isn't success-only, so a failed round doubles too, which keeps the late value near the top of the uncommon band. BL-R03's checkpoint brief should move to a different checkpoint shape.",
+  "deviation": "Slot said While held / Per trick; changed to the Multipliers / While held checkpoint variation, because a per-trick payoff would repeat Nest Egg and could not pay a multiplier."
+}

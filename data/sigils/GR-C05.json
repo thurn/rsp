@@ -1,0 +1,42 @@
+{
+  "code": "GR-C05",
+  "name": "Filling Honeycomb",
+  "resonances": [
+    "Green"
+  ],
+  "rarity": "Common",
+  "price": 55,
+  "wave": 2,
+  "icon": "honey",
+  "iconFamily": "honey",
+  "iconWord": "honeycomb",
+  "iconAlternates": [
+    {
+      "name": "Waxen Hexagon",
+      "icon": "hexagon"
+    },
+    {
+      "name": "Old Growth Forest",
+      "icon": "trees"
+    }
+  ],
+  "text": "After bidding, gain +5 contract value for every six cards you've played that didn't match the suit led since you bought this sigil.",
+  "timing": "After bidding (counts plays in the When you play another suit window)",
+  "signature": [
+    {
+      "trigger": "after bidding",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +5 per six off-suit plays since bought",
+      "frequency": "run counter"
+    }
+  ],
+  "archetypes": "Spade Master, Discard Dominance, Diamond Flood; splash Heart Chorus",
+  "family": "Scaling sigils / Milestones",
+  "role": "Payoff (Contract additive)",
+  "decision": "Buying it early, and shaping hands toward voids so more plays count.",
+  "opponent": "The counter is visible; opponents can slow it by leading suits you still hold.",
+  "aiNote": "Buy it by round 5 in a void or flood deck; no in-round choices.",
+  "rationale": "Void decks make 4–5 off-suit plays a round, so it grows about +5 every round and a half: about +15 by mid-run and +30 by round 12 if bought early, averaging near the common budget. One run counter, trumps and discards both count.",
+  "deviation": "Timing moved to After bidding, because the payout lands once each round from the counter so far (this round's off-suit plays count from next round), while the off-suit plays only feed the counter."
+}

@@ -1,0 +1,41 @@
+{
+  "code": "BL-C04",
+  "name": "Tipping Scales",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "law",
+  "iconFamily": "law",
+  "iconWord": "scales",
+  "iconAlternates": [
+    {
+      "name": "Shifting Delta",
+      "icon": "delta"
+    },
+    {
+      "name": "Careful Dropper",
+      "icon": "eyedropper"
+    }
+  ],
+  "text": "After bidding, choose a card in your hand to gain +3 rank or lose 3 rank.",
+  "timing": "After bidding",
+  "signature": [
+    {
+      "trigger": "after bidding",
+      "scope": "self",
+      "target": "a chosen card",
+      "effect": "rank +3 or −3",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Exact Contractor, Nil Champion, High Card; splash Bonus Chaser",
+  "family": "Rank choice and swapping / Bounded choice",
+  "role": "Enabler",
+  "decision": "Once bids are known, which card to move and which way: raise a near-winner, sink a nil danger, or trim one trick for an exact count.",
+  "opponent": "The change is shown when it resolves, so opponents see which card moved and play around it.",
+  "aiNote": "On nil, lower your highest card; on a contract, raise your highest non-ace card of your longest side suit, or Chasing Rainbows' revealed card if it is not already an ace.",
+  "rationale": "One card either way is the Blue take on rank change, distinct from Waning Moon (two cards, down only); it also raises the card Chasing Rainbows (DU-S05) reveals, which the wave 1 notes asked a common to do."
+}

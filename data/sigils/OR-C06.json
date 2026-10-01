@@ -1,0 +1,41 @@
+{
+  "code": "OR-C06",
+  "name": "Fat Piggy Bank",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "piggy-bank",
+  "iconFamily": "piggy-bank",
+  "iconWord": "piggy bank",
+  "iconAlternates": [
+    {
+      "name": "Leftover Pizza",
+      "icon": "pizza"
+    },
+    {
+      "name": "Day-Old Bread",
+      "icon": "bread"
+    }
+  ],
+  "text": "After scoring, gain +15 gold for each bag your team took this round.",
+  "timing": "After scoring",
+  "signature": [
+    {
+      "trigger": "after scoring",
+      "scope": "self",
+      "target": "team's new bags",
+      "effect": "gold +15 per bag",
+      "frequency": "per bag"
+    }
+  ],
+  "archetypes": "Bonus Chaser, Gold Miner, Diamond Flood",
+  "family": "Bag management / Conversion",
+  "role": "Payoff (Economy)",
+  "decision": "How far to underbid for a safer contract, knowing overtricks now pay gold.",
+  "opponent": "Visible gold gain; opponents may still push bags on you, which now pays you.",
+  "aiNote": "Bid one trick under your estimate when the team's bags are below 7.",
+  "rationale": "About 1.5 bags a round pay about 20 gold, which early outweighs their eventual 10-point penalty and lets additive decks bid safely, but deliberate underbidding costs more in bid value than it earns."
+}

@@ -1,0 +1,41 @@
+{
+  "code": "BL-R02",
+  "name": "Jeweler's Magnifier",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Rare",
+  "price": 95,
+  "wave": 4,
+  "icon": "reading-glass",
+  "iconFamily": "reading-glass",
+  "iconWord": "magnifier",
+  "iconAlternates": [
+    {
+      "name": "Banker's Calculator",
+      "icon": "calculator"
+    },
+    {
+      "name": "Gilt Microscope",
+      "icon": "microscope"
+    }
+  ],
+  "text": "When you bid, you may pay 100 gold to gain +1× contract multiplier.",
+  "timing": "When you bid",
+  "signature": [
+    {
+      "trigger": "when you bid",
+      "scope": "self",
+      "target": "contract",
+      "effect": "pay 100 gold for multiplier +1×",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Gold Miner; splash Diamond Flood, Swap Meet",
+  "family": "Costs / Gold (for a multiplier)",
+  "role": "Payoff (Contract multiplier)",
+  "decision": "Every round, with your hand in view, whether it is safe enough to double, and whether 100 gold is worth more as this round's multiplier, a future sigil, interest, or Pharaoh's Pyramid points.",
+  "opponent": "Visible when you bid; opponents see the doubled stakes and can press to set the contract, which doubles your loss.",
+  "aiNote": "From round 8 on, pay whenever the team's contract looks comfortable; before round 8, pay only if you would still hold 250 gold afterward.",
+  "rationale": "The +1× applies win or lose, worth about +84 mid-run and +116 late, against 100 gold worth about 50 points mid-run and little late, so early it is a bad trade and late it is the hoard's best use, about the 1:1 rate OR-R03 sets. Each payment also costs 20 gold of interest and 10 points a round of Pharaoh's Pyramid, so spending and holding pull against each other instead of stacking, and a late miner's income (about 115–165 gold a round) covers most rounds but not every one."
+}

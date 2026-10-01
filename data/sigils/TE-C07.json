@@ -1,0 +1,41 @@
+{
+  "code": "TE-C07",
+  "name": "Homeward Ship",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "ship",
+  "iconFamily": "ship",
+  "iconWord": "ship",
+  "iconAlternates": [
+    {
+      "name": "Swelling Sail",
+      "icon": "sail"
+    },
+    {
+      "name": "Cheering Woman",
+      "icon": "woman"
+    }
+  ],
+  "text": "Whenever your partner wins a trick, gain +5 contract value.",
+  "timing": "When your partner wins a trick",
+  "signature": [
+    {
+      "trigger": "partner wins a trick",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +5",
+      "frequency": "per trick"
+    }
+  ],
+  "archetypes": "Kingmaker; splash Nil Guard (in rounds your partner bids)",
+  "family": "Win triggers / Partner",
+  "role": "Payoff (Partner contract)",
+  "decision": "Whether to duck so your partner takes a contested trick, and which winners to pass them.",
+  "opponent": "Visible on trigger; opponents answer by attacking the partner's winners.",
+  "aiNote": "When you and your partner could both win a trick, let your partner win it.",
+  "rationale": "A partner takes about 3.25 tricks, so +5 each is about +16 on a made contract (about +13 EV), top of the common band as the brief asks for thin Kingmaker; it stacks with Promoted Pawn without matching its passed-card condition."
+}

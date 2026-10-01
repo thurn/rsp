@@ -1,0 +1,42 @@
+{
+  "code": "OR-R04",
+  "name": "Round-Trip Record",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Rare",
+  "price": 90,
+  "wave": 4,
+  "icon": "disc",
+  "iconFamily": "disc",
+  "iconWord": "record",
+  "iconAlternates": [
+    {
+      "name": "Loaned Boombox",
+      "icon": "boombox"
+    },
+    {
+      "name": "Traded Ice Cream",
+      "icon": "icecream"
+    }
+  ],
+  "text": "When this card is passed to you, if it was already passed after the first trick, gain +1× contract multiplier.",
+  "timing": "When you pass cards (this card's second pass)",
+  "signature": [
+    {
+      "trigger": "this card passed a second time this round",
+      "scope": "receiver",
+      "target": "contract",
+      "effect": "multiplier +1×",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Swap Meet; splash Kingmaker, Nil Guard",
+  "family": "Multipliers / Conditional (this card changed hands twice)",
+  "role": "Payoff (Contract multiplier)",
+  "decision": "Spending two exchanges on one card: send it to your partner early (Open Hand, Sealed Letter, or a Traders' Handshake trade) and have it sent back later, which ties up trades that could have fixed your hand, and never let it reach the opponents, whose second pass would give them the multiplier.",
+  "opponent": "Visible when it fires; an opponent handed this card in a trade can pass it on to their own partner to claim the +1× for their contract, so trades with the Swap Meet player carry a visible risk and a chance.",
+  "aiNote": "Give this card to your partner in your first pass or trade of the round; as the partner, give it back in the next exchange you make with the owner; never give it to an opponent.",
+  "rationale": "It pays on the exchange itself, not on a trick win, so it is distinct from Alley-Oop Basketball (RE-R03) and Promoted Pawn (DU-S03) and needs no winning card; two passes of one card take the Handshake plus two of your wins, or two pass tools, so it fires in about 40–50% of a Swap Meet deck's rounds for about +45 mid and +60 late, and nothing without pass tools; the once-a-round multiplier convention caps it at +1×.",
+  "deviation": "Revision 1: redesigned from \"+1× when this card wins after being passed\", which played the same as Alley-Oop Basketball (RE-R03); the trigger moves from \"When this card wins\" to the pass itself, leaving that window one sigil short of the review's projection."
+}

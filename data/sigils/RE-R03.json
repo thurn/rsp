@@ -1,0 +1,37 @@
+{
+  "code": "RE-R03",
+  "name": "Alley-Oop Basketball",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Rare",
+  "price": 90,
+  "wave": 4,
+  "icon": "basketball",
+  "iconFamily": "basketball",
+  "iconWord": "basketball",
+  "iconAlternates": [
+    {
+      "name": "Lofted Football",
+      "icon": "football"
+    }
+  ],
+  "text": "Once your partner has won two tricks with cards you passed them this round, gain +1× contract multiplier.",
+  "timing": "When your partner wins a trick",
+  "signature": [
+    {
+      "trigger": "partner wins a trick with a card you passed them, second time this round",
+      "scope": "team",
+      "target": "contract",
+      "effect": "multiplier +1×",
+      "frequency": "once per round"
+    }
+  ],
+  "archetypes": "Kingmaker; splash Swap Meet",
+  "family": "Win triggers / Partner (passed cards, counted)",
+  "role": "Payoff (Contract multiplier, built during the round)",
+  "decision": "Which cards to pass: two likely winners rather than one bomb and a filler, then whether to duck a trick so your partner can cash the second passed card.",
+  "opponent": "Passed cards are hidden until played, but each counted win is shown; opponents can trump or overtake the partner's passed winners once they see the plan.",
+  "aiNote": "Pass your two highest non-spade cards (or a high spade) when you hold pass effects; as the partner, cash cards received from this player early while they still win.",
+  "rationale": "With two pass enablers a Kingmaker partner wins about 1.4 passed cards a round (the Promoted Pawn, DU-S03, estimate), so two wins arrive in about 0.4 of rounds, worth about +35 mid-run and +50 late, the multiplier the thinnest Red archetype needs; it pays a multiplier rather than Promoted Pawn's contract value and compares no trick counts (Runner-Up Trophy, RE-U05)."
+}

@@ -1,0 +1,42 @@
+{
+  "code": "PU-R03",
+  "name": "Paired Socks",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Rare",
+  "price": 95,
+  "wave": 4,
+  "icon": "sock",
+  "iconFamily": "sock",
+  "iconWord": "sock",
+  "iconAlternates": [
+    {
+      "name": "Echoing Piano",
+      "icon": "piano"
+    },
+    {
+      "name": "Doubled Scribble",
+      "icon": "scribble"
+    }
+  ],
+  "text": "Whenever you discard a club, you gain twice as much contract value from your other sigils for that discard.",
+  "timing": "When you discard",
+  "signature": [
+    {
+      "trigger": "you discard a club",
+      "scope": "self",
+      "target": "contract value your other sigils gain from that discard",
+      "effect": "×2",
+      "frequency": "per discard"
+    }
+  ],
+  "archetypes": "Discard Dominance; splash Nil Champion",
+  "family": "When played and re-triggers / Doubling (clubs)",
+  "role": "Payoff (Contract additive)",
+  "decision": "Which card to discard on a void: spend a club now for the doubled payout, or keep clubs for later voids, which also pulls against voiding clubs themselves.",
+  "opponent": "Visible on each trigger; opponents can deny discards by leading the suits the owner still holds.",
+  "aiNote": "When void in the led suit, discard a club if one is held and a discard payoff is active; otherwise discard as usual.",
+  "rationale": "Doubles Buried Bone (PU-C09), Scouring Tornado (DU-S12), Rebel Graffiti (PU-C14), and a club Held Breath (GR-U09) on two or three club discards a round, about +25 per discard with two of them, or +40 to +60 a round; doubling contract value rather than re-triggering skips rank changes, sigil moves, and GR-R05's +1×, and naming clubs keeps a strong-watch archetype from doubling every discard.",
+  "deviation": "Changed from \"your discard sigils trigger again\" to doubling the contract value they pay: a re-trigger would also repeat Thrown Towel (PU-C05) and Second Home (GY-C07) and turn GR-R05's fifth-discard +1× into +2×."
+}

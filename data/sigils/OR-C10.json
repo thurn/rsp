@@ -1,0 +1,42 @@
+{
+  "code": "OR-C10",
+  "name": "Peddler's Cart",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "cart",
+  "iconFamily": "cart",
+  "iconWord": "cart",
+  "iconAlternates": [
+    {
+      "name": "Bartered Boombox",
+      "icon": "boombox"
+    },
+    {
+      "name": "Sealed Briefcase",
+      "icon": "briefcase"
+    }
+  ],
+  "text": "Whenever you pass cards, gain +15 gold.",
+  "timing": "When you pass cards",
+  "signature": [
+    {
+      "trigger": "you pass cards",
+      "scope": "self",
+      "target": "you",
+      "effect": "gold +15",
+      "frequency": "per pass"
+    }
+  ],
+  "archetypes": "Swap Meet; splash Gold Miner, Kingmaker, Nil Guard",
+  "family": "Gold income / Conditional",
+  "role": "Payoff (Economy)",
+  "decision": "Whether to take each optional exchange (a Traders' Handshake trade, a partner pass), since every one now pays.",
+  "opponent": "Visible gold gain; opponents who trade with you also get the card they chose.",
+  "aiNote": "Take every optional pass or trade that doesn't hand an opponent a winner.",
+  "rationale": "With Traders' Handshake's three trades a round it pays about 45 gold, Nest Egg's top rate, and with a single Open Hand pass it pays 15, so it rewards committing to exchanges early in a run while Handshake and TE-C08 supply the contract value.",
+  "deviation": "Changed from a pass-count quest to a per-pass reward, which is simpler (no counter) and is exactly \"Orange gold for each completed trade\" from the Swap Meet plan; per the orchestrator's ruling it pays gold only, leaving per-exchange contract value to Traders' Handshake. OR-U09 (shop gold by passes) should move further from this."
+}

@@ -1,0 +1,32 @@
+{
+  "code": "RE-C07",
+  "name": "Crown Jewel",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 0,
+  "icon": "crown",
+  "iconFamily": "crown",
+  "iconWord": "crown",
+  "iconAlternates": [],
+  "text": "Affinity: Ace. When this card wins a trick, gain +20 contract value.",
+  "timing": "When this card wins",
+  "signature": [
+    {
+      "trigger": "this card wins",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +20",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "High Card; splash Bonus Chaser, Spade Master",
+  "family": "Win triggers / This card",
+  "role": "Payoff (Contract additive)",
+  "decision": "When to cash the ace safely, before opponents are void.",
+  "opponent": "Visible on trigger; opponents can trump the ace to deny it.",
+  "aiNote": "Lead the engraved ace early in a suit opponents still hold.",
+  "rationale": "About 10 expected points per round on an ace."
+}

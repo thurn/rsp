@@ -1,0 +1,41 @@
+{
+  "code": "GY-U04",
+  "name": "Early Alarm",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "alarm",
+  "iconFamily": "alarm",
+  "iconWord": "alarm",
+  "iconAlternates": [
+    {
+      "name": "Quick Charger",
+      "icon": "ev-station"
+    },
+    {
+      "name": "Traded Nut",
+      "icon": "nut"
+    }
+  ],
+  "text": "After scoring, you may give up 20 of your team's points to gain +40 gold.",
+  "timing": "After scoring",
+  "signature": [
+    {
+      "trigger": "after scoring",
+      "scope": "self (team pays)",
+      "target": "team score to your gold",
+      "effect": "−20 points, +40 gold",
+      "frequency": "per round"
+    }
+  ],
+  "archetypes": "Gold Miner, Diamond Flood, Swap Meet; splash Blind Bidder",
+  "family": "Gold and points conversion / Points to gold",
+  "role": "Payoff: Economy",
+  "decision": "Every round: take the trade while gold still buys sigils, stop when it doesn't, then sell it.",
+  "opponent": "Visible score drop; opponents gain a little ground.",
+  "aiNote": "Trade through round 6, and later only when 40 gold brings a wanted offer within reach.",
+  "rationale": "At about 1 point per gold early, it nets about +20 a round in rounds 1–4 and breaks even around round 7, so it is strongest early by design; trailing by 20 more can also help Blind Bidder qualify under Night Owl (PU-C08) or Desperate Gambit (DU-S09)."
+}

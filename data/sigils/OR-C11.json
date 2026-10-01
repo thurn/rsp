@@ -1,0 +1,41 @@
+{
+  "code": "OR-C11",
+  "name": "Four-Leaf Clover",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "clover",
+  "iconFamily": "clover",
+  "iconWord": "clover",
+  "iconAlternates": [
+    {
+      "name": "Empty Wallet",
+      "icon": "wallet"
+    },
+    {
+      "name": "Free Beer",
+      "icon": "beer"
+    }
+  ],
+  "text": "If your nil succeeds, gain +40 gold, or +80 if it was blind.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, your nil made",
+      "scope": "self",
+      "target": "you",
+      "effect": "gold +40, +80 on blind nil",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Blind Bidder; splash Nil Champion",
+  "family": "Nil value / Gold",
+  "role": "Payoff (Economy)",
+  "decision": "Tilts close calls toward nil and, when eligible, toward blind nil.",
+  "opponent": "Visible gold gain; no effect on opponents' play.",
+  "aiNote": "Treat a successful nil as worth 40 more gold (80 blind) when deciding whether to bid nil or blind nil.",
+  "rationale": "A Blind Bidder going nil about half its rounds earns about 18 gold a round on average, top of the common band, and it pays most early, when the blind threshold is easiest to meet."
+}

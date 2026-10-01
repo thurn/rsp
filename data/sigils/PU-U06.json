@@ -1,0 +1,41 @@
+{
+  "code": "PU-U06",
+  "name": "Sugared Pill",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "pill",
+  "iconFamily": "pill",
+  "iconWord": "pill",
+  "iconAlternates": [
+    {
+      "name": "Mending Tape",
+      "icon": "tape"
+    },
+    {
+      "name": "Forgiving Scripture",
+      "icon": "bible"
+    }
+  ],
+  "text": "If your nil fails, it costs your team 50 fewer points.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, your failed nil",
+      "scope": "team",
+      "target": "your nil's penalty",
+      "effect": "−50 points",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Nil Champion; splash Blind Bidder",
+  "family": "Nil value / Insurance",
+  "role": "Utility (Nil)",
+  "decision": "Bidding nil on riskier hands, such as three high cards for Daring Knight, because a failure now costs 50 instead of 100.",
+  "opponent": "Visible at scoring; opponents still gain the swing of breaking the nil, only smaller.",
+  "aiNote": "Lower the success chance needed to bid nil by about 10 percentage points.",
+  "rationale": "Halving the penalty lifts a 60% nil from +20 to +40 and adds about +7 a round on ordinary nils, with more from the riskier nils it unlocks. A blind nil fails for −150 instead of −200. It softens the cost without making nil free, and it never pays on success, so it stays apart from PU-R05 (your partner's nil survives one trick) and from the nil-value payoffs."
+}

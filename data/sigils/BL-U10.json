@@ -1,0 +1,41 @@
+{
+  "code": "BL-U10",
+  "name": "Measured Delta",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "delta",
+  "iconFamily": "delta",
+  "iconWord": "delta",
+  "iconAlternates": [
+    {
+      "name": "Foreseen Future",
+      "icon": "future"
+    },
+    {
+      "name": "Updated Directory",
+      "icon": "phone-book"
+    }
+  ],
+  "text": "If this card is still in your hand when the tenth trick begins, you may raise or lower your bid by one.",
+  "timing": "While in hand (checkpoint at the tenth trick)",
+  "signature": [
+    {
+      "trigger": "tenth trick begins, this card held",
+      "scope": "self",
+      "target": "your bid",
+      "effect": "may raise or lower by 1",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Exact Contractor, While Held; splash High Card, Bonus Chaser",
+  "family": "Bid adjustment / Either",
+  "role": "Enabler",
+  "decision": "Every trick, which other card can follow suit so this one stays in hand, then at trick 10 which way to move the bid with nine tricks seen.",
+  "opponent": "Visible when used; opponents who read the holding pattern can lead this card's suit to force it out before trick 10.",
+  "aiNote": "Never play this card before trick 10 while another legal card exists; at trick 10, move the bid toward your likely final count.",
+  "rationale": "A fixed checkpoint keeps the correction a trigger rather than an activated ability, and holding to trick 10 succeeds about 55% of the time; with four tricks left, one step either way turns a near miss into an exact count for Honest Ruler, True Aim, or Balanced Yin-Yang."
+}

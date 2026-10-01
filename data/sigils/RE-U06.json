@@ -1,0 +1,42 @@
+{
+  "code": "RE-U06",
+  "name": "Hidden Knife",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Uncommon",
+  "price": 75,
+  "wave": 3,
+  "icon": "knife",
+  "iconFamily": "knife",
+  "iconWord": "knife",
+  "iconAlternates": [
+    {
+      "name": "Stolen Puck",
+      "icon": "puck"
+    },
+    {
+      "name": "Stealthy Footsteps",
+      "icon": "footsteps"
+    }
+  ],
+  "text": "When you play this card, it gains rank until it beats every card of its suit already in the trick.",
+  "timing": "When played",
+  "signature": [
+    {
+      "trigger": "when played",
+      "scope": "self",
+      "target": "this card",
+      "effect": "gains rank to beat every earlier card of its suit in the trick",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Contract Attacker; splash High Card, Spade Master",
+  "family": "Raising your ranks / Ties (relative to the trick)",
+  "role": "Enabler",
+  "decision": "Which trick to steal: hold the card until you play last to a trick the opponents' ace or king is winning, or use it to overtrump a spade already in the trick.",
+  "opponent": "Visible when it resolves; opponents lose a trick they counted on, but only once a round, only when the owner plays after them, and they can still trump it or play after it.",
+  "aiNote": "Hold the card until you play fourth to a trick of its suit that an opponent is winning with a face card or ace, or until you can overtrump with it; never lead with it.",
+  "rationale": "Steals the opponents' best trick once a round, the Contract Attacker fantasy, with no new rules: an ace in the trick clamps it at ace and the tie goes to the later card; it is worth about an ace's trick but only from a late seat, and it cannot beat a trump while following suit.",
+  "deviation": "Family changed from Playing multiple cards / Choice to Raising your ranks: playing two cards and choosing which competes needs new rules for the second card (legality, which one counts, what happens to the other), and Kindled Bonfire (RE-U02) already spends a second card."
+}

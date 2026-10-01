@@ -1,0 +1,42 @@
+{
+  "code": "BL-C02",
+  "name": "Kindred Mind",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Common",
+  "price": 40,
+  "wave": 2,
+  "icon": "brain",
+  "iconFamily": "brain",
+  "iconWord": "mind",
+  "iconAlternates": [
+    {
+      "name": "Listening Ear",
+      "icon": "ear"
+    },
+    {
+      "name": "Shared Pulse",
+      "icon": "pulse"
+    }
+  ],
+  "text": "Before bidding, learn how many aces and kings your partner has.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "self",
+      "target": "partner's aces and kings",
+      "effect": "learn count (private)",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Exact Contractor, Nil Champion, High Card; splash Kingmaker, Nil Guard",
+  "family": "Partner information / Counts",
+  "role": "Enabler",
+  "decision": "Bidding: fitting your bid to your partner's likely tricks, and whether their high cards can cover your nil.",
+  "opponent": "The table sees it trigger but not the count; no effect on opponents' cards or choices.",
+  "aiNote": "Add half the partner's reported count to the team's expected tricks when bidding; bid nil more readily when the partner has two or more.",
+  "rationale": "Aces and kings are the clearest trick count in a hand, so one number lets the team's bids fit together, which is what Exact Contractor's exact counts need.",
+  "deviation": "Timing moved from When you bid to Before bidding, because information that arrives as you declare comes too late to shape your own bid."
+}

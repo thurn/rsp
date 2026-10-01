@@ -1,0 +1,41 @@
+{
+  "code": "BL-C14",
+  "name": "Open Book",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "book",
+  "iconFamily": "book",
+  "iconWord": "book",
+  "iconAlternates": [
+    {
+      "name": "Morning News",
+      "icon": "newspaper"
+    },
+    {
+      "name": "Broadcast Satellite",
+      "icon": "satellite-dish"
+    }
+  ],
+  "text": "Before bidding, each player reveals two random cards in their hand.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "all players",
+      "target": "two random cards each",
+      "effect": "reveal (public)",
+      "frequency": "×2 each"
+    }
+  ],
+  "archetypes": "Kingmaker, Nil Guard, Contract Attacker, Swap Meet; splash Bonus Chaser",
+  "family": "Revealing opponents' cards / Public reveals",
+  "role": "Enabler; opponent-facing",
+  "decision": "Bidding and passing with eight public cards: which cards to pass your partner, which to take from a nil partner, and which opponent's bid to attack.",
+  "opponent": "Fully symmetric and public, so opponents gain the same information and bid with it.",
+  "aiNote": "Treat revealed cards as known in bidding; pass to cover the partner's revealed weak suits and target an opponent whose revealed cards look thin.",
+  "rationale": "Public reveals feed partner coordination (Kingmaker's passes, Nil Guard's cover) and opponent targeting (Contract Attacker, Swap Meet's trades), and they give RE-C11's revealed-card boost more targets."
+}

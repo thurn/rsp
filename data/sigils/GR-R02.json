@@ -1,0 +1,41 @@
+{
+  "code": "GR-R02",
+  "name": "Bursting Barn",
+  "resonances": [
+    "Green"
+  ],
+  "rarity": "Rare",
+  "price": 95,
+  "wave": 4,
+  "icon": "barn",
+  "iconFamily": "barn",
+  "iconWord": "barn",
+  "iconAlternates": [
+    {
+      "name": "Split Melon",
+      "icon": "watermelon"
+    },
+    {
+      "name": "Ripe Avocado",
+      "icon": "avocado"
+    }
+  ],
+  "text": "Affinity: Diamond. When you lead with this card, if you've already played four or more diamonds this round, gain +1× contract multiplier.",
+  "timing": "When led",
+  "signature": [
+    {
+      "trigger": "when led, you've already played four or more diamonds this round",
+      "scope": "self",
+      "target": "contract",
+      "effect": "multiplier +1×",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Diamond Flood; splash Bonus Chaser",
+  "family": "Suit payoffs / Leading (after a flood)",
+  "role": "Payoff (Contract multiplier)",
+  "decision": "Holding the engraved diamond, often a strong one you'd like to cash early, while four other diamonds run, then winning a trick late enough to lead it, and bidding knowing a multiplier gained mid-round also doubles a failure.",
+  "opponent": "The lead and the multiplier are shown; opponents who count diamonds can drain the flood with early diamond leads or trump the payoff lead, and a doubled contract that later fails costs its owner double.",
+  "aiNote": "Don't lead or follow with the engraved diamond while other diamonds can do the job; once four other diamonds are gone, lead it on your next lead, and bid for it only with six or more diamonds.",
+  "rationale": "A flooded hand of six or more diamonds runs four of them by about the sixth trick and reaches a lead with this card still held in about 40% of rounds (about 10% otherwise); gained mid-round, the +1× applies win or lose, worth about +45 late (0.4 × (0.8 × 160 − 12)), inside the rare band for the strong-watch archetype; the flood has to happen before the payoff, so it counts diamonds without paying per diamond played (Gem Cascade, DU-S06) or per diamond led (Golden Apple, GR-U04), and it is Diamond Flood's first aimed multiplier alongside GY-R04."
+}

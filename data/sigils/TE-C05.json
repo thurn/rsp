@@ -1,0 +1,42 @@
+{
+  "code": "TE-C05",
+  "name": "Changing Trains",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "train",
+  "iconFamily": "train",
+  "iconWord": "train",
+  "iconAlternates": [
+    {
+      "name": "Friendly Hail",
+      "icon": "hail"
+    },
+    {
+      "name": "Clear Road",
+      "icon": "road"
+    }
+  ],
+  "text": "When this card wins a trick, you may have your partner lead the next trick.",
+  "timing": "When this card wins",
+  "signature": [
+    {
+      "trigger": "this card wins",
+      "scope": "self",
+      "target": "next trick's lead",
+      "effect": "optional hand-off to partner",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Kingmaker, Exact Contractor, Heart Chorus",
+  "family": "Lead control / Hand-off",
+  "role": "Enabler",
+  "decision": "Whether to keep the lead or put your partner on lead, where the winners you passed them can cash.",
+  "opponent": "Visible hand-off; opponents see who leads and play the usual trick.",
+  "aiNote": "Hand the lead to your partner if they hold a card you passed them or you have already taken your bid.",
+  "rationale": "The engraved card fixes when the hand-off can happen, so it adds one choice per round; it pairs with pre-bid passes (TE-C02, TE-C12) that load the partner with winners, and differs from RE-C03, which takes the lead for yourself.",
+  "deviation": "Timing narrowed from any trick you win to this card winning, so the common adds at most one choice per round."
+}

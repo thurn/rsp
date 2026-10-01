@@ -1,0 +1,42 @@
+{
+  "code": "GY-R08",
+  "name": "Fitting-Room Skirt",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Rare",
+  "price": 85,
+  "wave": 4,
+  "icon": "skirt",
+  "iconFamily": "skirt",
+  "iconWord": "skirt",
+  "iconAlternates": [
+    {
+      "name": "Backup Laptop",
+      "icon": "laptop"
+    },
+    {
+      "name": "Fresh-Start Oven",
+      "icon": "oven"
+    }
+  ],
+  "text": "Each round, you're dealt a second hand of random new cards, and you keep whichever hand you prefer before your sigils are engraved.",
+  "timing": "Always on, for you (at the deal)",
+  "signature": [
+    {
+      "trigger": "each deal",
+      "scope": "self",
+      "target": "your dealt hand or 13 random new cards",
+      "effect": "keep the chosen hand",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "High Card, Spade Master, Kingmaker; splash Nil Champion, Blind Bidder",
+  "family": "Opening hand control / Second hand",
+  "role": "Enabler",
+  "decision": "Which hand to keep: the stronger for a contract, the one with most hearts or diamonds for a suit deck, or the weaker for nil.",
+  "opponent": "Hidden; the new cards may duplicate cards in other hands, as with other Gray card creation.",
+  "aiNote": "Keep the hand with more expected tricks, or fewer when planning nil or already committed to blind nil.",
+  "rationale": "The better of two hands is worth about three-quarters of a trick, and the weaker of two makes nil and blind nil much safer; the choice comes before engraving, so affinities land on the kept hand and nothing is re-engraved, and the unkept cards leave the round.",
+  "deviation": "Timing moved from Before bidding to the deal, so sigils are engraved on the kept hand without a re-engraving rule."
+}

@@ -1,0 +1,41 @@
+{
+  "code": "BL-R05",
+  "name": "Empty Cloche",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Rare",
+  "price": 85,
+  "wave": 4,
+  "icon": "dish",
+  "iconFamily": "dish",
+  "iconWord": "cloche",
+  "iconAlternates": [
+    {
+      "name": "Blinkered Visor",
+      "icon": "vr-headset"
+    },
+    {
+      "name": "Strict Directory",
+      "icon": "phone-book"
+    }
+  ],
+  "text": "Every player must bid nil or at least 4.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "all players",
+      "target": "bids",
+      "effect": "only nil or 4+",
+      "frequency": "all"
+    }
+  ],
+  "archetypes": "Nil Champion; splash Contract Attacker",
+  "family": "Bidding constraints / Nil or big",
+  "role": "Enabler; rule setter",
+  "decision": "Bidding: with one to three tricks, whether to dare a nil or stretch to four; for the owner, bidding nil on hands that would otherwise be a cautious two.",
+  "opponent": "Public from the first bid and symmetric; opponents' weak hands become risky nils (Broken Ring's +100) or overbids (sets Hungry Kraken cashes), and they can answer by bidding nil themselves.",
+  "aiNote": "With fewer than four expected tricks, bid nil if you hold at most one ace or king or own a lowering or passing sigil; otherwise bid four.",
+  "rationale": "About half of dealt hands are worth one to three tricks, so the rule turns most rounds into a nil-or-stretch choice for every seat; the nil deck wants that choice, and opponents forced to four must chase their own tricks instead of attacking your nil. Blind nil is still nil, so eligibility (Night Owl, Desperate Gambit) is unchanged, and later bid changes (Amended Scroll, Measured Delta) still work because the rule governs only declared bids. The cost is real: your partner is held to four too."
+}

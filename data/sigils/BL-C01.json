@@ -1,0 +1,41 @@
+{
+  "code": "BL-C01",
+  "name": "Scout's Binoculars",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "binocular",
+  "iconFamily": "binocular",
+  "iconWord": "binoculars",
+  "iconAlternates": [
+    {
+      "name": "Keen Spectacles",
+      "icon": "glasses"
+    },
+    {
+      "name": "Watchful Eye",
+      "icon": "eye"
+    }
+  ],
+  "text": "Before bidding, look at two random cards in each opponent's hand.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "self",
+      "target": "two random cards per opponent",
+      "effect": "look (private)",
+      "frequency": "×2 each"
+    }
+  ],
+  "archetypes": "High Card, Exact Contractor, Nil Champion; splash Contract Attacker",
+  "family": "Revealing opponents' cards / Before bidding",
+  "role": "Enabler; opponent-facing",
+  "decision": "Bidding: whether a king or queen is a trick (Unclouded Sun only protects aces), whether to go nil against the high cards you saw, and how many tricks to bid for an exact count.",
+  "opponent": "Each opponent sees which two of their cards you looked at; only you learn them, and their play is unaffected.",
+  "aiNote": "Count a seen opponent ace or higher trump in a suit as costing your matching king or queen its trick; don't bid nil if a seen card is a low card of your longest suit that could force you over.",
+  "rationale": "Four random cards out of 26 sharpen a bid without settling it, so it is modest at a common and distinct from BL-C07 (after bidding, shape) and BL-C14 (public)."
+}

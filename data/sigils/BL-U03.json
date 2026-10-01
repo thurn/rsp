@@ -1,0 +1,41 @@
+{
+  "code": "BL-U03",
+  "name": "Clean Bullseye",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Uncommon",
+  "price": 75,
+  "wave": 3,
+  "icon": "bullseye",
+  "iconFamily": "bullseye",
+  "iconWord": "bullseye",
+  "iconAlternates": [
+    {
+      "name": "Steady Microscope",
+      "icon": "microscope"
+    },
+    {
+      "name": "Pure Sparkle",
+      "icon": "sparkles"
+    }
+  ],
+  "text": "If you win four or more tricks with cards that aren't spades, gain +1× contract multiplier.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, you won 4+ tricks with non-spades",
+      "scope": "self",
+      "target": "contract",
+      "effect": "multiplier +1×",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "High Card; splash Kingmaker, Bonus Chaser",
+  "family": "Multipliers / Conditional",
+  "role": "Payoff (Contract multiplier)",
+  "decision": "Whether to trump in for a sure trick or keep the spade and win with the biggest card of the led suit instead, and how high to bid on side-suit winners.",
+  "opponent": "Visible at scoring; opponents answer by voiding suits early and trumping your side-suit winners.",
+  "aiNote": "Prefer winning with side-suit cards; trump only when the team needs the trick for its contract and you already have four side-suit wins or cannot reach them.",
+  "rationale": "Four side-suit wins from one seat is more than Unclouded Sun's aces give for free and happens in about a third of a built High Card deck's made rounds (about +45 late); spades never count, so strong Spade Master decks get little from it. It is not success-only, so a met condition on a failed contract doubles the loss, which is rare with four wins."
+}

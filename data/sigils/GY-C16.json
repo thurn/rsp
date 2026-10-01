@@ -1,0 +1,41 @@
+{
+  "code": "GY-C16",
+  "name": "Overtime Factory",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "factory",
+  "iconFamily": "factory",
+  "iconWord": "factory",
+  "iconAlternates": [
+    {
+      "name": "Weary Hard Hat",
+      "icon": "hard-hat"
+    },
+    {
+      "name": "Early Alarm",
+      "icon": "alarm"
+    }
+  ],
+  "text": "Affinity: Ace. When this card wins a trick, you may take a bag to gain +25 gold.",
+  "timing": "When this card wins",
+  "signature": [
+    {
+      "trigger": "this card wins",
+      "scope": "self",
+      "target": "your team's bags",
+      "effect": "take a bag, gain +25 gold",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Contract Attacker, Spade Master, High Card; splash Gold Miner",
+  "family": "Costs / Bags",
+  "role": "Payoff: Economy",
+  "decision": "Bag or no bag: early the gold is worth far more than a 10-point bag; late, the bag costs more than the gold can buy.",
+  "opponent": "Visible; the bag counts toward your team's penalty.",
+  "aiNote": "Take the bag through round 8 unless the team holds eight or more bags.",
+  "rationale": "The affinity places it on an ace in about 70% of hands, so it pays about 17 gold a round early, the common economy rate, and its value falls off naturally late."
+}

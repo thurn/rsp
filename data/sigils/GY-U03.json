@@ -1,0 +1,41 @@
+{
+  "code": "GY-U03",
+  "name": "Overstocked Fridge",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Uncommon",
+  "price": 75,
+  "wave": 3,
+  "icon": "fridge",
+  "iconFamily": "fridge",
+  "iconWord": "fridge",
+  "iconAlternates": [
+    {
+      "name": "Bulk Toilet Roll",
+      "icon": "toilet-roll"
+    },
+    {
+      "name": "Bargain Hunter's Cap",
+      "icon": "cap"
+    }
+  ],
+  "text": "At each shop, you may buy a second sigil if it's a common.",
+  "timing": "At the shop",
+  "signature": [
+    {
+      "trigger": "at shop",
+      "scope": "self",
+      "target": "purchases",
+      "effect": "a second purchase, common only",
+      "frequency": "each shop"
+    }
+  ],
+  "archetypes": "All; most for Gold Miner, Diamond Flood, Swap Meet",
+  "family": "Shop tools / Multiple purchases",
+  "role": "Payoff: Economy",
+  "decision": "Whether to spend a round's gold on two sigils or bank it for interest and a pricier offer.",
+  "opponent": "No effect on opponents.",
+  "aiNote": "Buy a second common when it scores at least 10 a round and gold stays above 50 afterward.",
+  "rationale": "Gold, not the rule, limits it: two commons cost about 90–100 against about 65 income, so a double purchase comes every two or three shops early, filling the 13-sigil collection faster; it fades once the collection is full, when selling (GY-U02) takes over."
+}

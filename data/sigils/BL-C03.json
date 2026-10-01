@@ -1,0 +1,42 @@
+{
+  "code": "BL-C03",
+  "name": "Falling Star",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Common",
+  "price": 40,
+  "wave": 2,
+  "icon": "star",
+  "iconFamily": "star",
+  "iconWord": "star",
+  "iconAlternates": [
+    {
+      "name": "Upended Beaker",
+      "icon": "beaker"
+    },
+    {
+      "name": "Swinging Orbit",
+      "icon": "science"
+    }
+  ],
+  "text": "You may play your aces as twos.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "your aces",
+      "effect": "may play as rank 2",
+      "frequency": "all"
+    }
+  ],
+  "archetypes": "Nil Champion, Exact Contractor, High Card",
+  "family": "Rank choice and swapping / Ace direction",
+  "role": "Enabler",
+  "decision": "Each time you play an ace (about one a round), whether it plays high or low.",
+  "opponent": "Visible when an ace drops to a two; opponents can still lead the ace's suit to force it out.",
+  "aiNote": "On nil, play every ace as a two; otherwise play an ace as a two only once you have reached your bid or your partner is already winning the trick.",
+  "rationale": "Aces are a nil's worst danger, so this pairs with Daring Knight's reward for bidding nil on aces, and it lets Exact and High Card duck with an ace; a card played as a two is no longer an ace, so Unclouded Sun stops protecting it.",
+  "deviation": "Target moved from the engraved card to all your aces, because \"this card may play as a two\" near-duplicates BL-C12's two-or-ace choice when both sit on aces."
+}

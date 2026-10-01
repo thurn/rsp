@@ -1,0 +1,41 @@
+{
+  "code": "BL-C10",
+  "name": "Honest Ruler",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Common",
+  "price": 55,
+  "wave": 2,
+  "icon": "ruler",
+  "iconFamily": "ruler",
+  "iconWord": "ruler",
+  "iconAlternates": [
+    {
+      "name": "Calibrated Thermometer",
+      "icon": "thermometer"
+    },
+    {
+      "name": "Tallying Calculator",
+      "icon": "calculator"
+    }
+  ],
+  "text": "If your team makes its contract exactly, gain +30 contract value.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, exact contract",
+      "scope": "team",
+      "target": "contract",
+      "effect": "contract value +30",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Exact Contractor; splash Nil Guard, Discard Dominance",
+  "family": "Contract-shape rewards / Exact",
+  "role": "Payoff (Contract additive)",
+  "decision": "Once the team reaches its bid, whether to duck every remaining trick rather than take a safe overtrick.",
+  "opponent": "Visible at scoring; opponents can feed overtricks to break it.",
+  "aiNote": "After the team reaches its bid, play the lowest card that loses.",
+  "rationale": "The team lands exactly about 40% of the time when playing for it, so +30 is about +12 expected, the common budget; it is the additive twin of True Aim (+1×) and multiplies with it and Balanced Yin-Yang (DU-S13)."
+}

@@ -1,0 +1,32 @@
+{
+  "code": "OR-C09",
+  "name": "Nest Egg",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 0,
+  "icon": "egg",
+  "iconFamily": "egg",
+  "iconWord": "egg",
+  "iconAlternates": [],
+  "text": "While this card is in your hand, gain +5 gold after each trick.",
+  "timing": "While in hand",
+  "signature": [
+    {
+      "trigger": "while held",
+      "scope": "self",
+      "target": "you",
+      "effect": "gold +5 per trick",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Gold Miner; splash While Held",
+  "family": "Gold income / While held",
+  "role": "Payoff (Economy)",
+  "decision": "How long to keep the card before it is needed to win or follow.",
+  "opponent": "Visible gold gains; no effect on opponents' play.",
+  "aiNote": "Play the engraved card as late as follow-suit allows.",
+  "rationale": "Held 6–9 tricks, it earns 30–45 gold per round."
+}

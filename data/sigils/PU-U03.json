@@ -1,0 +1,42 @@
+{
+  "code": "PU-U03",
+  "name": "Sweet Tooth",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "tooth",
+  "iconFamily": "tooth",
+  "iconWord": "tooth",
+  "iconAlternates": [
+    {
+      "name": "Bottomless Popcorn",
+      "icon": "popcorn"
+    },
+    {
+      "name": "Stuffed Sock",
+      "icon": "sock"
+    }
+  ],
+  "text": "Gain +15 contract value for each bag the opponents take this round.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring",
+      "scope": "self",
+      "target": "opponents' bags this round",
+      "effect": "contract value +15",
+      "frequency": "per bag"
+    }
+  ],
+  "archetypes": "Contract Attacker; splash Discard Dominance, Nil Guard",
+  "family": "Bag management / Opponents' bags (reward)",
+  "role": "Payoff (Contract additive)",
+  "decision": "When a set is out of reach, whether to stop contesting tricks and feed the opponents overtricks, bidding your own contract low enough to still make it.",
+  "opponent": "Visible at scoring; opponents answer by bidding up to their hand or ducking tricks they don't need.",
+  "aiNote": "Once the opponents have taken their bid, duck tricks your team doesn't need for its own contract.",
+  "rationale": "A partnership takes about 1.5 bags when it makes its contract, and a feeding Contract Attacker pushes that to about 3, so +15 a bag is about +20 EV, rising to about +35 with the bagging line. It hedges the set payoffs (Grinning Skull, Hungry Kraken), which pay only when the opponents fail, and it scores your own contract rather than their point loss. Few tricks for your team means many for theirs, so it also pairs with PU-U09.",
+  "deviation": "Timing changed from After scoring to Conditional scoring, because contract value is counted during scoring; +15 sets it in the uncommon band."
+}

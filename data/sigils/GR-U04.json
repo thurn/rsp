@@ -1,0 +1,42 @@
+{
+  "code": "GR-U04",
+  "name": "Golden Apple",
+  "resonances": [
+    "Green"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "apple-full",
+  "iconFamily": "apple-full",
+  "iconWord": "apple",
+  "iconAlternates": [
+    {
+      "name": "Split Melon",
+      "icon": "watermelon"
+    },
+    {
+      "name": "Open Barn",
+      "icon": "barn"
+    }
+  ],
+  "text": "Whenever you lead a diamond, gain +10 contract value.",
+  "timing": "When led (any diamond you lead)",
+  "signature": [
+    {
+      "trigger": "you lead a diamond",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +10",
+      "frequency": "per lead"
+    }
+  ],
+  "archetypes": "Diamond Flood; splash Bonus Chaser",
+  "family": "Suit payoffs / Leading",
+  "role": "Payoff (Contract additive)",
+  "decision": "Whether to lead diamonds after each win, running the flood, or cash other winners first, knowing opponents void in diamonds will trump the lead.",
+  "opponent": "Visible on each lead; opponents fight it the way they fight any flood, by running out of diamonds and trumping, or by holding the top diamonds.",
+  "aiNote": "After winning a trick, lead your lowest diamond unless an opponent has shown a diamond void and holds spades; otherwise lead as usual.",
+  "rationale": "A seat leads about as often as it wins, and a flood leads diamonds on most of those, so a flooded hand pays about +25 to +30 and an ordinary hand about +10, the brief's size; it rewards the flood's core play of running its long suit into the opponents' trumps.",
+  "deviation": "Timing moved from While in hand to diamond leads, because \"while held, each diamond you play pays\" counts exactly the diamonds played before this card leaves your hand, the same count Gem Cascade (DU-S06) pays when played; this also adds to the short when-led window."
+}

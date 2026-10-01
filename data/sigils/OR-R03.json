@@ -1,0 +1,42 @@
+{
+  "code": "OR-R03",
+  "name": "Spendthrift's Wallet",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Rare",
+  "price": 85,
+  "wave": 4,
+  "icon": "wallet",
+  "iconFamily": "wallet",
+  "iconWord": "wallet",
+  "iconAlternates": [
+    {
+      "name": "Last Dollar",
+      "icon": "dollar"
+    },
+    {
+      "name": "Brand-New Boombox",
+      "icon": "boombox"
+    }
+  ],
+  "text": "After scoring, you may pay up to 100 gold, and your team gains that many points.",
+  "timing": "After scoring",
+  "signature": [
+    {
+      "trigger": "after scoring",
+      "scope": "team",
+      "target": "your gold",
+      "effect": "pay up to 100 gold, points +1 per gold",
+      "frequency": "per round"
+    }
+  ],
+  "archetypes": "Gold Miner; splash Diamond Flood, Swap Meet",
+  "family": "Gold and points conversion / Gold to points",
+  "role": "Payoff (Economy: points outside the contract)",
+  "decision": "Every round, how much gold to keep for shops, interest, and Pharaoh's Pyramid, and how much to cash now.",
+  "opponent": "Visible when paid; the points arrive after scoring, so opponents can see the Gold Miner's pace and bid to close the gap.",
+  "aiNote": "Before round 8, pay nothing; from round 8, pay whatever gold you hold above 250 (above 500 with Pharaoh's Pyramid), up to 100; in round 13 or when it wins the run, pay the full 100.",
+  "rationale": "At 1 point per gold it is the strong late converter the brief asked for, about +100 a round once a miner's income (100 to 165 gold with Grand Treasury) runs a surplus, and nothing early because gold still buys sigils then; the points score on failed contracts too, like the Pyramid's, but spending the gold competes with the Pyramid's holding.",
+  "deviation": "Capped at 100 gold a round instead of any amount, because an uncapped dump of a 500–800 gold hoard would cross 1,000 in one step and end runs a round or two early."
+}

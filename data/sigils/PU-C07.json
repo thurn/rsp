@@ -1,0 +1,41 @@
+{
+  "code": "PU-C07",
+  "name": "Grinning Skull",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "skull",
+  "iconFamily": "skull",
+  "iconWord": "skull",
+  "iconAlternates": [
+    {
+      "name": "Creeping Virus",
+      "icon": "virus"
+    },
+    {
+      "name": "Bitter Vial",
+      "icon": "vial"
+    }
+  ],
+  "text": "If the opponents miss their contract, gain +20 contract value for each trick they fell short.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, opponents' failed contract",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +20 per trick short",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Contract Attacker; splash High Card, Spade Master",
+  "family": "Opponent denial / Set rewards",
+  "role": "Payoff (Contract additive)",
+  "decision": "After your team makes its bid, whether to keep taking tricks, at the cost of bags, to deepen the set.",
+  "opponent": "Visible at scoring; opponents answer by bidding safely.",
+  "aiNote": "Once your team has made its bid and the opponents still need tricks, keep winning rather than ducking.",
+  "rationale": "Contract Attacker sets about 30% of rounds, by about 1.5 tricks on average, so it earns about +9 EV (+15 in a strong attack deck). It is paid inside your made contract, and a set almost always means your team made its bid. The overtricks that deepen a set become bags, which keeps it honest."
+}

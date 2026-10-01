@@ -1,0 +1,42 @@
+{
+  "code": "BL-U07",
+  "name": "Quiet Omega",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "omega",
+  "iconFamily": "omega",
+  "iconWord": "omega",
+  "iconAlternates": [
+    {
+      "name": "Watching Eye",
+      "icon": "eye"
+    },
+    {
+      "name": "Still Camera",
+      "icon": "camera"
+    }
+  ],
+  "text": "Whenever you lose a trick you played last to, gain +10 nil value.",
+  "timing": "When you lose any trick",
+  "signature": [
+    {
+      "trigger": "you lose a trick, you played last",
+      "scope": "self",
+      "target": "your nil",
+      "effect": "nil value +10",
+      "frequency": "per trick"
+    }
+  ],
+  "archetypes": "Nil Champion; splash Blind Bidder, Nil Guard",
+  "family": "Trick position / Last to play",
+  "role": "Payoff (Nil)",
+  "decision": "When you play last, which card to shed: the highest card that still loses, knowing a tied rank played last wins.",
+  "opponent": "Visible each time it triggers; opponents answer by leading low from the seat that makes you play last, forcing you to find a card under theirs.",
+  "aiNote": "When playing last on nil, play your highest card that still loses; never play a card that ties the current winner.",
+  "rationale": "You play last in about a quarter of tricks, so it fires about three times a round, about +30 on a successful nil, a little above Vigil Candle and Lowered Lashes as an uncommon should be; it asks for no held winner, so it never overlaps Lowered Lashes (BL-C11).",
+  "deviation": "Sized at +10 a trick instead of the brief's +5, because the last-seat condition already cuts the triggers to about three a round, and +5 would pay less than a common."
+}

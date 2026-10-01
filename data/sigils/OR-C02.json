@@ -1,0 +1,37 @@
+{
+  "code": "OR-C02",
+  "name": "Opening Bell",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "bell",
+  "iconFamily": "bell",
+  "iconWord": "bell",
+  "iconAlternates": [
+    {
+      "name": "Party Starter",
+      "icon": "party"
+    }
+  ],
+  "text": "When you lead with this card, gain +20 contract value.",
+  "timing": "When led",
+  "signature": [
+    {
+      "trigger": "when led",
+      "scope": "self",
+      "target": "this card",
+      "effect": "contract value +20",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Bonus Chaser, Diamond Flood, Gold Miner; splash High Card",
+  "family": "When played and re-triggers / When led",
+  "role": "Payoff (Contract additive)",
+  "decision": "Whether to spend a lead on this card, pushing a top card out early or leading a weak one and giving up the lead.",
+  "opponent": "Visible when it fires; opponents know a lead may be bait and can plan around it.",
+  "aiNote": "Lead this card the first time you hold the lead if it is a face card or ace; if it is low, lead it once you have made your bid.",
+  "rationale": "You lead it in roughly two rounds of three, about +11 EV, and leading a high card first also sets up Chasing Rainbows' later bounty tricks."
+}

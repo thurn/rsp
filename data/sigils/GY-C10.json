@@ -1,0 +1,42 @@
+{
+  "code": "GY-C10",
+  "name": "Trusty Wrench",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 40,
+  "wave": 2,
+  "icon": "spanner",
+  "iconFamily": "spanner",
+  "iconWord": "wrench",
+  "iconAlternates": [
+    {
+      "name": "Roadside First Aid",
+      "icon": "medical-kit"
+    },
+    {
+      "name": "Restored Hard Drive",
+      "icon": "hard-drive"
+    }
+  ],
+  "text": "Before bidding, if you have fewer than three spades, replace your lowest card with a random new spade.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding, fewer than three spades",
+      "scope": "self",
+      "target": "your lowest card",
+      "effect": "replace with a random new spade",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Spade Master, High Card, Contract Attacker",
+  "family": "Hand repair / Deficiency trigger",
+  "role": "Enabler",
+  "decision": "Bidding a hand whose trump shortage was patched; it also makes spade payoffs safer to draft.",
+  "opponent": "Hidden; everyone bids after it.",
+  "aiNote": "On a tie for lowest, replace the card from the longest non-spade suit.",
+  "rationale": "About 30% of hands qualify; a random spade averages rank 8 and replaces a two or three, adding trump without guaranteeing a trick.",
+  "deviation": "Brief said \"fix a hand dealt with no spades\"; widened to fewer than three spades because a spadeless hand comes up about 1% of the time, once in a few runs."
+}

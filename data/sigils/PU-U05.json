@@ -1,0 +1,41 @@
+{
+  "code": "PU-U05",
+  "name": "Tiptoe Sneaker",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "sneaker",
+  "iconFamily": "sneaker",
+  "iconWord": "sneaker",
+  "iconAlternates": [
+    {
+      "name": "Formless Blob",
+      "icon": "blob"
+    },
+    {
+      "name": "Shortcut Scissors",
+      "icon": "cut"
+    }
+  ],
+  "text": "While this card is in your hand, you may discard when clubs are led, even if you could follow suit.",
+  "timing": "While in hand",
+  "signature": [
+    {
+      "trigger": "while held",
+      "scope": "self",
+      "target": "your plays to club leads",
+      "effect": "may discard instead of following",
+      "frequency": "all"
+    }
+  ],
+  "archetypes": "Discard Dominance; splash Nil Champion, While Held",
+  "family": "Following-suit relief / Suit-bound",
+  "role": "Enabler",
+  "decision": "How long to keep this card, since the relief ends when it is played, and on each club lead whether to follow or throw a card from a suit you want to empty.",
+  "opponent": "Visible the first time you discard on a club lead; opponents answer by leading other suits, or by forcing this card out when it is itself a club.",
+  "aiNote": "On a club lead, discard your highest card if on nil, otherwise the last card of your shortest suit; play this card last.",
+  "rationale": "Clubs are the sacrifice suit, and this keeps them as discard material: club leads, which normally force you to follow, become discards for Scouring Tornado and Rebel Graffiti, and the clubs stay in hand for Buried Bone. It permits discards only, not trumping, which keeps it away from Spade Master. About three club leads a round makes it about three extra discards, and a nil bidder can never be caught on a club lead while it is held."
+}

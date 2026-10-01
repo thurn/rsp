@@ -1,0 +1,41 @@
+{
+  "code": "BL-C09",
+  "name": "Midnight Clock",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "clock",
+  "iconFamily": "clock",
+  "iconWord": "clock",
+  "iconAlternates": [
+    {
+      "name": "Final Omega",
+      "icon": "omega"
+    },
+    {
+      "name": "Parting Signature",
+      "icon": "signature"
+    }
+  ],
+  "text": "When you play this card, if you have no other cards of its suit, gain +20 contract value.",
+  "timing": "When played",
+  "signature": [
+    {
+      "trigger": "when played, last of its suit in hand",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +20",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "While Held; splash High Card",
+  "family": "First and last cards / Last of suit",
+  "role": "Payoff (Contract additive)",
+  "decision": "Every time its suit is led, following with its suit-mates first, even when this card would have won the trick now.",
+  "opponent": "Visible when it pays; opponents who read it can trump the held high card once its suit runs out.",
+  "aiNote": "Follow with every other card of this card's suit before this one; lead it only when it is the last of its suit.",
+  "rationale": "Met in about 70% of rounds with care, about +11 expected, and on a high card it trades an early sure trick for a late one that may be trumped; it never competes with Patient Hourglass (DU-S10) for your final card."
+}

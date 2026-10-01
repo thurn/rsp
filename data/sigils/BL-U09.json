@@ -1,0 +1,42 @@
+{
+  "code": "BL-U09",
+  "name": "Bottled Lightning",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Uncommon",
+  "price": 80,
+  "wave": 3,
+  "icon": "bolt",
+  "iconFamily": "bolt",
+  "iconWord": "lightning",
+  "iconAlternates": [
+    {
+      "name": "Distant Satellite",
+      "icon": "satellite-dish"
+    },
+    {
+      "name": "Lingering Magnifier",
+      "icon": "reading-glass"
+    }
+  ],
+  "text": "Affinity: Ace. When this card wins a trick, if you've already won four or more tricks this round, gain +1× contract multiplier.",
+  "timing": "When this card wins",
+  "signature": [
+    {
+      "trigger": "this card wins, you've won 4+ other tricks",
+      "scope": "self",
+      "target": "contract",
+      "effect": "multiplier +1×",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "High Card, While Held; splash Spade Master",
+  "family": "While held / Checkpoint (wins after several)",
+  "role": "Payoff (Contract multiplier)",
+  "decision": "Every trick, whether to cash the ace now or hold it until four other wins are in, risking a trump or a forced play.",
+  "opponent": "Visible when it pays; opponents who read it can void the ace's suit early or lead it to force the ace out.",
+  "aiNote": "Win with other cards first; play this card only once you have four wins, or when it would otherwise be trumped or forced.",
+  "rationale": "The ace affinity makes this card a likely winner, so the real test is holding it until four other wins are in, met in about a third of a High Card deck's rounds (about +40 late), top of the uncommon band at 80 gold; it checks your wins, not the trick number, so it stays apart from Ripening Pear (GR-C10) and Patient Hourglass (DU-S10).",
+  "deviation": "Added an ace affinity, because a random card rarely wins late and the multiplier would almost never fire."
+}

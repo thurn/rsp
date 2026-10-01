@@ -1,0 +1,43 @@
+{
+  "code": "DU-S11",
+  "name": "Unfolding Butterfly",
+  "resonances": [
+    "Green",
+    "Teal"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 1,
+  "icon": "butterfly",
+  "iconFamily": "butterfly",
+  "iconWord": "butterfly",
+  "iconAlternates": [
+    {
+      "name": "Ascending Helix",
+      "icon": "dna"
+    },
+    {
+      "name": "Harmony Bridge",
+      "icon": "bridge"
+    }
+  ],
+  "text": "Your hearts gain +1 rank for each earlier heart you've played this round.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "your hearts",
+      "effect": "rank +1 per earlier heart played",
+      "frequency": "all"
+    }
+  ],
+  "archetypes": "Heart Chorus; splash Kingmaker, Nil Guard",
+  "family": "Growth over the round / Counters",
+  "role": "Enabler and payoff (feeds contract additive heart payoffs)",
+  "decision": "Spending low hearts early so the high hearts dominate late.",
+  "opponent": "Visible as hearts grow; opponents answer by trumping hearts late or draining them early.",
+  "aiNote": "Lead or follow with your lowest heart while ahead of need; save the highest hearts for the last tricks.",
+  "rationale": "Playing hearts creates the growth it rewards: with five or six hearts from TE-C13 and GR-C08-style conversions, the last two hearts are ace-level. Counting only your own hearts keeps the growth steady and in your control.",
+  "deviation": "Role changed from a Contract additive payoff to an enabler-and-payoff that feeds the heart payoffs (GR-C05, GR-C13, TE-U05), following the skeleton's example direction for Heart Chorus."
+}

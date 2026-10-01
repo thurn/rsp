@@ -1,0 +1,42 @@
+{
+  "code": "GR-U11",
+  "name": "Soft Pawprints",
+  "resonances": [
+    "Green"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "paw-print",
+  "iconFamily": "paw-print",
+  "iconWord": "pawprint",
+  "iconAlternates": [
+    {
+      "name": "Folded Tent",
+      "icon": "tent"
+    },
+    {
+      "name": "Hushed Melody",
+      "icon": "music"
+    }
+  ],
+  "text": "After bidding, if you bid nil, add a new two of a chosen suit to your hand.",
+  "timing": "After bidding",
+  "signature": [
+    {
+      "trigger": "after bidding, you bid nil",
+      "scope": "self",
+      "target": "your hand",
+      "effect": "add a new two of a chosen suit",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Nil Champion, Blind Bidder",
+  "family": "Creating cards / Additions (nil)",
+  "role": "Enabler",
+  "decision": "Which suit needs a spare low card: the one where a lone high card would otherwise be forced out, or the one opponents are likeliest to lead; and, with fourteen cards for thirteen tricks, which dangerous card to try to keep unplayed.",
+  "opponent": "The new two is shown after bids are locked, so opponents learn which suit you are guarding and can lead your other suits instead.",
+  "aiNote": "Choose the suit holding your highest card with the fewest low cards beside it; plan to keep that high card as the unplayed fourteenth card.",
+  "rationale": "A nil fails on the one high card it can't duck; a spare two gives one more safe follow in the dangerous suit and leaves one card unplayed at the end, lifting a nil's success by several points (about +15–25 nil EV at +100 to +200), and it works on a blind nil because it resolves after the deal; it helps only nils, which keeps it a splash hook and out of contract decks.",
+  "deviation": "Family moved from Changing your suits to Creating cards, because every after-bidding conversion to a chosen suit reads as Wandering Compass (BL-C06) scaled up and crowds Autumn Leaf (GR-U02); archetype focus drops Gold Miner, which gains nothing from a nil hook."
+}

@@ -1,0 +1,41 @@
+{
+  "code": "GR-U03",
+  "name": "Mauling Bear",
+  "resonances": [
+    "Green"
+  ],
+  "rarity": "Uncommon",
+  "price": 75,
+  "wave": 3,
+  "icon": "bear",
+  "iconFamily": "bear",
+  "iconWord": "bear",
+  "iconAlternates": [
+    {
+      "name": "Snapping Prawn",
+      "icon": "prawn"
+    },
+    {
+      "name": "Stinging Beetle",
+      "icon": "bug"
+    }
+  ],
+  "text": "The first time each round you play a spade to a trick of another suit, convert a chosen opponent's highest spade to the suit led.",
+  "timing": "When you play another suit",
+  "signature": [
+    {
+      "trigger": "first spade played to a trick of another suit each round",
+      "scope": "opponents",
+      "target": "a chosen opponent's highest spade",
+      "effect": "convert to the suit led",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Spade Master; splash Contract Attacker",
+  "family": "Changing opponents' suits / Disarm",
+  "role": "Utility; opponent-facing",
+  "decision": "When to make the first trump, and which opponent to disarm: the one still to play, who must now follow with the converted card instead of overtrumping, or the one who already played, who loses their best trump for later tricks.",
+  "opponent": "The conversion is shown; the chosen opponent keeps the card as a high card of the led suit and can win later tricks of that suit with it; only one opponent loses one trump, once a round.",
+  "aiNote": "Choose the opponent still to play if they have shown a void in the led suit; otherwise choose the opponent with more spades shown or bid.",
+  "rationale": "Overtrumps are Spade Master's main threat, and this answers one of them a round: an opponent due to overtrump suddenly holds the led suit and has to follow, or an opponent who already played loses their best trump; one card a round denies about half an opposing trick, in line with Sinking Anchor (PU-U11), and the once-a-round, one-opponent limit follows Spade Master's tighter-conditions ruling."
+}

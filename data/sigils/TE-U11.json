@@ -1,0 +1,32 @@
+{
+  "code": "TE-U11",
+  "name": "Masked Encore",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Uncommon",
+  "price": 80,
+  "wave": 0,
+  "icon": "mask",
+  "iconFamily": "mask",
+  "iconWord": "mask",
+  "iconAlternates": [],
+  "text": "When you play this card, you may pick up another card you've previously played this round.",
+  "timing": "When played",
+  "signature": [
+    {
+      "trigger": "when played",
+      "scope": "self",
+      "target": "a card you played this round",
+      "effect": "return to hand",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Bonus Chaser, While Held, Gold Miner (splash)",
+  "family": "Recursion / Your cards",
+  "role": "Enabler",
+  "decision": "Which earlier card to recover, and when to play this card.",
+  "opponent": "Visible pick-up; the completed trick's result stands.",
+  "aiNote": "Recover the highest winning card or a card with a when-played sigil.",
+  "rationale": "Among the strongest uncommons; replays when-played sigils."
+}

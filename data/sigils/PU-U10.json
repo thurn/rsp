@@ -1,0 +1,41 @@
+{
+  "code": "PU-U10",
+  "name": "Restless Ghost",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "ghost",
+  "iconFamily": "ghost",
+  "iconWord": "ghost",
+  "iconAlternates": [
+    {
+      "name": "Wild Scribble",
+      "icon": "scribble"
+    },
+    {
+      "name": "Lurking Virus",
+      "icon": "virus"
+    }
+  ],
+  "text": "Whenever you play a card that doesn't match the suit led, if your team is behind, gain +15 nil value.",
+  "timing": "When you play another suit",
+  "signature": [
+    {
+      "trigger": "you play another suit, team behind",
+      "scope": "self",
+      "target": "your nil",
+      "effect": "nil value +15",
+      "frequency": "per off-suit play"
+    }
+  ],
+  "archetypes": "Blind Bidder, Nil Champion; splash Discard Dominance (on its nil rounds)",
+  "family": "Comeback effects / Threshold",
+  "role": "Payoff (Nil)",
+  "decision": "On a nil while trailing, which suits to empty early so later tricks become safe off-suit plays that also pay.",
+  "opponent": "Visible on each trigger; opponents answer by leading the suits the nil bidder still holds.",
+  "aiNote": "On a nil while behind, play singletons early to open voids, then discard your highest cards.",
+  "rationale": "A nil bidder plays off suit two to four times a round (more with Wayward Cat, Borrowed Umbrella, or Tiptoe Sneaker), so a trailing nil gains about +30 to +60 nil value, and every blind nil qualifies because blind nils are only bid from behind. Behind in about 40% of rounds, that is about +10 to +15 EV a round, in the nil band and at its best on the blind nils Desperate Gambit enables. It pays nil value rather than contract value (Rebel Graffiti) and only while trailing, so it switches off as the comeback lands."
+}

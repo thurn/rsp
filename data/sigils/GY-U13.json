@@ -1,0 +1,41 @@
+{
+  "code": "GY-U13",
+  "name": "Waiting Bench",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "bench",
+  "iconFamily": "bench",
+  "iconWord": "bench",
+  "iconAlternates": [
+    {
+      "name": "Slow-Cooking Oven",
+      "icon": "oven"
+    },
+    {
+      "name": "Idle Computer",
+      "icon": "computer-retro"
+    }
+  ],
+  "text": "Gain +10 contract value for each shop you've left empty-handed since buying this sigil, up to +40.",
+  "timing": "Always on, for you (the count rises at the shop)",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "contract",
+      "effect": "+10 per shop left without buying since purchase, max +40",
+      "frequency": "counter"
+    }
+  ],
+  "archetypes": "All",
+  "family": "Scaling sigils / Counters (shops skipped)",
+  "role": "Payoff: Contract additive",
+  "decision": "Shopping: skip a weak shop to build the count and save gold, or buy.",
+  "opponent": "Visible count; no effect on opponents.",
+  "aiNote": "Skip a shop when no offer is worth 10 points a round and the count is below +40.",
+  "rationale": "A skip trades a common (about +12 a round) for a permanent +10 (+8 expected) plus saved gold and interest, an even trade that makes weak shops useful; four skips reach +40 (+32 expected) mid-to-late, and the cap stops a full collection from growing it without limit."
+}

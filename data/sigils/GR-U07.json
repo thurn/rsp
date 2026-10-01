@@ -1,0 +1,42 @@
+{
+  "code": "GR-U07",
+  "name": "Untrodden Snowfall",
+  "resonances": [
+    "Green"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "snowflake",
+  "iconFamily": "snowflake",
+  "iconWord": "snowflake",
+  "iconAlternates": [
+    {
+      "name": "Guarded Campsite",
+      "icon": "camping"
+    },
+    {
+      "name": "Lean Steak",
+      "icon": "meat"
+    }
+  ],
+  "text": "You're never dealt clubs.",
+  "timing": "Always on, for you (at the deal)",
+  "signature": [
+    {
+      "trigger": "always, at the deal",
+      "scope": "self",
+      "target": "your dealt hand",
+      "effect": "no clubs; still 13 cards",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Discard Dominance; splash Nil Champion, Heart Chorus",
+  "family": "Opening hand control / Excluded suit",
+  "role": "Enabler",
+  "decision": "Which other voids to open with conversions and passes, since clubs are already gone, and how low to bid for a hand that discards on every club lead.",
+  "opponent": "Shown at the deal (the table learns you hold no clubs); opponents hold the extra clubs and can stop leading them, at the cost of leading their other suits.",
+  "aiNote": "No choices; bid as a club-void hand and aim conversions and passes at the next shortest suit.",
+  "rationale": "A club void every round is what Discard Dominance builds toward, and the deck and trick count are untouched: your 13 cards come from the other three suits, and the clubs you would have held go to the other hands (implementation: at the deal, trade each club dealt to you for a random non-club from another hand, which is not a pass); unlike Alchemist's Wand (DU-S02) it adds no spades, and it works against Buried Bone (PU-C09), which keeps it a 65-gold enabler for a strong archetype; if every seat owned it, it would do nothing that round.",
+  "deviation": "Family moved from Deck construction / Removals to Opening hand control, per the orchestrator's ruling that no sigil may change the number of tricks in a round; the deck stays 52 cards and every hand stays 13."
+}

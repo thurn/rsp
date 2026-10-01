@@ -1,0 +1,42 @@
+{
+  "code": "TE-C03",
+  "name": "Shared Map",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Common",
+  "price": 40,
+  "wave": 2,
+  "icon": "map",
+  "iconFamily": "map",
+  "iconWord": "map",
+  "iconAlternates": [
+    {
+      "name": "Turning Globe",
+      "icon": "globe"
+    },
+    {
+      "name": "Sprung Lock",
+      "icon": "lock"
+    }
+  ],
+  "text": "Before bidding, you and your partner each privately show the other two chosen cards.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "team",
+      "target": "two chosen cards each",
+      "effect": "shown privately to partner",
+      "frequency": "×2"
+    }
+  ],
+  "archetypes": "Kingmaker, Nil Guard, Exact Contractor",
+  "family": "Partner information / Mutual",
+  "role": "Enabler",
+  "decision": "Which two cards to show: your strongest cards to invite passes, or your most dangerous cards so a guard knows what to take.",
+  "opponent": "Opponents see that cards were shown but not which; no loss of agency.",
+  "aiNote": "Show your two highest cards (a nil-leaning hand shows its two most dangerous); count your partner's shown cards as known when bidding.",
+  "rationale": "Both partners pick what to show, which turns the reveal into a signal and guides every later pass (Open Hand, TE-C12, Sheltering Castle); it tells more than BL-C02's ace-and-king count but far less than a full hand.",
+  "deviation": "Timing moved from Always on to Before bidding, because the brief's \"revealed cards all round\" had no clear source of revealed cards; the Mutual variation stays."
+}

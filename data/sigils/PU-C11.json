@@ -1,0 +1,41 @@
+{
+  "code": "PU-C11",
+  "name": "Shared Blanket",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "blanket",
+  "iconFamily": "blanket",
+  "iconWord": "blanket",
+  "iconAlternates": [
+    {
+      "name": "Sealed Vow",
+      "icon": "seal"
+    },
+    {
+      "name": "Watchful Menorah",
+      "icon": "menorah"
+    }
+  ],
+  "text": "Your partner gains +30 nil value.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "partner",
+      "target": "your partner's nil",
+      "effect": "nil value +30",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Nil Guard; splash Blind Bidder",
+  "family": "Nil value / Partner's nil",
+  "role": "Payoff (Nil: partner's nil)",
+  "decision": "Tilts a borderline partner toward nil, and you bid your solo contract to cover it.",
+  "opponent": "Visible at scoring; opponents answer by attacking the nil.",
+  "aiNote": "A partner of this sigil's owner lowers its nil threshold slightly, as Vigil Candle does for its owner.",
+  "rationale": "Vigil Candle for the partner's nil, at the +30 the slot sets because Nil Guard is thin. That is about +10 EV when the partner bids nil in about 40% of rounds and succeeds about 85% of the time with Sheltering Castle or passes."
+}

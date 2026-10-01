@@ -1,0 +1,42 @@
+{
+  "code": "GR-C14",
+  "name": "Bristling Cactus",
+  "resonances": [
+    "Green"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "desert",
+  "iconFamily": "desert",
+  "iconWord": "cactus",
+  "iconAlternates": [
+    {
+      "name": "Winter Snowflake",
+      "icon": "snowflake"
+    },
+    {
+      "name": "Shifting Melody",
+      "icon": "music"
+    }
+  ],
+  "text": "After bidding, convert a chosen card in your hand to a spade.",
+  "timing": "After bidding",
+  "signature": [
+    {
+      "trigger": "after bidding",
+      "scope": "self",
+      "target": "a chosen card",
+      "effect": "convert to spade",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Bonus Chaser, Kingmaker; splash Spade Master",
+  "family": "Changing your suits / Spades",
+  "role": "Enabler",
+  "decision": "Which card to turn into trump: Chasing Rainbows' revealed card, a singleton to open a void, or a card you'll pass to your partner.",
+  "opponent": "The conversion is shown after everyone has bid; opponents can pull trump or avoid leading into a new void.",
+  "aiNote": "Convert the Chasing Rainbows card if you have it; otherwise a non-spade singleton; otherwise the highest card of your shortest side suit.",
+  "rationale": "Chasing Rainbows' revealed card becomes a trump that can win whenever you're void, and a Kingmaker card passed after this reaches the partner as trump; one conversion after bids is a modest, flexible splash.",
+  "deviation": "Timing changed from When you lose any trick to After bidding, because a chosen conversion on every lost trick fires about ten times a round, far past one choice per round for a common."
+}

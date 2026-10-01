@@ -1,0 +1,41 @@
+{
+  "code": "OR-C13",
+  "name": "Unopened Gift",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "gift",
+  "iconFamily": "gift",
+  "iconWord": "gift",
+  "iconAlternates": [
+    {
+      "name": "Shaken Eight Ball",
+      "icon": "8-ball"
+    },
+    {
+      "name": "Surprise Birthday",
+      "icon": "birthday-cake"
+    }
+  ],
+  "text": "You may bid before looking at your hand; if you do, gain +10 contract value for each trick you bid.",
+  "timing": "When you bid (declared blind, before the deal, alongside blind nil)",
+  "signature": [
+    {
+      "trigger": "blind bid",
+      "scope": "self",
+      "target": "your bid",
+      "effect": "contract value +10 per bid trick",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Blind Bidder, Bonus Chaser",
+  "family": "Blind bidding / Blind contracts",
+  "role": "Payoff (Contract additive)",
+  "decision": "Each round, whether to bid blind and how many tricks to gamble on; your partner then bids seeing their own hand.",
+  "opponent": "The blind bid is public; opponents can target the blind bidder's likely weak suits.",
+  "aiNote": "Bid 3 blind when the team is not ahead by 100 or more; otherwise bid normally.",
+  "rationale": "A blind 3 pays +30 on a made contract while raising the team's failure rate by about a tenth, about +10 EV, and it gives Blind Bidder a blind gamble in rounds it cannot bid blind nil."
+}

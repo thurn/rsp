@@ -1,0 +1,43 @@
+{
+  "code": "DU-S08",
+  "name": "Traders' Handshake",
+  "resonances": [
+    "Orange",
+    "Teal"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 1,
+  "icon": "handshake",
+  "iconFamily": "handshake",
+  "iconWord": "handshake",
+  "iconAlternates": [
+    {
+      "name": "Market Crossroads",
+      "icon": "split"
+    },
+    {
+      "name": "Barter Chain",
+      "icon": "link"
+    }
+  ],
+  "text": "Whenever you win a trick, you may trade a card with any player who didn't bid nil; if you do, gain +10 contract value.",
+  "timing": "When you win any trick",
+  "signature": [
+    {
+      "trigger": "you win a trick",
+      "scope": "self",
+      "target": "one card with a chosen player not on nil",
+      "effect": "optional exchange, contract value +10",
+      "frequency": "per trick"
+    }
+  ],
+  "archetypes": "Swap Meet; splash Discard Dominance, Kingmaker",
+  "family": "Opponent exchange and theft / Swaps (with any player, during play)",
+  "role": "Payoff (Contract additive); opponent-facing (the opponent picks the card they give)",
+  "decision": "After each win, whether to trade, with whom (partner or opponent), and which card to give, such as a singleton to open a void or a danger card to shed.",
+  "opponent": "Each trade is shown; an opponent in a trade picks the card they give. Nil bidders can't be traded with, so the trade can never force a winner onto a nil.",
+  "aiNote": "Trade after every win; give your weakest singleton; trade with your partner unless an opponent is void in that suit.",
+  "rationale": "The exchange is optional and open to anyone not on nil, so every trade is a real decision that reshapes the hand and pays. About three wins a round give about +26 EV, a little above budget, which suits Swap Meet on the thin list. Its value doesn't rely on trades counting as passes.",
+  "deviation": "Timing moved from When you pass cards to When you win any trick, and the payout is contract value only, because the table critic found every existing exchange mandatory (no decision) and the set critic found the pass-trigger version interchangeable with Promoted Pawn and Gem Cascade."
+}

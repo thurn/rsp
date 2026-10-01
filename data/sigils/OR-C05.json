@@ -1,0 +1,42 @@
+{
+  "code": "OR-C05",
+  "name": "Fortune Cookie",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "cookie",
+  "iconFamily": "cookie",
+  "iconWord": "cookie",
+  "iconAlternates": [
+    {
+      "name": "Spinning Wheel",
+      "icon": "color-wheel"
+    },
+    {
+      "name": "Sour Lemon",
+      "icon": "lemon"
+    }
+  ],
+  "text": "When you play this card, you may turn a chosen card in your hand into a random card.",
+  "timing": "When played",
+  "signature": [
+    {
+      "trigger": "when played",
+      "scope": "self",
+      "target": "a chosen card",
+      "effect": "becomes a random card",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Blind Bidder, Bonus Chaser, Swap Meet, Diamond Flood",
+  "family": "Creating cards / Random",
+  "role": "Enabler",
+  "decision": "When to play this card, and which card to gamble on: a dangerous high card on a nil, or a dead low card on a contract.",
+  "opponent": "The new card is shown to the table as the effect resolves; no loss of agency.",
+  "aiNote": "On nil, reroll your highest card if it is a jack or better; on a contract, reroll your lowest non-spade; otherwise decline.",
+  "rationale": "An average random card is about an eight, so rerolling an ace on a nil is a strong gamble and rerolling a two on a contract is a lottery ticket, and as a when-played effect it doubles with OR-U01.",
+  "deviation": "Timing moved from \"whenever you discard\" to \"when you play this card,\" because a choice on every discard adds several choices a round, beyond the common limit of one."
+}

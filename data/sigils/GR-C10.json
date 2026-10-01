@@ -1,0 +1,41 @@
+{
+  "code": "GR-C10",
+  "name": "Ripening Pear",
+  "resonances": [
+    "Green"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "pear",
+  "iconFamily": "pear",
+  "iconWord": "pear",
+  "iconAlternates": [
+    {
+      "name": "Orchard Apple",
+      "icon": "apple-full"
+    },
+    {
+      "name": "Summer Melon",
+      "icon": "watermelon"
+    }
+  ],
+  "text": "When this card wins one of the last four tricks, gain +30 contract value.",
+  "timing": "When this card wins",
+  "signature": [
+    {
+      "trigger": "this card wins one of the last four tricks",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +30",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "While Held; splash High Card",
+  "family": "Growth over the round / Thresholds",
+  "role": "Payoff (Contract additive)",
+  "decision": "Holding the card through the early tricks while other cards follow suit, then timing its win.",
+  "opponent": "Visible on trigger; opponents who read it can lead its suit early to force it out.",
+  "aiNote": "Don't play it before the tenth trick while another legal card exists; from then on, play it when it can win.",
+  "rationale": "A random card held late wins about 30% of the time, and a high card placed by engraving control about 60%, for about +7 to +14 EV; the late condition rewards exactly the holding While Held does for Patient Hourglass."
+}

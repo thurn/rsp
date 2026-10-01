@@ -1,0 +1,41 @@
+{
+  "code": "BL-C07",
+  "name": "Sweeping Radar",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "radar",
+  "iconFamily": "radar",
+  "iconWord": "radar",
+  "iconAlternates": [
+    {
+      "name": "Probing Microscope",
+      "icon": "microscope"
+    },
+    {
+      "name": "Prying Magnifier",
+      "icon": "reading-glass"
+    }
+  ],
+  "text": "After bidding, learn how many cards of each suit a chosen opponent has.",
+  "timing": "After bidding",
+  "signature": [
+    {
+      "trigger": "after bidding",
+      "scope": "self",
+      "target": "a chosen opponent's suit counts",
+      "effect": "learn (private)",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "High Card; splash Nil Champion, Contract Attacker",
+  "family": "Revealing opponents' cards / Shape",
+  "role": "Enabler; opponent-facing",
+  "decision": "Which opponent to read, then which kings and queens to lead before that opponent runs out of their suit and trumps.",
+  "opponent": "The chosen opponent knows their shape was read; the counts stay private to you and their plays are unaffected.",
+  "aiNote": "Choose the opponent who bid higher; lead your kings and queens first in suits where they hold three or more cards.",
+  "rationale": "Fresh hands are rarely void, so one opponent's full shape is what actually tells High Card which suit gets trumped first, since Unclouded Sun (DU-S01) already shields aces."
+}

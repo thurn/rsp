@@ -1,0 +1,41 @@
+{
+  "code": "GY-U11",
+  "name": "Rinsing Shower",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Uncommon",
+  "price": 60,
+  "wave": 3,
+  "icon": "shower",
+  "iconFamily": "shower",
+  "iconWord": "shower",
+  "iconAlternates": [
+    {
+      "name": "Soothing Lotion",
+      "icon": "lotion"
+    },
+    {
+      "name": "Cooling Fan",
+      "icon": "fan"
+    }
+  ],
+  "text": "If your team's contract is 7 or more tricks, its overtricks add no bags.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, team contract 7+",
+      "scope": "team",
+      "target": "overtricks",
+      "effect": "add no bags",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Spade Master, Kingmaker, Bonus Chaser; splash High Card",
+  "family": "Bag management / Amnesty",
+  "role": "Utility",
+  "decision": "Bidding: stretch the team to 7 to protect overtricks, or bid lower and accept bags.",
+  "opponent": "Visible from the bids; bagging your team is pointless in those rounds.",
+  "aiNote": "When the team's expected tricks are 7 or more, bid at least 7 in total rather than shading down.",
+  "rationale": "A team bids 7 or more in about a third of rounds, and those rounds produce the most overtricks, so it saves about 7 points a round on average and more for big-bidding decks; the contract can still fail, which keeps the stretch honest."
+}

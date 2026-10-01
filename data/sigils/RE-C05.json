@@ -1,0 +1,42 @@
+{
+  "code": "RE-C05",
+  "name": "Early Sprint",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "running",
+  "iconFamily": "running",
+  "iconWord": "sprint",
+  "iconAlternates": [
+    {
+      "name": "Breakaway Race",
+      "icon": "cycling"
+    },
+    {
+      "name": "Swift Motorcycle",
+      "icon": "motorcycle"
+    }
+  ],
+  "text": "Whenever you win one of the first three tricks, gain +10 contract value.",
+  "timing": "When you win any trick",
+  "signature": [
+    {
+      "trigger": "you win a trick, tricks 1–3",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +10",
+      "frequency": "per trick, max 3"
+    }
+  ],
+  "archetypes": "High Card, Spade Master, Contract Attacker",
+  "family": "Trick sequences / Opening tricks",
+  "role": "Payoff (Contract additive)",
+  "decision": "Whether to cash aces and boosted cards at once, before voids appear, or hold them for later control.",
+  "opponent": "Visible on each trigger; opponents can contest the opening tricks or open voids early to trump them.",
+  "aiNote": "Lead your highest non-spade winners in the first three tricks.",
+  "rationale": "About 1 to 1.5 early wins for a winner-heavy seat gives about +8 to +12 EV, inside the common budget; it rewards the High Card instinct to cash aces before opponents go void and feeds on RE-C12 and RE-C03.",
+  "deviation": "Timing moved from conditional scoring to a per-trick win trigger, so partial success pays and the count is always visible on the table instead of an all-or-nothing check."
+}

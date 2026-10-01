@@ -1,0 +1,41 @@
+{
+  "code": "TE-U05",
+  "name": "Sunset Sailboat",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "sail",
+  "iconFamily": "sail",
+  "iconWord": "sailboat",
+  "iconAlternates": [
+    {
+      "name": "Twilight Hot Spring",
+      "icon": "hot-tub"
+    },
+    {
+      "name": "Evening Breeze",
+      "icon": "air"
+    }
+  ],
+  "text": "Whenever you win one of the last five tricks with a heart, gain +15 contract value.",
+  "timing": "When you win any trick",
+  "signature": [
+    {
+      "trigger": "you win a trick with a heart, tricks 9–13",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +15",
+      "frequency": "per trick, max 5"
+    }
+  ],
+  "archetypes": "Heart Chorus",
+  "family": "Suit payoffs / Winning (late)",
+  "role": "Payoff (Contract additive)",
+  "decision": "Holding hearts back through the early tricks, then leading them from trick 9 when Unfolding Butterfly has grown them.",
+  "opponent": "Visible on trigger; opponents answer by drawing hearts out early or saving trumps for the late heart leads.",
+  "aiNote": "Play off-suit cards and low hearts early; from trick 9 on, lead your highest heart.",
+  "rationale": "A Heart Chorus hand with Unfolding Butterfly wins two or three of the last five tricks with ace-level hearts, about +30 to +45 on a made contract (+25 EV), top of the uncommon band as the brief asks for the thinnest archetype; a deck without heart growth wins about one, so it stays aimed, and the late window keeps it from being a heart copy of Headsman's Axe."
+}

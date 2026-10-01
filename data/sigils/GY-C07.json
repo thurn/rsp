@@ -1,0 +1,41 @@
+{
+  "code": "GY-C07",
+  "name": "Second Home",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "home",
+  "iconFamily": "home",
+  "iconWord": "home",
+  "iconAlternates": [
+    {
+      "name": "Borrowed Chair",
+      "icon": "chair"
+    },
+    {
+      "name": "Neighbor's Balcony",
+      "icon": "balcony"
+    }
+  ],
+  "text": "Whenever you discard a card with a sigil, move that sigil to a random card in your hand without one.",
+  "timing": "When you discard",
+  "signature": [
+    {
+      "trigger": "you discard",
+      "scope": "self",
+      "target": "the discarded card's sigil",
+      "effect": "move to a random hand card without a sigil",
+      "frequency": "per discard"
+    }
+  ],
+  "archetypes": "While Held, Bonus Chaser, Gold Miner; splash Discard Dominance",
+  "family": "Engraving control / Movement",
+  "role": "Enabler",
+  "decision": "Which card to discard: throwing away an engraved card saves its sigil, so a while-held aura keeps running and a win trigger gets another chance.",
+  "opponent": "Visible when it moves; no effect on opponents.",
+  "aiNote": "When two discards are otherwise equal, discard the engraved one whose sigil has not yet paid off.",
+  "rationale": "The random destination adds no choice per discard; a when-played sigil can fire again from its new card, a narrow discard-only echo of Orange's re-triggers that the systems critic should check against Gem Cascade; late in the run, when few cards lack a sigil, it fades."
+}

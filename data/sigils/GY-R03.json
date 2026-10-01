@@ -1,0 +1,41 @@
+{
+  "code": "GY-R03",
+  "name": "Forger's Brush",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Rare",
+  "price": 95,
+  "wave": 4,
+  "icon": "brush",
+  "iconFamily": "brush",
+  "iconWord": "brush",
+  "iconAlternates": [
+    {
+      "name": "Echoing Microphone",
+      "icon": "microphone"
+    },
+    {
+      "name": "Repeat Broadcast",
+      "icon": "station"
+    }
+  ],
+  "text": "Before bidding, this card copies a chosen other sigil you own.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "self",
+      "target": "a chosen other sigil you own, any rarity",
+      "effect": "copy onto this card",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Exact Contractor, While Held, Nil Champion",
+  "family": "Duplication and copying / Duplicate",
+  "role": "Utility",
+  "decision": "Which sigil to double for this hand: True Aim for +2× on an exact bid, Vigil Candle for a nil, Crown Jewel if this card is an ace.",
+  "opponent": "The copy acts like any sigil and is shown when it triggers.",
+  "aiNote": "Copy the owned sigil with the highest expected value for this hand, preferring multipliers on contract rounds and nil value on nil rounds; never a shop or selling sigil.",
+  "rationale": "Doubles the collection's best effect every round, including rares, so a multiplier deck reaches +2× from one key sigil; a copied counter uses the original's current count, and it differs from Spare Key (TE-U01, partner's common or uncommon) and Matching Mugs (GY-U07, one common fixed at purchase)."
+}

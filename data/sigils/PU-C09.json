@@ -1,0 +1,41 @@
+{
+  "code": "PU-C09",
+  "name": "Buried Bone",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "bone",
+  "iconFamily": "bone",
+  "iconWord": "bone",
+  "iconAlternates": [
+    {
+      "name": "Quick Scissors",
+      "icon": "cut"
+    },
+    {
+      "name": "Spilt Milk",
+      "icon": "milk-bottle"
+    }
+  ],
+  "text": "Whenever you discard a club, gain +10 contract value.",
+  "timing": "When you discard",
+  "signature": [
+    {
+      "trigger": "you discard",
+      "scope": "self",
+      "target": "a club",
+      "effect": "contract value +10",
+      "frequency": "per discard"
+    }
+  ],
+  "archetypes": "Discard Dominance; splash Nil Champion",
+  "family": "Suit payoffs / Discarding",
+  "role": "Payoff (Contract additive)",
+  "decision": "Keeping clubs as discard material: empty other suits first and avoid leading clubs.",
+  "opponent": "Visible on trigger; opponents answer by leading clubs so the clubs must follow.",
+  "aiNote": "When void, discard clubs before other suits; don't lead clubs.",
+  "rationale": "A discard deck discards four to six times a round, one or two of them clubs, for +10 to +20 (about +12 EV), matching the named-suit row of the calibration table. Clubs are the sacrifice suit, and the pull against club conversion (Alchemist's Wand) and club removal (GR-U07) is intended tension."
+}

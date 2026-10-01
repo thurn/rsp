@@ -1,0 +1,42 @@
+{
+  "code": "PU-R05",
+  "name": "Forgiving Scripture",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Rare",
+  "price": 85,
+  "wave": 4,
+  "icon": "bible",
+  "iconFamily": "bible",
+  "iconWord": "scripture",
+  "iconAlternates": [
+    {
+      "name": "Mending Tape",
+      "icon": "tape"
+    },
+    {
+      "name": "Kept Peace",
+      "icon": "pacifism"
+    }
+  ],
+  "text": "If your partner bid nil, the first trick they win counts for you instead.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "partner on nil wins their first trick",
+      "scope": "team",
+      "target": "that trick",
+      "effect": "counts for you, not your partner",
+      "frequency": "once per round"
+    }
+  ],
+  "archetypes": "Nil Guard",
+  "family": "Nil value / Insurance (partner's nil)",
+  "role": "Utility (Nil: partner's nil; also Partner contract)",
+  "decision": "Bidding: your partner can bid nil on a hand with one unavoidable winner, and you bid knowing one trick may come your way; in play, your partner can take a forced trick early and keep ducking afterward.",
+  "opponent": "Visible when it resolves; opponents learn the nil needs two tricks to break and must lead through it twice.",
+  "aiNote": "The partner's nil heuristic treats one likely winner as safe; you count half a trick extra toward your own bid when your partner bids nil.",
+  "rationale": "A nil fails on its first trick, and roughly 40% of failed nils take only one, so partner nil success rises from about 75% to about 90%, worth about +30 per partner-nil round, plus a trick toward your solo contract; your partner still leads the next trick, and if you also bid nil the trick breaks your nil, which a Nil Guard rarely risks.",
+  "deviation": "Timing label moved from \"When your partner wins a trick\" to Always on, for you, because the standard \"Whenever your partner wins a trick\" opening needs an extra \"first time\" clause; the minor window keeps at least 6."
+}

@@ -1,0 +1,32 @@
+{
+  "code": "BL-R04",
+  "name": "True Aim",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Rare",
+  "price": 90,
+  "wave": 0,
+  "icon": "target",
+  "iconFamily": "target",
+  "iconWord": "aim",
+  "iconAlternates": [],
+  "text": "If your team makes its contract exactly, gain +1× contract multiplier.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, exact contract",
+      "scope": "team",
+      "target": "contract",
+      "effect": "multiplier +1×",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Exact Contractor; splash High Card",
+  "family": "Contract-shape rewards / Exact",
+  "role": "Payoff (Contract multiplier)",
+  "decision": "Whether to duck an extra trick to land exactly.",
+  "opponent": "Opponents can feed overtricks to break the condition.",
+  "aiNote": "After reaching the bid, play to lose remaining tricks.",
+  "rationale": "About 28 expected points mid-run; rare-level value."
+}

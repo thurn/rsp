@@ -1,0 +1,41 @@
+{
+  "code": "RE-C10",
+  "name": "Rising Flame",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Common",
+  "price": 55,
+  "wave": 2,
+  "icon": "fire",
+  "iconFamily": "fire",
+  "iconWord": "flame",
+  "iconAlternates": [
+    {
+      "name": "Strike Upon Strike",
+      "icon": "bowling-ball"
+    },
+    {
+      "name": "Spreading Bonfire",
+      "icon": "campfire"
+    }
+  ],
+  "text": "Whenever you win a trick after winning the previous one, gain +10 contract value.",
+  "timing": "When you win any trick",
+  "signature": [
+    {
+      "trigger": "you win a trick, won previous trick",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +10",
+      "frequency": "per trick"
+    }
+  ],
+  "archetypes": "Contract Attacker; splash High Card, Spade Master",
+  "family": "Trick sequences / Streaks",
+  "role": "Payoff (Contract additive)",
+  "decision": "Whether to keep the lead and cash winners in a row or hand the lead back to a partner or the table.",
+  "opponent": "Visible on each trigger; opponents can break the run by trumping or by overtaking the next lead.",
+  "aiNote": "After winning, lead your next sure winner before switching suits.",
+  "rationale": "A trick winner leads the next trick, so streaks come from cashing winners back to back; an aggressive seat chains one or two a round, about +8 to +15 EV, and only the previous trick needs remembering, which the table shows."
+}

@@ -1,0 +1,42 @@
+{
+  "code": "GR-C13",
+  "name": "Schooling Fish",
+  "resonances": [
+    "Green"
+  ],
+  "rarity": "Common",
+  "price": 55,
+  "wave": 2,
+  "icon": "fish",
+  "iconFamily": "fish",
+  "iconWord": "fish",
+  "iconAlternates": [
+    {
+      "name": "Swarming Beetle",
+      "icon": "bug"
+    },
+    {
+      "name": "Teeming Bacteria",
+      "icon": "bacteria"
+    }
+  ],
+  "text": "If you win three or more tricks with hearts or diamonds this round, gain +25 contract value.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, won 3+ tricks with hearts or diamonds",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +25",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Diamond Flood, Heart Chorus",
+  "family": "Suit payoffs / Winning",
+  "role": "Payoff (Contract additive)",
+  "decision": "Which red-suit winners to cash to reach three wins.",
+  "opponent": "Opponents see red-suit wins pile up and can pull trump or hold covers.",
+  "aiNote": "Count red-suit winners when bidding; lead them once three are reachable.",
+  "rationale": "Orchestrator fix after two cycles: about +10 per round for a flooded red suit, +4 otherwise; rewards Heart Chorus and Diamond Flood for winning with their suit.",
+  "deviation": "Rewritten by the orchestrator: the earlier versions duplicated RE-C08 and OR-C12."
+}

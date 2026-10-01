@@ -1,0 +1,42 @@
+{
+  "code": "PU-C13",
+  "name": "Broken Ring",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "torus",
+  "iconFamily": "torus",
+  "iconWord": "ring",
+  "iconAlternates": [
+    {
+      "name": "Cracked Circle",
+      "icon": "circle"
+    },
+    {
+      "name": "Bitten Donut",
+      "icon": "donut"
+    }
+  ],
+  "text": "If an opponent's nil fails, your team gains +100 points.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, opponent's failed nil",
+      "scope": "team",
+      "target": "points",
+      "effect": "+100",
+      "frequency": "per failed nil"
+    }
+  ],
+  "archetypes": "Contract Attacker, Nil Guard",
+  "family": "Opponent denial / Nil breaking",
+  "role": "Payoff (Denial; points outside the contract); opponent-facing",
+  "decision": "When an opponent bids nil, whether to give up your own tricks to force one onto them by leading low and ducking under their cards.",
+  "opponent": "Visible at scoring; opponents answer by bidding nil only on safe hands.",
+  "aiNote": "When an opponent bids nil, lead low into their shortest suit and duck under their cards whenever your partner can win the trick.",
+  "rationale": "Opposing nils fail in about 6–8% of rounds, so +100 is about +6 to +8 EV, near the common budget. It doubles the swing of a broken nil, which makes attacking it worth giving up your own tricks. Points outside the contract are never multiplied and never lost on a failed contract, so the large flat number is safe, and they count toward Contract Attacker's own 1,000.",
+  "deviation": "Price lowered from the slot's 55 to 45 because the reward is rare and situational (it fires in about one round in fifteen), and the cheaper price keeps it a reasonable pick for a bridge whose second archetype, Nil Guard, uses it only against opposing nils."
+}

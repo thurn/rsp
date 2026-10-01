@@ -1,0 +1,41 @@
+{
+  "code": "RE-U05",
+  "name": "Runner-Up Trophy",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "trophy",
+  "iconFamily": "trophy",
+  "iconWord": "trophy",
+  "iconAlternates": [
+    {
+      "name": "Silver Rosette",
+      "icon": "badge"
+    },
+    {
+      "name": "Humble Award",
+      "icon": "certification"
+    }
+  ],
+  "text": "If your team makes its contract and your partner won at least two more tricks than you, gain +1× contract multiplier.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, made contract, partner won 2+ more tricks than you",
+      "scope": "team",
+      "target": "contract",
+      "effect": "multiplier +1×",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Kingmaker; splash Nil Champion, Blind Bidder",
+  "family": "Contract-shape rewards / Individual (partner outscores you)",
+  "role": "Payoff (Contract multiplier)",
+  "decision": "How many winners to hand over: every card you pass or let your partner take moves the count toward the multiplier, but the team still has to make its contract.",
+  "opponent": "Checked at scoring from public trick counts; opponents can deny it by setting the contract or by feeding tricks to the owner.",
+  "aiNote": "Pass your highest non-spade winners to your partner; when you and your partner both can win a trick, let your partner take it.",
+  "rationale": "A Kingmaker seat that passes one or two winners trails its partner by two or more tricks in about half its made rounds; strictly \"more tricks\" held in about two-thirds and landed well above the +30 to +50 late target, so the gap of two brings it to about +40 mid-run and +60 late; beside a nil it works on the partner's solo contract whenever the nil holds, a fair splash for nil decks whose own multipliers are rare."
+}

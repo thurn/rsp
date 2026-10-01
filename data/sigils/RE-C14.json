@@ -1,0 +1,41 @@
+{
+  "code": "RE-C14",
+  "name": "Rosy Champagne",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "champagne",
+  "iconFamily": "champagne",
+  "iconWord": "champagne",
+  "iconAlternates": [
+    {
+      "name": "Rising Heat",
+      "icon": "heat-wave"
+    },
+    {
+      "name": "Roaring Arena",
+      "icon": "stadium"
+    }
+  ],
+  "text": "Before bidding, two chosen hearts or diamonds in your hand gain +2 rank.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "self",
+      "target": "two chosen hearts or diamonds",
+      "effect": "rank +2",
+      "frequency": "×2"
+    }
+  ],
+  "archetypes": "Heart Chorus, Diamond Flood; splash Kingmaker",
+  "family": "Raising your ranks / Targeted",
+  "role": "Enabler",
+  "decision": "Which two cards to raise: diamonds to cash first before opponents go void, or hearts that Unfolding Butterfly will lift further.",
+  "opponent": "Visible before bids; opponents bid knowing which cards grew.",
+  "aiNote": "Raise the two highest hearts or diamonds below ace in your longer of the two suits.",
+  "rationale": "A Red splash that makes the flood or chorus suit win its early contests, the answer both archetypes list to opponents holding the top cards; +2 on two cards keeps it close to Honed Edge's total value."
+}

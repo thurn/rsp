@@ -1,0 +1,41 @@
+{
+  "code": "GY-C04",
+  "name": "Garage Sale",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 40,
+  "wave": 2,
+  "icon": "garage",
+  "iconFamily": "garage",
+  "iconWord": "garage",
+  "iconAlternates": [
+    {
+      "name": "Trade-In Box",
+      "icon": "box"
+    },
+    {
+      "name": "Hand-Me-Down Dress",
+      "icon": "dress"
+    }
+  ],
+  "text": "When you sell this sigil, the next sigil you buy is free.",
+  "timing": "When sold",
+  "signature": [
+    {
+      "trigger": "when sold",
+      "scope": "self",
+      "target": "your next purchase",
+      "effect": "price → 0",
+      "frequency": "once"
+    }
+  ],
+  "archetypes": "All; most for Gold Miner, Diamond Flood",
+  "family": "Selling / Recycling",
+  "role": "Payoff: Economy",
+  "decision": "When to cash it in: hold it until a shop shows the offer worth the most.",
+  "opponent": "No effect on opponents.",
+  "aiNote": "Buy when no offer fits; sell at the first shop showing an uncommon or rare that fits the collection.",
+  "rationale": "Turns a weak shop's purchase into a free one later: 20 gold back plus about 70 off a typical uncommon, fair for a sigil that does nothing while owned; if you sell it and buy nothing, the free purchase waits for a later shop."
+}

@@ -1,0 +1,42 @@
+{
+  "code": "RE-C09",
+  "name": "Relay Torch",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "torch",
+  "iconFamily": "torch",
+  "iconWord": "torch",
+  "iconAlternates": [
+    {
+      "name": "Long Throw",
+      "icon": "ball-throw"
+    },
+    {
+      "name": "Rugby Handoff",
+      "icon": "rugby-ball"
+    }
+  ],
+  "text": "Whenever you pass cards, each card you pass gains +3 rank.",
+  "timing": "When you pass cards",
+  "signature": [
+    {
+      "trigger": "you pass cards",
+      "scope": "self",
+      "target": "each card you pass",
+      "effect": "rank +3",
+      "frequency": "per card"
+    }
+  ],
+  "archetypes": "Kingmaker; splash Swap Meet",
+  "family": "Raising your ranks / Targeted",
+  "role": "Enabler",
+  "decision": "Which card to pass: a queen becomes an ace in your partner's hand, and a trade with an opponent hands them the bonus.",
+  "opponent": "Visible when the pass resolves; opponents see the raised card arrive and can plan to trump it.",
+  "aiNote": "Pass your highest non-spade card of rank 11 or more, or a spare spade, to a partner who bid 3 or more; never pass to an opponent unless the card is a two through five.",
+  "rationale": "The rank goes exactly where Kingmaker wants it, turning ordinary passes into winners that fire Promoted Pawn (DU-S03), and it needs a passing sigil, which keeps it a modest common.",
+  "deviation": "Family changed from Rank choice and swapping to Raising your ranks: swapping ranks between a passed card and a kept card asked players to track two cards and a rank exchange, while a flat bonus on the passed card gives the partner the winner in one clause."
+}

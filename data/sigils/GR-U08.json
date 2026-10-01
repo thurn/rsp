@@ -1,0 +1,42 @@
+{
+  "code": "GR-U08",
+  "name": "Growing Colony",
+  "resonances": [
+    "Green"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "bacteria",
+  "iconFamily": "bacteria",
+  "iconWord": "bacteria",
+  "iconAlternates": [
+    {
+      "name": "Neighboring Hexagons",
+      "icon": "hexagon"
+    },
+    {
+      "name": "Middle Child",
+      "icon": "child"
+    }
+  ],
+  "text": "While this card is in your hand, the cards beside it gain +1 rank after each trick.",
+  "timing": "While in hand",
+  "signature": [
+    {
+      "trigger": "while held, after each trick",
+      "scope": "self",
+      "target": "the two cards beside it in hand",
+      "effect": "rank +1",
+      "frequency": "per trick"
+    }
+  ],
+  "archetypes": "While Held, Heart Chorus",
+  "family": "Adjacency / Neighbor auras (growing)",
+  "role": "Enabler",
+  "decision": "How long to hold this card and its two neighbors while they grow, and when to cash a grown neighbor.",
+  "opponent": "Grown ranks show when the neighbors are played; opponents can lead the engraved card's suit early to cut the growth short.",
+  "aiNote": "Hold this card as long as it can follow with other cards; play a neighbor once it has grown enough to win its trick.",
+  "rationale": "Two neighbors held to the eighth trick gain about +7 each, turning low cards into late winners for Ripening Pear (GR-C10) and BL-U09, and growth that rewards patience is Heart Chorus's shape too; gains stay after this card is played, and a played neighbor leaves an empty slot, so at most two cards ever grow.",
+  "deviation": "Variation moved from a flat neighbor aura to growth after each trick, so the bridge shares Heart Chorus's grow-over-the-round identity as well as While Held's holding; it grows neighbors, not this card (BL-U05)."
+}

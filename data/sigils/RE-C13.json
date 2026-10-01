@@ -1,0 +1,42 @@
+{
+  "code": "RE-C13",
+  "name": "Hunter's Crosshair",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Common",
+  "price": 55,
+  "wave": 2,
+  "icon": "crosshair",
+  "iconFamily": "crosshair",
+  "iconWord": "crosshair",
+  "iconAlternates": [
+    {
+      "name": "Captured Trophy",
+      "icon": "trophy"
+    },
+    {
+      "name": "Siege Bomb",
+      "icon": "bomb"
+    }
+  ],
+  "text": "Whenever you win a trick an opponent played an ace or king to, gain +15 contract value.",
+  "timing": "When you win any trick",
+  "signature": [
+    {
+      "trigger": "you win a trick, opponent played ace or king",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +15",
+      "frequency": "per trick"
+    }
+  ],
+  "archetypes": "Spade Master, Contract Attacker; splash High Card",
+  "family": "Win triggers / Trump",
+  "role": "Payoff (Contract additive)",
+  "decision": "When to trump or overtake: save a spade for the opponents' ace rather than their low card, or hold your ace for their king.",
+  "opponent": "Visible on each trigger; opponents can cash high cards before you go void or duck them under your known winners.",
+  "aiNote": "When void, trump an opponent's ace or king in preference to other tricks; with the ace of a suit, play it over an opponent's king.",
+  "rationale": "Capturing the cards opponents counted on is the Contract Attacker's goal and trumping them is Spade Master's; it fires about once a round (more in void decks), about +10 to +15 EV at the top of the common band.",
+  "deviation": "Changed from \"trump in and win a trick of another suit\" to capturing an opponent's ace or king, because the brief overlapped RE-C08 (any spade win already covers trumping) and GR-C07 (spades played off suit); the new trigger still pays trumps and adds the denial angle."
+}

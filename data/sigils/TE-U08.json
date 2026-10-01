@@ -1,0 +1,42 @@
+{
+  "code": "TE-U08",
+  "name": "Guarded Lock",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "lock",
+  "iconFamily": "lock",
+  "iconWord": "lock",
+  "iconAlternates": [
+    {
+      "name": "Snug Plug",
+      "icon": "plug-connect"
+    },
+    {
+      "name": "Still Sea",
+      "icon": "sea-view"
+    }
+  ],
+  "text": "If your partner's nil succeeds and you take exactly your bid, gain +60 contract value.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, partner's nil made and own bid exact",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +60",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Nil Guard, Exact Contractor",
+  "family": "Contract-shape rewards / Exact (nil partner)",
+  "role": "Payoff (Contract additive; your solo contract)",
+  "decision": "Covering your nil partner without overtaking your own bid: which tricks to take above their card, and when a trick is safe to duck instead.",
+  "opponent": "Visible at scoring; opponents answer by dumping extra tricks on the guard or leading through the nil.",
+  "aiNote": "When your partner bids nil, bid your honest trick count; once you have taken your bid, duck unless your partner's card would win.",
+  "rationale": "The condition holds in about a third of partner-nil rounds (nil about 90% with Sheltering Castle, own exact about 40%), so +60 is about +20 EV in those rounds, the uncommon budget for thin Nil Guard; it pulls against Lifeguard's Buoy, which wants every trick, so the guard must choose, and it gives Exact Contractor a payoff when paired with a nil partner.",
+  "deviation": "Magnitude raised from about +50 to +60, because the payoff fires only in partner-nil rounds and +50 landed below the uncommon budget there."
+}

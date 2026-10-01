@@ -1,0 +1,41 @@
+{
+  "code": "GY-U09",
+  "name": "Spare Trousers",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "pant",
+  "iconFamily": "pant",
+  "iconWord": "trousers",
+  "iconAlternates": [
+    {
+      "name": "Extra Soup",
+      "icon": "bowl-hot"
+    },
+    {
+      "name": "Tucked-Away Beanie",
+      "icon": "beanie"
+    }
+  ],
+  "text": "Before bidding, add a random new card to your hand.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "self",
+      "target": "your hand",
+      "effect": "add a random new card",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "While Held, Discard Dominance, Exact Contractor",
+  "family": "Creating cards / Additions",
+  "role": "Enabler (feeds Patient Hourglass, DU-S10)",
+  "decision": "Which card never gets played: a while-held card kept past the last trick, a spare low card to duck an overtrick, or a follower for a suit you must keep.",
+  "opponent": "Hidden until the card is played; opponents see your extra card at the end.",
+  "aiNote": "Plan to leave unplayed the while-held card, or on nil the highest card; otherwise the lowest card.",
+  "rationale": "A fourteenth card adds about a quarter of a trick and a choice of what to leave unplayed; it raises Patient Hourglass's hit rate, which the critic should weigh against While Held's watch note; the new card may duplicate a dealt card."
+}

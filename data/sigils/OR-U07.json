@@ -1,0 +1,42 @@
+{
+  "code": "OR-U07",
+  "name": "Clouded Eight Ball",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "8-ball",
+  "iconFamily": "8-ball",
+  "iconWord": "eight ball",
+  "iconAlternates": [
+    {
+      "name": "Unrolled Cube",
+      "icon": "cube"
+    },
+    {
+      "name": "Roulette Wheel",
+      "icon": "color-wheel"
+    }
+  ],
+  "text": "Your blind nils win or lose 300 points instead of 200.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "your blind nil",
+      "effect": "score ±200 → ±300",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Blind Bidder; splash Nil Guard (with a blind-nil partner)",
+  "family": "Blind bidding / Rewards (raised stakes)",
+  "role": "Payoff (Nil)",
+  "decision": "Raises the stakes of the blind-nil call in both directions: go blind only when survival tools (Waning Moon, Folded Banknote, a Castle partner) are in place, and weigh a 300-point swing against the deficit.",
+  "opponent": "The blind nil is public and so is the owner's sigil once it scores; opponents attack a 300-point target harder, which keeps their play meaningful.",
+  "aiNote": "Bid blind nil when eligible only if you expect to survive at least 60% of the time (count your owned lowering and pass sigils), and always when the team trails by 300 or more.",
+  "rationale": "At 65% survival a blind nil nets +90 instead of +60, and at 75% +150 instead of +100, so it is about +10 to +18 EV at a 30–45% blind rate, and it pays most to the Blind Bidder who invests in survival; unlike Vigil Candle it also raises the loss, and unlike Four-Leaf Clover it pays no gold, so it is a pure Orange gamble on the unseen hand.",
+  "deviation": "Revision 1: changed from a flat +60 nil value on a blind nil, which read as Vigil Candle on Daring Knight's trigger, to a double-edged stake raise; it is not a nil multiplier (PU-R04's rare space) because it changes only the blind nil's fixed ±200."
+}

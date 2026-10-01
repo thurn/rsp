@@ -1,0 +1,41 @@
+{
+  "code": "GY-C26",
+  "name": "Muffling Headphones",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "headphone",
+  "iconFamily": "headphone",
+  "iconWord": "headphones",
+  "iconAlternates": [
+    {
+      "name": "Hushed Smoke Alarm",
+      "icon": "smoke-alarm"
+    },
+    {
+      "name": "Humbled Chef's Hat",
+      "icon": "chef-hat"
+    }
+  ],
+  "text": "When you play this card, aces count as twos for this trick.",
+  "timing": "When played",
+  "signature": [
+    {
+      "trigger": "when played",
+      "scope": "all players",
+      "target": "aces in this trick",
+      "effect": "count as twos",
+      "frequency": "this trick"
+    }
+  ],
+  "archetypes": "Nil Guard, Blind Bidder; splash Nil Champion, Contract Attacker",
+  "family": "Trick restrictions / Block aces",
+  "role": "Utility (protects a nil); opponent-facing, lightly",
+  "decision": "When to play it: under a nil partner's forced ace, or into a trick an opponent's ace would win.",
+  "opponent": "Visible when played; it costs an ace at most one trick a round, and later players in the trick see it before choosing.",
+  "aiNote": "Play it into a trick where your nil partner must follow with an ace, or where an opponent's ace is winning and you can follow suit.",
+  "rationale": "\"Count as twos\" rather than \"can't win\" so every trick keeps a winner (a lone led ace still wins as a two); a trump ace still beats non-trump cards."
+}

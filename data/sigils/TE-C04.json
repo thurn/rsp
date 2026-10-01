@@ -1,0 +1,42 @@
+{
+  "code": "TE-C04",
+  "name": "Snaring Lasso",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "lasso",
+  "iconFamily": "lasso",
+  "iconWord": "lasso",
+  "iconAlternates": [
+    {
+      "name": "Salvage Crate",
+      "icon": "container"
+    },
+    {
+      "name": "Scavenging Wanderer",
+      "icon": "walking"
+    }
+  ],
+  "text": "When this card loses a trick, you may swap a chosen card in your hand with the card that won it.",
+  "timing": "When this card loses",
+  "signature": [
+    {
+      "trigger": "this card loses a trick",
+      "scope": "self",
+      "target": "the card that won it",
+      "effect": "optional swap into hand",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Swap Meet, Exact Contractor, Heart Chorus; splash Kingmaker",
+  "family": "Recursion / Triggered",
+  "role": "Enabler",
+  "decision": "When to throw this card under a big winner, and which weak card to leave in the finished trick in exchange.",
+  "opponent": "Visible swap; the trick's result stands, but the winning card now sits in your hand and can beat them later.",
+  "aiNote": "Play this card under an ace or high trump when you must lose anyway, then swap your lowest card for the winner unless you are on nil.",
+  "rationale": "Recursion that fires once, with one choice: a lost trick turns into a future winner, a heart that won comes back for Heart Chorus, and an Exact Contractor gains a card it can choose to win with; a random card loses about 75% of the time, and the swap costs a card, which suits a 50-gold common.",
+  "deviation": "Trigger moved from \"whenever you discard\" to this card losing, and the target from your earlier cards to the trick's winner, because GY-C12's brief already swaps on every discard and a repeating swap adds a choice every discard."
+}

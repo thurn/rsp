@@ -1,0 +1,41 @@
+{
+  "code": "OR-U05",
+  "name": "Grand Treasury",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "landmark",
+  "iconFamily": "landmark",
+  "iconWord": "treasury",
+  "iconAlternates": [
+    {
+      "name": "Bulging Wallet",
+      "icon": "wallet"
+    },
+    {
+      "name": "Growing Dollar",
+      "icon": "dollar"
+    }
+  ],
+  "text": "You can earn up to 100 gold of interest each round instead of 50.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "interest cap",
+      "effect": "50 → 100 gold",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Gold Miner; splash Diamond Flood",
+  "family": "Gold income / Interest",
+  "role": "Payoff (Economy)",
+  "decision": "Shopping: whether to keep saving past 250 gold toward 500, where interest and Pharaoh's Pyramid both peak, or spend now.",
+  "opponent": "Gold is private in effect; no impact on opponents' play.",
+  "aiNote": "While you own this, skip purchases below uncommon once you hold 250 gold or more, until you reach 500.",
+  "rationale": "Worth nothing below 250 gold and up to +50 gold a round at 500, the same 500-gold target as Pharaoh's Pyramid, so it rewards the Gold Miner hoard and feeds late converters (OR-U09, OR-R03); it stays an uncommon because early runs rarely reach the new cap."
+}

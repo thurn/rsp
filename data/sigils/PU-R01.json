@@ -1,0 +1,42 @@
+{
+  "code": "PU-R01",
+  "name": "Snipping Scissors",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Rare",
+  "price": 90,
+  "wave": 4,
+  "icon": "cut",
+  "iconFamily": "cut",
+  "iconWord": "scissors",
+  "iconAlternates": [
+    {
+      "name": "Leeching Syringe",
+      "icon": "syringe"
+    },
+    {
+      "name": "Spilt Milk",
+      "icon": "milk-bottle"
+    }
+  ],
+  "text": "When this card loses a trick to an opponent, that opponent removes their highest card from their hand.",
+  "timing": "When this card loses",
+  "signature": [
+    {
+      "trigger": "this card loses to an opponent",
+      "scope": "opponents",
+      "target": "the winning opponent's highest card in hand",
+      "effect": "removed from hand",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Contract Attacker; splash High Card, Nil Guard",
+  "family": "Forced card removal / Opponents (highest card, after bidding)",
+  "role": "Enabler; opponent-facing (feeds Denial: Hungry Kraken, Grinning Skull, RE-R04)",
+  "decision": "Which trick to sacrifice this card on: early to strip a card that would win later, and under the opponent who still needs tricks rather than one already on a failed nil.",
+  "opponent": "Visible when it resolves; the victim loses one card once a round, can see the sigil coming in later rounds, and still plays every remaining card as they choose.",
+  "aiNote": "Play this card under an opponent's winning card as early as possible when it can't win anyway, preferring an opponent whose team bid a contract.",
+  "rationale": "The winner's highest card wins about 60–70% of the time, so each trigger costs the opponents about two-thirds of a trick after they've bid, raising their set rate by roughly a third for Hungry Kraken, Grinning Skull, and RE-R04 to cash; the core rules already let a player a card short skip the last trick, and a card removed with a sigil takes that sigil with it for the round.",
+  "deviation": "Target changed from a random card to the opponent's highest card: a random card costs the victim about a quarter of a trick, too little to build around at rare and pure luck for both sides, while \"highest card\" reads as plainly as Sinking Anchor (PU-U11) and makes the sacrifice's timing the decision."
+}

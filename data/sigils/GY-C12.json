@@ -1,0 +1,42 @@
+{
+  "code": "GY-C12",
+  "name": "Sorting Robot",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "robot",
+  "iconFamily": "robot",
+  "iconWord": "robot",
+  "iconAlternates": [
+    {
+      "name": "Leftover Sandwich",
+      "icon": "sandwich"
+    },
+    {
+      "name": "Reheating Microwave",
+      "icon": "microwave-oven"
+    }
+  ],
+  "text": "When you play this card, look at two random new cards and add one to your hand.",
+  "timing": "When played",
+  "signature": [
+    {
+      "trigger": "when played",
+      "scope": "self",
+      "target": "your hand",
+      "effect": "add one of two random new cards shown",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Exact Contractor, While Held; splash Nil Champion",
+  "family": "Card selection / Look and keep (during play)",
+  "role": "Enabler",
+  "decision": "When to play it and which card to keep: a winner to reach your bid, a low card to duck an overtrick or protect a nil, or a card of a suit you must follow so a while-held card stays in hand.",
+  "opponent": "Hidden until the added card is played; no effect on opponents' hands.",
+  "aiNote": "Below your bid, keep the higher card; at or above your bid (or on nil), keep the lower; if a while-held card is at risk, keep a card of the suit most likely to be led.",
+  "rationale": "The extra card leaves you one card unplayed at the end, so you also choose what never gets played; worth about a third of a trick, and it differs from Fallen Acorn (a fixed two of this card's suit, a Green suit-length tool) by being a pick between random cards.",
+  "deviation": "Redesigned in revision 1: the earlier swap with a card from the previous trick near-duplicated TE-C09 and took Teal's trick-swap space, so this keeps Gray's card selection (look at new cards, keep one) and moves it into play; timing stays When played, family moves from Trick swaps to Look and keep."
+}

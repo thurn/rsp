@@ -1,0 +1,42 @@
+{
+  "code": "GR-U06",
+  "name": "Deep-Rooted Tree",
+  "resonances": [
+    "Green"
+  ],
+  "rarity": "Uncommon",
+  "price": 75,
+  "wave": 3,
+  "icon": "tree",
+  "iconFamily": "tree",
+  "iconWord": "tree",
+  "iconAlternates": [
+    {
+      "name": "Stacked Bricks",
+      "icon": "brick"
+    },
+    {
+      "name": "Unbroken Spool",
+      "icon": "thread-roll"
+    }
+  ],
+  "text": "Gain +10 contract value for each round in a row you've kept this card into the last three tricks, up to +50.",
+  "timing": "Always on, for you (the streak is checked when the eleventh trick begins)",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +10 per consecutive round held into the last three tricks, max +50",
+      "frequency": "streak counter"
+    }
+  ],
+  "archetypes": "While Held; splash Gold Miner",
+  "family": "Scaling sigils / Decay",
+  "role": "Payoff (Contract additive)",
+  "decision": "Protecting the engraved card every round, since one forced play resets a streak built over several rounds.",
+  "opponent": "The streak is visible; opponents who read it can lead the engraved card's suit to force it out and break the streak.",
+  "aiNote": "Treat the engraved card as a card to hold: follow with other cards of its suit first, and never lead or discard it before the eleventh trick.",
+  "rationale": "Holding one card into trick 11 succeeds about 60–70% of the time, so the streak averages two or three rounds (about +20–30), and While Held's holding support pushes it toward the +50 cap; the reset keeps holding a live decision every round, and it checks neither the last trick (Patient Hourglass, DU-S10) nor a late win (Ripening Pear, GR-C10).",
+  "deviation": "Timing moved from After scoring to Always on, for you: one ongoing sentence (\"for each round in a row\") states the growth and the reset together, and this round counts as soon as the card reaches the last three tricks."
+}

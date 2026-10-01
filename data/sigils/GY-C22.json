@@ -1,0 +1,41 @@
+{
+  "code": "GY-C22",
+  "name": "Well-Oiled Gear",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "gear",
+  "iconFamily": "gear",
+  "iconWord": "gear",
+  "iconAlternates": [
+    {
+      "name": "Matching Nut",
+      "icon": "nut"
+    },
+    {
+      "name": "Humble Washing Machine",
+      "icon": "washer"
+    }
+  ],
+  "text": "Gain +5 contract value for each Gray sigil you own.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "contract",
+      "effect": "+5 per Gray sigil owned, including this one",
+      "frequency": "counter"
+    }
+  ],
+  "archetypes": "Gold Miner, While Held, Swap Meet, Exact Contractor",
+  "family": "Resonance synergy / Depth",
+  "role": "Payoff: Contract additive",
+  "decision": "Shopping: Gray offers gain value, pulling the collection toward consistency tools.",
+  "opponent": "No effect on opponents.",
+  "aiNote": "Add 5 points of value to each Gray offer.",
+  "rationale": "A typical collection's three Gray sigils make +15 (about +12 expected), and a Gray-heavy one +30 or more; it counts itself."
+}

@@ -1,0 +1,32 @@
+{
+  "code": "PU-U11",
+  "name": "Sinking Anchor",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Uncommon",
+  "price": 75,
+  "wave": 0,
+  "icon": "anchor",
+  "iconFamily": "anchor",
+  "iconWord": "anchor",
+  "iconAlternates": [],
+  "text": "After bidding, each opponent's highest card loses 4 rank.",
+  "timing": "After bidding",
+  "signature": [
+    {
+      "trigger": "after bidding",
+      "scope": "opponents",
+      "target": "each opponent's highest card",
+      "effect": "rank −4",
+      "frequency": "×2"
+    }
+  ],
+  "archetypes": "High Card, Kingmaker (splash); Contract Attacker",
+  "family": "Changing opponents' ranks / Targeting",
+  "role": "Enabler (opponent-facing)",
+  "decision": "None for the owner; shapes bidding confidence.",
+  "opponent": "Visible change after bids; costs about half a trick.",
+  "aiNote": "Treat opponents' top cards as weaker when planning plays.",
+  "rationale": "Ace becomes 10; at −3 an ace would still win."
+}

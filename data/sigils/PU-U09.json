@@ -1,0 +1,42 @@
+{
+  "code": "PU-U09",
+  "name": "Half-Lit Menorah",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Uncommon",
+  "price": 80,
+  "wave": 3,
+  "icon": "menorah",
+  "iconFamily": "menorah",
+  "iconWord": "menorah",
+  "iconAlternates": [
+    {
+      "name": "Watered Wine",
+      "icon": "wine"
+    },
+    {
+      "name": "Quiet Peace",
+      "icon": "pacifism"
+    }
+  ],
+  "text": "If your team makes its contract while taking 4 or fewer tricks, gain +1× contract multiplier.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, contract made with 4 or fewer tricks",
+      "scope": "team",
+      "target": "contract",
+      "effect": "multiplier +1×",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Discard Dominance, Nil Guard; splash Contract Attacker (with PU-U03)",
+  "family": "Contract-shape rewards / Low contracts (tricks taken)",
+  "role": "Payoff (Contract multiplier)",
+  "decision": "Bidding low and then losing on purpose: every trick past the fourth kills the multiplier, so the deck discards, ducks, and gives tricks away once the bid is in.",
+  "opponent": "Visible at scoring; opponents answer by dumping tricks on your team to push it past four.",
+  "aiNote": "Bid your team to 4 or less; once the contract is made, play the lowest card that loses.",
+  "rationale": "Discard Dominance's low bids cap its base, and this multiplier doubles the large additive pile its discard payoffs build. Counting tricks taken rather than the bid stops a team from underbidding and pocketing bags, so the condition holds in about a third of Discard Dominance's made rounds, about +30 late. For Nil Guard it pays when the partner's nil succeeds and your solo contract lands at 4 or less. It is success-only, so it never deepens a failure.",
+  "deviation": "Variation narrowed from a contract of N or less to taking N or fewer tricks, because Discard Dominance is on the strong watch list and a bid-size condition would be met almost every round by bidding low."
+}

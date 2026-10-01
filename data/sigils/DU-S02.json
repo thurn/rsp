@@ -1,0 +1,43 @@
+{
+  "code": "DU-S02",
+  "name": "Alchemist's Wand",
+  "resonances": [
+    "Red",
+    "Green"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 1,
+  "icon": "magic-wand",
+  "iconFamily": "magic-wand",
+  "iconWord": "wand",
+  "iconAlternates": [
+    {
+      "name": "Rewritten Helix",
+      "icon": "dna"
+    },
+    {
+      "name": "Blazing Comet",
+      "icon": "meteor"
+    }
+  ],
+  "text": "Before bidding, convert your clubs to spades.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "self",
+      "target": "all your clubs",
+      "effect": "convert to spades",
+      "frequency": "all"
+    }
+  ],
+  "archetypes": "Spade Master; splash Kingmaker, Contract Attacker",
+  "family": "Changing your suits / Spades",
+  "role": "Enabler (transformation; feeds contract base and trump payoffs)",
+  "decision": "How high to bid with a long trump suit and a club void, and when to trump in versus pull trump.",
+  "opponent": "Everyone bids after the change and sees the club void; they answer by leading spades early to pull trump.",
+  "aiNote": "Bid the converted spades as trump length plus one trick for the club void.",
+  "rationale": "One sentence builds the whole plan (more spades and a void to trump into), and Spade Master's 13 additive payoffs (GR-C07, RE-C08, RE-C13, GR-C02) pay for the hand it builds.",
+  "deviation": "Slot said Suit payoffs / Winning, paying Contract additive; changed to a Changing your suits enabler because Spade Master already has 13 additive payoffs and a signpost that builds the hand says more than another per-trick payoff."
+}

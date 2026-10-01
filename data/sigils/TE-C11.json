@@ -1,0 +1,42 @@
+{
+  "code": "TE-C11",
+  "name": "Lifeguard's Buoy",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Common",
+  "price": 55,
+  "wave": 2,
+  "icon": "buoy",
+  "iconFamily": "buoy",
+  "iconWord": "lifebuoy",
+  "iconAlternates": [
+    {
+      "name": "Rescue Ambulance",
+      "icon": "ambulance"
+    },
+    {
+      "name": "Watchful Horizon",
+      "icon": "horizon-sea"
+    }
+  ],
+  "text": "Whenever you win a trick, if your partner bid nil, 1, or 2, gain +10 contract value.",
+  "timing": "When you win any trick",
+  "signature": [
+    {
+      "trigger": "you win a trick, partner bid nil, 1, or 2",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +10",
+      "frequency": "per trick"
+    }
+  ],
+  "archetypes": "Nil Guard; splash High Card (beside a low-bidding partner)",
+  "family": "Additive contract value / During play",
+  "role": "Payoff (Contract additive; your solo contract)",
+  "decision": "How high to bid beside a nil or low-bidding partner, and winning tricks yourself (covering a nil aggressively) rather than ducking to your partner.",
+  "opponent": "Visible on trigger; opponents answer by setting the contract or, against a nil, by leading low through the nil so the guard cannot cover.",
+  "aiNote": "When your partner bids nil, 1, or 2, bid your hand plus one and win every trick you can, especially any your nil partner's card might otherwise take.",
+  "rationale": "Nil Guard drifted to round 13 because its common payoffs needed a partner nil; paying beside a partner who bids nil, 1, or 2 fires in about 40% of rounds, where the guard wins about 4 tricks, about +32 EV in those rounds and about +14 averaged over a run; bags from over-winning are the brake, Sentinel Rook (DU-R04) turns the same 1 or 2 into nil, and the price sits at the top of the common band.",
+  "deviation": "Changed from a Partner information enabler (see your nil partner's cards) to a Contract additive payoff at 55 gold, following the wave note that Nil Guard is short on additive payoffs; TE-C03 still covers partner information."
+}

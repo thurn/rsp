@@ -1,0 +1,37 @@
+{
+  "code": "OR-U02",
+  "name": "Folded Banknote",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "currency-note",
+  "iconFamily": "currency-note",
+  "iconWord": "banknote",
+  "iconAlternates": [
+    {
+      "name": "Sold Television",
+      "icon": "tv"
+    }
+  ],
+  "text": "After bidding, you may remove a chosen card from your hand to gain +30 gold.",
+  "timing": "After bidding",
+  "signature": [
+    {
+      "trigger": "after bidding",
+      "scope": "self",
+      "target": "a chosen card in hand",
+      "effect": "remove it, gold +30",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Blind Bidder, Gold Miner, Diamond Flood; splash Nil Champion, Discard Dominance",
+  "family": "Costs / Cards (removal for gold)",
+  "role": "Payoff (Economy); also a nil survival enabler",
+  "decision": "Whether to sell a card at all, and which: the ace that threatens a nil, the last card of a suit to open a void, or a dead two when the bid is safe.",
+  "opponent": "The removed card is shown to the table as it leaves; opponents lose nothing, but know one danger card is gone.",
+  "aiNote": "On nil or blind nil, remove your highest card; on a contract, remove your lowest non-spade unless it is the last card of a suit you want to keep; always accept.",
+  "rationale": "About 30 gold a round, above Nest Egg's floor for a pricier sigil, plus a real survival tool for blind nil (removing an ace raises success by roughly a tenth), and the lost card costs a contract bidder little because a thirteenth-trick two rarely wins."
+}

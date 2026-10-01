@@ -1,0 +1,43 @@
+{
+  "code": "DU-S06",
+  "name": "Gem Cascade",
+  "resonances": [
+    "Orange",
+    "Green"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 1,
+  "icon": "gem",
+  "iconFamily": "gem",
+  "iconWord": "diamond",
+  "iconAlternates": [
+    {
+      "name": "Gilded Pagoda",
+      "icon": "temple"
+    },
+    {
+      "name": "Flooded Bridge",
+      "icon": "bridge"
+    }
+  ],
+  "text": "When you play this card, for each other diamond you've played this round, gain +5 contract value and +5 gold.",
+  "timing": "When played",
+  "signature": [
+    {
+      "trigger": "when played",
+      "scope": "self",
+      "target": "other diamonds you've played this round",
+      "effect": "contract value +5 and gold +5",
+      "frequency": "per diamond"
+    }
+  ],
+  "archetypes": "Diamond Flood; splash Bonus Chaser, Gold Miner",
+  "family": "Card-bound points / Escalating",
+  "role": "Payoff (Contract additive and Economy)",
+  "decision": "How long to hold this card while the diamonds go out first, without being forced to play it early.",
+  "opponent": "Visible on trigger; opponents can barely respond, but its value is still lost on a failed contract.",
+  "aiNote": "Play this card after your other diamonds, or at the last safe moment if it is not a diamond.",
+  "rationale": "One cash-out paying both points and gold states the flood plan; with Turning Tide and GR conversions supplying 4–5 earlier diamonds it pays about +20–25 contract value and 20–25 gold. The icon word is diamond, but the name uses \"Gem\" so it doesn't read as the suit.",
+  "deviation": "Slot said Suit payoffs / Playing, paying Contract additive; changed to Card-bound points / Escalating that pays Contract additive and Economy, which adds a decision about when to play the card and keeps Diamond Flood's plan of points and gold together."
+}

@@ -1,0 +1,41 @@
+{
+  "code": "GY-C08",
+  "name": "Surprise Takeaway",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "takeaway",
+  "iconFamily": "takeaway",
+  "iconWord": "takeaway",
+  "iconAlternates": [
+    {
+      "name": "Lucky Beanie",
+      "icon": "beanie"
+    },
+    {
+      "name": "Mystery Soup",
+      "icon": "bowl-hot"
+    }
+  ],
+  "text": "Each round, a random common sigil you don't own is engraved on a random card in your hand for the round.",
+  "timing": "Always on, for you (at the deal)",
+  "signature": [
+    {
+      "trigger": "each deal",
+      "scope": "self",
+      "target": "a random card without a sigil",
+      "effect": "random common sigil for the round",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Bonus Chaser, Swap Meet, Gold Miner",
+  "family": "Engraving control / Random engravings",
+  "role": "Utility",
+  "decision": "How to bid and play around a new effect each round.",
+  "opponent": "The borrowed sigil acts like any sigil and is shown when it triggers.",
+  "aiNote": "Evaluate the borrowed sigil as if owned for the round; draw only from commons that act during a round (no shop or selling sigils).",
+  "rationale": "A small lucky dip: an off-plan random common is worth a few points on average and occasionally lands perfectly, and it never fills a collection slot."
+}

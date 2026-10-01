@@ -1,0 +1,42 @@
+{
+  "code": "PU-C05",
+  "name": "Thrown Towel",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "towel",
+  "iconFamily": "towel",
+  "iconWord": "towel",
+  "iconAlternates": [
+    {
+      "name": "Lost Sock",
+      "icon": "sock"
+    },
+    {
+      "name": "Spilled Wine",
+      "icon": "wine"
+    }
+  ],
+  "text": "Whenever you discard, your highest card loses 3 rank.",
+  "timing": "When you discard",
+  "signature": [
+    {
+      "trigger": "you discard",
+      "scope": "self",
+      "target": "your highest card in hand",
+      "effect": "rank −3",
+      "frequency": "per discard"
+    }
+  ],
+  "archetypes": "Nil Champion, Blind Bidder, Discard Dominance",
+  "family": "Lowering your ranks / Triggered by discards",
+  "role": "Enabler (feeds Nil)",
+  "decision": "Which suits to empty early, since every discard after that sands down your most dangerous card; on nil, whether to hold a high card for a discard or shed it now.",
+  "opponent": "Visible on trigger; opponents answer by leading the suits you still hold, so you must follow instead of discard.",
+  "aiNote": "On nil, open a void early; otherwise treat it as a nil-safety bonus and ignore it when bidding a contract.",
+  "rationale": "A seat discards two or three times a round (four or more in a void deck), so an ace becomes a jack and then an eight, the card most likely to break a nil falling a little further with each discard. For Discard Dominance it lowers the long suit's top card, so opponents leading it can't force a win. It pays nothing directly, so it can't be read as another \"discard, gain contract value\" payoff.",
+  "deviation": "Role changed from Payoff (Contract additive, last of suit) to an Enabler that lowers your own ranks, because the orchestrator ruled that Purple's per-discard payoff is PU-C09, and first-discard and last-of-suit payoffs duplicate GR-C11 and OR-C07; Nil Champion, Blind Bidder, and Discard Dominance keep their additive payoffs elsewhere (PU-C02, PU-C09, PU-C14, Scouring Tornado)."
+}

@@ -1,0 +1,43 @@
+{
+  "code": "DU-S13",
+  "name": "Balanced Yin-Yang",
+  "resonances": [
+    "Blue",
+    "Teal"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 1,
+  "icon": "yin-yang",
+  "iconFamily": "yin-yang",
+  "iconWord": "yin-yang",
+  "iconAlternates": [
+    {
+      "name": "Measured Atom",
+      "icon": "atom"
+    },
+    {
+      "name": "Poised Bishop",
+      "icon": "chess-bishop"
+    }
+  ],
+  "text": "If you take exactly your own bid, gain +1× contract multiplier.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, own bid exact",
+      "scope": "self",
+      "target": "contract",
+      "effect": "multiplier +1×",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Exact Contractor; splash Nil Guard, High Card",
+  "family": "Contract-shape rewards / Individual",
+  "role": "Payoff (Contract multiplier)",
+  "decision": "Every trick, whether this seat should win or duck, whatever the partner takes.",
+  "opponent": "Visible at scoring; opponents answer by dumping extra tricks on you.",
+  "aiNote": "After reaching your own bid, play the lowest card that loses; before it, play to win.",
+  "rationale": "Unlike True Aim, it checks your own count, so the partner's overtricks don't break it and you can't lean on the partner's tricks; the condition holds in about 40% of made rounds (+40–50 late). A nil isn't a bid of zero, so a nil bidder never qualifies.",
+  "deviation": "Variation changed from Exact to Individual, to avoid duplicating True Aim as the brief requires."
+}

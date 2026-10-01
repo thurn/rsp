@@ -1,0 +1,41 @@
+{
+  "code": "RE-C12",
+  "name": "Opening Volley",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "volleyball",
+  "iconFamily": "volleyball",
+  "iconWord": "volley",
+  "iconAlternates": [
+    {
+      "name": "First Tennis Serve",
+      "icon": "tennis-ball"
+    },
+    {
+      "name": "Kickoff Football",
+      "icon": "football"
+    }
+  ],
+  "text": "The first card you play each round gains +4 rank.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "first card you play",
+      "effect": "rank +4",
+      "frequency": "once per round"
+    }
+  ],
+  "archetypes": "High Card, Bonus Chaser",
+  "family": "First and last cards / First card",
+  "role": "Enabler",
+  "decision": "Which card to spend the boost on in the first trick: a king or queen to make a sure opening winner, or a revealed or engraved card to cash its bonus early.",
+  "opponent": "Visible when played; the first trick is the one opponents are least likely to trump.",
+  "aiNote": "Lead your highest non-spade card of rank 10 or more when you lead the first trick; when following, play the highest card of the suit led.",
+  "rationale": "The first trick is the safest from trump, so +4 on a chosen card makes it a likely winner that feeds Early Sprint (RE-C05), Crown Jewel, and the Chasing Rainbows card, and a once-per-round boost on one card suits a common."
+}

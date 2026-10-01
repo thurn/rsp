@@ -1,0 +1,42 @@
+{
+  "code": "BL-C06",
+  "name": "Wandering Compass",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "compass",
+  "iconFamily": "compass",
+  "iconWord": "compass",
+  "iconAlternates": [
+    {
+      "name": "Shapeless Flask",
+      "icon": "flask-round"
+    },
+    {
+      "name": "Pliant Lambda",
+      "icon": "lambda"
+    }
+  ],
+  "text": "After bidding, convert this card to a chosen suit.",
+  "timing": "After bidding",
+  "signature": [
+    {
+      "trigger": "after bidding",
+      "scope": "self",
+      "target": "this card",
+      "effect": "convert to a chosen suit",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "While Held, Exact Contractor, Nil Champion, High Card",
+  "family": "Changing your suits / After bidding (direction choice)",
+  "role": "Enabler",
+  "decision": "Once bids are known, which suit this card joins: a guard for a held sigil card's suit, away from a singleton suit to open a void for a nil, or out of a suit an opponent will soon trump.",
+  "opponent": "The conversion is shown when it resolves, so opponents see the card's new suit and can lead around it.",
+  "aiNote": "On nil, convert your singleton out of its suit to open a void; with a held sigil card, convert this card into that card's suit; otherwise convert it into your longest side suit.",
+  "rationale": "One fixed choice made after bids is Blue timing rather than a wild card, so it reads nothing like GR-C04; it still guards Patient Hourglass (DU-S10) by giving its card a suit-mate. Price drops to 45 because a one-card conversion is weaker than the old always-following card and matches Turning Tide's price for two cards before bidding.",
+  "deviation": "Family moved from Wild suits / Void tension (always on) to a one-card conversion after bidding, because \"always counts as the suit led\" read as the same wild card as GR-C04 and left players unsure they were never void."
+}

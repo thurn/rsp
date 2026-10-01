@@ -1,0 +1,42 @@
+{
+  "code": "DU-S03",
+  "name": "Promoted Pawn",
+  "resonances": [
+    "Red",
+    "Teal"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 1,
+  "icon": "chess-pawn",
+  "iconFamily": "chess-pawn",
+  "iconWord": "pawn",
+  "iconAlternates": [
+    {
+      "name": "Unbroken Chain",
+      "icon": "link"
+    },
+    {
+      "name": "Loyal Bishop",
+      "icon": "chess-bishop"
+    }
+  ],
+  "text": "Whenever your partner wins a trick with a card you passed them, gain +20 contract value.",
+  "timing": "When your partner wins a trick",
+  "signature": [
+    {
+      "trigger": "partner wins a trick",
+      "scope": "self",
+      "target": "a card you passed them",
+      "effect": "contract value +20",
+      "frequency": "per trick"
+    }
+  ],
+  "archetypes": "Kingmaker; splash Swap Meet, Nil Guard",
+  "family": "Partner exchange / Triggers",
+  "role": "Payoff (Partner contract)",
+  "decision": "Which winners to give away, and when, instead of playing them yourself.",
+  "opponent": "Visible on trigger and the passed card is visible when played; opponents answer by trumping or overtaking it.",
+  "aiNote": "Pass your highest non-spade winners and spare spades to a partner who bid 3 or more.",
+  "rationale": "Two passed winners that win 70% of the time pay about +28 per made round, the real partner-contract value a thin archetype needs, fed by TE-C01, TE-C02, TE-C12, and RE-C09; RE-U05's brief matches this and should be revised."
+}

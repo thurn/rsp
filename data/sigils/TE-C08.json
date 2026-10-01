@@ -1,0 +1,41 @@
+{
+  "code": "TE-C08",
+  "name": "Deserted Island",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "island",
+  "iconFamily": "island",
+  "iconWord": "island",
+  "iconAlternates": [
+    {
+      "name": "Emptied Suitcase",
+      "icon": "luggage"
+    },
+    {
+      "name": "Unloaded Truck",
+      "icon": "truck"
+    }
+  ],
+  "text": "Whenever you pass the last card of a suit in your hand, gain +10 contract value.",
+  "timing": "When you pass cards",
+  "signature": [
+    {
+      "trigger": "you pass cards",
+      "scope": "self",
+      "target": "your last card of a suit, passed away",
+      "effect": "contract value +10",
+      "frequency": "per void opened"
+    }
+  ],
+  "archetypes": "Swap Meet; splash Discard Dominance, Spade Master",
+  "family": "Partner exchange / Triggers",
+  "role": "Payoff (Contract additive)",
+  "decision": "Which card to give in each pass or trade: a singleton that opens a void rather than your worst card.",
+  "opponent": "Visible on trigger; opponents learn you just went void in a suit and can avoid leading it.",
+  "aiNote": "In any pass or trade, give a singleton outside spades when you have one.",
+  "rationale": "Trades count as passes, so Traders' Handshake trades, Open Hand, and TE-C02 all feed it; a hand opens one or two voids a round this way (about +12 EV), and each void also sets up trumps and discards; it pays only for void-opening exchanges, as the brief requires."
+}

@@ -1,0 +1,42 @@
+{
+  "code": "GY-C18",
+  "name": "Planner's Whiteboard",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "whiteboard",
+  "iconFamily": "whiteboard",
+  "iconWord": "whiteboard",
+  "iconAlternates": [
+    {
+      "name": "Architect's Pencil",
+      "icon": "pencil"
+    },
+    {
+      "name": "Bold Broadcast",
+      "icon": "station"
+    }
+  ],
+  "text": "Gain +5 contract value for each trick your partner bids.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "contract",
+      "effect": "+5 per trick in your partner's bid",
+      "frequency": "per trick"
+    }
+  ],
+  "archetypes": "Kingmaker, Nil Champion, Nil Guard; any contract deck as support",
+  "family": "Additive contract value / Per bid trick",
+  "role": "Payoff: Contract additive",
+  "decision": "Partnership bidding: your partner, who sees your sigils, gets 15 instead of 10 per trick bid and can push a borderline hand one higher, and a nil from you still pays through your partner's contract.",
+  "opponent": "No effect beyond the visible bids; a stretched partner bid is theirs to press.",
+  "aiNote": "When this sigil's owner is your partner, round your bid up when expected tricks are within half a trick of the next number.",
+  "rationale": "A partner bid of three or four pays +15 to +20 on a made contract (about +14 expected), a little more beside a nil when the partner carries the contract; it no longer rewards your own bid size, which is Red's high-contract space (RE-C06).",
+  "deviation": "Redesigned in revision 1 from your own bid to your partner's bid, so it stops duplicating RE-C06's promise and works beside a nil; archetypes shift from High Card, Spade Master, and Bonus Chaser toward the partnership and nil decks. The wave 3 RE-U05 brief (partner bids above four) should move away from a per-trick partner-bid scale."
+}

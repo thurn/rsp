@@ -1,0 +1,41 @@
+{
+  "code": "GR-U09",
+  "name": "Held Breath",
+  "resonances": [
+    "Green"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "lungs",
+  "iconFamily": "lungs",
+  "iconWord": "breath",
+  "iconAlternates": [
+    {
+      "name": "Charged Solar Panel",
+      "icon": "solar-panel"
+    },
+    {
+      "name": "Ripened Avocado",
+      "icon": "avocado"
+    }
+  ],
+  "text": "When you discard this card, gain +5 contract value for each trick already played this round.",
+  "timing": "When you discard (card-bound)",
+  "signature": [
+    {
+      "trigger": "you discard this card",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +5 per trick already played",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "While Held, Discard Dominance",
+  "family": "Card-bound points / Escalating (on discard)",
+  "role": "Payoff (Contract additive)",
+  "decision": "Holding the card through the early tricks, then choosing the late void trick to discard it on.",
+  "opponent": "Visible on trigger; opponents who read it can lead the engraved card's suit to force it out as a follow.",
+  "aiNote": "Don't play it before the eighth trick if another legal card exists; discard it at the first void after that.",
+  "rationale": "Discarded around the ninth trick it pays about +40, and with the chance it is forced out or never discarded it averages about +20–25, the uncommon budget; it rewards both holding and a late void without scaling with voids (Scouring Tornado, DU-S12), counting your wins (Aged Cheese, OR-C14), or paying per discard (Rebel Graffiti, PU-C14)."
+}

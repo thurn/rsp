@@ -1,0 +1,41 @@
+{
+  "code": "TE-U07",
+  "name": "Shouldered Backpack",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "backpack",
+  "iconFamily": "backpack",
+  "iconWord": "backpack",
+  "iconAlternates": [
+    {
+      "name": "Rescue Ambulance",
+      "icon": "ambulance"
+    },
+    {
+      "name": "Helpful Wanderer",
+      "icon": "walking"
+    }
+  ],
+  "text": "Whenever you win a trick, if your partner bid nil, they may pass you a card.",
+  "timing": "When you win any trick",
+  "signature": [
+    {
+      "trigger": "you win a trick, partner bid nil",
+      "scope": "partner",
+      "target": "a card your partner picks",
+      "effect": "optional one-way pass to you",
+      "frequency": "per trick"
+    }
+  ],
+  "archetypes": "Nil Guard; splash Blind Bidder, Nil Champion (as the nil partner)",
+  "family": "Partner exchange / During play",
+  "role": "Enabler",
+  "decision": "For you, covering aggressively so your nil partner gets more chances to shed; for your partner, which danger card to hand over after each of your wins.",
+  "opponent": "Visible pass between tricks; opponents watch the nil hand shrink and the guard's hand grow, and answer by leading low early, before the guard has won anything.",
+  "aiNote": "As the nil partner, pass the highest card of your shortest non-spade suit, or your highest spade if you hold no side-suit danger.",
+  "rationale": "The nil bidder knows its own danger cards, so it picks, and the guard wins about four tricks in a nil round, so a nil hand sheds its worst cards as the round unfolds, raising success from about 90% (after Sheltering Castle) toward 97% and feeding the guard high cards for its solo contract; bags from the extra cards are the brake."
+}

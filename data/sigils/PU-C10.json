@@ -1,0 +1,32 @@
+{
+  "code": "PU-C10",
+  "name": "Vigil Candle",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 0,
+  "icon": "candlestick",
+  "iconFamily": "candlestick",
+  "iconWord": "candle",
+  "iconAlternates": [],
+  "text": "Gain +30 nil value.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "your nil",
+      "effect": "nil value +30",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Nil Champion; splash Blind Bidder",
+  "family": "Nil value / Additive",
+  "role": "Payoff (Nil)",
+  "decision": "Tilts marginal hands toward bidding nil.",
+  "opponent": "Opponents see a nil bid as usual; the bonus shows at scoring.",
+  "aiNote": "Lower the nil-bid threshold slightly.",
+  "rationale": "About 11 expected points per round for a nil deck."
+}

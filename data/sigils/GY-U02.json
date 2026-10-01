@@ -1,0 +1,41 @@
+{
+  "code": "GY-U02",
+  "name": "Thrifted Radio",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Uncommon",
+  "price": 60,
+  "wave": 3,
+  "icon": "radio",
+  "iconFamily": "radio",
+  "iconWord": "radio",
+  "iconAlternates": [
+    {
+      "name": "Resold Dress",
+      "icon": "dress"
+    },
+    {
+      "name": "Pawned Skirt",
+      "icon": "skirt"
+    }
+  ],
+  "text": "Whenever you sell a sigil, gain +20 gold.",
+  "timing": "When sold (any sigil you sell)",
+  "signature": [
+    {
+      "trigger": "when you sell any sigil",
+      "scope": "self",
+      "target": "you",
+      "effect": "gold +20",
+      "frequency": "per sale"
+    }
+  ],
+  "archetypes": "All; most for Gold Miner and decks changing direction mid-run",
+  "family": "Selling / Sale income",
+  "role": "Payoff: Economy",
+  "decision": "Whether to sell and replace weak early sigils, since turnover becomes nearly free.",
+  "opponent": "No effect on opponents.",
+  "aiNote": "Sell an owned sigil when an offer is worth at least 10 points a round more and the collection is full or gold is short.",
+  "rationale": "A sale plus +20 never beats the price paid (a 40-gold common sells for 20 + 20), so there is no buy-and-sell loop; it pays when the player trades up, and selling this sigil itself also triggers it."
+}

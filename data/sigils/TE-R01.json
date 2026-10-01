@@ -1,0 +1,42 @@
+{
+  "code": "TE-R01",
+  "name": "Tandem Scooter",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Rare",
+  "price": 90,
+  "wave": 4,
+  "icon": "scooter",
+  "iconFamily": "scooter",
+  "iconWord": "scooter",
+  "iconAlternates": [
+    {
+      "name": "Chauffeured Car",
+      "icon": "car"
+    },
+    {
+      "name": "Loyal Wanderer",
+      "icon": "walking"
+    }
+  ],
+  "text": "Gain +5 contract value for each trick your partner has won since you bought this sigil, up to +80. After scoring, if your partner missed their bid, the count starts over.",
+  "timing": "Always on, for you (grows when your partner wins a trick; resets after scoring)",
+  "signature": [
+    {
+      "trigger": "always, counter of partner's tricks won since purchase",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +5 per trick, resets when partner misses own bid",
+      "frequency": "max +80"
+    }
+  ],
+  "archetypes": "Kingmaker; splash Nil Guard",
+  "family": "Scaling sigils / Decay",
+  "role": "Payoff (Partner contract, scaling)",
+  "decision": "How many winners to pass your partner after bidding so they make their own bid, and how high to let them bid; a partner who overbids risks the whole counter.",
+  "opponent": "The counter is public; opponents can target the partner's bid to reset it, a clear and satisfying counterplay.",
+  "aiNote": "Treat the partner making their own bid as worth the current counter; pass the partner winners until their bid looks safe, and bid the partner conservatively when the counter is high.",
+  "rationale": "A partner wins about 3.25 tricks a round (about 4 when fed), so the counter reaches the +80 cap in four or five rounds; with the partner missing their own bid about a quarter of the time, it averages about +50 late (about +40 EV), rare value for thin Kingmaker, and the first round it pays like Homeward Ship before the climb; it uses the accepted \"since you bought this sigil\" counter pattern (Growing City, Waiting Bench) but grows on partner wins, not made contracts, and pays across rounds, unlike Homeward Ship and Triumphal Arch.",
+  "deviation": "Timing moved from \"When your partner wins a trick\" to an always-on counter, because the accepted counter pattern states the permanent growth more clearly than \"this sigil permanently gains\"; the partner-wins window is already above its floor of 3."
+}

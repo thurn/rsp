@@ -1,0 +1,41 @@
+{
+  "code": "PU-C14",
+  "name": "Rebel Graffiti",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "spray-can",
+  "iconFamily": "spray-can",
+  "iconWord": "graffiti",
+  "iconAlternates": [
+    {
+      "name": "Wild Scribble",
+      "icon": "scribble"
+    },
+    {
+      "name": "Visiting Alien",
+      "icon": "alien"
+    }
+  ],
+  "text": "Whenever you play a card that doesn't match the suit led, gain +5 contract value.",
+  "timing": "When you play another suit",
+  "signature": [
+    {
+      "trigger": "you play another suit",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +5",
+      "frequency": "per off-suit play"
+    }
+  ],
+  "archetypes": "Spade Master, Diamond Flood (splash); Discard Dominance",
+  "family": "Voids, singletons, and long suits / Ongoing",
+  "role": "Payoff (Contract additive)",
+  "decision": "Which side suits to empty early so later tricks become off-suit plays, and whether to trump or discard once void.",
+  "opponent": "Visible on trigger; opponents answer by leading suits you still hold.",
+  "aiNote": "Play singletons early to open voids.",
+  "rationale": "Two or three off-suit plays a round (four to six with Alchemist's Wand or diamond conversion) is +10 to +30, about +12 EV, on the common budget. Counting trumps and discards alike serves both a trumping Spade Master and a flooded Diamond Flood hand. It differs from GR-C07, which pays for spades played to another suit's trick, by counting every off-suit card at half the rate."
+}

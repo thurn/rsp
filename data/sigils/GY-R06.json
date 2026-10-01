@@ -1,0 +1,42 @@
+{
+  "code": "GY-R06",
+  "name": "Solid Core",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Rare",
+  "price": 85,
+  "wave": 4,
+  "icon": "core",
+  "iconFamily": "core",
+  "iconWord": "core",
+  "iconAlternates": [
+    {
+      "name": "Old School",
+      "icon": "school"
+    },
+    {
+      "name": "Single-Color Washer",
+      "icon": "washer"
+    }
+  ],
+  "text": "If you own five or more sigils of one resonance other than Gray, each trick your team bids is worth 20 points instead of 10, win or lose.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always, own 5+ sigils of one non-Gray resonance",
+      "scope": "team",
+      "target": "contract base per bid trick",
+      "effect": "10 → 20",
+      "frequency": "all"
+    }
+  ],
+  "archetypes": "Contract Attacker, Discard Dominance, Heart Chorus, Kingmaker; any focused collection",
+  "family": "Resonance synergy / Depth (threshold)",
+  "role": "Payoff: Contract base (raises the stakes of every bid)",
+  "decision": "Shopping toward five of one color; once on, bidding matters twice as much, so every bid is weighed as a doubled bet.",
+  "opponent": "Visible from the collection count; a doubled base also doubles your miss, so setting you pays more.",
+  "aiNote": "Until the threshold is met, add 15 points of value to offers of your most-owned non-Gray resonance; once on, bid as if each trick is worth 20.",
+  "rationale": "The depth pole now unlocks a rule change instead of a per-sigil count: the contract's base line becomes 20 × bid in both the made and missed rows, before additive value and multipliers, so a team bidding 7 gains about +40 a round at 1× and more with multipliers; a typical on-plan collection reaches five of one color (dual sigils count for both) around rounds 6 to 9, and it differs from Unopened Gift and Planner's Whiteboard, which add contract value only on a made contract. Spade Master is left off its archetypes because it already bids big and is on the strong watch list.",
+  "deviation": "Revision 1 redesign: the per-sigil count (+10 per sigil of your most-owned resonance) matched Well-Oiled Gear's shape, so depth now gates a doubled base per bid trick; the role moves from Contract additive to the contract base."
+}

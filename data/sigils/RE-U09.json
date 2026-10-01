@@ -1,0 +1,41 @@
+{
+  "code": "RE-U09",
+  "name": "Allied Bow",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "bow",
+  "iconFamily": "bow",
+  "iconWord": "bow",
+  "iconAlternates": [
+    {
+      "name": "Spotter's Dumbbell",
+      "icon": "dumbbell"
+    },
+    {
+      "name": "Squire's Boot",
+      "icon": "boot"
+    }
+  ],
+  "text": "Your partner's spades gain +2 rank.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "partner",
+      "target": "partner's spades",
+      "effect": "rank +2",
+      "frequency": "all"
+    }
+  ],
+  "archetypes": "Spade Master, Kingmaker",
+  "family": "Raising your ranks / Partner's suit",
+  "role": "Enabler",
+  "decision": "Which spades to pass: a spade you give arrives two ranks higher, and your partner bids knowing their trumps are stronger.",
+  "opponent": "Visible whenever the partner's spades play above their printed rank; opponents can plan to overtrump only with their very top spades.",
+  "aiNote": "Partner counts each spade at +2 when bidding and overtrumping; when passing, send spare spades to your partner before other cards.",
+  "rationale": "Wins the team's trump fights from the other seat and turns every spade you pass into a better one, for Kingmaker handing over trumps and Spade Master pairs; it stays with the owner for the round because it never mentions this card, and +2 lifts a queen to an ace without making every spade a winner."
+}

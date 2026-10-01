@@ -1,0 +1,42 @@
+{
+  "code": "GY-U05",
+  "name": "Neighborly Balcony",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "balcony",
+  "iconFamily": "balcony",
+  "iconWord": "balcony",
+  "iconAlternates": [
+    {
+      "name": "Borrowed Chair",
+      "icon": "chair"
+    },
+    {
+      "name": "Shared Laptop",
+      "icon": "laptop"
+    }
+  ],
+  "text": "After bidding, you may swap the sigils on a chosen card in your hand and a card your partner chooses from theirs.",
+  "timing": "After bidding",
+  "signature": [
+    {
+      "trigger": "after bidding",
+      "scope": "team",
+      "target": "a chosen card of yours and a card your partner picks",
+      "effect": "swap sigils",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Kingmaker, Nil Guard, Swap Meet",
+  "family": "Engraving control / Movement (to your partner)",
+  "role": "Enabler",
+  "decision": "Which sigil to send, knowing both bids: Pauper's Disguise onto a nil partner's king, Crown Jewel onto a bidding partner's ace; your partner picks where it lands.",
+  "opponent": "Hidden; opponents see the results only through play.",
+  "aiNote": "To a nil partner, send a rank-lowering sigil and the partner picks its highest card; to a partner bidding 4 or more, send a win-trigger or rank-raising sigil and the partner picks its highest spade; otherwise skip.",
+  "rationale": "No cards move, so no pass payoffs fire; a swap respects one engraving per card, and a card without a sigil simply receives one; it turns your own card-bound sigils into partner support for the two thin partnership archetypes.",
+  "deviation": "Timing moved from \"when this card wins\" to after bidding: \"move its sigil\" would move this sigil itself, hands are hidden so the partner must pick their own card, and after bidding both players know who is on nil."
+}

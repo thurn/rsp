@@ -1,0 +1,41 @@
+{
+  "code": "BL-U06",
+  "name": "Attentive Ear",
+  "resonances": [
+    "Blue"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "ear",
+  "iconFamily": "ear",
+  "iconWord": "ear",
+  "iconAlternates": [
+    {
+      "name": "Nodding Head",
+      "icon": "head"
+    },
+    {
+      "name": "Proud Scholar",
+      "icon": "education"
+    }
+  ],
+  "text": "If your partner takes exactly their own bid, gain +50 contract value.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, partner's own bid exact",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +50",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Exact Contractor; splash Kingmaker, High Card",
+  "family": "Contract-shape rewards / Individual (partner)",
+  "role": "Payoff (Contract additive)",
+  "decision": "Every trick, whether to overtake your partner's winner or duck under it so their count lands exactly.",
+  "opponent": "Visible at scoring; opponents answer by dumping extra tricks on your partner.",
+  "aiNote": "Once your partner has reached their bid, overtake their winners when you can; before that, duck under them.",
+  "rationale": "Your partner lands exactly about 35–40% of the time when you steer for it, so +50 is about +15 expected, multiplied by Balanced Yin-Yang or True Aim when they also land; a nil partner has no bid, so it never overlaps TE-U08."
+}

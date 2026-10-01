@@ -1,0 +1,42 @@
+{
+  "code": "OR-C03",
+  "name": "Golden Ticket",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Common",
+  "price": 40,
+  "wave": 2,
+  "icon": "ticket",
+  "iconFamily": "ticket",
+  "iconWord": "ticket",
+  "iconAlternates": [
+    {
+      "name": "Sweet Cherry",
+      "icon": "cherry"
+    },
+    {
+      "name": "Shiny Sticker",
+      "icon": "sticker"
+    }
+  ],
+  "text": "When you play this card, you may pay 20 gold to gain +30 contract value.",
+  "timing": "When played",
+  "signature": [
+    {
+      "trigger": "when played",
+      "scope": "self",
+      "target": "contract",
+      "effect": "pay 20 gold for contract value +30",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Bonus Chaser, Gold Miner, Diamond Flood",
+  "family": "Card-bound points / Engraved (with a gold cost)",
+  "role": "Payoff (Contract additive, bought with gold)",
+  "decision": "Each round, whether the contract looks safe enough to buy +30 with 20 gold, and whether that gold is still worth more at the shop.",
+  "opponent": "Visible when it fires; no effect on opponents' play.",
+  "aiNote": "Pay if your team's contract looks safe and it is round 6 or later, or you hold more than 150 gold.",
+  "rationale": "Early, 20 gold is worth about as much as the +24 EV it buys, so it is a fair gamble; late, gold is nearly worthless and it becomes a +20 net payoff, a small gold-to-points converter that Bonus Chaser and Gold Miner both want and that re-triggers double.",
+  "deviation": "Orchestrator ruling: an unconditional flat +15 each round belongs to Gray (GY-C17), so the card now pays only when you spend gold, which turns an Orange stat stick into a gold-for-points gamble."
+}

@@ -1,0 +1,42 @@
+{
+  "code": "TE-U09",
+  "name": "Fair Shuffle",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Uncommon",
+  "price": 75,
+  "wave": 3,
+  "icon": "shuffle",
+  "iconFamily": "shuffle",
+  "iconWord": "shuffle",
+  "iconAlternates": [
+    {
+      "name": "Tidy Paperclip",
+      "icon": "paperclip"
+    },
+    {
+      "name": "Measured Globe",
+      "icon": "globe"
+    }
+  ],
+  "text": "Whenever you pass cards, if you've already taken your bid, gain +20 contract value.",
+  "timing": "When you pass cards",
+  "signature": [
+    {
+      "trigger": "you pass cards, own bid already taken",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +20",
+      "frequency": "per pass"
+    }
+  ],
+  "archetypes": "Exact Contractor, Swap Meet",
+  "family": "Partner exchange / Triggers (after your bid is taken)",
+  "role": "Payoff (Contract additive)",
+  "decision": "Saving your passes and trades for after you have taken your bid, then using them to hand away winners you no longer want instead of taking overtricks.",
+  "opponent": "Visible on trigger; opponents learn you have reached your bid and are shedding winners, and can answer by forcing tricks on you before you trade them away.",
+  "aiNote": "Once you have taken your bid, take every optional pass or trade, giving away your highest card; before then, trade only to fix your hand.",
+  "rationale": "The moment you reach your bid is where Exact Contractor starts ducking (Well-Earned Bath, Balanced Yin-Yang), and a late pass is Teal's way to duck: the winner leaves your hand, so the exact count holds; Swap Meet's late trades (Swapped Suitcases, Tossed Paper Plane, a partner's Traders' Handshake trade with you) pay too, about one or two a round (+20 to +40, about +20 EV). A nil bidder has no bid, so it never fires; a Traders' Handshake trade on an overtrick still pays, but the bag it cost is the brake.",
+  "deviation": "Redesigned from exact-contract value scaled by passes, which the cross-batch critic ruled a magnitude near-duplicate of Honest Ruler (BL-C10) and the sixth exact-contract payoff; the pass count now meets Exact Contractor's own-bid moment instead, moving the timing from Conditional scoring to When you pass cards and the family to Partner exchange / Triggers."
+}

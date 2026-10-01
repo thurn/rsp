@@ -1,0 +1,41 @@
+{
+  "code": "GY-C17",
+  "name": "Sturdy Wall",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "wall",
+  "iconFamily": "wall",
+  "iconWord": "wall",
+  "iconAlternates": [
+    {
+      "name": "Square Deal",
+      "icon": "square"
+    },
+    {
+      "name": "Steady Tower",
+      "icon": "building"
+    }
+  ],
+  "text": "Gain +10 contract value.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "always",
+      "scope": "self",
+      "target": "contract",
+      "effect": "+10",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "All",
+  "family": "Additive contract value / Flat",
+  "role": "Payoff: Contract additive; stat stick",
+  "decision": "None; a stat stick.",
+  "opponent": "No effect on opponents.",
+  "aiNote": "None needed.",
+  "rationale": "About +8 a round, below the common payoff budget of +12 because it never misses its condition; it scales with any multiplier and still pays when you bid nil."
+}

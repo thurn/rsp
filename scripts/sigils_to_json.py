@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Converts docs/sigils/*.md entries into src/data/sigils.json."""
+"""Converts docs/sigils/*.md entries into data/sigils/<code>.json, keeping existing design notes."""
 import json
 import re
 from pathlib import Path
@@ -59,8 +59,15 @@ def main():
         for block in re.findall(r"```\n(.*?)```", (DOCS / f"{f}.md").read_text(), re.S):
             sigils.append(parse(block, reg))
     assert len(sigils) == len(reg) == len({s["code"] for s in sigils}), (len(sigils), len(reg))
-    out = ROOT / "src" / "data" / "sigils.json"
-    out.write_text(json.dumps(sigils, indent=2, ensure_ascii=False) + "\n")
+    out = ROOT / "data" / "sigils"
+    out.mkdir(parents=True, exist_ok=True)
+    for s in sigils:
+        path = out / f"{s['code']}.json"
+        if path.exists():
+            notes = json.loads(path.read_text()).get("notes")
+            if notes:
+                s["notes"] = notes
+        path.write_text(json.dumps(s, indent=2, ensure_ascii=False) + "\n")
     print(f"Wrote {len(sigils)} sigils to {out.relative_to(ROOT)}")
 
 

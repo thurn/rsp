@@ -1,0 +1,41 @@
+{
+  "code": "OR-U09",
+  "name": "Merchant's Briefcase",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Uncommon",
+  "price": 65,
+  "wave": 3,
+  "icon": "briefcase",
+  "iconFamily": "briefcase",
+  "iconWord": "briefcase",
+  "iconAlternates": [
+    {
+      "name": "Trader's Helm",
+      "icon": "steering-wheel"
+    },
+    {
+      "name": "Bartered Bread",
+      "icon": "bread"
+    }
+  ],
+  "text": "Whenever you pass cards, you may pay 10 gold to gain +20 contract value.",
+  "timing": "When you pass cards",
+  "signature": [
+    {
+      "trigger": "you pass cards",
+      "scope": "self",
+      "target": "contract",
+      "effect": "pay 10 gold for contract value +20",
+      "frequency": "per pass"
+    }
+  ],
+  "archetypes": "Gold Miner, Swap Meet; splash Kingmaker, Nil Guard",
+  "family": "Gold and points conversion / Gold to contract value",
+  "role": "Payoff (Contract additive, bought with gold)",
+  "decision": "At each pass or trade, whether the contract looks safe enough to spend gold on it, and whether that gold still matters more at the shop.",
+  "opponent": "Visible when it fires; no effect on opponents' play.",
+  "aiNote": "Pay from round 6 on, or earlier when you hold 150 gold or more, if your team's contract looks safe.",
+  "rationale": "One pass a round buys +20 for 10 gold, and Traders' Handshake's three trades buy +60 for 30, a better rate than Golden Ticket's 20 for +30 because it needs passes, giving thin Swap Meet contract value and Gold Miner a late gold-to-points outlet."
+}

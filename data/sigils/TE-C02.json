@@ -1,0 +1,41 @@
+{
+  "code": "TE-C02",
+  "name": "Sealed Letter",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "envelope",
+  "iconFamily": "envelope",
+  "iconWord": "letter",
+  "iconAlternates": [
+    {
+      "name": "Wrapped Parcel",
+      "icon": "package"
+    },
+    {
+      "name": "Loaded Backpack",
+      "icon": "backpack"
+    }
+  ],
+  "text": "Before bidding, pass a card to your partner.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "self",
+      "target": "one card you pick",
+      "effect": "one-way pass to partner",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Kingmaker, Swap Meet, Exact Contractor; splash Heart Chorus, Nil Champion, Blind Bidder",
+  "family": "Partner exchange / Before bidding",
+  "role": "Enabler",
+  "decision": "Which card to give before anyone bids: a winner for your partner, a danger card off a nil-leaning hand, or a singleton to open a void.",
+  "opponent": "The pass is shown, not the card; both hands are uneven, which the table can see and read.",
+  "aiNote": "Pass your highest card if your hand leans nil or you own a partner-win payoff; otherwise pass your lowest singleton.",
+  "rationale": "A one-way gift is the simplest pre-bid pass, and both partners bid knowing the result; it feeds Promoted Pawn (the passed winner pays +20), counts as a pass for Swap Meet triggers, and lets a nil-leaning hand shed its worst card, while staying distinct from Open Hand (after bidding, two-way) and TE-C12 (a swap with a chosen direction)."
+}

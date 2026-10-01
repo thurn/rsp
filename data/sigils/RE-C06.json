@@ -1,0 +1,41 @@
+{
+  "code": "RE-C06",
+  "name": "Auctioneer's Gavel",
+  "resonances": [
+    "Red"
+  ],
+  "rarity": "Common",
+  "price": 55,
+  "wave": 2,
+  "icon": "gavel",
+  "iconFamily": "gavel",
+  "iconWord": "gavel",
+  "iconAlternates": [
+    {
+      "name": "Flexed Muscle",
+      "icon": "biceps"
+    },
+    {
+      "name": "Heavy Dumbbell",
+      "icon": "dumbbell"
+    }
+  ],
+  "text": "When you bid 5 or more, gain +25 contract value.",
+  "timing": "When you bid",
+  "signature": [
+    {
+      "trigger": "when you bid, bid 5+",
+      "scope": "self",
+      "target": "contract",
+      "effect": "contract value +25",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "High Card, Spade Master, Kingmaker, Bonus Chaser",
+  "family": "Contract-shape rewards / High contracts",
+  "role": "Payoff (Contract additive)",
+  "decision": "Whether to stretch a four-trick hand to a bid of 5, trading failure risk for the bonus and fewer bags.",
+  "opponent": "Visible at the bid; opponents know the team is committed high and can attack the contract.",
+  "aiNote": "Round a hand of 4.5 or more expected tricks up to 5; never stretch from below 4.",
+  "rationale": "A seat on a strong Red deck bids 5 or more in roughly 40–50% of rounds and makes it about 75–80% of the time, about +8 to +10 EV, and the lost bonus on a failure is the real cost; it differs from GY-C18 (value per bid trick) by being a threshold that pushes the bid."
+}

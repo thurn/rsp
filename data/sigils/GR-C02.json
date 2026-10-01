@@ -1,0 +1,41 @@
+{
+  "code": "GR-C02",
+  "name": "Empty Basket",
+  "resonances": [
+    "Green"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 2,
+  "icon": "basket",
+  "iconFamily": "basket",
+  "iconWord": "basket",
+  "iconAlternates": [
+    {
+      "name": "Deserted Tent",
+      "icon": "tent"
+    },
+    {
+      "name": "Abandoned Barn",
+      "icon": "barn"
+    }
+  ],
+  "text": "After bidding, gain +10 contract value for each suit you're void in.",
+  "timing": "After bidding",
+  "signature": [
+    {
+      "trigger": "after bidding",
+      "scope": "self",
+      "target": "voids in hand",
+      "effect": "contract value +10 per void",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Spade Master, Discard Dominance, Diamond Flood; splash Nil Champion",
+  "family": "Voids, singletons, and long suits / Deal-time",
+  "role": "Payoff (Contract additive)",
+  "decision": "Which cards to convert or pass (before or after bidding) to empty a short suit.",
+  "opponent": "Visible at the trigger; opponents learn your voids and can avoid leading them.",
+  "aiNote": "Aim conversions and passes at singletons and doubletons to open voids.",
+  "rationale": "Natural voids are rare (about 5% of hands), so it pays only for shaping: Alchemist's Wand guarantees a club void (+10), and Turning Tide or a pass can open a second (+20), about +10–15 EV in its decks. Post-bid passes (TE-C01) and conversions (GR-C14) count only when they resolve before it, by seat and purchase order."
+}

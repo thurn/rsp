@@ -1,0 +1,32 @@
+{
+  "code": "PU-C02",
+  "name": "Graceful Exit",
+  "resonances": [
+    "Purple"
+  ],
+  "rarity": "Common",
+  "price": 50,
+  "wave": 0,
+  "icon": "door-open",
+  "iconFamily": "door-open",
+  "iconWord": "exit",
+  "iconAlternates": [],
+  "text": "Whenever you lose a trick you played a face card to, gain +10 contract value.",
+  "timing": "When you lose any trick",
+  "signature": [
+    {
+      "trigger": "you lose a trick",
+      "scope": "self",
+      "target": "your played face card",
+      "effect": "contract value +10",
+      "frequency": "per trick"
+    }
+  ],
+  "archetypes": "Nil Champion, Blind Bidder, Discard Dominance",
+  "family": "Losing tricks / Per trick",
+  "role": "Payoff (Contract additive)",
+  "decision": "When to dump a face card under a higher card.",
+  "opponent": "Visible on trigger; no effect on opponents' cards.",
+  "aiNote": "Discard face cards on tricks already won by others.",
+  "rationale": "About 10 expected points per round."
+}

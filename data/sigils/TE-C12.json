@@ -1,0 +1,41 @@
+{
+  "code": "TE-C12",
+  "name": "Two-Way Street",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Common",
+  "price": 55,
+  "wave": 2,
+  "icon": "street-view",
+  "iconFamily": "street-view",
+  "iconWord": "street",
+  "iconAlternates": [
+    {
+      "name": "Master Key",
+      "icon": "key"
+    },
+    {
+      "name": "Fair Shuffle",
+      "icon": "shuffle"
+    }
+  ],
+  "text": "Before bidding, you may swap a chosen card for your partner's highest or lowest card.",
+  "timing": "Before bidding",
+  "signature": [
+    {
+      "trigger": "before bidding",
+      "scope": "team",
+      "target": "a chosen card and partner's highest or lowest",
+      "effect": "optional exchange, you pick direction",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Kingmaker, Nil Guard",
+  "family": "Partner exchange / Selection",
+  "role": "Enabler",
+  "decision": "Which direction to swap: give a winner for their lowest card (Kingmaker), or take their highest for a low card so they can bid nil (Nil Guard).",
+  "opponent": "The swap is shown, not the cards; everyone bids after it.",
+  "aiNote": "If your partner's collection holds nil sigils, give your lowest card for their highest; otherwise give your highest non-spade for their lowest.",
+  "rationale": "One exchange serves both directions of partnership support, as Teal's identity asks; happening before bids, it lets a partner stripped of their top card bid nil, which Sheltering Castle then protects, or lets a partner holding your ace bid it for Promoted Pawn."
+}

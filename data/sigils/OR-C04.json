@@ -1,0 +1,42 @@
+{
+  "code": "OR-C04",
+  "name": "Steep Price",
+  "resonances": [
+    "Orange"
+  ],
+  "rarity": "Common",
+  "price": 55,
+  "wave": 2,
+  "icon": "tag",
+  "iconFamily": "tag",
+  "iconWord": "price",
+  "iconAlternates": [
+    {
+      "name": "Crooked Magnet",
+      "icon": "magnet"
+    },
+    {
+      "name": "Midnight Taco",
+      "icon": "taco"
+    }
+  ],
+  "text": "After bidding, you may pay 20 gold to raise or lower a chosen card in your hand to a random rank.",
+  "timing": "After bidding",
+  "signature": [
+    {
+      "trigger": "after bidding",
+      "scope": "self",
+      "target": "a chosen card",
+      "effect": "rank to a random higher or lower rank (your direction), costs 20 gold",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Blind Bidder, Bonus Chaser, Gold Miner, Diamond Flood",
+  "family": "Costs / Gold",
+  "role": "Enabler (feeds Nil and contract insurance)",
+  "decision": "Whether this round is worth 20 gold, which card to fix, and which way: down to save a nil, up to rescue a shaky contract.",
+  "opponent": "The new rank is shown to the table; opponents can read it and play around it.",
+  "aiNote": "On nil or blind nil, pay to lower your highest card if it is a queen or better; on a contract, pay only if you expect to fall a trick short, raising your best card of a long suit.",
+  "rationale": "The direction is guaranteed and the size is a gamble: a lowered ace or a raised two lands on about an eight on average, so it defuses most dangers after a blind nil (Desperate Gambit) and buys contract insurance with gold that Gold Miner and Diamond Flood have spare.",
+  "deviation": "Orchestrator ruling: \"an ace or a two\" was BL-C12's effect and the cube read as dice, so the rank change is now random within the chosen direction and the name and icon moved off dice imagery."
+}

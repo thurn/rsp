@@ -1,0 +1,41 @@
+{
+  "code": "TE-R05",
+  "name": "Rescuing Ambulance",
+  "resonances": [
+    "Teal"
+  ],
+  "rarity": "Rare",
+  "price": 100,
+  "wave": 4,
+  "icon": "ambulance",
+  "iconFamily": "ambulance",
+  "iconWord": "ambulance",
+  "iconAlternates": [
+    {
+      "name": "Steady Surfboard",
+      "icon": "surfboard"
+    },
+    {
+      "name": "Calm Pool",
+      "icon": "swimming-pool"
+    }
+  ],
+  "text": "If your partner's nil succeeds and you make your bid, gain +1× contract multiplier.",
+  "timing": "Conditional scoring",
+  "signature": [
+    {
+      "trigger": "scoring, partner's nil made and own bid made",
+      "scope": "self",
+      "target": "contract",
+      "effect": "multiplier +1×",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Nil Guard; splash Nil Champion, Blind Bidder (as the partner)",
+  "family": "Multipliers / Conditional",
+  "role": "Payoff (Contract multiplier, success-only)",
+  "decision": "How high to bid your solo contract beside a nil partner, and how much to spend covering their nil versus winning your own tricks.",
+  "opponent": "Visible at scoring; opponents answer by attacking the nil or setting the solo contract, either of which switches it off.",
+  "aiNote": "Bid the full solo contract beside a nil partner and cover the nil first; favor partner nil when this is owned.",
+  "rationale": "In a partner-nil round the nil succeeds about 90% with Sheltering Castle and the solo contract is made about 80%, so +1× on a late solo contract of about 100 (with Lifeguard's Buoy) is worth about +70 per nil round and +35 to +45 averaged over a run, rare value for thin Nil Guard; success-only, it never doubles a failed contract, and it asks for your bid made, not exact (Guarded Lock, Balanced Yin-Yang) or low (Half-Lit Menorah), so the guard still wants to win tricks."
+}

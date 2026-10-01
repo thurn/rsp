@@ -1,0 +1,42 @@
+{
+  "code": "GY-C23",
+  "name": "Soothing Bandage",
+  "resonances": [
+    "Gray"
+  ],
+  "rarity": "Common",
+  "price": 45,
+  "wave": 2,
+  "icon": "band-aid",
+  "iconFamily": "band-aid",
+  "iconWord": "bandage",
+  "iconAlternates": [
+    {
+      "name": "Night Pharmacy",
+      "icon": "pharmacy"
+    },
+    {
+      "name": "Quiet Hospital",
+      "icon": "hospital"
+    }
+  ],
+  "text": "Missed contracts cost your team 40 fewer points.",
+  "timing": "Always on, for you",
+  "signature": [
+    {
+      "trigger": "scoring, missed contract",
+      "scope": "team",
+      "target": "contract loss",
+      "effect": "−40 points",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Spade Master, Bonus Chaser, Diamond Flood, Heart Chorus",
+  "family": "Additive contract value / Outside the contract",
+  "role": "Utility; stat stick",
+  "decision": "Little: a risky bid costs less when it misses.",
+  "opponent": "No direct effect; setting your team gains Contract Attacker less.",
+  "aiNote": "Treat a miss as 40 points cheaper when judging a risky bid.",
+  "rationale": "Contracts miss about 20% of the time, so about +8 a round, but it trims the worst rounds; a miss never turns into a gain, and the cut is flat, so multipliers never enlarge it (softening multiplied losses is GY-R07's job).",
+  "deviation": "Worded as a smaller loss rather than raw points, so missing a tiny contract can never score more than making it."
+}

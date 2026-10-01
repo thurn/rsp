@@ -1,0 +1,41 @@
+{
+  "code": "GR-U10",
+  "name": "Black Coffee",
+  "resonances": [
+    "Green"
+  ],
+  "rarity": "Uncommon",
+  "price": 70,
+  "wave": 3,
+  "icon": "coffee",
+  "iconFamily": "coffee",
+  "iconWord": "coffee",
+  "iconAlternates": [
+    {
+      "name": "Total Renewal",
+      "icon": "recycle"
+    },
+    {
+      "name": "Uprooted Carrot",
+      "icon": "carrot"
+    }
+  ],
+  "text": "When you discard this card, convert the other cards of its suit in your hand to spades.",
+  "timing": "When you discard (card-bound)",
+  "signature": [
+    {
+      "trigger": "you discard this card",
+      "scope": "self",
+      "target": "the other cards of its suit in hand",
+      "effect": "convert to spades",
+      "frequency": "×1"
+    }
+  ],
+  "archetypes": "Discard Dominance, Spade Master",
+  "family": "Changing your suits / Spades (card-bound, whole suit)",
+  "role": "Enabler",
+  "decision": "Which void trick to discard it on, and whether to keep its suit mates around so more of them become trumps.",
+  "opponent": "The conversion is shown; opponents see a new void and a longer trump suit and can pull trump or stop leading into the void.",
+  "aiNote": "Discard it at the first void trick, unless its suit mates are high cards you plan to win with in their own suit.",
+  "rationale": "A discard that opens a second void and adds one to three trumps in one step serves both plans, once a round because both archetypes are ahead of the curve; it acts after bidding (unlike Alchemist's Wand, DU-S02) and moves a whole suit (unlike Bristling Cactus, GR-C14)."
+}
