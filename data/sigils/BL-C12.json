@@ -37,5 +37,6 @@
   "decision": "When to play it and, after seeing the cards before it, whether this trick should be won or lost.",
   "opponent": "Visible when it resolves; players after it in the trick see the new rank and can still trump or overtake.",
   "aiNote": "Make it an ace if the team still needs tricks and no trump has been played; otherwise make it a two; play it last in a trick when possible.",
-  "rationale": "One win or loss on demand is exactly what an exact count and a nil need, and it is distinct from BL-C03, which only lowers your aces."
+  "rationale": "One win or loss on demand is exactly what an exact count and a nil need, and it is distinct from BL-C03, which only lowers your aces.",
+  "notes": "I would prefer this less directly mirror falling star. Maybe just let you pick the rank when you play the card "
 }

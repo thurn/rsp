@@ -37,5 +37,6 @@
   "decision": "Bidding: whether a king or queen is a trick (Unclouded Sun only protects aces), whether to go nil against the high cards you saw, and how many tricks to bid for an exact count.",
   "opponent": "Each opponent sees which two of their cards you looked at; only you learn them, and their play is unaffected.",
   "aiNote": "Count a seen opponent ace or higher trump in a suit as costing your matching king or queen its trick; don't bid nil if a seen card is a low card of your longest suit that could force you over.",
-  "rationale": "Four random cards out of 26 sharpen a bid without settling it, so it is modest at a common and distinct from BL-C07 (after bidding, shape) and BL-C14 (public)."
+  "rationale": "Four random cards out of 26 sharpen a bid without settling it, so it is modest at a common and distinct from BL-C07 (after bidding, shape) and BL-C14 (public).",
+  "notes": "\"reveal\" I think"
 }

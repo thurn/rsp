@@ -38,5 +38,6 @@
   "opponent": "Each opponent sees when one of their cards is looked at; only you learn it, and their plays are unaffected.",
   "aiNote": "Never play this card while another legal card exists; treat seen cards as known when choosing to win or duck.",
   "rationale": "Holding pays in Blue's own currency, information, which grows the longer the card stays in hand (about six to eight looks with care, some repeats) and helps every Blue archetype play its middle and late tricks; unlike BL-C01 it informs play rather than bids.",
-  "deviation": "Variation moved from Aura (rank) to a per-trick information payout, because a rank aura near-duplicates Verdant Banner; the stat-stick tag is dropped."
+  "deviation": "Variation moved from Aura (rank) to a per-trick information payout, because a rank aura near-duplicates Verdant Banner; the stat-stick tag is dropped.",
+  "notes": "\"reveal\"."
 }
