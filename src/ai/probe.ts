@@ -1,12 +1,12 @@
 // Sigil-aware inputs for the AI, measured by running the real rules on clones of what a seat can
 // see. Runs on the main thread, where the sigil library is loaded.
 import BALANCE from '../../data/balance.json'
-import { type Card, type Seat, nextSeat, partnerOf } from '../game/cards'
+import { type Card, type Seat, nextSeat, partnerOf, teamOf } from '../game/cards'
 import { emit } from '../game/core'
 import { drain } from '../game/engine'
-import { scoreRound, trickNumber } from '../game/rules'
-import type { GameState } from '../game/types'
-import { isNil } from '../game/types'
+import { ROUNDS, bidOptions, canBlindNil, scoreRound, trickNumber } from '../game/rules'
+import { type Bid, type GameState, NIL, isNil } from '../game/types'
+import { getSigil } from '../sigils/registry'
 import { GOLD_POINTS } from './engine'
 import { type AIView, viewFor, visibleState } from './view'
 
@@ -67,30 +67,82 @@ function setTricks(s: GameState, team: 0 | 1, k: number) {
   })
 }
 
-function scoreModel(base: GameState): ScoreModel {
-  const contract: [number[], number[]] = [[], []]
-  const nil: ([number, number] | null)[] = [null, null, null, null]
-  for (const team of [0, 1] as const) {
-    for (let k = 0; k <= 13; k++) {
-      const s = structuredClone(base)
-      setTricks(s, team, k)
-      const r = scoreRound(s)[team]
-      contract[team].push(r.contractPoints + r.points - BAG_COST * r.newBags)
-    }
-    const nils = ([team, team + 2] as Seat[]).filter((x) => isNil(base.bids[x]))
-    for (const x of nils) {
-      const clean = structuredClone(base)
-      setTricks(clean, team, 0)
-      const failed = structuredClone(clean)
-      failed.tricksWon[x] = 1
-      const a = scoreRound(clean)[team].nilPoints
-      const b = scoreRound(failed)[team].nilPoints
-      // With two nil bidders, half the clean total belongs to the other one.
-      const other = nils.length > 1 ? a / 2 : 0
-      nil[x] = [a - other, b - other]
-    }
+/** A team's contract result for each count of its contract seats' tricks, 0–13. */
+function contractTable(base: GameState, team: 0 | 1): number[] {
+  const out: number[] = []
+  for (let k = 0; k <= 13; k++) {
+    const s = structuredClone(base)
+    setTricks(s, team, k)
+    const r = scoreRound(s)[team]
+    out.push(r.contractPoints + r.points - BAG_COST * r.newBags)
   }
+  return out
+}
+
+/** A nil seat's [success, fail] points. */
+function nilPoints(base: GameState, seat: Seat): [number, number] {
+  const team = teamOf(seat)
+  const nils = ([team, team + 2] as Seat[]).filter((x) => isNil(base.bids[x]))
+  const clean = structuredClone(base)
+  setTricks(clean, team, 0)
+  const failed = structuredClone(clean)
+  failed.tricksWon[seat] = 1
+  const a = scoreRound(clean)[team].nilPoints
+  const b = scoreRound(failed)[team].nilPoints
+  // With two nil bidders, half the clean total belongs to the other one.
+  const other = nils.length > 1 ? a / 2 : 0
+  return [a - other, b - other]
+}
+
+function scoreModel(base: GameState): ScoreModel {
+  const contract: [number[], number[]] = [contractTable(base, 0), contractTable(base, 1)]
+  const nil = ([0, 1, 2, 3] as Seat[]).map((x) => (isNil(base.bids[x]) ? nilPoints(base, x) : null))
   return { contract, nil, goldPerTrick: BALANCE.income.goldPerTrick }
+}
+
+export interface BidModel {
+  /** Ordinary bids the seat may make. */
+  options: number[]
+  /** tables[i][k]: the team's contract result if it bids options[i] and takes k contract tricks. */
+  tables: number[][]
+  /** The seat's [success, fail] nil points and its team's table for the partner's contract. */
+  nil: { points: [number, number]; table: number[] } | null
+}
+
+/** Score tables for each bid the seat could make; an unbid partner is assumed to bid 3. */
+export function bidModel(s: GameState, seat: Seat): BidModel {
+  const base = probeBase(s, seat)
+  const team = teamOf(seat)
+  const withBid = (b: Bid): GameState => {
+    const bids = base.bids.slice()
+    bids[seat] = b
+    bids[partnerOf(seat)] ??= 3
+    return { ...base, bids }
+  }
+  const legal = bidOptions(s, seat)
+  const options = legal.filter((b) => b > 0)
+  return quietly(() => {
+    const tables = options.map((b) => contractTable(withBid(b), team))
+    const nilBase = withBid(NIL)
+    const nil = legal.includes(NIL)
+      ? { points: nilPoints(nilBase, seat), table: contractTable(nilBase, team) }
+      : null
+    return { options, tables, nil }
+  })
+}
+
+/**
+ * The AI's blind nil rule, shared by the engine and Desperate Gambit: declare when eligible and
+ * the run is nearly over, far behind, or behind with a pass, swap, or rank-loss enabler.
+ */
+export function aiBlindNil(s: GameState, seat: Seat): boolean {
+  if (s.bids[seat] !== null || !canBlindNil(s, seat)) return false
+  const team = teamOf(seat)
+  const deficit = s.scores[1 - team] - s.scores[team]
+  const enabler = s.players[seat].sigils.some((o) =>
+    /pass|swap|loses? \d+ rank/.test(getSigil(o.copyOf ?? o.code)?.text ?? ''),
+  )
+  return ROUNDS - s.round + 1 <= 2 || deficit >= 400 || (deficit >= 100 && enabler)
 }
 
 // ---------------------------------------------------------------------------------------------
@@ -212,6 +264,11 @@ export function probe(s: GameState, seat: Seat): Probes {
       probeMs: performance.now() - t0,
     }
   })
+}
+
+/** The AI's view for a bid, with the bid models. */
+export function aiBidView(s: GameState, seat: Seat): AIView {
+  return { ...viewFor(s, seat), bidModel: bidModel(s, seat) }
 }
 
 /** The AI's view of the game for `seat`, with probes. */

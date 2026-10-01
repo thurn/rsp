@@ -2,7 +2,7 @@ import { type Card, type Seat, partnerOf } from '../game/cards'
 import { rank } from '../game/core'
 import { bidOptions, legalMoves, trickRules } from '../game/rules'
 import type { Bid, GameState } from '../game/types'
-import type { Payoff, ScoreModel } from './probe'
+import type { BidModel, Payoff, ScoreModel } from './probe'
 
 /** A card as the AI sees it: effective suit and rank, taken when the view is built. */
 export interface SimCard {
@@ -48,6 +48,8 @@ export interface AIView {
   seatPayoffs?: Payoff[]
   probeErrors?: number
   probeMs?: number
+  /** Score tables for each possible bid, when the view is for a bid. */
+  bidModel?: BidModel
 }
 
 /**

@@ -1,7 +1,7 @@
 // Headless AI self-play benchmark. scripts/ai-bench loads this through Vite's SSR loader and
 // calls runBench; nothing here touches the DOM or src/game/store.ts.
 import { chooseBid, chooseCard, makeRng } from '../ai/engine'
-import { aiView } from '../ai/probe'
+import { aiBidView, aiView } from '../ai/probe'
 import { viewFor } from '../ai/view'
 import { type Card, type Seat, SPADES, partnerOf, seatsFrom } from '../game/cards'
 import { DEFAULT_GOLD, newGame, reduce } from '../game/engine'
@@ -23,6 +23,8 @@ export interface BenchOptions {
   think: number
   iterations?: number
   seed: number
+  /** Bid with the plain rule instead of the score-model EV, for comparisons. */
+  plainBids: boolean
 }
 
 const files = import.meta.glob<{ default: Sigil }>('/data/sigils/*.json', { eager: true })
@@ -40,6 +42,8 @@ function newStats() {
     multContracts: 0,
     multSets: 0,
     made: 0,
+    teamPoints: 0,
+    teamRounds: 0,
     exact: 0,
     bags: 0,
     bidders: 0,
@@ -145,6 +149,8 @@ function recordRound(st: Stats, s: GameState) {
   const res = s.lastResult
   if (!res) return
   for (const r of res) {
+    st.teamPoints += r.total
+    st.teamRounds++
     if (r.contract <= 0) continue
     st.contracts++
     if (r.multiplier > 1) st.multContracts++
@@ -206,8 +212,10 @@ function nextAction(st: Stats, s: GameState, o: BenchOptions): Action | null {
       const seat = s.shop?.seats.findIndex((x) => !x.done) ?? -1
       return seat >= 0 ? humanShop(s, seat as Seat) : null
     }
-    case 'bidding':
-      return { type: 'bid', seat: s.turn, bid: chooseBid(viewFor(s, s.turn), 160) }
+    case 'bidding': {
+      const view = o.plainBids ? viewFor(s, s.turn) : aiBidView(s, s.turn)
+      return { type: 'bid', seat: s.turn, bid: chooseBid(view, 160) }
+    }
     case 'playing': {
       if (s.trickDone) return { type: 'collect' }
       const seat = s.turn
@@ -363,6 +371,7 @@ function summarize(st: Stats) {
     games: st.games,
     rounds: st.rounds,
     seconds: Math.round(st.ms / 100) / 10,
+    pointsPerTeamRound: pct(st.teamPoints, st.teamRounds),
     setRate: pct(st.sets, st.contracts),
     sets: `${st.sets}/${st.contracts}`,
     multSetRate: pct(st.multSets, st.multContracts),

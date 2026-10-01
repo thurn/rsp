@@ -1,6 +1,6 @@
 import BALANCE from '../../data/balance.json'
 import { BLIND_NIL, NIL, isNil, type Bid } from '../game/types'
-import type { Payoff, ScoreModel } from './probe'
+import type { BidModel, Payoff, ScoreModel } from './probe'
 import type { AIView, SimCard, SimRules } from './view'
 
 const SPADES = 3
@@ -555,6 +555,52 @@ export function estimateTricks(hand: readonly SimCard[]): number {
 const heuristicBid = (hand: readonly SimCard[]): Bid =>
   Math.max(1, Math.round(estimateTricks(hand)))
 
+/** Nil must beat the best contract by this many points: rollouts are kinder to nil than play. */
+const NIL_MARGIN = 50
+
+/**
+ * Bids the option with the best expected score among the plain bid and its neighbours. Each
+ * candidate gets its own rollouts played toward that bid, since a team plays harder for a bigger
+ * contract. Nil must beat the best contract by NIL_MARGIN.
+ */
+function evBid(
+  view: AIView,
+  m: BidModel,
+  plain: Bid,
+  nilOdds: number,
+  mate: number[],
+  trial: (i: number, bid: Bid) => [number, number],
+  samples: number,
+): Bid {
+  const expect = (table: number[], dist: number[], n: number) =>
+    table.reduce((sum, v, k) => sum + (v * dist[k]) / n, 0)
+  const near = new Set([plain - 1, plain, plain + 1].map((b) => nearest(m.options, b)))
+  const candidates = m.options.filter((b) => near.has(b))
+  const per = Math.max(20, Math.ceil(samples / candidates.length))
+  let best: Bid = plain
+  let bestEv = -Infinity
+  for (const b of candidates) {
+    const dist = new Array(14).fill(0)
+    for (let i = 0; i < per; i++) {
+      const [own, partner] = trial(i, b)
+      dist[Math.min(13, own + partner)]++
+    }
+    const ev = expect(m.tables[m.options.indexOf(b)], dist, per)
+    if (ev > bestEv) {
+      bestEv = ev
+      best = b
+    }
+  }
+  const partnerBid = view.bids[(view.seat + 2) % 4]
+  if (m.nil && !isNil(partnerBid)) {
+    const [win, lose] = m.nil.points
+    const nilGold = 2 * BALANCE.income.nilGold * GOLD_POINTS
+    const ev = nilOdds * (win + nilGold) + (1 - nilOdds) * lose + expect(m.nil.table, mate, samples)
+    if (ev > bestEv + NIL_MARGIN) return NIL
+  }
+  return best
+}
+
 function nearest(options: Bid[], want: number): Bid {
   const ordinary = options.filter((b) => b > 0)
   if (ordinary.length === 0) return options[0] ?? want
@@ -567,32 +613,39 @@ export function chooseBid(view: AIView, samples = 160): Bid {
   const partner = (seat + 2) % 4
   const heuristic = estimateTricks(view.hand)
   const ownBid = Math.max(1, Math.round(heuristic))
+  // Every bidding sample gets its own deal, so nil odds aren't read off a few dozen deals.
+  const pool = dealPool(view, rng, samples)
+
+  /** Rolls out deal i with the seat bidding `bid`; returns the seat's and partner's tricks. */
+  const trial = (i: number, bid: Bid): [number, number] => {
+    const sim = simFrom(view, pool[i % pool.length], [])
+    sim.bids = view.bids.map((b, s) => (s === seat ? bid : (b ?? heuristicBid(sim.hands[s]))))
+    sim.turn = (view.dealer + 1) % 4
+    sim.leader = sim.turn
+    rollout(sim, rng)
+    return [sim.tricksWon[seat], isNil(sim.bids[partner]) ? 0 : sim.tricksWon[partner]]
+  }
 
   let trickSum = 0
   let cleanNils = 0
-  // Every bidding sample gets its own deal, so nil odds aren't read off a few dozen deals.
-  const pool = dealPool(view, rng, samples)
+  const partnerTricks = new Array(14).fill(0)
   for (let i = 0; i < samples; i++) {
-    for (const nilTrial of [false, true]) {
-      const sim = simFrom(view, pool[i % pool.length], [])
-      sim.bids = view.bids.map((b, s) =>
-        s === seat ? (nilTrial ? NIL : ownBid) : (b ?? heuristicBid(sim.hands[s])),
-      )
-      sim.turn = (view.dealer + 1) % 4
-      sim.leader = sim.turn
-      rollout(sim, rng)
-      if (nilTrial) cleanNils += sim.tricksWon[seat] === 0 ? 1 : 0
-      else trickSum += sim.tricksWon[seat]
-    }
+    trickSum += trial(i, ownBid)[0]
+    const [own, mate] = trial(i, NIL)
+    cleanNils += own === 0 ? 1 : 0
+    partnerTricks[Math.min(13, mate)]++
   }
   const simulated = trickSum / samples
   const nilOdds = cleanNils / samples
+  const estimate = (heuristic + simulated) / 2
+  const plain = nearest(view.bidOptions, Math.max(1, Math.round(estimate)))
+  if (view.bidModel)
+    return evBid(view, view.bidModel, plain, nilOdds, partnerTricks, trial, samples)
+
   const partnerBid = view.bids[partner]
   const spades = view.hand.filter((c) => c.suit === SPADES)
   const safeSpades = spades.length <= 3 && spades.every((c) => c.rank < 12)
   const nilOk = view.bidOptions.includes(NIL)
   if (nilOk && !isNil(partnerBid) && safeSpades && nilOdds >= 0.8 && heuristic < 1.5) return NIL
-
-  const estimate = (heuristic + simulated) / 2
-  return nearest(view.bidOptions, Math.max(1, Math.round(estimate)))
+  return plain
 }

@@ -1,3 +1,4 @@
+import { aiBlindNil } from '../ai/probe'
 import { getSigil } from '../sigils/registry'
 import {
   type Seat,
@@ -393,13 +394,6 @@ function declareBlind(s: GameState, seat: Seat) {
   emit(s, 'bid', { seat, data: { bid: BLIND_NIL } })
 }
 
-/** AI seats decide on blind nil from the score alone, before their cards are seen; eligibility
- * already reflects sigils such as Night Owl. */
-function aiWantsBlindNil(s: GameState, seat: Seat): boolean {
-  const team = teamOf(seat)
-  return s.scores[1 - team] - s.scores[team] >= 100 && Math.random() < 0.4
-}
-
 /** Even cursor values open the seat's blind window; odd values take its blind nil decision. */
 function blindStep(s: GameState) {
   s.phase = 'blind'
@@ -417,7 +411,8 @@ function blindStep(s: GameState) {
         s.blindAsk = seat
         return
       }
-      if (aiWantsBlindNil(s, seat)) declareBlind(s, seat)
+      // AI seats decide before their cards are seen; see aiBlindNil.
+      if (aiBlindNil(s, seat)) declareBlind(s, seat)
     }
     s.blindCursor++
   }

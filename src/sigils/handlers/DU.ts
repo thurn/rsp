@@ -2,7 +2,7 @@ import { type Card, ACE, CLUBS, DIAMONDS, HEARTS, SPADES, SUITS, teamOf } from '
 import { emit } from '../../game/core'
 import { canBlindNil, teamBid } from '../../game/rules'
 import { BLIND_NIL, isNil } from '../../game/types'
-import { getSigil } from '../registry'
+import { aiBlindNil } from '../../ai/probe'
 import type { Ctx, HandlerMap } from './api'
 
 const lowest = (ctx: Ctx, cards: Card[]) =>
@@ -216,7 +216,7 @@ export const handlers: HandlerMap = {
     },
   },
   // Desperate Gambit: You may bid blind nil whenever your team is behind on points.
-  // AI seats only weigh blind nil at 200 behind, so the AI rule for smaller deficits runs here.
+  // AI seats use the shared blind nil rule here, so the declaration shows as this sigil's.
   'DU-S09': {
     bids: (ctx, rules) => {
       if (rules.seat === ctx.seat) rules.blindNilDeficit = Math.min(rules.blindNilDeficit, 5)
@@ -224,13 +224,8 @@ export const handlers: HandlerMap = {
     on: {
       blind: (ctx) => {
         const s = ctx.state
-        const behind = s.scores[1 - ctx.team] - s.scores[ctx.team]
-        if (ctx.seat === s.human || ctx.bid() !== null || behind >= 200) return
-        if (!canBlindNil(s, ctx.seat)) return
-        const enabler = s.players[ctx.seat].sigils.some((o) =>
-          /pass|swap|loses? \d+ rank/.test(getSigil(o.code)?.text ?? ''),
-        )
-        if (!ctx.confirm('Bid blind nil?', () => enabler || behind >= 100)) return
+        if (ctx.seat === s.human || ctx.bid() !== null || !canBlindNil(s, ctx.seat)) return
+        if (!ctx.confirm('Bid blind nil?', () => aiBlindNil(s, ctx.seat))) return
         ctx.setBid(ctx.seat, BLIND_NIL)
         emit(s, 'bid', { seat: ctx.seat, data: { bid: BLIND_NIL } })
       },

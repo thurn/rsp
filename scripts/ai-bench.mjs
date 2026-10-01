@@ -2,7 +2,7 @@
 import { createServer } from 'vite'
 
 const USAGE = `scripts/ai-bench [--plain | --random-sigils N | --all-sigils [--min-per-sigil 3]]
-  [--give CODE,CODE] [--human 0] [--games N] [--rounds N] [--think MS | --iterations N] [--seed N] [--json]`
+  [--give CODE,CODE] [--human 0] [--games N] [--rounds N] [--think MS | --iterations N] [--seed N] [--plain-bids] [--json]`
 
 const o = {
   mode: 'plain',
@@ -15,6 +15,7 @@ const o = {
   think: 150,
   iterations: undefined,
   seed: 1,
+  plainBids: false,
 }
 let json = false
 const args = process.argv.slice(2)
@@ -36,6 +37,7 @@ while (args.length) {
   else if (a === '--think') o.think = num(a)
   else if (a === '--iterations') o.iterations = num(a)
   else if (a === '--seed') o.seed = num(a)
+  else if (a === '--plain-bids') o.plainBids = true
   else if (a === '--json') json = true
   else {
     console.log(USAGE)
@@ -69,6 +71,7 @@ function print({ options, metrics: m, notes }) {
   const rows = [
     ['Run', `${mode}, ${search}, seed ${options.seed}, human ${options.human ?? 'none'}`],
     ['Games / rounds / seconds', `${m.games} / ${m.rounds} / ${m.seconds}`],
+    ['Points per team-round', avg(m.pointsPerTeamRound)],
     ['Team set rate', `${rate(m.setRate)} (${m.sets})`],
     ['Set rate, multiplier > 1×', `${rate(m.multSetRate)} (${m.multSets})`],
     ['Exact rate', rate(m.exactRate)],
