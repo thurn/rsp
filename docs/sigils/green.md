@@ -175,7 +175,7 @@ Icon:        bird               (alternates: Pouncing Bear / bear, Snapping Praw
 Resonance:   Green
 Rarity:      Common (50 gold)
 Text:        Affinity: Spade. When you play this card to a trick of another suit, gain +20 contract value.
-Timing:      When played
+Timing:      When you play another suit
 Archetypes:  Spade Master; splash Discard Dominance
 Family:      Card-bound points / Engraved (affinity)
 Role:        Payoff (Contract additive)
@@ -526,17 +526,17 @@ Name:        Armored Beetle
 Icon:        bug               (alternates: Pitched Tent / tent, Quiet Campsite / camping)
 Resonance:   Green
 Rarity:      Rare (90 gold)
-Text:        During the first six tricks, no one can lead a spade unless they hold only spades.
-Timing:      Always on, for you (tricks 1–6)
+Text:        While this card is in your hand, no one can lead a spade unless they hold only spades.
+Timing:      While in hand
 Archetypes:  Spade Master; splash Discard Dominance
-Family:      Trump and spade-breaking rules / Timed spade leads
+Family:      Trump and spade-breaking rules / Held spade-lead lock
 Role:        Enabler; rule setter
-Signature:   always, tricks 1–6 | all players | spade leads | forbidden unless holding only spades | first six tricks
-Decision:    Bidding on ruffs that can't be drawn out early, then shaping the hand for it: open voids fast, keep one or two low side cards to lead after each ruff (your own spades can't be led either), and from the seventh trick decide whether to draw the remaining trumps with your long spades.
-Opponent:    The rule is known before bidding and ends on a fixed trick; opponents can't pull the long-spade hand's trumps early, but they still ruff its side leads, save spades to overtrump, and pick which side suit to lead; opposing nils holding high spades are a little safer early.
-AI note:     Bid about one extra trick with five or more spades and a void or singleton; before the seventh trick, keep a low side card for your next lead; from the seventh trick, lead high spades when you hold the most trumps.
-Rationale:   Opponents leading spades to pull trump is Spade Master's named threat, and this shuts it for half the round: every early lead is a side suit, so a void hand ruffs more often and keeps its length for the late tricks, about half to one extra trick, while its own spade leads are blocked too, so it must keep side cards to lead; the spades-only exception keeps a Wand-converted hand from being stuck; it sets only spade-lead permission in tricks 1–6, a property no accepted rule setter touches, so it stacks cleanly with Arena's Law (RE-U01), Stilled Hurricane (BL-U01), Rosy Spectacles (BL-U11), Rewound Reel (PU-U08), and BL-R01, and it ends exactly where GR-R03's "any suit can be led" begins; it forces no plays and converts no opposing spades (Mauling Bear, GR-U03).
-Deviation:   Revision 1: replaced forced trumping while held, which read as a weaker Arena's Law (RE-U01) on the same property, with a timed spade-lead ban; timing moved from While in hand to Always on, for you, which leaves While in hand one short of its floor (9 of 10) for the wave 6 audit or a flex rare, and the sigil is no longer opponent-facing (that budget is already at its target).
+Signature:   while held | all players | spade leads | forbidden unless holding only spades | until this card is played
+Decision:    Bidding on ruffs that can't be drawn out, then shaping the hand: open voids fast, keep low side cards to lead after each ruff (your own spades can't be led either), and pick the trick to release this card, which lets your long spades draw the remaining trumps.
+Opponent:    The rule is shown at the deal and ends when the owner plays this card, which everyone sees; until then opponents can't pull the long-spade hand's trumps, but they still ruff its side leads, save spades to overtrump, and pick which side suit to lead; opposing nils holding high spades are a little safer.
+AI note:     Bid about one extra trick with five or more spades and a void or singleton; keep this card and a low side card to lead until you hold the most remaining trumps, then play this card and lead high spades.
+Rationale:   Opponents leading spades to pull trump is Spade Master's named threat, and this shuts it for as long as the owner holds the card: every lead is a side suit, so a void hand ruffs more often and keeps its length, about one extra trick, while its own spade leads are blocked too, so it must keep side cards to lead and choose when to lift the lock; the spades-only exception keeps a Wand-converted hand from being stuck; it sets only spade-lead permission, which no accepted rule setter touches except Evening Melody (GR-R03), whose lead rule wins from trick 7 as the later setter, so it stacks with Arena's Law (RE-U01), Stilled Hurricane (BL-U01), Rosy Spectacles (BL-U11), Rewound Reel (PU-U08), and BL-R01; a passed Beetle keeps the lock in its new holder's hand; it forces no plays and converts no opposing spades (Mauling Bear, GR-U03).
+Deviation:   Revision 1: replaced forced trumping while held, which read as a weaker Arena's Law (RE-U01) on the same property, with a spade-lead ban; the wave 6 audit moved it from the first six tricks to while held, which fills the While in hand window (10) and lets the owner choose when the lock ends.
 ```
 
 ## Bursting Barn

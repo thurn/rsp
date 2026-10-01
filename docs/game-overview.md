@@ -308,7 +308,7 @@ another meaningful purchase are usually poor investments.
 ### Engraving and persistence
 
 Every round, each owned sigil is engraved on one card in its owner's newly dealt
-hand. A card has **at most one engraving**. A sigil with **Affinity** prefers a
+hand. A card has **at most one engraving** at the deal. A sigil with **Affinity** prefers a
 particular rank or suit when possible; remaining placements are random.
 
 **Placement procedure:** place affinity sigils first, randomizing order where

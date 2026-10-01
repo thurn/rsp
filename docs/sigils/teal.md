@@ -91,8 +91,8 @@ Name:        Snaring Lasso
 Icon:        lasso               (alternates: Salvage Crate / container, Scavenging Wanderer / walking)
 Resonance:   Teal
 Rarity:      Common (50 gold)
-Text:        When this card loses a trick, you may swap a card in your hand with the card that won it.
-Timing:      When this card loses (card-bound mirror of "When this card wins")
+Text:        When this card loses a trick, you may swap a chosen card in your hand with the card that won it.
+Timing:      When this card loses
 Archetypes:  Swap Meet, Exact Contractor, Heart Chorus; splash Kingmaker
 Family:      Recursion / Triggered
 Role:        Enabler
@@ -193,16 +193,17 @@ Name:        Returned Offering
 Icon:        donate-heart               (alternates: Sunlit Beach / beach, Winding Path / path)
 Resonance:   Teal
 Rarity:      Common (50 gold)
-Text:        When you play this card, swap a card in your hand with a heart from a completed trick.
-Timing:      When played
-Archetypes:  Heart Chorus; splash Swap Meet
-Family:      Recursion / Your cards (widened to any completed trick)
-Role:        Enabler
-Signature:   when played | self | a heart from a completed trick | swap into hand | ×1
-Decision:    When to play this card, which heart to bring back, and which card to leave in the finished trick.
-Opponent:    Visible swap; the heart that returns is known, so opponents can save a trump for it.
-AI note:     Play this card after the first few heart tricks; take back the highest heart and give your lowest non-heart.
-Rationale:   Returns a played heart for another turn, and under Unfolding Butterfly the returned heart grows with every heart already played, so it lands late at near-ace rank; it is a swap, so the hand does not grow, unlike Masked Encore.
+Text:        Affinity: Heart. When this card wins a trick, gain +5 contract value for each other heart you've played this round.
+Timing:      When this card wins
+Archetypes:  Heart Chorus
+Family:      Card-bound points / Escalating
+Role:        Payoff (Contract additive)
+Signature:   this card wins | self | contract | contract value +5 per other heart played | ×1
+Decision:    When to cash this heart: later means more hearts already played.
+Opponent:    Visible when it pays; opponents who see a heart deck can trump or overtake its late hearts to deny it.
+AI note:     Hold this card until you've played three other hearts, then play it when it is likely to win.
+Rationale:   Heart Chorus had one common payoff; a heart deck plays three or four other hearts before cashing this one, and Unfolding Butterfly or Verdant Banner make that late heart a likely winner, so it pays about +15 to +20 when it wins, about +12 EV; it differs from Gem Cascade (DU-S06), which pays on play and also pays gold, and from Sunset Sailboat (TE-U05), which pays per late heart trick.
+Deviation:   Wave 6 audit: changed from a Recursion enabler (swap a hand card for a played heart) to a Heart Chorus contract payoff, because Heart Chorus had one common payoff and When this card wins was one short of its floor.
 ```
 
 ## Well-Earned Bath
@@ -234,16 +235,16 @@ Name:        Lifeguard's Buoy
 Icon:        buoy               (alternates: Rescue Ambulance / ambulance, Watchful Horizon / horizon-sea)
 Resonance:   Teal
 Rarity:      Common (55 gold)
-Text:        Whenever you win a trick, if your partner bid nil, gain +10 contract value.
+Text:        Whenever you win a trick, if your partner bid nil, 1, or 2, gain +10 contract value.
 Timing:      When you win any trick
-Archetypes:  Nil Guard; splash Kingmaker (with a nil partner)
+Archetypes:  Nil Guard; splash High Card (beside a low-bidding partner)
 Family:      Additive contract value / During play
 Role:        Payoff (Contract additive; your solo contract)
-Signature:   you win a trick, partner bid nil | self | contract | contract value +10 | per trick
-Decision:    How high to bid your solo contract beside a nil, and covering aggressively (winning above your partner's card) rather than ducking.
-Opponent:    Visible on trigger; opponents answer by leading low through the nil so the guard cannot cover, or by setting the solo contract.
-AI note:     When your partner bids nil, bid your hand plus one and win every trick your partner's card might otherwise take.
-Rationale:   Nil Guard had three additive payoffs against a floor of four; the guard wins about 4 tricks a nil round, about +32 EV on nil rounds and +10 to +20 averaged over a run, bags from over-covering act as the brake, and the price moves to the top of the band because the role changed from enabler to payoff.
+Signature:   you win a trick, partner bid nil, 1, or 2 | self | contract | contract value +10 | per trick
+Decision:    How high to bid beside a nil or low-bidding partner, and winning tricks yourself (covering a nil aggressively) rather than ducking to your partner.
+Opponent:    Visible on trigger; opponents answer by setting the contract or, against a nil, by leading low through the nil so the guard cannot cover.
+AI note:     When your partner bids nil, 1, or 2, bid your hand plus one and win every trick you can, especially any your nil partner's card might otherwise take.
+Rationale:   Nil Guard drifted to round 13 because its common payoffs needed a partner nil; paying beside a partner who bids nil, 1, or 2 fires in about 40% of rounds, where the guard wins about 4 tricks, about +32 EV in those rounds and about +14 averaged over a run; bags from over-winning are the brake, Sentinel Rook (DU-R04) turns the same 1 or 2 into nil, and the price sits at the top of the common band.
 Deviation:   Changed from a Partner information enabler (see your nil partner's cards) to a Contract additive payoff at 55 gold, following the wave note that Nil Guard is short on additive payoffs; TE-C03 still covers partner information.
 ```
 

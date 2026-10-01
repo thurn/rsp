@@ -254,12 +254,12 @@ Name:        Fickle Storm
 Icon:        cloud-lightning               (alternates: Sudden Lightning / bolt, Wavering Scholar / education)
 Resonance:   Blue
 Rarity:      Common (50 gold)
-Text:        When you play this card, you may make it a two or an ace.
-Timing:      When played
+Text:        You may play this card as a two or an ace.
+Timing:      Always on, for the engraved card
 Archetypes:  Exact Contractor, Nil Champion; splash High Card
 Family:      Rank choice and swapping / Set on play
 Role:        Enabler
-Signature:   when played | self | this card | set rank to 2 or ace (choice) | ×1
+Signature:   always | self | this card | may play as rank 2 or ace | ×1
 Decision:    When to play it and, after seeing the cards before it, whether this trick should be won or lost.
 Opponent:    Visible when it resolves; players after it in the trick see the new rank and can still trump or overtake.
 AI note:     Make it an ace if the team still needs tricks and no trump has been played; otherwise make it a two; play it last in a trick when possible.
@@ -602,7 +602,7 @@ Name:        Empty Cloche
 Icon:        dish               (alternates: Blinkered Visor / vr-headset, Strict Directory / phone-book)
 Resonance:   Blue
 Rarity:      Rare (85 gold)
-Text:        Every player must bid nil or at least four.
+Text:        Every player must bid nil or at least 4.
 Timing:      Always on, for you
 Archetypes:  Nil Champion; splash Contract Attacker
 Family:      Bidding constraints / Nil or big

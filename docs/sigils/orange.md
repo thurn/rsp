@@ -30,16 +30,17 @@ Name:        Lucky Coin
 Icon:        coin               (alternates: Crisp Banknote / currency-note, Silver Dollar / dollar)
 Resonance:   Orange
 Rarity:      Common (40 gold)
-Text:        When you play this card, gain +20 gold.
-Timing:      When played
-Archetypes:  Gold Miner, Diamond Flood, Swap Meet, Bonus Chaser
-Family:      Gold income / When played
-Role:        Payoff (Economy); stat stick
-Signature:   when played | self | you | gold +20 | ×1
-Decision:    None; it is a stat stick by design (it does reward re-trigger effects such as OR-U01).
+Text:        When you play this card to a trick of another suit, gain +30 gold.
+Timing:      When you play another suit
+Archetypes:  Gold Miner, Diamond Flood, Swap Meet, Bonus Chaser; splash Discard Dominance
+Family:      Gold income / Conditional
+Role:        Payoff (Economy)
+Signature:   when played to a trick of another suit | self | you | gold +30 | ×1
+Decision:    Saving this card for a trick you can't follow, rather than following suit or leading with it.
 Opponent:    Visible gold gain; no effect on opponents' play.
-AI note:     Ignore when choosing plays; value it as 20 gold per round when shopping, falling off after round 8.
-Rationale:   About 20 gold every round, a little below Nest Egg's 30–45 for 5 gold less, because it asks nothing of the player.
+AI note:     Play this card at the first trick you can't follow unless it must win; value it as 15 gold per round when shopping, falling off after round 8.
+Rationale:   It pays in about 55% of rounds, more in void decks, so about 15–20 gold a round, a little below Nest Egg's 30–45 for 5 gold less; it shares Swooping Bird's (GR-C07) trigger but pays gold on any card rather than contract value on a spade.
+Deviation:   Wave 6 audit: the trigger moved from any play to a play off suit and the gold from 20 to 30, so it is no longer a stat stick and fills the When you play another suit window.
 ```
 
 ## Opening Bell
@@ -591,8 +592,8 @@ Signature:   this card passed a second time this round | receiver | contract | m
 Decision:    Spending two exchanges on one card: send it to your partner early (Open Hand, Sealed Letter, or a Traders' Handshake trade) and have it sent back later, which ties up trades that could have fixed your hand, and never let it reach the opponents, whose second pass would give them the multiplier.
 Opponent:    Visible when it fires; an opponent handed this card in a trade can pass it on to their own partner to claim the +1× for their contract, so trades with the Swap Meet player carry a visible risk and a chance.
 AI note:     Give this card to your partner in your first pass or trade of the round; as the partner, give it back in the next exchange you make with the owner; never give it to an opponent.
-Rationale:   It pays on the exchange itself, not on a trick win, so it is distinct from Perfect Throw (RE-R03) and Promoted Pawn (DU-S03) and needs no winning card; two passes of one card take the Handshake plus two of your wins, or two pass tools, so it fires in about 40–50% of a Swap Meet deck's rounds for about +45 mid and +60 late, and nothing without pass tools; the once-a-round multiplier convention caps it at +1×.
-Deviation:   Revision 1: redesigned from "+1× when this card wins after being passed", which played the same as Perfect Throw (RE-R03); the trigger moves from "When this card wins" to the pass itself, leaving that window one sigil short of the review's projection.
+Rationale:   It pays on the exchange itself, not on a trick win, so it is distinct from Alley-Oop Basketball (RE-R03) and Promoted Pawn (DU-S03) and needs no winning card; two passes of one card take the Handshake plus two of your wins, or two pass tools, so it fires in about 40–50% of a Swap Meet deck's rounds for about +45 mid and +60 late, and nothing without pass tools; the once-a-round multiplier convention caps it at +1×.
+Deviation:   Revision 1: redesigned from "+1× when this card wins after being passed", which played the same as Alley-Oop Basketball (RE-R03); the trigger moves from "When this card wins" to the pass itself, leaving that window one sigil short of the review's projection.
 ```
 
 ## Flickering Television

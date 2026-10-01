@@ -111,17 +111,17 @@ Name:        Borrowed Umbrella
 Icon:        umbrella               (alternates: Tiptoe Sneaker / sneaker, Drawn Shutter / shutter)
 Resonance:   Purple
 Rarity:      Common (45 gold)
-Text:        Whenever your partner wins a trick, you need not follow suit on the next trick.
-Timing:      When your partner wins a trick
+Text:        Whenever you lose a trick your partner wins, you need not follow suit on the next trick.
+Timing:      When you lose any trick
 Archetypes:  Discard Dominance, Nil Champion, Blind Bidder
 Family:      Following-suit relief / Triggered
 Role:        Enabler
-Signature:   partner wins a trick | self | your play to the next trick | may skip following suit | next trick
+Signature:   you lose a trick your partner wins | self | your play to the next trick | may skip following suit | next trick
 Decision:    On each trick your partner leads, whether to follow or shed a dangerous card or a void-opening card.
 Opponent:    The relief shows when your partner wins; opponents answer by taking the lead away from your partner.
 AI note:     On a relieved trick, play your highest non-spade card if on nil; otherwise play from your shortest non-spade suit.
 Rationale:   About three relieved tricks a round, all on your partner's leads, which are the leads least likely to catch a nil. It adds discards for Scouring Tornado without making following suit optional all round.
-Deviation:   Timing moved from When you lose any trick to When your partner wins a trick, because relief after every lost trick fires about ten times a round and switches off following suit for most of the round; it also adds a sigil to a minor timing window.
+Deviation:   The trigger narrows "when you lose any trick" to tricks your partner wins, because relief after every lost trick fires about ten times a round and switches off following suit for most of the round.
 ```
 
 ## Thrown Towel

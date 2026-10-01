@@ -33,7 +33,7 @@ Every accepted sigil, in acceptance order. Names, icon families, and icon words 
 | DU-S14 | Daring Knight | `chess-knight` | chess-knight | knight | Blue + Purple | Uncommon | 70 | when you bid nil / self / face cards and aces in hand / nil value +15 each / per card | 1 |
 | DU-S15 | Sheltering Castle | `castle` | castle | castle | Teal + Purple | Uncommon | 70 | after bidding, partner on nil / team / your two lowest and partner's two highest / exchange / ×2 | 1 |
 | RE-C02 | Regal Summit | `mountain` | mountain | summit | Red | Common | 45 | always / self / your kings / rank +1 / all | 2 |
-| RE-C03 | Rallying Megaphone | `megaphone` | megaphone | megaphone | Red | Common | 50 | when played / self / next trick / take the lead / ×1 | 2 |
+| RE-C03 | Rallying Megaphone | `megaphone` | megaphone | megaphone | Red | Common | 50 | you lose a trick / self / next trick / may take the lead / once per round | 2 |
 | RE-C04 | Vanguard Shield | `shield` | shield | shield | Red | Common | 45 | when led / self / this card / rank +5 / ×1 | 2 |
 | RE-C05 | Early Sprint | `running` | running | sprint | Red | Common | 50 | you win a trick, tricks 1–3 / self / contract / contract value +10 / per trick, max 3 | 2 |
 | RE-C06 | Auctioneer's Gavel | `gavel` | gavel | gavel | Red | Common | 55 | when you bid, bid 5+ / self / contract / contract value +25 / ×1 | 2 |
@@ -44,7 +44,7 @@ Every accepted sigil, in acceptance order. Names, icon families, and icon words 
 | RE-C12 | Opening Volley | `volleyball` | volleyball | volley | Red | Common | 50 | always / self / first card you play / rank +4 / once per round | 2 |
 | RE-C13 | Hunter's Crosshair | `crosshair` | crosshair | crosshair | Red | Common | 55 | you win a trick, opponent played ace or king / self / contract / contract value +15 / per trick | 2 |
 | RE-C14 | Rosy Champagne | `champagne` | champagne | champagne | Red | Common | 50 | before bidding / self / two chosen hearts or diamonds / rank +2 / ×2 | 2 |
-| OR-C01 | Lucky Coin | `coin` | coin | coin | Orange | Common | 40 | when played / self / you / gold +20 / ×1 | 2 |
+| OR-C01 | Lucky Coin | `coin` | coin | coin | Orange | Common | 40 | when played to a trick of another suit / self / you / gold +30 / ×1 | 2 |
 | OR-C02 | Opening Bell | `bell` | bell | bell | Orange | Common | 45 | when led / self / this card / contract value +20 / ×1 | 2 |
 | OR-C03 | Golden Ticket | `ticket` | ticket | ticket | Orange | Common | 40 | when played / self / contract / pay 20 gold for contract value +30 / ×1 | 2 |
 | OR-C04 | Steep Price | `tag` | tag | price | Orange | Common | 55 | after bidding / self / a chosen card / rank to a random higher or lower rank (your direction), costs 20 gold / ×1 | 2 |
@@ -80,7 +80,7 @@ Every accepted sigil, in acceptance order. Names, icon families, and icon words 
 | BL-C09 | Midnight Clock | `clock` | clock | clock | Blue | Common | 50 | when played, last of its suit in hand / self / contract / contract value +20 / ×1 | 2 |
 | BL-C10 | Honest Ruler | `ruler` | ruler | ruler | Blue | Common | 55 | scoring, exact contract / team / contract / contract value +30 / ×1 | 2 |
 | BL-C11 | Lowered Lashes | `eye-closed` | eye-closed | lashes | Blue | Common | 50 | you lose a trick, holding a card that beats its winner / self / your nil / nil value +5 / per trick | 2 |
-| BL-C12 | Fickle Storm | `cloud-lightning` | cloud-lightning | storm | Blue | Common | 50 | when played / self / this card / set rank to 2 or ace (choice) / ×1 | 2 |
+| BL-C12 | Fickle Storm | `cloud-lightning` | cloud-lightning | storm | Blue | Common | 50 | always / self / this card / may play as rank 2 or ace / ×1 | 2 |
 | BL-C13 | Paused Stopwatch | `stopwatch` | stopwatch | stopwatch | Blue | Common | 55 | always, once per round / self / your follow-suit obligation when only sigil cards can follow / may play another suit / ×1 | 2 |
 | BL-C14 | Open Book | `book` | book | book | Blue | Common | 45 | before bidding / all players / two random cards each / reveal (public) / ×2 each | 2 |
 | TE-C02 | Sealed Letter | `envelope` | envelope | letter | Teal | Common | 45 | before bidding / self / one card you pick / one-way pass to partner / ×1 | 2 |
@@ -90,14 +90,14 @@ Every accepted sigil, in acceptance order. Names, icon families, and icon words 
 | TE-C06 | Borrowed Fuel | `petrol-pump` | petrol-pump | fuel | Teal | Common | 50 | when played / partner / partner's card already in this trick / rank +4 / ×1 | 2 |
 | TE-C07 | Homeward Ship | `ship` | ship | ship | Teal | Common | 50 | partner wins a trick / self / contract / contract value +5 / per trick | 2 |
 | TE-C08 | Deserted Island | `island` | island | island | Teal | Common | 45 | you pass cards / self / your last card of a suit, passed away / contract value +10 / per void opened | 2 |
-| TE-C09 | Returned Offering | `donate-heart` | donate-heart | offering | Teal | Common | 50 | when played / self / a heart from a completed trick / swap into hand / ×1 | 2 |
+| TE-C09 | Returned Offering | `donate-heart` | donate-heart | offering | Teal | Common | 50 | this card wins / self / contract / contract value +5 per other heart played / ×1 | 2 |
 | TE-C10 | Well-Earned Bath | `bath` | bath | bath | Teal | Common | 45 | this card loses, you have taken your bid / self / contract / contract value +20 / ×1 | 2 |
-| TE-C11 | Lifeguard's Buoy | `buoy` | buoy | lifebuoy | Teal | Common | 55 | you win a trick, partner bid nil / self / contract / contract value +10 / per trick | 2 |
+| TE-C11 | Lifeguard's Buoy | `buoy` | buoy | lifebuoy | Teal | Common | 55 | you win a trick, partner bid nil, 1, or 2 / self / contract / contract value +10 / per trick | 2 |
 | TE-C12 | Two-Way Street | `street-view` | street-view | street | Teal | Common | 55 | before bidding / team / a chosen card and partner's highest or lowest / optional exchange, you pick direction / ×1 | 2 |
 | TE-C13 | Valentine Stamp | `stamp` | stamp | stamp | Teal | Common | 50 | you pass cards / self / cards you receive / convert to hearts / each | 2 |
 | TE-C14 | Tossed Paper Plane | `paper-plane` | paper-plane | paper plane | Teal | Common | 55 | you discard this card / self / a card you pick / optional one-way pass to partner / ×1 | 2 |
 | PU-C03 | Pauper's Disguise | `incognito` | incognito | disguise | Purple | Common | 40 | always / self / this card (affinity king) / rank −6 / ×1 | 2 |
-| PU-C04 | Borrowed Umbrella | `umbrella` | umbrella | shade | Purple | Common | 45 | partner wins a trick / self / your play to the next trick / may skip following suit / next trick | 2 |
+| PU-C04 | Borrowed Umbrella | `umbrella` | umbrella | shade | Purple | Common | 45 | you lose a trick your partner wins / self / your play to the next trick / may skip following suit / next trick | 2 |
 | PU-C05 | Thrown Towel | `towel` | towel | towel | Purple | Common | 50 | you discard / self / your highest card in hand / rank −3 / per discard | 2 |
 | PU-C06 | Wayward Cat | `cat` | cat | black cat | Purple | Common | 45 | always / self / this card / may be played without following suit / ×1 | 2 |
 | PU-C07 | Grinning Skull | `skull` | skull | skull | Purple | Common | 50 | scoring, opponents' failed contract / self / contract / contract value +20 per trick short / ×1 | 2 |
@@ -114,9 +114,9 @@ Every accepted sigil, in acceptance order. Names, icon families, and icon words 
 | GY-C06 | Rearranged Desk | `desk` | desk | desk | Gray | Common | 50 | before bidding / self / two chosen cards / swap sigils / ×1 | 2 |
 | GY-C07 | Second Home | `home` | home | home | Gray | Common | 45 | you discard / self / the discarded card's sigil / move to a random hand card without a sigil / per discard | 2 |
 | GY-C08 | Surprise Takeaway | `takeaway` | takeaway | takeaway | Gray | Common | 45 | each deal / self / a random card without a sigil / random common sigil for the round / ×1 | 2 |
-| GY-C09 | Window Shopping | `window` | window | window | Gray | Common | 50 | before bidding / self / one chosen hand card / swap for one of three random new cards shown / ×1 | 2 |
-| GY-C10 | Trusty Wrench | `spanner` | spanner | wrench | Gray | Common | 40 | before bidding, fewer than three spades / self / your lowest card / replace with a random spade / ×1 | 2 |
-| GY-C11 | Humble Cottage | `tiny-home` | tiny-home | cottage | Gray | Common | 40 | before bidding / self / your highest card / replace with a random two / ×1 | 2 |
+| GY-C09 | Tasting Spoon | `spoon` | spoon | spoon | Gray | Common | 50 | before bidding / self / one chosen hand card / swap for one of three random new cards shown / ×1 | 2 |
+| GY-C10 | Trusty Wrench | `spanner` | spanner | wrench | Gray | Common | 40 | before bidding, fewer than three spades / self / your lowest card / replace with a random new spade / ×1 | 2 |
+| GY-C11 | Humble Cottage | `tiny-home` | tiny-home | cottage | Gray | Common | 40 | before bidding / self / your highest card / replace with a random new two / ×1 | 2 |
 | GY-C12 | Sorting Robot | `robot` | robot | robot | Gray | Common | 45 | when played / self / your hand / add one of two random new cards shown / ×1 | 2 |
 | GY-C13 | Tailored Shirt | `t-shirt` | t-shirt | shirt | Gray | Common | 50 | at shop / self / your next hand / pay 30 gold, add a chosen created card / ×1 | 2 |
 | GY-C14 | Tumbling Dryer | `dryer` | dryer | dryer | Gray | Common | 40 | when sold / team / bags / remove all / once | 2 |
@@ -129,7 +129,7 @@ Every accepted sigil, in acceptance order. Names, icon families, and icon words 
 | GY-C21 | House of Cards | `building-house` | building-house | townhouse | Gray | Common | 55 | always / self / contract / +10 per consecutive made contract, max +30 / counter | 2 |
 | GY-C22 | Well-Oiled Gear | `gear` | gear | gear | Gray | Common | 50 | always / self / contract / +5 per Gray sigil owned, including this one / counter | 2 |
 | GY-C23 | Soothing Bandage | `band-aid` | band-aid | bandage | Gray | Common | 45 | scoring, missed contract / team / contract loss / −40 points / ×1 | 2 |
-| GY-C24 | Tailor's Hanger | `hanger` | hanger | hanger | Gray | Common | 45 | before bidding / self / all hand cards of one chosen suit / replace with random cards / ×1 | 2 |
+| GY-C24 | Tailor's Hanger | `hanger` | hanger | hanger | Gray | Common | 45 | before bidding / self / all hand cards of one chosen suit / replace with random new cards / ×1 | 2 |
 | GY-C25 | Rousing Speaker | `speaker` | speaker | speaker | Gray | Common | 50 | when you bid / self / contract / +5 per 50 points behind / ×1 | 2 |
 | GY-C26 | Muffling Headphones | `headphone` | headphone | headphones | Gray | Common | 45 | when played / all players / aces in this trick / count as twos / this trick | 2 |
 | RE-U01 | Arena's Law | `stadium` | stadium | arena | Red | Uncommon | 70 | always / all players / void players in a trumped trick / must overtrump if able / all tricks | 3 |
@@ -214,7 +214,7 @@ Every accepted sigil, in acceptance order. Names, icon families, and icon words 
 | GY-U16 | Artist's Palette | `palette` | palette | palette | Gray | Uncommon | 65 | scoring, own 5+ resonances / self / contract / +30 / ×1 | 3 |
 | RE-R01 | Surplus Muscle | `biceps` | biceps | muscle | Red | Rare | 95 | always / self / this card (affinity ace), excess beyond ace to your highest other card of its suit / rank +3, overflow transfers / ×1 | 4 |
 | RE-R02 | Ticking Bomb | `bomb` | bomb | bomb | Red | Rare | 90 | you trump, fourth time this round / team / contract / multiplier +1× / once per round | 4 |
-| RE-R03 | Perfect Throw | `ball-throw` | ball-throw | throw | Red | Rare | 90 | partner wins a trick with a card you passed them, second time this round / team / contract / multiplier +1× / once per round | 4 |
+| RE-R03 | Alley-Oop Basketball | `basketball` | basketball | basketball | Red | Rare | 90 | partner wins a trick with a card you passed them, second time this round / team / contract / multiplier +1× / once per round | 4 |
 | RE-R04 | Crushing Boot | `boot` | boot | boot | Red | Rare | 100 | scoring, opponents' failed contract / team / contract / multiplier +1× / ×1 | 4 |
 | RE-R05 | Lifetime Award | `certification` | certification | award | Red | Rare | 85 | this card wins (affinity king) / self / contract / contract value equal to your contract value so far this round, max +60 / ×1 | 4 |
 | OR-R01 | Gambler's Wheel | `color-wheel` | color-wheel | wheel | Orange | Rare | 90 | this card loses, own bid not yet taken / self / contract / pay 40 points for multiplier +1× / ×1 | 4 |
@@ -222,7 +222,7 @@ Every accepted sigil, in acceptance order. Names, icon families, and icon words 
 | OR-R03 | Spendthrift's Wallet | `wallet` | wallet | wallet | Orange | Rare | 85 | after scoring / team / your gold / pay up to 100 gold, points +1 per gold / per round | 4 |
 | OR-R04 | Round-Trip Record | `disc` | disc | record | Orange | Rare | 90 | this card passed a second time this round / receiver / contract / multiplier +1× / ×1 | 4 |
 | OR-R05 | Flickering Television | `tv` | tv | television | Orange | Rare | 90 | blind nil decision / self / four random cards in your hand / look (private) / ×1 | 4 |
-| GR-R01 | Armored Beetle | `bug` | bug | beetle | Green | Rare | 90 | always, tricks 1–6 / all players / spade leads / forbidden unless holding only spades / first six tricks | 4 |
+| GR-R01 | Armored Beetle | `bug` | bug | beetle | Green | Rare | 90 | while held / all players / spade leads / forbidden unless holding only spades / until this card is played | 4 |
 | GR-R02 | Bursting Barn | `barn` | barn | barn | Green | Rare | 95 | when led, you've already played four or more diamonds this round / self / contract / multiplier +1× / ×1 | 4 |
 | GR-R03 | Evening Melody | `music` | music | melody | Green | Rare | 95 | always, tricks 7+ / all players / trump suit / hearts replace spades, any suit may be led / last seven tricks | 4 |
 | GR-R04 | Charged Solar Panel | `solar-panel` | solar-panel | solar panel | Green | Rare | 90 | always / self / this card / can't be played before trick 11, then wins its trick / ×1 | 4 |

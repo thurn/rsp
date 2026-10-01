@@ -70,17 +70,16 @@ Name:        Rallying Megaphone
 Icon:        megaphone               (alternates: Loose Puck / puck, Blaring Siren / siren)
 Resonance:   Red
 Rarity:      Common (50 gold)
-Text:        When you play this card, you may lead the next trick.
-Timing:      When played
+Text:        Once per round, when you lose a trick, you may lead the next trick.
+Timing:      When you lose any trick
 Archetypes:  Bonus Chaser, Spade Master, Contract Attacker, High Card
 Family:      Lead control / Steal
 Role:        Enabler
-Signature:   when played | self | next trick | take the lead | ×1
-Decision:    Which trick to spend the card on: dump it low to grab the lead before your aces, the revealed card, or a void trump lead.
+Signature:   you lose a trick | self | next trick | may take the lead | once per round
+Decision:    Which lost trick to spend it on: take the lead to cash your aces, lead the Chasing Rainbows card, or set up a ruff, rather than using it at the first chance.
 Opponent:    Visible on trigger; the trick winner keeps the trick but loses the lead, and opponents can still plan around a known leader.
-AI note:     Play this card as a loser in the trick before you want to cash a top card or lead the Chasing Rainbows card; decline when your partner won and should keep leading.
-Rationale:   Once per round and card-bound keeps a strong effect at common, and the standard when-played opening replaces a new "when this card loses" window without changing the effect, since the winner of a trick leads anyway.
-Deviation:   Timing moved from "when you lose any trick" to "when played": a whenever-you-lose steal fires about ten times a round, far above common value, and card-binding caps it at once per round using an existing sentence pattern.
+AI note:     Use it after losing a trick to an opponent when you hold a top card or the Chasing Rainbows card to lead; decline when your partner won and should keep leading.
+Rationale:   One chosen lead a round is worth about a quarter of a trick, and the once-per-round cap keeps a strong effect at common with one counter and one choice, where an uncapped steal would fire about ten times a round.
 ```
 
 ## Vanguard Shield
@@ -550,12 +549,12 @@ AI note:     Count trumps played; once at three, trump rather than discard when 
 Rationale:   A void-and-trump deck with Alchemist's Wand (DU-S02) trumps four times in about a third of rounds, and those rounds are usually made, so the +1× is worth about +30 mid-run and +40 late, inside the rare band and restrained for a strong-watch archetype; it shares Second Strike's (RE-U04) counting phrase but pays a multiplier, not spade rank, and counts no discards (GR-R05).
 ```
 
-## Perfect Throw
+## Alley-Oop Basketball
 
 ```
 Code:        RE-R03
-Name:        Perfect Throw
-Icon:        ball-throw               (alternates: Alley-Oop Basketball / basketball, Lofted Football / football)
+Name:        Alley-Oop Basketball
+Icon:        basketball               (alternates: Lofted Football / football)
 Resonance:   Red
 Rarity:      Rare (90 gold)
 Text:        Once your partner has won two tricks with cards you passed them this round, gain +1× contract multiplier.

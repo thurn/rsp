@@ -162,12 +162,12 @@ AI note:     Evaluate the borrowed sigil as if owned for the round; draw only fr
 Rationale:   A small lucky dip: an off-plan random common is worth a few points on average and occasionally lands perfectly, and it never fills a collection slot.
 ```
 
-## Window Shopping
+## Tasting Spoon
 
 ```
 Code:        GY-C09
-Name:        Window Shopping
-Icon:        window               (alternates: Open Fridge / fridge, Tasting Spoon / spoon)
+Name:        Tasting Spoon
+Icon:        spoon               (alternates: Open Fridge / fridge)
 Resonance:   Gray
 Rarity:      Common (50 gold)
 Text:        Before bidding, look at three random new cards, and you may swap one of them for a chosen card in your hand.
@@ -190,12 +190,12 @@ Name:        Trusty Wrench
 Icon:        spanner               (alternates: Roadside First Aid / medical-kit, Restored Hard Drive / hard-drive)
 Resonance:   Gray
 Rarity:      Common (40 gold)
-Text:        Before bidding, if you have fewer than three spades, replace your lowest card with a random spade.
+Text:        Before bidding, if you have fewer than three spades, replace your lowest card with a random new spade.
 Timing:      Before bidding
 Archetypes:  Spade Master, High Card, Contract Attacker
 Family:      Hand repair / Deficiency trigger
 Role:        Enabler
-Signature:   before bidding, fewer than three spades | self | your lowest card | replace with a random spade | ×1
+Signature:   before bidding, fewer than three spades | self | your lowest card | replace with a random new spade | ×1
 Decision:    Bidding a hand whose trump shortage was patched; it also makes spade payoffs safer to draft.
 Opponent:    Hidden; everyone bids after it.
 AI note:     On a tie for lowest, replace the card from the longest non-spade suit.
@@ -211,12 +211,12 @@ Name:        Humble Cottage
 Icon:        tiny-home               (alternates: Plain Vest / undershirt, Quiet Bench / bench)
 Resonance:   Gray
 Rarity:      Common (40 gold)
-Text:        Before bidding, you may replace your highest card with a random two.
+Text:        Before bidding, you may replace your highest card with a random new two.
 Timing:      Before bidding
 Archetypes:  Nil Champion, Nil Guard, Discard Dominance; splash Blind Bidder
 Family:      Hand repair / Reverse repair
 Role:        Enabler (feeds Nil)
-Signature:   before bidding | self | your highest card | replace with a random two | ×1
+Signature:   before bidding | self | your highest card | replace with a random new two | ×1
 Decision:    Whether to give up your best card: yes turns a borderline hand into a nil, no keeps a winner for a contract.
 Opponent:    Hidden; everyone bids after it.
 AI note:     Replace when the hand would bid nil without its highest card; otherwise keep it.
@@ -252,7 +252,7 @@ Name:        Tailored Shirt
 Icon:        t-shirt               (alternates: Custom Paint / paint, Preheated Oven / oven)
 Resonance:   Gray
 Rarity:      Common (50 gold)
-Text:        At each shop, you may pay 30 gold to add a chosen card to your next hand.
+Text:        At each shop, you may pay 30 gold to add a chosen new card to your next hand.
 Timing:      At the shop
 Archetypes:  High Card, Spade Master, Heart Chorus; splash Gold Miner, Nil Champion
 Family:      Card selection / Shop cards
@@ -478,12 +478,12 @@ Name:        Tailor's Hanger
 Icon:        hanger               (alternates: Spare Trousers / pant, Pressed Skirt / skirt)
 Resonance:   Gray
 Rarity:      Common (45 gold)
-Text:        Before bidding, you may replace all cards of one chosen suit in your hand with random cards.
+Text:        Before bidding, you may replace all cards of one chosen suit in your hand with random new cards.
 Timing:      Before bidding
 Archetypes:  All, for weak deals; splash Discard Dominance, Exact Contractor
 Family:      Opening hand control / Redeal
 Role:        Enabler
-Signature:   before bidding | self | all hand cards of one chosen suit | replace with random cards | ×1
+Signature:   before bidding | self | all hand cards of one chosen suit | replace with random new cards | ×1
 Decision:    Which suit to throw back, if any: a short, weak suit for fresh cards, knowing each new card could land in the same suit.
 Opponent:    Hidden; everyone bids after it.
 AI note:     Replace the non-spade suit with the lowest average rank when it holds no card above a ten; otherwise keep the hand.
@@ -926,7 +926,7 @@ Name:        Four Square
 Icon:        square               (alternates: Nested Spoons / spoon, Twin Beanies / beanie)
 Resonance:   Gray
 Rarity:      Rare (95 gold)
-Text:        After bidding, if you and your partner bid the same number, four or more, gain +1× contract multiplier.
+Text:        After bidding, if you and your partner bid the same number, 4 or more, gain +1× contract multiplier.
 Timing:      After bidding
 Archetypes:  Bonus Chaser, Diamond Flood, Heart Chorus, Swap Meet, Contract Attacker; any contract deck
 Family:      Contract-shape rewards / Matched bids
@@ -936,7 +936,7 @@ Decision:    When both hands are strong, whoever bids second chooses to match: s
 Opponent:    Visible from the bids; opponents see the doubled stakes and can bid and play to set a stretched contract.
 AI note:     As the second partner to bid, when your partner bid four or more, match if your honest bid is within one of theirs and the multiplied expected score beats the honest bid's; never stretch by more than one.
 Rationale:   The floor stops shading a normal hand down to match: a matched contract is at least 8 tricks, which needs two strong hands or a real stretch, so it is on in about a third of rounds (about +30 to +45 late), and it applies win or lose; a nil from either partner turns it off, and it differs from True Aim, Balanced Yin-Yang, and Runner-Up Trophy, which check tricks, not bids.
-Deviation:   Family changed from Bid adjustment (raise your bid by two for +1×) to Contract-shape rewards, and timing from When you bid to After bidding: a raise of your own bid costs nothing, because you simply declare two less, so it was the unconditional stat stick again; matching your partner's bid is a cost you can't bid around. Kingmaker dropped from its archetypes, since its partner usually bids more than you. Revision 1 adds the four-or-more floor and renames it off "Perfect" (RE-R03 Perfect Throw).
+Deviation:   Family changed from Bid adjustment (raise your bid by two for +1×) to Contract-shape rewards, and timing from When you bid to After bidding: a raise of your own bid costs nothing, because you simply declare two less, so it was the unconditional stat stick again; matching your partner's bid is a cost you can't bid around. Kingmaker dropped from its archetypes, since its partner usually bids more than you. Revision 1 adds the four-or-more floor and renames it off "Perfect" (RE-R03, then named Perfect Throw).
 ```
 
 ## Stained-Glass Church
