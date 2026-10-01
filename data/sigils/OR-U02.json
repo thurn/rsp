@@ -19,8 +19,7 @@
   ],
   "text": "After bidding, you may remove a chosen card from your hand to gain +30 gold.",
   "timing": "After bidding",
-  "prototype": "manual",
-  "prototypeNote": "After bidding, use Remove card on the chosen card and Ledger to gain 30 gold.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after bidding",

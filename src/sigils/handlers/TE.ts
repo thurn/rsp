@@ -1,7 +1,9 @@
 import { type Card, type Seat, HEARTS, JACK, KING, SPADES, nextSeat } from '../../game/cards'
 import { passCards } from '../../game/core'
 import { BLIND_NIL, type GameEvent, isNil } from '../../game/types'
+import { getSigil } from '../registry'
 import type { Ctx, HandlerMap } from './api'
+import * as ai from './ai'
 
 const lowest = (ctx: Ctx, cards: Card[]) =>
   cards.reduce((a, b) => (ctx.rank(b) < ctx.rank(a) ? b : a))
@@ -34,6 +36,15 @@ const extreme = (ctx: Ctx, seat: Seat, high: boolean): Card | null => {
   const r = ctx.rank((high ? highest : lowest)(ctx, hand))
   const tied = hand.filter((c) => ctx.rank(c) === r)
   return tied.length === 1 ? tied[0] : ctx.chooseCard(seat, 'Give which card?', tied, (c) => c[0])
+}
+
+/** Tossed Paper Plane: once its card was thrown off, offer the pass as its trick resolves. */
+const paperPlane = (ctx: Ctx) => {
+  if (!ctx.mem.thrown) return
+  delete ctx.mem.thrown
+  const pick = (cards: Card[]) => (ai.plansNil(ctx) ? highest(ctx, cards) : null)
+  const card = ctx.chooseCard(ctx.seat, 'Pass your partner a card?', ctx.hand(), pick, true)
+  if (card) ctx.pass(ctx.seat, ctx.partner, [card])
 }
 
 /** A partner's nil succeeded this round. */
@@ -321,6 +332,120 @@ export const handlers: HandlerMap = {
     on: {
       youWin: (ctx, e) => heartWin(ctx, e) && ctx.gainContract(10),
       partnerWins: (ctx, e) => heartWin(ctx, e) && ctx.gainContract(10),
+    },
+  },
+
+  // Open Hand: After bidding, swap a card with your partner.
+  'TE-C01': {
+    on: {
+      afterBidding: (ctx) => {
+        const mine = ctx.hand()
+        const theirs = ctx.hand(ctx.partner)
+        if (mine.length === 0 || theirs.length === 0) return
+        const give = (seat: Seat) => (cards: Card[]) =>
+          isNil(ctx.bid(seat)) ? highest(ctx, cards) : lowest(ctx, cards)
+        const a = ctx.chooseCard(ctx.seat, 'Swap which card?', mine, give(ctx.seat))
+        const b = ctx.chooseCard(ctx.partner, 'Swap which card?', theirs, give(ctx.partner))
+        if (a && b) ctx.swap(ctx.seat, [a], ctx.partner, [b])
+      },
+    },
+  },
+  // Sealed Letter: Before bidding, pass a card to your partner.
+  'TE-C02': {
+    on: {
+      beforeBidding: (ctx) => {
+        const hand = ctx.hand()
+        const pick = (cards: Card[]) => {
+          if (ai.plansNil(ctx)) return highest(ctx, cards)
+          const singles = cards.filter((c) => count(cards, c.suit) === 1)
+          return lowest(ctx, singles.length ? singles : cards)
+        }
+        const card = ctx.chooseCard(ctx.seat, 'Pass which card?', hand, pick)
+        if (card) ctx.pass(ctx.seat, ctx.partner, [card])
+      },
+    },
+  },
+  // Two-Way Street: Before bidding, you may swap a chosen card for your partner's highest or
+  // lowest card.
+  'TE-C12': {
+    on: {
+      beforeBidding: (ctx) => {
+        const hand = ctx.hand()
+        if (hand.length === 0 || ctx.hand(ctx.partner).length === 0) return
+        const nil = ai.plansNil(ctx)
+        const partnerNil = ctx.state.players[ctx.partner].sigils.some((o) =>
+          /\bnil\b/i.test(getSigil(o.code)?.text ?? ''),
+        )
+        const pick = (cards: Card[]) =>
+          nil ? highest(ctx, cards) : partnerNil ? lowest(ctx, cards) : null
+        const card = ctx.chooseCard(ctx.seat, 'Swap which card?', hand, pick, true)
+        if (!card) return
+        const high = ctx.choose('Take their highest or lowest?', ['Highest', 'Lowest'], () =>
+          nil ? 1 : 0,
+        )
+        const theirs = extreme(ctx, ctx.partner, high === 0)
+        if (theirs) ctx.swap(ctx.seat, [card], ctx.partner, [theirs])
+      },
+    },
+  },
+  // Tossed Paper Plane: When you throw off this card, you may pass a card to your partner. The
+  // pass happens as the trick resolves.
+  'TE-C14': {
+    on: {
+      throwOff: (ctx) => {
+        if (ctx.isEventCard) ctx.mem.thrown = true
+      },
+      thisCardWins: (ctx) => paperPlane(ctx),
+      thisCardLoses: (ctx) => paperPlane(ctx),
+    },
+  },
+  // Swapped Suitcases: When this card loses a trick, you may swap two cards with your partner.
+  'TE-U02': {
+    on: {
+      thisCardLoses: (ctx) => {
+        const mine = ctx.hand()
+        const theirs = ctx.hand(ctx.partner)
+        const n = Math.min(2, mine.length, theirs.length)
+        if (n === 0) return
+        const nil = isNil(ctx.bid())
+        const partnerNil = isNil(ctx.bid(ctx.partner))
+        const want = () => nil !== partnerNil
+        if (!ctx.confirm('Swap two with your partner?', want, ctx.seat, ['Swap', 'Skip'])) return
+        const give = ai.chooseCards(ctx, ctx.seat, 'Give which card?', mine, n, (c) =>
+          nil ? highest(ctx, c) : lowest(ctx, c),
+        )
+        const get = ai.chooseCards(ctx, ctx.partner, 'Give which card?', theirs, n, (c) =>
+          partnerNil ? highest(ctx, c) : lowest(ctx, c),
+        )
+        ctx.swap(ctx.seat, give, ctx.partner, get)
+      },
+    },
+  },
+  // Mystery Parcel: Before bidding, swap two cards with your partner.
+  'TE-U04': {
+    on: {
+      beforeBidding: (ctx) => {
+        const mine = ctx.hand()
+        const theirs = ctx.hand(ctx.partner)
+        const n = Math.min(2, mine.length, theirs.length)
+        if (n === 0) return
+        const pick = (seat: Seat) => (left: Card[]) => {
+          if (ai.plansNil(ctx, seat)) return highest(ctx, left)
+          const long = ai.longestSuit(ctx.hand(seat))[0]?.suit
+          const rest = left.filter((c) => c.suit !== long)
+          return lowest(ctx, rest.length ? rest : left)
+        }
+        const give = ai.chooseCards(ctx, ctx.seat, 'Give which card?', mine, n, pick(ctx.seat))
+        const get = ai.chooseCards(
+          ctx,
+          ctx.partner,
+          'Give which card?',
+          theirs,
+          n,
+          pick(ctx.partner),
+        )
+        ctx.swap(ctx.seat, give, ctx.partner, get)
+      },
     },
   },
 }

@@ -1,6 +1,7 @@
 import { type Card, type Suit, CLUBS, DIAMONDS, HEARTS, SPADES, SUITS } from '../../game/cards'
 import { type GameEvent, isNil } from '../../game/types'
 import type { Ctx, HandlerMap } from './api'
+import * as ai from './ai'
 
 const count = (cards: Card[], suit: number) => cards.filter((c) => c.suit === suit).length
 
@@ -317,6 +318,51 @@ export const handlers: HandlerMap = {
           SUITS.reduce((a, b) => (top(b) - low(b) > top(a) - low(a) ? b : a), SUITS[0])
         const suit = ctx.choose('Create a two of which suit?', ['♣', '♦', '♥', '♠'], ai) as Suit
         ctx.createCard(ctx.seat, suit, 2)
+      },
+    },
+  },
+
+  // Turning Tide: Before bidding, convert two chosen cards in your hand to diamonds.
+  'GR-C08': {
+    on: {
+      beforeBidding: (ctx) => {
+        const pick = (left: Card[]) => {
+          const short = ai.shortestSuit(left, DIAMONDS)
+          return ai.lowest(ctx, short.length ? short : left)
+        }
+        const cards = ai.chooseCards(ctx, ctx.seat, 'Make which card a ♦?', ctx.hand(), 2, pick)
+        for (const c of cards) ctx.setSuit(c, DIAMONDS)
+      },
+    },
+  },
+  // Molting Feather: Before bidding, you may remove a chosen card from your hand.
+  'GR-C11': {
+    on: {
+      beforeBidding: (ctx) => {
+        const hand = ctx.hand()
+        const pick = () => {
+          if (ai.plansNil(ctx)) return ai.highest(ctx, hand)
+          const singles = hand.filter((c) => c.suit !== SPADES && ai.count(hand, c.suit) === 1)
+          return singles.length ? ai.lowest(ctx, singles) : null
+        }
+        const card = ctx.chooseCard(ctx.seat, 'Remove which card?', hand, pick, true)
+        if (card) ctx.removeCard(card)
+      },
+    },
+  },
+  // Bristling Cactus: After bidding, convert a chosen card in your hand to a spade.
+  'GR-C14': {
+    on: {
+      afterBidding: (ctx) => {
+        const hand = ctx.hand()
+        const side = hand.filter((c) => c.suit !== SPADES)
+        const pick = () => {
+          if (ai.plansNil(ctx)) return ai.lowest(ctx, side)
+          const singles = side.filter((c) => ai.count(hand, c.suit) === 1)
+          return ai.highest(ctx, singles.length ? singles : ai.shortestSuit(side))
+        }
+        const card = ctx.chooseCard(ctx.seat, 'Make which card a ♠?', side, pick)
+        if (card) ctx.setSuit(card, SPADES)
       },
     },
   },

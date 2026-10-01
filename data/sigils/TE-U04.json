@@ -23,8 +23,7 @@
   ],
   "text": "Before bidding, swap two cards with your partner.",
   "timing": "Before bidding",
-  "prototype": "manual",
-  "prototypeNote": "Before bidding, use Move card to swap two cards with your partner.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before bidding",

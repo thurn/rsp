@@ -1,7 +1,18 @@
-import { type Card, type Seat, ACE, KING, SPADES, nextSeat, seatsFrom } from '../../game/cards'
+import {
+  type Card,
+  type Seat,
+  ACE,
+  HEARTS,
+  KING,
+  SPADES,
+  nextSeat,
+  seatsFrom,
+} from '../../game/cards'
+import { winningIndex } from '../../game/rules'
 import { SEAT_NAMES } from '../../components/seats'
 import { isNil } from '../../game/types'
 import type { Ctx, HandlerMap } from './api'
+import * as ai from './ai'
 
 const highest = (ctx: Ctx, cards: Card[]) =>
   cards.reduce((a, b) => (ctx.rank(b) > ctx.rank(a) ? b : a))
@@ -241,6 +252,79 @@ export const handlers: HandlerMap = {
         const labels = seats.map((s) => SEAT_NAMES[s])
         const i = ctx.choose('Who leads the first trick?', labels, ai)
         ctx.setLeader(seats[i])
+      },
+    },
+  },
+
+  // Rosy Champagne: Before bidding, two chosen hearts in your hand gain 2 rank.
+  'RE-C14': {
+    on: {
+      beforeBidding: (ctx) => {
+        const hearts = ctx.hand().filter((c) => c.suit === HEARTS)
+        const nil = ai.plansNil(ctx)
+        const pick = (left: Card[]) => {
+          if (nil) return ai.lowest(ctx, left)
+          const below = left.filter((c) => ctx.rank(c) < ACE)
+          return ai.highest(ctx, below.length ? below : left)
+        }
+        const cards = ai.chooseCards(ctx, ctx.seat, 'Raise which heart?', hearts, 2, pick)
+        for (const c of cards) ctx.modRank(c, 2)
+      },
+    },
+  },
+  // Kindled Bonfire: When you play this card, you may remove a chosen card from your hand; if you
+  // do, this card gains 3 rank.
+  'RE-U02': {
+    on: {
+      played: (ctx) => {
+        const me = ctx.card
+        if (!ctx.isEventCard || !me) return
+        const hand = ctx.hand()
+        const s = ctx.state
+        const boosted = ctx.rank(me) + 3
+        const worth = () => {
+          if (ai.plansNil(ctx)) return false
+          if (s.trick.length === 1) {
+            // Leading: every higher card of the suit is played or ours.
+            const gone = [...s.history.flatMap((h) => h.plays.map((p) => p.card)), ...hand]
+            const out = (r: number) => gone.some((c) => c.suit === me.suit && ctx.rank(c) === r)
+            return (
+              boosted <= ACE && [...Array(ACE - boosted).keys()].every((i) => out(boosted + 1 + i))
+            )
+          }
+          if (s.trick.length < 4) return false
+          const top = s.trick[winningIndex(s)].card
+          return top !== me && top.suit === me.suit && boosted > ctx.rank(top)
+        }
+        const pick = () => {
+          if (!worth()) return null
+          const long = ai.longestSuit(hand, SPADES)
+          return ai.lowest(ctx, long.length ? long : hand)
+        }
+        const card = ctx.chooseCard(ctx.seat, 'Burn which card?', hand, pick, true)
+        if (!card) return
+        ctx.removeCard(card)
+        ctx.modRank(me, 3)
+      },
+    },
+  },
+  // Shining Medal: Before bidding, reveal a chosen card in your hand; your revealed cards gain 4
+  // rank.
+  'RE-U12': {
+    rankBonus: (ctx, card) => (card.revealed && ctx.holder(card) === ctx.seat ? 4 : 0),
+    on: {
+      beforeBidding: (ctx) => {
+        const hand = ctx.hand()
+        const pick = () => {
+          if (ai.plansNil(ctx)) return ai.lowest(ctx, hand)
+          const side = ai.longestSuit(
+            hand.filter((c) => ctx.rank(c) < ACE),
+            SPADES,
+          )
+          return ai.highest(ctx, side.length ? side : hand)
+        }
+        const card = ctx.chooseCard(ctx.seat, 'Reveal which card?', hand, pick)
+        if (card) ctx.reveal(card)
       },
     },
   },

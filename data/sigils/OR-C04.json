@@ -23,8 +23,7 @@
   ],
   "text": "After bidding, you may pay 30 gold to turn a chosen card in your hand into an ace or a two.",
   "timing": "After bidding",
-  "prototype": "manual",
-  "prototypeNote": "After bidding, use Ledger to pay 30 gold and Edit card to turn the chosen card into an ace or a two.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after bidding",

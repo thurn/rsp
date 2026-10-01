@@ -23,8 +23,7 @@
   ],
   "text": "When you throw off this card, you may pass a card to your partner.",
   "timing": "When you throw off a card (card-bound)",
-  "prototype": "manual",
-  "prototypeNote": "When you throw off this card, use Move card to pass the chosen card to your partner.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you discard this card",

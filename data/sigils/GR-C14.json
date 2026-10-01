@@ -23,8 +23,7 @@
   ],
   "text": "After bidding, convert a chosen card in your hand to a spade.",
   "timing": "After bidding",
-  "prototype": "manual",
-  "prototypeNote": "After bidding, use Edit card to convert the chosen card to a spade.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after bidding",

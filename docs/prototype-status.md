@@ -57,6 +57,14 @@ Updated at the end of each phase of [prototype-plan.md](prototype-plan.md).
 - AI seats now use sigil-lowered blind nil thresholds (Night Owl) and bid blind nil 40% of the time once eligible and 100 behind.
 - In-play exchanges that a trigger grants mid-trick (Barter Bridge) wait for the trick to end, per the rules on between-trick exchanges.
 - A trick whose winning card is rerouted (Missing Signature, Forgiving Scripture) still fires "you win" for the seat whose card won; only the trick count moves.
+- Full automation (hv-frfo.2), the 21 sigils that use existing primitives:
+  - Kindled Bonfire's card gains the rules text's 3 rank.
+  - Shining Medal's +4 applies to its owner's revealed cards in hand and after they are played.
+  - Tossed Paper Plane marks its card when thrown off and offers the pass as that trick resolves; Swapped Suitcases swaps as its trick resolves.
+  - Two-cards-each exchanges (Mystery Parcel, Swapped Suitcases) shrink to one each when a hand holds only one card.
+  - Spendthrift's Wallet offers 0, 25, 50, 75, or 100 gold, capped by the gold held.
+  - Turning Tide, Waning Moon, Rosy Champagne, and Spare Moustache pick their two cards one prompt at a time.
+  - Prompt AI answers share `src/sigils/handlers/ai.ts` (`plansNil`, `estimate`, suit-length helpers, `chooseCards`). Rosy Champagne's and Two-Way Street's `aiNote` texts were rewritten to match their answers.
 
 ## New `RoundFlags` fields and `Ctx` primitives
 
@@ -136,6 +144,15 @@ Recorded for later:
 - `--plain` empties the sigil library for the run, so its shops have no offers and its gold column only reflects income.
 - The plain missed-cover baseline is 0 of 35, so the "≤ 50% of baseline" target in Part 3 holds only at zero.
 - `--all-sigils --min-per-sigil 1 --human 0 --iterations 100` covered all 250 sigils in 8 games with no errors, runaway drains, or stalls, and logged 247 `manual` lines from the 32 sigils still manual.
+
+### Sigil automation runs
+
+`scripts/ai-bench --give CODE,…` gives every seat the listed sigils and reports how many log lines each one wrote.
+
+| Step | Check | Result |
+| --- | --- | --- |
+| hv-frfo.2 | 21 sigils, `--plain --give` in two batches, 13 rounds, AI seats and `--human 0` | Every sigil fired; 0 errors, runaway drains, and stalls |
+| hv-frfo.2 | `--all-sigils --iterations 100`, with and without `--human 0` | 24 games each; 0 errors, runaway drains, and stalls; 344 and 257 `manual` lines from the 11 sigils still manual |
 
 ## Action items
 

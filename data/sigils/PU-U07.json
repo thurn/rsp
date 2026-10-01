@@ -23,8 +23,7 @@
   ],
   "text": "After bidding, if your partner bid nil, your partner chooses two cards in their hand to lose 4 rank.",
   "timing": "After bidding",
-  "prototype": "manual",
-  "prototypeNote": "After bidding, if your partner bid nil, use Edit card to give two of your partner's cards -4 rank.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after bidding, partner on nil",

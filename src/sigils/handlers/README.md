@@ -199,6 +199,11 @@ ctx.chooseCard(ctx.seat, 'Give which card?', ctx.hand(), (c) => lowest(ctx, c))
 ctx.confirm('Pay 20 gold?', () => ctx.state.players[ctx.seat].gold >= 60)
 ```
 
+Shared answer helpers live in [ai.ts](ai.ts): `plansNil(ctx, seat?)` (the seat bid
+nil, or its hand looks like one before bidding), `estimate`, `shortestSuit`,
+`longestSuit`, `lowest`, `highest`, and `chooseCards` (pick several cards one
+prompt at a time). Import them as `import * as ai from './ai'`.
+
 Information effects (reveals, counts) go through `tell` and `reveal`; the AI
 ignores them.
 

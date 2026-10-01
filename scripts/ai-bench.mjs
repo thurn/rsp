@@ -2,12 +2,13 @@
 import { createServer } from 'vite'
 
 const USAGE = `scripts/ai-bench [--plain | --random-sigils N | --all-sigils [--min-per-sigil 3]]
-  [--human 0] [--games N] [--rounds N] [--think MS | --iterations N] [--seed N] [--json]`
+  [--give CODE,CODE] [--human 0] [--games N] [--rounds N] [--think MS | --iterations N] [--seed N] [--json]`
 
 const o = {
   mode: 'plain',
   randomSigils: 0,
   minPerSigil: 3,
+  give: [],
   human: null,
   games: Infinity,
   rounds: Infinity,
@@ -29,6 +30,7 @@ while (args.length) {
   else if (a === '--all-sigils') o.mode = 'all'
   else if (a === '--min-per-sigil') o.minPerSigil = num(a)
   else if (a === '--human') o.human = num(a)
+  else if (a === '--give') o.give = (args.shift() ?? '').toUpperCase().split(',').filter(Boolean)
   else if (a === '--games') o.games = num(a)
   else if (a === '--rounds') o.rounds = num(a)
   else if (a === '--think') o.think = num(a)
@@ -91,6 +93,7 @@ function print({ options, metrics: m, notes }) {
   ]
   const w = Math.max(...rows.map((r) => r[0].length))
   for (const [k, v] of rows) console.log(`${k.padEnd(w)}  ${v}`)
+  for (const c of options.give) console.log(`fired ${c}: ${m.fired[c] ?? 0}`)
   for (const e of m.errorSamples) console.log(`\nerror: ${e}`)
   for (const n of notes) console.log(`note: ${n}`)
 }

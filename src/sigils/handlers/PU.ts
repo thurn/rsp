@@ -3,6 +3,7 @@ import { SEAT_NAMES } from '../../game/core'
 import { BLIND_NIL_DEFICIT, winningIndex } from '../../game/rules'
 import { type GameEvent, BLIND_NIL, isNil } from '../../game/types'
 import type { Ctx, HandlerMap } from './api'
+import * as ai from './ai'
 
 const highest = (ctx: Ctx, cards: Card[]) =>
   cards.reduce((a, b) => (ctx.rank(b) > ctx.rank(a) ? b : a))
@@ -324,6 +325,34 @@ export const handlers: HandlerMap = {
         const names = ctx.opponents.map((op) => SEAT_NAMES[op])
         const i = ctx.choose('Sink which opponent?', names, () => (top(b) > top(a) ? 1 : 0))
         lowerHighest(ctx, ctx.opponents[i], 4)
+      },
+    },
+  },
+
+  // Waning Moon: After bidding, two chosen cards in your hand lose 3 rank.
+  'PU-C01': {
+    on: {
+      afterBidding: (ctx) => {
+        const nil = ai.plansNil(ctx)
+        const pick = (left: Card[]) =>
+          nil ? ai.highest(ctx, ai.shortestSuit(left)) : ai.lowest(ctx, left)
+        const cards = ai.chooseCards(ctx, ctx.seat, 'Lower which card?', ctx.hand(), 2, pick)
+        for (const c of cards) ctx.modRank(c, -3)
+      },
+    },
+  },
+  // Spare Moustache: After bidding, if your partner bid nil, your partner chooses two cards in
+  // their hand to lose 4 rank.
+  'PU-U07': {
+    on: {
+      afterBidding: (ctx) => {
+        if (!isNil(ctx.bid(ctx.partner))) return
+        const hand = ctx.hand(ctx.partner)
+        const danger = (c: Card) =>
+          ctx.rank(c) + (c.suit === SPADES ? 2 : 0) - ai.count(hand, c.suit) / 4
+        const pick = (left: Card[]) => left.reduce((a, b) => (danger(b) > danger(a) ? b : a))
+        const cards = ai.chooseCards(ctx, ctx.partner, 'Lower which card?', hand, 2, pick)
+        for (const c of cards) ctx.modRank(c, -4)
       },
     },
   },

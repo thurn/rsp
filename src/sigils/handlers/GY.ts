@@ -14,6 +14,7 @@ import { type OwnedSigil, isNil } from '../../game/types'
 import { SIGILS, getSigil, isAutomated, isEngraving } from '../registry'
 import { HANDLERS } from '.'
 import type { Ctx, HandlerMap } from './api'
+import * as ai from './ai'
 
 const count = (cards: Card[], suit: number) => cards.filter((c) => c.suit === suit).length
 const lowest = (ctx: Ctx, cards: Card[]) =>
@@ -523,6 +524,53 @@ export const handlers: HandlerMap = {
   'GY-U16': {
     score: (ctx) => {
       if (colors(ctx.state.players[ctx.owner].sigils).size >= 3) ctx.gainContract(20)
+    },
+  },
+
+  // Tasting Spoon: Before bidding, create three random cards. You may turn a chosen card in your
+  // hand into one of them.
+  'GY-C09': {
+    on: {
+      beforeBidding: (ctx) => {
+        const hand = ctx.hand()
+        if (hand.length === 0) return
+        const offers = [0, 1, 2].map(() => ({ suit: randomSuit(ctx), rank: randomRank(ctx) }))
+        const nil = ai.plansNil(ctx)
+        const short = ai.shortestSuit(hand, SPADES)
+        const target = () =>
+          nil ? ai.highest(ctx, hand) : ai.lowest(ctx, short.length ? short : hand)
+        const pickOffer = () => {
+          const worth = (i: number) => offers[i].rank + (offers[i].suit === SPADES ? 0.5 : 0)
+          const best = [1, 2].reduce(
+            (a, i) => ((nil ? worth(i) < worth(a) : worth(i) > worth(a)) ? i : a),
+            0,
+          )
+          const t = ctx.rank(target())
+          return (nil ? offers[best].rank < t : offers[best].rank > t) ? best : 3
+        }
+        const labels = [...offers.map(viewLabel), 'Skip']
+        const i = ctx.choose('Take which card?', labels, pickOffer)
+        if (i >= offers.length) return
+        const card = ctx.chooseCard(ctx.seat, 'Replace which card?', hand, target)
+        if (!card) return
+        ctx.setSuit(card, offers[i].suit)
+        ctx.setRank(card, offers[i].rank)
+      },
+    },
+  },
+  // Field First Aid: Before bidding, if you hold no aces, you may turn a chosen card in your hand
+  // into an ace.
+  'GY-U08': {
+    on: {
+      beforeBidding: (ctx) => {
+        const hand = ctx.hand()
+        if (hand.some((c) => ctx.rank(c) === ACE)) return
+        const spades = hand.filter((c) => c.suit === SPADES)
+        const pick = () =>
+          ai.plansNil(ctx) ? null : ai.lowest(ctx, spades.length ? spades : ai.longestSuit(hand))
+        const card = ctx.chooseCard(ctx.seat, 'Make which card an ace?', hand, pick, true)
+        if (card) ctx.setRank(card, ACE)
+      },
     },
   },
 }

@@ -1,8 +1,9 @@
-import { type Card, type Suit, ACE, JACK, SUIT_SYMBOLS, rankLabel } from '../../game/cards'
+import { type Card, type Suit, ACE, JACK, SUITS, SUIT_SYMBOLS, rankLabel } from '../../game/cards'
 import { emit } from '../../game/core'
-import { bidOptions, canBlindNil, teamBid } from '../../game/rules'
+import { ROUNDS, WINNING_SCORE, bidOptions, canBlindNil, teamBid } from '../../game/rules'
 import { BLIND_NIL, isNil } from '../../game/types'
 import type { Ctx, HandlerMap } from './api'
+import * as ai from './ai'
 
 const DIAMONDS = 1
 const SPADES = 3
@@ -278,6 +279,98 @@ export const handlers: HandlerMap = {
         const up = ctx.confirm('Raise or lower?', () => !nil, ctx.seat, ['Raise', 'Lower'])
         ctx.gainPoints(-20)
         for (const c of hand.filter((c) => c.suit === suit)) ctx.modRank(c, up ? 4 : -4)
+      },
+    },
+  },
+
+  // Steep Price: After bidding, you may pay 30 gold to turn a chosen card in your hand into an ace
+  // or a two.
+  'OR-C04': {
+    on: {
+      afterBidding: (ctx) => {
+        const hand = ctx.hand()
+        if (hand.length === 0 || gold(ctx) < 30) return
+        const nil = ai.plansNil(ctx)
+        const short = !nil && ai.estimate(ctx, hand) < (ctx.bid() ?? 0)
+        const want = () => gold(ctx) >= 80 && (nil || short)
+        if (!ctx.confirm('Pay 30 gold?', want, ctx.seat, ['Pay', 'Skip'])) return
+        const pick = () => {
+          if (nil) return ai.highest(ctx, hand)
+          const side = ai.longestSuit(
+            hand.filter((c) => ctx.rank(c) < ACE),
+            SPADES,
+          )
+          return ai.highest(ctx, side.length ? side : hand)
+        }
+        const card = ctx.chooseCard(ctx.seat, 'Change which card?', hand, pick)
+        if (!card) return
+        const ace = ctx.choose('Ace or two?', ['Ace', 'Two'], () => (nil ? 1 : 0)) === 0
+        ctx.gainGold(-30)
+        ctx.setRank(card, ace ? ACE : 2)
+      },
+    },
+  },
+  // Fortune Cookie: When you play this card, you may turn a chosen card in your hand into a random
+  // card.
+  'OR-C05': {
+    on: {
+      played: (ctx) => {
+        if (!ctx.isEventCard) return
+        const hand = ctx.hand()
+        const pick = () => {
+          if (ai.plansNil(ctx)) {
+            const top = ai.highest(ctx, hand)
+            return ctx.rank(top) >= JACK ? top : null
+          }
+          const side = hand.filter((c) => c.suit !== SPADES)
+          return side.length ? ai.lowest(ctx, side) : null
+        }
+        const card = ctx.chooseCard(ctx.seat, 'Randomize which card?', hand, pick, true)
+        if (!card) return
+        ctx.setSuit(card, SUITS[Math.floor(ctx.rand() * 4)])
+        ctx.setRank(card, 2 + Math.floor(ctx.rand() * 13))
+      },
+    },
+  },
+  // Spendthrift's Wallet: After scoring, you may pay up to 100 gold, and your team gains that many
+  // points.
+  'OR-R03': {
+    on: {
+      afterScoring: (ctx) => {
+        const s = ctx.state
+        const have = gold(ctx)
+        const amounts = [0, 25, 50, 75, 100].filter((n) => n <= have)
+        if (amounts.length < 2) return
+        const want = () => {
+          if (s.round >= ROUNDS || s.scores[ctx.team] + 100 >= WINNING_SCORE) return 100
+          if (s.round < 8) return 0
+          const pyramid = s.players[ctx.seat].sigils.some((o) => o.code === 'DU-S07')
+          return have - (pyramid ? 500 : 250)
+        }
+        const most = () => Math.max(0, amounts.filter((n) => n <= want()).length - 1)
+        const labels = amounts.map((n) => (n ? `${n}` : 'None'))
+        const n = amounts[ctx.choose('Pay how much gold?', labels, most)]
+        if (n === 0) return
+        ctx.gainGold(-n)
+        ctx.gainPoints(n)
+      },
+    },
+  },
+  // Folded Banknote: After bidding, you may remove a chosen card from your hand to gain +30 gold.
+  'OR-U02': {
+    on: {
+      afterBidding: (ctx) => {
+        const hand = ctx.hand()
+        const pick = () => {
+          if (ai.plansNil(ctx)) return ai.highest(ctx, hand)
+          const side = hand.filter((c) => c.suit !== SPADES)
+          const spare = side.filter((c) => ai.count(hand, c.suit) > 1)
+          return ai.lowest(ctx, spare.length ? spare : side.length ? side : hand)
+        }
+        const card = ctx.chooseCard(ctx.seat, 'Remove which card?', hand, pick, true)
+        if (!card) return
+        ctx.removeCard(card)
+        ctx.gainGold(30)
       },
     },
   },

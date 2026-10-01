@@ -9,6 +9,7 @@ import {
 } from '../../game/cards'
 import { isNil } from '../../game/types'
 import type { Ctx, HandlerMap } from './api'
+import * as ai from './ai'
 
 const HEARTS = 2
 const NAMES = ['You', 'Nova', 'Sage', 'Rook']
@@ -323,6 +324,28 @@ export const handlers: HandlerMap = {
         if (led === HEARTS && trumped && ours && t.plays[t.winIndex].card.suit === HEARTS) {
           ctx.note('hearts hold')
         }
+      },
+    },
+  },
+
+  // Tipping Scales: After bidding, choose a card in your hand to gain 3 rank or lose 3 rank.
+  'BL-C04': {
+    on: {
+      afterBidding: (ctx) => {
+        const hand = ctx.hand()
+        const nil = ai.plansNil(ctx)
+        const pick = () => {
+          if (nil) return ai.highest(ctx, hand)
+          const side = ai.longestSuit(
+            hand.filter((c) => ctx.rank(c) < ACE),
+            SPADES,
+          )
+          return ai.highest(ctx, side.length ? side : hand)
+        }
+        const card = ctx.chooseCard(ctx.seat, 'Shift which card?', hand, pick)
+        if (!card) return
+        const up = ctx.choose('Raise or lower?', ['Raise', 'Lower'], () => (nil ? 1 : 0)) === 0
+        ctx.modRank(card, up ? 3 : -3)
       },
     },
   },

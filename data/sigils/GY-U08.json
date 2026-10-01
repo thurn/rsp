@@ -23,8 +23,7 @@
   ],
   "text": "Before bidding, if you hold no aces, you may turn a chosen card in your hand into an ace.",
   "timing": "Before bidding",
-  "prototype": "manual",
-  "prototypeNote": "Before bidding, if you hold no aces, use Edit card to turn the chosen card into an ace.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before bidding, no aces",

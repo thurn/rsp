@@ -14,6 +14,8 @@ export interface BenchOptions {
   mode: 'plain' | 'random' | 'all'
   randomSigils: number
   minPerSigil: number
+  /** Sigils every seat also starts with. */
+  give: string[]
   human: Seat | null
   games: number
   rounds: number
@@ -57,6 +59,8 @@ function newStats() {
     endSeats: 0,
     rerolls: 0,
     sales: {} as Record<string, number>,
+    /** Log lines per sigil code. */
+    fired: {} as Record<string, number>,
     errors: 0,
     errorSamples: [] as string[],
     manual: 0,
@@ -242,6 +246,7 @@ function playGame(st: Stats, o: BenchOptions, give: string[][], logLines: string
     for (const line of s.log) {
       if (line.id <= lastLog) continue
       if (line.text === 'manual') st.manual++
+      if (line.source) st.fired[line.source] = (st.fired[line.source] ?? 0) + 1
       if (line.text.includes(' rerolls ')) st.rerolls++
       if (line.text.includes(' sells ') && line.source)
         st.sales[line.source] = (st.sales[line.source] ?? 0) + 1
@@ -311,15 +316,20 @@ export function runBench(o: BenchOptions) {
     if (text.includes('drain: too many steps')) st.runaways++
     if (st.errorSamples.length < 5) st.errorSamples.push(text.slice(0, 400))
   }
-  // Plain Spades: an empty library leaves the shops with nothing to offer.
+  // Plain Spades: an empty library (bar --give) leaves the shops with nothing new to offer.
   const library = { ...SIGILS }
-  if (o.mode === 'plain') for (const code in SIGILS) delete SIGILS[code]
+  if (o.mode === 'plain') for (const code in SIGILS) if (!o.give.includes(code)) delete SIGILS[code]
   const start = performance.now()
   try {
     const fixed = o.mode === 'all' ? allSigilsGames(o.minPerSigil) : null
     const games = fixed ? fixed.length : o.games
     for (let g = 0; g < games && st.rounds < o.rounds; g++) {
-      const give = fixed ? fixed[g] : o.mode === 'random' ? randomGive(o.randomSigils) : []
+      const give = fixed
+        ? fixed[g]
+        : o.mode === 'random'
+          ? randomGive(o.randomSigils)
+          : [[], [], [], []]
+      for (const list of give) for (const c of o.give) if (!list.includes(c)) list.push(c)
       playGame(st, o, give, notes)
     }
   } finally {
@@ -358,6 +368,7 @@ function summarize(st: Stats) {
     goldUnspentAtEnd: pct(st.goldUnspent, st.endSeats),
     rerolls: st.rerolls,
     sales: Object.fromEntries(sales),
+    fired: st.fired,
     errors: st.errors,
     errorSamples: st.errorSamples,
     manualLines: st.manual,

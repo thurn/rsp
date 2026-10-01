@@ -23,8 +23,7 @@
   ],
   "text": "Before bidding, reveal a chosen card in your hand; your revealed cards gain 4 rank.",
   "timing": "Before bidding",
-  "prototype": "manual",
-  "prototypeNote": "Before bidding, use Reveal card on the chosen card, then Edit card to give each of your revealed cards 4 rank.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before bidding",

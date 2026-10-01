@@ -14,8 +14,7 @@
   "iconAlternates": [],
   "text": "Before bidding, convert two chosen cards in your hand to diamonds.",
   "timing": "Before bidding",
-  "prototype": "manual",
-  "prototypeNote": "Before bidding, use Edit card to convert the two chosen cards to diamonds.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before bidding",

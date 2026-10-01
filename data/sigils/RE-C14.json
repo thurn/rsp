@@ -23,8 +23,7 @@
   ],
   "text": "Before bidding, two chosen hearts in your hand gain 2 rank.",
   "timing": "Before bidding",
-  "prototype": "manual",
-  "prototypeNote": "Before bidding, use Edit card to give the two chosen hearts 2 rank.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before bidding",
@@ -39,7 +38,7 @@
   "role": "Enabler",
   "decision": "Which two hearts to raise: the ones Unfolding Butterfly will lift further, or the ones you plan to pass to your partner.",
   "opponent": "Visible before bids; opponents bid knowing which cards grew.",
-  "aiNote": "Raise the two highest hearts or diamonds below ace in your longer of the two suits.",
+  "aiNote": "Raise your two highest hearts below ace; when planning nil, raise your two lowest hearts.",
   "rationale": "A Red splash that makes the flood or chorus suit win its early contests, the answer both archetypes list to opponents holding the top cards; +2 on two cards keeps it close to Honed Edge's total value.",
   "deviation": "Narrowed from hearts or diamonds to hearts, so it serves one archetype."
 }
