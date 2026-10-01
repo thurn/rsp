@@ -22,6 +22,7 @@
   ],
   "text": "Gain +10 contract value for each contract your team has made in a row, up to +30.",
   "timing": "Always on, for you (the streak updates after scoring)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always",

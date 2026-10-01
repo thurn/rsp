@@ -22,6 +22,7 @@
   ],
   "text": "After bidding, convert this card to a chosen suit.",
   "timing": "After bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after bidding",

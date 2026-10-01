@@ -22,6 +22,7 @@
   ],
   "text": "Gain +15 contract value for each bag the opponents take in a round.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring",

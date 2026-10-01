@@ -22,6 +22,7 @@
   ],
   "text": "While this card is in your hand, gain +5 contract value after each trick.",
   "timing": "While in hand",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after each trick while this card is in your hand",

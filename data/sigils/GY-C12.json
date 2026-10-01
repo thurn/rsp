@@ -22,6 +22,7 @@
   ],
   "text": "When you play this card, look at two random cards and create one of them in your hand.",
   "timing": "When played",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "when played",

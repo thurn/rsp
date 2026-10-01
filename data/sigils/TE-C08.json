@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you pass or swap the last card of a suit in your hand, gain +10 contract value.",
   "timing": "When you pass or swap cards",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you pass cards",

@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you win a trick your partner played a face card to, gain +15 contract value.",
   "timing": "When you win any trick",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you win a trick",

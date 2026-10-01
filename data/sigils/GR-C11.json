@@ -22,6 +22,8 @@
   ],
   "text": "Before bidding, you may remove a chosen card from your hand.",
   "timing": "Before bidding",
+  "prototype": "manual",
+  "prototypeNote": "Before bidding, use Remove card on the chosen card.",
   "signature": [
     {
       "trigger": "before bidding",

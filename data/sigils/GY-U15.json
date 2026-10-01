@@ -22,6 +22,7 @@
   ],
   "text": "Gain +10 contract value for each resonance that both you and your partner have sigils of.",
   "timing": "Always on, for you",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always",

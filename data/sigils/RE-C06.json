@@ -22,6 +22,7 @@
   ],
   "text": "When you bid 5 or more, gain +25 contract value.",
   "timing": "When you bid",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "when you bid, bid 5+",

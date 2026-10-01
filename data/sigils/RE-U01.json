@@ -22,6 +22,7 @@
   ],
   "text": "Spades can be led at any time.",
   "timing": "Always on, all players",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always",

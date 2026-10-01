@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you play a card that doesn't match the suit led, if your team is behind on points, gain +15 nil value.",
   "timing": "When you play another suit",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you play another suit, team behind",

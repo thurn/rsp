@@ -23,6 +23,7 @@
   ],
   "text": "Whenever your partner wins a trick with a card that came from your hand, gain +20 contract value.",
   "timing": "When your partner wins a trick",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "partner wins a trick",

@@ -22,6 +22,7 @@
   ],
   "text": "Before bidding, reveal two random cards in each opponent's hand.",
   "timing": "Before bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before bidding",

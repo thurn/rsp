@@ -22,6 +22,8 @@
   ],
   "text": "You may play your aces as twos.",
   "timing": "Always on, for you",
+  "prototype": "manual",
+  "prototypeNote": "Before you play an ace as a two, use Edit card to set its rank to 2.",
   "signature": [
     {
       "trigger": "always",

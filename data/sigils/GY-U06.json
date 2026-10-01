@@ -22,6 +22,7 @@
   ],
   "text": "Before bidding, each opponent reveals a random sigil they own, and you choose one for this card to copy for the round.",
   "timing": "Before bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before bidding",

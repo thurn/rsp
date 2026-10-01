@@ -22,6 +22,7 @@
   ],
   "text": "When you sell this sigil, the next sigil you buy is free.",
   "timing": "When sold",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "when sold",

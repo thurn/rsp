@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you play a card that came from another player's hand, gain +10 contract value.",
   "timing": "When played (any card you received)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you play a card passed to you",

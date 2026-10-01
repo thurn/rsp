@@ -22,6 +22,8 @@
   ],
   "text": "After bidding, you may swap the sigils on a chosen card in your hand and a card your partner chooses from theirs.",
   "timing": "After bidding",
+  "prototype": "manual",
+  "prototypeNote": "After bidding, use Engrave to swap the sigils on your chosen card and your partner's chosen card.",
   "signature": [
     {
       "trigger": "after bidding",

@@ -19,6 +19,10 @@ export type Sigil = {
   iconAlternates: { name: string; icon: string }[]
   text: string
   timing: string
+  /** Whether the web prototype resolves this sigil's effect or playtesters fake it with sandbox tools. */
+  prototype: Prototype
+  /** For manual sigils, how to fake the effect with sandbox tools. */
+  prototypeNote?: string
   signature: Clause[]
   archetypes: string
   family: string
@@ -33,6 +37,8 @@ export type Sigil = {
 
 export const RESONANCES = ['Red', 'Orange', 'Green', 'Blue', 'Teal', 'Purple', 'Gray'] as const
 export const RARITIES = ['Common', 'Uncommon', 'Rare'] as const
+export const PROTOTYPES = ['automated', 'manual'] as const
+export type Prototype = (typeof PROTOTYPES)[number]
 
 const PREFIX_ORDER = ['RE', 'OR', 'GR', 'BL', 'TE', 'PU', 'GY', 'DU']
 const RARITY_ORDER = ['C', 'U', 'S', 'R']

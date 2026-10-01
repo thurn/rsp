@@ -22,6 +22,7 @@
   ],
   "text": "After bidding, learn how many cards of each suit a chosen opponent has.",
   "timing": "After bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after bidding",

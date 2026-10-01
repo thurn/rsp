@@ -22,6 +22,7 @@
   ],
   "text": "When this card wins a trick, you may have your partner lead the next trick.",
   "timing": "When this card wins",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "this card wins",

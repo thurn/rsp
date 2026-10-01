@@ -22,6 +22,7 @@
   ],
   "text": "If your nil succeeds, gain +40 gold, or +80 if it was blind.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring, your nil made",

@@ -13,6 +13,7 @@
   "iconAlternates": [],
   "text": "While this card is in your hand, your hearts gain +2 rank.",
   "timing": "While in hand",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "while held",

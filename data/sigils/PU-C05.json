@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you throw off a card, your highest card loses 3 rank.",
   "timing": "When you throw off a card",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you discard",

@@ -22,6 +22,7 @@
   ],
   "text": "If your team makes its contract while taking 4 or fewer tricks, gain +1× contract multiplier.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring, contract made with 4 or fewer tricks",

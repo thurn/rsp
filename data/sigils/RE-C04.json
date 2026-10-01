@@ -22,6 +22,7 @@
   ],
   "text": "When you lead with this card, it gains +5 rank.",
   "timing": "When led",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "when led",

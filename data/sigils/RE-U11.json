@@ -22,6 +22,7 @@
   ],
   "text": "After bidding, choose who leads the first trick.",
   "timing": "After bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after bidding",

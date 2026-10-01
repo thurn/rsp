@@ -72,8 +72,10 @@ export function sigilApi(): Plugin {
             const data = JSON.parse(await readBody(req))
             if (data.code !== sigil[1]) return send(400, { error: 'code mismatch' })
             const file = path.join(dataDir, `${sigil[1]}.json`)
+            // Merge onto the file so a stale editor tab keeps fields added on disk since it loaded.
+            const existing = JSON.parse(await readFile(file, 'utf8').catch(() => '{}'))
             const tmp = `${file}.tmp`
-            await writeFile(tmp, JSON.stringify(data, null, 2) + '\n')
+            await writeFile(tmp, JSON.stringify({ ...existing, ...data }, null, 2) + '\n')
             await rename(tmp, file)
             return send(200, { ok: true })
           }

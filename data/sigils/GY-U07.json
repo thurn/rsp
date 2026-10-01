@@ -22,6 +22,7 @@
   ],
   "text": "This sigil is a copy of a common sigil you own, chosen when you buy it.",
   "timing": "Always on, for you (the copy is chosen at purchase)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "at purchase",

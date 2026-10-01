@@ -22,6 +22,8 @@
   ],
   "text": "This card counts as all suits.",
   "timing": "Always on, for the engraved card",
+  "prototype": "manual",
+  "prototypeNote": "As you play this card, use Edit card to set it to the suit you want it to count as.",
   "signature": [
     {
       "trigger": "always",

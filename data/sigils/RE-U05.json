@@ -22,6 +22,7 @@
   ],
   "text": "If your team makes its contract and your partner won at least two more tricks than you, gain +1× contract multiplier.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring, made contract, partner won 2+ more tricks than you",

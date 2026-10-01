@@ -22,6 +22,7 @@
   ],
   "text": "When you sell this sigil, remove all your team's bags.",
   "timing": "When sold",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "when sold",

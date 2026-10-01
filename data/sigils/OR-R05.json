@@ -22,6 +22,7 @@
   ],
   "text": "Before you choose whether to bid blind nil, look at the aces and face cards in your hand.",
   "timing": "When you bid (the blind nil decision, before the deal)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before the blind nil decision",

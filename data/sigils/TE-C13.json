@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you receive a card from another player, convert it to a heart.",
   "timing": "When you receive cards",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you receive a card from another player",

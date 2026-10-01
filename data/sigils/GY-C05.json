@@ -22,6 +22,7 @@
   ],
   "text": "At least one of your shop offers is always uncommon or rare.",
   "timing": "Always on, for you",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "at shop",

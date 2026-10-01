@@ -18,6 +18,7 @@
   ],
   "text": "If this card and two or more other cards of its suit are still in your hand when the eighth trick begins, gain +1× contract multiplier.",
   "timing": "While in hand (checkpoint at the eighth trick)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "eighth trick begins, this card and 2+ other cards of its suit held",

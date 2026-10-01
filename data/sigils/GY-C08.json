@@ -22,6 +22,7 @@
   ],
   "text": "Each round, a random common sigil you don't own is engraved on a random card in your hand for the round.",
   "timing": "Always on, for you (at the deal)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "each deal",

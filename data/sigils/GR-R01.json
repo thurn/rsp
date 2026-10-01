@@ -22,6 +22,7 @@
   ],
   "text": "While this card is in your hand, no one can lead a spade unless they hold only spades.",
   "timing": "While in hand",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "while held",

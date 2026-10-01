@@ -22,6 +22,7 @@
   ],
   "text": "If your partner's nil succeeds and you take exactly your bid, gain +60 contract value.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring, partner's nil made and own bid exact",

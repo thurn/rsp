@@ -22,6 +22,7 @@
   ],
   "text": "After bidding, if you bid nil, create a two of a chosen suit in your hand.",
   "timing": "After bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after bidding, you bid nil",

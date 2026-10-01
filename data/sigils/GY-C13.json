@@ -22,6 +22,8 @@
   ],
   "text": "At each shop, you may pay 30 gold to create a chosen card in your next hand.",
   "timing": "At the shop",
+  "prototype": "manual",
+  "prototypeNote": "At the shop, use Ledger to pay 30 gold; after the next deal, use Create card for the chosen card.",
   "signature": [
     {
       "trigger": "at shop",

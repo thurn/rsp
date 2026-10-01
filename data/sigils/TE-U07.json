@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you win a trick, if your partner bid nil, they may pass you a card.",
   "timing": "When you win any trick",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you win a trick, partner bid nil",

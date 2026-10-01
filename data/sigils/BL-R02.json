@@ -22,6 +22,7 @@
   ],
   "text": "When you bid, you may pay 100 gold to gain +1× contract multiplier.",
   "timing": "When you bid",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "when you bid",

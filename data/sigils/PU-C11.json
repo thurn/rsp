@@ -22,6 +22,7 @@
   ],
   "text": "Your partner gains +30 nil value.",
   "timing": "Always on, for you",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always",

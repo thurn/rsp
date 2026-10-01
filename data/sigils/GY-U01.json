@@ -22,6 +22,7 @@
   ],
   "text": "You see four shop offers instead of three.",
   "timing": "Always on, for you",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "at shop",

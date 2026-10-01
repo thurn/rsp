@@ -23,6 +23,7 @@
   ],
   "text": "Whenever you win a trick, you may swap a card with your partner and gain +10 contract value.",
   "timing": "When you win any trick",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you win a trick",

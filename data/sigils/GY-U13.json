@@ -22,6 +22,7 @@
   ],
   "text": "Gain +10 contract value for each shop you've left empty-handed since buying this sigil, up to +40.",
   "timing": "Always on, for you (the count rises at the shop)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always",

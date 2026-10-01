@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you win one of the first three tricks, gain +10 contract value.",
   "timing": "When you win any trick",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you win a trick, tricks 1–3",

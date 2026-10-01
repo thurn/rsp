@@ -22,6 +22,7 @@
   ],
   "text": "If your team's contract is 7 or more tricks, its overtricks add no bags.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring, team contract 7+",

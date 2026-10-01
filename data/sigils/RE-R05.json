@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you gain contract value from another sigil, gain +5 more.",
   "timing": "Always on, for you",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you gain contract value from another sigil",

@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you win one of the last five tricks with a heart, gain +15 contract value.",
   "timing": "When you win any trick",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you win a trick with a heart, tricks 9–13",

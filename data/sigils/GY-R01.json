@@ -22,6 +22,8 @@
   ],
   "text": "At each shop, you may replace one of your sigils with an offer of the same rarity or lower for free. This isn't a sale or a purchase.",
   "timing": "At the shop",
+  "prototype": "manual",
+  "prototypeNote": "At the shop, use Collection to replace one of your sigils with an offer of the same rarity or lower.",
   "signature": [
     {
       "trigger": "at shop",

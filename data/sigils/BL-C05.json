@@ -22,6 +22,7 @@
   ],
   "text": "While this card is in your hand, after each trick, reveal a random card in a random opponent's hand.",
   "timing": "While in hand",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after each trick while this card is in your hand",

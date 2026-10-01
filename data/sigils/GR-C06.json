@@ -22,6 +22,7 @@
   ],
   "text": "While this card is in your hand, whenever anyone plays a card of its suit, it gains +1 rank.",
   "timing": "While in hand",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "anyone plays a card of this card's suit while it is in your hand",

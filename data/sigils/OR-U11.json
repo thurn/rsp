@@ -22,6 +22,7 @@
   ],
   "text": "After bidding, you may pay 20 points to make every card of a chosen suit in your hand gain +4 rank or lose 4 rank.",
   "timing": "After bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after bidding",

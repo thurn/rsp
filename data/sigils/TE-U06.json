@@ -22,6 +22,7 @@
   ],
   "text": "When this card wins a trick, you may have it count for your partner instead.",
   "timing": "When this card wins",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "this card wins a trick",

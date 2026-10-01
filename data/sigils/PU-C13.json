@@ -22,6 +22,7 @@
   ],
   "text": "If an opponent's nil fails, your team gains +100 points.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring, opponent's failed nil",

@@ -22,6 +22,7 @@
   ],
   "text": "From the tenth trick on, this card becomes an ace.",
   "timing": "Always on, for the engraved card",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always, tricks 10+",

@@ -18,6 +18,7 @@
   ],
   "text": "Each round, once your partner has won two tricks with cards that came from your hand, gain +1× contract multiplier.",
   "timing": "When your partner wins a trick",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "partner wins a trick with a card you passed them, second time this round",

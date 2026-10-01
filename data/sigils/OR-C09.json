@@ -13,6 +13,7 @@
   "iconAlternates": [],
   "text": "While this card is in your hand, gain +5 gold after each trick.",
   "timing": "While in hand",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "while held",

@@ -22,6 +22,7 @@
   ],
   "text": "Before bidding, convert all your hearts to diamonds, or all your diamonds to hearts.",
   "timing": "Before bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before bidding",

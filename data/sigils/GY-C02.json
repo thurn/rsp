@@ -22,6 +22,7 @@
   ],
   "text": "Sigils in your shop cost 15 gold less.",
   "timing": "Always on, for you",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "at shop",

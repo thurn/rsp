@@ -23,6 +23,7 @@
   ],
   "text": "Before bidding, convert your clubs to spades.",
   "timing": "Before bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before bidding",

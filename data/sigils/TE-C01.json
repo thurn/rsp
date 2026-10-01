@@ -13,6 +13,8 @@
   "iconAlternates": [],
   "text": "After bidding, swap a card with your partner.",
   "timing": "After bidding",
+  "prototype": "manual",
+  "prototypeNote": "After bidding, use Move card to swap a card with your partner.",
   "signature": [
     {
       "trigger": "after bidding",

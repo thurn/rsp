@@ -22,6 +22,7 @@
   ],
   "text": "Contract multipliers don't apply to missed contracts, for either team.",
   "timing": "Conditional scoring (always on, all players)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always",

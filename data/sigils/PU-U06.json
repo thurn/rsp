@@ -22,6 +22,7 @@
   ],
   "text": "If your nil fails, it costs your team 50 fewer points.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring, your failed nil",

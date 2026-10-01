@@ -22,6 +22,7 @@
   ],
   "text": "When you throw off this card, gain +5 contract value for each trick already played this round.",
   "timing": "When you throw off a card (card-bound)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you discard this card",

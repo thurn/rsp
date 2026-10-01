@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you pass or swap a card, it gains +3 rank.",
   "timing": "When you pass or swap cards",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you pass or swap a card",

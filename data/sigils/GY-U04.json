@@ -22,6 +22,7 @@
   ],
   "text": "After scoring, you may give up 20 of your team's points to gain +40 gold.",
   "timing": "After scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after scoring",

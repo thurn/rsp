@@ -23,6 +23,7 @@
   ],
   "text": "Whenever you throw off a card, you may swap a card with your partner.",
   "timing": "When you throw off a card",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you throw off a card",

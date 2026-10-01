@@ -22,6 +22,7 @@
   ],
   "text": "If you play a heart to each of the last four tricks in a round, gain +1× contract multiplier.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring, you played a heart to each of the last four tricks",

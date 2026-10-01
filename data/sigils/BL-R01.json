@@ -22,6 +22,7 @@
   ],
   "text": "Affinity: Queens. When this card loses a trick won by trumping, no one can win a trick by trumping for the rest of the round.",
   "timing": "When this card loses",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "this card loses a trick won by trumping",

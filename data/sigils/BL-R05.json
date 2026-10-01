@@ -22,6 +22,7 @@
   ],
   "text": "Every player must bid nil or at least 4.",
   "timing": "Always on, for you",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always",

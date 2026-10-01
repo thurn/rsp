@@ -22,6 +22,7 @@
   ],
   "text": "When you play this card, convert it to the suit led.",
   "timing": "When played",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you play this card",

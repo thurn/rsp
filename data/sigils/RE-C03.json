@@ -22,6 +22,7 @@
   ],
   "text": "When this card loses a trick, you may lead the next trick.",
   "timing": "When this card loses",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "this card loses a trick",

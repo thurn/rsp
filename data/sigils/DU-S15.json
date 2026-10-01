@@ -23,6 +23,7 @@
   ],
   "text": "After bidding, if your partner bid nil, swap your two lowest cards for their two highest.",
   "timing": "After bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after bidding, partner on nil",

@@ -22,6 +22,7 @@
   ],
   "text": "If the opponents miss their contract, gain +20 contract value for each trick they fell short.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring, opponents' failed contract",

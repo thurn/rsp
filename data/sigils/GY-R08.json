@@ -22,6 +22,8 @@
   ],
   "text": "Each round, a second hand of random cards is created for you, and you keep whichever hand you prefer before your sigils are engraved.",
   "timing": "Always on, for you (at the deal)",
+  "prototype": "manual",
+  "prototypeNote": "At the deal, use Random hand to see a second hand and keep whichever you prefer.",
   "signature": [
     {
       "trigger": "each deal",

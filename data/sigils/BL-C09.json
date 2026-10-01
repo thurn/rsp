@@ -22,6 +22,7 @@
   ],
   "text": "When you play this card, if you have no other cards of its suit, gain +20 contract value.",
   "timing": "When played",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "when played, last of its suit in hand",

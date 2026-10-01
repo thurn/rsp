@@ -22,6 +22,8 @@
   ],
   "text": "When this card loses a trick, you may take the card that won it, putting a chosen card from your hand in its place.",
   "timing": "When this card loses",
+  "prototype": "manual",
+  "prototypeNote": "When this card loses, use Move card to take the winning card from the trick and put the chosen card from your hand in its place.",
   "signature": [
     {
       "trigger": "this card loses a trick",

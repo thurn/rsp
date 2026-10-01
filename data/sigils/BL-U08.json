@@ -22,6 +22,7 @@
   ],
   "text": "Affinity: Kings. When this card loses a trick, you may lower your bid by one.",
   "timing": "When this card loses",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "this card loses a trick",

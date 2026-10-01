@@ -23,6 +23,7 @@
   ],
   "text": "Whenever one of your cards loses rank, gain +15 nil value.",
   "timing": "Always on, for you",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "a card in your hand loses rank",

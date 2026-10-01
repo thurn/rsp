@@ -23,6 +23,7 @@
   ],
   "text": "If your team wins the last trick of a round with a heart, gain +1× contract multiplier.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring, team wins the last trick with a heart",

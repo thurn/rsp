@@ -13,6 +13,7 @@
   "iconAlternates": [],
   "text": "This card gains +3 rank.",
   "timing": "Always on, for the engraved card",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always",

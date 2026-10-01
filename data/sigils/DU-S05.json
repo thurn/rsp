@@ -23,6 +23,7 @@
   ],
   "text": "Before bidding, reveal a random card in your hand; if it wins a trick this round, gain +60 contract value.",
   "timing": "Before bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before bidding",

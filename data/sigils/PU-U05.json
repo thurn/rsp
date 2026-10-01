@@ -22,6 +22,7 @@
   ],
   "text": "While this card is in your hand, you may throw off a card when clubs are led, even if you could follow suit.",
   "timing": "While in hand",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "while held",

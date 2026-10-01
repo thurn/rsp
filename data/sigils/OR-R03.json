@@ -22,6 +22,8 @@
   ],
   "text": "After scoring, you may pay up to 100 gold, and your team gains that many points.",
   "timing": "After scoring",
+  "prototype": "manual",
+  "prototypeNote": "After scoring, use Ledger to pay up to 100 gold and add that many points to your team.",
   "signature": [
     {
       "trigger": "after scoring",

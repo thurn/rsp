@@ -22,6 +22,7 @@
   ],
   "text": "After scoring, this sigil's sell value gains +20 gold.",
   "timing": "After scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after scoring",

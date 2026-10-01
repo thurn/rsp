@@ -23,6 +23,7 @@
   ],
   "text": "While this card is in your hand, whenever you play a diamond, gain +5 contract value and +5 gold.",
   "timing": "While in hand",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you play a diamond while this card is in your hand",

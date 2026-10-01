@@ -23,6 +23,7 @@
   ],
   "text": "You may bid blind nil whenever your team is behind on points.",
   "timing": "Always on, for you",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always",

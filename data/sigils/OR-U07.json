@@ -22,6 +22,7 @@
   ],
   "text": "Your blind nils win or lose 300 points instead of 200.",
   "timing": "Always on, for you",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always",

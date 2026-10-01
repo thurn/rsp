@@ -13,6 +13,8 @@
   "iconAlternates": [],
   "text": "After bidding, two chosen cards in your hand lose 3 rank.",
   "timing": "After bidding",
+  "prototype": "manual",
+  "prototypeNote": "After bidding, use Edit card to give the two chosen cards -3 rank.",
   "signature": [
     {
       "trigger": "after bidding",

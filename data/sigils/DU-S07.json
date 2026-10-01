@@ -23,6 +23,7 @@
   ],
   "text": "After scoring, your team gains +10 points for every 50 gold you have.",
   "timing": "After scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after scoring",

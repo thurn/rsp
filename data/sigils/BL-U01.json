@@ -22,6 +22,7 @@
   ],
   "text": "From the tenth trick on, no one can win a trick by trumping.",
   "timing": "Always on, for you",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always, tricks 10+",

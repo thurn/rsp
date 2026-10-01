@@ -22,6 +22,7 @@
   ],
   "text": "If you pass or swap four or more cards in a round, gain +1× contract multiplier.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring, four or more cards passed or swapped",

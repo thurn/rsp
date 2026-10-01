@@ -22,6 +22,7 @@
   ],
   "text": "Bag penalties cost your team 50 fewer points.",
   "timing": "Always on, for you",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always",

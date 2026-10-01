@@ -22,6 +22,7 @@
   ],
   "text": "After bidding, gain +20 contract value for each suit you're void in.",
   "timing": "After bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after bidding",

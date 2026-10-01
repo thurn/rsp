@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you win a trick with a card that has a sigil, gain +5 contract value.",
   "timing": "When you win any trick",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you win a trick with a card carrying a sigil",

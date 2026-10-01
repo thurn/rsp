@@ -13,6 +13,7 @@
   "iconAlternates": [],
   "text": "If your team makes its contract exactly, gain +1× contract multiplier.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring, exact contract",

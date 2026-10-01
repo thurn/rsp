@@ -22,6 +22,7 @@
   ],
   "text": "When you play this card, create a two of its suit in your hand.",
   "timing": "When played",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "when played",

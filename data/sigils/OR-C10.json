@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you pass or swap cards, gain +15 gold.",
   "timing": "When you pass or swap cards",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you pass or swap cards",

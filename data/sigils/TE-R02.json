@@ -22,6 +22,7 @@
   ],
   "text": "Before bidding, unless someone bid blind nil, every player passes a chosen card to the player on their left. Whenever you pass or swap cards, gain +10 contract value.",
   "timing": "Before bidding (rule setter); When you pass or swap cards (payoff)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before bidding, no blind nil",

@@ -22,6 +22,7 @@
   ],
   "text": "Affinity: Spades. When this card wins a trick, if you've already won four or more tricks this round, gain +1× contract multiplier.",
   "timing": "When this card wins",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "this card wins, you've won 4+ other tricks",

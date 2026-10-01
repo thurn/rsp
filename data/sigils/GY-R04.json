@@ -22,6 +22,7 @@
   ],
   "text": "After bidding, if you and your partner bid the same number, 4 or more, gain +1× contract multiplier.",
   "timing": "After bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after bidding, your bid equals your partner's, 4+",

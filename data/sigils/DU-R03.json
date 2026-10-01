@@ -23,6 +23,7 @@
   ],
   "text": "Whenever your partner wins a trick, you may pass them a card.",
   "timing": "When your partner wins a trick",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "your partner wins a trick",

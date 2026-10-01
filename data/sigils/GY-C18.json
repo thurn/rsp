@@ -22,6 +22,7 @@
   ],
   "text": "Gain +5 contract value for each trick your partner bids.",
   "timing": "Always on, for you",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always",

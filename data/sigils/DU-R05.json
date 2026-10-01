@@ -23,6 +23,7 @@
   ],
   "text": "When you bid blind nil, gain +2× contract multiplier.",
   "timing": "When you bid (the blind nil decision, before the deal)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you bid blind nil",

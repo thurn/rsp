@@ -22,6 +22,7 @@
   ],
   "text": "The fourth time each round you throw off a card, gain +1× contract multiplier.",
   "timing": "When you throw off a card",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you throw off a card for the fourth time each round",

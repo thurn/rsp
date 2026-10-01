@@ -22,6 +22,8 @@
   ],
   "text": "When this card loses a trick, you may swap two cards with your partner.",
   "timing": "When this card loses",
+  "prototype": "manual",
+  "prototypeNote": "When this card loses, use Move card to swap two cards with your partner.",
   "signature": [
     {
       "trigger": "this card loses a trick",

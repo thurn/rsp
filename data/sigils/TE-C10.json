@@ -22,6 +22,7 @@
   ],
   "text": "When this card loses a trick after you've taken your bid, gain +20 contract value.",
   "timing": "When this card loses (card-bound mirror of \"When this card wins\")",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "this card loses, you have taken your bid",

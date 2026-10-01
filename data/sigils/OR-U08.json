@@ -22,6 +22,7 @@
   ],
   "text": "When this card loses a trick, gain +40 gold.",
   "timing": "When this card loses",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "this card loses",

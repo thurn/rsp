@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you lose a trick, if you bid blind nil, your highest card loses 3 rank.",
   "timing": "When you lose any trick",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you lose a trick, on blind nil",

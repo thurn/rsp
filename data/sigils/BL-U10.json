@@ -22,6 +22,7 @@
   ],
   "text": "If this card is still in your hand when the tenth trick begins, you may raise or lower your bid by one.",
   "timing": "While in hand (checkpoint at the tenth trick)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "tenth trick begins, this card held",

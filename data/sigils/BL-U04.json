@@ -22,6 +22,7 @@
   ],
   "text": "While this card is in your hand, you gain double gold from your other sigils.",
   "timing": "While in hand",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "while held",

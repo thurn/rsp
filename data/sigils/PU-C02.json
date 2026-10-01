@@ -13,6 +13,7 @@
   "iconAlternates": [],
   "text": "Whenever you lose a trick you played a face card to, gain +10 contract value.",
   "timing": "When you lose any trick",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you lose a trick",

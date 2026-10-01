@@ -22,6 +22,7 @@
   ],
   "text": "If you win three or more tricks with hearts in a round, gain +1× contract multiplier.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring, three or more heart wins",

@@ -22,6 +22,7 @@
   ],
   "text": "Before bidding, you may turn your highest card into a two.",
   "timing": "Before bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before bidding",

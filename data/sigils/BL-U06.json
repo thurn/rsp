@@ -22,6 +22,7 @@
   ],
   "text": "If your partner takes exactly their own bid, gain +50 contract value.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring, partner's own bid exact",

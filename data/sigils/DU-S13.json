@@ -23,6 +23,7 @@
   ],
   "text": "If you take exactly your own bid, gain +1× contract multiplier.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring, own bid exact",

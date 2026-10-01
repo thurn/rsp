@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you sell a sigil, gain +20 gold.",
   "timing": "When sold (any sigil you sell)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "when you sell any sigil",

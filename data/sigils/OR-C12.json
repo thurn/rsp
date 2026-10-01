@@ -18,6 +18,7 @@
   ],
   "text": "When you play this card, gain +5 contract value for each diamond in your hand.",
   "timing": "When played",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "when played",

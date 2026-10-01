@@ -13,6 +13,7 @@
   "iconAlternates": [],
   "text": "Shop rerolls cost 20 gold less.",
   "timing": "Always on, for you",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "at shop",

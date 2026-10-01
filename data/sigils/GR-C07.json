@@ -22,6 +22,7 @@
   ],
   "text": "Affinity: Spades. When you trump with this card, gain +20 contract value.",
   "timing": "When you play another suit",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you trump with this card",

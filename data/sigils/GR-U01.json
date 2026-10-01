@@ -22,6 +22,7 @@
   ],
   "text": "The first time each round you play a card that doesn't match the suit led, create a two of that card's suit in your hand.",
   "timing": "When you play another suit",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "first off-suit play each round",

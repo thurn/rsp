@@ -22,6 +22,7 @@
   ],
   "text": "When you bid, gain +10 contract value for every 100 gold you have.",
   "timing": "When you bid",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you bid",

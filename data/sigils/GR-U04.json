@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you lead a diamond, gain +10 contract value.",
   "timing": "When led (any diamond you lead)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you lead a diamond",

@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you throw off a card, if you bid nil, gain +10 nil value.",
   "timing": "When you throw off a card",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you throw off a card while on nil",

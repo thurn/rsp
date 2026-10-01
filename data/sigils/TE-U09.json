@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you pass or swap cards, if you've already taken your bid, gain +20 contract value.",
   "timing": "When you pass or swap cards",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you pass cards, own bid already taken",

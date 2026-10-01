@@ -22,6 +22,8 @@
   ],
   "text": "After bidding, choose a card in your hand to gain +3 rank or lose 3 rank.",
   "timing": "After bidding",
+  "prototype": "manual",
+  "prototypeNote": "After bidding, use Edit card to give the chosen card +3 or -3 rank.",
   "signature": [
     {
       "trigger": "after bidding",

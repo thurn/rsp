@@ -22,6 +22,7 @@
   ],
   "text": "After bidding, look at your partner's hand.",
   "timing": "After bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after bidding",

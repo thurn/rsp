@@ -22,6 +22,7 @@
   ],
   "text": "You may play this card even if you could follow suit.",
   "timing": "Always on, for the engraved card",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always",

@@ -22,6 +22,7 @@
   ],
   "text": "If you own sigils of six or more resonances, gain +1× contract multiplier.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring, six or more resonances owned",

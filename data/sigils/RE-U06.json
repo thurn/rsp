@@ -22,6 +22,7 @@
   ],
   "text": "When you play this card, its rank becomes one higher than every other card played to this trick.",
   "timing": "When played",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you play this card",

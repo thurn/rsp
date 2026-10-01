@@ -22,6 +22,7 @@
   ],
   "text": "If you win three or more tricks with diamonds in a round, gain +25 contract value.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring, won 3+ tricks with hearts or diamonds",

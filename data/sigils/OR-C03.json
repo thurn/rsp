@@ -22,6 +22,7 @@
   ],
   "text": "When you play this card, you may pay 20 gold to gain +30 contract value.",
   "timing": "When played",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "when played",

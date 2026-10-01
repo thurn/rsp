@@ -22,6 +22,7 @@
   ],
   "text": "Affinity: Diamonds. When this card wins a trick, gain +10 contract value for each diamond in it.",
   "timing": "When this card wins",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "this card wins",

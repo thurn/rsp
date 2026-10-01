@@ -22,6 +22,7 @@
   ],
   "text": "When you play this card, create a copy of it in your hand.",
   "timing": "When played",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you play this card",

@@ -22,6 +22,7 @@
   ],
   "text": "Gain +5 contract value for each contract your team has made since you bought this sigil.",
   "timing": "Always on, for you (the count rises after scoring)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always",

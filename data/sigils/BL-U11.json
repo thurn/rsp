@@ -22,6 +22,7 @@
   ],
   "text": "Hearts can't be trumped.",
   "timing": "Always on, for you",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always",

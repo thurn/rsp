@@ -22,6 +22,7 @@
   ],
   "text": "Whenever you lose a trick with the second-best card in it, gain +5 contract value.",
   "timing": "When you lose any trick",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "you lose a trick, your card second-best",

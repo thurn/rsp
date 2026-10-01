@@ -22,6 +22,8 @@
   ],
   "text": "When you play this card, you may turn a chosen card in your hand into a random card.",
   "timing": "When played",
+  "prototype": "manual",
+  "prototypeNote": "As you play this card, use Edit card with Randomize on the chosen card in your hand.",
   "signature": [
     {
       "trigger": "when played",

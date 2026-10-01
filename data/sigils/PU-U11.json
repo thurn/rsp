@@ -13,6 +13,7 @@
   "iconAlternates": [],
   "text": "After bidding, each opponent's highest card loses 4 rank.",
   "timing": "After bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after bidding",

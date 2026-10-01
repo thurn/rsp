@@ -22,6 +22,7 @@
   ],
   "text": "When this card loses a trick to an opponent, that opponent removes their highest card from their hand.",
   "timing": "When this card loses",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "this card loses to an opponent",

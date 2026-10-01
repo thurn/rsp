@@ -22,6 +22,7 @@
   ],
   "text": "If your partner bid nil, the first trick they win counts for you instead.",
   "timing": "Always on, for you",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "partner on nil wins their first trick",

@@ -1,6 +1,14 @@
 import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { Icon } from './Icon'
-import { type Clause, type Sigil, RARITIES, RESONANCES, resonanceFill } from './model'
+import {
+  type Clause,
+  type Prototype,
+  type Sigil,
+  PROTOTYPES,
+  RARITIES,
+  RESONANCES,
+  resonanceFill,
+} from './model'
 import styles from './Sigils.module.css'
 
 type Props = {
@@ -20,6 +28,7 @@ const PROSE: [keyof Sigil, string][] = [
   ['decision', 'Decision'],
   ['opponent', 'Opponent'],
   ['aiNote', 'AI note'],
+  ['prototypeNote', 'Prototype note'],
   ['rationale', 'Rationale'],
   ['deviation', 'Deviation'],
 ]
@@ -141,6 +150,17 @@ export function SigilDetail({ sigil, icons, iconNames, onCommit, onClose, onStep
               >
                 {RARITIES.map((r) => (
                   <option key={r}>{r}</option>
+                ))}
+              </select>
+            </Field>
+            <Field label="Prototype">
+              <select
+                className={styles.input}
+                value={sigil.prototype}
+                onChange={(e) => commit({ prototype: e.target.value as Prototype })}
+              >
+                {PROTOTYPES.map((p) => (
+                  <option key={p}>{p}</option>
                 ))}
               </select>
             </Field>

@@ -22,6 +22,7 @@
   ],
   "text": "When you play this card to a trick of another suit, choose an opponent's card in this trick to gain +4 rank or lose 4 rank.",
   "timing": "When you play another suit (card-bound)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "this card played off suit",

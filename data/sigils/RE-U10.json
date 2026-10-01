@@ -22,6 +22,7 @@
   ],
   "text": "Each round, your team's first two overtricks add no bags.",
   "timing": "Conditional scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "scoring",

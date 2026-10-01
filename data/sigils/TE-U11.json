@@ -13,6 +13,8 @@
   "iconAlternates": [],
   "text": "When you play this card, you may pick up another card you've previously played this round.",
   "timing": "When played",
+  "prototype": "manual",
+  "prototypeNote": "As you play this card, use Move card to return a card you played earlier this round to your hand.",
   "signature": [
     {
       "trigger": "when played",

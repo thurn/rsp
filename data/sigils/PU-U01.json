@@ -22,6 +22,7 @@
   ],
   "text": "When this card loses a trick to an opponent, the winning card's sigil stops working for the rest of the round.",
   "timing": "When this card loses",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "this card loses to an opponent",

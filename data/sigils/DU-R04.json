@@ -23,6 +23,7 @@
   ],
   "text": "Before bidding, swap your three lowest cards for your partner's three highest.",
   "timing": "Before bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before bidding",

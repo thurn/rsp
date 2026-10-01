@@ -18,6 +18,7 @@
   ],
   "text": "When you lead with this card, gain +20 contract value.",
   "timing": "When led",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "when led",

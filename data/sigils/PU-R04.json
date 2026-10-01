@@ -22,6 +22,7 @@
   ],
   "text": "Your nil value is doubled.",
   "timing": "Always on, for you",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always",

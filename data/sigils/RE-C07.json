@@ -13,6 +13,7 @@
   "iconAlternates": [],
   "text": "Affinity: Spades. When this card wins a trick, gain +25 contract value.",
   "timing": "When this card wins",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "this card wins a trick",

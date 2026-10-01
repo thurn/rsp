@@ -22,6 +22,7 @@
   ],
   "text": "After bidding, if you have five or more cards of one suit, gain +15 contract value.",
   "timing": "After bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after bidding",

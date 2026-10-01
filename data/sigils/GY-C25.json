@@ -22,6 +22,7 @@
   ],
   "text": "When you bid, gain +5 contract value for every 50 points your team is behind.",
   "timing": "When you bid",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "when you bid",

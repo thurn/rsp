@@ -22,6 +22,7 @@
   ],
   "text": "When you play this card to a trick of another suit, gain +30 gold.",
   "timing": "When you play another suit",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "when played to a trick of another suit",

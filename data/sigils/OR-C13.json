@@ -22,6 +22,7 @@
   ],
   "text": "You may bid before looking at your hand; if you do, gain +10 contract value for each trick you bid.",
   "timing": "When you bid (declared blind, before the deal, alongside blind nil)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "blind bid",

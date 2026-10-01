@@ -22,6 +22,7 @@
   ],
   "text": "Gain +5 contract value for each trick your partner has won since you bought this sigil, up to +80. After scoring, if your partner missed their bid, the count starts over.",
   "timing": "Always on, for you (grows when your partner wins a trick; resets after scoring)",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "always, counter of partner's tricks won since purchase",

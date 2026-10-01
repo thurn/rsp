@@ -22,6 +22,7 @@
   ],
   "text": "Before bidding, learn how many aces and kings your partner has.",
   "timing": "Before bidding",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before bidding",

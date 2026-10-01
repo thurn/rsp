@@ -22,6 +22,7 @@
   ],
   "text": "After scoring, gain +15 gold for each bag your team took this round.",
   "timing": "After scoring",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "after scoring",

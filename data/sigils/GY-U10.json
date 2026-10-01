@@ -22,6 +22,8 @@
   ],
   "text": "After scoring, a copy of a chosen non-ace card you won a trick with this round replaces a random card in your next hand.",
   "timing": "After scoring",
+  "prototype": "manual",
+  "prototypeNote": "After scoring, note a non-ace card that won you a trick; after the next deal, use Remove card on a random card and Create card for the copy.",
   "signature": [
     {
       "trigger": "after scoring",
