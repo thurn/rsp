@@ -3,7 +3,9 @@
 This plan takes the web build from plain Spades to a playable Rogue Spades run
 with sigils, so the design in [game-overview.md](game-overview.md) can be
 playtested. Code is disposable: no tests, no abstractions beyond what the
-sigils need, and every phase ends with a commit pushed to master.
+sigils need, and every phase ends with a commit pushed to master. The plan is
+built to run overnight with no human input; see
+[Running overnight](#running-overnight).
 
 ## Where the code is today
 
@@ -29,13 +31,13 @@ fields.
 | OR | 25 | 5 |
 | GR | 26 | 4 |
 | BL | 27 | 3 |
-| TE | 20 | 10 |
+| TE | 21 | 9 |
 | PU | 27 | 3 |
 | GY | 40 | 10 |
 | DU | 20 | 0 |
-| **Total** | **212** | **38** |
+| **Total** | **213** | **37** |
 
-By category, 58 of the 70 Engraving sigils and 154 of the 180 Ongoing sigils
+By category, 58 of the 67 Engraving sigils and 155 of the 183 Ongoing sigils
 are automated.
 
 ### The line between them
@@ -59,7 +61,7 @@ A sigil is **manual** when it needs one of these:
 - A one-off mechanism: stacked engravings (Stacked Chairs), doubling the next
   trigger (Twin Cherries), choosing between two hands (Fitting-Room Skirt),
   carrying a card into the next round (Saved Hard Drive, Tailored Shirt),
-  taking cards back out of tricks (Snaring Lasso, Masked Encore), or a card
+  picking a played card back up (Masked Encore), or a card
   that is every suit (Faithful Dog).
 
 ### Why 85% instead of half
@@ -85,7 +87,14 @@ const isAutomated = (s: Sigil) => s.prototype === 'automated' && s.code in HANDL
   AI turns pause and a toast shows the sigil's name, text, and
   `prototypeNote`. Continue resumes. A lookup keyed on the `timing` field's
   opening words (`Before bidding`, `When played`, `When this card loses`, …)
-  maps each sigil to its window.
+  maps each sigil to its window. Reminders fire for manual sigils the human
+  seat holds or controls; an AI seat's manual sigil (reachable only through
+  `?ai-give=`) writes one event-log line instead.
+- **One human seat.** South is the only human seat, as in the current code.
+- **`?auto` runs unattended.** Under `?auto`, the AI answers every prompt for
+  the human seat, shops for it with the AI heuristic, takes the blind-nil
+  decision, and manual reminders log to the event log and continue on their
+  own.
 - **Sigil data loads through the existing dev API.** The game calls
   `loadLibrary()` from `src/sigils/model.ts`, which returns sigils and icon
   SVGs. The prototype only ever runs under `vite dev`.
@@ -107,6 +116,9 @@ const isAutomated = (s: Sigil) => s.prototype === 'automated' && s.code in HANDL
   - `?ai-give=1:RE-C01,3:BL-R04` gives sigils to AI seats.
   - `?gold=500` sets starting gold for every seat.
   - `?sandbox` opens the sandbox drawer at load.
+  - `?random-sigils=8` starts every seat with 8 random automated sigils.
+  - `?fast` cuts AI think time to 50 ms and removes AI and trick delays, so a
+    13-round `?auto&fast` run finishes in a minute or two.
 
 ## Architecture
 
@@ -204,6 +216,37 @@ shop → blind → deal → beforeBidding → bidding → afterBidding
 - **Checkpoints.** "When the tenth trick begins" runs at the start of the
   trick whose number matches.
 
+### Windows
+
+The `timing` field's opening words map each sigil to the engine hook that runs
+it. Counts are automated sigils.
+
+| `timing` opens with | Count | Hook |
+| --- | --- | --- |
+| Always on | 39 | `rankBonus`, `legal`, `trick`, `bids`, or `shop` |
+| Conditional scoring | 30 | `score` |
+| When you win any trick | 17 | `on.youWin` |
+| While in hand | 15 | `rankBonus` aura, or any `on` trigger that checks the card is in hand |
+| Before bidding | 12 | `on.beforeBidding` |
+| When played | 12 | `on.played` |
+| After bidding | 11 | `on.afterBidding` |
+| When you throw off a card | 9 | `on.throwOff` |
+| When this card loses | 9 | `on.thisCardLoses` |
+| When you play another suit | 9 | `on.offSuit` |
+| When this card wins | 8 | `on.thisCardWins` |
+| When you bid | 7 | `on.bid`, or `bids` for blind-nil eligibility |
+| When you lose any trick | 7 | `on.youLose` |
+| After scoring | 6 | `on.afterScoring` |
+| When your partner wins a trick | 5 | `on.partnerWins` |
+| When led | 5 | `on.led` |
+| When you pass or swap cards | 5 | `on.pass` |
+| When sold | 3 | `on.sold` |
+| At the shop | 2 | `shop`, or `on.shopEnter` / `on.shopLeave` |
+| When you receive cards | 2 | `on.receive` |
+
+Phase 4 names the final `Window` union; the hook names above are the starting
+point.
+
 ### Handler API
 
 Handlers live in `src/sigils/handlers/<prefix>.ts`, one file per resonance
@@ -250,15 +293,22 @@ Round-Trip Record, …) also fire for faked passes.
 ### AI
 
 - **Play.** The Monte Carlo simulation switches from integers to
-  `{ suit, rank }` snapshots taken from effective values when the view is
+  `{ id, suit, rank }` snapshots taken from effective values when the view is
   built, and applies `RoundFlags` in its winner check. It does not simulate
   sigil triggers.
+- **Determinization.** `AIView` carries the hidden pool: effective snapshots
+  of every card in the other three hands. Each sample shuffles that pool among
+  those seats, respecting hand sizes and known voids. The pool tells the AI
+  which cards exist, which is always consistent with created, removed, and
+  converted cards. `isBoss` compares against the pool and played cards rather
+  than enumerating `suit * 13 + rank`.
 - **Bidding.** Bids use effective ranks.
 - **Prompts.** Each handler's `ai` answer is a one-line rule taken from the
   sigil's `aiNote`, such as "pass your highest card unless your partner bid
   nil."
 - **Shop.** Buy the most expensive affordable automated offer, skip when gold
-  is below 40, and never reroll or sell.
+  is below 40, and never reroll or sell. Copy and choose-on-buy sigils such as
+  Matching Mugs pick their target with the handler's `ai` function.
 - **Information effects.** Reveals and counts such as Scout's Binoculars and
   Kindred Mind are shown to humans, and AI seats ignore them.
 
@@ -314,27 +364,30 @@ drawer stops AI turns, and the drawer pauses automatically while open.
 
 ## Phases
 
-Phases 1–4 build tightly coupled foundations, so the main agent does them in
-sequence. Phase 6 then fans out to subagents.
+Phases 1–5 build tightly coupled foundations, so the main agent does them in
+sequence on master. Phase 6 then fans out to subagents in worktrees.
 
 1. **Rules alignment.** Introduce the object card model and ranks 2–14, keep
    the game playing exactly as today, and move to the target rules: 1,000
    points, 13 rounds, draws, blind nil at 200, later card wins ties, and
    uneven hands with empty-hand skipping.
-   *Check:* `?auto` plays a full run to completion with no console errors.
+   Add `?fast` here so every later check is quick.
+   *Check:* `?auto&fast` plays a full run to completion with no console errors.
 2. **Economy and shop.** Add gold, trick and nil income, interest, an opening
    shop, between-round shops with three offers rolled by rarity odds, buy one,
    rerolls, selling, the 13-sigil cap, and AI shopping. Engrave Engraving
    sigils at the deal by affinity, then face cards, then aces, then random.
-   *Check:* a run shows a shop each round, and gold math matches the worked
-   examples in game-overview.md §4.
+   *Check:* a run shows a shop each round, and the gold column of the worked
+   examples in game-overview.md §4 matches what the round summary pays.
 3. **Card rendering.** Add the Ongoing collection trays, corner badges, the
    center gear (driven by `isAutomated`, which is false for all sigils until
    handlers exist), the details tooltip, and the visibility rules.
-   *Check:* a screenshot of a hand from `?give=` with a mix of sigils.
+   *Check:* a screenshot of a hand from `?give=` with a mix of Engraving and
+   Ongoing sigils shows badges, trays, and the tooltip.
 4. **Engine and sandbox.** Add the ledger, flags, event log, windows,
    prompts, handler API, the scoring pipeline from game-overview.md §4,
-   manual reminders with pause, and the full sandbox drawer. Prove the
+   manual reminders with pause, `?random-sigils=`, and the full sandbox
+   drawer. Prove the
    pipeline with about 10 representative handlers: Crown Jewel, Honed Edge,
    True Aim, Rosy Spectacles, Arena's Law, Unfolding Butterfly, Peddler's
    Cart, Corner Shop, Growing City, and Barter Bridge.
@@ -343,39 +396,64 @@ sequence. Phase 6 then fans out to subagents.
 5. **Handler guide.** Write `src/sigils/handlers/README.md` with the `Ctx`
    API, the window list, the controller rule, the AI prompt pattern, and the
    10 worked examples. This is the brief for phase 6.
-6. **Handler waves.** Run one subagent per prefix (RE, OR, GR, BL, TE, PU, GY,
-   DU), each implementing every `"prototype": "automated"` sigil in its prefix
-   in its own handler file. Subagents may add a `RoundFlags` field or a `Ctx`
-   primitive, but must report it back. The main agent merges, resolves
-   overlapping primitive additions, and spot-checks each wave in the browser
-   with `?give=` and `?ai-give=`.
-   *Check:* every automated sigil has a handler, `tsc` and `eslint` pass, and
-   a `?auto` run with random AI collections completes.
-7. **Playtest polish.** Add a ledger breakdown in the round summary, and trigger flashes on cards. Fix whatever
-   the first human playtests surface.
+6. **Handler waves.** Run one subagent per prefix, each implementing every
+   `"prototype": "automated"` sigil in its prefix in its own handler file.
+   Wave A is RE, OR, GR, and BL; wave B is TE, PU, GY, and DU. Subagents may
+   add a `RoundFlags` field or a `Ctx` primitive, and report each one back.
+   Each subagent spot-checks its sigils in the browser with `?give=` and
+   `?ai-give=`.
+   *Check:* every automated sigil has a handler or was downgraded, `tsc` and
+   `eslint` pass, and a `?auto&fast&random-sigils=8` run completes all 13
+   rounds with no console errors.
+7. **Polish.** Add a ledger breakdown in the round summary, and trigger
+   flashes on cards and tray badges.
+   *Check:* a screenshot of a round summary from `?auto&fast&random-sigils=8`
+   shows the breakdown.
 
-Browser checks use the Playwright MCP service, per the user's global setup.
+## Running overnight
+
+One main Claude Code session runs the whole plan from this document with no
+human input.
+
+- **Phases 1–5.** The main agent works on master and commits with
+  Conventional Commits, pushing at the end of each phase.
+- **Phase 6 worktrees.** Each subagent gets its own git worktree
+  (`isolation: "worktree"`) branched from current master, with `node_modules`
+  symlinked from the main checkout, and runs its dev server on its own port
+  (5181–5184). The four subagents of a wave run in parallel. When one
+  finishes, the main agent cherry-picks its commits onto master, resolves
+  conflicts in shared types, runs `tsc` and `eslint`, and pushes. Wave B
+  branches from master after wave A has merged.
+- **Subagent brief.** Each phase 6 subagent reads the handler README, this
+  plan's Open questions, and its prefix's JSON files. It returns its
+  downgrades, new flags and primitives, and interpretation calls.
+- **Downgrades.** A sigil that needs a new engine mechanism or a handler longer
+  than about 40 lines is downgraded: the subagent sets `"prototype": "manual"`
+  in its JSON and writes a `prototypeNote` for faking it with the sandbox. A
+  subagent downgrades at most about 5 sigils; past that it stops and reports.
+- **Failures.** When a phase check still fails after three fix attempts, the
+  main agent records the failure in the status file, pushes what works, and
+  continues with the next phase.
+- **Status file.** `docs/prototype-status.md` is updated and committed at the
+  end of each phase. It lists each phase's check result, every downgraded
+  sigil with its reason, every new `RoundFlags` field and `Ctx` primitive, each
+  interpretation call beyond the Open questions, and every failed check.
+- **Browser checks** use the Playwright MCP service, per the user's global
+  setup. Screenshots go in the session scratchpad.
 
 ## Open questions
 
-These are interpretation calls the handlers will make. Each defaults to the
-reading below unless you say otherwise.
+These interpretation calls are settled for the handlers.
 
 - **Hidden Knife** compares against cards already in the trick when it is
   played.
 - **Missing Signature:** a trick that counts for no one also does not count
   against a nil bidder.
-- **Mystery Parcel** "didn't bid nil" before bidding means "didn't bid blind
-  nil." This sigil is manual, so it is a note for testers only.
-- **Copied counters** (Matching Mugs, Tracing Pencil) read and write the
-  original sigil's counter.
-- **Copying an Ongoing sigil onto a card** (Forger's Brush, Spare Key,
-  Tracing Pencil) makes the copy work like the original for whoever holds the
-  card, for the round.
+- **Copied counters** (Matching Mugs, Tracing Pencil) read the original
+  sigil's counter, and only the original's own triggers change it.
 - **Matching Mugs** copying an Engraving common is engraved at each deal like
   the original; copying an Ongoing common works as an Ongoing sigil.
 - **Surprise Takeaway** draws only from automated Engraving commons, since it
   engraves the sigil on a card.
-- **Stacked Chairs** moves only Engraving sigils onto its card.
 - **Gilded Beaker** doubles gold from other sigils' gold calls only, not
   income or interest.
