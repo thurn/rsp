@@ -39,5 +39,6 @@
   "opponent": "The revealed card is public, so opponents know the target and can hold a cover card or a trump for it.",
   "aiNote": "Count the marked card as half a trick; lead it once higher cards of its suit are gone, or trump with it if it is a spade.",
   "rationale": "A random public bounty each round is a gamble-flavored side quest with a one-shot payoff, and \"if … this round\" frames it as an objective rather than a repeating win trigger. Few commons feed it today: only lead control (RE-C03), suit-wide auras such as Verdant Banner, and BL-C04's after-bidding nudge to a chosen card help the revealed card, because rank commons boost the engraved card instead. It wins about 25–30% of the time, about +13 EV, below budget, which is acceptable for Bonus Chaser (strong watch list). Wave 2 should give it at least one common that raises or protects the revealed card.",
-  "deviation": "Slot said Card-bound points / Engraved, paying from the win window; changed to a random before-bidding side quest because the set critic read the suit-collection version as a Red trick-winning payoff (High Card/Spade Master)."
+  "deviation": "Slot said Card-bound points / Engraved, paying from the win window; changed to a random before-bidding side quest because the set critic read the suit-collection version as a Red trick-winning payoff (High Card/Spade Master).",
+  "notes": "Probably just choose the card instead of reveal "
 }
