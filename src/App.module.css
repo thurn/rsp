@@ -199,3 +199,39 @@
     margin-right: 56px;
   }
 }
+
+.restart {
+  position: absolute;
+  top: var(--space-4);
+  right: calc(var(--space-4) + 44px + var(--space-2));
+  z-index: 26;
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--hairline-strong);
+  background: var(--surface);
+  color: var(--text-muted);
+  cursor: pointer;
+  transition:
+    transform var(--duration) var(--ease-out),
+    color var(--duration) var(--ease-out),
+    border-color var(--duration) var(--ease-out);
+}
+
+.restart svg {
+  width: 20px;
+  height: 20px;
+  fill: currentColor;
+}
+
+.restart:hover {
+  color: var(--text);
+  border-color: var(--gold);
+  transform: translateY(-1px);
+}
+
+.restart:active {
+  transform: translateY(1px);
+}

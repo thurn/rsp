@@ -16,7 +16,7 @@ import { recentPulse, toDisplay, viewerOf } from './components/display'
 import { ledgerRows } from './components/ledger'
 import { type Seat, partnerOf } from './game/cards'
 import { bidOptions } from './game/rules'
-import { PARAMS, dispatch, initGame } from './game/store'
+import { PARAMS, dispatch, getGeneration, initGame, restartGame } from './game/store'
 import type { GameState } from './game/types'
 import { loadLibrary } from './sigils/model'
 import { isEngraving, setLibrary } from './sigils/registry'
@@ -51,7 +51,8 @@ export default function App() {
   }, [])
   const state = useGameState()
   if (!state) return <div className={styles.loading}>{error ?? ''}</div>
-  return <Table state={state} />
+  // A new game remounts the table rather than animating the old one away.
+  return <Table key={getGeneration()} state={state} />
 }
 
 function Table({ state }: { state: GameState }) {
@@ -213,6 +214,17 @@ function Table({ state }: { state: GameState }) {
           </motion.div>
         )}
       </AnimatePresence>
+
+      <button
+        className={styles.restart}
+        aria-label="Restart game"
+        title="Restart game"
+        onClick={() => confirm('Abandon this game and deal a new one?') && restartGame()}
+      >
+        <svg viewBox="0 0 24 24" aria-hidden>
+          <path d="M12 5V2L7 6l5 4V7a6 6 0 1 1-6 6H4a8 8 0 1 0 8-8Z" />
+        </svg>
+      </button>
 
       <Sandbox
         state={state}

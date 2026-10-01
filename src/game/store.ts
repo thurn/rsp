@@ -42,7 +42,29 @@ function startingSigils(): string[][] {
 }
 
 let state: GameState | null = null
+/** Bumped whenever a new game replaces the current one. */
+let generation = 0
 const listeners = new Set<() => void>()
+
+/** Saved per URL query, so dev parameter combinations keep separate games. */
+const SAVE_KEY = `rsp:game:${location.search}`
+
+function load(): GameState | null {
+  try {
+    const raw = localStorage.getItem(SAVE_KEY)
+    return raw ? (JSON.parse(raw) as GameState) : null
+  } catch {
+    return null
+  }
+}
+
+function save() {
+  try {
+    localStorage.setItem(SAVE_KEY, JSON.stringify(state))
+  } catch {
+    // Storage full or blocked; the game continues unsaved.
+  }
+}
 
 function create(): GameState {
   const s = newGame({
@@ -54,8 +76,18 @@ function create(): GameState {
   return reduce(s, { type: 'start' })
 }
 
+/** Restores the saved game, or starts a new one. */
 export function initGame() {
+  state = load() ?? create()
+  save()
+  listeners.forEach((l) => l())
+}
+
+/** Discards the current game and deals a new one. */
+export function restartGame() {
+  generation++
   state = create()
+  save()
   listeners.forEach((l) => l())
 }
 
@@ -63,9 +95,15 @@ export function getState(): GameState | null {
   return state
 }
 
+export function getGeneration(): number {
+  return generation
+}
+
 export function dispatch(action: Action) {
   if (!state) return
-  state = action.type === 'newGame' ? create() : reduce(state, action)
+  if (action.type === 'newGame') return restartGame()
+  state = reduce(state, action)
+  save()
   listeners.forEach((l) => l())
 }
 
@@ -76,7 +114,11 @@ export function subscribe(listener: () => void) {
 
 declare global {
   interface Window {
-    game: { readonly state: GameState | null; dispatch: typeof dispatch }
+    game: {
+      readonly state: GameState | null
+      dispatch: typeof dispatch
+      restart: typeof restartGame
+    }
   }
 }
 
@@ -85,4 +127,9 @@ window.game = {
     return state
   },
   dispatch,
+  restart: restartGame,
 }
+
+// Game logic can't be hot-swapped under a live state, so changes to the store
+// or anything it imports reload the page, which restores the saved game.
+import.meta.hot?.accept(() => location.reload())
