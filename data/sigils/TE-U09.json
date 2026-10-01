@@ -21,25 +21,24 @@
       "icon": "globe"
     }
   ],
-  "text": "Whenever you pass or swap cards, if you've already taken your bid, gain +20 contract value.",
-  "timing": "When you pass or swap cards",
+  "text": "Whenever you receive a card from another player, gain +10 contract value.",
+  "timing": "When you receive cards",
   "prototype": "automated",
   "signature": [
     {
-      "trigger": "you pass cards, own bid already taken",
+      "trigger": "you receive a card from another player",
       "scope": "self",
       "target": "contract",
-      "effect": "contract value +20",
-      "frequency": "per pass"
+      "effect": "contract value +10",
+      "frequency": "per card"
     }
   ],
-  "archetypes": "Exact Contractor, Swap Meet",
-  "family": "Partner exchange / Triggers (after your bid is taken)",
+  "archetypes": "Swap Meet; splash Kingmaker, Nil Guard",
+  "family": "Partner exchange / Receiving",
   "role": "Payoff (Contract additive)",
-  "decision": "Saving your passes and trades for after you have taken your bid, then using them to hand away winners you no longer want instead of taking overtricks.",
+  "decision": "Whether to take every optional swap and ask for passes, since each card that arrives pays.",
   "opponent": "Visible on trigger; opponents learn you have reached your bid and are shedding winners, and can answer by forcing tricks on you before you trade them away.",
-  "aiNote": "Once you have taken your bid, take every optional pass or trade, giving away your highest card; before then, trade only to fix your hand.",
-  "rationale": "The moment you reach your bid is where Exact Contractor starts ducking (Well-Earned Bath, Balanced Yin-Yang), and a late pass is Teal's way to duck: the winner leaves your hand, so the exact count holds; Swap Meet's late trades (Swapped Suitcases, Tossed Paper Plane, a partner's Traders' Handshake swap with you) pay too, about one or two a round (+20 to +40, about +20 EV). A nil bidder has no bid, so it never fires; a Traders' Handshake swap on an overtrick still pays, but the bag it cost is the brake.",
-  "deviation": "Redesigned from exact-contract value scaled by passes, which the cross-batch critic ruled a magnitude near-duplicate of Honest Ruler (BL-C10) and the sixth exact-contract payoff; the pass count now meets Exact Contractor's own-bid moment instead, moving the timing from Conditional scoring to When you pass cards and the family to Partner exchange / Triggers.",
-  "notes": "are there enough enablers for this? seems hard"
+  "aiNote": "Take every optional swap.",
+  "rationale": "Every swap and every pass to you counts, so the whole Swap Meet toolkit feeds it: Open Hand, Traders' Handshake, Barter Bridge, Mystery Parcel, and a partner's passes. A Swap Meet seat receives two to four cards a round, about +20 to +40, about +20 EV.",
+  "deviation": "Redesigned from paying for passes made after taking your bid, which had too few enablers."
 }

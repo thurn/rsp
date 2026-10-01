@@ -21,8 +21,8 @@
       "icon": "computer-retro"
     }
   ],
-  "text": "Gain +10 contract value for each shop you've left empty-handed since buying this sigil, up to +40.",
-  "timing": "Always on, for you (the count rises at the shop)",
+  "text": "Whenever you leave a shop without buying a sigil, this sigil gains +10 contract value, up to +40.",
+  "timing": "At the shop",
   "prototype": "automated",
   "signature": [
     {

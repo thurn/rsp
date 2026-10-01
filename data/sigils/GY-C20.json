@@ -21,8 +21,8 @@
       "icon": "school"
     }
   ],
-  "text": "Gain +5 contract value for each contract your team has made since you bought this sigil.",
-  "timing": "Always on, for you (the count rises after scoring)",
+  "text": "Whenever your team makes its contract, this sigil gains +5 contract value.",
+  "timing": "After scoring",
   "prototype": "automated",
   "signature": [
     {

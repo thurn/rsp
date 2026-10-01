@@ -32,6 +32,11 @@ reference for clarity.
 - **Rounds without "this."** Conditions and counts that hold for every round
   say "in a round" or "each round": "If you throw off two or more cards in a
   round, gain +30 contract value."
+- **Growth that lasts the run.** A sigil that grows across rounds names the
+  trigger and what the sigil gains: "Whenever your team makes its contract,
+  this sigil gains +5 contract value."
+- **Sigils and cards.** A sigil that copies or changes sigils says "this
+  sigil"; "this card" means only the card it is engraved on.
 - **Set ranks plainly.** An effect that turns one rank into another says
   "become": "Your kings become aces."
 - **Flat modifiers.** An effect that adds to other gains adds a flat amount to
@@ -175,7 +180,8 @@ These are the game's own terms, beyond standard Spades vocabulary.
 | **convert** | Change a card's suit. |
 | **pass** | Give a card from your hand to another player, who gives nothing back. |
 | **swap** | You and another player each give the other a card at the same time. Each player secretly picks the card they give, unless the text names the cards: "swap your highest card for your partner's lowest card." "Swap two cards" moves two cards each way. |
-| **reveal** | Show a card to every player, from your hand or another player's. It stays in that hand and stays revealed for the round; playing a card does not reveal it. Seeing an opponent's cards is always a reveal. |
+| **reveal** | Show a card to every player, from your hand or another player's. It stays in that hand and stays revealed for the round; playing a card does not reveal it. Seeing another player's cards is always a reveal, and "reveal to" names who sees it: "your partner reveals their hand to you." |
+| **this sigil gains** | Growth that lasts the run: "this sigil gains +10 contract value" adds +10 contract value every round from then on. |
 | **throw off** | Play a card that neither follows the suit led nor is trump. Trumping is not throwing off. |
 | **longest suit, shortest suit** | Counted in your hand when the effect happens. Used rarely; most sigils name a suit. |
 | **team** | You and your partner. |

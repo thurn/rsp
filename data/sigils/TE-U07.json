@@ -21,16 +21,16 @@
       "icon": "walking"
     }
   ],
-  "text": "Whenever you win a trick, if your partner bid nil, they may pass you a card.",
+  "text": "The first time each round you win a trick, if your partner bid nil, they may pass you a card.",
   "timing": "When you win any trick",
   "prototype": "automated",
   "signature": [
     {
-      "trigger": "you win a trick, partner bid nil",
-      "scope": "partner",
-      "target": "a card your partner picks",
-      "effect": "optional one-way pass to you",
-      "frequency": "per trick"
+      "trigger": "you win your first trick each round, partner on nil",
+      "scope": "team",
+      "target": "a card your partner chooses",
+      "effect": "optional pass to you",
+      "frequency": "once per round"
     }
   ],
   "archetypes": "Nil Guard; splash Blind Bidder, Nil Champion (as the nil partner)",
@@ -39,6 +39,6 @@
   "decision": "For you, covering aggressively so your nil partner gets more chances to shed; for your partner, which danger card to hand over after each of your wins.",
   "opponent": "Visible pass between tricks; opponents watch the nil hand shrink and the guard's hand grow, and answer by leading low early, before the guard has won anything.",
   "aiNote": "As the nil partner, pass the highest card of your shortest non-spade suit, or your highest spade if you hold no side-suit danger.",
-  "rationale": "The nil bidder knows its own danger cards, so it picks, and the guard wins about four tricks in a nil round, so a nil hand sheds its worst cards as the round unfolds, raising success from about 90% (after Sheltering Castle) toward 97% and feeding the guard high cards for its solo contract; bags from the extra cards are the brake.",
-  "notes": "too strong maybe? once per round restriction?"
+  "rationale": "A nil partner hands over their most dangerous card once a round, after you've shown you can win tricks, which lifts a nil's success by about a tenth (about +15 to +20 EV with Nil Guard payoffs). Limiting it to your first win keeps it below Sheltering Castle's two-card swap.",
+  "deviation": "Limited to your first trick each round, since a pass after every win was too strong."
 }

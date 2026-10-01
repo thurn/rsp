@@ -5,7 +5,7 @@
     "Teal"
   ],
   "rarity": "Uncommon",
-  "category": "Engraving",
+  "category": "Ongoing",
   "price": 75,
   "wave": 3,
   "icon": "key",
@@ -21,7 +21,7 @@
       "icon": "toy-car"
     }
   ],
-  "text": "Before bidding, this card copies a chosen common or uncommon sigil your partner owns.",
+  "text": "Before bidding, this sigil copies a chosen common or uncommon sigil your partner owns.",
   "timing": "Before bidding",
   "prototype": "manual",
   "prototypeNote": "Before bidding, use Engrave to add a copy of the chosen partner's common or uncommon sigil to this card.",
@@ -40,6 +40,5 @@
   "decision": "Which of your partner's sigils to copy, knowing your hand but not the bids: a second Sheltering Castle for a nil-leaning partner, a second Promoted Pawn or Homeward Ship, or a Balanced Yin-Yang of your own.",
   "opponent": "The copy is shown when it resolves, so opponents learn one of your partner's sigils; no loss of agency.",
   "aiNote": "Copy the partner's highest-priced non-rare payoff whose condition you can meet from your seat; skip nil-value sigils unless your hand leans nil.",
-  "rationale": "Teal's copying lives on the partner's collection, which you can already see, so the choice is informed; the copy sits on this card, so a copied \"this card\" effect applies to it and passing this card carries both effects. Excluding rares keeps it below rare duplication (a second True Aim would be rare value at uncommon price), and a copied before-bidding effect resolves in the same window; copying another copier does nothing.",
-  "notes": "this *sigil* copies"
+  "rationale": "Teal's copying lives on the partner's collection, which you can already see, so the choice is informed; the copy sits on this card, so a copied \"this card\" effect applies to it and passing this card carries both effects. Excluding rares keeps it below rare duplication (a second True Aim would be rare value at uncommon price), and a copied before-bidding effect resolves in the same window; copying another copier does nothing."
 }

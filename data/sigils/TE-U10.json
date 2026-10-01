@@ -21,24 +21,24 @@
       "icon": "beach"
     }
   ],
-  "text": "Whenever your partner wins a trick you played a heart to, gain +15 contract value.",
-  "timing": "When your partner wins a trick",
+  "text": "Whenever your team wins a trick with a heart, gain +10 contract value.",
+  "timing": "When you win any trick (or your partner does)",
   "prototype": "automated",
   "signature": [
     {
-      "trigger": "partner wins a trick, you played a heart to it",
-      "scope": "self",
+      "trigger": "you or your partner win a trick with a heart",
+      "scope": "team",
       "target": "contract",
-      "effect": "contract value +15",
+      "effect": "contract value +10",
       "frequency": "per trick"
     }
   ],
   "archetypes": "Heart Chorus, Kingmaker",
   "family": "Win triggers / Your heart (partner wins)",
   "role": "Payoff (Partner contract)",
-  "decision": "Which hearts to spend under your partner's winners early, growing the rest of your hearts with Unfolding Butterfly, and which to keep for your own late wins.",
+  "decision": "Which hearts to cash and which to pass to your partner, since a heart win from either seat pays.",
   "opponent": "Visible on trigger; opponents answer by overtaking the partner's card or leading suits where you can't follow with a heart.",
-  "aiNote": "When your partner is winning a trick you can't or needn't win, play your lowest heart.",
-  "rationale": "A Heart Chorus hand plays a heart under about two of its partner's three or so wins (about +30, +24 EV), and a Kingmaker hand about one; low hearts shed early still count toward Unfolding Butterfly, so both plans pay at once without paying for every partner win (Homeward Ship) or for cards you passed (Promoted Pawn).",
-  "notes": "Pretty fiddly and hard to trigger"
+  "aiNote": "Lead hearts once the opponents' high hearts are gone, and pass hearts to a partner who is long in them.",
+  "rationale": "A Heart Chorus team wins two or three heart tricks a round between both seats, about +20 to +30, about +20 EV; counting both seats makes it easy to trigger and rewards passing hearts across the table, and it differs from Sunset Sailboat (TE-U05, your own late heart wins).",
+  "deviation": "Simplified from partner wins you played a heart to, which was fiddly and hard to trigger."
 }

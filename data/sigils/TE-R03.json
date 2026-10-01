@@ -21,16 +21,16 @@
       "icon": "beach"
     }
   ],
-  "text": "Gain +15 contract value for each round you've won three or more tricks with hearts since you bought this sigil, up to +90.",
-  "timing": "Always on, for you (counter checked at scoring)",
+  "text": "Whenever you win your third trick with hearts in a round, this sigil gains +10 contract value.",
+  "timing": "When you win any trick (the third heart win each round)",
   "prototype": "automated",
   "signature": [
     {
-      "trigger": "always, counter of rounds with 3+ heart tricks won since purchase",
+      "trigger": "you win your third heart trick in a round",
       "scope": "self",
-      "target": "contract",
-      "effect": "contract value +15 per qualifying round",
-      "frequency": "max +90"
+      "target": "this sigil",
+      "effect": "contract value +10, permanently",
+      "frequency": "once per round"
     }
   ],
   "archetypes": "Heart Chorus",
@@ -39,7 +39,6 @@
   "decision": "Whether to spend hearts early to reach three heart wins or hold them for the late tricks, and how many heart tricks to bid for.",
   "opponent": "The count is public; opponents can hold spades for the late hearts to deny a qualifying round.",
   "aiNote": "Value each round at three or more heart wins as +15 for the rest of the run; with Unfolding Butterfly, hold hearts for the last five tricks.",
-  "rationale": "A Heart Chorus hand with Unfolding Butterfly wins three heart tricks in about 60% of rounds, so a copy bought around round 5 reaches about +45 by round 10 and nears the cap by round 13 (about +35 to +45 EV late), rare value for the thinnest archetype; the round that qualifies pays at once, and it grows across the run instead of paying a one-round bonus (Schooling Fish, Sunset Sailboat) or raising heart ranks (Unfolding Butterfly).",
-  "deviation": "Step raised from about +10 to +15 (cap +90) because a rare is usually found mid-run and +10 left the thinnest archetype near +25 EV; timing moved from \"After scoring\" to the accepted always-on counter pattern (Growing City, Waiting Bench) so the qualifying round pays immediately, and After scoring is already above its floor of 3.",
-  "notes": "These kind of permanent effects should be phrased as like \"whenever you do X, this sigil gains Y\""
+  "rationale": "A Heart Chorus hand with Unfolding Butterfly wins three heart tricks in about 60% of rounds, so a copy bought around round 5 gives about +30 by round 10 and +40 to +50 by round 13, rare value for the thinnest archetype; the round that qualifies pays at once, and it grows across the run instead of paying a one-round bonus (Sunset Sailboat) or raising heart ranks (Unfolding Butterfly).",
+  "deviation": "Rephrased from a count of qualifying rounds since purchase, capped at +90, to a sigil that grows each time it qualifies, without a cap."
 }

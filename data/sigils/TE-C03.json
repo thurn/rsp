@@ -21,10 +21,10 @@
       "icon": "lock"
     }
   ],
-  "text": "Before bidding, you and your partner each privately show the other two chosen cards.",
+  "text": "Before bidding, you and your partner reveal two chosen cards to each other.",
   "timing": "Before bidding",
   "prototype": "manual",
-  "prototypeNote": "Before bidding, use Reveal card on two of your chosen cards and two of your partner's.",
+  "prototypeNote": "Before bidding, use Reveal card on two of your chosen cards and two of your partner's, shown only to the two of you.",
   "signature": [
     {
       "trigger": "before bidding",
@@ -41,6 +41,5 @@
   "opponent": "Opponents see that cards were shown but not which; no loss of agency.",
   "aiNote": "Show your two highest cards (a nil-leaning hand shows its two most dangerous); count your partner's shown cards as known when bidding.",
   "rationale": "Both partners pick what to show, which turns the reveal into a signal and guides every later pass (Open Hand, TE-C12, Sheltering Castle); it tells more than BL-C02's ace-and-king count but far less than a full hand.",
-  "deviation": "Timing moved from Always on to Before bidding, because the brief's \"revealed cards all round\" had no clear source of revealed cards; the Mutual variation stays.",
-  "notes": "\"reveal two chosen cards to each other\""
+  "deviation": "Timing moved from Always on to Before bidding, because the brief's \"revealed cards all round\" had no clear source of revealed cards; the Mutual variation stays."
 }

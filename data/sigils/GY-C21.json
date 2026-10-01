@@ -21,8 +21,8 @@
       "icon": "pin"
     }
   ],
-  "text": "Gain +10 contract value for each contract your team has made in a row, up to +30.",
-  "timing": "Always on, for you (the streak updates after scoring)",
+  "text": "Whenever your team makes its contract, this sigil gains +10 contract value, up to +30; a missed contract resets it.",
+  "timing": "After scoring",
   "prototype": "automated",
   "signature": [
     {

@@ -1,6 +1,6 @@
 {
   "code": "TE-C04",
-  "name": "Snaring Lasso",
+  "name": "Handoff Football",
   "resonances": [
     "Teal"
   ],
@@ -8,39 +8,37 @@
   "category": "Engraving",
   "price": 50,
   "wave": 2,
-  "icon": "lasso",
-  "iconFamily": "lasso",
-  "iconWord": "lasso",
+  "icon": "football",
+  "iconFamily": "football",
+  "iconWord": "football",
   "iconAlternates": [
     {
-      "name": "Salvage Crate",
-      "icon": "container"
+      "name": "Snaring Lasso",
+      "icon": "lasso"
     },
     {
-      "name": "Scavenging Wanderer",
-      "icon": "walking"
+      "name": "Dribbled Ball",
+      "icon": "dribbling"
     }
   ],
-  "text": "When this card loses a trick, you may take the card that won it, putting a chosen card from your hand in its place.",
+  "text": "When this card loses a trick to your partner, gain +25 contract value.",
   "timing": "When this card loses",
-  "prototype": "manual",
-  "prototypeNote": "When this card loses, use Move card to take the winning card from the trick and put the chosen card from your hand in its place.",
+  "prototype": "automated",
   "signature": [
     {
-      "trigger": "this card loses a trick",
+      "trigger": "this card loses a trick your partner wins",
       "scope": "self",
-      "target": "the card that won it",
-      "effect": "optional swap into hand",
-      "frequency": "×1"
+      "target": "contract",
+      "effect": "contract value +25",
+      "frequency": "once per round"
     }
   ],
-  "archetypes": "Swap Meet, Exact Contractor, Heart Chorus; splash Kingmaker",
-  "family": "Recursion / Triggered",
-  "role": "Enabler",
-  "decision": "When to throw this card under a big winner, and which weak card to leave in the finished trick in exchange.",
-  "opponent": "Visible swap; the trick's result stands, but the winning card now sits in your hand and can beat them later.",
-  "aiNote": "Play this card under an ace or high trump when you must lose anyway, then swap your lowest card for the winner unless you are on nil.",
-  "rationale": "Recursion that fires once, with one choice: a lost trick turns into a future winner, a heart that won comes back for Heart Chorus, and an Exact Contractor gains a card it can choose to win with; a random card loses about 75% of the time, and the swap costs a card, which suits a 50-gold common.",
-  "deviation": "Trigger moved from \"whenever you discard\" to this card losing, and the target from your earlier cards to the trick's winner, because GY-C12's brief already swaps on every discard and a repeating swap adds a choice every discard.",
-  "notes": "too complicated for common."
+  "archetypes": "Kingmaker, Exact Contractor; splash Heart Chorus",
+  "family": "Partner wins / Card-bound",
+  "role": "Payoff (Contract additive)",
+  "decision": "Which of your partner's winning tricks to spend this card on: follow under their winner with it rather than winning yourself.",
+  "opponent": "Visible on trigger; opponents can overtake your partner's card so the trick doesn't go to your team.",
+  "aiNote": "Play this card when your partner is winning the trick and this card can't beat their card.",
+  "rationale": "Your partner wins about three tricks a round and you can usually follow under one of them with this card, so it pays about +25 in about 40% of rounds, about +8 EV, a simple common that rewards letting your partner win.",
+  "deviation": "Redesigned and renamed from Snaring Lasso, which took the winning card out of the trick and was too complicated for a common."
 }

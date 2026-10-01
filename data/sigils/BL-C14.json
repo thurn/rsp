@@ -21,7 +21,7 @@
       "icon": "satellite-dish"
     }
   ],
-  "text": "After bidding, look at your partner's hand.",
+  "text": "After bidding, your partner reveals their hand to you.",
   "timing": "After bidding",
   "prototype": "automated",
   "signature": [
