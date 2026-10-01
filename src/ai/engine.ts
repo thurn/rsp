@@ -1,5 +1,6 @@
 import BALANCE from '../../data/balance.json'
 import { BLIND_NIL, NIL, isNil, type Bid } from '../game/types'
+import type { Payoff, ScoreModel } from './probe'
 import type { AIView, SimCard, SimRules } from './view'
 
 const SPADES = 3
@@ -35,6 +36,11 @@ interface Sim {
   tricksPlayed: number
   bags: number[]
   rules: SimRules
+  model?: ScoreModel
+  payoffs?: Record<number, Payoff>
+  seatPayoffs?: Payoff[]
+  /** Points per team from sigil trick payoffs so far in this simulation. */
+  bonus: [number, number]
 }
 
 const done = (sim: Sim) => sim.tricksPlayed >= 13 || sim.hands.every((h) => h.length === 0)
@@ -105,6 +111,7 @@ function apply(sim: Sim, card: SimCard): void {
   }
   const w = simWinner(sim.rules, sim.trick, sim.trickSeats)
   const winner = sim.trickSeats[w]
+  if (sim.payoffs || sim.seatPayoffs) payTrick(sim, w)
   sim.tricksWon[winner]++
   sim.tricksPlayed++
   sim.trick = []
@@ -118,6 +125,20 @@ function apply(sim: Sim, card: SimCard): void {
     }
   }
   sim.turn = sim.leader
+}
+
+/** Adds the probed sigil payoffs of a resolved trick to the teams' bonus. */
+function payTrick(sim: Sim, w: number) {
+  const add = (v: [number, number]) => {
+    sim.bonus[0] += v[0]
+    sim.bonus[1] += v[1]
+  }
+  sim.trick.forEach((c, i) => {
+    const card = sim.payoffs?.[c.id]
+    if (card) add(i === w ? card.win : card.lose)
+    const seat = sim.seatPayoffs?.[sim.trickSeats[i]]
+    if (seat) add(i === w ? seat.win : seat.lose)
+  })
 }
 
 /** Contract and tricks still needed for a team. */
@@ -137,8 +158,10 @@ const BAG_COST = BALANCE.scoring.bagPenalty / BALANCE.scoring.bagsPerPenalty
 /** What a gold of income is worth in points to the AI. */
 export const GOLD_POINTS = 0.25
 
-/** Plain Spades score for one team, plus overtrick and income values; no sigils. */
+/** One team's score: the probed score model when there is one, else plain Spades; plus overtrick,
+ * income, and sigil payoff values. */
 function simScore(sim: Sim, team: number): number {
+  if (sim.model) return modelScore(sim, sim.model, team)
   let total = 0
   let contract = 0
   let taken = 0
@@ -163,6 +186,23 @@ function simScore(sim: Sim, team: number): number {
   }
   // Both partners receive the team's income.
   return total + 2 * gold * GOLD_POINTS
+}
+
+function modelScore(sim: Sim, m: ScoreModel, team: number): number {
+  let total = sim.bonus[team]
+  let gold = 0
+  let k = 0
+  for (let s = team; s < 4; s += 2) {
+    gold += m.goldPerTrick * sim.tricksWon[s]
+    if (isNil(sim.bids[s])) {
+      const blind = sim.bids[s] === BLIND_NIL
+      const [win, lose] = m.nil[s] ?? (blind ? [200, -200] : [100, -100])
+      const clean = sim.tricksWon[s] === 0
+      total += clean ? win : lose
+      if (clean) gold += blind ? BALANCE.income.blindNilGold : BALANCE.income.nilGold
+    } else k += sim.tricksWon[s]
+  }
+  return total + m.contract[team][Math.min(13, k)] + 2 * gold * GOLD_POINTS
 }
 
 function evaluate(sim: Sim): [number, number] {
@@ -311,6 +351,10 @@ function simFrom(view: AIView, hands: Deal, bids: Bid[]): Sim {
     tricksPlayed: view.tricksPlayed,
     bags: view.bags.slice(),
     rules: view.rules,
+    model: view.model,
+    payoffs: view.payoffs,
+    seatPayoffs: view.seatPayoffs,
+    bonus: [0, 0],
   }
 }
 

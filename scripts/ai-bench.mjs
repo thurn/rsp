@@ -92,6 +92,8 @@ function print({ options, metrics: m, notes }) {
     ['Manual lines', String(m.manualLines)],
     ['Runaway drains', String(m.runawayDrains)],
     ['Stalls', String(m.stalls)],
+    ['Probe errors', String(m.probeErrors)],
+    ['Probe ms per decision', avg(m.probeMsPerDecision)],
   ]
   const w = Math.max(...rows.map((r) => r[0].length))
   for (const [k, v] of rows) console.log(`${k.padEnd(w)}  ${v}`)

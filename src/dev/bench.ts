@@ -1,6 +1,7 @@
 // Headless AI self-play benchmark. scripts/ai-bench loads this through Vite's SSR loader and
 // calls runBench; nothing here touches the DOM or src/game/store.ts.
 import { chooseBid, chooseCard, makeRng } from '../ai/engine'
+import { aiView } from '../ai/probe'
 import { viewFor } from '../ai/view'
 import { type Card, type Seat, SPADES, partnerOf, seatsFrom } from '../game/cards'
 import { DEFAULT_GOLD, newGame, reduce } from '../game/engine'
@@ -65,6 +66,9 @@ function newStats() {
     errorSamples: [] as string[],
     manual: 0,
     runaways: 0,
+    probeErrors: 0,
+    probes: 0,
+    probeMs: 0,
     stalls: 0,
     ms: 0,
   }
@@ -207,7 +211,11 @@ function nextAction(st: Stats, s: GameState, o: BenchOptions): Action | null {
     case 'playing': {
       if (s.trickDone) return { type: 'collect' }
       const seat = s.turn
-      const cardId = chooseCard(viewFor(s, seat), o.think, o.iterations)
+      const view = aiView(s, seat)
+      st.probes++
+      st.probeMs += view.probeMs ?? 0
+      st.probeErrors += view.probeErrors ?? 0
+      const cardId = chooseCard(view, o.think, o.iterations)
       checkPlay(st, s, seat, cardId)
       return { type: 'play', seat, cardId }
     }
@@ -382,5 +390,7 @@ function summarize(st: Stats) {
     manualLines: st.manual,
     runawayDrains: st.runaways,
     stalls: st.stalls,
+    probeErrors: st.probeErrors,
+    probeMsPerDecision: pct(st.probeMs, st.probes),
   }
 }

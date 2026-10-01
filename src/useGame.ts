@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useSyncExternalStore } from 'react'
 import { askAI } from './ai/client'
+import { aiView } from './ai/probe'
 import { viewFor } from './ai/view'
 import type { Seat } from './game/cards'
 import { legalMoves } from './game/rules'
@@ -36,7 +37,7 @@ export function useDriver(state: GameState | null, paused: boolean) {
     const playing = state.phase === 'playing' && !state.trickDone && ai(state.turn)
     if (bidding || playing) {
       const seat = state.turn
-      const view = viewFor(state, seat)
+      const view = bidding ? viewFor(state, seat) : aiView(state, seat)
       Promise.all([askAI(bidding ? 'bid' : 'play', view, THINK_MS), wait(AI_MIN_DELAY)]).then(
         ([value]) => {
           if (cancelled || getState()?.version !== version) return

@@ -2,6 +2,7 @@ import { type Card, type Seat, partnerOf } from '../game/cards'
 import { rank } from '../game/core'
 import { bidOptions, legalMoves, trickRules } from '../game/rules'
 import type { Bid, GameState } from '../game/types'
+import type { Payoff, ScoreModel } from './probe'
 
 /** A card as the AI sees it: effective suit and rank, taken when the view is built. */
 export interface SimCard {
@@ -41,6 +42,12 @@ export interface AIView {
   bags: number[]
   scores: number[]
   rules: SimRules
+  /** Sigil-aware scoring and trick payoffs from probe.ts; absent means plain Spades. */
+  model?: ScoreModel
+  payoffs?: Record<number, Payoff>
+  seatPayoffs?: Payoff[]
+  probeErrors?: number
+  probeMs?: number
 }
 
 /**
@@ -49,6 +56,7 @@ export interface AIView {
  */
 export function visibleState(s: GameState, seat: Seat): GameState {
   const partner = partnerOf(seat)
+  const team = (x: number) => x === seat || x === partner
   const strip = (c: Card, mine: boolean, faceUp: boolean): Card => ({
     ...c,
     sigils: c.sigils.filter(
@@ -57,6 +65,10 @@ export function visibleState(s: GameState, seat: Seat): GameState {
   })
   return {
     ...s,
+    // Opponents' Ongoing sigils show once they have triggered.
+    players: s.players.map((p, i) =>
+      team(i) ? p : { ...p, sigils: p.sigils.filter((o) => o.revealed) },
+    ),
     hands: s.hands.map((h, i) => h.map((c) => strip(c, i === seat, c.revealed))),
     trick: s.trick.map((p) => ({ ...p, card: strip(p.card, false, true) })),
     history: s.history.map((t) => ({

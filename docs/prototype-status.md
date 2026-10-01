@@ -159,22 +159,24 @@ Recorded for later:
 
 Single 200-round runs are too noisy to compare AI changes: two runs of nearly the same code differed by 4.5 points of plain set rate and 15 points of nil success. Each step is compared on seeds 1, 2, and 3 (600 rounds, `--iterations 1500`), run in parallel and summed. The reference is current master before the step; with all 250 sigils automated, the `--random-sigils 8` pool is larger than at the baseline above, so its numbers differ. `--random-sigils 8` stays noisy even at 600 rounds (±4 points of set rate between equivalent runs), because strong sigil draws swing whole games.
 
-| Metric (3 seeds, 600 rounds) | Master before hv-frfo.4 | hv-frfo.4 | hv-frfo.5 |
-| --- | --- | --- | --- |
-| Plain set rate | 27.4% (329/1,200) | 25.6% (307/1,200) | 22.2% (266/1,200) |
-| Plain mean \|bid − tricks\| | 0.81 | 0.84 | 0.75 |
-| Plain nil success | 66.1% (117/177) | 67.4% (124/184) | 82.7% (162/196) |
-| Plain blind nil success | 19.4% (33/170) | 17.4% (31/178) | 22.4% (30/134) |
-| Plain wasted overtakes | 6.6% (255/3,856) | 6.2% (243/3,946) | 2.7% (112/4,171) |
-| Plain missed nil covers | 0/112 | 2/115 | 0/52 |
-| Plain nil suicides | 1.3% (38/2,852) | 1.8% (54/2,988) | 0.1% (4/3,320) |
-| Random-8 set rate | 49.8% (598/1,200) | 53.1% (637/1,200) | 41.7% (500/1,200) |
-| Random-8 set rate, multiplier > 1× | 49.4% (172/348) | 48.6% (161/331) | 32.9% (100/304) |
-| Random-8 nil success | 65.6% (124/189) | 65.8% (131/199) | 71.1% (128/180) |
-| Health (`console.error`, runaway drains, stalls) | 0 | 0 | 0 |
+| Metric (3 seeds, 600 rounds) | Master before hv-frfo.4 | hv-frfo.4 | hv-frfo.5 | hv-frfo.6 |
+| --- | --- | --- | --- | --- |
+| Plain set rate | 27.4% (329/1,200) | 25.6% (307/1,200) | 22.2% (266/1,200) | 22.2% (266/1,200) |
+| Plain mean \|bid − tricks\| | 0.81 | 0.84 | 0.75 | 0.75 |
+| Plain nil success | 66.1% (117/177) | 67.4% (124/184) | 82.7% (162/196) | 82.7% (162/196) |
+| Plain blind nil success | 19.4% (33/170) | 17.4% (31/178) | 22.4% (30/134) | 22.4% (30/134) |
+| Plain wasted overtakes | 6.6% (255/3,856) | 6.2% (243/3,946) | 2.7% (112/4,171) | 2.7% (112/4,171) |
+| Plain missed nil covers | 0/112 | 2/115 | 0/52 | 0/52 |
+| Plain nil suicides | 1.3% (38/2,852) | 1.8% (54/2,988) | 0.1% (4/3,320) | 0.1% (4/3,320) |
+| Random-8 set rate | 49.8% (598/1,200) | 53.1% (637/1,200) | 41.7% (500/1,200) | 43.4% (521/1,200) |
+| Random-8 set rate, multiplier > 1× | 49.4% (172/348) | 48.6% (161/331) | 32.9% (100/304) | 32.7% (104/318) |
+| Random-8 nil success | 65.6% (124/189) | 65.8% (131/199) | 71.1% (128/180) | 74.8% (160/214) |
+| Health (`console.error`, runaway drains, stalls) | 0 | 0 | 0 | 0 |
 
 - hv-frfo.4 (3a): views strip engravings the seat can't see (`visibleState` in `src/ai/view.ts`), list known cards (revealed, `knownTo`), and pin them in each deal. Card play samples 512 deals and keeps the 64 that best fit the other seats' bids; bidding keeps 160, one per sample, because a 64-deal pool made nil odds coarse and cut nil success by 6 points. Blind nil bids don't count toward the fit, since they were bid unseen; counting them halved blind nil success.
 - hv-frfo.5 (3b): the rollout score charges each overtrick its share of the bag penalty (10 points) and counts income at 0.25 points per gold; a partner's boss card counts as winning only when no later seat can trump it; after the search, root moves within 0.05 of the best mean reward are treated as equal, and the AI plays the heuristic's move from that set, else its lowest card. A 0.02 band gave 3.9% wasted overtakes and 66% nil success; with about 300 visits per move the means carry roughly ±0.02 of noise, and 0.05 gave 2.7% and 83%.
+- hv-frfo.6 (3c): `src/ai/probe.ts` builds each decision's score model by running `scoreRound` on clones of the visible state for 0–13 contract tricks per team (contract points, ledger points, and 10 per new bag), plus each nil seat's success and failure points, and probes `thisCardWins`/`thisCardLoses` for every visible engraved card and `youWin`/`partnerWins`/`youLose` for each seat. Plain play is unchanged, since with no sigils the model reproduces plain scoring. Probes cost 1.9 ms per decision in plain games and 3.8 ms with 8 sigils per seat, with 0 probe errors. Views also hide opponents' Ongoing sigils until they have triggered.
+- Target gap after hv-frfo.6: the random-8 set rate with a multiplier above 1× is 32.7% against a target of the plain rate plus 5 points (27.2%).
 - Target gap after hv-frfo.5: wasted overtakes are 2.7% against a target of 25% of the 5.8% baseline (1.5%). Nil success (≥ 75%) and mean bid error (below baseline) are met; plain set rate is 22.2% against 18%.
 - The random-8 set rate rise is inside that mode's run-to-run noise: an earlier hv-frfo.4 variant measured 45.4% on the same seeds.
 
