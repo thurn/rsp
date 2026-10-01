@@ -20,23 +20,23 @@
       "icon": "education"
     }
   ],
-  "text": "You may play this card as a two or an ace.",
-  "timing": "Always on, for the engraved card",
+  "text": "When you play this card, choose its rank.",
+  "timing": "When played",
   "signature": [
     {
-      "trigger": "always",
+      "trigger": "you play this card",
       "scope": "self",
       "target": "this card",
-      "effect": "may play as rank 2 or ace",
-      "frequency": "×1"
+      "effect": "choose its rank",
+      "frequency": "once per round"
     }
   ],
   "archetypes": "Exact Contractor, Nil Champion; splash High Card",
   "family": "Rank choice and swapping / Set on play",
   "role": "Enabler",
-  "decision": "When to play it and, after seeing the cards before it, whether this trick should be won or lost.",
+  "decision": "When to play it and, after seeing the cards before it, which rank to give it: just high enough to win, or low enough to lose.",
   "opponent": "Visible when it resolves; players after it in the trick see the new rank and can still trump or overtake.",
   "aiNote": "Make it an ace if the team still needs tricks and no trump has been played; otherwise make it a two; play it last in a trick when possible.",
-  "rationale": "One win or loss on demand is exactly what an exact count and a nil need, and it is distinct from BL-C03, which only lowers your aces.",
-  "notes": "I would prefer this less directly mirror falling star. Maybe just let you pick the rank when you play the card "
+  "rationale": "One win or loss on demand is exactly what an exact count and a nil need. Choosing any rank, rather than only an ace or a two, lets it win as cheaply as possible or duck under a specific card, and it stays apart from Falling Star (BL-C03), which only lowers your aces.",
+  "deviation": "Changed from playing as a two or an ace, which mirrored Falling Star, to choosing any rank."
 }

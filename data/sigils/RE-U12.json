@@ -37,6 +37,6 @@
   "decision": "Which card to reveal and raise: a queen becomes a sure winner, while a middle card becomes a threat the whole table can plan around.",
   "opponent": "Fully visible: the table sees the revealed card and its rank before bidding.",
   "aiNote": "Reveal your highest non-ace card in your longest non-spade suit; count each revealed card at its raised rank when bidding.",
-  "rationale": "It enables itself: one chosen card gains +4 every round, and any other reveals (Open Book, BL-C14, and Chasing Rainbows, DU-S05) gain it too. Choosing the card is stronger than Honed Edge's random +3, and showing it to the table is the price, which places it at uncommon.",
+  "rationale": "It enables itself: one chosen card gains +4 every round, and Chasing Rainbows' reveal (DU-S05) gains it too. Choosing the card is stronger than Honed Edge's random +3, and showing it to the table is the price, which places it at uncommon.",
   "deviation": "Moved from common to uncommon (RE-U12 to RE-U12) and given its own reveal, because the common version depended on reveals from other sigils."
 }

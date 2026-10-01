@@ -20,23 +20,23 @@
       "icon": "hurricane"
     }
   ],
-  "text": "Whenever you lose a trick while holding a card that could have won it, gain +5 nil value.",
-  "timing": "When you lose any trick",
+  "text": "Whenever you throw off a card, if you bid nil, gain +10 nil value.",
+  "timing": "When you throw off a card",
   "signature": [
     {
-      "trigger": "you lose a trick, holding a card that beats its winner",
+      "trigger": "you throw off a card while on nil",
       "scope": "self",
-      "target": "your nil",
-      "effect": "nil value +5",
-      "frequency": "per trick"
+      "target": "nil",
+      "effect": "nil value +10",
+      "frequency": "per throw-off"
     }
   ],
   "archetypes": "Nil Champion; splash Blind Bidder",
-  "family": "Losing tricks / Ducking",
+  "family": "Losing tricks / Safe sheds",
   "role": "Payoff (Nil)",
-  "decision": "On a nil, whether to keep a dangerous high card for later ducks or shed it early while it is safe.",
-  "opponent": "Visible each time it triggers, which tells opponents you still hold a winner in that suit, so they can lead it again to force it out.",
-  "aiNote": "On nil, follow with your highest card that still loses, keeping cards above it; shed a held winner only when it can no longer lose safely.",
-  "rationale": "\"Could have won\" means you still hold a legal card that beats the card that won; a nil hand ducks under its own higher cards about four to six times a round, about +25 on a successful nil, near Vigil Candle, which is the risk it rewards.",
-  "notes": "Too complicated for a common "
+  "decision": "On a nil, which suit to empty first so later tricks become safe throw-offs that also pay.",
+  "opponent": "Visible each time it triggers; opponents can lead suits you still hold to deny throw-offs.",
+  "aiNote": "On a nil, play out your shortest non-spade suit early.",
+  "rationale": "A nil hand throws off two to four times a round, so a successful nil gains +20 to +40, near Vigil Candle, and it rewards the void-making a nil already wants.",
+  "deviation": "Simplified from losing a trick while holding a card that could have won it, which was too complicated for a common."
 }

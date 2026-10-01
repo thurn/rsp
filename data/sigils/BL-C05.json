@@ -20,14 +20,14 @@
       "icon": "book-library"
     }
   ],
-  "text": "While this card is in your hand, after each trick, look at a random card in a random opponent's hand.",
+  "text": "While this card is in your hand, after each trick, reveal a random card in a random opponent's hand.",
   "timing": "While in hand",
   "signature": [
     {
-      "trigger": "while held, after each trick",
-      "scope": "self",
+      "trigger": "after each trick while this card is in your hand",
+      "scope": "opponents",
       "target": "a random card in a random opponent's hand",
-      "effect": "look (private)",
+      "effect": "reveal",
       "frequency": "per trick"
     }
   ],
@@ -35,9 +35,8 @@
   "family": "While held / Per trick (information)",
   "role": "Enabler; opponent-facing",
   "decision": "Every trick, whether to keep holding this card for more looks or spend it now, and how to use what you saw to win, duck, or land an exact count.",
-  "opponent": "Each opponent sees when one of their cards is looked at; only you learn it, and their plays are unaffected.",
+  "opponent": "Each revealed card is shown to the whole table and stays revealed for the round; opponents' plays are unaffected.",
   "aiNote": "Never play this card while another legal card exists; treat seen cards as known when choosing to win or duck.",
   "rationale": "Holding pays in Blue's own currency, information, which grows the longer the card stays in hand (about six to eight looks with care, some repeats) and helps every Blue archetype play its middle and late tricks; unlike BL-C01 it informs play rather than bids.",
-  "deviation": "Variation moved from Aura (rank) to a per-trick information payout, because a rank aura near-duplicates Verdant Banner; the stat-stick tag is dropped.",
-  "notes": "\"reveal\"."
+  "deviation": "Variation moved from Aura (rank) to a per-trick information payout, because a rank aura near-duplicates Verdant Banner; the stat-stick tag is dropped."
 }

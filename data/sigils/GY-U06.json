@@ -20,7 +20,7 @@
       "icon": "keyboard"
     }
   ],
-  "text": "Before bidding, each opponent shows a random sigil they own, and you choose one for this card to copy for the round.",
+  "text": "Before bidding, each opponent reveals a random sigil they own, and you choose one for this card to copy for the round.",
   "timing": "Before bidding",
   "signature": [
     {

@@ -20,23 +20,23 @@
       "icon": "satellite-dish"
     }
   ],
-  "text": "Before bidding, each player reveals two random cards in their hand.",
-  "timing": "Before bidding",
+  "text": "After bidding, look at your partner's hand.",
+  "timing": "After bidding",
   "signature": [
     {
-      "trigger": "before bidding",
-      "scope": "all players",
-      "target": "two random cards each",
-      "effect": "reveal (public)",
-      "frequency": "×2 each"
+      "trigger": "after bidding",
+      "scope": "team",
+      "target": "your partner's hand",
+      "effect": "look at it",
+      "frequency": "once per round"
     }
   ],
-  "archetypes": "Kingmaker, Nil Guard, Contract Attacker, Swap Meet; splash Bonus Chaser",
-  "family": "Revealing opponents' cards / Public reveals",
-  "role": "Enabler; opponent-facing",
-  "decision": "Bidding and passing with eight public cards: which cards to pass your partner, which to take from a nil partner, and which opponent's bid to attack.",
-  "opponent": "Fully symmetric and public, so opponents gain the same information and bid with it.",
-  "aiNote": "Treat revealed cards as known in bidding; pass to cover the partner's revealed weak suits and target an opponent whose revealed cards look thin.",
-  "rationale": "Public reveals feed partner coordination (Kingmaker's passes, Nil Guard's cover) and opponent targeting (Contract Attacker, Swap Meet's trades), and they give RE-U12's revealed-card boost more targets.",
-  "notes": "It seems too hard to break symmetry on this. I'm not sure why I would want a sigil that sort of equally benefits my opponents. "
+  "archetypes": "Kingmaker, Nil Guard, Exact Contractor; splash Swap Meet",
+  "family": "Partner information / After bidding",
+  "role": "Enabler",
+  "decision": "How to play around your partner's cards: which suits to lead to them, which winners to hold back for an exact count, and how to cover a nil partner.",
+  "opponent": "Opponents see that you looked; only you learn the cards.",
+  "aiNote": "Lead your partner's strongest suit; on a partner nil, play your highest card in suits where they hold high cards.",
+  "rationale": "Full knowledge of one hand after bidding helps the team play every trick without changing either bid, so it is a strong common for partnership decks and gives the opponents nothing.",
+  "deviation": "Redesigned from every player revealing two random cards, which helped the opponents as much as you."
 }

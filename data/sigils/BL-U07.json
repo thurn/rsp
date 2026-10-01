@@ -1,43 +1,42 @@
 {
   "code": "BL-U07",
-  "name": "Quiet Omega",
+  "name": "Quiet Footsteps",
   "resonances": [
     "Blue"
   ],
   "rarity": "Uncommon",
   "price": 70,
   "wave": 3,
-  "icon": "omega",
-  "iconFamily": "omega",
-  "iconWord": "omega",
+  "icon": "footsteps",
+  "iconFamily": "footsteps",
+  "iconWord": "footsteps",
   "iconAlternates": [
     {
       "name": "Watching Eye",
       "icon": "eye"
     },
     {
-      "name": "Still Camera",
-      "icon": "camera"
+      "name": "Winding Path",
+      "icon": "path"
     }
   ],
-  "text": "Whenever you lose a trick you played last to, gain +10 nil value.",
+  "text": "Whenever you lose a trick you played an ace or face card to, gain +15 nil value.",
   "timing": "When you lose any trick",
   "signature": [
     {
-      "trigger": "you lose a trick, you played last",
+      "trigger": "you lose a trick you played an ace or face card to",
       "scope": "self",
-      "target": "your nil",
-      "effect": "nil value +10",
+      "target": "nil",
+      "effect": "nil value +15",
       "frequency": "per trick"
     }
   ],
   "archetypes": "Nil Champion; splash Blind Bidder, Nil Guard",
-  "family": "Trick position / Last to play",
+  "family": "Losing tricks / Ducking high cards",
   "role": "Payoff (Nil)",
-  "decision": "When you play last, which card to shed: the highest card that still loses, knowing a tied rank played last wins.",
-  "opponent": "Visible each time it triggers; opponents answer by leading low from the seat that makes you play last, forcing you to find a card under theirs.",
-  "aiNote": "When playing last on nil, play your highest card that still loses; never play a card that ties the current winner.",
-  "rationale": "You play last in about a quarter of tricks, so it fires about three times a round, about +30 on a successful nil, a little above Vigil Candle and Lowered Lashes as an uncommon should be; it asks for no held winner, so it never overlaps Lowered Lashes (BL-C11).",
-  "deviation": "Sized at +10 a trick instead of the brief's +5, because the last-seat condition already cuts the triggers to about three a round, and +5 would pay less than a common.",
-  "notes": "dumb name and kind of random, don't have a lot of agency over whether this happens?"
+  "decision": "On a nil, when to shed each high card: under a higher card or a trump, while it is safe, rather than holding it until it is forced to win.",
+  "opponent": "Visible each time it triggers; opponents can lead low in the suit so your high card has nothing to hide under.",
+  "aiNote": "On a nil, play your highest card of the suit led whenever a higher card or a trump is already in the trick.",
+  "rationale": "A nil hand holds three or four aces and face cards and sheds two or three of them safely, so a successful nil gains +30 to +45, about +15 EV, the uncommon nil band. Every trigger is a card you chose to shed at a safe moment.",
+  "deviation": "Redesigned and renamed from Quiet Omega, which paid for playing last to a trick, something you rarely control."
 }

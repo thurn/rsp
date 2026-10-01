@@ -500,6 +500,9 @@ Every candidate answers these questions in writing.
 - How much must a player remember across tricks? A common tracks nothing
   beyond the current trick or a single counter.
 - How many choices does it add per round? A common adds at most one.
+- Does the player control when it fires? A trigger rewards a choice the
+  player makes, such as which card to shed, rather than a seat position or
+  luck.
 - Can the AI heuristic evaluate its choices?
 
 **Rules fit**

@@ -53,6 +53,10 @@ reference for clarity.
 - **Readable alone.** A player reading only the text knows when it happens,
   which cards or players it affects, who picks them, and what changes. The
   text says "chosen" when the player picks and "random" when nobody does.
+- **Owners come out ahead.** A sigil that touches the whole table helps its
+  owner's team more than the opponents'.
+- **Each sigil its own.** Every sigil plays differently from the others; no
+  two mirror each other.
 - **Bids belong to their bidders.** A sigil changes only its owner's own bid.
 - **Pass and swap.** A card moving from your hand to another player's is
   passed, or swapped when a card comes back. These are the only two words for
@@ -165,7 +169,7 @@ These are the game's own terms, beyond standard Spades vocabulary.
 | **convert** | Change a card's suit. |
 | **pass** | Give a card from your hand to another player, who gives nothing back. |
 | **swap** | You and another player each give the other a card at the same time. Each player secretly picks the card they give, unless the text names the cards: "swap your highest card for your partner's lowest card." "Swap two cards" moves two cards each way. |
-| **reveal** | Show a card in your hand to every player. It stays in your hand and stays revealed for the round; playing a card does not reveal it. |
+| **reveal** | Show a card to every player, from your hand or another player's. It stays in that hand and stays revealed for the round; playing a card does not reveal it. Seeing an opponent's cards is always a reveal. |
 | **throw off** | Play a card that neither follows the suit led nor is trump. Trumping is not throwing off. |
 | **longest suit, shortest suit** | Counted in your hand when the effect happens. Used rarely; most sigils name a suit. |
 | **team** | You and your partner. |
