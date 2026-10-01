@@ -193,13 +193,6 @@
   }
 }
 
-/* Phones keep the wrench in the scoreboard row, clear of the hand. */
-@media (max-width: 700px), (orientation: portrait) and (max-width: 1000px) {
-  .score {
-    margin-right: 56px;
-  }
-}
-
 .restart {
   position: absolute;
   top: var(--space-4);
@@ -234,4 +227,16 @@
 
 .restart:active {
   transform: translateY(1px);
+}
+
+/* Phones keep the wrench in the scoreboard row, clear of the hand, with restart below it. */
+@media (max-width: 700px), (orientation: portrait) and (max-width: 1000px) {
+  .score {
+    margin-right: 56px;
+  }
+
+  .restart {
+    top: calc(var(--space-4) + 44px + var(--space-2));
+    right: var(--space-4);
+  }
 }

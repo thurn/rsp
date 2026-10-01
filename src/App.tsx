@@ -103,8 +103,12 @@ function Table({ state }: { state: GameState }) {
   const blindAsk = state.blindAsk !== null && state.blindAsk === human
   const showSummary =
     (state.phase === 'roundOver' || state.phase === 'gameOver') && state.lastResult && idle(state)
+  // A prompt raised as you leave the shop (Trade-In Box, Tailored Shirt) keeps the shop overlay up.
   const shopOpen =
-    state.phase === 'shop' && human !== null && state.shop && !state.shop.seats[human].done
+    state.phase === 'shop' &&
+    human !== null &&
+    state.shop &&
+    (!state.shop.seats[human].done || prompt !== null)
   const overlay = blindAsk ? 'blind' : showSummary ? 'summary' : shopOpen ? 'shop' : null
 
   return (

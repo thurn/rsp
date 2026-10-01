@@ -13,6 +13,7 @@ Updated at the end of each phase of [prototype-plan.md](prototype-plan.md).
 | 5. Handler guide | `src/sigils/handlers/README.md` written | Done: Ctx API, windows with scopes, controller rule, AI prompt pattern, copy rules, ten worked examples, testing, downgrades |
 | 6. Handler waves | Every automated sigil has a handler, `tsc` and `eslint` pass, `?auto&fast&random-sigils=8` run | Pass: 213 of 213 automated sigils have handlers and none were downgraded; four `random-sigils=8` runs ended with no console errors, each reaching 1,000 points before round 13 (8 sigils per seat from round 1 produce 300–500 point rounds); a `random-sigils=1` run played all 13 rounds, filled every collection to 13, and logged no errors |
 | 7. Polish | Ledger rows and trigger flashes, visual-review fixes, gate rerun | Pass: the summary shows one row per sigil (contract value on a missed contract is struck through); engraved cards and tray chips pulse on triggers within 450 ms; every visual-review Bug and the top three Design Feedback items are fixed; all five screens pass `uiAudit` at all three viewports and were checked by screenshot |
+| 8. Full automation and AI ([automation-plan.md](automation-plan.md)) | No manual sigils, bench health, AI targets, browser run, new prompt kinds, debug tools | Pass with recorded target misses: 250 of 250 sigils automated; `--all-sigils` health clean with and without `--human 0` (`--all-sigils --min-per-sigil 3` at 150 ms: 24 games each, 0 errors, manual lines, runaway drains, stalls, and probe errors); `?auto&fast&random-sigils=8` reached 1,000 points in round 5 with no console errors; eight new prompt kinds appear, resolve, and pass `uiAudit` at 1280×720 and 390×844; every sandbox section, URL parameter, and `window.game` works |
 
 ## Visual gate
 
@@ -198,6 +199,37 @@ Single 200-round runs are too noisy to compare AI changes: two runs of nearly th
 - Target gap after hv-frfo.5: wasted overtakes are 2.7% against a target of 25% of the 5.8% baseline (1.5%). Nil success (≥ 75%) and mean bid error (below baseline) are met; plain set rate is 22.2% against 18%.
 - The random-8 set rate rise is inside that mode's run-to-run noise: an earlier hv-frfo.4 variant measured 45.4% on the same seeds.
 
+### Final AI results
+
+Master after hv-frfo.8, against the recorded baseline (seed 1 only). Final numbers are seeds 1–3 for plain games and 1–5 for `--random-sigils 8`, all at `--iterations 1500`.
+
+| Metric | Baseline | Final | Target | Result |
+| --- | --- | --- | --- | --- |
+| Plain points per team-round | 34.2 (old bidding rule, seeds 1–3) | 44.8 | — | +31% |
+| Random-8 points per team-round | 76.4 (old bidding rule, seeds 1–3) | 130.8 | — | +71% |
+| Plain team set rate | 28.2% | 7.0% | ≤ 18% | Met |
+| Plain wasted overtakes per opportunity | 5.8% | 3.4% | ≤ 1.5% | Missed: 2.7% after hv-frfo.5; cautious EV bids leave more tricks where an overtake is harmless |
+| Plain nil success | 63.5% | 68.9% (283/411) | ≥ 75% | Missed: 82.7% after hv-frfo.5; EV bidding bids nil twice as often, which scores more |
+| Plain mean \|bid − tricks\| | 0.86 | 1.03 | below baseline | Missed: EV bids are cautious and take bags, which scores more |
+| Plain missed nil covers | 0.0% (0/35) | 1.2% (1/84) | ≤ 50% of baseline | Missed by one cover |
+| Random-8 set rate, multiplier > 1× | 39.3% | 17.8% | ≤ plain + 5 (12.0%) | Missed |
+| Random-8 gold unspent at game end | 820 | 660 | below baseline | Met |
+| Plain exact rate | 41.5% | 26% | — | Lower, the price of cautious bids |
+| Plain bags per made contract | 0.89 | 1.24 | — | Higher, the price of cautious bids |
+| Plain blind nil success | 26.0% | 26.3% (15/57) | — | Level, with a third as many attempts |
+| Plain nil suicides | 1.9% | 0.2% | — | Better |
+| Health and probe errors | 0 | 0 | 0 | Met |
+
+At production think time (`--plain --rounds 40 --think 700`, seed 1): 52.0 points per team-round, set rate 6.3% (5/80), mean bid error 0.98, nil success 66.7% (22/33), wasted overtakes 5.8% (17/292), nil suicides 0.3%, missed covers 0/6, and probes 2.2 ms per decision. That run shared the CPU with ten other bench jobs, so it searched less than 700 ms would on an idle machine.
+
+The regression band holds except where noted: exact rate, bags, bid error, and nil success move against the baseline because expected-score bidding is cautious and bids nil more often, and that bidding raised points per team-round by 31% in plain games and 69% with sigils (see hv-frfo.7).
+
+### Verification fixes (hv-frfo.10)
+
+- A prompt raised as the human leaves the shop (Trade-In Box, Tailored Shirt) was invisible, since the shop overlay closed on Done; the overlay now stays up while that prompt is open.
+- On phones the restart button, added after the phase 7 gate, covered the scoreboard's "Them" score; it now sits under the wrench, and every screen passes `uiAudit` at 390×844 again.
+- Prompt screenshots: `.playwright-mcp/prompt-<name>-<size>.png` for Fickle Storm, Faithful Dog, Forger's Brush, Trade-In Box, Masked Encore, Tasting Spoon, Spendthrift's Wallet, and Tailored Shirt, plus `sandbox-smoke.png` and `auto-random8-gameover.png`.
+
 ### Sigil automation runs
 
 `scripts/ai-bench --give CODE,…` gives every seat the listed sigils and reports how many log lines each one wrote.
@@ -211,6 +243,7 @@ Single 200-round runs are too noisy to compare AI changes: two runs of nearly th
 
 ## Action items
 
-- AI seats never sell, so Garage Sale, Tumbling Dryer, Thrifted Radio, and Heirloom Cabinet do nothing for them.
-- AI bidding ignores sigils, so failed nils and multiplied misses are common; a `?random-sigils=8` run often swings several hundred points a round and ends before round 13.
+- AI seats sell Garage Sale, Tumbling Dryer, and Heirloom Cabinet at their moments; Thrifted Radio's +20 still waits on a reason to sell other sigils, since upgrade selling lost points.
+- `?random-sigils=8` runs still swing several hundred points a round and often end before round 13; 8 sigils per seat from round 1 is far stronger than a normal run.
+- A remaining AI lever is the rollout policy: EV bidding is cautious because rollouts don't play toward a bid as hard as the search does.
 - Tandem Scooter's +80 cap, Matching Mugs copying an Engraving common, and Measured Delta's human prompt were not seen in the browser.
