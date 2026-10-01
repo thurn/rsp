@@ -30,6 +30,8 @@ export interface OwnedSigil {
   sellBonus: number
   /** Matching Mugs and Tracing Pencil: the sigil this one copies. */
   copyOf?: string
+  /** Tracing Pencil: copyOf clears when the round ends. */
+  roundCopy?: boolean
   /** An opponent's tray shows the sigil once it has triggered. */
   revealed?: boolean
 }

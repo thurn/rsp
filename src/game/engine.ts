@@ -478,6 +478,10 @@ function finishRound(s: GameState) {
   s.winner = terminal ? (a === b ? 'draw' : a > b ? 0 : 1) : null
   s.phase = terminal ? 'gameOver' : 'roundOver'
   s.hands = [[], [], [], []]
+  for (const o of s.players.flatMap((p) => p.sigils)) {
+    if (o.roundCopy) delete o.copyOf
+    delete o.roundCopy
+  }
 }
 
 export { newId }
