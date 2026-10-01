@@ -1,17 +1,13 @@
 import { SIGILS, getSigil, isAutomated } from '../sigils/registry'
 import type { Seat } from './cards'
 import { SEAT_NAMES, emit, log } from './core'
-import { shopRules } from './rules'
+import { BALANCE, shopRules } from './rules'
 import type { GameState } from './types'
 
-export const MAX_SIGILS = 13
-export const AI_MIN_GOLD = 40
+export const MAX_SIGILS = BALANCE.shop.maxSigils
+export const AI_MIN_GOLD = BALANCE.shop.aiMinGold
 
-const RARITY_ODDS: [string, number][] = [
-  ['Common', 0.7],
-  ['Uncommon', 0.25],
-  ['Rare', 0.05],
-]
+const RARITY_ODDS = Object.entries(BALANCE.shop.rarityOdds)
 
 function rollRarity(): string {
   let r = Math.random()
@@ -29,7 +25,8 @@ export function price(s: GameState, seat: Seat, code: string): number {
 
 export function rerollCost(s: GameState, seat: Seat): number {
   const rerolls = s.shop?.seats[seat].rerolls ?? 0
-  return Math.max(0, 50 + 10 * rerolls - shopRules(s, seat).rerollDiscount)
+  const { rerollBaseCost, rerollCostStep } = BALANCE.shop
+  return Math.max(0, rerollBaseCost + rerollCostStep * rerolls - shopRules(s, seat).rerollDiscount)
 }
 
 export function sellValue(s: GameState, seat: Seat, code: string): number {
@@ -38,7 +35,7 @@ export function sellValue(s: GameState, seat: Seat, code: string): number {
   return base + (own?.sellBonus ?? 0)
 }
 
-/** Offers for one seat: rarity odds 70/25/5, never a sigil it owns; AI seats see automated only. */
+/** Offers for one seat: rarity odds from balance.json, never a sigil it owns; AI seats see automated only. */
 export function rollOffers(s: GameState, seat: Seat, opening: boolean): string[] {
   const rules = shopRules(s, seat)
   const owned = new Set(s.players[seat].sigils.map((o) => o.code))
@@ -65,8 +62,9 @@ export function rollOffers(s: GameState, seat: Seat, opening: boolean): string[]
   if (rules.guaranteeUncommon && offers.every((c) => getSigil(c)?.rarity === 'Common')) {
     swapIn(pool.filter((sg) => sg.rarity !== 'Common'))
   }
-  if (opening && !offers.some((c) => (getSigil(c)?.price ?? 99) <= 50)) {
-    swapIn(pool.filter((sg) => sg.price <= 50))
+  const cheap = BALANCE.shop.openingAffordablePrice
+  if (opening && !offers.some((c) => (getSigil(c)?.price ?? Infinity) <= cheap)) {
+    swapIn(pool.filter((sg) => sg.price <= cheap))
   }
   return offers
 }
@@ -91,7 +89,7 @@ export function openShop(s: GameState, opening: boolean) {
   closeShopIfDone(s)
 }
 
-/** Buy the most expensive affordable offer; skip below 40 gold; never reroll or sell. */
+/** Buy the most expensive affordable offer; skip below AI_MIN_GOLD; never reroll or sell. */
 export function aiShop(s: GameState, seat: Seat) {
   const shop = s.shop!.seats[seat]
   const gold = s.players[seat].gold

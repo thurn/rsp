@@ -1,3 +1,4 @@
+import BALANCE from '../../data/balance.json'
 import type {
   BidRules,
   CreditInfo,
@@ -19,10 +20,11 @@ import {
   isNil,
 } from './types'
 
-export const WINNING_SCORE = 1000
-export const ROUNDS = 13
-export const BLIND_NIL_DEFICIT = 200
-export const STARTING_GOLD = 50
+export { BALANCE }
+export const WINNING_SCORE = BALANCE.game.winningScore
+export const ROUNDS = BALANCE.game.rounds
+export const BLIND_NIL_DEFICIT = BALANCE.game.blindNilDeficit
+export const STARTING_GOLD = BALANCE.game.startingGold
 
 export const trickNumber = (s: GameState) => Math.min(13, s.history.length + 1)
 
@@ -174,12 +176,12 @@ export function canBlindNil(s: GameState, seat: Seat): boolean {
 export function shopRules(s: GameState, seat: Seat): ShopRules {
   const rules: ShopRules = {
     seat,
-    offers: 3,
+    offers: BALANCE.shop.offers,
     discount: 0,
     rerollDiscount: 0,
     guaranteeUncommon: false,
     secondCommon: false,
-    interestCap: 50,
+    interestCap: BALANCE.income.interestCap,
   }
   for (const inst of instances(s)) {
     if (inst.owner !== seat || inst.card) continue
@@ -205,7 +207,7 @@ function teamCalc(s: GameState, team: 0 | 1): TeamCalc {
         seat,
         blind: bid === BLIND_NIL,
         success: s.tricksWon[seat] === 0,
-        base: bid === BLIND_NIL ? 200 : 100,
+        base: bid === BLIND_NIL ? BALANCE.scoring.blindNilBonus : BALANCE.scoring.nilBonus,
         scale: 1,
         failReduction: 0,
       })
@@ -221,12 +223,12 @@ function teamCalc(s: GameState, team: 0 | 1): TeamCalc {
     allTricks,
     made: contract > 0 && tricks >= contract,
     exact: contract > 0 && tricks === contract,
-    perTrick: 10,
+    perTrick: BALANCE.scoring.pointsPerTrick,
     failMultiplier: true,
     missReduction: 0,
     freeBags: 0,
     noBags: false,
-    bagPenalty: 100,
+    bagPenalty: BALANCE.scoring.bagPenalty,
     nils,
   }
 }
@@ -262,8 +264,8 @@ export function scoreRound(s: GameState): [TeamResult, TeamResult] {
     const newBags = t.noBags ? 0 : Math.max(0, over - t.freeBags)
     let bags = Math.max(0, s.bags[t.team] + newBags + l.bagDelta[t.team])
     let bagPenalty = 0
-    while (bags >= 10) {
-      bags -= 10
+    while (bags >= BALANCE.scoring.bagsPerPenalty) {
+      bags -= BALANCE.scoring.bagsPerPenalty
       bagPenalty -= t.bagPenalty
     }
     const points = l.points[t.team]
@@ -289,19 +291,21 @@ export function scoreRound(s: GameState): [TeamResult, TeamResult] {
   return [results[0], results[1]]
 }
 
-/** Each partner's income: 10 per team trick, 100 per completed nil, 200 per completed blind nil. */
+/** Each partner's income: gold per team trick plus gold per completed nil and blind nil. */
 export function income(s: GameState, team: 0 | 1): number {
   let gold = 0
   for (let seat = team as Seat; seat < 4; seat = (seat + 2) as Seat) {
-    gold += 10 * s.tricksWon[seat]
+    gold += BALANCE.income.goldPerTrick * s.tricksWon[seat]
     const bid = s.bids[seat]
-    if (isNil(bid) && s.tricksWon[seat] === 0) gold += bid === BLIND_NIL ? 200 : 100
+    if (isNil(bid) && s.tricksWon[seat] === 0)
+      gold += bid === BLIND_NIL ? BALANCE.income.blindNilGold : BALANCE.income.nilGold
   }
   return gold
 }
 
 export function interest(gold: number, cap: number): number {
-  return Math.min(cap, Math.floor(gold / 50) * 10)
+  const { interestStep, interestPer } = BALANCE.income
+  return Math.min(cap, Math.floor(gold / interestStep) * interestPer)
 }
 
 export const teamBid = (bids: readonly (Bid | null)[], team: 0 | 1): number =>

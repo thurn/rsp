@@ -1,0 +1,32 @@
+{
+  "game": {
+    "winningScore": 1000,
+    "rounds": 13,
+    "startingGold": 100,
+    "blindNilDeficit": 200
+  },
+  "scoring": {
+    "pointsPerTrick": 10,
+    "nilBonus": 100,
+    "blindNilBonus": 200,
+    "bagsPerPenalty": 10,
+    "bagPenalty": 100
+  },
+  "income": {
+    "goldPerTrick": 10,
+    "nilGold": 100,
+    "blindNilGold": 200,
+    "interestPer": 10,
+    "interestStep": 50,
+    "interestCap": 50
+  },
+  "shop": {
+    "offers": 3,
+    "maxSigils": 13,
+    "rerollBaseCost": 50,
+    "rerollCostStep": 10,
+    "openingAffordablePrice": 50,
+    "aiMinGold": 40,
+    "rarityOdds": { "Common": 0.7, "Uncommon": 0.25, "Rare": 0.05 }
+  }
+}

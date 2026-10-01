@@ -275,7 +275,7 @@ identified when the effect triggers; do not also credit the partner.
 
 ### Shops
 
-Each player starts the run with **50 gold**. Each player rolls their own three
+Each player starts the run with **100 gold**. Each player rolls their own three
 offers; a player is never offered a sigil they already own, though different
 players may own the same sigil. At a shop, buy at most one offered sigil or
 skip. Purchasing a sigil permanently adds it to that player's collection for the
