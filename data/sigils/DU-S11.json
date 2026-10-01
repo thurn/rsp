@@ -39,5 +39,6 @@
   "opponent": "Visible as hearts grow; opponents answer by trumping hearts late or draining them early.",
   "aiNote": "Lead or follow with your lowest heart while ahead of need; save the highest hearts for the last tricks.",
   "rationale": "Playing hearts creates the growth it rewards: with five or six hearts from TE-C13 and GR-C08-style conversions, the last two hearts are ace-level. Counting only your own hearts keeps the growth steady and in your control.",
-  "deviation": "Role changed from a Contract additive payoff to an enabler-and-payoff that feeds the heart payoffs (GR-C05, GR-C13, TE-U05), following the skeleton's example direction for Heart Chorus."
+  "deviation": "Role changed from a Contract additive payoff to an enabler-and-payoff that feeds the heart payoffs (GR-C05, GR-C13, TE-U05), following the skeleton's example direction for Heart Chorus.",
+  "notes": "Would be better phrased as “whenever you play a heart”"
 }

@@ -38,5 +38,6 @@
   "decision": "Whether a hand with three or four high cards is a daring nil, counting on lowering and passes after bidding.",
   "opponent": "The count is shown when you bid, so opponents know the nil is dangerous and can attack it.",
   "aiNote": "Bid nil with up to four high cards if you own an after-bidding lowering or passing sigil; otherwise at most two.",
-  "rationale": "Rewards the archetype's signature gamble (bid nil, then lower your own cards with PU-C01 or PU-C03): a three-high-card nil pays +45. Its Scaling label means value that rises with the hand's danger, like the skeleton's Gold Miner example. A blind nil counts nothing, because it is declared before the hand exists."
+  "rationale": "Rewards the archetype's signature gamble (bid nil, then lower your own cards with PU-C01 or PU-C03): a three-high-card nil pays +45. Its Scaling label means value that rises with the hand's danger, like the skeleton's Gold Miner example. A blind nil counts nothing, because it is declared before the hand exists.",
+  "notes": "Feels bad, since the whole premise of your deck is to remove high cards "
 }

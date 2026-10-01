@@ -37,5 +37,6 @@
   "decision": "Whether to lock in an overtrick: the raise turns a bag into +10 contract, but the extra bid trick now has to be covered if your partner falls short.",
   "opponent": "Visible when the bid rises; opponents know the team's contract grew and can press harder to set it.",
   "aiNote": "Raise when your partner has already taken or is sure to take their bid; decline when your partner is short.",
-  "rationale": "One overtrick a round becomes contract value instead of a bag, about +10 plus a bag avoided, around +15 EV, so Bonus Chaser can bid safely and Contract Attacker's extra tricks count; the price drops from 75 to 65 because once per round is modest, and raising is not bidding, so \"when you bid\" sigils like Auctioneer's Gavel don't trigger again."
+  "rationale": "One overtrick a round becomes contract value instead of a bag, about +10 plus a bag avoided, around +15 EV, so Bonus Chaser can bid safely and Contract Attacker's extra tricks count; the price drops from 75 to 65 because once per round is modest, and raising is not bidding, so \"when you bid\" sigils like Auctioneer's Gavel don't trigger again.",
+  "notes": "Kindly fiddly, would prefer a more direct bag mitigation"
 }

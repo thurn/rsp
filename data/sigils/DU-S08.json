@@ -39,5 +39,6 @@
   "opponent": "Each trade is shown; an opponent in a trade picks the card they give. Nil bidders can't be traded with, so the trade can never force a winner onto a nil.",
   "aiNote": "Trade after every win; give your weakest singleton; trade with your partner unless an opponent is void in that suit.",
   "rationale": "The exchange is optional and open to anyone not on nil, so every trade is a real decision that reshapes the hand and pays. About three wins a round give about +26 EV, a little above budget, which suits Swap Meet on the thin list. Its value doesn't rely on trades counting as passes.",
-  "deviation": "Timing moved from When you pass cards to When you win any trick, and the payout is contract value only, because the table critic found every existing exchange mandatory (no decision) and the set critic found the pass-trigger version interchangeable with Promoted Pawn and Gem Cascade."
+  "deviation": "Timing moved from When you pass cards to When you win any trick, and the payout is contract value only, because the table critic found every existing exchange mandatory (no decision) and the set critic found the pass-trigger version interchangeable with Promoted Pawn and Gem Cascade.",
+  "notes": "Not good. Pretty confusing, is this a forced trade? Who is picking these cards? Why not blind nil? I’d prefer not to do “any player” trades."
 }

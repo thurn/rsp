@@ -38,5 +38,6 @@
   "opponent": "The payout is shown when it resolves; opponents who see a king held late can trump it or keep their ace to beat it.",
   "aiNote": "Play this king only after the suit's ace is gone and your contract value this round is at least +40, or on the last safe trick.",
   "rationale": "A late-winning king doubles a Bonus Chaser's round of one-shots (Opening Bell, Golden Ticket, Chasing Rainbows, Crown Jewel) up to the cap, about +20 to +35 expected, more with Regal Summit (RE-C02) turning the king into an ace; the +60 cap keeps a strong-watch archetype from doubling a whole round.",
-  "deviation": "It doubles all contract value you've gained this round rather than re-paying only when-played, when-led, and this-card-wins sigils, because the running total is easier to read than a list of windows, and the King affinity makes the win, and the timing decision, reliable without adding a fourth Ace-affinity \"when this card wins\" sigil."
+  "deviation": "It doubles all contract value you've gained this round rather than re-paying only when-played, when-led, and this-card-wins sigils, because the running total is easier to read than a list of windows, and the King affinity makes the win, and the timing decision, reliable without adding a fourth Ace-affinity \"when this card wins\" sigil.",
+  "notes": "I think a flat modifier to gains of contract value would be easier to understand."
 }

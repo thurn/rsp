@@ -37,5 +37,6 @@
   "decision": "When to take the second trump: early to arm the rest of your spades for the overtrump fights, or later to keep low spades for cheap trumps.",
   "opponent": "Visible when the threshold is reached; opponents see the spades rise and can lead spades to pull them or stop leading your void suits.",
   "aiNote": "Trump in freely until the threshold; afterward count every spade at +3 when judging overtrumps and spade leads.",
-  "rationale": "Spade Master trumps two or three times in most rounds, so this arrives mid-round and keeps its top trumps above overtrumps; the second trump itself gains the bonus, since a card you play counts as yours until its trick ends, and the threshold avoids Unfolding Butterfly's per-card growth."
+  "rationale": "Spade Master trumps two or three times in most rounds, so this arrives mid-round and keeps its top trumps above overtrumps; the second trump itself gains the bonus, since a card you play counts as yours until its trick ends, and the threshold avoids Unfolding Butterfly's per-card growth.",
+  "notes": "I think \"each round\""
 }

@@ -37,5 +37,6 @@
   "decision": "How to use the raised card: lead it, hold it for its suit's last round, or build a plan around a public card everyone can see coming.",
   "opponent": "Fully visible, since the cards are already shown; opponents who reveal your cards with their own sigils strengthen them, which they can weigh before using a reveal.",
   "aiNote": "Count each revealed card at its raised rank when bidding; lead the Chasing Rainbows card once higher cards of its suit are gone.",
-  "rationale": "The common Chasing Rainbows (DU-S05) asked for: a random revealed card of average rank becomes a queen or king and wins far more often, and public reveals (BL-C14) feed it too; +4 rather than Honed Edge's +3 pays for depending on a reveal."
+  "rationale": "The common Chasing Rainbows (DU-S05) asked for: a random revealed card of average rank becomes a queen or king and wins far more often, and public reveals (BL-C14) feed it too; +4 rather than Honed Edge's +3 pays for depending on a reveal.",
+  "notes": "Not a good common design, this is really hard to trigger. Could be a higher rarity with some ability to self-enable."
 }

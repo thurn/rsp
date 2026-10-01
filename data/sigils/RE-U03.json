@@ -37,5 +37,6 @@
   "decision": "Lead your winners while everyone still holds the suit, and prefer winning by following suit over trumping in, since a trumped or discarded trick pays nothing.",
   "opponent": "Visible on each trigger; a void opponent can deny the bonus by trumping or discarding, which costs them a spade or a card they wanted.",
   "aiNote": "Cash high non-spade cards early in suits no one has shown void in; count trump wins as unpaid.",
-  "rationale": "A High Card seat wins about three clean tricks a round, about +24 EV, the uncommon budget; it asks for the whole table to follow, which Unclouded Sun's ace wins do not guarantee (a discard breaks it), and it names no rank or suit, so it differs from Crown Jewel, Headsman's Axe, and Hunter's Crosshair."
+  "rationale": "A High Card seat wins about three clean tricks a round, about +24 EV, the uncommon budget; it asks for the whole table to follow, which Unclouded Sun's ace wins do not guarantee (a discard breaks it), and it names no rank or suit, so it differs from Crown Jewel, Headsman's Axe, and Hunter's Crosshair.",
+  "notes": "Just call this Cricket Ball."
 }

@@ -37,5 +37,6 @@
   "decision": "How high to trump: a trump no void opponent can top ends the trick, while a low trump forces their higher spades out, often over their own partner.",
   "opponent": "A visible table rule; opponents lose the option to discard under a trump, so they burn spades over their partner and a void nil bidder can be forced to take a trick, but they can plan around it from the first trick.",
   "aiNote": "Buy with a long or high spade suit; when trumping, play your lowest spade that no later void opponent can beat, and the forced overtrumps themselves are automatic.",
-  "rationale": "The one Red global rule setter at uncommon: it makes spades fly, so the team with the longest and highest spades (Spade Master with Red rank boosts) wins the attrition, and it doubles as Contract Attacker's tool against void nil bidders and cautious discarders; it binds the owner's team too, which is the price of a table-wide rule."
+  "rationale": "The one Red global rule setter at uncommon: it makes spades fly, so the team with the longest and highest spades (Spade Master with Red rank boosts) wins the attrition, and it doubles as Contract Attacker's tool against void nil bidders and cautious discarders; it binds the owner's team too, which is the price of a table-wide rule.",
+  "notes": "Seems complicated and not really useful."
 }

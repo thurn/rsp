@@ -38,5 +38,6 @@
   "opponent": "Visible on each trigger, with the amount shown from public trick counts; opponents can cash their winners early or trump your late winners to keep the payout small.",
   "aiNote": "When your partner can win a trick, let them; hold your aces and sure winners until your partner has won at least two tricks, unless an opponent may be void in their suit.",
   "rationale": "A High Card seat that holds its winners late wins about four tricks after its partner has one or two, and a Kingmaker seat wins fewer tricks behind a partner with many more, so both land near +25 at 1× (about +20 EV), the uncommon budget; beside a nil partner it pays nothing, and it counts your partner's tricks, not your own (Aged Cheese, OR-C14).",
-  "deviation": "Trigger moved from \"this card wins\" with an ace affinity to every trick you win, so it no longer opens like Crown Jewel (RE-C07); the per-partner-trick scaling stays, the magnitude drops from +15 to +5 because it can fire several times a round, and Timing moves to When you win any trick."
+  "deviation": "Trigger moved from \"this card wins\" with an ace affinity to every trick you win, so it no longer opens like Crown Jewel (RE-C07); the per-partner-trick scaling stays, the magnitude drops from +15 to +5 because it can fire several times a round, and Timing moves to When you win any trick.",
+  "notes": "Kinda contradictory goals? Seems maybe not fun."
 }

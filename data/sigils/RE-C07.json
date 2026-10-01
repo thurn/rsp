@@ -28,5 +28,6 @@
   "decision": "When to cash the ace safely, before opponents are void.",
   "opponent": "Visible on trigger; opponents can trump the ace to deny it.",
   "aiNote": "Lead the engraved ace early in a suit opponents still hold.",
-  "rationale": "About 10 expected points per round on an ace."
+  "rationale": "About 10 expected points per round on an ace.",
+  "notes": "I think affinity is more fun if it's not literally just \"it goes on an ace\", more variance ideally"
 }
