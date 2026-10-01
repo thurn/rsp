@@ -84,10 +84,10 @@ const isAutomated = (s: Sigil) => s.prototype === 'automated' && s.code in HANDL
 - **AI seats buy only automated sigils.** Manual sigils need a human to fake
   them, so they appear only in the human seat's shop offers.
 - **Manual sigils pause the game.** When a manual sigil's timing window opens,
-  AI turns pause and a toast shows the sigil's name, text, and
-  `prototypeNote`. Continue resumes. A lookup keyed on the `timing` field's
+  AI turns pause and a reminder toast appears. Continue resumes. A lookup keyed on the `timing` field's
   opening words (`Before bidding`, `When played`, `When this card loses`, …)
-  maps each sigil to its window. Reminders fire for manual sigils the human
+  maps each sigil to its window. The toast shows the sigil's glyph, name, and
+  `prototypeNote`. Reminders fire for manual sigils the human
   seat holds or controls; an AI seat's manual sigil (reachable only through
   `?ai-give=`) writes one event-log line instead.
 - **One human seat.** South is the only human seat, as in the current code.
@@ -312,32 +312,115 @@ Round-Trip Record, …) also fire for faked passes.
 - **Information effects.** Reveals and counts such as Scout's Binoculars and
   Kindred Mind are shown to humans, and AI seats ignore them.
 
+## Visual design
+
+The current table is the baseline: dark felt, cream cards, Fraunces for
+numbers and titles, Manrope for UI, and the tokens in `src/styles/tokens.css`.
+Every new screen is built from `Panel`, `Button`, and those tokens. A new
+color, size, or radius becomes a token before it is used. The resonance colors
+move from `src/sigils/Sigils.module.css` into `tokens.css`.
+
+### Rules
+
+- **Cards, glyphs, and numbers carry the game.** Gold is a coin glyph and a
+  number, a ledger amount is a signed number beside its sigil's glyph, and a
+  bid is a number. A word appears only where a glyph or number cannot carry
+  the meaning.
+- **Sigil rules text is the only prose.** It appears in shop offers and in the
+  details tooltip. The tooltip holds the name, rules text, and, for manual
+  sigils, the `prototypeNote`.
+- **Word budget.** Each screen shows at most 20 words outside sigil rules text
+  and `prototypeNote`, counting names and button labels and excluding numbers.
+  A screen over budget drops labels, merges repeats, or moves detail into a
+  tooltip.
+- **One primary action per panel.** It is the gold `primary` button; other
+  actions are `ghost` or `token`. Gold otherwise marks only your team and the
+  active seat.
+- **Legibility.** All text renders at 12 px or larger at every viewport,
+  including tray counters and stack counts on the smallest card (64 px wide).
+  UI text uses `--text-sm` (14 px) or larger; 12 px is for counters.
+- **Contrast.** Text meets 4.5:1, and glyphs and state marks meet 3:1, against
+  the surface they actually sit on. The resonance colors reach 5:1 or better on
+  `--card-face` and about 2:1 on the felt, so a sigil glyph always sits on a
+  card face: directly on cards, and elsewhere on a small `--card-face` chip.
+  `--gold` reaches 1.6:1 on `--card-face`, so gold stays on dark surfaces.
+- **The fanned hand.** Cards in hand overlap, and at 390 px wide only the left
+  third of each card shows. Everything a player reads on a card in hand sits
+  in that left strip.
+- **Restraint.** Each panel sits directly on the felt. Chips, tiles, and
+  badges use one fill and at most one hairline border.
+- **Interaction states.** Every clickable element has visible hover and
+  pressed states, and touch targets are at least 44 px. `Button` already has
+  both states.
+- **Motion.** Trigger flashes and pulses use `--duration` and `--ease-out` and
+  finish within half a second.
+
+### Screens
+
+- **Table.** The composition stays as it is today: scoreboard, nameplates
+  with tricks and bid, the trick, and your hand. Nameplates gain trays, and
+  your nameplate shows your gold. Other seats' gold appears on hover.
+- **Shop.** One panel holds your gold, three offer tiles, Reroll with its
+  price, and Done as the primary action. A tile shows the glyph chip, name,
+  price, and rules text, and clicking it buys. Hovering a chip in your tray
+  shows its sell price, and clicking it sells.
+- **Prompts.** The title is the source sigil's chip and name, followed by a
+  question of at most six words and one button per option with a one- or
+  two-word label.
+- **Manual reminder.** A toast with the glyph chip, name, `prototypeNote`, and
+  Continue.
+- **Round summary.** The existing summary table, plus one row per sigil that
+  changed the ledger: its chip and a signed amount for each team, with all of
+  that sigil's entries merged. Past five rows, the rest collapse into a `+N`
+  row that expands.
+- **Event log.** The engine writes each line from the event and its ledger
+  entries as glyph, sigil name, and amount, such as `Crown Jewel +25 contract`.
+- **Sandbox drawer.** A dev tool docked on the right. Its tools are
+  collapsible sections with one open at a time. It meets the legibility and
+  contrast rules, and the word budget applies to the table beside it.
+
+### Visual gate
+
+Phase 1 adds a dev-only `window.uiAudit()` that reports, for the current
+screen, the smallest rendered text size, text below 4.5:1 against its nearest
+opaque background, horizontal overflow, buttons whose boxes intersect other
+content, and the word count outside elements marked `data-prose`. Sigil rules
+text and `prototypeNote` carry `data-prose`.
+
+A screen passes the visual gate when, at 1280×720, 390×844, and 820×1180:
+
+- the agent has taken and looked at a screenshot of it,
+- `uiAudit()` reports no text under 12 px, no low-contrast text, no overflow,
+  and no intersecting buttons,
+- it is within the word budget, and
+- each new clickable family shows hover and pressed states.
+
 ## Card rendering
 
 Only Engraving sigils render on cards. `PlayingCard` gains an optional
 `sigils` prop of `{ sigil, automated }`.
 
-- **Corner badges.** The sigil's Boxicons glyph sits in the **top-right** and
-  **bottom-left** corners. The bottom-left glyph is rotated 180° to mirror a
-  real card's indices. It uses the `Icon` mask component from
+- **Index glyph.** The sigil's Boxicons glyph sits under the suit in the
+  top-left index, at the corner suit's width, so it stays in the visible strip
+  of a fanned hand. It uses the `Icon` mask component from
   `src/sigils/Icon.tsx`, filled with `resonanceFill(sigil.resonances)` so dual
-  sigils show the diagonal split, at about 18cqw. A stacked engraving shows
-  the first glyph plus a small count.
-- **Center gear.** A card whose sigil is automated shows `bx-cog` centered
-  at about 30cqw in `--gold`, over the pip or face letter. The pip drops to
-  about 25% opacity so the gear reads clearly. A card with a manual sigil
-  keeps a normal center, so the absence of the gear is itself the "you fake
-  this" signal.
-- **Details.** Hovering or long-pressing an engraved card shows the sigil's
-  name, rules text, and, for manual sigils, the `prototypeNote`.
-- **Where it applies.** Badges render on cards in hand and in the trick,
+  sigils show the diagonal split. A stacked engraving shows the first glyph
+  plus a count.
+- **Manual mark.** A manual sigil's glyph sits in a thin dashed ring in
+  `--card-black`, and an automated glyph stands alone. Manual sigils are the
+  minority, so most engraved cards stay clean. A sigil without a handler shows
+  the ring.
+- **Center.** The pip or face letter renders as it does today.
+- **Details.** Hovering or long-pressing an engraved card shows the details
+  tooltip.
+- **Where it applies.** Glyphs render on cards in hand and in the trick,
   following the visibility rule above. Mini face-down hands never show them.
   `Hand` and `Trick` switch their React keys from card numbers to `card.id`.
-- **Collection tray.** Each nameplate gets a row of small sigil badges for
+- **Collection tray.** Each nameplate gets a row of `--card-face` chips for
   that seat's Ongoing sigils, in purchase order, following the visibility rule
-  above. A badge shows the same resonance-filled glyph, a small gear when
-  automated, a counter for scaling sigils such as Growing City, and the same
-  hover details as cards. A badge pulses when its sigil triggers.
+  above. A chip shows the resonance-filled glyph, the dashed ring when manual,
+  a counter for scaling sigils such as Growing City, and the details tooltip.
+  A chip pulses when its sigil triggers.
 
 ## Sandbox
 
@@ -371,19 +454,22 @@ sequence on master. Phase 6 then fans out to subagents in worktrees.
    the game playing exactly as today, and move to the target rules: 1,000
    points, 13 rounds, draws, blind nil at 200, later card wins ties, and
    uneven hands with empty-hand skipping.
-   Add `?fast` here so every later check is quick.
-   *Check:* `?auto&fast` plays a full run to completion with no console errors.
+   Add `?fast` here so every later check is quick, and add `uiAudit()`.
+   *Check:* `?auto&fast` plays a full run to completion with no console errors,
+   and the table passes the visual gate.
 2. **Economy and shop.** Add gold, trick and nil income, interest, an opening
    shop, between-round shops with three offers rolled by rarity odds, buy one,
    rerolls, selling, the 13-sigil cap, and AI shopping. Engrave Engraving
    sigils at the deal by affinity, then face cards, then aces, then random.
-   *Check:* a run shows a shop each round, and the gold column of the worked
-   examples in game-overview.md §4 matches what the round summary pays.
-3. **Card rendering.** Add the Ongoing collection trays, corner badges, the
-   center gear (driven by `isAutomated`, which is false for all sigils until
+   *Check:* a run shows a shop each round, the gold column of the worked
+   examples in game-overview.md §4 matches what the round summary pays, and
+   the shop passes the visual gate.
+3. **Card rendering.** Add the Ongoing collection trays, index glyphs, the
+   manual mark (driven by `isAutomated`, which is false for all sigils until
    handlers exist), the details tooltip, and the visibility rules.
-   *Check:* a screenshot of a hand from `?give=` with a mix of Engraving and
-   Ongoing sigils shows badges, trays, and the tooltip.
+   *Check:* a `?give=` hand with a mix of Engraving and Ongoing sigils passes
+   the visual gate, and its 390×844 screenshot shows every engraved card's
+   glyph in a full 13-card hand, the trays, and the tooltip.
 4. **Engine and sandbox.** Add the ledger, flags, event log, windows,
    prompts, handler API, the scoring pipeline from game-overview.md §4,
    manual reminders with pause, `?random-sigils=`, and the full sandbox
@@ -392,10 +478,14 @@ sequence on master. Phase 6 then fans out to subagents in worktrees.
    True Aim, Rosy Spectacles, Arena's Law, Unfolding Butterfly, Peddler's
    Cart, Corner Shop, Growing City, and Barter Bridge.
    *Check:* the worked-example table in §4 reproduces with the sandbox ledger,
-   and each sample sigil fires visibly in the event log.
+   each sample sigil fires visibly in the event log, and a prompt, a manual
+   reminder, and the drawer pass the visual gate.
 5. **Handler guide.** Write `src/sigils/handlers/README.md` with the `Ctx`
-   API, the window list, the controller rule, the AI prompt pattern, and the
-   10 worked examples. This is the brief for phase 6.
+   API, the window list, the controller rule, the AI prompt pattern, the
+   handler copy rules, and the 10 worked examples. Handler copy is a prompt
+   question of at most six words, option labels of one or two words, and
+   `tell` text of at most eight words; the engine writes all other text. This
+   is the brief for phase 6.
 6. **Handler waves.** Run one subagent per prefix, each implementing every
    `"prototype": "automated"` sigil in its prefix in its own handler file.
    Wave A is RE, OR, GR, and BL; wave B is TE, PU, GY, and DU. Subagents may
@@ -405,10 +495,13 @@ sequence on master. Phase 6 then fans out to subagents in worktrees.
    *Check:* every automated sigil has a handler or was downgraded, `tsc` and
    `eslint` pass, and a `?auto&fast&random-sigils=8` run completes all 13
    rounds with no console errors.
-7. **Polish.** Add a ledger breakdown in the round summary, and trigger
-   flashes on cards and tray badges.
-   *Check:* a screenshot of a round summary from `?auto&fast&random-sigils=8`
-   shows the breakdown.
+7. **Polish.** Add the ledger rows in the round summary, and trigger
+   flashes on cards and tray chips. Then run the `visual-review` skill on the
+   table, shop, a prompt, a manual reminder, and the round summary, fix every
+   Bug and the top three Design Feedback items, and record the rest in the
+   status file.
+   *Check:* every screen passes the visual gate again after the fixes, and a
+   round summary from `?auto&fast&random-sigils=8` shows the ledger rows.
 
 ## Running overnight
 
@@ -425,8 +518,9 @@ human input.
   conflicts in shared types, runs `tsc` and `eslint`, and pushes. Wave B
   branches from master after wave A has merged.
 - **Subagent brief.** Each phase 6 subagent reads the handler README, this
-  plan's Open questions, and its prefix's JSON files. It returns its
-  downgrades, new flags and primitives, and interpretation calls.
+  plan's Open questions and Visual design rules, and its prefix's JSON files.
+  It returns its downgrades, new flags and primitives, and interpretation
+  calls.
 - **Downgrades.** A sigil that needs a new engine mechanism or a handler longer
   than about 40 lines is downgraded: the subagent sets `"prototype": "manual"`
   in its JSON and writes a `prototypeNote` for faking it with the sandbox. A
@@ -437,10 +531,12 @@ human input.
 - **Status file.** `docs/prototype-status.md` is updated and committed at the
   end of each phase. It lists each phase's check result, every downgraded
   sigil with its reason, every new `RoundFlags` field and `Ctx` primitive, each
-  interpretation call beyond the Open questions, and every failed check.
+  interpretation call beyond the Open questions, every failed check, and each
+  screen's visual gate result.
 - **Browser checks** use the Playwright MCP service, per the user's global
-  setup. The service only writes inside the main checkout, so screenshots
-  are saved as `.playwright-mcp/<name>.png`, which is gitignored.
+  setup, with `browser_resize` for the three gate viewports. The service only
+  writes inside the main checkout, so screenshots are saved as
+  `.playwright-mcp/<name>.png`, which is gitignored.
 
 ## Open questions
 
