@@ -439,7 +439,8 @@ human input.
   sigil with its reason, every new `RoundFlags` field and `Ctx` primitive, each
   interpretation call beyond the Open questions, and every failed check.
 - **Browser checks** use the Playwright MCP service, per the user's global
-  setup. Screenshots go in the session scratchpad.
+  setup. The service only writes inside the main checkout, so screenshots
+  are saved as `.playwright-mcp/<name>.png`, which is gitignored.
 
 ## Open questions
 
