@@ -4,9 +4,16 @@ import { SigilGlyph } from './SigilGlyph'
 import { tipHandlers } from './tip'
 import styles from './LedgerRows.module.css'
 
+export interface LedgerCell {
+  text: string
+  sign: number
+  /** The amount didn't count, such as contract value on a missed contract. */
+  void: boolean
+}
+
 export interface LedgerRow {
   code: string
-  amounts: [string, string]
+  cells: [LedgerCell, LedgerCell]
 }
 
 const VISIBLE = 5
@@ -30,13 +37,14 @@ export function LedgerRows({ rows }: { rows: LedgerRow[] }) {
               <SigilGlyph code={r.code} chip />
             </span>
           </th>
-          {r.amounts.map((a, t) => (
+          {r.cells.map((c, t) => (
             <td
               key={t}
               className={styles.amount}
-              data-sign={a.startsWith('−') ? -1 : a === '—' ? 0 : 1}
+              data-sign={c.void ? undefined : c.sign}
+              data-void={c.void || undefined}
             >
-              {a}
+              {c.text}
             </td>
           ))}
         </tr>

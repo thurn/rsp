@@ -12,6 +12,7 @@ Updated at the end of each phase of [prototype-plan.md](prototype-plan.md).
 | 4. Engine and sandbox | §4 table via sandbox ledger, samples fire in the event log, prompt/reminder/drawer gate | Pass: a live round with sandbox +20 contract and +1× scored (10×6+20)×2 = 160 as expected; all ten samples log with their glyph (True Aim and Arena's Law verified directly, as they rarely fire in four rounds); Barter Bridge's prompt, card pick, swap, and the Peddler's Cart payoff chain work end to end |
 | 5. Handler guide | `src/sigils/handlers/README.md` written | Done: Ctx API, windows with scopes, controller rule, AI prompt pattern, copy rules, ten worked examples, testing, downgrades |
 | 6. Handler waves | Every automated sigil has a handler, `tsc` and `eslint` pass, `?auto&fast&random-sigils=8` run | Pass: 213 of 213 automated sigils have handlers and none were downgraded; four `random-sigils=8` runs ended with no console errors, each reaching 1,000 points before round 13 (8 sigils per seat from round 1 produce 300–500 point rounds); a `random-sigils=1` run played all 13 rounds, filled every collection to 13, and logged no errors |
+| 7. Polish | Ledger rows and trigger flashes, visual-review fixes, gate rerun | Pass: the summary shows one row per sigil (contract value on a missed contract is struck through); engraved cards and tray chips pulse on triggers within 450 ms; every visual-review Bug and the top three Design Feedback items are fixed; all five screens pass `uiAudit` at all three viewports and were checked by screenshot |
 
 ## Visual gate
 
@@ -23,6 +24,9 @@ Updated at the end of each phase of [prototype-plan.md](prototype-plan.md).
 | Table with engravings, trays, tooltip | Pass | Pass | Pass | 7 words; tooltip text is `data-prose` |
 | Prompt (confirm and card pick) | Pass | Pass | Pass | 14 words |
 | Manual reminder | Pass | Pass | Pass | 9 words |
+| Shop after a buy (sell selected) | Pass | Pass | Pass | 3–7 words; only Done remains |
+| Table during play | Pass | Pass | Pass | 2–6 words |
+| Round summary with ledger rows | Pass | Pass | Pass | 11–15 words; the round eyebrow is gone |
 | Sandbox drawer | Pass | Pass | Pass | The audit skips the drawer's words, since the budget applies to the table beside it; docked beside the table at 1000 px and wider, over it below that |
 
 ## Interpretation calls
@@ -73,3 +77,41 @@ None. All 213 sigils tagged automated have handlers.
 ## Failed checks
 
 None yet.
+
+## Visual review (phase 7)
+
+Fixed:
+
+- Bug: Reroll stayed enabled after the shop's one purchase; offers and Reroll now disappear once nothing more can be bought.
+- Bug: ledger rows painted missed-contract value as gains; that value is now muted and struck through.
+- Bug: the wrench sat on the hand on phones; it now sits in the scoreboard row.
+- Bug: the dealer badge covered the avatar initial; it is now a pip on the plate's corner.
+- Bug: side seats touched the edges at 820×1180; portrait tablets now use the phone layout with larger cards.
+- Bug: plates jumped when a tray appeared; every plate reserves its tray row.
+- Bug: 40 px bid tokens and tray chips on phones; both are now 44 px.
+- Bug: ace pips and face letters ran into the hand's index strip; the centre shifts right and shrinks.
+- Bug: unaffordable offers were dimmed to low contrast; they stay readable with the price in red.
+- Bug: Reroll's coin sat 2 px high; buttons now centre their content as a row.
+- Bug: hyphen and minus were mixed; negatives use U+2212 everywhere.
+- Bug: your own plate showed thinking dots while you bid; they now show only for AI seats.
+- Bug: Next carried an extra focus ring from `autoFocus`; it is removed.
+- Bug: shop tiles reflowed; offers use a fixed three-column grid.
+- Design 1: the shop's after-purchase state leaves only Done, selling is a two-tap select-then-confirm with the sell price shown, and the `n/13` count appears only near the cap.
+- Design 2: seats are fixed modules (reserved tray row, dealer pip on the plate edge).
+- Design 3: tall portrait viewports use the stacked phone layout with bigger cards.
+- Also: pressed buttons drop their glow and darken slightly.
+
+Recorded for later:
+
+- Fewer gold accents: set offer prices and the Reroll cost in `--text` with a gold coin, use `--text` for prompt titles, and tighten ghost button padding.
+- Round summary: show only deltas and animate the scoreboard totals instead of repeating the Score row.
+- Manual reminder: anchor it as a toast above your tray instead of a centred panel.
+- Card pick mode: ring only the hovered card instead of every pickable card.
+- Tooltips: place card tooltips above the whole hand and shop tray tooltips below the tray.
+- Portrait tablets still leave empty felt above and below the trick.
+
+## Action items
+
+- AI seats never sell, so Garage Sale, Tumbling Dryer, Thrifted Radio, and Heirloom Cabinet do nothing for them.
+- AI bidding ignores sigils, so failed nils and multiplied misses are common; a `?random-sigils=8` run often swings several hundred points a round and ends before round 13.
+- Tandem Scooter's +80 cap, Matching Mugs copying an Engraving common, and Measured Delta's human prompt were not seen in the browser.

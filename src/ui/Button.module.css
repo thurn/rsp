@@ -1,5 +1,9 @@
 .button {
   appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
   border: 1px solid transparent;
   cursor: pointer;
   font-family: var(--font-ui);
@@ -19,6 +23,8 @@
 
 .button:active:not(:disabled) {
   transform: translateY(1px);
+  box-shadow: none;
+  filter: brightness(0.92);
 }
 
 .button:disabled {

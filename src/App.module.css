@@ -125,7 +125,7 @@
 }
 
 /* Portrait phones: scoreboard on top, all three opponents in one row above the table. */
-@media (max-width: 700px) {
+@media (max-width: 700px), (orientation: portrait) and (max-width: 1000px) {
   .app {
     --card-w: min(76px, 20vw);
     padding-inline: var(--space-3);
@@ -182,5 +182,20 @@
 
   .app[data-sandbox] .score {
     left: var(--space-4);
+  }
+}
+
+@media (orientation: portrait) and (min-width: 701px) and (max-width: 1000px) {
+  .app {
+    --card-w: min(108px, 12.5vw);
+    --mini-card-w: 34px;
+    padding-inline: var(--space-5);
+  }
+}
+
+/* Phones keep the wrench in the scoreboard row, clear of the hand. */
+@media (max-width: 700px), (orientation: portrait) and (max-width: 1000px) {
+  .score {
+    margin-right: 56px;
   }
 }

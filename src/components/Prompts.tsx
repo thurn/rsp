@@ -1,8 +1,7 @@
 import { type Bid, type TeamResult, NIL } from '../game/types'
-import { ROUNDS } from '../game/rules'
 import { Button } from '../ui/Button'
 import { CoinIcon } from '../ui/Coin'
-import { Eyebrow, Panel } from '../ui/Panel'
+import { Panel } from '../ui/Panel'
 import { LedgerRows, type LedgerRow } from './LedgerRows'
 import styles from './Prompts.module.css'
 
@@ -47,18 +46,17 @@ export function BlindPrompt({ onChoose }: { onChoose: (declare: boolean) => void
 }
 
 const signed = (n: number) => (n > 0 ? `+${n}` : n < 0 ? `−${-n}` : '0')
+const num = (n: number) => (n < 0 ? `−${-n}` : `${n}`)
 
 export function RoundSummary({
   result,
   scores,
-  round,
   winner,
   ledger,
   onContinue,
 }: {
   result: [TeamResult, TeamResult]
   scores: number[]
-  round: number
   winner: 0 | 1 | 'draw' | null
   ledger: LedgerRow[]
   onContinue: () => void
@@ -76,14 +74,10 @@ export function RoundSummary({
   )
   return (
     <Panel className={`${styles.center} ${styles.summary}`}>
-      {over ? (
+      {over && (
         <h2 className={styles.title}>
           {winner === 'draw' ? 'Draw' : winner === 0 ? 'Victory' : 'Defeat'}
         </h2>
-      ) : (
-        <Eyebrow>
-          {round} / {ROUNDS}
-        </Eyebrow>
       )}
       <table className={styles.table}>
         <thead>
@@ -131,7 +125,7 @@ export function RoundSummary({
           <tr className={styles.total}>
             <th>Score</th>
             {scores.map((s, t) => (
-              <td key={t}>{s}</td>
+              <td key={t}>{num(s)}</td>
             ))}
           </tr>
           <tr className={styles.goldRow}>
@@ -145,9 +139,7 @@ export function RoundSummary({
         </tbody>
       </table>
       <div className={styles.actions}>
-        <Button onClick={onContinue} autoFocus>
-          {over ? 'Play again' : 'Next'}
-        </Button>
+        <Button onClick={onContinue}>{over ? 'Play again' : 'Next'}</Button>
       </div>
     </Panel>
   )

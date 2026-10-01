@@ -36,3 +36,8 @@
 .more:active {
   transform: translateY(1px);
 }
+
+.amount[data-void] {
+  color: var(--text-muted) !important;
+  text-decoration: line-through;
+}

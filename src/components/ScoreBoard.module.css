@@ -73,7 +73,7 @@
 }
 
 /* Compact single-row layout for narrow screens. */
-@media (max-width: 700px) {
+@media (max-width: 700px), (orientation: portrait) and (max-width: 1000px) {
   .board {
     grid-template-columns: auto 1fr 1fr;
     column-gap: var(--space-4);

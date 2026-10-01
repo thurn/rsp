@@ -258,10 +258,9 @@
   font-weight: 700;
 }
 
-@media (max-width: 700px) {
+@media (max-width: 700px), (orientation: portrait) and (max-width: 1000px) {
   .wrench {
-    top: auto;
-    bottom: var(--space-3);
+    top: var(--space-3);
     right: var(--space-3);
   }
 }

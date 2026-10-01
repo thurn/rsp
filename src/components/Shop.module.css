@@ -31,7 +31,7 @@
 
 .offers {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: var(--space-3);
 }
 
@@ -67,12 +67,16 @@
 
 .offer:disabled {
   cursor: default;
-  opacity: 0.55;
+}
+
+/* Too expensive: the price says why, and the rules text stays readable. */
+.offer[data-short] .price {
+  color: var(--danger);
 }
 
 .offerHead {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: var(--space-2);
 }
 
@@ -94,9 +98,25 @@
   color: var(--text);
 }
 
+.collection {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-height: 44px;
+}
+
 .tray {
   justify-content: flex-start;
   max-width: none;
+}
+
+.sell {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--gold-strong);
 }
 
 .actions {
@@ -106,7 +126,6 @@
 }
 
 .rerollCost {
-  margin-left: var(--space-2);
   font-size: var(--text-md);
 }
 

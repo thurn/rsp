@@ -117,12 +117,12 @@
   }
 
   .bidGrid {
-    grid-template-columns: repeat(7, 40px);
+    grid-template-columns: repeat(7, 44px);
     gap: 6px;
   }
 
   .bidGrid > button {
-    min-width: 40px;
+    min-width: 44px;
     height: 44px;
     padding: 0;
   }

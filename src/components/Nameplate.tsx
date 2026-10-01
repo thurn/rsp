@@ -16,6 +16,7 @@ export function Nameplate({
   gold,
   showGold,
   tray,
+  human,
 }: {
   seat: Seat
   bid: Bid | null
@@ -26,6 +27,7 @@ export function Nameplate({
   gold: number
   showGold: boolean
   tray: TrayChip[]
+  human: boolean
 }) {
   const name = SEAT_NAMES[seat]
   return (
@@ -36,19 +38,24 @@ export function Nameplate({
         data-team={teamOf(seat) === 0 ? 'us' : 'them'}
         {...(showGold ? {} : tipHandlers([], gold))}
       >
-        <div className={styles.avatar}>
-          {name[0]}
-          {dealer && (
-            <span className={styles.dealer} title="Dealer">
-              D
-            </span>
-          )}
-        </div>
+        {dealer && (
+          <span className={styles.dealer} title="Dealer">
+            D
+          </span>
+        )}
+        <div className={styles.avatar}>{name[0]}</div>
         <span className={styles.name}>{name}</span>
         {showGold && <Gold amount={gold} className={styles.gold} />}
-        <Stat bid={bid} won={won} phase={phase} thinking={active && phase === 'bidding'} />
+        <Stat
+          bid={bid}
+          won={won}
+          phase={phase}
+          thinking={active && phase === 'bidding' && !human}
+        />
       </div>
-      <Tray chips={tray} />
+      <div className={styles.traySlot}>
+        <Tray chips={tray} />
+      </div>
     </div>
   )
 }

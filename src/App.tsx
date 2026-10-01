@@ -80,6 +80,7 @@ function Table({ state }: { state: GameState }) {
       gold={state.players[seat].gold}
       showGold={seat === viewer}
       tray={trayFor(state, seat)}
+      human={seat === human}
     />
   )
 
@@ -195,7 +196,6 @@ function Table({ state }: { state: GameState }) {
                 <RoundSummary
                   result={state.lastResult}
                   scores={state.scores}
-                  round={state.round}
                   winner={state.winner}
                   ledger={ledgerRows(state)}
                   onContinue={() =>

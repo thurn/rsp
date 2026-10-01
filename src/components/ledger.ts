@@ -1,12 +1,17 @@
 import { teamOf } from '../game/cards'
 import type { GameState } from '../game/types'
-import type { LedgerRow } from './LedgerRows'
+import type { LedgerCell, LedgerRow } from './LedgerRows'
 
-/** One row per sigil that changed this round's ledger, with all its entries merged per team. */
+const signedNum = (n: number) => (n > 0 ? `+${n}` : `−${-n}`)
+
+/**
+ * One row per sigil that changed this round's ledger, with all its entries merged per team.
+ * Contract value on a missed contract is shown void, since a failed contract loses it.
+ */
 export function ledgerRows(s: GameState): LedgerRow[] {
   const bySource = new Map<string, { contract: number[]; mult: number[]; other: number[] }>()
   for (const e of s.ledger.entries) {
-    if (e.kind === 'gold') continue
+    if (e.kind === 'gold' || e.source === 'sandbox') continue
     const row = bySource.get(e.source) ?? { contract: [0, 0], mult: [0, 0], other: [0, 0] }
     const t = teamOf(e.seat)
     if (e.kind === 'multiplier') row.mult[t] += e.amount
@@ -16,14 +21,18 @@ export function ledgerRows(s: GameState): LedgerRow[] {
   }
   return [...bySource].map(([code, r]) => ({
     code,
-    amounts: [0, 1].map((t) => {
-      const parts = []
+    cells: [0, 1].map((t): LedgerCell => {
+      const missed = s.lastResult ? !s.lastResult[t].made : false
+      const parts: string[] = []
       if (r.contract[t]) parts.push(signedNum(r.contract[t]))
       if (r.other[t]) parts.push(signedNum(r.other[t]))
       if (r.mult[t]) parts.push(`${signedNum(r.mult[t])}×`)
-      return parts.join(' ') || '—'
-    }) as [string, string],
+      const total = r.contract[t] + r.other[t] + r.mult[t]
+      return {
+        text: parts.join(' ') || '—',
+        sign: Math.sign(total),
+        void: missed && r.contract[t] !== 0 && r.other[t] === 0 && r.mult[t] === 0,
+      }
+    }) as [LedgerCell, LedgerCell],
   }))
 }
-
-const signedNum = (n: number) => (n > 0 ? `+${n}` : `−${-n}`)

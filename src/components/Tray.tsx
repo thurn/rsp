@@ -14,11 +14,13 @@ export function Tray({
   chips,
   onChip,
   chipExtra,
+  selected,
   className,
 }: {
   chips: TrayChip[]
   onChip?: (code: string) => void
   chipExtra?: (code: string) => string | number | undefined
+  selected?: string | null
   className?: string
 }) {
   if (chips.length === 0) return null
@@ -38,7 +40,13 @@ export function Tray({
         )
         const tip = tipHandlers([c.code], chipExtra?.(c.code))
         return onChip ? (
-          <button key={c.code} className={styles.button} onClick={() => onChip(c.code)} {...tip}>
+          <button
+            key={c.code}
+            className={styles.button}
+            data-selected={selected === c.code || undefined}
+            onClick={() => onChip(c.code)}
+            {...tip}
+          >
             {inner}
           </button>
         ) : (

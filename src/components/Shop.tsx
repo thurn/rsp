@@ -1,5 +1,7 @@
+import { useState } from 'react'
 import { type Seat } from '../game/cards'
 import { canBuy, price, rerollCost, sellValue } from '../game/shop'
+import { shopRules } from '../game/rules'
 import { dispatch } from '../game/store'
 import type { GameState } from '../game/types'
 import { getSigil } from '../sigils/registry'
@@ -14,52 +16,78 @@ export function Shop({ state, seat }: { state: GameState; seat: Seat }) {
   const shop = state.shop!.seats[seat]
   const player = state.players[seat]
   const cost = rerollCost(state, seat)
+  const [selling, setSelling] = useState<string | null>(null)
+  // After the shop's one purchase (or a second common, with Overstocked Fridge), only Done is left.
+  const canBuyMore = shop.bought === 0 || (shop.bought === 1 && shopRules(state, seat).secondCommon)
+  const offers = canBuyMore ? shop.offers : []
+  const sellCode = selling && player.sigils.some((o) => o.code === selling) ? selling : null
   return (
     <Panel className={styles.shop} aria-label="Shop">
       <div className={styles.head}>
         <Gold amount={player.gold} className={styles.gold} />
-        <span className={styles.count}>
-          {player.sigils.length}
-          <span>/13</span>
-        </span>
+        {player.sigils.length >= 11 && (
+          <span className={styles.count}>
+            {player.sigils.length}
+            <span>/13</span>
+          </span>
+        )}
       </div>
-      <div className={styles.offers}>
-        {shop.offers.map((code) => {
-          const s = getSigil(code)
-          if (!s) return null
-          return (
-            <button
-              key={code}
-              className={styles.offer}
-              disabled={!canBuy(state, seat, code)}
-              onClick={() => dispatch({ type: 'buy', seat, code })}
-            >
-              <span className={styles.offerHead}>
-                <SigilGlyph code={code} chip />
-                <span className={styles.name}>{s.name}</span>
-                <Gold amount={price(state, seat, code)} className={styles.price} />
-              </span>
-              <span className={styles.text} data-prose>
-                {s.text}
-              </span>
-            </button>
-          )
-        })}
+      {offers.length > 0 && (
+        <div className={styles.offers}>
+          {offers.map((code) => {
+            const s = getSigil(code)
+            if (!s) return null
+            const cost = price(state, seat, code)
+            return (
+              <button
+                key={code}
+                className={styles.offer}
+                disabled={!canBuy(state, seat, code)}
+                data-short={cost > player.gold || undefined}
+                onClick={() => dispatch({ type: 'buy', seat, code })}
+              >
+                <span className={styles.offerHead}>
+                  <SigilGlyph code={code} chip />
+                  <span className={styles.name}>{s.name}</span>
+                  <Gold amount={cost} className={styles.price} />
+                </span>
+                <span className={styles.text} data-prose>
+                  {s.text}
+                </span>
+              </button>
+            )
+          })}
+        </div>
+      )}
+      <div className={styles.collection}>
+        <Tray
+          className={styles.tray}
+          chips={player.sigils.map((o) => ({ code: o.code, counter: o.counter }))}
+          selected={sellCode}
+          onChip={(code) => {
+            if (code === sellCode) {
+              dispatch({ type: 'sell', seat, code })
+              setSelling(null)
+            } else setSelling(code)
+          }}
+          chipExtra={(code) => sellValue(state, seat, code)}
+        />
+        {sellCode && (
+          <span className={styles.sell}>
+            +<Gold amount={sellValue(state, seat, sellCode)} />
+          </span>
+        )}
       </div>
-      <Tray
-        className={styles.tray}
-        chips={player.sigils.map((o) => ({ code: o.code, counter: o.counter }))}
-        onChip={(code) => dispatch({ type: 'sell', seat, code })}
-        chipExtra={(code) => sellValue(state, seat, code)}
-      />
       <div className={styles.actions}>
-        <Button
-          variant="ghost"
-          disabled={cost > player.gold}
-          onClick={() => dispatch({ type: 'reroll', seat })}
-        >
-          Reroll <Gold amount={cost} className={styles.rerollCost} />
-        </Button>
+        {canBuyMore && (
+          <Button
+            variant="ghost"
+            disabled={cost > player.gold}
+            onClick={() => dispatch({ type: 'reroll', seat })}
+          >
+            Reroll <Gold amount={cost} className={styles.rerollCost} />
+          </Button>
+        )}
         <Button onClick={() => dispatch({ type: 'shopDone', seat })}>Done</Button>
       </div>
     </Panel>
