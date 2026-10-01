@@ -342,7 +342,8 @@ class Node {
 
 const EXPLORATION = 0.7
 
-export function chooseCard(view: AIView, timeMs: number): number {
+/** Searches for `timeMs`, or for exactly `iterations` iterations when given (for reproducible runs). */
+export function chooseCard(view: AIView, timeMs: number, iterations?: number): number {
   const legalIds = new Set(view.legal)
   const rootLegal = view.hand.filter((c) => legalIds.has(c.id))
   if (rootLegal.length <= 1) return rootLegal[0]?.id ?? view.hand[0]?.id ?? -1
@@ -351,7 +352,11 @@ export function chooseCard(view: AIView, timeMs: number): number {
   const root = new Node(null, -1)
   const deadline = performance.now() + timeMs
 
-  for (let iter = 0; iter < 60000 && (iter < 60 || performance.now() < deadline); iter++) {
+  const more = (iter: number) =>
+    iterations !== undefined
+      ? iter < iterations
+      : iter < 60000 && (iter < 60 || performance.now() < deadline)
+  for (let iter = 0; more(iter); iter++) {
     const sim = determinize(view, rng, bids)
     let node = root
     let first = true

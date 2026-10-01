@@ -1,0 +1,6 @@
+#!/bin/sh
+# Headless AI self-play benchmark. A dev tool, not part of scripts/ci.
+# Example: scripts/ai-bench --plain --rounds 200 --iterations 1500 --seed 1
+set -eu
+cd "$(dirname "$0")/.."
+exec node scripts/ai-bench.mjs "$@"

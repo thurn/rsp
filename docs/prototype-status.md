@@ -110,6 +110,33 @@ Recorded for later:
 - Tooltips: place card tooltips above the whole hand and shop tray tooltips below the tray.
 - Portrait tablets still leave empty felt above and below the trick.
 
+## AI benchmark baseline
+
+`scripts/ai-bench` plays headless AI games through `src/dev/bench.ts` (see [automation-plan.md](automation-plan.md#part-2-the-ai-benchmark)). These numbers were recorded before any Part 3 AI change, at `--iterations 1500 --seed 1 --rounds 200`:
+
+| Metric | `--plain` | `--random-sigils 8` |
+| --- | --- | --- |
+| Games / seconds | 16 / 260 | 23 / 298 |
+| Team set rate | 28.2% (113/400) | 48.8% (195/400) |
+| Set rate, multiplier > 1× | none bid | 39.3% (44/112) |
+| Exact rate | 41.5% | 39.5% |
+| Bags per made contract | 0.89 | 0.95 |
+| Mean \|bid − tricks\| | 0.86 | 1.25 |
+| Nil success | 63.5% (33/52) | 57.1% (32/56) |
+| Blind nil success | 26.0% (13/50) | 20.5% (17/83) |
+| Wasted overtakes per opportunity | 5.8% (43 overtakes + 34 trumps / 1,322) | 5.6% (33 + 39 / 1,289) |
+| Missed nil covers | 0.0% (0/35) | 2.0% (1/50) |
+| Nil suicides | 1.9% (16/843) | 2.1% (23/1,084) |
+| Sigils owned at end | 0 | 12.76 |
+| Gold unspent at end | 1,676 | 820 |
+| Rerolls / sales | 0 / 0 | 0 / 0 |
+| `console.error` / manual lines / runaway drains / stalls | 0 / 0 / 0 / 0 | 0 / 0 / 0 / 0 |
+
+- An overtake opportunity is a play where the partner's card is certain to win and the seat holds a legal card that does not beat it; trumps count separately from same-suit overtakes. Nil partners are excluded, since overtaking them is a cover.
+- `--plain` empties the sigil library for the run, so its shops have no offers and its gold column only reflects income.
+- The plain missed-cover baseline is 0 of 35, so the "≤ 50% of baseline" target in Part 3 holds only at zero.
+- `--all-sigils --min-per-sigil 1 --human 0 --iterations 100` covered all 250 sigils in 8 games with no errors, runaway drains, or stalls, and logged 247 `manual` lines from the 32 sigils still manual.
+
 ## Action items
 
 - AI seats never sell, so Garage Sale, Tumbling Dryer, Thrifted Radio, and Heirloom Cabinet do nothing for them.
