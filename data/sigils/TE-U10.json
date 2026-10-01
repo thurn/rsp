@@ -38,5 +38,6 @@
   "decision": "Which hearts to spend under your partner's winners early, growing the rest of your hearts with Unfolding Butterfly, and which to keep for your own late wins.",
   "opponent": "Visible on trigger; opponents answer by overtaking the partner's card or leading suits where you can't follow with a heart.",
   "aiNote": "When your partner is winning a trick you can't or needn't win, play your lowest heart.",
-  "rationale": "A Heart Chorus hand plays a heart under about two of its partner's three or so wins (about +30, +24 EV), and a Kingmaker hand about one; low hearts shed early still count toward Unfolding Butterfly, so both plans pay at once without paying for every partner win (Homeward Ship) or for cards you passed (Promoted Pawn)."
+  "rationale": "A Heart Chorus hand plays a heart under about two of its partner's three or so wins (about +30, +24 EV), and a Kingmaker hand about one; low hearts shed early still count toward Unfolding Butterfly, so both plans pay at once without paying for every partner win (Homeward Ship) or for cards you passed (Promoted Pawn).",
+  "notes": "Pretty fiddly and hard to trigger"
 }
