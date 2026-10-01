@@ -21,7 +21,7 @@
       "icon": "plug-connect"
     }
   ],
-  "text": "When you play this card, your partner's card already in this trick gains +4 rank.",
+  "text": "When you play this card, your partner's card already in this trick gains 4 rank.",
   "timing": "When played",
   "prototype": "automated",
   "signature": [

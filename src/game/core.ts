@@ -518,11 +518,6 @@ export class SigilCtx implements Ctx {
     card.sigils.push({ code, owner: this.owner, ...(copyOf ? { copyOf } : {}) })
   }
 
-  disableEngravings(card: Card) {
-    this.touch()
-    for (const e of card.sigils) e.disabled = true
-    this.logLine(`${label(this.state, card)} disabled`)
-  }
   moveEngraving(from: Card, to: Card) {
     const eng = from.sigils[0]
     if (!eng) return

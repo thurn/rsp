@@ -22,7 +22,7 @@
       "icon": "bridge"
     }
   ],
-  "text": "Whenever you play a heart, your hearts in hand gain +1 rank.",
+  "text": "Whenever you play a heart, your hearts in hand gain 1 rank.",
   "timing": "When played (any heart you play)",
   "prototype": "automated",
   "signature": [

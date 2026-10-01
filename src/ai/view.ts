@@ -12,8 +12,7 @@ export interface SimCard {
 
 export interface SimRules {
   trump: number | null
-  noTrump: boolean
-  noTrumpFromTrick: number | null
+  noTrumpTeams: number[]
   untrumpable: { suit?: number; rank?: number; seat?: number; team?: number }[]
   lowestWins: number[]
 }
@@ -74,8 +73,7 @@ export function viewFor(s: GameState, seat: Seat): AIView {
     scores: s.scores.slice(),
     rules: {
       trump: tr.trump,
-      noTrump: tr.noTrump,
-      noTrumpFromTrick: s.flags.noTrumpFromTrick ?? null,
+      noTrumpTeams: tr.noTrumpTeams,
       untrumpable: tr.untrumpable,
       lowestWins: tr.lowestWins,
     },

@@ -21,10 +21,10 @@
       "icon": "stadium"
     }
   ],
-  "text": "Before bidding, two chosen hearts in your hand gain +2 rank.",
+  "text": "Before bidding, two chosen hearts in your hand gain 2 rank.",
   "timing": "Before bidding",
   "prototype": "manual",
-  "prototypeNote": "Before bidding, use Edit card to give the two chosen hearts +2 rank.",
+  "prototypeNote": "Before bidding, use Edit card to give the two chosen hearts 2 rank.",
   "signature": [
     {
       "trigger": "before bidding",

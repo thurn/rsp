@@ -246,7 +246,7 @@ export const handlers: HandlerMap = {
       },
     },
   },
-  // Unfolding Butterfly: Whenever you play a heart, your hearts in hand gain +1 rank.
+  // Unfolding Butterfly: Whenever you play a heart, your hearts in hand gain 1 rank.
   'DU-S11': {
     on: {
       played: (ctx, e) => {

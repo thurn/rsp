@@ -371,14 +371,13 @@ export const handlers: HandlerMap = {
       ctx.note('bid tricks worth 20')
     },
   },
-  // Public Hospital: Contract multipliers don't apply to missed contracts, for either team.
+  // Public Hospital: Contract multipliers don't apply to your team's missed contracts.
   'GY-R07': {
     score: (ctx, calc) => {
-      for (const t of calc.teams) {
-        t.failMultiplier = false
-        if (t.contract > 0 && !t.made && ctx.state.ledger.multiplier[t.team] > 0)
-          ctx.note('miss ignores multiplier')
-      }
+      const t = calc.teams[ctx.team]
+      t.failMultiplier = false
+      if (t.contract > 0 && !t.made && ctx.state.ledger.multiplier[t.team] > 0)
+        ctx.note('miss ignores multiplier')
     },
   },
   // Sprawling Warehouse: You see four shop offers instead of three.

@@ -41,7 +41,8 @@ const partnerNilMade = (ctx: Ctx) =>
   isNil(ctx.bid(ctx.partner)) && ctx.state.tricksWon[ctx.partner] === 0
 
 export const handlers: HandlerMap = {
-  // Handoff Football: When this card loses a trick to your partner, gain +40 contract value.
+  // Handoff Football: When your partner wins a trick you played this card to, gain +40 contract
+  // value.
   'TE-C04': {
     on: { thisCardLoses: (ctx, e) => e.data?.winner === ctx.partner && ctx.gainContract(40) },
   },
@@ -75,7 +76,7 @@ export const handlers: HandlerMap = {
   // Homeward Ship: Whenever your partner wins a trick, gain +5 contract value.
   'TE-C07': { on: { partnerWins: (ctx) => ctx.gainContract(5) } },
 
-  // Deserted Island: Whenever you pass or swap the last card of a suit in your hand, gain +10
+  // Deserted Island: Whenever you pass or swap the last card of a suit in your hand, gain +20
   // contract value. Checked after the exchange: a suit you still hold doesn't count.
   'TE-C08': {
     on: {
@@ -83,7 +84,7 @@ export const handlers: HandlerMap = {
         const ids = (e.data?.cards as number[]) ?? []
         const suits = new Set(ids.map((id) => ctx.findCard(id)?.suit))
         for (const suit of suits) {
-          if (suit !== undefined && count(ctx.hand(), suit) === 0) ctx.gainContract(10)
+          if (suit !== undefined && count(ctx.hand(), suit) === 0) ctx.gainContract(20)
         }
       },
     },

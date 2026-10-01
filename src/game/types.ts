@@ -65,8 +65,10 @@ export interface Ledger {
 }
 
 export interface RoundFlags {
-  /** Stilled Hurricane, Armistice News: no trumping from this trick number on. */
-  noTrumpFromTrick?: number
+  /** Armistice News: the trick from which each team's trumps can't win. */
+  noTrumpFrom?: Partial<Record<0 | 1, number>>
+  /** Wayward Cat: the trick on which each seat need not follow suit. */
+  reliefTrick?: Partial<Record<Seat, number>>
   /** Rosy Spectacles, Unclouded Sun. */
   untrumpable: { suit?: Suit; rank?: number; team: 0 | 1 }[]
   /** Rewound Reel. */

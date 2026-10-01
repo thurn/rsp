@@ -22,7 +22,7 @@ reference for clarity.
   trick" or "the first time each round."
 - **Growth as a trigger.** Rank or value that builds over a round is written as
   the trigger that builds it: "Whenever you play a heart, your hearts in hand
-  gain +1 rank." A threshold that builds over a round opens with "Each round,
+  gain 1 rank." A threshold that builds over a round opens with "Each round,
   once …": "Each round, once you've trumped twice, your spades in hand gain +3
   rank." Value that builds while a card waits in hand is a while-held trigger:
   "While this card is in your hand, whenever you play a diamond, gain +5
@@ -48,23 +48,34 @@ reference for clarity.
   this round."
 - **When, then what.** A triggered effect opens with when it happens, then says
   what happens: "When this card wins a trick, gain +20 contract value."
-- **Gain with a sign.** Increases use "gain" and a signed number: "gain +20
-  contract value," "gain +5 gold," "gains +3 rank." Decreases use a plain verb
-  and an unsigned number: "loses 4 rank," "Shop rerolls cost 20 gold less."
+- **Gain with a sign.** Increases of value use "gain" and a signed number:
+  "gain +20 contract value," "gain +5 gold." Rank changes use an unsigned
+  number in both directions: "gains 3 rank," "loses 4 rank." Decreases use a
+  plain verb and an unsigned number: "Shop rerolls cost 20 gold less."
 - **Spades words and plain English.** Rules text uses the ordinary vocabulary
   of Spades freely: trick, lead, follow suit, void, trump, nil, blind nil,
   bags. Everything else is everyday English. A new term is invented only when
   no plain phrasing works, and every invented term appears in the table
   below.
 - **Name the suit.** Sigils name the suit they affect, such as "your spades
-  gain +2 rank," so each suit keeps the identity described in
+  gain 2 rank," so each suit keeps the identity described in
   [resonance.md](resonance.md#suit-identity). "Your longest suit" is a rare
   exception.
 - **Readable alone.** A player reading only the text knows when it happens,
   which cards or players it affects, who picks them, and what changes. The
   text says "chosen" when the player picks and "random" when nobody does.
 - **Owners come out ahead.** A sigil that touches the whole table helps its
-  owner's team more than the opponents'.
+  owner's team more than the opponents'. A rule that changes how tricks are led
+  or won names whose cards or plays it covers, such as "Your team's hearts
+  can't be trumped" or "Whenever you lead a club," so the owner decides when it
+  helps.
+- **Partner wins from the partner's side.** A trick your partner wins is
+  written as your partner winning it: "Whenever your partner wins a trick."
+- **Reward matches the trigger.** A narrow or hard-to-reach trigger pays enough
+  to plan around, and a trigger that can fire on most tricks names a narrower
+  window, such as "one of the first four tricks."
+- **Opponent effects stay targeted.** An effect that weakens opponents aims at
+  one chosen opponent or one card.
 - **Each sigil its own.** Every sigil plays differently from the others; no
   two mirror each other.
 - **Bids belong to their bidders.** A sigil changes only its owner's own bid.
@@ -138,7 +149,7 @@ rules.
 
 | Timing | Opening |
 | --- | --- |
-| Always on, for the engraved card | "This card gains +3 rank." |
+| Always on, for the engraved card | "This card gains 3 rank." |
 | Always on, for you | "Shop rerolls cost 20 gold less." |
 | Before bidding | "Before bidding, …" |
 | When you bid | "When you bid, …" |
@@ -227,8 +238,9 @@ Any other invented term is added here before it appears in rules text.
   however many times the sigil triggers.
 - **Visibility:** every triggered effect is shown to the table when it happens,
   as the core rules require.
-- **Numbers** are written as digits, with a sign on gains: "+3 rank," "+5
-  gold." Decreases are unsigned: "loses 4 rank." Counts of cards are words: "a
+- **Numbers** are written as digits, with a sign on value gains: "+5 gold,"
+  "+20 contract value." Rank changes are unsigned: "gains 3 rank," "loses 4
+  rank." Counts of cards are words: "a
   card," "two cards," "three random cards."
 - **Punctuation:** full sentences, sentence case, ending with a period.
 
@@ -259,22 +271,22 @@ These examples are real sigils in the pool. Wave 0 of the design process in
 
 | # | Name | Icon | Resonance · Rarity · Category | Rules text |
 | --- | --- | --- | --- | --- |
-| 1 | Honed Edge | `sword` | Red · Common · Engraving | This card gains +1 rank. |
-| 2 | Verdant Banner | `flag` | Green · Common · Engraving | While this card is in your hand, your hearts gain +2 rank. |
+| 1 | Honed Edge | `sword` | Red · Common · Engraving | This card gains 1 rank. |
+| 2 | Verdant Banner | `flag` | Green · Common · Engraving | While this card is in your hand, your hearts gain 2 rank. |
 | 3 | Nest Egg | `egg` | Orange · Common · Engraving | While this card is in your hand, gain +5 gold after each trick. |
 | 4 | Crown Jewel | `crown` | Red · Common · Engraving When this card wins a trick, gain +25 contract value. |
-| 5 | Graceful Exit | `door-open` | Purple · Common · Ongoing | Whenever you lose a trick you played a face card to, gain +10 contract value. |
+| 5 | Graceful Exit | `door-open` | Purple · Common · Ongoing | Whenever you lose a trick you played a face card to, gain +20 contract value. |
 | 6 | Turning Tide | `water` | Green · Common · Ongoing | Before bidding, convert two chosen cards in your hand to diamonds. |
 | 7 | Open Hand | `hand` | Teal · Common · Ongoing | After bidding, swap a card with your partner. |
 | 8 | True Aim | `target` | Blue · Rare · Ongoing | If your team makes its contract exactly, gain +1× contract multiplier. |
 | 9 | Vigil Candle | `candlestick` | Purple · Common · Ongoing | Gain +30 nil value. |
-| 10 | Sinking Anchor | `anchor` | Purple · Uncommon · Ongoing | After bidding, each opponent's highest card loses 4 rank. |
+| 10 | Sinking Anchor | `anchor` | Purple · Uncommon · Ongoing | After bidding, a chosen opponent's highest card loses 4 rank. |
 | 11 | Masked Encore | `mask` | Teal · Uncommon · Engraving | When you play this card, you may pick up another card you've previously played this round. |
 | 12 | Loaded Dice | `dice-6` | Gray · Common · Ongoing | Shop rerolls cost 20 gold less. |
 
 ### 1. Honed Edge: changing this card
 
-`This card gains +1 rank.`
+`This card gains 1 rank.`
 
 The engraved card is 1 rank stronger for the whole round, up to ace.
 
@@ -285,7 +297,7 @@ because a face card reaches ace after a few ranks.
 
 ### 2. Verdant Banner: an effect while held
 
-`While this card is in your hand, your hearts gain +2 rank.`
+`While this card is in your hand, your hearts gain 2 rank.`
 
 The bonus lasts until this card is played, including for hearts already played
 to the current trick.
@@ -319,13 +331,14 @@ to hand, and so does the plan for making it win.
 
 ### 5. Graceful Exit: losing with a face card
 
-`Whenever you lose a trick you played a face card to, gain +10 contract value.`
+`Whenever you lose a trick you played a face card to, gain +20 contract value.`
 
 A face card is a jack, queen, or king. This watches every trick you play.
 
-**Balance:** about 10 expected points per round. A seat holds about 3 face
-cards and loses with one or two of them. An unconditional "whenever you lose a
-trick" bonus would fire about 10 times per round, far above a common's value.
+**Balance:** about 20 expected points per round. A seat holds about 3 face
+cards and loses with one or two of them, and each one is a card spent rather
+than a trick won. An unconditional "whenever you lose a trick" bonus would fire
+about 10 times per round, far above a common's value.
 Losing with high cards is exactly what nil and discard decks do, and a nil
 bidder's sigils still add to the partner's contract.
 
@@ -375,13 +388,13 @@ numbers than contract sigils because multipliers never raise them.
 
 ### 10. Sinking Anchor: affecting opponents
 
-`After bidding, each opponent's highest card loses 4 rank.`
+`After bidding, a chosen opponent's highest card loses 4 rank.`
 
-The change is shown to the table, so everyone sees which cards weakened. If an
+The change is shown to the table, so everyone sees which card weakened. If the
 opponent has two equally high cards, you choose which one is affected.
 
-**Balance:** an ace becomes a 10 and a king becomes a 9, which costs the
-opponents about half a trick per round after they have bid. At −3, an ace
+**Balance:** an ace becomes a 10 and a king becomes a 9, which costs one
+opponent about half a trick per round after they have bid. At 3 ranks, an ace
 becomes a jack and still wins most tricks.
 
 ### 11. Masked Encore: an optional choice when played

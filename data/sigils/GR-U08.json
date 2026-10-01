@@ -21,7 +21,7 @@
       "icon": "child"
     }
   ],
-  "text": "While this card is in your hand, the cards beside it gain +1 rank after each trick.",
+  "text": "While this card is in your hand, the cards beside it gain 1 rank after each trick.",
   "timing": "While in hand",
   "prototype": "automated",
   "signature": [

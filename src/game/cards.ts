@@ -23,7 +23,7 @@ export interface Engraving {
   owner: Seat
   /** Set by Surprise Takeaway, or when a copy sigil copies an Engraving sigil. */
   copyOf?: string
-  /** Spiteful Eraser. */
+  /** Switched off in the sandbox. */
   disabled?: boolean
 }
 

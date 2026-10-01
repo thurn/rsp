@@ -6,29 +6,30 @@
   ],
   "rarity": "Uncommon",
   "category": "Ongoing",
-  "price": 75,
+  "price": 65,
   "wave": 0,
   "icon": "anchor",
   "iconFamily": "anchor",
   "iconWord": "anchor",
   "iconAlternates": [],
-  "text": "After bidding, each opponent's highest card loses 4 rank.",
+  "text": "After bidding, a chosen opponent's highest card loses 4 rank.",
   "timing": "After bidding",
   "prototype": "automated",
   "signature": [
     {
       "trigger": "after bidding",
-      "scope": "opponents",
-      "target": "each opponent's highest card",
-      "effect": "rank −4",
-      "frequency": "×2"
+      "scope": "one chosen opponent",
+      "target": "their highest card",
+      "effect": "loses 4 rank",
+      "frequency": "once a round"
     }
   ],
   "archetypes": "High Card, Kingmaker (splash); Contract Attacker",
   "family": "Changing opponents' ranks / Targeting",
   "role": "Enabler (opponent-facing)",
   "decision": "None for the owner; shapes bidding confidence.",
-  "opponent": "Visible change after bids; costs about half a trick.",
-  "aiNote": "Treat opponents' top cards as weaker when planning plays.",
-  "rationale": "Ace becomes 10; at −3 an ace would still win."
+  "opponent": "Visible after bids; it costs one opponent about half a trick.",
+  "aiNote": "Choose the opponent who didn't bid nil and whose highest card is highest.",
+  "rationale": "An ace becomes a 10 and a king becomes a 9, which costs one opponent about half a trick after they have bid. At 3 ranks an ace becomes a jack and still wins most tricks.",
+  "deviation": "Revision 1: one chosen opponent instead of each opponent."
 }

@@ -21,7 +21,7 @@
       "icon": "steps-up"
     }
   ],
-  "text": "Whenever you win a trick with an ace, your highest card of that suit gains +3 rank.",
+  "text": "Whenever you win a trick with an ace, your highest card of that suit gains 3 rank.",
   "timing": "When you win any trick",
   "prototype": "automated",
   "signature": [

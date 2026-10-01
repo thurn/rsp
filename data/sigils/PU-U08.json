@@ -21,23 +21,24 @@
       "icon": "alien"
     }
   ],
-  "text": "In tricks led with clubs, the lowest club wins instead of the highest.",
-  "timing": "Always on, for you",
+  "text": "Whenever you lead a club, you may have the lowest club win that trick instead of the highest.",
+  "timing": "When led (any club you lead)",
   "prototype": "automated",
   "signature": [
     {
-      "trigger": "always",
+      "trigger": "you lead a club",
       "scope": "all players",
-      "target": "tricks led with clubs",
+      "target": "clubs in that trick",
       "effect": "lowest club wins",
-      "frequency": "all"
+      "frequency": "per club lead"
     }
   ],
-  "archetypes": "Nil Champion, Discard Dominance; splash Contract Attacker",
+  "archetypes": "Nil Champion, Discard Dominance",
   "family": "Reversing rank order / Asymmetry",
-  "role": "Enabler; rule setter",
-  "decision": "Bidding clubs upside down: high clubs become safe losers for a nil, and low clubs become winners worth bidding or leading.",
-  "opponent": "A global rule shown before bidding, so everyone bids with it; opponents answer by keeping their low clubs as winners or trumping club leads.",
-  "aiNote": "Count clubs of rank 6 or lower as winners and clubs of rank 10 or higher as safe; on nil, follow club leads with your highest club.",
-  "rationale": "One suit plays reversed while the other three play normally, which keeps rounds readable and adds a global rule setter where the pool is short. Trumps still beat clubs and ties still go to the later card, as the core rules state. The owner gains by building around it: a Nil Champion keeps high clubs as dangerous-looking but safe cards, and a Discard Dominance hand wins club tricks with twos and threes when it needs a trick without spending its high cards. Self-lowering on a club now makes it stronger, a tension the owner has to manage."
+  "role": "Enabler",
+  "decision": "Whether to reverse each club you lead: lead a low club and reverse it to win cheaply, or, on a nil, lead a high club and reverse it to lose safely.",
+  "opponent": "Announced as you lead, before anyone follows; opponents answer by trumping club leads or keeping their low clubs.",
+  "aiNote": "Reverse a club you lead if you bid nil and it is a 10 or higher, or if you did not bid nil and it is a 6 or lower.",
+  "rationale": "The owner decides lead by lead, knowing their own hand, so the reversal always serves them: a nil sheds a high club on its own lead, and a contract hand wins a trick with a two while saving its high cards. Trumps still beat clubs, and ties still go to the later card. It acts only on your own club leads, about two a round for a hand built around it.",
+  "deviation": "Revision 1: replaced a global rule that reversed every trick led with clubs, which helped every seat about equally."
 }

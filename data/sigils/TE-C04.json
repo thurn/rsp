@@ -21,7 +21,7 @@
       "icon": "dribbling"
     }
   ],
-  "text": "When this card loses a trick to your partner, gain +40 contract value.",
+  "text": "When your partner wins a trick you played this card to, gain +40 contract value.",
   "timing": "When this card loses",
   "prototype": "automated",
   "signature": [

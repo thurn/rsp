@@ -4,9 +4,9 @@
   "resonances": [
     "Purple"
   ],
-  "rarity": "Rare",
+  "rarity": "Uncommon",
   "category": "Ongoing",
-  "price": 100,
+  "price": 70,
   "wave": 4,
   "icon": "circle",
   "iconFamily": "circle",
@@ -39,5 +39,6 @@
   "decision": "Shopping: every nil-value sigil is now worth double, so the build pivots toward Vigil Candle, Daring Knight, and the losing-trick nil payoffs; in play, it raises the reward for bidding nil on a marginal hand.",
   "opponent": "Visible at scoring; opponents answer by attacking the nil as usual, and a failed nil loses nothing extra.",
   "aiNote": "Count nil value twice (up to +150) when weighing a nil bid.",
-  "rationale": "A late nil collection holds +50 to +90 of nil value, so this adds that much again on each successful nil, about +25 to +45 a round at a 60% nil rate and 80% success; nil value ignores contract multipliers, so this is the nil deck's only multiplier."
+  "rationale": "A late nil collection holds +50 to +90 of nil value, so this adds that much again on each successful nil, about +25 to +45 a round at a 60% nil rate and 80% success; it pays only on a successful nil and only as much as the other nil value it doubles, which places it at uncommon. Nil value ignores contract multipliers, so this is the nil deck's only multiplier.",
+  "deviation": "Revision 1: moved from rare to uncommon."
 }

@@ -21,8 +21,8 @@
       "icon": "siren"
     }
   ],
-  "text": "Spades can be led at any time.",
-  "timing": "Always on, all players",
+  "text": "You can lead spades at any time.",
+  "timing": "Always on, for you",
   "prototype": "automated",
   "signature": [
     {
@@ -39,6 +39,6 @@
   "decision": "Whether to lead spades early to draw the opponents' trumps before your side-suit winners come out.",
   "opponent": "A table-wide rule: opponents may lead spades early too, which helps whichever team holds more and higher spades.",
   "aiNote": "With five or more spades including the ace or king, lead spades until the opponents are out, then cash side-suit winners.",
-  "rationale": "Drawing trumps early is the Spade Master's natural plan, and normal Spades forbids it until spades are broken. Leading spades strips opponents' trumps so your aces in other suits stay safe, which also feeds High Card. It binds the whole table, so it rewards the team with the longest and highest spades.",
+  "rationale": "Drawing trumps early is the Spade Master's natural plan, and normal Spades forbids it until spades are broken. Leading spades strips opponents' trumps so your aces in other suits stay safe, which also feeds High Card. Only your own leads are freed, so the opponents still wait for spades to be broken.",
   "deviation": "Redesigned from a forced-overtrump rule, which was complicated and rarely mattered."
 }

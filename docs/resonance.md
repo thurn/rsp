@@ -45,7 +45,7 @@ strongest sigils and Gray provides consistency.
 ## Suit identity
 
 Each suit has a mechanical identity, and sigils name the suit they affect:
-"your spades gain +2 rank," "convert 2 cards to diamonds." Named suits make
+"your spades gain 2 rank," "convert 2 cards to diamonds." Named suits make
 every suit feel different in play and give players a clear drafting target.
 Each suit also links several archetypes, which is a major source of overlap.
 

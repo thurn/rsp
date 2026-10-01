@@ -21,7 +21,7 @@
       "icon": "body"
     }
   ],
-  "text": "When you lead with this card, it gains +2 rank.",
+  "text": "When you lead with this card, it gains 2 rank.",
   "timing": "When led",
   "prototype": "automated",
   "signature": [

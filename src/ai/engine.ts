@@ -59,20 +59,15 @@ function bestOf(cards: SimCard[], idx: number[], lowest: boolean): number {
 }
 
 /** Winner index: trump beats the led suit unless shielded; equal ranks go to the later card. */
-export function simWinner(
-  rules: SimRules,
-  cards: SimCard[],
-  seats: number[],
-  trickNo: number,
-): number {
+export function simWinner(rules: SimRules, cards: SimCard[], seats: number[]): number {
   const led = cards[0].suit
   const ledIdx = cards.flatMap((c, i) => (c.suit === led ? [i] : []))
   const ledBest = bestOf(cards, ledIdx, rules.lowestWins.includes(led))
-  const noTrump =
-    rules.noTrump || (rules.noTrumpFromTrick !== null && trickNo >= rules.noTrumpFromTrick)
   const trump = rules.trump
-  if (trump === null || trump === led || noTrump) return ledBest
-  const trumpIdx = cards.flatMap((c, i) => (c.suit === trump ? [i] : []))
+  if (trump === null || trump === led) return ledBest
+  const trumpIdx = cards.flatMap((c, i) =>
+    c.suit === trump && !rules.noTrumpTeams.includes(seats[i] % 2) ? [i] : [],
+  )
   if (trumpIdx.length === 0) return ledBest
   const lb = cards[ledBest]
   const shielded = rules.untrumpable.some(
@@ -107,7 +102,7 @@ function apply(sim: Sim, card: SimCard): void {
     sim.turn = next
     return
   }
-  const w = simWinner(sim.rules, sim.trick, sim.trickSeats, sim.tricksPlayed + 1)
+  const w = simWinner(sim.rules, sim.trick, sim.trickSeats)
   const winner = sim.trickSeats[w]
   sim.tricksWon[winner]++
   sim.tricksPlayed++
@@ -185,7 +180,7 @@ function isBoss(sim: Sim, card: SimCard, seat: number): boolean {
 const beats = (sim: Sim, card: SimCard, seat: number): boolean => {
   const cards = [...sim.trick, card]
   const seats = [...sim.trickSeats, seat]
-  return simWinner(sim.rules, cards, seats, sim.tricksPlayed + 1) === cards.length - 1
+  return simWinner(sim.rules, cards, seats) === cards.length - 1
 }
 
 const EPSILON = 0.08
@@ -220,7 +215,7 @@ function policyMove(sim: Sim, rng: Rng): SimCard {
     return lowest(safe.length > 0 ? safe : legal)
   }
 
-  const w = simWinner(sim.rules, sim.trick, sim.trickSeats, sim.tricksPlayed + 1)
+  const w = simWinner(sim.rules, sim.trick, sim.trickSeats)
   const winSeat = sim.trickSeats[w]
   const winCard = sim.trick[w]
   const last = nextAfter(sim, seat) === null

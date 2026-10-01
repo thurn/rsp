@@ -136,7 +136,7 @@ Cards:
   stores a pending count in `ctx.mem` and does the exchange in `afterTrick`
   (see Barter Bridge).
 - `engrave(card, code, copyOf?)` — add an engraving owned by `ctx.owner`.
-- `disableEngravings(card)`, `moveEngraving(from, to)`.
+- `moveEngraving(from, to)`.
 
 Round:
 
@@ -174,7 +174,7 @@ the replay cheap and the logic obvious.
 ```ts
 rankBonus(ctx, card): number   // auras: check ctx.inHand and whose card it is
 legal(ctx, q)                  // q.spadesLeadable, q.mustFollow, q.allow, q.ban
-trick(ctx, rules)              // rules.trump, noTrump, untrumpable, lowestWins, forced
+trick(ctx, rules)              // rules.trump, noTrumpTeams, untrumpable, lowestWins, forced
 credit(ctx, info)              // info.credit: who the won trick counts for
 bids(ctx, rules)               // rules.options (Set of legal bids), rules.blindNilDeficit
 score(ctx, calc)               // calc.teams[t]: made, exact, tricks, perTrick, nils, bagPenalty…
@@ -221,19 +221,19 @@ All ten live in this folder.
 // Crown Jewel (RE-C07): When this card wins a trick, gain +25 contract value.
 'RE-C07': { on: { thisCardWins: (ctx) => ctx.gainContract(25) } },
 
-// Honed Edge (RE-C01): This card gains +1 rank. (An intrinsic modifier at the deal.)
+// Honed Edge (RE-C01): This card gains 1 rank. (An intrinsic modifier at the deal.)
 'RE-C01': { on: { afterDeal: (ctx) => ctx.card && ctx.inHand && ctx.modRank(ctx.card, 1) } },
 
 // True Aim (BL-R04): If your team makes its contract exactly, gain +1× contract multiplier.
 'BL-R04': { score: (ctx, calc) => { if (calc.teams[ctx.team].exact) ctx.gainMultiplier(1) } },
 
-// Rosy Spectacles (BL-U11): Hearts can't be trumped.
-'BL-U11': { trick: (_ctx, rules) => { rules.untrumpable.push({ suit: HEARTS }) } },
+// Rosy Spectacles (BL-U11): Your team's hearts can't be trumped.
+'BL-U11': { trick: (ctx, rules) => { rules.untrumpable.push({ suit: HEARTS, team: ctx.team }) } },
 
-// Arena's Law (RE-U01): Spades can be led at any time.
-'RE-U01': { legal: (_ctx, q) => { q.spadesLeadable = true } },
+// Arena's Law (RE-U01): You can lead spades at any time.
+'RE-U01': { legal: (ctx, q) => { if (q.seat === ctx.seat) q.spadesLeadable = true } },
 
-// Unfolding Butterfly (DU-S11): Whenever you play a heart, your hearts in hand gain +1 rank.
+// Unfolding Butterfly (DU-S11): Whenever you play a heart, your hearts in hand gain 1 rank.
 'DU-S11': {
   on: {
     played: (ctx, e) => {

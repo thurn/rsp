@@ -21,7 +21,7 @@
       "icon": "boot"
     }
   ],
-  "text": "Your partner's spades gain +2 rank.",
+  "text": "Your partner's spades gain 2 rank.",
   "timing": "Always on, for you",
   "prototype": "automated",
   "signature": [

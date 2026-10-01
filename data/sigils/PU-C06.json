@@ -21,23 +21,24 @@
       "icon": "blob"
     }
   ],
-  "text": "You may play this card even if you could follow suit.",
-  "timing": "Always on, for the engraved card",
+  "text": "When you play this card, you need not follow suit on the next trick.",
+  "timing": "When played",
   "prototype": "automated",
   "signature": [
     {
-      "trigger": "always",
+      "trigger": "you play this card",
       "scope": "self",
-      "target": "this card",
-      "effect": "may be played without following suit",
-      "frequency": "×1"
+      "target": "your play to the next trick",
+      "effect": "may skip following suit",
+      "frequency": "once a round"
     }
   ],
   "archetypes": "Discard Dominance, Nil Champion, Blind Bidder",
   "family": "Following-suit relief / Card-bound",
   "role": "Enabler",
-  "decision": "Which trick to spend it on: shedding it as a danger card on a nil, adding a discard, or trumping in with it if it is a spade.",
-  "opponent": "Visible when played; one surprise off-suit play a round.",
-  "aiNote": "On a nil, play it off suit on the first trick an opponent is winning if it is a face card or ace; otherwise save it for a discard trigger.",
-  "rationale": "One free off-suit play a round: a nil bidder sheds its engraved card safely, and a discard deck gets a discard even without a void."
+  "decision": "When to play it: just before a trick where following suit would force out a dangerous card on a nil, or where a discard would open a void.",
+  "opponent": "Visible when played, so opponents see the relief a trick ahead; one surprise off-suit play a round.",
+  "aiNote": "Play it as usual; on the relieved trick, if on nil, play your highest card that does not follow suit; otherwise play from your shortest non-spade suit.",
+  "rationale": "One relieved trick a round, timed by when you play this card: a nil bidder sheds a dangerous card safely, and a discard deck gets a discard even without a void. The card itself follows the usual rules, so it is a timing tool rather than a wildcard (Faithful Dog, GR-C04).",
+  "deviation": "Revision 1: replaced \"You may play this card even if you could follow suit,\" which mostly repeated Faithful Dog (GR-C04)."
 }

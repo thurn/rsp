@@ -63,7 +63,7 @@ export const handlers: HandlerMap = {
     },
   },
   // Late Blossom: While this card is in your hand, whenever anyone plays a card of its suit,
-  // it gains +1 rank.
+  // it gains 1 rank.
   'GR-C06': {
     on: {
       anyPlayed: (ctx, e) => {
@@ -80,13 +80,13 @@ export const handlers: HandlerMap = {
       },
     },
   },
-  // Verdant Banner: While this card is in your hand, your hearts gain +2 rank.
+  // Verdant Banner: While this card is in your hand, your hearts gain 2 rank.
   'GR-C09': {
     rankBonus: (ctx, card) =>
       ctx.inHand && card.suit === HEARTS && ctx.holder(card) === ctx.seat ? 2 : 0,
     on: {
       played: (ctx, e) => {
-        if (ctx.inHand && ctx.findCard(e.cardId!)?.suit === HEARTS) ctx.note('♥ +2 rank')
+        if (ctx.inHand && ctx.findCard(e.cardId!)?.suit === HEARTS) ctx.note('♥ gains 2 rank')
       },
     },
   },
@@ -108,10 +108,10 @@ export const handlers: HandlerMap = {
     },
   },
   // Schooling Fish: If you win three or more tricks with diamonds in a round,
-  // gain +25 contract value.
+  // gain +40 contract value.
   'GR-C13': {
     score: (ctx) => {
-      if (winsWith(ctx, DIAMONDS) >= 3) ctx.gainContract(25)
+      if (winsWith(ctx, DIAMONDS) >= 3) ctx.gainContract(40)
     },
   },
   // Armored Beetle: While this card is in your hand, no one can lead a spade unless they hold
@@ -271,7 +271,7 @@ export const handlers: HandlerMap = {
       },
     },
   },
-  // Growing Colony: While this card is in your hand, the cards beside it gain +1 rank after
+  // Growing Colony: While this card is in your hand, the cards beside it gain 1 rank after
   // each trick. "Beside" is by deal slot; a played neighbor leaves an empty slot.
   'GR-U08': {
     on: {

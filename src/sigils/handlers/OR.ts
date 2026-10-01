@@ -255,7 +255,7 @@ export const handlers: HandlerMap = {
   'OR-U10': { on: { pass: (ctx) => isNil(ctx.bid()) && ctx.gainNil(25) } },
 
   // Tuned Amplifier: After bidding, you may pay 20 points to make every card of a chosen suit in
-  // your hand gain +4 rank or lose 4 rank.
+  // your hand gain 4 rank or lose 4 rank.
   'OR-U11': {
     on: {
       afterBidding: (ctx) => {

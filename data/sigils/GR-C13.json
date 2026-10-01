@@ -21,7 +21,7 @@
       "icon": "bacteria"
     }
   ],
-  "text": "If you win three or more tricks with diamonds in a round, gain +25 contract value.",
+  "text": "If you win three or more tricks with diamonds in a round, gain +40 contract value.",
   "timing": "Conditional scoring",
   "prototype": "automated",
   "signature": [
@@ -39,6 +39,6 @@
   "decision": "Which diamond winners to cash to reach three wins.",
   "opponent": "Opponents see red-suit wins pile up and can pull trump or hold covers.",
   "aiNote": "Count red-suit winners when bidding; lead them once three are reachable.",
-  "rationale": "About +10 per round for a flooded diamond suit and +4 otherwise; Heart Chorus has its own heart-win payoff in Swelling Sea (TE-R03).",
+  "rationale": "About +16 per round for a flooded diamond suit and +6 otherwise; three diamond wins is a narrow target, so the reward sits high for a common. Heart Chorus has its own heart-win payoff in Swelling Sea (TE-R03).",
   "deviation": "Narrowed from hearts or diamonds to diamonds, so it serves one archetype."
 }

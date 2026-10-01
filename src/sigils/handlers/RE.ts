@@ -21,7 +21,7 @@ const tally = (ctx: Ctx, key = 'n') => {
 const stored = (card: Card) => card.base + card.mod
 
 export const handlers: HandlerMap = {
-  // Honed Edge: This card gains +1 rank.
+  // Honed Edge: This card gains 1 rank.
   'RE-C01': { on: { afterDeal: (ctx) => ctx.card && ctx.inHand && ctx.modRank(ctx.card, 1) } },
   // Regal Summit: Your kings become aces. An aura on your kings, noted when one is played.
   'RE-C02': {
@@ -45,7 +45,7 @@ export const handlers: HandlerMap = {
       },
     },
   },
-  // Vanguard Shield: When you lead with this card, it gains +2 rank.
+  // Vanguard Shield: When you lead with this card, it gains 2 rank.
   'RE-C04': { on: { led: (ctx) => ctx.isEventCard && ctx.modRank(ctx.card!, 2) } },
   // Early Sprint: Whenever you win one of the first three tricks, gain +10 contract value.
   'RE-C05': {
@@ -59,7 +59,7 @@ export const handlers: HandlerMap = {
   'RE-C08': {
     on: { youWin: (ctx, e) => winningCard(ctx, e.cardId)?.suit === SPADES && ctx.gainContract(10) },
   },
-  // Relay Torch: Whenever you pass or swap a card, it gains +3 rank.
+  // Relay Torch: Whenever you pass or swap a card, it gains 3 rank.
   'RE-C09': {
     on: {
       pass: (ctx, e) => {
@@ -79,7 +79,7 @@ export const handlers: HandlerMap = {
       },
     },
   },
-  // Opening Volley: The first card you play each round gains +4 rank.
+  // Opening Volley: The first card you play each round gains 4 rank.
   'RE-C12': {
     on: {
       played: (ctx, e) => {
@@ -103,7 +103,7 @@ export const handlers: HandlerMap = {
     },
   },
   // Surplus Muscle: Whenever you win a trick with an ace, your highest card of that suit
-  // gains +3 rank.
+  // gains 3 rank.
   'RE-R01': {
     on: {
       youWin: (ctx, e) => {
@@ -142,10 +142,10 @@ export const handlers: HandlerMap = {
       ctx.note('+5 contract')
     },
   },
-  // Arena's Law: Spades can be led at any time.
+  // Arena's Law: You can lead spades at any time.
   'RE-U01': {
-    legal: (_ctx, q) => {
-      q.spadesLeadable = true
+    legal: (ctx, q) => {
+      if (q.seat === ctx.seat) q.spadesLeadable = true
     },
     on: {
       led: (ctx, e) => {
@@ -165,7 +165,7 @@ export const handlers: HandlerMap = {
       },
     },
   },
-  // Second Strike: Each round, once you've trumped twice, your spades in hand gain +3 rank.
+  // Second Strike: Each round, once you've trumped twice, your spades in hand gain 3 rank.
   'RE-U04': {
     on: {
       trump: (ctx) => {
@@ -211,12 +211,13 @@ export const handlers: HandlerMap = {
   'RE-U08': {
     on: { youWin: (ctx) => ctx.state.trick[0]?.seat === ctx.partner && ctx.gainContract(20) },
   },
-  // Allied Bow: Your partner's spades gain +2 rank.
+  // Allied Bow: Your partner's spades gain 2 rank.
   'RE-U09': {
     rankBonus: (ctx, card) => (card.suit === SPADES && ctx.holder(card) === ctx.partner ? 2 : 0),
     on: {
       anyPlayed: (ctx, e) => {
-        if (e.seat === ctx.partner && ctx.findCard(e.cardId!)?.suit === SPADES) ctx.note('+2 rank')
+        if (e.seat === ctx.partner && ctx.findCard(e.cardId!)?.suit === SPADES)
+          ctx.note('spade gains 2 rank')
       },
     },
   },

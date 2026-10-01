@@ -21,7 +21,7 @@
       "icon": "football"
     }
   ],
-  "text": "The first card you play each round gains +4 rank.",
+  "text": "The first card you play each round gains 4 rank.",
   "timing": "Always on, for you",
   "prototype": "automated",
   "signature": [

@@ -21,16 +21,16 @@
       "icon": "syringe"
     }
   ],
-  "text": "When you play this card to a trick of another suit, choose an opponent's card in this trick to gain +4 rank or lose 4 rank.",
+  "text": "When you play this card to a trick of another suit, choose a card in that trick to gain 4 rank or lose 4 rank.",
   "timing": "When you play another suit (card-bound)",
   "prototype": "automated",
   "signature": [
     {
-      "trigger": "this card played off suit",
-      "scope": "opponents",
-      "target": "a chosen opponent's card in this trick",
-      "effect": "rank +4 or −4",
-      "frequency": "×1"
+      "trigger": "you play this card off suit",
+      "scope": "any player",
+      "target": "a card in that trick",
+      "effect": "gains 4 rank or loses 4 rank",
+      "frequency": "once a round"
     }
   ],
   "archetypes": "Contract Attacker, Nil Champion, Blind Bidder, Nil Guard; splash Discard Dominance",
@@ -38,7 +38,7 @@
   "role": "Enabler; opponent-facing",
   "decision": "Which trick to spend it on and which way to push: lower an opponent's winner so your partner takes a trick they counted on, or raise an opposing nil bidder's card over the top to break the nil.",
   "opponent": "Visible when it resolves, once a round, and only on cards already played; opponents answer by keeping an extra winner or ducking deeper than 4 ranks.",
-  "aiNote": "If an opponent is on nil and their card is within 4 ranks of winning, raise it; otherwise lower the opponent's card that beats your partner's card; play it as your first off-suit card that changes a trick.",
-  "rationale": "Four ranks usually flips one trick (a king falls to a nine, a nine rises to a king), which is about one trick's swing a round, fair for an uncommon enabler. It edits played cards, so the text names \"in this trick\" as the core rules require, and it never acts after bidding (Sinking Anchor) or on your own cards (Tipping Scales). Counting trumps as well as discards keeps it live when the engraved card is a spade.",
-  "deviation": "Timing moved from \"when you discard this card\" to \"when you play this card to a trick of another suit\", because a spade-engraved copy could never be discarded and would be dead a quarter of the time; this also adds a sigil to the short \"when you play another suit\" window."
+  "aiNote": "If an opponent is on nil and their card is within 4 ranks of winning, raise it; if your partner's card is within 4 ranks of the winning opponent's card, raise it; otherwise lower the opponent's winning card. Play it as your first off-suit card that changes a trick.",
+  "rationale": "Four ranks usually flips one trick (a king falls to a nine, a nine rises to a king), which is about one trick's swing a round, fair for an uncommon enabler. Any card already in the trick qualifies, so it lifts your partner's card over the winner, lowers an opponent's winner, or pushes an opponent's nil card into a win. It edits played cards, so it never acts after bidding (Sinking Anchor). Counting trumps as well as discards keeps it live when the engraved card is a spade.",
+  "deviation": "Timing moved from \"when you discard this card\" to \"when you play this card to a trick of another suit\", because a spade-engraved copy could never be discarded and would be dead a quarter of the time. Revision 1: any card in the trick qualifies, not only an opponent's."
 }

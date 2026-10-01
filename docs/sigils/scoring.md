@@ -202,7 +202,7 @@ Each archetype's signpost, the channel it scores through, and what it adds to a 
 | Swap Meet | Traders' Handshake (DU-S08): optional trade after each win, +10 | Engine | Contract additive | About +26 EV, and it fires every pass payoff |
 | Blind Bidder | Desperate Gambit (DU-S09): blind nil whenever behind | Rule-bender | Nil (qualifying) | Blind nil rate from about 12% to 40–50% of rounds |
 | While Held | Patient Hourglass (DU-S10): +1× if held when the last trick begins | Multiplier | Contract multiplier | q ≈ 0.45 (not success-only): about +23 early, +52 late |
-| Heart Chorus | Unfolding Butterfly (DU-S11): hearts +1 rank per earlier heart | Enabler and payoff | Contract additive through heart payoffs | Last two hearts reach ace level |
+| Heart Chorus | Unfolding Butterfly (DU-S11): hearts 1 rank per earlier heart | Enabler and payoff | Contract additive through heart payoffs | Last two hearts reach ace level |
 | Discard Dominance | Scouring Tornado (DU-S12): +5 per void on each discard | Engine | Contract additive | About +20 EV, +32 in a void deck |
 | Exact Contractor | Balanced Yin-Yang (DU-S13): +1× if you take exactly your own bid | Multiplier | Contract multiplier (success-only) | About +51 late |
 | Nil Champion | Daring Knight (DU-S14): +15 nil value per face card or ace when you bid nil | Scaling | Nil | +30 to +60 per dared nil |

@@ -12,7 +12,7 @@
   "iconFamily": "sword",
   "iconWord": "sword",
   "iconAlternates": [],
-  "text": "This card gains +1 rank.",
+  "text": "This card gains 1 rank.",
   "timing": "Always on, for the engraved card",
   "prototype": "automated",
   "signature": [

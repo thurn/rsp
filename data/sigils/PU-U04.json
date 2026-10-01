@@ -21,16 +21,16 @@
       "icon": "night-light"
     }
   ],
-  "text": "Whenever you lose a trick, if you bid blind nil, your highest card loses 3 rank.",
+  "text": "Whenever you lose one of the first four tricks, if you bid blind nil, your highest card loses 3 rank.",
   "timing": "When you lose any trick",
   "prototype": "automated",
   "signature": [
     {
-      "trigger": "you lose a trick, on blind nil",
+      "trigger": "you lose one of the first four tricks",
       "scope": "self",
       "target": "your highest card",
-      "effect": "rank −3",
-      "frequency": "per trick"
+      "effect": "loses 3 rank",
+      "frequency": "up to four times a round"
     }
   ],
   "archetypes": "Blind Bidder; splash Nil Guard (beside a blind partner)",
@@ -38,6 +38,7 @@
   "role": "Enabler (feeds Nil)",
   "decision": "Whether to gamble blind when eligible, and in the first tricks which high card to shed while the rest of the hand is still being sanded down.",
   "opponent": "Visible on every trigger; opponents answer by attacking early, before the hand has worn down, with low leads in the blind bidder's short suits.",
-  "aiNote": "With this sigil, bid blind nil whenever eligible; early in the round, follow with your highest safe card.",
-  "rationale": "A blind nil loses almost every trick until it fails, so this fires about a dozen times: after five tricks an ace, king, queen, and two jacks have all dropped to ten or below. That lifts blind nil survival from about 0.5 to about 0.65, worth about +60 points and 130 gold per blind round, and blind rounds come in about a third of rounds with Night Owl or Desperate Gambit. It triggers on losing, not on discards (Thrown Towel), and only on blind nils, so ordinary nils stay with Nil Champion."
+  "aiNote": "With this sigil, bid blind nil whenever eligible; in the first four tricks, follow with your highest safe card.",
+  "rationale": "A blind nil loses the first four tricks unless it has already failed, so this fires up to four times: an ace, king, queen, and jack each drop 3 ranks before the middle of the round, while the rest of the hand is still unknown to the opponents. That lifts blind nil survival from about 0.5 to about 0.6, worth about +40 points and 90 gold per blind round, and blind rounds come in about a third of rounds with Night Owl or Desperate Gambit. It triggers on losing, not on discards (Thrown Towel), and only on blind nils, so ordinary nils stay with Nil Champion.",
+  "deviation": "Revision 1: limited to the first four tricks; on every lost trick it fired about a dozen times a round and sanded the whole hand down."
 }

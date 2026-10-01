@@ -41,7 +41,7 @@ export function legalMoves(s: GameState, seat: Seat): Card[] {
     trickNumber: trickNumber(s),
     led,
     spadesLeadable: s.spadesBroken || s.flags.spadesLeadAnytime,
-    mustFollow: true,
+    mustFollow: s.flags.reliefTrick?.[seat] !== trickNumber(s),
     allow: new Set(),
     ban: new Set(),
   }
@@ -78,7 +78,7 @@ export function trickRules(
     trick,
     led: plays[0]?.card.suit ?? null,
     trump: SPADES,
-    noTrump: f.noTrumpFromTrick !== undefined && trick >= f.noTrumpFromTrick,
+    noTrumpTeams: ([0, 1] as const).filter((t) => (f.noTrumpFrom?.[t] ?? Infinity) <= trick),
     untrumpable: f.untrumpable.map((u) => ({ ...u })),
     lowestWins: f.lowestWins.map((l) => l.suit),
     forced: null,
@@ -109,8 +109,10 @@ export function winningIndexWith(
   const ledIdx = plays.flatMap((p, i) => (p.suit === led ? [i] : []))
   const ledBest = best(ranks, ledIdx, rules.lowestWins.includes(led as never))
   const trump = rules.trump
-  if (trump === null || trump === led || rules.noTrump) return ledBest
-  const trumpIdx = plays.flatMap((p, i) => (p.suit === trump ? [i] : []))
+  if (trump === null || trump === led) return ledBest
+  const trumpIdx = plays.flatMap((p, i) =>
+    p.suit === trump && !rules.noTrumpTeams.includes(teamOf(p.seat)) ? [i] : [],
+  )
   if (trumpIdx.length === 0) return ledBest
   const lb = plays[ledBest]
   const shielded = rules.untrumpable.some(

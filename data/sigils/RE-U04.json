@@ -21,7 +21,7 @@
       "icon": "motorcycle"
     }
   ],
-  "text": "Each round, once you've trumped twice, your spades in hand gain +3 rank.",
+  "text": "Each round, once you've trumped twice, your spades in hand gain 3 rank.",
   "timing": "When you play another suit",
   "prototype": "automated",
   "signature": [

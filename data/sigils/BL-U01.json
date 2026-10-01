@@ -21,7 +21,7 @@
       "icon": "cloud"
     }
   ],
-  "text": "From the tenth trick on, no one can win a trick by trumping.",
+  "text": "From the tenth trick on, opponents can't win a trick by trumping.",
   "timing": "Always on, for you",
   "prototype": "automated",
   "signature": [
@@ -39,6 +39,6 @@
   "decision": "Which winners to hold for the last four tricks, where kings and queens are safe from voids, and when an opponent's late trumps have gone dead.",
   "opponent": "Public and symmetric, so opponents plan around it too; they answer by trumping early, before the tenth trick, or by leading spades late.",
   "aiNote": "Hold non-spade kings and queens for tricks 10–13; do not count spades as winners in those tricks except on spade leads; on nil, keep spades to shed late.",
-  "rationale": "Late tricks are where voids appear, so this is the \"Blue trump restriction for the late tricks\" that High Card, Heart Chorus, and Diamond Flood's threat notes ask for; a nil bidder forced to play spades late can't win with them, and an exact bidder's last tricks become predictable. It is global, so it stays at uncommon price without being a stat stick.",
+  "rationale": "Late tricks are where voids appear, so this is the \"Blue trump restriction for the late tricks\" that High Card, Heart Chorus, and Diamond Flood's threat notes ask for; an opposing nil bidder forced to play spades late can't win with them, and your exact bids' last tricks become predictable. Your own late trumps still win.",
   "deviation": "Moved the window from the opening tricks to the last four, because fresh hands are rarely void early, so an early ban seldom changes a trick, while the archetype notes want trump restricted late."
 }

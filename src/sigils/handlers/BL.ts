@@ -158,17 +158,16 @@ export const handlers: HandlerMap = {
       afterBidding: (ctx) => ctx.tell(ctx.seat, handText(ctx, ctx.hand(ctx.partner))),
     },
   },
-  // Armistice News: When this card loses a trick won by trumping, no one can win a trick by
-  // trumping for the rest of the round.
+  // Armistice News: When this card loses a trick won by trumping, opponents can't win a trick
+  // by trumping for the rest of the round. The ban outlives the card, so it lives in a flag.
   'BL-R01': {
     on: {
       thisCardLoses: (ctx, e) => {
-        if (!e.data?.trumped) return
-        const from = ctx.trickNumber + 1
-        const current = ctx.state.flags.noTrumpFromTrick
-        if (current !== undefined && current <= from) return
-        ctx.setFlag('noTrumpFromTrick', from)
-        ctx.note('no more trumping')
+        const from = ctx.state.flags.noTrumpFrom ?? {}
+        const them = (1 - ctx.team) as 0 | 1
+        if (!e.data?.trumped || from[them] !== undefined) return
+        ctx.setFlag('noTrumpFrom', { ...from, [them]: ctx.trickNumber + 1 })
+        ctx.note('opponents stop trumping')
       },
     },
   },
@@ -208,14 +207,15 @@ export const handlers: HandlerMap = {
     },
     on: { beforeBidding: (ctx) => ctx.note('nil or 4+') },
   },
-  // Stilled Hurricane: From the tenth trick on, no one can win a trick by trumping.
+  // Stilled Hurricane: From the tenth trick on, opponents can't win a trick by trumping.
   'BL-U01': {
-    trick: (_ctx, rules) => {
-      if (rules.trick >= 10) rules.noTrump = true
+    trick: (ctx, rules) => {
+      const them = (1 - ctx.team) as 0 | 1
+      if (rules.trick >= 10 && !rules.noTrumpTeams.includes(them)) rules.noTrumpTeams.push(them)
     },
     on: {
       trickStart: (ctx, e) => {
-        if (e.data?.trick === 10) ctx.note('no more trumping')
+        if (e.data?.trick === 10) ctx.note('opponents stop trumping')
       },
     },
   },
@@ -308,18 +308,19 @@ export const handlers: HandlerMap = {
       },
     },
   },
-  // Rosy Spectacles: Hearts can't be trumped.
+  // Rosy Spectacles: Your team's hearts can't be trumped.
   'BL-U11': {
-    trick: (_ctx, rules) => {
-      rules.untrumpable.push({ suit: HEARTS })
+    trick: (ctx, rules) => {
+      rules.untrumpable.push({ suit: HEARTS, team: ctx.team })
     },
     on: {
       afterTrick: (ctx) => {
         const t = ctx.state.history.at(-1)
         if (!t || ctx.seat !== ctx.owner) return
         const led = t.plays[0].card.suit
+        const ours = t.plays[t.winIndex].seat % 2 === ctx.team
         const trumped = t.plays.some((p) => p.card.suit === 3)
-        if (led === HEARTS && trumped && t.plays[t.winIndex].card.suit === HEARTS) {
+        if (led === HEARTS && trumped && ours && t.plays[t.winIndex].card.suit === HEARTS) {
           ctx.note('hearts hold')
         }
       },

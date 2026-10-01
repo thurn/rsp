@@ -4,9 +4,9 @@
   "resonances": [
     "Purple"
   ],
-  "rarity": "Common",
+  "rarity": "Uncommon",
   "category": "Ongoing",
-  "price": 55,
+  "price": 65,
   "wave": 2,
   "icon": "broom",
   "iconFamily": "broom",
@@ -21,7 +21,7 @@
       "icon": "pacifism"
     }
   ],
-  "text": "Whenever you win a trick your partner played a face card to, gain +15 contract value.",
+  "text": "Whenever you win a trick your partner played a face card to, gain +25 contract value.",
   "timing": "When you win any trick",
   "prototype": "automated",
   "signature": [
@@ -29,7 +29,7 @@
       "trigger": "you win a trick",
       "scope": "self",
       "target": "your partner's played face card",
-      "effect": "contract value +15",
+      "effect": "contract value +25",
       "frequency": "per trick"
     }
   ],
@@ -39,6 +39,6 @@
   "decision": "When to spend a high card covering your partner's face card, and whether to win tricks your nil partner is dumping into.",
   "opponent": "Visible on trigger; opponents answer by leading low into the nil seat so it has no covered trick to dump into.",
   "aiNote": "When your partner bid nil, play high after their face card; win tricks where they can dump a face card under you.",
-  "rationale": "It rewards Nil Guard's core moment, covering the nil partner's king with your ace or taking the trick they dump a queen into, and it lands in your solo contract, giving Nil Guard a fourth aimed additive payoff (after TE-U08, GY-U14, and GY-U15). It fires about once in a nil round and about half as often otherwise, so +15 is about +10 EV. It counts only your partner's cards, never an opponent's (RE-C13 Hunter's Crosshair) and never your own face cards (Graceful Exit).",
-  "deviation": "Channel changed from Nil to Contract additive, because a nil-value version pays only the seat that bid nil, so a Nil Guard owner could never use it. Revision 1 removed the nil bidder's half, which repeated Graceful Exit, so this is now a Nil Guard lean that also serves any nil deck whose partner bids nil."
+  "rationale": "It rewards Nil Guard's core moment, covering the nil partner's king with your ace or taking the trick they dump a queen into, and it lands in your solo contract, giving Nil Guard a fourth aimed additive payoff (after TE-U08, GY-U14, and GY-U15). It fires about once in a nil round and about half as often otherwise, so +25 is about +17 EV; the moment is narrow enough that it sits at uncommon. It counts only your partner's cards, never an opponent's (RE-C13 Hunter's Crosshair) and never your own face cards (Graceful Exit).",
+  "deviation": "Channel changed from Nil to Contract additive, because a nil-value version pays only the seat that bid nil, so a Nil Guard owner could never use it. Revision 1 removed the nil bidder's half, which repeated Graceful Exit. Revision 2 moved it from common to uncommon and raised the reward from +15, since the trigger is narrow."
 }

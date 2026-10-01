@@ -21,10 +21,10 @@
       "icon": "bomb"
     }
   ],
-  "text": "When you play this card, you may remove a chosen card from your hand; if you do, this card gains +3 rank.",
+  "text": "When you play this card, you may remove a chosen card from your hand; if you do, this card gains 3 rank.",
   "timing": "When played",
   "prototype": "manual",
-  "prototypeNote": "As you play this card, use Remove card on the chosen card and Edit card to give this card +6 rank.",
+  "prototypeNote": "As you play this card, use Remove card on the chosen card and Edit card to give this card 6 rank.",
   "signature": [
     {
       "trigger": "when played",

@@ -1,6 +1,6 @@
 {
   "code": "PU-R03",
-  "name": "Paired Socks",
+  "name": "Mismatched Socks",
   "resonances": [
     "Purple"
   ],
@@ -21,25 +21,24 @@
       "icon": "scribble"
     }
   ],
-  "text": "Whenever you throw off a club, you gain twice as much contract value from your other sigils for that throw-off.",
+  "text": "Whenever you throw off a card, gain +10 contract value for each card you've thrown off this round.",
   "timing": "When you throw off a card",
-  "prototype": "manual",
-  "prototypeNote": "When you throw off a club, use Ledger to repeat the contract value your other sigils logged for that throw-off.",
+  "prototype": "automated",
   "signature": [
     {
-      "trigger": "you discard a club",
+      "trigger": "you throw off a card",
       "scope": "self",
-      "target": "contract value your other sigils gain from that discard",
-      "effect": "×2",
-      "frequency": "per discard"
+      "target": "your team contract",
+      "effect": "contract value +10 per card you've thrown off this round",
+      "frequency": "per throw-off"
     }
   ],
   "archetypes": "Discard Dominance; splash Nil Champion",
-  "family": "When played and re-triggers / Doubling (clubs)",
+  "family": "Discarding / Escalating",
   "role": "Payoff (Contract additive)",
-  "decision": "Which card to discard on a void: spend a club now for the doubled payout, or keep clubs for later voids, which also pulls against voiding clubs themselves.",
-  "opponent": "Visible on each trigger; opponents can deny discards by leading the suits the owner still holds.",
-  "aiNote": "When void in the led suit, discard a club if one is held and a discard payoff is active; otherwise discard as usual.",
-  "rationale": "Doubles Buried Bone (PU-C09), Scouring Tornado (DU-S12), Rebel Graffiti (PU-C14), and a club Held Breath (GR-U09) on two or three club discards a round, about +25 per discard with two of them, or +40 to +60 a round; doubling contract value rather than re-triggering skips rank changes, sigil moves, and GR-R05's +1×, and naming clubs keeps a strong-watch archetype from doubling every discard.",
-  "deviation": "Changed from \"your discard sigils trigger again\" to doubling the contract value they pay: a re-trigger would also repeat Thrown Towel (PU-C05) and Second Home (GY-C07) and turn GR-R05's fifth-discard +1× into +2×."
+  "decision": "When to throw off: each throw-off raises every later one, so the deck opens voids early, and on a void it chooses between throwing off for the growing payout and trumping for the trick.",
+  "opponent": "Visible on each trigger, and the growing amount is public; opponents deny it by leading the suits the owner still holds.",
+  "aiNote": "When void in the led suit, throw off rather than trump unless your team still needs the trick.",
+  "rationale": "A discard deck throws off two to four cards a round, paying +30, +60, or +100 in total, about +50 a round late, which is rare-level contract value for Discard Dominance. Any suit counts, so every void feeds it, and the escalation rewards the relief enablers (Borrowed Umbrella, Wayward Cat, Tiptoe Sneaker) without paying per void (Scouring Tornado, DU-S12) or per club (Buried Bone, PU-C09).",
+  "deviation": "Revision 1: replaced Paired Socks, which doubled the contract value other sigils paid on a club throw-off and so needed both club throw-offs and other discard payoffs before it did anything."
 }

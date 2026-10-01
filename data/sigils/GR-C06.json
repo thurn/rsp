@@ -21,7 +21,7 @@
       "icon": "flower"
     }
   ],
-  "text": "Affinity: Low cards. While this card is in your hand, whenever anyone plays a card of its suit, it gains +1 rank.",
+  "text": "Affinity: Low cards. While this card is in your hand, whenever anyone plays a card of its suit, it gains 1 rank.",
   "timing": "While in hand",
   "prototype": "automated",
   "signature": [

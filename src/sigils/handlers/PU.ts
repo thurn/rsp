@@ -1,4 +1,5 @@
 import { type Card, type Seat, CLUBS, JACK, KING, SPADES } from '../../game/cards'
+import { SEAT_NAMES } from '../../game/core'
 import { BLIND_NIL_DEFICIT, winningIndex } from '../../game/rules'
 import { type GameEvent, BLIND_NIL, isNil } from '../../game/types'
 import type { Ctx, HandlerMap } from './api'
@@ -24,28 +25,28 @@ const lowerHighest = (ctx: Ctx, seat: Seat, n: number) => {
 const behind = (ctx: Ctx) => ctx.state.scores[ctx.team] < ctx.state.scores[1 - ctx.team]
 
 export const handlers: HandlerMap = {
-  // Graceful Exit: Whenever you lose a trick you played a face card to, gain +10 contract value.
+  // Graceful Exit: Whenever you lose a trick you played a face card to, gain +20 contract value.
   'PU-C02': {
-    on: { youLose: (ctx, e) => isFace(ctx, ctx.findCard(e.cardId!)) && ctx.gainContract(10) },
+    on: { youLose: (ctx, e) => isFace(ctx, ctx.findCard(e.cardId!)) && ctx.gainContract(20) },
   },
 
   // Pauper's Disguise: Affinity: Spades. This card loses 6 rank.
   'PU-C03': { on: { afterDeal: (ctx) => ctx.card && ctx.inHand && ctx.modRank(ctx.card, -6) } },
 
-  // Borrowed Umbrella: Whenever you lose a trick your partner wins, you need not follow suit on
-  // the next trick. The relieved trick number lives in a round flag for the legal hook.
+  // Borrowed Umbrella: You need not follow suit on tricks your partner leads.
   'PU-C04': {
     legal: (ctx, q) => {
-      if (q.seat === ctx.seat && ctx.state.flags[`PU-C04:${ctx.owner}`] === q.trickNumber)
-        q.mustFollow = false
+      if (q.seat === ctx.seat && q.trick[0]?.seat === ctx.partner) q.mustFollow = false
     },
     on: {
-      youLose: (ctx, e) => {
-        if (e.data?.winner === ctx.partner && ctx.trickNumber < 13)
-          ctx.setFlag(`PU-C04:${ctx.owner}`, ctx.trickNumber + 1)
-      },
-      trickStart: (ctx, e) => {
-        if (ctx.state.flags[`PU-C04:${ctx.owner}`] === e.data?.trick) ctx.note('need not follow')
+      offSuit: (ctx, e) => {
+        const led = ctx.state.trick[0]
+        if (
+          led?.seat === ctx.partner &&
+          stillOffSuit(ctx, e) &&
+          ctx.hand().some((c) => c.suit === led.card.suit)
+        )
+          ctx.note('need not follow')
       },
     },
   },
@@ -55,16 +56,17 @@ export const handlers: HandlerMap = {
     on: { throwOff: (ctx, e) => stillOffSuit(ctx, e) && lowerHighest(ctx, ctx.seat, 3) },
   },
 
-  // Wayward Cat: You may play this card even if you could follow suit.
+  // Wayward Cat: When you play this card, you need not follow suit on the next trick. The relief
+  // outlives the card, so the rules read it from a round flag.
   'PU-C06': {
-    legal: (ctx, q) => {
-      if (ctx.inHand && ctx.card && q.seat === ctx.seat) q.allow.add(ctx.card.id)
-    },
     on: {
-      offSuit: (ctx, e) => {
-        const led = ctx.state.trick[0]?.card.suit
-        if (ctx.isEventCard && stillOffSuit(ctx, e) && ctx.hand().some((c) => c.suit === led))
-          ctx.note('played off suit')
+      played: (ctx) => {
+        if (!ctx.isEventCard || ctx.trickNumber >= 13) return
+        ctx.setFlag('reliefTrick', {
+          ...ctx.state.flags.reliefTrick,
+          [ctx.seat]: ctx.trickNumber + 1,
+        })
+        ctx.note('next trick: need not follow')
       },
     },
   },
@@ -107,13 +109,13 @@ export const handlers: HandlerMap = {
     on: { afterBidding: (ctx) => isNil(ctx.bid(ctx.partner)) && ctx.gainNil(30, ctx.partner) },
   },
 
-  // Tidying Broom: Whenever you win a trick your partner played a face card to, gain +15
+  // Tidying Broom: Whenever you win a trick your partner played a face card to, gain +25
   // contract value.
   'PU-C12': {
     on: {
       youWin: (ctx) => {
         const theirs = ctx.state.trick.find((p) => p.seat === ctx.partner)
-        if (isFace(ctx, theirs?.card)) ctx.gainContract(15)
+        if (isFace(ctx, theirs?.card)) ctx.gainContract(25)
       },
     },
   },
@@ -145,12 +147,20 @@ export const handlers: HandlerMap = {
     },
   },
 
-  // Guiding Nightlight: Whenever you lose a trick your partner wins, if you bid blind nil, gain
-  // +20 nil value.
-  'PU-R02': {
+  // Guiding Nightlight: Whenever your partner wins a trick, if you bid blind nil, gain +20 nil
+  // value.
+  'PU-R02': { on: { partnerWins: (ctx) => ctx.bid() === BLIND_NIL && ctx.gainNil(20) } },
+
+  // Mismatched Socks: Whenever you throw off a card, gain +10 contract value for each card you've
+  // thrown off this round.
+  'PU-R03': {
     on: {
-      youLose: (ctx, e) =>
-        e.data?.winner === ctx.partner && ctx.bid() === BLIND_NIL && ctx.gainNil(20),
+      throwOff: (ctx, e) => {
+        if (!stillOffSuit(ctx, e)) return
+        const n = ((ctx.mem.thrown as number) ?? 0) + 1
+        ctx.mem.thrown = n
+        ctx.gainContract(10 * n)
+      },
     },
   },
 
@@ -182,43 +192,41 @@ export const handlers: HandlerMap = {
     },
   },
 
-  // Spiteful Eraser: When this card loses a trick to an opponent, the winning card's sigil stops
-  // working for the rest of the round.
+  // Rustler's Lasso: When this card loses a trick to an opponent, you may create a copy of the
+  // winning card in your hand.
   'PU-U01': {
     on: {
       thisCardLoses: (ctx, e) => {
         const s = ctx.state
         const win = s.trickWinIndex === null ? undefined : s.trick[s.trickWinIndex]?.card
-        const live = win?.sigils.some((g) => !g.disabled)
-        if (win && live && ctx.opponents.includes(e.data?.winner as Seat))
-          ctx.disableEngravings(win)
+        if (!win || !ctx.opponents.includes(e.data?.winner as Seat)) return
+        if (!ctx.confirm('Copy the winning card?', () => !isNil(ctx.bid()))) return
+        ctx.createCard(ctx.seat, win.suit, ctx.rank(win))
       },
     },
   },
 
-  // Spiked Cocktail: When you play this card to a trick of another suit, choose an opponent's
-  // card in this trick to gain +4 rank or lose 4 rank.
+  // Spiked Cocktail: When you play this card to a trick of another suit, choose a card in that
+  // trick to gain 4 rank or lose 4 rank.
   'PU-U02': {
     on: {
       offSuit: (ctx, e) => {
         if (!ctx.isEventCard || !stillOffSuit(ctx, e)) return
         const plays = ctx.state.trick
-        const theirs = plays.filter((p) => ctx.opponents.includes(p.seat))
-        if (theirs.length === 0) return
-        // AI: raise a nil opponent's card within 4 ranks of winning, else lower the winner.
+        // AI: raise a nil opponent's or your partner's card within 4 ranks of the winner, else
+        // lower an opponent's winner.
         const win = plays[winningIndex(ctx.state, plays)]
-        const near = theirs.find(
-          (p) =>
-            isNil(ctx.bid(p.seat)) &&
-            p !== win &&
-            p.card.suit === win.card.suit &&
-            ctx.rank(win.card) - ctx.rank(p.card) <= 4,
-        )
-        const plan = near ?? (theirs.includes(win) ? win : theirs[0])
-        const cards = theirs.map((p) => p.card)
+        const close = (p: (typeof plays)[number]) =>
+          p !== win && p.card.suit === win.card.suit && ctx.rank(win.card) - ctx.rank(p.card) <= 4
+        const oppWins = ctx.opponents.includes(win.seat)
+        const raise =
+          plays.find((p) => ctx.opponents.includes(p.seat) && isNil(ctx.bid(p.seat)) && close(p)) ??
+          (oppWins ? plays.find((p) => p.seat === ctx.partner && close(p)) : undefined)
+        const plan = raise ?? (oppWins ? win : plays[0])
+        const cards = plays.map((p) => p.card)
         const card = ctx.chooseCard(ctx.seat, 'Spike which card?', cards, () => plan.card)
         if (!card) return
-        const up = ctx.confirm('Raise or lower?', () => !!near, ctx.seat, ['Raise', 'Lower'])
+        const up = ctx.confirm('Raise or lower?', () => !!raise, ctx.seat, ['Raise', 'Lower'])
         ctx.modRank(card, up ? 4 : -4)
       },
     },
@@ -233,10 +241,13 @@ export const handlers: HandlerMap = {
     },
   },
 
-  // Sleepwalker's Bed: Whenever you lose a trick, if you bid blind nil, your highest card loses
-  // 3 rank.
+  // Sleepwalker's Bed: Whenever you lose one of the first four tricks, if you bid blind nil, your
+  // highest card loses 3 rank.
   'PU-U04': {
-    on: { youLose: (ctx) => ctx.bid() === BLIND_NIL && lowerHighest(ctx, ctx.seat, 3) },
+    on: {
+      youLose: (ctx, e) =>
+        (e.data?.trick as number) <= 4 && ctx.bid() === BLIND_NIL && lowerHighest(ctx, ctx.seat, 3),
+    },
   },
 
   // Tiptoe Sneaker: While this card is in your hand, you may throw off a card when clubs are led,
@@ -267,16 +278,22 @@ export const handlers: HandlerMap = {
     },
   },
 
-  // Rewound Reel: In tricks led with clubs, the lowest club wins instead of the highest.
+  // Rewound Reel: Whenever you lead a club, you may have the lowest club win that trick instead of
+  // the highest.
   'PU-U08': {
-    trick: (_ctx, rules) => {
-      if (rules.led === CLUBS && !rules.lowestWins.includes(CLUBS)) rules.lowestWins.push(CLUBS)
+    trick: (ctx, rules) => {
+      const reversed = ctx.state.flags[`PU-U08:${ctx.seat}`] === rules.trick
+      if (reversed && !rules.lowestWins.includes(CLUBS)) rules.lowestWins.push(CLUBS)
     },
     on: {
-      afterTrick: (ctx) => {
-        const t = ctx.state.history.at(-1)
-        if (!t || t.plays[0].card.suit !== CLUBS) return
-        if (t.plays.filter((p) => p.card.suit === CLUBS).length > 1) ctx.note('lowest ♣ wins')
+      led: (ctx, e) => {
+        const card = ctx.findCard(e.cardId!)
+        if (card?.suit !== CLUBS) return
+        const r = ctx.rank(card)
+        const ai = () => (isNil(ctx.bid()) ? r >= 10 : r <= 6)
+        if (!ctx.confirm('Lowest club wins?', ai)) return
+        ctx.setFlag(`PU-U08:${ctx.seat}`, ctx.trickNumber)
+        ctx.note('lowest ♣ wins')
       },
     },
   },
@@ -294,8 +311,17 @@ export const handlers: HandlerMap = {
   // behind on points, gain +15 nil value.
   'PU-U10': { on: { offSuit: (ctx, e) => stillOffSuit(ctx, e) && behind(ctx) && ctx.gainNil(15) } },
 
-  // Sinking Anchor: After bidding, each opponent's highest card loses 4 rank.
+  // Sinking Anchor: After bidding, a chosen opponent's highest card loses 4 rank.
   'PU-U11': {
-    on: { afterBidding: (ctx) => ctx.opponents.forEach((op) => lowerHighest(ctx, op, 4)) },
+    on: {
+      afterBidding: (ctx) => {
+        const [a, b] = ctx.opponents
+        const top = (op: Seat) =>
+          isNil(ctx.bid(op)) || ctx.hand(op).length === 0 ? 0 : ctx.rank(highest(ctx, ctx.hand(op)))
+        const names = ctx.opponents.map((op) => SEAT_NAMES[op])
+        const i = ctx.choose('Sink which opponent?', names, () => (top(b) > top(a) ? 1 : 0))
+        lowerHighest(ctx, ctx.opponents[i], 4)
+      },
+    },
   },
 }

@@ -21,24 +21,24 @@
       "icon": "shutter"
     }
   ],
-  "text": "Whenever you lose a trick your partner wins, you need not follow suit on the next trick.",
-  "timing": "When you lose any trick",
+  "text": "You need not follow suit on tricks your partner leads.",
+  "timing": "Always on, for you",
   "prototype": "automated",
   "signature": [
     {
-      "trigger": "you lose a trick your partner wins",
+      "trigger": "always",
       "scope": "self",
-      "target": "your play to the next trick",
+      "target": "your plays to tricks your partner leads",
       "effect": "may skip following suit",
-      "frequency": "next trick"
+      "frequency": "per trick"
     }
   ],
   "archetypes": "Discard Dominance, Nil Champion, Blind Bidder",
-  "family": "Following-suit relief / Triggered",
+  "family": "Following-suit relief / Partner's leads",
   "role": "Enabler",
   "decision": "On each trick your partner leads, whether to follow or shed a dangerous card or a void-opening card.",
-  "opponent": "The relief shows when your partner wins; opponents answer by taking the lead away from your partner.",
+  "opponent": "Visible when you play off suit; opponents answer by taking the lead away from your partner.",
   "aiNote": "On a relieved trick, play your highest non-spade card if on nil; otherwise play from your shortest non-spade suit.",
-  "rationale": "About three relieved tricks a round, all on your partner's leads, which are the leads least likely to catch a nil. It adds discards for Scouring Tornado without making following suit optional all round.",
-  "deviation": "The trigger narrows \"when you lose any trick\" to tricks your partner wins, because relief after every lost trick fires about ten times a round and switches off following suit for most of the round."
+  "rationale": "Your partner leads about three tricks a round, and those are the leads least likely to catch a nil. It adds discards for Scouring Tornado without making following suit optional all round.",
+  "deviation": "Revision 1: rewritten from relief on the trick after your partner wins one, which is the trick your partner leads."
 }

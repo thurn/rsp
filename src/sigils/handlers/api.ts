@@ -46,8 +46,8 @@ export interface TrickRules {
   led: Suit | null
   /** The trump suit, or null for no trump. */
   trump: Suit | null
-  /** No one can win a trick by trumping. */
-  noTrump: boolean
+  /** Teams whose trumps can't win this trick. */
+  noTrumpTeams: (0 | 1)[]
   /** Led-suit winners matching an entry can't be beaten by trump. */
   untrumpable: { suit?: Suit; rank?: number; seat?: Seat; team?: 0 | 1 }[]
   /** Suits in which the lowest card wins. */
@@ -204,8 +204,6 @@ export interface Ctx {
   /** Mark this sigil's activation public (engraving shown, tray chip revealed). */
   show(): void
   engrave(card: Card, code: string, copyOf?: string): void
-  /** Disable every engraving on a card for the rest of the round (Spiteful Eraser). */
-  disableEngravings(card: Card): void
   /** Move the first engraving from one card to another. */
   moveEngraving(from: Card, to: Card): void
   /** Set which sigil this one copies (Matching Mugs, Tracing Pencil). */

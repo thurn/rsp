@@ -21,14 +21,14 @@
       "icon": "wine"
     }
   ],
-  "text": "Whenever you lose a trick your partner wins, if you bid blind nil, gain +20 nil value.",
-  "timing": "When you lose any trick",
+  "text": "Whenever your partner wins a trick, if you bid blind nil, gain +20 nil value.",
+  "timing": "When your partner wins a trick",
   "prototype": "automated",
   "signature": [
     {
-      "trigger": "you lose a trick to your partner, on blind nil",
+      "trigger": "your partner wins a trick",
       "scope": "self",
-      "target": "your nil",
+      "target": "your blind nil",
       "effect": "nil value +20",
       "frequency": "per trick"
     }
@@ -39,6 +39,6 @@
   "decision": "Your partner chooses to cover: overtaking opponents' winners and bidding higher earns nil value but risks bags; you shed your dangerous cards under your partner's winners rather than the opponents'.",
   "opponent": "Visible on each trigger; opponents can deny it by winning tricks themselves, which is also how they attack the blind nil.",
   "aiNote": "When the partner is on blind nil, win tricks the opponents would otherwise take whenever you can afford the bag.",
-  "rationale": "A covering partner wins about four to six tricks in a blind round, so a surviving blind nil gains about +80 to +120, about +55 to +85 per blind round at 70% success; the payout depends on how the partnership plays, not on the dealt hand, because a successful blind nil loses every trick but loses only some of them to the partner, and it rewards the Nil Guard partnership that archetypes.md names as Blind Bidder's best pairing.",
-  "deviation": "Revision 1: redesigned from nil value for each ace or king lost on blind nil, which on a successful blind nil only counted the dealt aces and kings (a Daring Knight variant); family moved from Nil value to Losing tricks / Partner, keeping the short \"When you lose any trick\" window."
+  "rationale": "A covering partner wins about four to six tricks in a blind round, so a surviving blind nil gains about +80 to +120, about +55 to +85 per blind round at 70% success; the payout depends on how the partnership plays, not on the dealt hand, because a successful blind nil wins no tricks and the partner takes only some of them, and it rewards the Nil Guard partnership that archetypes.md names as Blind Bidder's best pairing.",
+  "deviation": "Revision 1: redesigned from nil value for each ace or king lost on blind nil, which on a successful blind nil only counted the dealt aces and kings (a Daring Knight variant); family moved from Nil value to Partner wins."
 }

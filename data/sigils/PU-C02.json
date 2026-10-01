@@ -12,15 +12,15 @@
   "iconFamily": "door-open",
   "iconWord": "exit",
   "iconAlternates": [],
-  "text": "Whenever you lose a trick you played a face card to, gain +10 contract value.",
+  "text": "Whenever you lose a trick you played a face card to, gain +20 contract value.",
   "timing": "When you lose any trick",
   "prototype": "automated",
   "signature": [
     {
-      "trigger": "you lose a trick",
+      "trigger": "you lose a trick with a face card",
       "scope": "self",
-      "target": "your played face card",
-      "effect": "contract value +10",
+      "target": "your team contract",
+      "effect": "contract value +20",
       "frequency": "per trick"
     }
   ],
@@ -30,5 +30,5 @@
   "decision": "When to dump a face card under a higher card.",
   "opponent": "Visible on trigger; no effect on opponents' cards.",
   "aiNote": "Discard face cards on tricks already won by others.",
-  "rationale": "About 10 expected points per round."
+  "rationale": "About 20 expected points per round. A seat loses with one or two of its face cards, and each loss is a card spent rather than a trick won, so the reward is sized to feel worth the sacrifice."
 }
