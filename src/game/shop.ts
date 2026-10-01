@@ -1,3 +1,4 @@
+import { aiShop } from '../ai/shop'
 import { SIGILS, getSigil, isAutomated } from '../sigils/registry'
 import type { Seat } from './cards'
 import { SEAT_NAMES, emit, log } from './core'
@@ -87,19 +88,6 @@ export function openShop(s: GameState, opening: boolean) {
   for (const seat of [0, 1, 2, 3] as Seat[]) emit(s, 'shopEnter', { seat })
   for (const seat of [0, 1, 2, 3] as Seat[]) if (seat !== s.human) aiShop(s, seat)
   closeShopIfDone(s)
-}
-
-/** Buy the most expensive affordable offer; skip below AI_MIN_GOLD; never reroll or sell. */
-export function aiShop(s: GameState, seat: Seat) {
-  const shop = s.shop!.seats[seat]
-  const gold = s.players[seat].gold
-  if (gold >= AI_MIN_GOLD && s.players[seat].sigils.length < MAX_SIGILS) {
-    const affordable = shop.offers
-      .filter((c) => isAutomated(c) && price(s, seat, c) <= gold)
-      .sort((a, b) => price(s, seat, b) - price(s, seat, a))
-    if (affordable[0]) buy(s, seat, affordable[0])
-  }
-  shopDone(s, seat)
 }
 
 export function canBuy(s: GameState, seat: Seat, code: string): boolean {

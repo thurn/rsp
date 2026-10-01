@@ -12,6 +12,7 @@ import {
   viewLabel,
 } from '../../game/cards'
 import { type OwnedSigil, isNil } from '../../game/types'
+import { sigilValue } from '../../ai/shop'
 import { SIGILS, getSigil, isAutomated, isEngraving } from '../registry'
 import { HANDLERS } from '.'
 import type { Ctx, HandlerMap } from './api'
@@ -628,15 +629,15 @@ export const handlers: HandlerMap = {
         const p = s.players[ctx.seat]
         const mine = p.sigils.filter((o) => o.code !== ctx.source)
         if (!shop || shop.offers.length === 0 || mine.length === 0) return
-        const price = (c: string) => getSigil(c)?.price ?? 0
+        const value = (c: string) => sigilValue(s, ctx.seat, c)
         const offers = shop.offers
         const usable = offers.filter((c) => ctx.seat === s.human || isAutomated(c))
-        const worst = mine.reduce((a, b) => (price(b.code) < price(a.code) ? b : a))
+        const worst = mine.reduce((a, b) => (value(b.code) < value(a.code) ? b : a))
         const best = usable.reduce<string | null>(
-          (a, b) => (!a || price(b) > price(a) ? b : a),
+          (a, b) => (!a || value(b) > value(a) ? b : a),
           null,
         )
-        const trade = best !== null && price(best) >= price(worst.code) + 30
+        const trade = best !== null && value(best) >= value(worst.code) + 0.3
         const labels = [...mine.map((o) => nameOf(o.code)), 'Skip']
         const i = ctx.choose('Trade in which sigil?', labels, () =>
           trade ? mine.indexOf(worst) : mine.length,
