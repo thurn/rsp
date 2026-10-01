@@ -20,24 +20,23 @@
       "icon": "recycle"
     }
   ],
-  "text": "Whenever you become void in a suit during the first six tricks, gain +10 contract value.",
-  "timing": "During play (whenever a play, pass, or conversion empties a suit in tricks 1–6)",
+  "text": "Before bidding, you may remove a chosen card from your hand.",
+  "timing": "Before bidding",
   "signature": [
     {
-      "trigger": "you become void in a suit during tricks 1–6",
+      "trigger": "before bidding",
       "scope": "self",
-      "target": "contract",
-      "effect": "contract value +10",
-      "frequency": "per suit"
+      "target": "a chosen card",
+      "effect": "optional: remove from your hand",
+      "frequency": "once per round"
     }
   ],
   "archetypes": "Discard Dominance; splash Spade Master, Nil Champion",
-  "family": "Voids, singletons, and long suits / Singletons (emptied early)",
-  "role": "Payoff (Contract additive)",
-  "decision": "Leading or following out a singleton or doubleton early, and whether to shape conversions to leave a short suit to play out rather than a void before play.",
-  "opponent": "Visible on trigger; opponents learn you are newly void and can stop leading that suit.",
-  "aiNote": "Lead your singleton on your first lead; with two short suits, play out the shorter one first; don't convert a singleton away before bidding.",
-  "rationale": "The classic Spades move of shedding a short suit to trump or discard later, paid by Green's void identity rather than per discard: a Discard Dominance or Spade Master hand shaped by Turning Tide empties one or two short suits in the first six tricks, about +10–16 EV, and an ordinary hand about +5. Voids made before play don't count, which keeps it apart from Empty Basket and creates a real shaping tension with it.",
-  "deviation": "The brief's singleton discard matched PU-C05, and the first revision (discards in the first six tricks) still paid per discard, which Purple owns; per the orchestrator's ruling it now pays for opening voids early by any play, pass, or conversion.",
-  "notes": "Pretty complicated for not much reward "
+  "family": "Voids, singletons, and long suits / Shedding",
+  "role": "Enabler",
+  "decision": "Which card to shed before bidding: a singleton to open a void for trumping and throwing off, or a high card that would break a nil.",
+  "opponent": "The removal is shown, but not the card.",
+  "aiNote": "If bidding nil, remove your highest card; otherwise remove a singleton outside spades, or keep the hand.",
+  "rationale": "Removing one card opens a void about a third of the time (any singleton) and makes nils much safer, at the cost of one card to win with. It feeds Empty Basket, Scouring Tornado, and every throw-off payoff without adding a counter.",
+  "deviation": "Redesigned from a payoff for emptying suits in the first six tricks, which was complicated for little reward."
 }

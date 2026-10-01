@@ -20,7 +20,7 @@
       "icon": "skirt"
     }
   ],
-  "text": "Before bidding, you may replace all cards of one chosen suit in your hand with random new cards.",
+  "text": "Before bidding, you may turn every card of a chosen suit in your hand into a random card.",
   "timing": "Before bidding",
   "signature": [
     {

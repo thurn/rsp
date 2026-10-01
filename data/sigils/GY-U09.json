@@ -20,7 +20,7 @@
       "icon": "beanie"
     }
   ],
-  "text": "Before bidding, add a random new card to your hand.",
+  "text": "Before bidding, create a random card in your hand.",
   "timing": "Before bidding",
   "signature": [
     {

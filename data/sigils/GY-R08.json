@@ -20,7 +20,7 @@
       "icon": "oven"
     }
   ],
-  "text": "Each round, you're dealt a second hand of random new cards, and you keep whichever hand you prefer before your sigils are engraved.",
+  "text": "Each round, a second hand of random cards is created for you, and you keep whichever hand you prefer before your sigils are engraved.",
   "timing": "Always on, for you (at the deal)",
   "signature": [
     {

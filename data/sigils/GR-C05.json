@@ -20,24 +20,23 @@
       "icon": "trees"
     }
   ],
-  "text": "After bidding, gain +5 contract value for every six cards you've played that didn't match the suit led since you bought this sigil.",
-  "timing": "After bidding (counts plays in the When you play another suit window)",
+  "text": "When you play this card, create a copy of it in your hand.",
+  "timing": "When played",
   "signature": [
     {
-      "trigger": "after bidding",
+      "trigger": "you play this card",
       "scope": "self",
-      "target": "contract",
-      "effect": "contract value +5 per six off-suit plays since bought",
-      "frequency": "run counter"
+      "target": "a copy of this card",
+      "effect": "create in your hand",
+      "frequency": "once per round"
     }
   ],
   "archetypes": "Spade Master, Discard Dominance, Diamond Flood; splash Heart Chorus",
-  "family": "Scaling sigils / Milestones",
-  "role": "Payoff (Contract additive)",
-  "decision": "Buying it early, and shaping hands toward voids so more plays count.",
-  "opponent": "The counter is visible; opponents can slow it by leading suits you still hold.",
-  "aiNote": "Buy it by round 5 in a void or flood deck; no in-round choices.",
-  "rationale": "Void decks make 4–5 off-suit plays a round, so it grows about +5 every round and a half: about +15 by mid-run and +30 by round 12 if bought early, averaging near the common budget. One run counter, trumps and discards both count.",
-  "deviation": "Timing moved to After bidding, because the payout lands once each round from the counter so far (this round's off-suit plays count from next round), while the off-suit plays only feed the counter.",
-  "notes": "This is literally not even close to being simple enough for common and is probably, in fact, just too complicated to be rare. Please totally redesign this. "
+  "family": "Creating cards / Copies",
+  "role": "Enabler",
+  "decision": "When to play this card: a high card early, so its copy wins again later, or a card of your flood suit to lengthen it.",
+  "opponent": "The copy is shown when created; opponents see a second card of that suit and rank coming.",
+  "aiNote": "Play this card as soon as it can win a trick, then play the copy when it can win again.",
+  "rationale": "One extra card of the same suit and rank: on an ace or king it is often a second winner (about +half a trick), and on a flood suit it is one more diamond or heart for its payoffs. The copy carries no sigil, so it never repeats itself.",
+  "deviation": "Totally redesigned from a run-long counter of off-suit plays, which was far too complicated."
 }

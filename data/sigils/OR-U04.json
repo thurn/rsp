@@ -20,7 +20,7 @@
       "icon": "slice"
     }
   ],
-  "text": "Affinity: Diamond. When this card wins a trick, gain +10 contract value for each diamond in it.",
+  "text": "Affinity: Diamonds. When this card wins a trick, gain +10 contract value for each diamond in it.",
   "timing": "When this card wins",
   "signature": [
     {

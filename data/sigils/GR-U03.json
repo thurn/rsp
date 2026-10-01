@@ -20,23 +20,23 @@
       "icon": "bug"
     }
   ],
-  "text": "The first time each round you play a spade to a trick of another suit, convert a chosen opponent's highest spade to the suit led.",
+  "text": "The first time each round you trump, you win that trick.",
   "timing": "When you play another suit",
   "signature": [
     {
-      "trigger": "first spade played to a trick of another suit each round",
-      "scope": "opponents",
-      "target": "a chosen opponent's highest spade",
-      "effect": "convert to the suit led",
-      "frequency": "×1"
+      "trigger": "you trump for the first time each round",
+      "scope": "self",
+      "target": "that trick",
+      "effect": "you win it",
+      "frequency": "once per round"
     }
   ],
   "archetypes": "Spade Master; splash Contract Attacker",
   "family": "Changing opponents' suits / Disarm",
-  "role": "Utility; opponent-facing",
-  "decision": "When to make the first trump, and which opponent to disarm: the one still to play, who must now follow with the converted card instead of overtrumping, or the one who already played, who loses their best trump for later tricks.",
-  "opponent": "The conversion is shown; the chosen opponent keeps the card as a high card of the led suit and can win later tricks of that suit with it; only one opponent loses one trump, once a round.",
-  "aiNote": "Choose the opponent still to play if they have shown a void in the led suit; otherwise choose the opponent with more spades shown or bid.",
-  "rationale": "Overtrumps are Spade Master's main threat, and this answers one of them a round: an opponent due to overtrump suddenly holds the led suit and has to follow, or an opponent who already played loses their best trump; one card a round denies about half an opposing trick, in line with Sinking Anchor (PU-U11), and the once-a-round, one-opponent limit follows Spade Master's tighter-conditions ruling.",
-  "notes": "Pretty hard to understand and doesn't seem that fun to play against. "
+  "role": "Utility (answers overtrumps)",
+  "decision": "When to make the first trump: with a low spade, saving your high ones, since nothing can overtrump it.",
+  "opponent": "Visible when it resolves; opponents learn to trump in before you or to save their spades for later tricks.",
+  "aiNote": "Make your first trump with your lowest spade.",
+  "rationale": "Overtrumps are Spade Master's main threat, and this answers one a round without touching the opponents' cards: the first trump wins with any spade, about half a trick a round when an overtrump was coming, and a low spade is enough.",
+  "deviation": "Redesigned from converting an opponent's highest spade, which was hard to understand and unpleasant to play against."
 }

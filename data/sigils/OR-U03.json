@@ -20,7 +20,7 @@
       "icon": "burger"
     }
   ],
-  "text": "If you win the first and last tricks of the round, gain +50 contract value.",
+  "text": "If you win the first and last tricks of a round, gain +50 contract value.",
   "timing": "Conditional scoring",
   "signature": [
     {

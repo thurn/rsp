@@ -20,23 +20,23 @@
       "icon": "thread-roll"
     }
   ],
-  "text": "After bidding, if you have five or more spades or five or more diamonds, gain +20 contract value.",
+  "text": "After bidding, if you have five or more cards of one suit, gain +15 contract value.",
   "timing": "After bidding",
   "signature": [
     {
-      "trigger": "after bidding, five+ spades or five+ diamonds",
+      "trigger": "after bidding",
       "scope": "self",
       "target": "contract",
-      "effect": "contract value +20",
-      "frequency": "×1"
+      "effect": "contract value +15 if you hold five of one suit",
+      "frequency": "once per round"
     }
   ],
-  "archetypes": "Spade Master, Diamond Flood",
+  "archetypes": "Spade Master, Diamond Flood, Heart Chorus",
   "family": "Voids, singletons, and long suits / Long-suit thresholds",
   "role": "Payoff (Contract additive)",
-  "decision": "Aiming conversions and passes to reach five spades or diamonds.",
+  "decision": "Aiming conversions and passes to reach five cards of a suit.",
   "opponent": "Visible at the trigger; opponents learn you hold a long spade or diamond suit.",
   "aiNote": "Convert toward whichever of spades or diamonds is longer until it reaches five.",
-  "rationale": "About a third of natural hands qualify, and with Turning Tide or Alchemist's Wand most do, for about +12–16 EV; one sentence bridges both floods through their shared hand shape.",
-  "notes": "This is trying too hard to work in two different archetypes. I would probably just use, say, five of the same suit. "
+  "rationale": "About 60% of natural hands hold five of one suit, and conversions push it near certain, so +15 is about +10 EV, the common budget. One suit of any kind keeps it to one condition.",
+  "deviation": "Narrowed from five spades or five diamonds to five of any one suit, so it reads as one condition."
 }

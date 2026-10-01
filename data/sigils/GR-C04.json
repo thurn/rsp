@@ -20,15 +20,15 @@
       "icon": "wind"
     }
   ],
-  "text": "This card can follow any suit, counting as that suit.",
+  "text": "This card counts as all suits.",
   "timing": "Always on, for the engraved card",
   "signature": [
     {
       "trigger": "always",
       "scope": "self",
       "target": "this card",
-      "effect": "may follow any suit, becoming the led suit",
-      "frequency": "×1"
+      "effect": "counts as every suit",
+      "frequency": "all"
     }
   ],
   "archetypes": "While Held, Heart Chorus, Diamond Flood; splash Exact Contractor",
@@ -37,7 +37,6 @@
   "decision": "Which trick to spend it on: following in place of a held card or a winner, or keeping it for later.",
   "opponent": "Visible when it follows a suit it isn't, and it competes in that suit at its own rank; opponents can lead that suit again to force the next card.",
   "aiNote": "Follow with it when your only other card of the led suit carries a while-held sigil or is a winner you want to keep.",
-  "rationale": "The holding support Patient Hourglass counts on: it follows once in place of the card you need to keep, and because following is optional it never forces itself out or blocks a void. Counting as the led suit means a spade dog can't trump at will and a dog follow never counts as a discard, while a heart or diamond follow feeds Unfolding Butterfly and Gem Cascade.",
-  "deviation": "The Any suit variation is written as an optional follow, because \"counts as any suit\" means you're never void, which forces the card out on your first void and duplicates BL-C06's void tension; GR-U09's optional-follow brief now overlaps this and should move (for example to a two-suit card).",
-  "notes": "\"This card counts as all suits\""
+  "rationale": "Following suit is never a problem for this card: you can always play it, and it competes in whatever suit is led. It counts as a spade too, so it can trump any trick and lead spades early, which makes it a strong common at a modest price because the card itself is random.",
+  "deviation": "The Any suit variation is written as an optional follow, because \"counts as any suit\" means you're never void, which forces the card out on your first void and duplicates BL-C06's void tension; GR-U09's optional-follow brief now overlaps this and should move (for example to a two-suit card)."
 }

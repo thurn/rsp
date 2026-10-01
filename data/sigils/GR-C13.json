@@ -20,7 +20,7 @@
       "icon": "bacteria"
     }
   ],
-  "text": "If you win three or more tricks with hearts or diamonds in a round, gain +25 contract value.",
+  "text": "If you win three or more tricks with diamonds in a round, gain +25 contract value.",
   "timing": "Conditional scoring",
   "signature": [
     {
@@ -31,12 +31,12 @@
       "frequency": "×1"
     }
   ],
-  "archetypes": "Diamond Flood, Heart Chorus",
+  "archetypes": "Diamond Flood",
   "family": "Suit payoffs / Winning",
   "role": "Payoff (Contract additive)",
-  "decision": "Which red-suit winners to cash to reach three wins.",
+  "decision": "Which diamond winners to cash to reach three wins.",
   "opponent": "Opponents see red-suit wins pile up and can pull trump or hold covers.",
   "aiNote": "Count red-suit winners when bidding; lead them once three are reachable.",
-  "rationale": "Orchestrator fix after two cycles: about +10 per round for a flooded red suit, +4 otherwise; rewards Heart Chorus and Diamond Flood for winning with their suit.",
-  "deviation": "Rewritten by the orchestrator: the earlier versions duplicated RE-C08 and OR-C12."
+  "rationale": "About +10 per round for a flooded diamond suit and +4 otherwise; Heart Chorus has its own heart-win payoff in Swelling Sea (TE-R03).",
+  "deviation": "Narrowed from hearts or diamonds to diamonds, so it serves one archetype."
 }

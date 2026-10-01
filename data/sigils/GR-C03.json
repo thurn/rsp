@@ -20,7 +20,7 @@
       "icon": "coffee-beans"
     }
   ],
-  "text": "When you play this card, add a new two of its suit to your hand.",
+  "text": "When you play this card, create a two of its suit in your hand.",
   "timing": "When played",
   "signature": [
     {
@@ -38,6 +38,5 @@
   "opponent": "The created two is shown; opponents know you hold one more of that suit and can't be counted void.",
   "aiNote": "Play it early if it is a spade, diamond, or heart; otherwise play it when its suit is your while-held card's suit.",
   "rationale": "One extra low card lengthens a flood (another diamond for Gem Cascade, another heart for Unfolding Butterfly, a spare trump), gives While Held a follower, and leaves you a card in hand at the end. A two wins only as a trump into a void, which keeps it at common.",
-  "deviation": "Variation changed from Copies to Additions and timing from When you discard to When played, because a copy on every discard grows the hand by several cards, a copied ace is an extra sure trick, and \"copy\" raises whether the sigil copies too.",
-  "notes": "I think we should phrase this as \"create a two of its suit in your hand.\" "
+  "deviation": "Variation changed from Copies to Additions and timing from When you discard to When played, because a copy on every discard grows the hand by several cards, a copied ace is an extra sure trick, and \"copy\" raises whether the sigil copies too."
 }

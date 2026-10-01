@@ -20,11 +20,11 @@
       "icon": "flower"
     }
   ],
-  "text": "Whenever anyone plays a card of this card's suit, this card gains +1 rank.",
-  "timing": "Always on, for the engraved card (grows when its suit is played)",
+  "text": "While this card is in your hand, whenever anyone plays a card of its suit, it gains +1 rank.",
+  "timing": "While in hand",
   "signature": [
     {
-      "trigger": "anyone plays a card of this card's suit",
+      "trigger": "anyone plays a card of this card's suit while it is in your hand",
       "scope": "self",
       "target": "this card",
       "effect": "rank +1",
@@ -38,6 +38,5 @@
   "opponent": "Its grown rank is seen when it is played, and the count is public because played cards are on the table; opponents can drain its suit's high cards early or trump it late.",
   "aiNote": "Hold it until about half its suit has been played, then play it when it can win.",
   "rationale": "A seven held until six cards of its suit are gone plays as a king, just as the higher cards leave; played early, it barely changes. Counting everyone's plays on one card keeps it clear of Unfolding Butterfly, which counts your hearts for all your hearts.",
-  "deviation": "Role drops the stat-stick tag, because the growth creates a real decision about when to release the card.",
-  "notes": "This needs a while in hand, doesn't it? "
+  "deviation": "Role drops the stat-stick tag, because the growth creates a real decision about when to release the card."
 }

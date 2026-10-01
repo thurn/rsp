@@ -20,7 +20,7 @@
       "icon": "hard-drive"
     }
   ],
-  "text": "Before bidding, if you have fewer than three spades, replace your lowest card with a random new spade.",
+  "text": "Before bidding, if you have fewer than three spades, turn your lowest card into a random spade.",
   "timing": "Before bidding",
   "signature": [
     {

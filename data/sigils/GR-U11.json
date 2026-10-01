@@ -20,7 +20,7 @@
       "icon": "music"
     }
   ],
-  "text": "After bidding, if you bid nil, add a new two of a chosen suit to your hand.",
+  "text": "After bidding, if you bid nil, create a two of a chosen suit in your hand.",
   "timing": "After bidding",
   "signature": [
     {

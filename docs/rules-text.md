@@ -61,7 +61,15 @@ reference for clarity.
 - **Swaps where both pick are between partners.** A swap in which each player
   picks the card they give happens between you and your partner.
 - **Affinities matter.** An affinity changes how the effect plays out, such as
-  a spade affinity on a sigil that pays when its card wins.
+  a spade affinity on a sigil that pays when its card wins. Affinities are
+  plural: "Affinity: Spades," "Affinity: Kings."
+- **Name the play.** Text names the play it means: "when you trump" rather
+  than "when you play a spade to a trick of another suit," and "create a two"
+  rather than "add a new two."
+- **One condition, one archetype.** A condition names one thing, such as "five
+  or more cards of one suit," rather than serving two archetypes with "or."
+- **Card growth while held.** A card that grows opens with "While this card is in
+  your hand, whenever …"
 - **Scores say points.** Comparisons of the two teams' scores say "behind on
   points" or "ahead on points."
 - **Defaults stay unwritten.** The conventions below cover edge cases, how long
@@ -71,7 +79,7 @@ reference for clarity.
 
 ```
 [icon]  Name              Resonance · Rarity · Price
-        Affinity: King. Rules text.
+        Affinity: Kings. Rules text.
 ```
 
 An affinity, when present, opens the rules text in bold.
@@ -127,6 +135,7 @@ rules.
 | When you lose any trick | "Whenever you lose a trick, …" |
 | When your partner wins a trick | "Whenever your partner wins a trick, …" |
 | When you play another suit | "Whenever you play a card that doesn't match the suit led, …" |
+| When you trump | "Whenever you trump, …" or "When you trump with this card, …" |
 | When you throw off a card | "Whenever you throw off a card, …" |
 | When you pass or swap cards | "Whenever you pass or swap cards, …" |
 | When you receive cards | "Whenever you receive a card from another player, …" |
@@ -164,7 +173,7 @@ These are the game's own terms, beyond standard Spades vocabulary.
 | **interest** | Gold you gain after each round for gold you hold: 10 per 50 held, up to 50. |
 | **sigil** | An effect you own for the run, engraved on a card in each new hand. |
 | **resonance** | A sigil's color: Red, Orange, Green, Blue, Teal, Purple, or Gray. "Gray sigils" means sigils of that resonance. |
-| **new card** | A card created by an effect rather than taken from any hand. It is removed after the round. |
+| **create** | Make a card that comes from no hand, such as "create a two of its suit in your hand." A created card is removed after the round. |
 | **beside** | Next to a card in your hand's dealt order. Rearranging your hand doesn't change which cards are beside each other. |
 | **affinity** | The suit, or rank below ace, a sigil prefers to be engraved on. |
 
@@ -230,7 +239,7 @@ These examples are real sigils in the pool. Wave 0 of the design process in
 | 1 | Honed Edge | `sword` | Red · Common | This card gains +3 rank. |
 | 2 | Verdant Banner | `flag` | Green · Common | While this card is in your hand, your hearts gain +2 rank. |
 | 3 | Nest Egg | `egg` | Orange · Common | While this card is in your hand, gain +5 gold after each trick. |
-| 4 | Crown Jewel | `crown` | Red · Common | **Affinity: Spade.** When this card wins a trick, gain +25 contract value. |
+| 4 | Crown Jewel | `crown` | Red · Common | **Affinity: Spades.** When this card wins a trick, gain +25 contract value. |
 | 5 | Graceful Exit | `door-open` | Purple · Common | Whenever you lose a trick you played a face card to, gain +10 contract value. |
 | 6 | Turning Tide | `water` | Green · Common | Before bidding, convert two chosen cards in your hand to diamonds. |
 | 7 | Open Hand | `hand` | Teal · Common | After bidding, swap a card with your partner. |
@@ -274,7 +283,7 @@ at this game's scale.
 
 ### 4. Crown Jewel: when this card wins
 
-`Affinity: Spade. When this card wins a trick, gain +25 contract value.`
+`Affinity: Spades. When this card wins a trick, gain +25 contract value.`
 
 The bonus is paid only if your team makes its contract, and it is multiplied by
 any contract multipliers.

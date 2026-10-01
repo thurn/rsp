@@ -20,15 +20,15 @@
       "icon": "barn"
     }
   ],
-  "text": "After bidding, gain +10 contract value for each suit you're void in.",
+  "text": "After bidding, gain +20 contract value for each suit you're void in.",
   "timing": "After bidding",
   "signature": [
     {
       "trigger": "after bidding",
       "scope": "self",
-      "target": "voids in hand",
-      "effect": "contract value +10 per void",
-      "frequency": "×1"
+      "target": "contract",
+      "effect": "contract value +20 per void suit",
+      "frequency": "once per round"
     }
   ],
   "archetypes": "Spade Master, Discard Dominance, Diamond Flood; splash Nil Champion",
@@ -37,6 +37,5 @@
   "decision": "Which cards to convert or pass (before or after bidding) to empty a short suit.",
   "opponent": "Visible at the trigger; opponents learn your voids and can avoid leading them.",
   "aiNote": "Aim conversions and passes at singletons and doubletons to open voids.",
-  "rationale": "Natural voids are rare (about 5% of hands), so it pays only for shaping: Alchemist's Wand guarantees a club void (+10), and Turning Tide or a pass can open a second (+20), about +10–15 EV in its decks. Post-bid passes (TE-C01) and conversions (GR-C14) count only when they resolve before it, by seat and purchase order.",
-  "notes": "This doesn't seem like very much contract value. Basically, just +10 per round. "
+  "rationale": "Natural voids are rare (about 5% of hands), so it pays only for shaping: Alchemist's Wand guarantees a club void (+20), and Turning Tide or a pass can open a second (+40), about +15–25 EV in its decks. Post-bid passes (TE-C01) and conversions (GR-C14) count only when they resolve before it, by seat and purchase order."
 }

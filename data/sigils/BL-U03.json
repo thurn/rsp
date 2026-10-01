@@ -20,7 +20,7 @@
       "icon": "sparkles"
     }
   ],
-  "text": "If you win four or more tricks with cards that aren't spades, gain +1× contract multiplier.",
+  "text": "If you win four or more tricks with cards that aren't spades in a round, gain +1× contract multiplier.",
   "timing": "Conditional scoring",
   "signature": [
     {

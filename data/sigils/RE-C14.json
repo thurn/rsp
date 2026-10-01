@@ -20,7 +20,7 @@
       "icon": "stadium"
     }
   ],
-  "text": "Before bidding, two chosen hearts or diamonds in your hand gain +2 rank.",
+  "text": "Before bidding, two chosen hearts in your hand gain +2 rank.",
   "timing": "Before bidding",
   "signature": [
     {
@@ -31,11 +31,12 @@
       "frequency": "×2"
     }
   ],
-  "archetypes": "Heart Chorus, Diamond Flood; splash Kingmaker",
+  "archetypes": "Heart Chorus; splash Kingmaker",
   "family": "Raising your ranks / Targeted",
   "role": "Enabler",
-  "decision": "Which two cards to raise: diamonds to cash first before opponents go void, or hearts that Unfolding Butterfly will lift further.",
+  "decision": "Which two hearts to raise: the ones Unfolding Butterfly will lift further, or the ones you plan to pass to your partner.",
   "opponent": "Visible before bids; opponents bid knowing which cards grew.",
   "aiNote": "Raise the two highest hearts or diamonds below ace in your longer of the two suits.",
-  "rationale": "A Red splash that makes the flood or chorus suit win its early contests, the answer both archetypes list to opponents holding the top cards; +2 on two cards keeps it close to Honed Edge's total value."
+  "rationale": "A Red splash that makes the flood or chorus suit win its early contests, the answer both archetypes list to opponents holding the top cards; +2 on two cards keeps it close to Honed Edge's total value.",
+  "deviation": "Narrowed from hearts or diamonds to hearts, so it serves one archetype."
 }

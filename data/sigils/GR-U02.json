@@ -20,24 +20,23 @@
       "icon": "yarn-ball"
     }
   ],
-  "text": "Before bidding, choose two suits other than spades, then convert your cards of each to the other.",
+  "text": "Before bidding, convert all your hearts to diamonds, or all your diamonds to hearts.",
   "timing": "Before bidding",
   "signature": [
     {
       "trigger": "before bidding",
       "scope": "self",
-      "target": "all your cards of two chosen non-spade suits",
-      "effect": "swap suits",
-      "frequency": "×1"
+      "target": "your hearts or your diamonds",
+      "effect": "convert to the other suit",
+      "frequency": "once per round"
     }
   ],
   "archetypes": "Diamond Flood, Heart Chorus, Discard Dominance",
   "family": "Changing your suits / Suit swapping",
   "role": "Enabler",
-  "decision": "Which two suits to swap: a long side suit into diamonds or hearts for a flood, or a long suit into clubs (and short clubs away) for club discards.",
+  "decision": "Which way to convert: build one long red suit for Diamond Flood or Heart Chorus, or empty one to open a void.",
   "opponent": "Everyone bids after the swap and sees the new suits through play; no loss of agency.",
-  "aiNote": "Swap your longest non-spade suit with the suit your collection pays for (diamonds, then hearts); in a club-discard collection, swap your longest non-club side suit with clubs.",
-  "rationale": "The longest side suit averages about 4.5 cards against 3.25 for any named suit, so a swap usually adds one to three cards to the flood, and more on lopsided hands, with no void opened, which keeps it below Turning Tide plus a void; excluding spades keeps it clear of Alchemist's Wand (DU-S02) and off Spade Master's strong list.",
-  "deviation": "Archetype focus drops Spade Master, because the swap can never touch spades.",
-  "notes": "Pretty hard to understand. Maybe just like turn all your hearts into diamonds or turn all your diamonds into hearts?"
+  "aiNote": "Convert the shorter of the two suits into the longer one.",
+  "rationale": "Merging the two red suits builds one long suit for a flood or chorus and often opens a void in the other, with one easy choice.",
+  "deviation": "Simplified from choosing any two non-spade suits to swap, which was hard to read."
 }
