@@ -8,6 +8,7 @@ Updated at the end of each phase of [prototype-plan.md](prototype-plan.md).
 | --- | --- | --- |
 | 1. Rules alignment | `?auto&fast` full run, table visual gate | Pass: 13 rounds, no console errors; table passes at 1280×720, 390×844, 820×1180 |
 | 2. Economy and shop | Shop every round, §4 gold column, shop visual gate | Pass: all nine §4 worked examples reproduce score, bags, and gold through `scoreRound` and `income`; the summary's coin row pays the same; buy limit, reroll 50→60, and sell-at-half verified |
+| 3. Card rendering | `?give=` hand with Engraving and Ongoing sigils, visual gate | Pass: all seven engraved cards show their glyph in a full 13-card hand at 390×844; your and your partner's trays show; the tooltip opens on hover and long-press |
 
 ## Visual gate
 
@@ -16,6 +17,7 @@ Updated at the end of each phase of [prototype-plan.md](prototype-plan.md).
 | Table (bidding) | Pass | Pass | Pass | 7 words |
 | Shop | Pass | Pass | Pass | 14 words |
 | Round summary | Pass | Pass | Pass | 13 words |
+| Table with engravings, trays, tooltip | Pass | Pass | Pass | 7 words; tooltip text is `data-prose` |
 
 ## Interpretation calls
 
