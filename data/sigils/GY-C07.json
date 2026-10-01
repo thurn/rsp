@@ -20,8 +20,8 @@
       "icon": "balcony"
     }
   ],
-  "text": "Whenever you discard a card with a sigil, move that sigil to a random card in your hand without one.",
-  "timing": "When you discard",
+  "text": "Whenever you throw off a card with a sigil, move that sigil to a random card in your hand without one.",
+  "timing": "When you throw off a card",
   "signature": [
     {
       "trigger": "you discard",

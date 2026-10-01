@@ -20,14 +20,14 @@
       "icon": "arch"
     }
   ],
-  "text": "Your kings gain +1 rank.",
+  "text": "Your kings become aces.",
   "timing": "Always on, for you",
   "signature": [
     {
       "trigger": "always",
       "scope": "self",
       "target": "your kings",
-      "effect": "rank +1",
+      "effect": "become aces",
       "frequency": "all"
     }
   ],
@@ -37,6 +37,5 @@
   "decision": "None directly; the hand bids as if each king were an ace.",
   "opponent": "Visible when a king plays as an ace; opponents can still trump it or play a natural ace after it to win the tie.",
   "aiNote": "Count each king as an ace when bidding and when judging whether a lead is safe.",
-  "rationale": "The smallest possible number does the whole job: a king becomes an ace, and because rank words mean current rank, Unclouded Sun (DU-S01) and Crown Jewel's win payoffs treat it as one; the bonus applies to cards whose rank is king before it, so it never chains a queen upward.",
-  "notes": "shouldn't this be \"Your kings become aces\"?"
+  "rationale": "The smallest possible change does the whole job: a king becomes an ace, so Unclouded Sun (DU-S01) and win payoffs that name aces treat it as one; it checks a card's rank before it applies, so it never chains a queen upward."
 }

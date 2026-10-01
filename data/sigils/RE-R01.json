@@ -20,23 +20,23 @@
       "icon": "steps-up"
     }
   ],
-  "text": "Affinity: Ace. This card gains +3 rank, and any rank beyond ace it would gain goes to your highest other card of its suit instead.",
-  "timing": "Always on, for the engraved card",
+  "text": "Whenever you win a trick with an ace, your highest card of that suit gains +3 rank.",
+  "timing": "When you win any trick",
   "signature": [
     {
-      "trigger": "always",
+      "trigger": "you win a trick with an ace",
       "scope": "self",
-      "target": "this card (affinity ace), excess beyond ace to your highest other card of its suit",
-      "effect": "rank +3, overflow transfers",
-      "frequency": "×1"
+      "target": "your highest card of that suit",
+      "effect": "rank +3",
+      "frequency": "per ace win"
     }
   ],
   "archetypes": "High Card; splash Kingmaker, Spade Master",
   "family": "Raising your ranks / Overshoot (engraved card)",
   "role": "Enabler (feeds win triggers and Unclouded Sun)",
-  "decision": "Where to aim your chosen rank boosts (Tipping Scales, Rosy Champagne, Relay Torch, Opening Volley): piling them on this ace, where they used to be wasted, now builds a second ace, and you choose which of the two aces to cash first.",
-  "opponent": "The raised card is shown when played like any rank change; opponents face two aces in one suit and can plan to trump the second, or lower it, since the gained rank sits on an ordinary card.",
-  "aiNote": "Treat the highest other card of this card's suit as its boosted rank when bidding; direct chosen rank boosts to this card when it is already an ace.",
-  "rationale": "On an ace, the whole +3 spills, so a jack, queen, or king of the same suit (held about half the time) becomes a second ace and a ten becomes a king, about half a trick a round; every other Red boost stacked on the ace now flows onward too, which makes overshoot a build-around rather than waste, while one recipient card keeps a strong-watch archetype in check; with Unclouded Sun (DU-S01) the second ace is also untrumpable, the intended High Card payoff at 4.5% of runs.",
-  "notes": "Incomprehensible. What? I feel like there are dramatically less confusing ways to achieve this effect. Also I don't really like affinity: ace as mentioned."
+  "decision": "Which ace to cash first: the one whose suit holds a king or queen that becomes the next ace, and whether to keep leading the suit while opponents still follow.",
+  "opponent": "Each raise is shown. Opponents can trump the suit once they are void to stop the chain.",
+  "aiNote": "Cash aces in suits where you hold a jack or better first, then lead the raised card next.",
+  "rationale": "Each ace win promotes the next card of its suit: a jack, queen, or king becomes an ace, and a ten becomes a king, so a suit headed by an ace often runs two or three deep, about half a trick a round. With Unclouded Sun (DU-S01) the new aces can't be trumped either, the intended High Card payoff. Raised cards that become aces chain onward, which opponents stop by trumping once void.",
+  "deviation": "Redesigned from an ace-affinity sigil whose rank beyond ace spilled to another card, which was hard to read."
 }

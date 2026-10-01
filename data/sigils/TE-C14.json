@@ -20,8 +20,8 @@
       "icon": "surfboard"
     }
   ],
-  "text": "When you discard this card, you may pass a card to your partner.",
-  "timing": "When you discard (card-bound)",
+  "text": "When you throw off this card, you may pass a card to your partner.",
+  "timing": "When you throw off a card (card-bound)",
   "signature": [
     {
       "trigger": "you discard this card",

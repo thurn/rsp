@@ -20,23 +20,22 @@
       "icon": "motorcycle"
     }
   ],
-  "text": "Once you've trumped four times this round, gain +1× contract multiplier.",
+  "text": "Each round, once you've trumped three times, gain +1× contract multiplier.",
   "timing": "When you play another suit",
   "signature": [
     {
-      "trigger": "you trump, fourth time this round",
-      "scope": "team",
+      "trigger": "you trump for the third time each round",
+      "scope": "self",
       "target": "contract",
-      "effect": "multiplier +1×",
+      "effect": "+1× contract multiplier",
       "frequency": "once per round"
     }
   ],
   "archetypes": "Spade Master; splash Contract Attacker",
   "family": "Growth over the round / Outcome counters (trumps played)",
   "role": "Payoff (Contract multiplier, built during the round)",
-  "decision": "Whether to open a second void and trump in over a partner's winner to reach the fourth trump, knowing the +1× then doubles a failed contract too, so the bid must be safe before the count lands.",
+  "decision": "Whether to open a second void and trump in over a partner's winner to reach the third trump, knowing the +1× then doubles a failed contract too, so the bid must be safe before the count lands.",
   "opponent": "The count is public through plays and the multiplier is shown when it lands; opponents can deny it by leading spades to pull trumps or by leading the suits the owner still holds.",
   "aiNote": "Count trumps played; once at three, trump rather than discard when void, and bid a little conservatively when the hand shows two voids.",
-  "rationale": "A void-and-trump deck with Alchemist's Wand (DU-S02) trumps four times in about a third of rounds, and those rounds are usually made, so the +1× is worth about +30 mid-run and +40 late, inside the rare band and restrained for a strong-watch archetype; it shares Second Strike's (RE-U04) counting phrase but pays a multiplier, not spade rank, and counts no discards (GR-R05).",
-  "notes": "four is a lot, seems really hard to do"
+  "rationale": "A void-and-trump deck with Alchemist's Wand (DU-S02) trumps three times in about half its rounds, and those rounds are usually made, so the +1× is worth about +35 mid-run and +45 late, inside the rare band; it shares Second Strike's (RE-U04) counting phrase but pays a multiplier, not spade rank, and counts no throw-offs (GR-R05)."
 }

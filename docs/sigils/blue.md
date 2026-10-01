@@ -304,7 +304,7 @@ Signature:   before bidding | all players | two random cards each | reveal (publ
 Decision:    Bidding and passing with eight public cards: which cards to pass your partner, which to take from a nil partner, and which opponent's bid to attack.
 Opponent:    Fully symmetric and public, so opponents gain the same information and bid with it.
 AI note:     Treat revealed cards as known in bidding; pass to cover the partner's revealed weak suits and target an opponent whose revealed cards look thin.
-Rationale:   Public reveals feed partner coordination (Kingmaker's passes, Nil Guard's cover) and opponent targeting (Contract Attacker, Swap Meet's trades), and they give RE-C11's revealed-card boost more targets.
+Rationale:   Public reveals feed partner coordination (Kingmaker's passes, Nil Guard's cover) and opponent targeting (Contract Attacker, Swap Meet's trades), and they give RE-U12's revealed-card boost more targets.
 ```
 
 ## Stilled Hurricane

@@ -21,23 +21,22 @@
       "icon": "puzzle"
     }
   ],
-  "text": "Whenever you discard, you may trade a card with your partner.",
-  "timing": "When you discard",
+  "text": "Whenever you throw off a card, you may exchange a card with your partner.",
+  "timing": "When you throw off a card",
   "signature": [
     {
-      "trigger": "you discard",
+      "trigger": "you throw off a card",
       "scope": "team",
-      "target": "one card each",
+      "target": "one card each, each player choosing",
       "effect": "optional exchange with partner",
-      "frequency": "per discard"
+      "frequency": "per throw-off"
     }
   ],
   "archetypes": "Swap Meet; splash Kingmaker, Nil Guard, Discard Dominance",
   "family": "Partner exchange / During play (triggered by discards)",
   "role": "Enabler (feeds every pass payoff)",
-  "decision": "Whether each discard is worth a trade: what to give (junk, or the last card of a suit, which opens a void and sets up more discards) and whether receiving a card might break a void you still need.",
-  "opponent": "The trade is visible between tricks. Opponents can limit it by leading suits you still hold, so you have to follow instead of discarding.",
-  "aiNote": "Trade whenever you own a pass payoff or your partner bid nil. Give your lowest card from a suit you aren't void in, preferring the last card of a suit. The partner gives its highest card if it bid nil, and otherwise its lowest.",
-  "rationale": "It gives Swap Meet a trade engine that doesn't need Traders' Handshake or a trick win: two to four trades a round, each firing both players' pass payoffs (Peddler's Cart, Deserted Island, Swapped Sticker, Merchant's Briefcase, Fair Shuffle, Spinning Globe, Valentine Stamp, Relay Torch). That is about +30 a round with one common payoff and +60 to +80 with an uncommon, rare value from an enabler. Passing the last card of a suit opens a void, which creates more discards and more trades, so the engine feeds itself. Trading with the partner keeps it out of the full opponent-facing budget. It differs from Tossed Paper Plane (TE-C14: one-way, only when this card is discarded), Swapped Suitcases (TE-U02: when this card loses), and the Handshake (after a win, any player).",
-  "notes": "I don't like the \"trade\" wording, is this an \"exchange\"? Like you secretly give them a card and they secretly give you a card? Also the discard wording isn't working for me, how about \"Whenever you throw off a card\"?"
+  "decision": "Whether each throw-off is worth an exchange: what to give (junk, or the last card of a suit, which opens a void and sets up more throw-offs) and whether receiving a card might break a void you still need.",
+  "opponent": "The exchange is shown to the table, but not the cards. Opponents can limit it by leading suits you still hold, so you have to follow instead of throwing off.",
+  "aiNote": "Exchange whenever you own a pass payoff or your partner bid nil. Give your lowest card from a suit you aren't void in, preferring the last card of a suit. The partner gives its highest card if it bid nil, and otherwise its lowest.",
+  "rationale": "It gives Swap Meet a trade engine that doesn't need Traders' Handshake or a trick win: two to four trades a round, each firing both players' pass payoffs (Peddler's Cart, Deserted Island, Swapped Sticker, Merchant's Briefcase, Fair Shuffle, Spinning Globe, Valentine Stamp, Relay Torch). That is about +30 a round with one common payoff and +60 to +80 with an uncommon, rare value from an enabler. Passing the last card of a suit opens a void, which creates more discards and more trades, so the engine feeds itself. Trading with the partner keeps it out of the full opponent-facing budget. It differs from Tossed Paper Plane (TE-C14: one-way, only when this card is discarded), Swapped Suitcases (TE-U02: when this card loses), and the Handshake (after a win, any player)."
 }

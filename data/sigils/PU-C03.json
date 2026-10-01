@@ -20,7 +20,7 @@
       "icon": "eraser"
     }
   ],
-  "text": "Affinity: King. This card loses 6 rank.",
+  "text": "Affinity: Spade. This card loses 6 rank.",
   "timing": "Always on, for the engraved card",
   "signature": [
     {
@@ -34,9 +34,9 @@
   "archetypes": "Nil Champion, Blind Bidder; splash Discard Dominance",
   "family": "Lowering your ranks / Intrinsic",
   "role": "Enabler (feeds Nil)",
-  "decision": "Whether a hand whose king now plays as a seven is a nil, or a contract bid one trick short.",
+  "decision": "Whether a hand whose spade is now six ranks lower is a nil, or a contract bid one trick short.",
   "opponent": "Hidden until played, then an ordinary seven; no loss of agency.",
   "aiNote": "Judge nil and count tricks as if the engraved card were its lowered rank.",
-  "rationale": "A king is present in about 70% of deals and is the second most likely card to break a nil, so the affinity puts the lowering where it matters. Six ranks turns it into a seven, a card that still has to be managed but rarely wins, and in contract rounds it costs about half a trick, which keeps it a cheap common. The disguised king no longer counts for Daring Knight (rank words mean current rank), but it makes those nils safer, and it helps a blind nil already locked by Desperate Gambit or PU-C08.",
-  "deviation": "Slot said a plain intrinsic rank loss (stat stick); the king affinity keeps the loss on a card that matters, so the sigil shapes the nil decision instead of lowering a random, usually harmless card. Revision 1 moved it off aces and away from set-to-two so it no longer reads as Falling Star (BL-C03)."
+  "rationale": "A spade is the hardest card to keep from winning on a nil, since it can't be thrown off safely once spades are led, so the affinity puts the lowering where it matters. Six ranks turns an ace into an eight and a queen into a six, and a low spade becomes a two, so the gain varies from hand to hand. In contract rounds it costs about half a trick at most, which keeps it a cheap common.",
+  "deviation": "Affinity changed from King to Spade, so the lowered card varies from hand to hand."
 }

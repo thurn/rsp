@@ -40,7 +40,7 @@ Every accepted sigil, in acceptance order. Names, icon families, and icon words 
 | RE-C08 | Headsman's Axe | `axe` | axe | axe | Red | Common | 50 | you win a trick with a spade / self / contract / contract value +10 / per trick | 2 |
 | RE-C09 | Relay Torch | `torch` | torch | torch | Red | Common | 45 | you pass cards / self / each card you pass / rank +3 / per card | 2 |
 | RE-C10 | Rising Flame | `fire` | fire | flame | Red | Common | 55 | you win a trick, won previous trick / self / contract / contract value +10 / per trick | 2 |
-| RE-C11 | Shining Medal | `medal` | medal | medal | Red | Common | 45 | always / self / your revealed cards / rank +4 / all | 2 |
+| RE-U12 | Shining Medal | `medal` | medal | medal | Red | Common | 45 | always / self / your revealed cards / rank +4 / all | 2 |
 | RE-C12 | Opening Volley | `volleyball` | volleyball | volley | Red | Common | 50 | always / self / first card you play / rank +4 / once per round | 2 |
 | RE-C13 | Hunter's Crosshair | `crosshair` | crosshair | crosshair | Red | Common | 55 | you win a trick, opponent played ace or king / self / contract / contract value +15 / per trick | 2 |
 | RE-C14 | Rosy Champagne | `champagne` | champagne | champagne | Red | Common | 50 | before bidding / self / two chosen hearts or diamonds / rank +2 / ×2 | 2 |
@@ -134,7 +134,7 @@ Every accepted sigil, in acceptance order. Names, icon families, and icon words 
 | GY-C26 | Muffling Headphones | `headphone` | headphone | headphones | Gray | Common | 45 | when played / all players / aces in this trick / count as twos / this trick | 2 |
 | RE-U01 | Arena's Law | `stadium` | stadium | arena | Red | Uncommon | 70 | always / all players / void players in a trumped trick / must overtrump if able / all tricks | 3 |
 | RE-U02 | Kindled Bonfire | `campfire` | campfire | bonfire | Red | Uncommon | 70 | when played / self / this card (costs a chosen hand card) / rank +6 / ×1 | 3 |
-| RE-U03 | Gentleman's Cricket | `cricket-ball` | cricket-ball | cricket | Red | Uncommon | 65 | you win a trick, every card matched the suit led / self / contract / contract value +10 / per trick | 3 |
+| RE-U03 | Cricket Ball | `cricket-ball` | cricket-ball | cricket | Red | Uncommon | 65 | you win a trick, every card matched the suit led / self / contract / contract value +10 / per trick | 3 |
 | RE-U04 | Second Strike | `bowling-ball` | bowling-ball | strike | Red | Uncommon | 70 | you trump, second time this round / self / your spades / rank +3 / all, rest of round | 3 |
 | RE-U05 | Runner-Up Trophy | `trophy` | trophy | trophy | Red | Uncommon | 65 | scoring, made contract, partner won 2+ more tricks than you / team / contract / multiplier +1× / ×1 | 3 |
 | RE-U06 | Hidden Knife | `knife` | knife | knife | Red | Uncommon | 75 | when played / self / this card / gains rank to beat every earlier card of its suit in the trick / ×1 | 3 |

@@ -20,24 +20,23 @@
       "icon": "tennis-ball"
     }
   ],
-  "text": "Affinity: King. When this card wins a trick, gain contract value equal to the contract value you've gained so far this round, up to +60.",
-  "timing": "When this card wins",
+  "text": "Whenever you gain contract value from another sigil, gain +5 more.",
+  "timing": "Always on, for you",
   "signature": [
     {
-      "trigger": "this card wins (affinity king)",
+      "trigger": "you gain contract value from another sigil",
       "scope": "self",
       "target": "contract",
-      "effect": "contract value equal to your contract value so far this round, max +60",
-      "frequency": "×1"
+      "effect": "contract value +5",
+      "frequency": "per gain"
     }
   ],
   "archetypes": "Bonus Chaser; splash High Card",
   "family": "When played and re-triggers / Repeat (earlier payouts)",
   "role": "Payoff (Contract additive)",
-  "decision": "When to cash the king: hold it until your one-shots have paid and the ace has fallen, against the risk that a late trump or discard takes the trick.",
-  "opponent": "The payout is shown when it resolves; opponents who see a king held late can trump it or keep their ace to beat it.",
-  "aiNote": "Play this king only after the suit's ace is gone and your contract value this round is at least +40, or on the last safe trick.",
-  "rationale": "A late-winning king doubles a Bonus Chaser's round of one-shots (Opening Bell, Golden Ticket, Chasing Rainbows, Crown Jewel) up to the cap, about +20 to +35 expected, more with Regal Summit (RE-C02) turning the king into an ace; the +60 cap keeps a strong-watch archetype from doubling a whole round.",
-  "deviation": "It doubles all contract value you've gained this round rather than re-paying only when-played, when-led, and this-card-wins sigils, because the running total is easier to read than a list of windows, and the King affinity makes the win, and the timing decision, reliable without adding a fourth Ace-affinity \"when this card wins\" sigil.",
-  "notes": "I think a flat modifier to gains of contract value would be easier to understand."
+  "decision": "Shopping: every small contract-value sigil is now worth +5 more each time it pays, so many small triggers beat one big one.",
+  "opponent": "Each extra +5 is shown with the gain it follows.",
+  "aiNote": "Value each contract-value sigil at +5 more per expected trigger when shopping.",
+  "rationale": "A Bonus Chaser round collects five to eight separate contract-value gains (Opening Bell, Golden Ticket, Chasing Rainbows, Crown Jewel, Rebel Graffiti), so this adds about +25 to +40, about +25 EV after failed contracts, inside the rare band. A flat bonus per gain is easier to track than a running total.",
+  "deviation": "Redesigned from a king-affinity payout equal to the round's contract value so far, up to +60, into a flat bonus on each gain."
 }

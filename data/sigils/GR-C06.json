@@ -20,15 +20,15 @@
       "icon": "flower"
     }
   ],
-  "text": "This card gains +1 rank for each other card of its suit anyone has played this round.",
-  "timing": "Always on, for the engraved card",
+  "text": "Whenever anyone plays a card of this card's suit, this card gains +1 rank.",
+  "timing": "Always on, for the engraved card (grows when its suit is played)",
   "signature": [
     {
-      "trigger": "always",
+      "trigger": "anyone plays a card of this card's suit",
       "scope": "self",
       "target": "this card",
-      "effect": "rank +1 per other card of its suit played by anyone",
-      "frequency": "this round"
+      "effect": "rank +1",
+      "frequency": "per card played"
     }
   ],
   "archetypes": "Heart Chorus, Spade Master, While Held, Diamond Flood",

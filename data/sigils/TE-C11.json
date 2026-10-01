@@ -37,6 +37,6 @@
   "decision": "How high to bid beside a nil or low-bidding partner, and winning tricks yourself (covering a nil aggressively) rather than ducking to your partner.",
   "opponent": "Visible on trigger; opponents answer by setting the contract or, against a nil, by leading low through the nil so the guard cannot cover.",
   "aiNote": "When your partner bids nil, 1, or 2, bid your hand plus one and win every trick you can, especially any your nil partner's card might otherwise take.",
-  "rationale": "Nil Guard drifted to round 13 because its common payoffs needed a partner nil; paying beside a partner who bids nil, 1, or 2 fires in about 40% of rounds, where the guard wins about 4 tricks, about +32 EV in those rounds and about +14 averaged over a run; bags from over-winning are the brake, Sentinel Rook (DU-R04) turns the same 1 or 2 into nil, and the price sits at the top of the common band.",
+  "rationale": "Nil Guard drifted to round 13 because its common payoffs needed a partner nil; paying beside a partner who bids nil, 1, or 2 fires in about 40% of rounds, where the guard wins about 4 tricks, about +32 EV in those rounds and about +14 averaged over a run; bags from over-winning are the brake, and the price sits at the top of the common band.",
   "deviation": "Changed from a Partner information enabler (see your nil partner's cards) to a Contract additive payoff at 55 gold, following the wave note that Nil Guard is short on additive payoffs; TE-C03 still covers partner information."
 }

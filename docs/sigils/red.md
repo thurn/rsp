@@ -207,7 +207,7 @@ Rationale:   A trick winner leads the next trick, so streaks come from cashing w
 ## Shining Medal
 
 ```
-Code:        RE-C11
+Code:        RE-U12
 Name:        Shining Medal
 Icon:        medal               (alternates: Proud Rosette / badge, Displayed Award / certification)
 Resonance:   Red
@@ -326,11 +326,11 @@ Rationale:   Spending a card to power up the engraved card is the Support variat
 Deviation:   The extra card is removed from your hand rather than played into the trick beside this card, which needs no new rule for a second card in the trick and keeps the rank change a flat +6 instead of an addition of two ranks.
 ```
 
-## Gentleman's Cricket
+## Cricket Ball
 
 ```
 Code:        RE-U03
-Name:        Gentleman's Cricket
+Name:        Cricket Ball
 Icon:        cricket-ball               (alternates: Clean Tennis Serve / tennis-ball, Fairway Golf / golf-ball)
 Resonance:   Red
 Rarity:      Uncommon (65 gold)

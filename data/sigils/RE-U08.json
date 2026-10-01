@@ -20,24 +20,23 @@
       "icon": "football"
     }
   ],
-  "text": "Whenever you win a trick, gain +5 contract value for each trick your partner has won this round.",
+  "text": "Whenever you win a trick your partner led, gain +20 contract value.",
   "timing": "When you win any trick",
   "signature": [
     {
-      "trigger": "you win a trick",
+      "trigger": "you win a trick your partner led",
       "scope": "self",
       "target": "contract",
-      "effect": "contract value +5 per trick your partner has won",
+      "effect": "contract value +20",
       "frequency": "per trick"
     }
   ],
-  "archetypes": "High Card, Kingmaker",
+  "archetypes": "High Card; splash Kingmaker",
   "family": "Card-bound points / On win (your partner's tricks)",
   "role": "Payoff (Partner contract)",
-  "decision": "In what order the team wins: let your partner take the early tricks and hold your own winners for later, when each one pays for every trick your partner already has.",
-  "opponent": "Visible on each trigger, with the amount shown from public trick counts; opponents can cash their winners early or trump your late winners to keep the payout small.",
-  "aiNote": "When your partner can win a trick, let them; hold your aces and sure winners until your partner has won at least two tricks, unless an opponent may be void in their suit.",
-  "rationale": "A High Card seat that holds its winners late wins about four tricks after its partner has one or two, and a Kingmaker seat wins fewer tricks behind a partner with many more, so both land near +25 at 1× (about +20 EV), the uncommon budget; beside a nil partner it pays nothing, and it counts your partner's tricks, not your own (Aged Cheese, OR-C14).",
-  "deviation": "Trigger moved from \"this card wins\" with an ace affinity to every trick you win, so it no longer opens like Crown Jewel (RE-C07); the per-partner-trick scaling stays, the magnitude drops from +15 to +5 because it can fire several times a round, and Timing moves to When you win any trick.",
-  "notes": "Kinda contradictory goals? Seems maybe not fun."
+  "decision": "Which suits your partner should lead into: your strong suits, so your winners take the tricks they open, rather than overtaking them.",
+  "opponent": "Visible on each trigger; opponents can trump the suits your partner leads.",
+  "aiNote": "When your partner leads, win with your highest card if it beats the cards already played.",
+  "rationale": "Your partner leads about three or four tricks a round and you win about one of them, more when your partner leads into your aces, so it pays about +20 to +30, about +20 EV, the uncommon budget. Both seats pull the same way: your partner leads your strong suits, and you win.",
+  "deviation": "Redesigned from +5 per trick your partner had won, which asked the partner to win early and you to win late."
 }

@@ -20,7 +20,7 @@
       "icon": "path"
     }
   ],
-  "text": "Affinity: Heart. When this card wins a trick, gain +5 contract value for each other heart you've played this round.",
+  "text": "Affinity: Heart. When this card wins a trick, gain +5 contract value for each heart you played earlier this round.",
   "timing": "When this card wins",
   "signature": [
     {

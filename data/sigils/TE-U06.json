@@ -20,23 +20,23 @@
       "icon": "scooter"
     }
   ],
-  "text": "When you play this card, you may raise your partner's bid by one.",
-  "timing": "When played",
+  "text": "When this card wins a trick, you may have it count for your partner instead.",
+  "timing": "When this card wins",
   "signature": [
     {
-      "trigger": "when played",
-      "scope": "partner",
-      "target": "partner's bid",
-      "effect": "optional +1",
-      "frequency": "×1"
+      "trigger": "this card wins a trick",
+      "scope": "team",
+      "target": "the trick",
+      "effect": "may count for your partner",
+      "frequency": "once per round"
     }
   ],
   "archetypes": "Exact Contractor; splash Kingmaker",
   "family": "Bid adjustment / Partner (increase)",
   "role": "Enabler",
-  "decision": "How long to hold this card for information, and whether the team's surplus trick is safe enough to add to your partner's bid.",
-  "opponent": "Visible bid change; a raise makes the contract harder, so opponents can answer by denying the extra trick, and it never rescues a set.",
-  "aiNote": "Hold this card until about trick 8; raise the partner's bid if the team has already taken its contract or is sure of an overtrick, otherwise play it without raising.",
-  "rationale": "Raising the contract by one mid-round turns a sure overtrick into +10 contract value and one fewer bag, lands True Aim and Honest Ruler on an exact count, and sets up a partner's own-bid exact (BL-U06, a partner's Balanced Yin-Yang); a raise is a risk the owner takes, so holding the card late is fair, while decreases stay with Blue behind a cost (BL-U08). Teal adjusts the partner's bid while Blue keeps your own; a nil has no bid to raise, and bids stay at 13 or less. The price drops to 65 because the one-way change is worth less than the old two-way version.",
-  "deviation": "Direction narrowed from raise or lower to raise only, because a free decrease played on the last trick was uncounterable set insurance that overlapped Blue's BL-U08 and BL-U10; price moved from 70 to 65 and the Nil Guard splash dropped, since a nil partner has no bid to raise."
+  "decision": "Whether the team's count is better served by giving this trick to your partner: to land their exact bid, or to keep yours from going over.",
+  "opponent": "Visible on trigger; the trick still goes to your team.",
+  "aiNote": "Give the trick to your partner when you've already taken your bid and they haven't taken theirs; never give it to a nil partner.",
+  "rationale": "Moving one trick between partners lands exact-count payoffs (True Aim, Honest Ruler, Balanced Yin-Yang, Attentive Ear) and Runner-Up Trophy's split without changing anyone's bid. It is a risk-free nudge, but only on the trick this card wins.",
+  "deviation": "Redesigned from raising your partner's bid, because sigils change only their owner's bid."
 }

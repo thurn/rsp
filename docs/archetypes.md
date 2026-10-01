@@ -43,7 +43,8 @@ whether opponents can trump and shows where the danger lies.
 
 **Enablers.**
 
-- Red rank increases and ace and king affinities.
+- Red rank increases, and Red effects that promote the next card once an ace
+  wins.
 - Blue reveals that expose opponents' voids before a winner is led.
 - Blue rule setters that restrict trumping.
 - Blue while-held effects, which reward holding a winner until the led suit is

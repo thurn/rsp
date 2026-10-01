@@ -21,24 +21,23 @@
       "icon": "infinite"
     }
   ],
-  "text": "When your partner bids 1 or 2, you may change their bid to nil.",
-  "timing": "When you bid (your partner's bid, as it is declared)",
+  "text": "Before bidding, swap your three lowest cards for your partner's three highest.",
+  "timing": "Before bidding",
   "signature": [
     {
-      "trigger": "partner bids 1 or 2",
-      "scope": "partner",
-      "target": "partner's bid",
-      "effect": "may change to nil",
-      "frequency": "×1"
+      "trigger": "before bidding",
+      "scope": "team",
+      "target": "your three lowest, partner's three highest",
+      "effect": "fixed swap",
+      "frequency": "once per round"
     }
   ],
   "archetypes": "Nil Guard; splash Nil Champion, Blind Bidder",
-  "family": "Bid adjustment / Partner (to nil)",
+  "family": "Partner exchange / Before bidding",
   "role": "Enabler (creates partner-nil rounds for every Nil Guard payoff)",
-  "decision": "Whether your own hand and protection (Sheltering Castle, Spare Moustache, Shouldered Backpack, high cards to cover with) can carry a nil for a partner who showed a weak hand by bidding low.",
-  "opponent": "The change is public at bid time, so opponents who bid later account for it, and every opponent can attack the new nil by leading low.",
-  "aiNote": "Change the bid when you hold two or more aces or kings to cover with, or own Sheltering Castle or Spare Moustache. Change a bid of 1 more readily than a bid of 2.",
-  "rationale": "Every Nil Guard payoff except Roommates' Apartment needs a partner nil, and a neutral partner rarely bids one. A partner bids 1 or 2 in about a third of rounds, so this roughly triples partner-nil rounds without depending on the partner's nil heuristic. In each one, Sheltering Castle, Shared Blanket, Lifeguard's Buoy, Guarded Lock, Rescuing Ambulance, Shouldered Backpack, and Half-Lit Menorah (a solo contract of 4 or less) can all fire. A converted nil is worth about +50 at a 75% success rate, against the 10–20 contract points given up, before any of those payoffs. The change resolves when the partner bids, before the after-bidding window, so Sheltering Castle and Spare Moustache see the nil whatever their timestamp. It is the first sigil that turns a bid into nil. Rerouted Bus (TE-U06) and Bold Stance (RE-U10) only move a bid by one.",
-  "deviation": "The slot suggested Losing tricks or Nil value, \"When you lose any trick\", and a rule setter. I moved it to Bid adjustment in the bid window because paying in non-nil rounds would duplicate Tidying Broom (PU-C12) or split Nil Guard from its plan. Creating the partner nil makes all of its existing payoffs fire in the rounds that lacked one. The opening \"When your partner bids\" adapts \"When you bid\" the way Flickering Television adapts it for the blind nil decision.",
-  "notes": "Don't like this design space, leave other player's bids alone."
+  "decision": "How to bid a hand that now holds your partner's best cards, and whether your stronger hand can cover a partner who is now weak enough to bid nil.",
+  "opponent": "The swap is shown to the table before anyone bids, so opponents bid knowing your team's strength has moved to one seat.",
+  "aiNote": "Bid the strengthened hand normally. The partner bids from its weakened hand, so it bids nil whenever its nil heuristic allows.",
+  "rationale": "Every Nil Guard payoff except Roommates' Apartment needs a partner nil, and a neutral partner rarely bids one. Moving the partner's three highest cards to you before bidding makes a nil hand out of an average one, so the partner bids nil far more often on its own judgment, and your hand now holds the high cards that cover it. In those rounds Sheltering Castle, Shared Blanket, Lifeguard's Buoy, Guarded Lock, Rescuing Ambulance, Shouldered Backpack, and Half-Lit Menorah can all fire. In rounds without a nil, the team's strength sits in one seat, which suits Kingmaker and High Card splashes. It differs from Sheltering Castle (DU-S15: two cards, after bidding, only on a partner nil).",
+  "deviation": "Redesigned from changing the partner's bid to nil, because sigils change only their owner's bid. It now creates partner nils by weakening the partner's hand before bidding."
 }

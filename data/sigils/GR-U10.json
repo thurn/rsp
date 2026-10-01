@@ -20,8 +20,8 @@
       "icon": "carrot"
     }
   ],
-  "text": "When you discard this card, convert the other cards of its suit in your hand to spades.",
-  "timing": "When you discard (card-bound)",
+  "text": "When you throw off this card, convert the other cards of its suit in your hand to spades.",
+  "timing": "When you throw off a card (card-bound)",
   "signature": [
     {
       "trigger": "you discard this card",

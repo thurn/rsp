@@ -20,22 +20,23 @@
       "icon": "alarm"
     }
   ],
-  "text": "Affinity: Ace. When this card wins a trick, you may take a bag to gain +25 gold.",
-  "timing": "When this card wins",
+  "text": "Whenever you win a trick after you've taken your bid, gain +20 gold.",
+  "timing": "When you win any trick",
   "signature": [
     {
-      "trigger": "this card wins",
+      "trigger": "you win a trick after taking your bid",
       "scope": "self",
-      "target": "your team's bags",
-      "effect": "take a bag, gain +25 gold",
-      "frequency": "×1"
+      "target": "gold",
+      "effect": "+20 gold",
+      "frequency": "per trick"
     }
   ],
   "archetypes": "Contract Attacker, Spade Master, High Card; splash Gold Miner",
   "family": "Costs / Bags",
   "role": "Payoff: Economy",
-  "decision": "Bag or no bag: early the gold is worth far more than a 10-point bag; late, the bag costs more than the gold can buy.",
+  "decision": "Whether an overtrick is worth its bag: early the gold buys more than a bag costs; late, the bag costs more than the gold can buy.",
   "opponent": "Visible; the bag counts toward your team's penalty.",
-  "aiNote": "Take the bag through round 8 unless the team holds eight or more bags.",
-  "rationale": "The affinity places it on an ace in about 70% of hands, so it pays about 17 gold a round early, the common economy rate, and its value falls off naturally late."
+  "aiNote": "Take overtricks freely while your team has fewer than five bags.",
+  "rationale": "A strong seat takes about one overtrick a round, so it pays about 15 to 20 gold a round, the common economy rate, and the bags it invites make it weaker late.",
+  "deviation": "Redesigned from an ace-affinity optional bag for gold, so it pays on any overtrick instead of on a fixed card."
 }

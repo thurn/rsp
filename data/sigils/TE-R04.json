@@ -20,15 +20,15 @@
       "icon": "hail"
     }
   ],
-  "text": "Up to twice per round, when you lose a trick after taking your bid, you may swap your highest card for your partner's lowest card.",
+  "text": "Whenever you lose a trick after taking your bid, you may swap your highest card for your partner's lowest card.",
   "timing": "When you lose any trick",
   "signature": [
     {
-      "trigger": "you lose a trick, own bid already taken",
+      "trigger": "you lose a trick after taking your bid",
       "scope": "team",
-      "target": "your highest card and partner's lowest",
-      "effect": "optional swap",
-      "frequency": "max 2 per round"
+      "target": "your highest, partner's lowest",
+      "effect": "optional fixed swap",
+      "frequency": "per trick"
     }
   ],
   "archetypes": "Exact Contractor; splash Kingmaker, Swap Meet",
@@ -37,5 +37,5 @@
   "decision": "Whether to hand a winner you can't afford to your partner now, weighing whether they still need tricks or would take an overtrick.",
   "opponent": "Each swap is shown; opponents see a winner move across the table and can plan to trump or duck it.",
   "aiNote": "Swap when your partner is below their own bid, or when your highest card would otherwise win a trick you don't need.",
-  "rationale": "Reaching your bid is when Exact Contractor starts ducking, and this sends the card that would break the count to the seat that still needs a trick, raising the rate of True Aim, Balanced Yin-Yang, and Guarded Lock; the cards are fixed (highest for lowest) so the only choice is whether, which the AI handles; it depends on neither this card losing (Swapped Suitcases) nor a nil partner (Shouldered Backpack), and each swap counts as a pass, so Fair Shuffle pays at most twice (+40)."
+  "rationale": "Reaching your bid is when Exact Contractor starts ducking, and this sends the card that would break the count to the seat that still needs a trick, raising the rate of True Aim, Balanced Yin-Yang, and Guarded Lock; the cards are fixed (highest for lowest) so the only choice is whether, which the AI handles; it depends on neither this card losing (Swapped Suitcases) nor a nil partner (Shouldered Backpack). Once your partner has what they need, further swaps only make bags, which limits it in place of a per-round cap."
 }

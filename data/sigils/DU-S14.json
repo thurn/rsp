@@ -21,23 +21,23 @@
       "icon": "rocket"
     }
   ],
-  "text": "When you bid nil, gain +15 nil value for each face card or ace in your hand.",
-  "timing": "When you bid",
+  "text": "Whenever one of your cards loses rank, gain +15 nil value.",
+  "timing": "Always on, for you",
   "signature": [
     {
-      "trigger": "when you bid nil",
+      "trigger": "a card in your hand loses rank",
       "scope": "self",
-      "target": "face cards and aces in hand",
-      "effect": "nil value +15 each",
-      "frequency": "per card"
+      "target": "nil",
+      "effect": "nil value +15",
+      "frequency": "per card lowered"
     }
   ],
   "archetypes": "Nil Champion; splash Discard Dominance, Nil Guard",
   "family": "Nil value / Additive (scaled by risk)",
   "role": "Payoff (Nil)",
-  "decision": "Whether a hand with three or four high cards is a daring nil, counting on lowering and passes after bidding.",
-  "opponent": "The count is shown when you bid, so opponents know the nil is dangerous and can attack it.",
-  "aiNote": "Bid nil with up to four high cards if you own an after-bidding lowering or passing sigil; otherwise at most two.",
-  "rationale": "Rewards the archetype's signature gamble (bid nil, then lower your own cards with PU-C01 or PU-C03): a three-high-card nil pays +45. Its Scaling label means value that rises with the hand's danger, like the skeleton's Gold Miner example. A blind nil counts nothing, because it is declared before the hand exists.",
-  "notes": "Feels bad, since the whole premise of your deck is to remove high cards "
+  "decision": "Whether to spend rank-lowering effects (Waning Moon, Pauper's Disguise, Thrown Towel, Spare Moustache) on a hand you might bid nil, since each lowered card makes the nil both safer and richer.",
+  "opponent": "Each trigger is shown. Opponents who lower your cards add to your nil value too.",
+  "aiNote": "Treat each lowered card as +15 toward a nil bid; prefer lowering your highest cards.",
+  "rationale": "It pays for the archetype's signature move, lowering your own high cards, instead of punishing it. A Nil Champion seat lowers two to four cards a round (Waning Moon alone lowers two), so a nil gains +30 to +60 nil value, about +15 EV at a 50% nil rate and 75% success. Nil value pays only on a successful nil, so lowering cards in contract rounds pays nothing.",
+  "deviation": "Redesigned from +15 nil value per face card or ace held when bidding nil, which punished a deck built to remove its high cards."
 }

@@ -20,22 +20,23 @@
       "icon": "self-care"
     }
   ],
-  "text": "Affinity: King. When this card wins a trick, if you own sigils of six or more resonances, gain +1× contract multiplier.",
-  "timing": "When this card wins",
+  "text": "If you own sigils of six or more resonances, gain +1× contract multiplier.",
+  "timing": "Conditional scoring",
   "signature": [
     {
-      "trigger": "this card wins, own 6+ resonances",
+      "trigger": "scoring, six or more resonances owned",
       "scope": "self",
       "target": "contract",
-      "effect": "multiplier +1×",
-      "frequency": "×1"
+      "effect": "+1× contract multiplier",
+      "frequency": "once per round"
     }
   ],
-  "archetypes": "High Card, While Held, Exact Contractor, Bonus Chaser; any splashing collection",
+  "archetypes": "Any splashing collection",
   "family": "Resonance synergy / Breadth (card-bound)",
   "role": "Payoff: Contract multiplier",
-  "decision": "Shopping: chase a sixth resonance through splashes and signposts; in play, clear the way for the king (draw the ace, or lead it once the ace is gone).",
+  "decision": "Shopping: chase a sixth resonance through splashes and signposts, even at the cost of a stronger card in your main colors.",
   "opponent": "Visible when it triggers; opponents can hold their ace to capture the king.",
-  "aiNote": "Until six resonances are owned, add 20 points of value to an offer of a new resonance; in play, lead or follow with the king once its suit's ace has fallen.",
-  "rationale": "A king wins about half the time, so once six resonances are owned it is worth about +50 late, applying win or lose; the king affinity keeps it below an ace's reliability and apart from Bottled Lightning's ace, and six stays above Artist's Palette's five."
+  "aiNote": "Value any sigil of a new resonance highly once you own four or five.",
+  "rationale": "Owning six resonances takes most of a run and costs focus in the main archetype, so it arrives late and applies win or lose, about +50 a round once met; six stays above Artist's Palette's five.",
+  "deviation": "Removed the king affinity and win trigger, so the condition is the whole design."
 }

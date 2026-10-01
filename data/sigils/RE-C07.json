@@ -11,23 +11,23 @@
   "iconFamily": "crown",
   "iconWord": "crown",
   "iconAlternates": [],
-  "text": "Affinity: Ace. When this card wins a trick, gain +20 contract value.",
+  "text": "Affinity: Spade. When this card wins a trick, gain +25 contract value.",
   "timing": "When this card wins",
   "signature": [
     {
-      "trigger": "this card wins",
+      "trigger": "this card wins a trick",
       "scope": "self",
       "target": "contract",
-      "effect": "contract value +20",
-      "frequency": "×1"
+      "effect": "contract value +25",
+      "frequency": "once per round"
     }
   ],
-  "archetypes": "High Card; splash Bonus Chaser, Spade Master",
+  "archetypes": "Spade Master; splash High Card, Bonus Chaser",
   "family": "Win triggers / This card",
   "role": "Payoff (Contract additive)",
-  "decision": "When to cash the ace safely, before opponents are void.",
+  "decision": "When to cash the spade: a high spade wins once its suit is safe, and a low one waits for a void to trump into.",
   "opponent": "Visible on trigger; opponents can trump the ace to deny it.",
   "aiNote": "Lead the engraved ace early in a suit opponents still hold.",
-  "rationale": "About 10 expected points per round on an ace.",
-  "notes": "I think affinity is more fun if it's not literally just \"it goes on an ace\", more variance ideally"
+  "rationale": "A random spade wins about 45% of the time, so this is about 9 expected points per round, with a wide spread: an ace of spades nearly always pays, and a low spade pays only if you open a void to trump with it.",
+  "deviation": "Affinity changed from Ace to Spade, so the engraved card varies from hand to hand and the decision of how to make it win varies with it."
 }

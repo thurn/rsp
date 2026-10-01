@@ -20,15 +20,15 @@
       "icon": "seal"
     }
   ],
-  "text": "Your nil value is doubled, adding at most +150.",
+  "text": "Your nil value is doubled.",
   "timing": "Always on, for you",
   "signature": [
     {
       "trigger": "always",
       "scope": "self",
-      "target": "your nil value",
-      "effect": "×2, at most +150 extra",
-      "frequency": "×1"
+      "target": "nil value",
+      "effect": "doubled",
+      "frequency": "all"
     }
   ],
   "archetypes": "Nil Champion, Blind Bidder",
@@ -37,5 +37,5 @@
   "decision": "Shopping: every nil-value sigil is now worth double, so the build pivots toward Vigil Candle, Daring Knight, and the losing-trick nil payoffs; in play, it raises the reward for bidding nil on a marginal hand.",
   "opponent": "Visible at scoring; opponents answer by attacking the nil as usual, and a failed nil loses nothing extra.",
   "aiNote": "Count nil value twice (up to +150) when weighing a nil bid.",
-  "rationale": "A late nil collection holds +50 to +90 of nil value, so this adds that much again on each successful nil, about +25 to +45 a round at a 60% nil rate and 80% success; the cap stops a four-face-card Daring Knight nil with Vigil Candle from adding +200 or more, and nil value ignores contract multipliers, so this is the nil deck's only multiplier."
+  "rationale": "A late nil collection holds +50 to +90 of nil value, so this adds that much again on each successful nil, about +25 to +45 a round at a 60% nil rate and 80% success; nil value ignores contract multipliers, so this is the nil deck's only multiplier."
 }

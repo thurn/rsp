@@ -34,8 +34,8 @@
   "archetypes": "Nil Champion, Discard Dominance; splash Contract Attacker",
   "family": "Reversing rank order / Asymmetry",
   "role": "Enabler; rule setter",
-  "decision": "Bidding clubs upside down: high clubs become safe losers for a nil (and still count for Daring Knight), and low clubs become winners worth bidding or leading.",
+  "decision": "Bidding clubs upside down: high clubs become safe losers for a nil, and low clubs become winners worth bidding or leading.",
   "opponent": "A global rule shown before bidding, so everyone bids with it; opponents answer by keeping their low clubs as winners or trumping club leads.",
   "aiNote": "Count clubs of rank 6 or lower as winners and clubs of rank 10 or higher as safe; on nil, follow club leads with your highest club.",
-  "rationale": "One suit plays reversed while the other three play normally, which keeps rounds readable and adds a global rule setter where the pool is short. Trumps still beat clubs and ties still go to the later card, as the core rules state. The owner gains by building around it: a Nil Champion keeps high clubs as dangerous-looking but safe cards that Daring Knight pays for, and a Discard Dominance hand wins club tricks with twos and threes when it needs a trick without spending its high cards. Self-lowering on a club now makes it stronger, a tension the owner has to manage."
+  "rationale": "One suit plays reversed while the other three play normally, which keeps rounds readable and adds a global rule setter where the pool is short. Trumps still beat clubs and ties still go to the later card, as the core rules state. The owner gains by building around it: a Nil Champion keeps high clubs as dangerous-looking but safe cards, and a Discard Dominance hand wins club tricks with twos and threes when it needs a trick without spending its high cards. Self-lowering on a club now makes it stronger, a tension the owner has to manage."
 }

@@ -20,23 +20,23 @@
       "icon": "future"
     }
   ],
-  "text": "Once per round, when your only cards of the suit led have sigils, you may play a card of another suit.",
+  "text": "When your only cards of the suit led have sigils, you may play a card of another suit.",
   "timing": "Always on, for you",
   "signature": [
     {
-      "trigger": "always, once per round",
+      "trigger": "your only cards of the suit led have sigils",
       "scope": "self",
-      "target": "your follow-suit obligation when only sigil cards can follow",
-      "effect": "may play another suit",
-      "frequency": "×1"
+      "target": "your play",
+      "effect": "may play off suit",
+      "frequency": "per trick"
     }
   ],
   "archetypes": "While Held, Gold Miner; splash Nil Champion",
   "family": "While held / Holding support",
   "role": "Enabler",
-  "decision": "Which forced-out sigil card to save with the one escape, and whether to discard or trump with it.",
+  "decision": "Whether to save a forced-out sigil card by playing off suit, and whether to throw off or trump with the escape.",
   "opponent": "Visible when used; opponents who lead a held card's suit twice still force it out.",
   "aiNote": "Use it the first time a Patient Hourglass, Nest Egg, or aura card would be forced out; otherwise save it.",
-  "rationale": "Protects any held sigil card once, pushing Patient Hourglass (DU-S10) from about 45% toward 60%, which the scoring notes already allow for; unlike BL-U05 it protects any card once rather than one card always.",
+  "rationale": "Protects held sigil cards, pushing Patient Hourglass (DU-S10) from about 45% toward 60%, which the scoring notes already allow for; it fires only when every card you hold of the suit led has a sigil, which is uncommon, so it needs no per-round limit.",
   "deviation": "Timing moved from Always on, for the engraved card to Always on, for you, because a card carries only one engraving, so a sigil that shields its own card shields nothing."
 }

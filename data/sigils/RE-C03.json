@@ -20,23 +20,23 @@
       "icon": "siren"
     }
   ],
-  "text": "Once per round, when you lose a trick, you may lead the next trick.",
-  "timing": "When you lose any trick",
+  "text": "When this card loses a trick, you may lead the next trick.",
+  "timing": "When this card loses",
   "signature": [
     {
-      "trigger": "you lose a trick",
+      "trigger": "this card loses a trick",
       "scope": "self",
       "target": "next trick",
       "effect": "may take the lead",
-      "frequency": "once per round"
+      "frequency": "once per round (card-bound)"
     }
   ],
   "archetypes": "Bonus Chaser, Spade Master, Contract Attacker, High Card",
   "family": "Lead control / Steal",
   "role": "Enabler",
-  "decision": "Which lost trick to spend it on: take the lead to cash your aces, lead the Chasing Rainbows card, or set up a ruff, rather than using it at the first chance.",
-  "opponent": "Visible on trigger; the trick winner keeps the trick but loses the lead, and opponents can still plan around a known leader.",
-  "aiNote": "Use it after losing a trick to an opponent when you hold a top card or the Chasing Rainbows card to lead; decline when your partner won and should keep leading.",
-  "rationale": "One chosen lead a round is worth about a quarter of a trick, and the once-per-round cap keeps a strong effect at common with one counter and one choice, where an uncapped steal would fire about ten times a round.",
-  "notes": "This is a secret activated ability, which isn't allowed."
+  "decision": "Which trick to lose with this card: throw it under an opponent's winner when you hold aces to cash or a ruff to set up.",
+  "opponent": "Visible on trigger; the trick winner keeps the trick but loses the lead.",
+  "aiNote": "Play this card as a loser when you hold a top card to lead next; decline the lead when your partner won.",
+  "rationale": "One chosen lead a round is worth about a quarter of a trick. Tying it to this card keeps it to about once a round and makes the decision which trick to lose with it.",
+  "deviation": "Changed from a once-per-round option on any lost trick, which played as an activated ability, to a trigger on this card losing."
 }

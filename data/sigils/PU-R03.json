@@ -20,8 +20,8 @@
       "icon": "scribble"
     }
   ],
-  "text": "Whenever you discard a club, you gain twice as much contract value from your other sigils for that discard.",
-  "timing": "When you discard",
+  "text": "Whenever you throw off a club, you gain twice as much contract value from your other sigils for that throw-off.",
+  "timing": "When you throw off a card",
   "signature": [
     {
       "trigger": "you discard a club",

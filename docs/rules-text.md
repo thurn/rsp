@@ -12,6 +12,22 @@ reference for clarity.
   sentences.
 - **Ongoing or triggered.** Every sigil is always on, or it triggers at a
   moment the text names. Choices happen inside a trigger, as in "you may."
+  A trigger fires every time its moment comes; a sigil that should fire
+  rarely ties itself to a narrow moment, such as "when this card loses a
+  trick" or "the first time each round."
+- **Growth as a trigger.** Rank or value that builds over a round is written as
+  the trigger that builds it: "Whenever you play a heart, your hearts gain +1
+  rank." A threshold that builds over a round opens with "Each round, once
+  …": "Each round, once you've trumped twice, your spades gain +3 rank."
+- **Set ranks plainly.** An effect that turns one rank into another says
+  "become": "Your kings become aces."
+- **Flat modifiers.** An effect that adds to other gains adds a flat amount to
+  each one: "Whenever you gain contract value from another sigil, gain +5
+  more."
+- **Caps where they bind.** A cap appears only when ordinary play reaches it.
+- **"Other" fits every card.** "Other" and "earlier" phrases read correctly
+  whichever card the sigil is engraved on: "each diamond you played earlier
+  this round."
 - **When, then what.** A triggered effect opens with when it happens, then says
   what happens: "When this card wins a trick, gain +20 contract value."
 - **Gain with a sign.** Increases use "gain" and a signed number: "gain +20
@@ -29,6 +45,11 @@ reference for clarity.
 - **Readable alone.** A player reading only the text knows when it happens,
   which cards or players it affects, who picks them, and what changes. The
   text says "chosen" when the player picks and "random" when nobody does.
+- **Bids belong to their bidders.** A sigil changes only its owner's own bid.
+- **Exchanges are between partners.** An exchange, where each player picks
+  the card they give, happens between you and your partner.
+- **Scores say points.** Comparisons of the two teams' scores say "behind on
+  points" or "ahead on points."
 - **Defaults stay unwritten.** The conventions below cover edge cases, how long
   effects last, and how scoring works, so the text states only what differs.
 
@@ -92,7 +113,7 @@ rules.
 | When you lose any trick | "Whenever you lose a trick, …" |
 | When your partner wins a trick | "Whenever your partner wins a trick, …" |
 | When you play another suit | "Whenever you play a card that doesn't match the suit led, …" |
-| When you discard | "Whenever you discard, …" |
+| When you throw off a card | "Whenever you throw off a card, …" |
 | When you pass cards | "Whenever you pass cards, …" |
 | When this card is passed to you | "When this card is passed to you, …" |
 | Conditional scoring | "If your team makes its contract exactly, …" |
@@ -103,10 +124,10 @@ rules.
 "This card" always means the card the sigil is engraved on. "Whenever you"
 triggers watch every trick you play, whichever card you play.
 
-**Discard** has its Spades meaning: play a card that neither follows the suit
-led nor is trump. "A card that doesn't match the suit led" includes trumps. A
-card leaving a hand without being played is described in plain words, such as
-"remove a card from your hand."
+**Throw off** means play a card that neither follows the suit led nor is
+trump. "A card that doesn't match the suit led" includes trumps. A card leaving
+a hand without being played is described in plain words, such as "remove a
+card from your hand."
 
 ## Terms
 
@@ -119,9 +140,11 @@ These are the game's own terms, beyond standard Spades vocabulary.
 | **contract multiplier** | Written `+1×`, always a whole number. Multiplies your team's contract, win or lose. |
 | **nil value** | Points added to your nil bid, paid only if the nil succeeds. Contract multipliers never apply to it. |
 | **convert** | Change a card's suit. |
-| **pass** | Give cards from your hand to another player when an effect allows it. A swap or trade counts as passing for both players. |
+| **pass** | Give cards from your hand to another player when an effect allows it. An exchange or swap counts as passing for both players. |
+| **exchange** | You and your partner each secretly choose a card from your hand, then give them to each other at the same time. "Exchange two cards" moves two cards each way. |
+| **swap** | Move the specific cards the text names between two hands, such as "swap your highest card for your partner's lowest card." |
 | **reveal** | Show a card in your hand to every player. It stays in your hand and stays revealed for the round; playing a card does not reveal it. |
-| **discard** | Play a card that neither follows the suit led nor is trump. Trumping is not discarding. |
+| **throw off** | Play a card that neither follows the suit led nor is trump. Trumping is not throwing off. |
 | **longest suit, shortest suit** | Counted in your hand when the effect happens. Used rarely; most sigils name a suit. |
 | **team** | You and your partner. |
 | **gold** | Your personal currency for the shop. |
@@ -130,7 +153,7 @@ These are the game's own terms, beyond standard Spades vocabulary.
 | **resonance** | A sigil's color: Red, Orange, Green, Blue, Teal, Purple, or Gray. "Gray sigils" means sigils of that resonance. |
 | **new card** | A card created by an effect rather than taken from any hand. It is removed after the round. |
 | **beside** | Next to a card in your hand's dealt order. Rearranging your hand doesn't change which cards are beside each other. |
-| **affinity** | The rank or suit a sigil prefers to be engraved on. |
+| **affinity** | The suit, or rank below ace, a sigil prefers to be engraved on. |
 
 Any other invented term is added here before it appears in rules text.
 
@@ -144,13 +167,13 @@ Any other invented term is added here before it appears in rules text.
   names another place. A card you play still counts as yours until its trick
   ends. The text says who picks them: "two chosen cards" or "two random
   cards."
-- **Passing and trading:** in any pass, swap, or trade, each player picks
-  the card they give, and nobody sees the other hand. A swap or trade
-  counts as passing cards for both players. Taking a card from a completed
+- **Passing and exchanging:** in a pass or exchange, each player picks the
+  card they give, and nobody sees the other hand. A swap moves the cards the
+  text names. An exchange or swap counts as passing cards for both players. Taking a card from a completed
   trick is not passing, and moving cards never changes a completed trick's
   result.
 - **Your bid** means a positive bid; a nil bidder has no bid to make.
-- **Behind** and **ahead** compare the two teams' scores.
+- **Behind on points** and **ahead on points** compare the two teams' scores.
 - **Losing a trick:** you lose every trick someone else wins, including your
   partner.
 - **Rank words** such as "face card," "ace," or "two" mean a card's current
@@ -195,10 +218,10 @@ These examples are real sigils in the pool. Wave 0 of the design process in
 | 1 | Honed Edge | `sword` | Red · Common | This card gains +3 rank. |
 | 2 | Verdant Banner | `flag` | Green · Common | While this card is in your hand, your hearts gain +2 rank. |
 | 3 | Nest Egg | `egg` | Orange · Common | While this card is in your hand, gain +5 gold after each trick. |
-| 4 | Crown Jewel | `crown` | Red · Common | **Affinity: Ace.** When this card wins a trick, gain +20 contract value. |
+| 4 | Crown Jewel | `crown` | Red · Common | **Affinity: Spade.** When this card wins a trick, gain +25 contract value. |
 | 5 | Graceful Exit | `door-open` | Purple · Common | Whenever you lose a trick you played a face card to, gain +10 contract value. |
 | 6 | Turning Tide | `water` | Green · Common | Before bidding, convert two chosen cards in your hand to diamonds. |
-| 7 | Open Hand | `hand` | Teal · Common | After bidding, you and your partner each pass a card to each other. |
+| 7 | Open Hand | `hand` | Teal · Common | After bidding, exchange a card with your partner. |
 | 8 | True Aim | `target` | Blue · Rare | If your team makes its contract exactly, gain +1× contract multiplier. |
 | 9 | Vigil Candle | `candlestick` | Purple · Common | Gain +30 nil value. |
 | 10 | Sinking Anchor | `anchor` | Purple · Uncommon | After bidding, each opponent's highest card loses 4 rank. |
@@ -239,14 +262,16 @@ at this game's scale.
 
 ### 4. Crown Jewel: when this card wins
 
-`Affinity: Ace. When this card wins a trick, gain +20 contract value.`
+`Affinity: Spade. When this card wins a trick, gain +25 contract value.`
 
 The bonus is paid only if your team makes its contract, and it is multiplied by
 any contract multipliers.
 
-**Balance:** about 10 expected points per round. The affinity places it on an
-ace in the roughly 70% of hands that hold one, where it wins most of the time.
-Without the affinity, it would sit on a random card and earn about 4 points.
+**Balance:** about 9 expected points per round. The affinity places it on a
+random spade, which wins about 45% of the time: an ace of spades nearly always
+pays, and a low spade pays when you open a void to trump with it. Affinities
+name a suit or a rank below ace, so the engraved card varies from hand to hand
+and so does the plan for making it win.
 
 ### 5. Graceful Exit: losing with a face card
 
@@ -270,11 +295,11 @@ Everyone bids after the change.
 suit and can open a void elsewhere, and everyone bids knowing the result, so it
 shapes a hand without guaranteeing tricks.
 
-### 7. Open Hand: passing cards
+### 7. Open Hand: exchanging cards
 
-`After bidding, you and your partner each pass a card to each other.`
+`After bidding, exchange a card with your partner.`
 
-Each of you chooses which card to give. Sigils travel with the cards they are
+Each of you secretly chooses which card to give. Sigils travel with the cards they are
 engraved on.
 
 **Balance:** an enabler. A post-bid exchange is especially strong for nil,

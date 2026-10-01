@@ -37,5 +37,5 @@
   "decision": "On a nil, whether to keep a dangerous high card for later ducks or shed it early while it is safe.",
   "opponent": "Visible each time it triggers, which tells opponents you still hold a winner in that suit, so they can lead it again to force it out.",
   "aiNote": "On nil, follow with your highest card that still loses, keeping cards above it; shed a held winner only when it can no longer lose safely.",
-  "rationale": "\"Could have won\" means you still hold a legal card that beats the card that won; a nil hand ducks under its own higher cards about four to six times a round, about +25 on a successful nil, near Vigil Candle, and more on Daring Knight's (DU-S14) high-card nils, which is the risk it rewards."
+  "rationale": "\"Could have won\" means you still hold a legal card that beats the card that won; a nil hand ducks under its own higher cards about four to six times a round, about +25 on a successful nil, near Vigil Candle, which is the risk it rewards."
 }

@@ -16,7 +16,7 @@
       "icon": "baguette"
     }
   ],
-  "text": "If you discard two or more cards this round, gain +30 contract value.",
+  "text": "If you throw off two or more cards this round, gain +30 contract value.",
   "timing": "Conditional scoring",
   "signature": [
     {

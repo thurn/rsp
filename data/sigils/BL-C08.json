@@ -20,15 +20,15 @@
       "icon": "note-book"
     }
   ],
-  "text": "When you bid, gain +10 contract value for every 100 gold you have, up to +30.",
+  "text": "When you bid, gain +10 contract value for every 100 gold you have.",
   "timing": "When you bid",
   "signature": [
     {
-      "trigger": "when you bid",
+      "trigger": "you bid",
       "scope": "self",
-      "target": "your gold",
-      "effect": "contract value +10 per 100 gold, max +30",
-      "frequency": "×1"
+      "target": "contract",
+      "effect": "contract value +10 per 100 gold",
+      "frequency": "once per round"
     }
   ],
   "archetypes": "Gold Miner; splash While Held",
@@ -37,5 +37,5 @@
   "decision": "At every shop, whether a purchase is worth dropping below the next 100 gold.",
   "opponent": "Visible when you bid; opponents can respond only by setting the contract.",
   "aiNote": "Skip a purchase that would drop you below a 100-gold step unless it is uncommon or better.",
-  "rationale": "About +20 at 200–250 gold and the +30 cap at 300, slightly above the common budget because Gold Miner is on the thin list; the cap keeps it from stacking too far with Pharaoh's Pyramid, and gold is counted before the round's income."
+  "rationale": "About +20 at 200–250 gold, slightly above the common budget because Gold Miner is on the thin list; holding more gold means skipping purchases, which limits it in place of a cap, and gold is counted before the round's income."
 }

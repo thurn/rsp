@@ -16,7 +16,7 @@
       "icon": "football"
     }
   ],
-  "text": "Once your partner has won two tricks with cards you passed them this round, gain +1× contract multiplier.",
+  "text": "Each round, once your partner has won two tricks with cards you passed them, gain +1× contract multiplier.",
   "timing": "When your partner wins a trick",
   "signature": [
     {

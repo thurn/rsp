@@ -480,7 +480,12 @@ Every candidate answers these questions in writing.
   A sigil that changes no decision is a **stat stick**; stat sticks are
   limited to 20% of commons and appear rarely above common.
 - Does it create a memorable moment when it works?
-- Does it reward the archetype's plan rather than play on autopilot?
+- Does it reward the archetype's plan rather than play on autopilot? A
+  payoff counts what the plan produces, such as lowered cards for a nil deck,
+  and every condition it asks for pulls both partners the same way.
+- Does it work from its own text? A common triggers in ordinary play or from
+  a mechanic many sigils share; a sigil that needs a rare mechanic supplies it
+  itself.
 
 **Fun to play against**
 
