@@ -155,6 +155,27 @@ Recorded for later:
 - The plain missed-cover baseline is 0 of 35, so the "≤ 50% of baseline" target in Part 3 holds only at zero.
 - `--all-sigils --min-per-sigil 1 --human 0 --iterations 100` covered all 250 sigils in 8 games with no errors, runaway drains, or stalls, and logged 247 `manual` lines from the 32 sigils still manual.
 
+### AI step results
+
+Single 200-round runs are too noisy to compare AI changes: two runs of nearly the same code differed by 4.5 points of plain set rate and 15 points of nil success. Each step is compared on seeds 1, 2, and 3 (600 rounds, `--iterations 1500`), run in parallel and summed. The reference is current master before the step; with all 250 sigils automated, the `--random-sigils 8` pool is larger than at the baseline above, so its numbers differ. `--random-sigils 8` stays noisy even at 600 rounds (±4 points of set rate between equivalent runs), because strong sigil draws swing whole games.
+
+| Metric (3 seeds, 600 rounds) | Master before hv-frfo.4 | hv-frfo.4 |
+| --- | --- | --- |
+| Plain set rate | 27.4% (329/1,200) | 25.6% (307/1,200) |
+| Plain mean \|bid − tricks\| | 0.81 | 0.84 |
+| Plain nil success | 66.1% (117/177) | 67.4% (124/184) |
+| Plain blind nil success | 19.4% (33/170) | 17.4% (31/178) |
+| Plain wasted overtakes | 6.6% (255/3,856) | 6.2% (243/3,946) |
+| Plain missed nil covers | 0/112 | 2/115 |
+| Plain nil suicides | 1.3% (38/2,852) | 1.8% (54/2,988) |
+| Random-8 set rate | 49.8% (598/1,200) | 53.1% (637/1,200) |
+| Random-8 set rate, multiplier > 1× | 49.4% (172/348) | 48.6% (161/331) |
+| Random-8 nil success | 65.6% (124/189) | 65.8% (131/199) |
+| Health (`console.error`, runaway drains, stalls) | 0 | 0 |
+
+- hv-frfo.4 (3a): views strip engravings the seat can't see (`visibleState` in `src/ai/view.ts`), list known cards (revealed, `knownTo`), and pin them in each deal. Card play samples 512 deals and keeps the 64 that best fit the other seats' bids; bidding keeps 160, one per sample, because a 64-deal pool made nil odds coarse and cut nil success by 6 points. Blind nil bids don't count toward the fit, since they were bid unseen; counting them halved blind nil success.
+- The random-8 set rate rise is inside that mode's run-to-run noise: an earlier hv-frfo.4 variant measured 45.4% on the same seeds.
+
 ### Sigil automation runs
 
 `scripts/ai-bench --give CODE,…` gives every seat the listed sigils and reports how many log lines each one wrote.

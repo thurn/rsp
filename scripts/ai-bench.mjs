@@ -48,6 +48,8 @@ const server = await createServer({
   server: { middlewareMode: true, ws: false },
   appType: 'custom',
   logLevel: 'error',
+  // Parallel runs would race on the client dependency cache, which the bench doesn't use.
+  optimizeDeps: { noDiscovery: true },
 })
 try {
   const { runBench } = await server.ssrLoadModule('/src/dev/bench.ts')

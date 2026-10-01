@@ -1,4 +1,4 @@
-import type { Seat } from '../game/cards'
+import { type Card, type Seat, partnerOf } from '../game/cards'
 import { rank } from '../game/core'
 import { bidOptions, legalMoves, trickRules } from '../game/rules'
 import type { Bid, GameState } from '../game/types'
@@ -34,6 +34,8 @@ export interface AIView {
   spadesBroken: boolean
   /** Effective snapshots of every card in the other three hands. */
   pool: SimCard[]
+  /** Pool cards whose holder this seat knows: revealed, or shown or passed to it. */
+  known: { seat: number; card: SimCard }[]
   /** voids[seat][suit] is true once a seat has shown out of a suit. */
   voids: boolean[][]
   bags: number[]
@@ -41,8 +43,32 @@ export interface AIView {
   rules: SimRules
 }
 
-export function viewFor(s: GameState, seat: Seat): AIView {
-  const snap = (c: GameState['hands'][number][number]): SimCard => ({
+/**
+ * The state with every engraving `seat` can't see stripped off. A seat sees the engravings in
+ * its own hand, those its team owns, and shown engravings on face-up cards.
+ */
+export function visibleState(s: GameState, seat: Seat): GameState {
+  const partner = partnerOf(seat)
+  const strip = (c: Card, mine: boolean, faceUp: boolean): Card => ({
+    ...c,
+    sigils: c.sigils.filter(
+      (e) => mine || e.owner === seat || e.owner === partner || (faceUp && c.shown),
+    ),
+  })
+  return {
+    ...s,
+    hands: s.hands.map((h, i) => h.map((c) => strip(c, i === seat, c.revealed))),
+    trick: s.trick.map((p) => ({ ...p, card: strip(p.card, false, true) })),
+    history: s.history.map((t) => ({
+      ...t,
+      plays: t.plays.map((p) => ({ ...p, card: strip(p.card, false, true) })),
+    })),
+  }
+}
+
+export function viewFor(real: GameState, seat: Seat): AIView {
+  const s = visibleState(real, seat)
+  const snap = (c: Card): SimCard => ({
     id: c.id,
     suit: c.suit,
     rank: rank(s, c),
@@ -52,8 +78,7 @@ export function viewFor(s: GameState, seat: Seat): AIView {
     if (t.length === 0) continue
     const led = t[0].card.suit
     // Faithful Dog names its own suit, so it shows nothing about voids.
-    const dog = (c: GameState['hands'][number][number]) =>
-      c.sigils.some((e) => (e.copyOf ?? e.code) === 'GR-C04')
+    const dog = (c: Card) => c.sigils.some((e) => (e.copyOf ?? e.code) === 'GR-C04')
     for (const p of t) if (p.card.suit !== led && !dog(p.card)) voids[p.seat][led] = true
   }
   const tr = trickRules(s, [])
@@ -62,8 +87,8 @@ export function viewFor(s: GameState, seat: Seat): AIView {
     dealer: s.dealer,
     leader: s.leader,
     hand: s.hands[seat].map(snap),
-    legal: s.phase === 'playing' ? legalMoves(s, seat).map((c) => c.id) : [],
-    bidOptions: s.phase === 'bidding' ? bidOptions(s, seat) : [],
+    legal: s.phase === 'playing' ? legalMoves(real, seat).map((c) => c.id) : [],
+    bidOptions: s.phase === 'bidding' ? bidOptions(real, seat) : [],
     handSizes: s.hands.map((h) => h.length),
     bids: s.bids.slice(),
     tricksWon: s.tricksWon.slice(),
@@ -71,6 +96,13 @@ export function viewFor(s: GameState, seat: Seat): AIView {
     trick: s.trick.map((p) => ({ seat: p.seat, card: snap(p.card) })),
     spadesBroken: s.spadesBroken || s.flags.spadesLeadAnytime,
     pool: s.hands.flatMap((h, i) => (i === seat ? [] : h.map(snap))),
+    known: s.hands.flatMap((h, i) =>
+      i === seat
+        ? []
+        : h
+            .filter((c) => c.revealed || c.knownTo?.includes(seat))
+            .map((c) => ({ seat: i, card: snap(c) })),
+    ),
     voids,
     bags: s.bags.slice(),
     scores: s.scores.slice(),

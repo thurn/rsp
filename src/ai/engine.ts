@@ -259,16 +259,23 @@ function rollout(sim: Sim, rng: Rng): void {
 }
 
 // ---------------------------------------------------------------------------------------------
-// Determinization: deal the hidden pool to the other seats, respecting hand sizes and voids
+// Determinization: deal the hidden pool to the other seats, respecting hand sizes, voids, and the
+// cards this seat knows about
 
-function determinize(view: AIView, rng: Rng, bids: Bid[]): Sim {
+type Deal = SimCard[][]
+
+function deal(view: AIView, rng: Rng): Deal {
   const others = [0, 1, 2, 3].filter((s) => s !== view.seat)
-  let hands: SimCard[][] | null = null
+  let hands: Deal | null = null
   for (let attempt = 0; attempt < 30 && !hands; attempt++) {
     hands = tryDeal(view, rng, others, attempt < 29)
   }
+  return hands!
+}
+
+function simFrom(view: AIView, hands: Deal, bids: Bid[]): Sim {
   return {
-    hands: hands!,
+    hands: hands.map((h) => h.slice()),
     bids,
     tricksWon: view.tricksWon.slice(),
     trick: view.trick.map((p) => p.card),
@@ -282,18 +289,42 @@ function determinize(view: AIView, rng: Rng, bids: Bid[]): Sim {
   }
 }
 
-function tryDeal(
-  view: AIView,
-  rng: Rng,
-  others: number[],
-  respectVoids: boolean,
-): SimCard[][] | null {
-  const hands: SimCard[][] = [[], [], [], []]
+/** How badly a deal fits the other seats' bids; lower is better. */
+function misfit(view: AIView, hands: Deal): number {
+  let total = 0
+  for (let s = 0; s < 4; s++) {
+    const bid = view.bids[s]
+    // A blind nil was bid unseen, so it says nothing about the hand.
+    if (s === view.seat || bid === null || bid === undefined || bid === BLIND_NIL) continue
+    const est = estimateTricks(hands[s])
+    if (isNil(bid)) total += view.tricksWon[s] === 0 ? Math.max(0, est - 0.5) : 0
+    else total += Math.abs(est - Math.max(0, bid - view.tricksWon[s]))
+  }
+  return total
+}
+
+const POOL_DEALS = 512
+const POOL_KEEP = 64
+
+/** One decision's deals: the best bid fits out of a larger random sample. */
+function dealPool(view: AIView, rng: Rng, keep = POOL_KEEP): Deal[] {
+  const deals = Array.from({ length: POOL_DEALS }, () => deal(view, rng))
+  return deals
+    .map((d) => ({ d, m: misfit(view, d) }))
+    .sort((a, b) => a.m - b.m)
+    .slice(0, keep)
+    .map((x) => x.d)
+}
+
+function tryDeal(view: AIView, rng: Rng, others: number[], respectVoids: boolean): Deal | null {
+  const hands: Deal = [[], [], [], []]
   hands[view.seat] = view.hand.slice()
   const room = view.handSizes.slice()
+  for (const k of view.known) if (hands[k.seat].length < room[k.seat]) hands[k.seat].push(k.card)
+  const pinned = new Set(hands.flat().map((c) => c.id))
   const eligible = (s: number, c: SimCard) =>
     hands[s].length < room[s] && !(respectVoids && view.voids[s][c.suit])
-  const cards = view.pool.slice()
+  const cards = view.pool.filter((c) => !pinned.has(c.id))
   for (let i = cards.length - 1; i > 0; i--) {
     const j = Math.floor(rng() * (i + 1))
     ;[cards[i], cards[j]] = [cards[j], cards[i]]
@@ -356,8 +387,9 @@ export function chooseCard(view: AIView, timeMs: number, iterations?: number): n
     iterations !== undefined
       ? iter < iterations
       : iter < 60000 && (iter < 60 || performance.now() < deadline)
+  const pool = dealPool(view, rng)
   for (let iter = 0; more(iter); iter++) {
-    const sim = determinize(view, rng, bids)
+    const sim = simFrom(view, pool[iter % pool.length], bids)
     let node = root
     let first = true
     while (!done(sim) && sim.hands[sim.turn].length > 0) {
@@ -464,9 +496,11 @@ export function chooseBid(view: AIView, samples = 160): Bid {
 
   let trickSum = 0
   let cleanNils = 0
+  // Every bidding sample gets its own deal, so nil odds aren't read off a few dozen deals.
+  const pool = dealPool(view, rng, samples)
   for (let i = 0; i < samples; i++) {
     for (const nilTrial of [false, true]) {
-      const sim = determinize(view, rng, [])
+      const sim = simFrom(view, pool[i % pool.length], [])
       sim.bids = view.bids.map((b, s) =>
         s === seat ? (nilTrial ? NIL : ownBid) : (b ?? heuristicBid(sim.hands[s])),
       )
