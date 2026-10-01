@@ -199,7 +199,7 @@ export const handlers: HandlerMap = {
       thisCardLoses: (ctx, e) => {
         const s = ctx.state
         const win = s.trickWinIndex === null ? undefined : s.trick[s.trickWinIndex]?.card
-        if (!win || !ctx.opponents.includes(e.data?.winner as Seat)) return
+        if (!win || e.data?.trick === 13 || !ctx.opponents.includes(e.data?.winner as Seat)) return
         if (!ctx.confirm('Copy the winning card?', () => !isNil(ctx.bid()))) return
         ctx.createCard(ctx.seat, win.suit, ctx.rank(win))
       },
@@ -222,11 +222,14 @@ export const handlers: HandlerMap = {
         const raise =
           plays.find((p) => ctx.opponents.includes(p.seat) && isNil(ctx.bid(p.seat)) && close(p)) ??
           (oppWins ? plays.find((p) => p.seat === ctx.partner && close(p)) : undefined)
-        const plan = raise ?? (oppWins ? win : plays[0])
+        // Otherwise lower an opponent's card, or raise this card when no opponent has played.
+        const opp = plays.find((p) => ctx.opponents.includes(p.seat))
+        const plan = raise ?? (oppWins ? win : (opp ?? plays[plays.length - 1]))
         const cards = plays.map((p) => p.card)
         const card = ctx.chooseCard(ctx.seat, 'Spike which card?', cards, () => plan.card)
         if (!card) return
-        const up = ctx.confirm('Raise or lower?', () => !!raise, ctx.seat, ['Raise', 'Lower'])
+        const lift = !!raise || !ctx.opponents.includes(plan.seat)
+        const up = ctx.confirm('Raise or lower?', () => lift, ctx.seat, ['Raise', 'Lower'])
         ctx.modRank(card, up ? 4 : -4)
       },
     },

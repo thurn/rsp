@@ -27,7 +27,7 @@
   "signature": [
     {
       "trigger": "you lead a club",
-      "scope": "all players",
+      "scope": "your club leads",
       "target": "clubs in that trick",
       "effect": "lowest club wins",
       "frequency": "per club lead"

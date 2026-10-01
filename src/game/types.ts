@@ -71,7 +71,7 @@ export interface RoundFlags {
   reliefTrick?: Partial<Record<Seat, number>>
   /** Rosy Spectacles, Unclouded Sun. */
   untrumpable: { suit?: Suit; rank?: number; team: 0 | 1 }[]
-  /** Rewound Reel. */
+  /** Suits in which the lowest card wins. */
   lowestWins: { suit: Suit; team: 0 | 1 }[]
   /** Arena's Law. */
   spadesLeadAnytime: boolean

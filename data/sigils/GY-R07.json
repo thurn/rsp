@@ -22,12 +22,12 @@
     }
   ],
   "text": "Contract multipliers don't apply to your team's missed contracts.",
-  "timing": "Conditional scoring (always on, all players)",
+  "timing": "Conditional scoring",
   "prototype": "automated",
   "signature": [
     {
       "trigger": "always",
-      "scope": "all players",
+      "scope": "your team",
       "target": "missed contracts",
       "effect": "contract multipliers don't apply",
       "frequency": "all"
@@ -37,7 +37,7 @@
   "family": "Multipliers / Failed contracts (global)",
   "role": "Utility; rule setter",
   "decision": "Bidding: with misses capped at the base loss, multiplier decks can stretch a bid and mid-round multipliers lose their cost.",
-  "opponent": "Visible rule that helps both teams equally; Hungry Kraken and other denial collect less from a multiplied miss.",
+  "opponent": "Visible rule for your team only; Hungry Kraken and other denial collect less from your multiplied miss.",
   "aiNote": "While this rule is on, value a contract's miss at −10 × bid regardless of multipliers.",
   "rationale": "The rule it changes is the failure line of contract scoring (−10 × bid × multiplier becomes −10 × bid); it saves a +2× deck about 12 to 36 points a round, and no other sigil touches this rule."
 }

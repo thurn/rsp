@@ -27,7 +27,7 @@
   "signature": [
     {
       "trigger": "always",
-      "scope": "all players",
+      "scope": "self",
       "target": "leads",
       "effect": "spades can be led before they are broken",
       "frequency": "all"
@@ -37,7 +37,7 @@
   "family": "Trick restrictions / Overtrumping (Red)",
   "role": "Enabler; rule setter",
   "decision": "Whether to lead spades early to draw the opponents' trumps before your side-suit winners come out.",
-  "opponent": "A table-wide rule: opponents may lead spades early too, which helps whichever team holds more and higher spades.",
+  "opponent": "Visible on your first early spade lead; opponents answer by holding high spades to win your spade leads.",
   "aiNote": "With five or more spades including the ace or king, lead spades until the opponents are out, then cash side-suit winners.",
   "rationale": "Drawing trumps early is the Spade Master's natural plan, and normal Spades forbids it until spades are broken. Leading spades strips opponents' trumps so your aces in other suits stay safe, which also feeds High Card. Only your own leads are freed, so the opponents still wait for spades to be broken.",
   "deviation": "Redesigned from a forced-overtrump rule, which was complicated and rarely mattered."

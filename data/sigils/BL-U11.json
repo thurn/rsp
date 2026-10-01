@@ -27,7 +27,7 @@
   "signature": [
     {
       "trigger": "always",
-      "scope": "all players",
+      "scope": "your team",
       "target": "tricks led in hearts",
       "effect": "cannot be won by trump",
       "frequency": "all"
@@ -37,7 +37,7 @@
   "family": "Trump and spade-breaking rules / Conditional trump (named suit)",
   "role": "Enabler; rule setter",
   "decision": "Whether to build toward a long hearts suit, and when to lead the grown hearts late, now that a void no longer stops them.",
-  "opponent": "Public and symmetric, so opponents' hearts are safe too; they answer by holding higher hearts, lowering heart ranks, or draining hearts early.",
+  "opponent": "Public; opponents' hearts can still be trumped, so they answer by holding higher hearts, lowering heart ranks, or draining hearts early.",
   "aiNote": "Lead your highest hearts once they beat the hearts still out; never trump a heart lead.",
   "rationale": "Heart Chorus's main threat is opponents running out of hearts and trumping its late ace-level hearts, and this removes it for your team, which gives the thinnest archetype real value; it covers your partner's hearts as well as yours, rather than your aces, so it differs from Unclouded Sun (DU-S01) in both target and reach.",
   "deviation": "Dropped the \"until a named-suit trick is won\" condition and Diamond Flood and Spade Master as targets, because Heart Chorus's hearts are weak early, so opponents would win the unlocking heart trick first, and Diamond Flood and Spade Master are already ahead of the curve."

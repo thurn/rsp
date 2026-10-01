@@ -67,15 +67,15 @@ reference for clarity.
 - **Owners come out ahead.** A sigil that touches the whole table helps its
   owner's team more than the opponents'. A rule that changes how tricks are led
   or won names whose cards or plays it covers, such as "Your team's hearts
-  can't be trumped" or "Whenever you lead a club," so the owner decides when it
-  helps.
+  can't be trumped" or "Whenever you lead a club," or lasts only while the
+  owner chooses, such as while a card stays in hand.
 - **Partner wins from the partner's side.** A trick your partner wins is
   written as your partner winning it: "Whenever your partner wins a trick."
 - **Reward matches the trigger.** A narrow or hard-to-reach trigger pays enough
   to plan around, and a trigger that can fire on most tricks names a narrower
   window, such as "one of the first four tricks."
-- **Opponent effects stay targeted.** An effect that weakens opponents aims at
-  one chosen opponent or one card.
+- **Opponent effects stay targeted.** An effect that lowers or removes
+  opponents' cards aims at one chosen opponent or one card.
 - **Each sigil its own.** Every sigil plays differently from the others; no
   two mirror each other.
 - **Bids belong to their bidders.** A sigil changes only its owner's own bid.

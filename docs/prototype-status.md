@@ -64,7 +64,7 @@ Added by the main agent while building the engine (phase 4):
 
 - `RoundFlags.untrumpable` entries take an optional `seat` as well as `team`.
 - Handler hooks beyond the plan: `credit` (who a won trick counts for) and `gain` (adjusts another sigil's gain, for Lifetime Award and Gilded Beaker).
-- `Ctx` extras: `disableEngravings`, `moveEngraving`, `setCopyOf`, `setTrickCredit`, `note`, `engrave`, `addCounter`, `addSellBonus`, `rand`, `pick`, `findCard`, `holder`, `mem` (per-round memory), `isEventCard`, `inHand`.
+- `Ctx` extras: `moveEngraving`, `setCopyOf`, `setTrickCredit`, `note`, `engrave`, `addCounter`, `addSellBonus`, `rand`, `pick`, `findCard`, `holder`, `mem` (per-round memory), `isEventCard`, `inHand`.
 - Phase 6 (GY): `OwnedSigil.roundCopy` lets Tracing Pencil's copy clear itself in `finishRound`.
 - Phase 6 (GR, PU): Mauling Bear and Borrowed Umbrella keep per-owner state in `RoundFlags` under keys like `GR-U03:<owner>`, through the existing index signature, rather than adding named fields.
 - Phase 6 (OR, TE): `OR.ts` imports `emit` from `game/core` and `TE.ts` imports `passCards`, for Unopened Gift's bid event and Spinning Globe's simultaneous passes.
