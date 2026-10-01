@@ -204,6 +204,14 @@ export interface Ctx {
   /** Mark this sigil's activation public (engraving shown, tray chip revealed). */
   show(): void
   engrave(card: Card, code: string, copyOf?: string): void
+  /** Disable every engraving on a card for the rest of the round (Spiteful Eraser). */
+  disableEngravings(card: Card): void
+  /** Move the first engraving from one card to another. */
+  moveEngraving(from: Card, to: Card): void
+  /** Set which sigil this one copies (Matching Mugs, Tracing Pencil). */
+  setCopyOf(code: string | undefined): void
+  /** Change who the trick just won counts for, adjusting trick counts (Rerouted Bus). */
+  setTrickCredit(seat: Seat | null): void
 
   // Round
   setFlag(key: string, value: unknown): void

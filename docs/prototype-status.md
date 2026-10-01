@@ -10,6 +10,7 @@ Updated at the end of each phase of [prototype-plan.md](prototype-plan.md).
 | 2. Economy and shop | Shop every round, §4 gold column, shop visual gate | Pass: all nine §4 worked examples reproduce score, bags, and gold through `scoreRound` and `income`; the summary's coin row pays the same; buy limit, reroll 50→60, and sell-at-half verified |
 | 3. Card rendering | `?give=` hand with Engraving and Ongoing sigils, visual gate | Pass: all seven engraved cards show their glyph in a full 13-card hand at 390×844; your and your partner's trays show; the tooltip opens on hover and long-press |
 | 4. Engine and sandbox | §4 table via sandbox ledger, samples fire in the event log, prompt/reminder/drawer gate | Pass: a live round with sandbox +20 contract and +1× scored (10×6+20)×2 = 160 as expected; all ten samples log with their glyph (True Aim and Arena's Law verified directly, as they rarely fire in four rounds); Barter Bridge's prompt, card pick, swap, and the Peddler's Cart payoff chain work end to end |
+| 5. Handler guide | `src/sigils/handlers/README.md` written | Done: Ctx API, windows with scopes, controller rule, AI prompt pattern, copy rules, ten worked examples, testing, downgrades |
 
 ## Visual gate
 
@@ -39,7 +40,7 @@ Added by the main agent while building the engine (phase 4):
 
 - `RoundFlags.untrumpable` entries take an optional `seat` as well as `team`.
 - Handler hooks beyond the plan: `credit` (who a won trick counts for) and `gain` (adjusts another sigil's gain, for Lifetime Award and Gilded Beaker).
-- `Ctx` extras: `note`, `engrave`, `addCounter`, `addSellBonus`, `rand`, `pick`, `findCard`, `holder`, `mem` (per-round memory), `isEventCard`, `inHand`.
+- `Ctx` extras: `disableEngravings`, `moveEngraving`, `setCopyOf`, `setTrickCredit`, `note`, `engrave`, `addCounter`, `addSellBonus`, `rand`, `pick`, `findCard`, `holder`, `mem` (per-round memory), `isEventCard`, `inHand`.
 - Windows beyond the plan's table: `deal`, `afterDeal`, `blind`, `trickStart`, `trump`, `anyPlayed`, `afterTrick`, `rankLoss`, `buy`.
 
 ## Downgraded sigils

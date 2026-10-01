@@ -518,6 +518,35 @@ export class SigilCtx implements Ctx {
     card.sigils.push({ code, owner: this.owner, ...(copyOf ? { copyOf } : {}) })
   }
 
+  disableEngravings(card: Card) {
+    this.touch()
+    for (const e of card.sigils) e.disabled = true
+    this.logLine(`${label(this.state, card)} disabled`)
+  }
+  moveEngraving(from: Card, to: Card) {
+    const eng = from.sigils[0]
+    if (!eng) return
+    this.touch()
+    from.sigils = from.sigils.slice(1)
+    to.sigils.push(eng)
+    this.logLine(`${label(this.state, from)} → ${label(this.state, to)}`)
+  }
+  setCopyOf(code: string | undefined) {
+    const own = this.state.players[this.owner].sigils.find((o) => o.code === this.source)
+    if (!own) return
+    this.touch()
+    own.copyOf = code
+    if (code) this.logLine(`copies ${sigilName(code)}`)
+  }
+  setTrickCredit(seat: Seat | null) {
+    const s = this.state
+    if (!s.trickDone) return
+    this.touch()
+    if (s.trickCredit !== null) s.tricksWon[s.trickCredit]--
+    if (seat !== null) s.tricksWon[seat]++
+    s.trickCredit = seat
+    this.logLine(seat === null ? 'counts for no one' : `counts for ${SEAT_NAMES[seat]}`)
+  }
   setFlag(key: string, value: unknown) {
     this.touch()
     this.state.flags[key] = value
