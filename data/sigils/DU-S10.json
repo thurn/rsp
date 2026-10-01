@@ -22,7 +22,7 @@
       "icon": "infinite"
     }
   ],
-  "text": "Affinity: Low cards. If this card is still in your hand when the last trick begins, gain +1× contract multiplier.",
+  "text": "Affinity: 2–5. If this card is still in your hand when the last trick begins, gain +1× contract multiplier.",
   "timing": "While in hand (checkpoint at the last trick)",
   "prototype": "automated",
   "signature": [

@@ -21,7 +21,7 @@
       "icon": "washer"
     }
   ],
-  "text": "If you own five or more sigils of one resonance other than Gray, each trick your team bids is worth 20 points instead of 10, win or lose.",
+  "text": "If you own five or more sigils of one color, each trick your team bids is worth 20 points.",
   "timing": "Always on, for you",
   "prototype": "automated",
   "signature": [

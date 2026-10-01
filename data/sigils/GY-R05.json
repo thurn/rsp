@@ -21,7 +21,7 @@
       "icon": "self-care"
     }
   ],
-  "text": "If you own sigils of six or more resonances, gain +1× contract multiplier.",
+  "text": "If you own sigils of six or more colors, gain +1× contract multiplier.",
   "timing": "Conditional scoring",
   "prototype": "automated",
   "signature": [
@@ -39,6 +39,6 @@
   "decision": "Shopping: chase a sixth resonance through splashes and signposts, even at the cost of a stronger card in your main colors.",
   "opponent": "Visible when it triggers; opponents can hold their ace to capture the king.",
   "aiNote": "Value any sigil of a new resonance highly once you own four or five.",
-  "rationale": "Owning six resonances takes most of a run and costs focus in the main archetype, so it arrives late and applies win or lose, about +50 a round once met; six stays above Artist's Palette's five.",
+  "rationale": "Owning six resonances takes most of a run and costs focus in the main archetype, so it arrives late and applies win or lose, about +50 a round once met; six stays well above Artist's Palette's three.",
   "deviation": "Removed the king affinity and win trigger, so the condition is the whole design."
 }

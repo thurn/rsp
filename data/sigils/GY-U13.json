@@ -21,7 +21,7 @@
       "icon": "computer-retro"
     }
   ],
-  "text": "Whenever you leave a shop without buying a sigil, this sigil gains +10 contract value, up to +40.",
+  "text": "Gain +0 contract value. Whenever you leave a shop without buying a sigil, this sigil gains 10 contract value.",
   "timing": "At the shop",
   "prototype": "automated",
   "signature": [
@@ -39,5 +39,5 @@
   "decision": "Shopping: skip a weak shop to build the count and save gold, or buy.",
   "opponent": "Visible count; no effect on opponents.",
   "aiNote": "Skip a shop when no offer is worth 10 points a round and the count is below +40.",
-  "rationale": "A skip trades a common (about +12 a round) for a permanent +10 (+8 expected) plus saved gold and interest, an even trade that makes weak shops useful; four skips reach +40 (+32 expected) mid-to-late, and the cap stops a full collection from growing it without limit."
+  "rationale": "A skip trades a common (about +12 a round) for a permanent +10 (+8 expected) plus saved gold and interest, an even trade that makes weak shops useful; with a full collection it keeps growing every shop, a late-run payoff for a finished build."
 }

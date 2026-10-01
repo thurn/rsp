@@ -24,9 +24,9 @@ const SUIT_WORDS: Record<string, number> = { Clubs: 0, Diamonds: 1, Hearts: 2, S
 const RANK_WORDS: Record<string, number> = { Jacks: 11, Queens: 12, Kings: 13, Aces: 14 }
 
 export function affinityOf(code: string): Affinity {
-  const m = SIGILS[code]?.text.match(/^Affinity: ([A-Za-z ]+)\./)
+  const m = SIGILS[code]?.text.match(/^Affinity: ([^.]+)\./)
   if (!m) return null
-  if (m[1] === 'Low cards') return { low: true }
+  if (m[1] === '2–5') return { low: true }
   if (m[1] in SUIT_WORDS) return { suit: SUIT_WORDS[m[1]] }
   if (m[1] in RANK_WORDS) return { rank: RANK_WORDS[m[1]] }
   return null

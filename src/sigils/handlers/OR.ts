@@ -129,8 +129,8 @@ export const handlers: HandlerMap = {
     },
   },
 
-  // Layer Cake: Affinity: Diamonds. When this card wins a trick, this sigil gains +5 contract value.
-  // The stored value pays at each deal, and a win adds its +5 this round too.
+  // Layer Cake: Affinity: Diamonds. Gain +0 contract value. When this card wins a trick, this sigil
+  // gains 5 contract value. The stored value pays at each deal, and a win adds its 5 this round too.
   'OR-R02': {
     on: {
       afterDeal: (ctx) => {

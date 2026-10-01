@@ -137,8 +137,8 @@ export interface ShopRules {
   rerollDiscount: number
   /** At least one offer is uncommon or rare. */
   guaranteeUncommon: boolean
-  /** May buy a second sigil if it is a common. */
-  secondCommon: boolean
+  /** May buy a second sigil. */
+  secondSigil: boolean
   interestCap: number
 }
 
@@ -222,6 +222,8 @@ export interface Ctx {
   /** Grow this sigil's run-long counter (no-op for copies). */
   addCounter(n: number): void
   addSellBonus(n: number): void
+  /** Remove this sigil from its owner's collection (House of Cards). */
+  loseSigil(): void
 
   // Choices. `ai` answers for AI seats and under ?auto.
   confirm(question: string, ai: () => boolean, seat?: Seat, labels?: [string, string]): boolean

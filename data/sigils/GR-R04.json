@@ -21,7 +21,7 @@
       "icon": "carrot"
     }
   ],
-  "text": "Affinity: Low cards. This card can't be played before the last three tricks, and it wins any trick it's played to.",
+  "text": "Affinity: 2–5. This card can't be played before the last three tricks, and it wins any trick it's played to.",
   "timing": "Always on, for the engraved card",
   "prototype": "automated",
   "signature": [

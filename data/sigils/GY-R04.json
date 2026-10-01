@@ -1,6 +1,6 @@
 {
   "code": "GY-R04",
-  "name": "Four Square",
+  "name": "Square Meal",
   "resonances": [
     "Gray"
   ],
@@ -21,24 +21,24 @@
       "icon": "beanie"
     }
   ],
-  "text": "After bidding, if you and your partner bid the same number, 4 or more, gain +1× contract multiplier.",
+  "text": "After bidding, if your team's contract is 9 or more tricks, gain +1× contract multiplier.",
   "timing": "After bidding",
   "prototype": "automated",
   "signature": [
     {
-      "trigger": "after bidding, your bid equals your partner's, 4+",
-      "scope": "team",
-      "target": "contract",
-      "effect": "multiplier +1×",
-      "frequency": "×1"
+      "trigger": "after bidding",
+      "scope": "self",
+      "target": "your team contract",
+      "effect": "+1× when the contract is 9 or more",
+      "frequency": "once a round"
     }
   ],
   "archetypes": "Bonus Chaser, Diamond Flood, Heart Chorus, Swap Meet, Contract Attacker; any contract deck",
   "family": "Contract-shape rewards / Matched bids",
   "role": "Payoff: Contract multiplier",
-  "decision": "When both hands are strong, whoever bids second chooses to match: stretch up to four or five and risk a doubled miss on a contract of 8 or more, shade a big hand down and take bags, or bid honestly and skip the multiplier.",
+  "decision": "Whether to stretch the team's bid to nine: the multiplier applies win or lose, so the stretch has to be makeable.",
   "opponent": "Visible from the bids; opponents see the doubled stakes and can bid and play to set a stretched contract.",
-  "aiNote": "As the second partner to bid, when your partner bid four or more, match if your honest bid is within one of theirs and the multiplied expected score beats the honest bid's; never stretch by more than one.",
-  "rationale": "The floor stops shading a normal hand down to match: a matched contract is at least 8 tricks, which needs two strong hands or a real stretch, so it is on in about a third of rounds (about +30 to +45 late), and it applies win or lose; a nil from either partner turns it off, and it differs from True Aim, Balanced Yin-Yang, and Runner-Up Trophy, which check tricks, not bids.",
-  "deviation": "Family changed from Bid adjustment (raise your bid by two for +1×) to Contract-shape rewards, and timing from When you bid to After bidding: a raise of your own bid costs nothing, because you simply declare two less, so it was the unconditional stat stick again; matching your partner's bid is a cost you can't bid around. Kingmaker dropped from its archetypes, since its partner usually bids more than you. Revision 1 adds the four-or-more floor and renames it off \"Perfect\" (RE-R03, then named Perfect Throw)."
+  "aiNote": "With a team estimate of eight tricks or more, bid up to reach nine.",
+  "rationale": "A nine-trick contract needs two strong hands or a real stretch, so it is on in about a quarter of rounds (about +30 to +40 late), and it applies win or lose; it sits one rung below Gambler's Wheel (OR-R01, ten or more for +2×) and differs from True Aim, Balanced Yin-Yang, and Runner-Up Trophy, which check tricks, not bids.",
+  "deviation": "Revision 1: replaced matching bids of 4 or more with a team contract of 9 or more."
 }

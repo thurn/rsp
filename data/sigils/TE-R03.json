@@ -21,7 +21,7 @@
       "icon": "beach"
     }
   ],
-  "text": "Whenever you win your third trick with hearts in a round, this sigil gains +10 contract value.",
+  "text": "Gain +0 contract value. Whenever you win your third trick with hearts in a round, this sigil gains 10 contract value.",
   "timing": "When you win any trick (the third heart win each round)",
   "prototype": "automated",
   "signature": [

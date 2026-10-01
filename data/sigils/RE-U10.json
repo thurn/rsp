@@ -21,7 +21,7 @@
       "icon": "skateboard"
     }
   ],
-  "text": "Each round, your team's first two overtricks add no bags.",
+  "text": "Your team takes two fewer bags each round.",
   "timing": "Conditional scoring",
   "prototype": "automated",
   "signature": [

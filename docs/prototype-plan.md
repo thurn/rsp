@@ -58,8 +58,8 @@ A sigil is **manual** when it needs one of these:
   Tipping Scales, Fickle Storm, or Forger's Brush. One sandbox edit per round
   fakes these cheaply, and automating them needs a prompt plus an AI heuristic
   each.
-- A one-off mechanism: stacked engravings (Stacked Chairs), doubling the next
-  trigger (Twin Cherries), choosing between two hands (Fitting-Room Skirt),
+- A one-off mechanism: swapped engravings (Musical Chairs), doubling the next
+  trigger (Twin Cherries), two lowest cards becoming aces (Fitting-Room Skirt),
   carrying a card into the next round (Saved Hard Drive, Tailored Shirt),
   picking a played card back up (Masked Encore), or a card
   that is every suit (Faithful Dog).

@@ -21,16 +21,16 @@
       "icon": "bowl-hot"
     }
   ],
-  "text": "Each round, a random common sigil you don't own is engraved on a random card in your hand for the round.",
+  "text": "Each round, a random sigil is engraved on a random card in your hand.",
   "timing": "Always on, for you (at the deal)",
   "prototype": "automated",
   "signature": [
     {
-      "trigger": "each deal",
+      "trigger": "each round",
       "scope": "self",
-      "target": "a random card without a sigil",
-      "effect": "random common sigil for the round",
-      "frequency": "×1"
+      "target": "a random card in your hand",
+      "effect": "engraved with a random sigil",
+      "frequency": "once a round"
     }
   ],
   "archetypes": "Bonus Chaser, Swap Meet, Gold Miner",
@@ -39,5 +39,6 @@
   "decision": "How to bid and play around a new effect each round.",
   "opponent": "The borrowed sigil acts like any sigil and is shown when it triggers.",
   "aiNote": "Evaluate the borrowed sigil as if owned for the round; draw only from commons that act during a round (no shop or selling sigils).",
-  "rationale": "A small lucky dip: an off-plan random common is worth a few points on average and occasionally lands perfectly, and it never fills a collection slot."
+  "rationale": "A small lucky dip: a random Engraving sigil of any rarity is worth a few points on average and occasionally a rare lands, and it never fills a collection slot.",
+  "deviation": "Revision 1: draws from every Engraving sigil, not only commons you do not own."
 }

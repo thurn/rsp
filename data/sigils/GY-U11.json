@@ -21,7 +21,7 @@
       "icon": "fan"
     }
   ],
-  "text": "If your team's contract is 7 or more tricks, its overtricks add no bags.",
+  "text": "If your team's contract is 7 or more tricks, your team takes no bags.",
   "timing": "Conditional scoring",
   "prototype": "automated",
   "signature": [

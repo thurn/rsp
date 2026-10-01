@@ -182,7 +182,7 @@ export function shopRules(s: GameState, seat: Seat): ShopRules {
     discount: 0,
     rerollDiscount: 0,
     guaranteeUncommon: false,
-    secondCommon: false,
+    secondSigil: false,
     interestCap: BALANCE.income.interestCap,
   }
   for (const inst of instances(s)) {

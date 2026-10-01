@@ -17,7 +17,7 @@
       "icon": "sparkles"
     }
   ],
-  "text": "Affinity: Low cards. If this card and two or more other cards of its suit are still in your hand when the eighth trick begins, gain +1× contract multiplier.",
+  "text": "Affinity: 2–5. If this card and two or more other cards of its suit are still in your hand when the eighth trick begins, gain +1× contract multiplier.",
   "timing": "While in hand (checkpoint at the eighth trick)",
   "prototype": "automated",
   "signature": [

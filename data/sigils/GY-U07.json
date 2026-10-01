@@ -6,7 +6,7 @@
   ],
   "rarity": "Uncommon",
   "category": "Ongoing",
-  "price": 75,
+  "price": 80,
   "wave": 3,
   "icon": "cup",
   "iconFamily": "cup",
@@ -21,7 +21,7 @@
       "icon": "sandwich"
     }
   ],
-  "text": "This sigil is a copy of a common sigil you own, chosen when you buy it.",
+  "text": "When you buy this sigil, choose another sigil you own for it to become a copy of.",
   "timing": "Always on, for you (the copy is chosen at purchase)",
   "prototype": "automated",
   "signature": [
@@ -39,6 +39,6 @@
   "decision": "Shopping: which common to double for the rest of the run, and when to buy it (after the key common lands).",
   "opponent": "The copy acts like any sigil and is shown when it triggers.",
   "aiNote": "Buy only when you own a common worth 12 or more a round, and copy the one with the highest expected value; never a shop or selling common unless the collection is economy-led.",
-  "rationale": "A second Headsman's Axe or Vigil Candle for the rest of the run is worth about +12 to +25 in a focused deck; the copy is engraved each round like any sigil, keeps the original's affinity, stays if the original is sold, and a copied counter starts its own count; commons only and a one-time choice keep it below GY-R03.",
+  "rationale": "A second copy of your best sigil for the rest of the run, from +12 for a common to a second multiplier for a rare; the copy is engraved each round like any sigil, keeps the original's affinity, stays if the original is sold, and a copied counter starts its own count; the one-time choice keeps it below Forger's Brush (GY-R03), which chooses each round.",
   "deviation": "Redesigned in revision 1: the per-round copy on this card matched Spare Key (TE-U01), which copies a partner's sigil each round, so this duplicates at the collection level with a single choice at purchase."
 }

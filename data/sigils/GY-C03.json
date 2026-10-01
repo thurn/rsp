@@ -21,7 +21,7 @@
       "icon": "radio"
     }
   ],
-  "text": "After scoring, this sigil's sell value gains +20 gold.",
+  "text": "After scoring, this sigil's sell value gains 20 gold.",
   "timing": "After scoring",
   "prototype": "automated",
   "signature": [

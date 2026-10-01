@@ -21,23 +21,24 @@
       "icon": "mouse"
     }
   ],
-  "text": "Whenever you lose a trick with the second-best card in it, gain +5 contract value.",
-  "timing": "When you lose any trick",
+  "text": "If you win no tricks in a round, gain +40 contract value.",
+  "timing": "Conditional scoring",
   "prototype": "automated",
   "signature": [
     {
-      "trigger": "you lose a trick, your card second-best",
+      "trigger": "you win no tricks in a round",
       "scope": "self",
-      "target": "contract",
-      "effect": "+5",
-      "frequency": "per trick"
+      "target": "your team contract",
+      "effect": "contract value +40",
+      "frequency": "once a round"
     }
   ],
-  "archetypes": "Nil Champion, Blind Bidder, Exact Contractor",
-  "family": "Losing tricks / Close ducks",
+  "archetypes": "Nil Champion, Nil Guard",
+  "family": "Losing tricks / Whole round",
   "role": "Payoff: Contract additive",
-  "decision": "In late seats, drop your second-best card under the winner (a queen under a king) instead of a low card, shedding a high card safely.",
-  "opponent": "Visible each time it triggers.",
-  "aiNote": "When a trick is already won by another card, play your highest card that stays below it.",
-  "rationale": "Your card is runner-up in about one lost trick in four, about 2.5 times a round (+12, about +10 expected) and about 3.5 for a nil bidder, whose value goes to the partner's contract; \"second-best\" means the card that would have won without the winner, so discards never qualify and, when a trump wins, the best remaining card counts."
+  "decision": "None beyond the nil itself; it adds to your partner's contract when your nil holds.",
+  "opponent": "Visible at scoring; opponents answer by breaking the nil.",
+  "aiNote": "Count +40 for your partner's contract when weighing a nil.",
+  "rationale": "A successful nil wins no tricks, so a nil deck that bids nil in half its rounds and succeeds three times in four earns about +15 a round in contract value, paid through the partner's contract and raised by multipliers, unlike nil value (Vigil Candle, PU-C10).",
+  "deviation": "Revision 1: replaced paying for losing with the second-best card in a trick, which was hard to follow and rarely fired."
 }

@@ -234,7 +234,7 @@ export function engraveSeat(s: GameState, seat: Seat) {
       tiers.push(free.filter((c) => c.suit === aff.suit && isFace(c)))
       tiers.push(free.filter((c) => c.suit === aff.suit))
     } else if (aff && 'rank' in aff) tiers.push(free.filter((c) => c.base === aff.rank))
-    else if (aff && 'low' in aff) tiers.push(free.filter((c) => c.base <= 6))
+    else if (aff && 'low' in aff) tiers.push(free.filter((c) => c.base <= 5))
     tiers.push(
       free.filter(isFace),
       free.filter((c) => c.base === ACE),

@@ -21,7 +21,7 @@
       "icon": "science"
     }
   ],
-  "text": "Affinity: Low cards. From the tenth trick on, this card becomes an ace.",
+  "text": "Affinity: 2–5. From the tenth trick on, this card becomes an ace.",
   "timing": "Always on, for the engraved card",
   "prototype": "automated",
   "signature": [

@@ -108,8 +108,7 @@ export function canBuy(s: GameState, seat: Seat, code: string): boolean {
   if (s.players[seat].sigils.length >= MAX_SIGILS) return false
   if (price(s, seat, code) > s.players[seat].gold) return false
   if (shop.bought === 0) return true
-  const common = getSigil(code)?.rarity === 'Common'
-  return shop.bought === 1 && common && shopRules(s, seat).secondCommon
+  return shop.bought === 1 && shopRules(s, seat).secondSigil
 }
 
 export function buy(s: GameState, seat: Seat, code: string) {

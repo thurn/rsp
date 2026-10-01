@@ -21,7 +21,7 @@
       "icon": "path"
     }
   ],
-  "text": "Affinity: Low cards. When you lead with this card, if your partner wins the trick, gain +40 contract value.",
+  "text": "Affinity: 2–5. When you lead with this card, if your partner wins the trick, gain +40 contract value.",
   "timing": "When led",
   "prototype": "automated",
   "signature": [

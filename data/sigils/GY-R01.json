@@ -21,10 +21,10 @@
       "icon": "cupboard"
     }
   ],
-  "text": "At each shop, you may replace one of your sigils with an offer of the same rarity or lower for free. This isn't a sale or a purchase.",
+  "text": "At each shop, you may exchange one of your sigils with one of the offered sigils.",
   "timing": "At the shop",
   "prototype": "manual",
-  "prototypeNote": "At the shop, use Collection to replace one of your sigils with an offer of the same rarity or lower.",
+  "prototypeNote": "At the shop, use Collection to swap one of your sigils for an offer, and put your sigil into the offers.",
   "signature": [
     {
       "trigger": "at shop",
@@ -40,5 +40,5 @@
   "decision": "Every shop: which weak or off-plan sigil to give up, and whether the trade-in or the normal purchase should take the better offer.",
   "opponent": "No effect on opponents.",
   "aiNote": "Trade in your lowest-value sigil when an offer of equal or lower rarity scores at least 10 a round more; with a full collection, always check the trade-in first.",
-  "rationale": "A free upgrade each shop, worth a sell-and-buy plus the saved purchase, so a collection keeps improving after it fills at 13; it never grows the collection, and \"isn't a sale\" keeps Garage Sale, Thrifted Radio, and Tumbling Dryer from firing on every trade-in."
+  "rationale": "A free upgrade each shop, worth a sell-and-buy plus the saved purchase, so a collection keeps improving after it fills at 13; the exchanged sigil goes into the shop's offers, and it never grows the collection."
 }

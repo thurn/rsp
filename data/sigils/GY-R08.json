@@ -21,25 +21,24 @@
       "icon": "oven"
     }
   ],
-  "text": "Each round, a second hand of random cards is created for you, and you keep whichever hand you prefer before your sigils are engraved.",
-  "timing": "Always on, for you (at the deal)",
-  "prototype": "manual",
-  "prototypeNote": "At the deal, use Random hand to see a second hand and keep whichever you prefer.",
+  "text": "Before bidding, your two lowest cards become aces.",
+  "timing": "Before bidding",
+  "prototype": "automated",
   "signature": [
     {
-      "trigger": "each deal",
+      "trigger": "before bidding",
       "scope": "self",
-      "target": "your dealt hand or 13 random new cards",
-      "effect": "keep the chosen hand",
-      "frequency": "×1"
+      "target": "your two lowest cards",
+      "effect": "become aces",
+      "frequency": "once a round"
     }
   ],
-  "archetypes": "High Card, Spade Master, Kingmaker; splash Nil Champion, Blind Bidder",
-  "family": "Opening hand control / Second hand",
+  "archetypes": "High Card, Spade Master, Contract Attacker",
+  "family": "Raising your ranks / Hand repair",
   "role": "Enabler",
-  "decision": "Which hand to keep: the stronger for a contract, the one with most hearts or diamonds for a suit deck, or the weaker for nil.",
-  "opponent": "Hidden; the new cards may duplicate cards in other hands, as with other Gray card creation.",
-  "aiNote": "Keep the hand with more expected tricks, or fewer when planning nil or already committed to blind nil.",
-  "rationale": "The better of two hands is worth about three-quarters of a trick, and the weaker of two makes nil and blind nil much safer; the choice comes before engraving, so affinities land on the kept hand and nothing is re-engraved, and the unkept cards leave the round.",
-  "deviation": "Timing moved from Before bidding to the deal, so sigils are engraved on the kept hand without a re-engraving rule."
+  "decision": "Bidding with two extra aces: whether to bid up for them, and which suits they open, since a low spade becomes the ace of spades.",
+  "opponent": "Visible before bidding; opponents answer by trumping the new aces once they show out of those suits.",
+  "aiNote": "Count the two new aces when bidding.",
+  "rationale": "Two twos or threes become aces, about one and a half extra tricks a round with nothing to review but two cards, which is rare-level power for a contract deck; it works against nil, which keeps it out of the nil archetypes.",
+  "deviation": "Revision 1: replaced choosing between two whole hands, which asked for too much review each round."
 }

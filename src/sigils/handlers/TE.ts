@@ -129,8 +129,8 @@ export const handlers: HandlerMap = {
     },
   },
 
-  // Tandem Scooter: Whenever your partner wins a trick, this sigil gains +5 contract value, up to
-  // +80; it resets when your partner misses their bid. The stored value pays at scoring.
+  // Tandem Scooter: Gain +0 contract value. Whenever your partner wins a trick, this sigil gains 5
+  // contract value; it resets when your partner misses their bid. The stored value pays at scoring.
   'TE-R01': {
     score: (ctx) => {
       const n = ctx.sigil?.counter ?? 0
@@ -139,7 +139,7 @@ export const handlers: HandlerMap = {
     on: {
       partnerWins: (ctx) => {
         const n = ctx.sigil?.counter ?? 0
-        if (n >= 80 || ctx.isCopy) return
+        if (ctx.isCopy) return
         ctx.addCounter(5)
         ctx.note(`stored +${n + 5}`)
       },
@@ -177,8 +177,8 @@ export const handlers: HandlerMap = {
     },
   },
 
-  // Swelling Sea: Whenever you win your third trick with hearts in a round, this sigil gains +10
-  // contract value. The stored value pays at scoring.
+  // Swelling Sea: Gain +0 contract value. Whenever you win your third trick with hearts in a round,
+  // this sigil gains 10 contract value. The stored value pays at scoring.
   'TE-R03': {
     score: (ctx) => {
       const n = ctx.sigil?.counter ?? 0
@@ -226,7 +226,7 @@ export const handlers: HandlerMap = {
     },
   },
 
-  // Paving the Road: Affinity: Low cards. When you lead with this card, if your partner wins the
+  // Paving the Road: Affinity: 2–5. When you lead with this card, if your partner wins the
   // trick, gain +40 contract value.
   'TE-U03': {
     on: {

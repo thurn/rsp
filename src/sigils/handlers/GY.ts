@@ -1,5 +1,6 @@
 import {
   type Card,
+  type Seat,
   type Suit,
   ACE,
   JACK,
@@ -9,7 +10,6 @@ import {
   SUIT_SYMBOLS,
   viewLabel,
 } from '../../game/cards'
-import { trickRules, winningIndexWith } from '../../game/rules'
 import { type OwnedSigil, isNil } from '../../game/types'
 import { SIGILS, getSigil, isAutomated, isEngraving } from '../registry'
 import { HANDLERS } from '.'
@@ -24,8 +24,8 @@ const randomRank = (ctx: Ctx) => 2 + Math.floor(ctx.rand() * 13)
 const randomSuit = (ctx: Ctx) => SUITS[Math.floor(ctx.rand() * 4)]
 const nameOf = (code: string) => getSigil(code)?.name ?? code
 
-/** Resonances in a collection, by each sigil's own code. */
-const resonances = (sigils: OwnedSigil[]) =>
+/** Colors in a collection, by each sigil's own code. */
+const colors = (sigils: OwnedSigil[]) =>
   new Set(sigils.flatMap((o) => getSigil(o.code)?.resonances ?? []))
 
 /** A sigil only works at the shop or when sold. */
@@ -48,29 +48,6 @@ const bestCopy = (codes: string[]) =>
     0,
   )
 
-/** The card that would win the current trick without its winner, or null. */
-function secondBest(ctx: Ctx): Card | null {
-  const s = ctx.state
-  const w = s.trickWinIndex
-  if (w === null || s.trick.length < 2) return null
-  const rules = { ...trickRules(s, s.trick), forced: null }
-  const led = s.trick[0].card.suit
-  const low = rules.lowestWins.includes(led)
-  const off = SUITS.find((x) => x !== led && x !== SPADES)!
-  const views = s.trick.map((p, i) =>
-    i !== w
-      ? { seat: p.seat, suit: p.card.suit, rank: ctx.rank(p.card) }
-      : { seat: p.seat, suit: w === 0 ? led : off, rank: low ? 99 : -1 },
-  )
-  const i = winningIndexWith(rules, views)
-  return i === w ? null : s.trick[i].card
-}
-
-/** Grow a capped counter. */
-const grow = (ctx: Ctx, n: number, cap: number) => {
-  const have = ctx.sigil?.counter ?? 0
-  if (have < cap) ctx.addCounter(Math.min(n, cap - have))
-}
 const payCounter = (ctx: Ctx) => {
   const n = ctx.sigil?.counter ?? 0
   if (n > 0) ctx.gainContract(n)
@@ -91,13 +68,13 @@ export const handlers: HandlerMap = {
     },
     on: { shopEnter: (ctx) => ctx.note('−15 prices') },
   },
-  // Heirloom Cabinet: After scoring, this sigil's sell value gains +20 gold.
+  // Heirloom Cabinet: After scoring, this sigil's sell value gains 20 gold.
   'GY-C03': {
     on: {
       afterScoring: (ctx) => {
         if (ctx.isCopy) return
         ctx.addSellBonus(20)
-        ctx.note('+20 sell value')
+        ctx.note('sell value gains 20')
       },
     },
   },
@@ -118,6 +95,22 @@ export const handlers: HandlerMap = {
       rules.guaranteeUncommon = true
     },
     on: { shopEnter: (ctx) => ctx.note('uncommon guaranteed') },
+  },
+  // Rearranged Desk: Before bidding, you may move one of your Engraving sigils to a chosen card in
+  // your hand. The chosen card has no sigil of its own.
+  'GY-C06': {
+    on: {
+      beforeBidding: (ctx) => {
+        const hand = ctx.hand()
+        const from = hand.filter((c) => c.sigils.some((g) => g.owner === ctx.owner))
+        const to = hand.filter((c) => c.sigils.length === 0)
+        if (from.length === 0 || to.length === 0) return
+        const a = ctx.chooseCard(ctx.seat, 'Move which card’s sigil?', from, () => null, true)
+        if (!a) return
+        const b = ctx.chooseCard(ctx.seat, 'Move it to which card?', to, (c) => c[0], true)
+        if (b) ctx.moveEngraving(a, b)
+      },
+    },
   },
   // Second Home: Whenever you throw off a card with a sigil, move that sigil to a random card in
   // your hand without one. The move waits for the trick to end, so the card's own triggers resolve.
@@ -141,18 +134,15 @@ export const handlers: HandlerMap = {
       },
     },
   },
-  // Surprise Takeaway: Each round, a random common sigil you don't own is engraved on a random
-  // card in your hand for the round. It draws from automated Engraving commons, at the deal, so the
-  // owned Engraving sigils skip its card and its own deal effects still fire.
+  // Surprise Takeaway: Each round, a random sigil is engraved on a random card in your hand. It
+  // draws from automated Engraving sigils, at the deal, so the owned Engraving sigils skip its card
+  // and its own deal effects still fire.
   'GY-C08': {
     on: {
       deal: (ctx) => {
-        const own = ctx.state.players[ctx.owner].sigils
-        const owned = new Set(own.flatMap((o) => [o.code, o.copyOf ?? o.code]))
         const pool = Object.values(SIGILS)
-          .filter((g) => g.rarity === 'Common' && isEngraving(g.code) && isAutomated(g.code))
+          .filter((g) => isEngraving(g.code) && isAutomated(g.code))
           .map((g) => g.code)
-          .filter((c) => !owned.has(c))
         const code = ctx.pick(pool)
         const card = ctx.pick(ctx.hand().filter((c) => c.sigils.length === 0))
         if (!code || !card) return
@@ -196,8 +186,8 @@ export const handlers: HandlerMap = {
       },
     },
   },
-  // Sorting Robot: When you play this card, look at two random cards and create one of them in
-  // your hand.
+  // Sorting Robot: When you play this card, create two random cards and add one of them to your
+  // hand.
   'GY-C12': {
     on: {
       played: (ctx) => {
@@ -249,11 +239,13 @@ export const handlers: HandlerMap = {
       if (bid > 0) ctx.gainContract(5 * bid)
     },
   },
-  // Etched Microchip: Whenever you win a trick with a card that has a sigil, gain +5 contract value.
+  // Etched Microchip: Whenever you win a trick with a card that has a sigil, gain +10 contract
+  // value.
   'GY-C19': {
-    on: { youWin: (ctx, e) => !!ctx.findCard(e.cardId!)?.sigils.length && ctx.gainContract(5) },
+    on: { youWin: (ctx, e) => !!ctx.findCard(e.cardId!)?.sigils.length && ctx.gainContract(10) },
   },
-  // Growing City: Whenever your team makes its contract, this sigil gains +5 contract value.
+  // Growing City: Gain +0 contract value. Whenever your team makes its contract, this sigil gains 5
+  // contract value.
   'GY-C20': {
     score: payCounter,
     on: {
@@ -262,16 +254,14 @@ export const handlers: HandlerMap = {
       },
     },
   },
-  // House of Cards: Whenever your team makes its contract, this sigil gains +10 contract value, up
-  // to +30; a missed contract resets it.
+  // House of Cards: Gain +30 contract value. When your team misses its contract, you lose this
+  // sigil.
   'GY-C21': {
-    score: payCounter,
+    score: (ctx) => ctx.gainContract(30),
     on: {
       afterScoring: (ctx) => {
         const r = ctx.state.lastResult?.[ctx.team]
-        const n = ctx.sigil?.counter ?? 0
-        if (r?.made) grow(ctx, 10, 30)
-        else if (r && r.contract > 0 && n > 0) ctx.addCounter(-n)
+        if (r && r.contract > 0 && !r.made) ctx.loseSigil()
       },
     },
   },
@@ -316,17 +306,17 @@ export const handlers: HandlerMap = {
       },
     },
   },
-  // Rousing Speaker: When you bid, gain +5 contract value for every 50 points your team is behind.
+  // Rousing Speaker: When you bid, gain +10 contract value for every 50 points your team is behind.
   'GY-C25': {
     on: {
       bid: (ctx) => {
         const s = ctx.state
         const n = Math.floor((s.scores[1 - ctx.team] - s.scores[ctx.team]) / 50)
-        if (n > 0) ctx.gainContract(5 * n)
+        if (n > 0) ctx.gainContract(10 * n)
       },
     },
   },
-  // Muffling Headphones: Affinity: Low cards. When you play this card, aces count as twos for this
+  // Muffling Headphones: Affinity: 2–5. When you play this card, aces count as twos for this
   // trick.
   'GY-C26': {
     rankBonus: (ctx, card) => {
@@ -342,31 +332,45 @@ export const handlers: HandlerMap = {
       },
     },
   },
-  // Four Square: After bidding, if you and your partner bid the same number, 4 or more, gain +1×
-  // contract multiplier.
-  'GY-R04': {
+  // Musical Chairs: Before bidding, you may swap this sigil with the sigil on another one of your
+  // cards.
+  'GY-R02': {
     on: {
-      afterBidding: (ctx) => {
-        const bid = ctx.bid() ?? 0
-        if (bid >= 4 && ctx.bid(ctx.partner) === bid) ctx.gainMultiplier(1)
+      beforeBidding: (ctx) => {
+        const here = ctx.card
+        if (!here || !ctx.inHand) return
+        const others = ctx.hand().filter((c) => c !== here && c.sigils.length > 0)
+        if (others.length === 0) return
+        const other = ctx.chooseCard(ctx.seat, 'Swap with which card?', others, () => null, true)
+        if (!other) return
+        ctx.moveEngraving(here, other)
+        ctx.moveEngraving(other, here)
       },
     },
   },
-  // Stained-Glass Church: If you own sigils of six or more resonances, gain +1× contract
+  // Square Meal: After bidding, if your team's contract is 9 or more tricks, gain +1× contract
   // multiplier.
-  'GY-R05': {
-    score: (ctx) => {
-      if (resonances(ctx.state.players[ctx.owner].sigils).size >= 6) ctx.gainMultiplier(1)
+  'GY-R04': {
+    on: {
+      afterBidding: (ctx) => {
+        const bids = [ctx.bid() ?? 0, ctx.bid(ctx.partner) ?? 0]
+        if (bids.reduce((n, b) => n + Math.max(0, b), 0) >= 9) ctx.gainMultiplier(1)
+      },
     },
   },
-  // Solid Core: If you own five or more sigils of one resonance other than Gray, each trick your
-  // team bids is worth 20 points instead of 10, win or lose.
+  // Stained-Glass Church: If you own sigils of six or more colors, gain +1× contract multiplier.
+  'GY-R05': {
+    score: (ctx) => {
+      if (colors(ctx.state.players[ctx.owner].sigils).size >= 6) ctx.gainMultiplier(1)
+    },
+  },
+  // Solid Core: If you own five or more sigils of one color, each trick your team bids is worth 20
+  // points.
   'GY-R06': {
     score: (ctx, calc) => {
       const own = ctx.state.players[ctx.owner].sigils
       const per = (r: string) => own.filter((o) => getSigil(o.code)?.resonances.includes(r)).length
-      const res = [...resonances(own)].filter((r) => r !== 'Gray')
-      if (!res.some((r) => per(r) >= 5)) return
+      if (![...colors(own)].some((r) => per(r) >= 5)) return
       calc.teams[ctx.team].perTrick = 20
       ctx.note('bid tricks worth 20')
     },
@@ -380,6 +384,15 @@ export const handlers: HandlerMap = {
         ctx.note('miss ignores multiplier')
     },
   },
+  // Fitting-Room Skirt: Before bidding, your two lowest cards become aces.
+  'GY-R08': {
+    on: {
+      beforeBidding: (ctx) => {
+        const sorted = ctx.hand().sort((a, b) => ctx.rank(a) - ctx.rank(b))
+        for (const c of sorted.slice(0, 2)) ctx.setRank(c, ACE)
+      },
+    },
+  },
   // Sprawling Warehouse: You see four shop offers instead of three.
   'GY-U01': {
     shop: (_ctx, rules) => {
@@ -389,14 +402,14 @@ export const handlers: HandlerMap = {
   },
   // Thrifted Radio: Whenever you sell a sigil, gain +20 gold. Selling the Radio itself counts.
   'GY-U02': { on: { sold: (ctx) => ctx.gainGold(20) } },
-  // Overstocked Fridge: At each shop, you may buy a second sigil if it's a common.
+  // Overstocked Fridge: At each shop, you may buy a second sigil.
   'GY-U03': {
     shop: (_ctx, rules) => {
-      rules.secondCommon = true
+      rules.secondSigil = true
     },
     on: {
       buy: (ctx) => {
-        if (ctx.state.shop?.seats[ctx.seat].bought === 2) ctx.note('second common')
+        if (ctx.state.shop?.seats[ctx.seat].bought === 2) ctx.note('second sigil')
       },
     },
   },
@@ -411,22 +424,30 @@ export const handlers: HandlerMap = {
       },
     },
   },
-  // Tracing Pencil: Before bidding, each opponent reveals a random sigil they own, and you choose
-  // one for this sigil to copy for the round. A copied Engraving sigil goes on a random card.
+  // Neighborly Balcony: After scoring, if your team made its contract, you and your partner each
+  // gain +20 gold.
+  'GY-U05': {
+    on: {
+      afterScoring: (ctx) => {
+        if (!ctx.state.lastResult?.[ctx.team].made) return
+        ctx.gainGold(20)
+        ctx.gainGold(20, ctx.partner)
+      },
+    },
+  },
+  // Tracing Pencil: Before bidding, this sigil becomes a copy of a random sigil an opponent owns for
+  // the round. A copied Engraving sigil goes on a random card.
   'GY-U06': {
     on: {
       beforeBidding: (ctx) => {
-        const shown = ctx.opponents.flatMap((op) => {
-          const o = ctx.pick(ctx.state.players[op].sigils)
-          return o ? [o] : []
-        })
-        const codes = shown.map((o) => o.copyOf ?? o.code).filter((c) => c !== ctx.source)
-        if (codes.length === 0) return
-        for (const o of shown) o.revealed = true
-        const code =
-          codes[ctx.choose('Copy which sigil?', codes.map(nameOf), () => bestCopy(codes))]
+        const theirs = ctx.opponents.flatMap((op) => ctx.state.players[op].sigils)
+        const o = ctx.pick(theirs.filter((o) => (o.copyOf ?? o.code) !== ctx.source))
+        if (!o) return
+        const code = o.copyOf ?? o.code
+        o.revealed = true
         ctx.setCopyOf(code)
         ctx.sigil!.roundCopy = true
+        ctx.note(nameOf(code))
         if (!isEngraving(code)) return
         const free = ctx.hand().filter((c) => c.sigils.length === 0)
         const card = ctx.pick(free.filter((c) => c.base >= JACK)) ?? ctx.pick(free)
@@ -434,17 +455,15 @@ export const handlers: HandlerMap = {
       },
     },
   },
-  // Matching Mugs: This sigil is a copy of a common sigil you own, chosen when you buy it.
+  // Matching Mugs: When you buy this sigil, choose another sigil you own for it to become a copy of.
   'GY-U07': {
     on: {
       buy: (ctx, e) => {
         if (e.data?.code !== ctx.source) return
         const own = ctx.state.players[ctx.owner].sigils
-        const codes = own
-          .filter((o) => o.code !== ctx.source && getSigil(o.code)?.rarity === 'Common')
-          .map((o) => o.code)
+        const codes = own.filter((o) => o.code !== ctx.source).map((o) => o.code)
         if (codes.length === 0) return
-        const i = ctx.choose('Copy which common?', codes.map(nameOf), () => bestCopy(codes))
+        const i = ctx.choose('Copy which sigil?', codes.map(nameOf), () => bestCopy(codes))
         ctx.setCopyOf(codes[i])
       },
     },
@@ -457,50 +476,48 @@ export const handlers: HandlerMap = {
       },
     },
   },
-  // Rinsing Shower: If your team's contract is 7 or more tricks, its overtricks add no bags.
+  // Rinsing Shower: If your team's contract is 7 or more tricks, your team takes no bags.
   'GY-U11': {
     score: (ctx, calc) => {
       const t = calc.teams[ctx.team]
       if (t.contract < 7) return
       t.noBags = true
-      if (t.made && t.tricks > t.contract) ctx.note('overtricks add no bags')
+      if (t.made && t.tricks > t.contract) ctx.note('no bags')
     },
   },
   // Emptied Dishwasher: When this card loses a trick, remove three of your team's bags.
   'GY-U12': { on: { thisCardLoses: (ctx) => ctx.removeBags(3) } },
-  // Waiting Bench: Whenever you leave a shop without buying a sigil, this sigil gains +10 contract
-  // value, up to +40.
+  // Waiting Bench: Gain +0 contract value. Whenever you leave a shop without buying a sigil, this
+  // sigil gains 10 contract value.
   'GY-U13': {
     score: payCounter,
     on: {
       shopLeave: (ctx, e) => {
-        if (e.data?.bought === 0) grow(ctx, 10, 40)
+        if (e.data?.bought === 0) ctx.addCounter(10)
       },
     },
   },
-  // Sous-Chef's Hat: Whenever you lose a trick with the second-best card in it, gain +5 contract
-  // value. The second-best card is the one that would win without the winner.
+  // Sous-Chef's Hat: If you win no tricks in a round, gain +40 contract value.
   'GY-U14': {
-    on: {
-      youLose: (ctx, e) => {
-        if (secondBest(ctx)?.id === e.cardId) ctx.gainContract(5)
-      },
+    score: (ctx) => {
+      if (ctx.state.tricksWon[ctx.seat] === 0) ctx.gainContract(40)
     },
   },
-  // Roommates' Apartment: Gain +10 contract value for each resonance that both you and your
-  // partner have sigils of.
+  // Roommates' Apartment: If you and your partner each take at least your own bid, gain +30
+  // contract value.
   'GY-U15': {
     score: (ctx) => {
-      const mine = resonances(ctx.state.players[ctx.owner].sigils)
-      const theirs = resonances(ctx.state.players[ctx.partner].sigils)
-      const n = [...mine].filter((r) => theirs.has(r)).length
-      if (n > 0) ctx.gainContract(10 * n)
+      const made = (seat: Seat) => {
+        const bid = ctx.bid(seat) ?? 0
+        return bid > 0 && ctx.state.tricksWon[seat] >= bid
+      }
+      if (made(ctx.seat) && made(ctx.partner)) ctx.gainContract(30)
     },
   },
-  // Artist's Palette: If you own sigils of five or more resonances, gain +30 contract value.
+  // Artist's Palette: If you own sigils of three or more colors, gain +20 contract value.
   'GY-U16': {
     score: (ctx) => {
-      if (resonances(ctx.state.players[ctx.owner].sigils).size >= 5) ctx.gainContract(30)
+      if (colors(ctx.state.players[ctx.owner].sigils).size >= 3) ctx.gainContract(20)
     },
   },
 }

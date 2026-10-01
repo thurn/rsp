@@ -21,10 +21,10 @@
       "icon": "microwave-oven"
     }
   ],
-  "text": "After scoring, a copy of a chosen non-ace card you won a trick with this round replaces a random card in your next hand.",
+  "text": "After scoring, choose a card you won a trick with this round. That card starts in your hand next round.",
   "timing": "After scoring",
   "prototype": "manual",
-  "prototypeNote": "After scoring, note a non-ace card that won you a trick; after the next deal, use Remove card on a random card and Create card for the copy.",
+  "prototypeNote": "After scoring, note a card that won you a trick; after the next deal, use Move card to swap that card into your hand for a random card of yours.",
   "signature": [
     {
       "trigger": "after scoring",
@@ -40,5 +40,6 @@
   "decision": "Which winner to carry forward: a king of spades for trump, a queen of hearts for Heart Chorus, or a high card to pass.",
   "opponent": "Hidden until played; the copy may duplicate a card dealt elsewhere.",
   "aiNote": "Choose the highest spade you won with, else the highest card.",
-  "rationale": "A king or queen of spades every round is worth about half a trick over a random card; the copy keeps the card's suit and rank as the round ended, and \"non-ace\" uses that rank, so the copy is never an ace; a nil round that wins nothing carries nothing."
+  "rationale": "A king or ace of spades every round is worth about half a trick over a random card; the card is the real card from the deck, so whoever was dealt it gets a random card of yours instead, and a nil round that wins nothing carries nothing.",
+  "deviation": "Revision 1: the real card starts in your hand instead of a copy replacing a random card, and aces qualify."
 }

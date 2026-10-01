@@ -21,16 +21,16 @@
       "icon": "laptop"
     }
   ],
-  "text": "When you bid, gain +5 contract value for every 50 points your team is behind.",
+  "text": "When you bid, gain +10 contract value for every 50 points your team is behind.",
   "timing": "When you bid",
   "prototype": "automated",
   "signature": [
     {
       "trigger": "when you bid",
       "scope": "self",
-      "target": "contract",
-      "effect": "+5 per 50 points behind",
-      "frequency": "×1"
+      "target": "your team contract",
+      "effect": "contract value +10 per 50 points behind",
+      "frequency": "once a round"
     }
   ],
   "archetypes": "Contract Attacker, Gold Miner; splash Blind Bidder",
@@ -39,6 +39,6 @@
   "decision": "Bidding while behind: a bigger payout tempts a bolder bid, and it still pays your partner's contract when you bid nil or blind nil.",
   "opponent": "Visible when you bid; opponents who lead see exactly what their lead is worth to you.",
   "aiNote": "Add the bonus to the value of making the contract when choosing between a safe and an ambitious bid.",
-  "rationale": "Behind by 100 it pays +10, by 300 +30, and nothing when level or ahead; Blind Bidder trails often by design (PU-C08, Desperate Gambit), so it earns about +10 to +20 there.",
+  "rationale": "Behind by 100 it pays +20, by 300 +60, and nothing when level or ahead; Blind Bidder trails often by design (PU-C08, Desperate Gambit), so it earns about +20 to +40 there.",
   "deviation": "Timing moved from always on to When you bid, which fixes when the deficit is measured and adds a sigil to a minor window."
 }

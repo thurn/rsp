@@ -21,7 +21,7 @@
       "icon": "walking"
     }
   ],
-  "text": "Whenever your partner wins a trick, this sigil gains +5 contract value, up to +80; it resets when your partner misses their bid.",
+  "text": "Gain +0 contract value. Whenever your partner wins a trick, this sigil gains 5 contract value; it resets when your partner misses their bid.",
   "timing": "When your partner wins a trick",
   "prototype": "automated",
   "signature": [
@@ -40,5 +40,5 @@
   "opponent": "The counter is public; opponents can target the partner's bid to reset it, a clear and satisfying counterplay.",
   "aiNote": "Treat the partner making their own bid as worth the current counter; pass the partner winners until their bid looks safe, and bid the partner conservatively when the counter is high.",
   "rationale": "A partner wins about 3.25 tricks a round (about 4 when fed), so the counter reaches the +80 cap in four or five rounds; with the partner missing their own bid about a quarter of the time, it averages about +50 late (about +40 EV), rare value for thin Kingmaker, and the first round it pays like Homeward Ship before the climb; it uses the accepted \"since you bought this sigil\" counter pattern (Growing City, Waiting Bench) but grows on partner wins, not made contracts, and pays across rounds, unlike Homeward Ship and Triumphal Arch.",
-  "deviation": "Timing moved from \"When your partner wins a trick\" to an always-on counter, because the accepted counter pattern states the permanent growth more clearly than \"this sigil permanently gains\"; the partner-wins window is already above its floor of 3."
+  "deviation": "Revision 1: the +80 cap was removed; the reset already ends long runs."
 }

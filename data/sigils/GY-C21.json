@@ -21,24 +21,24 @@
       "icon": "pin"
     }
   ],
-  "text": "Whenever your team makes its contract, this sigil gains +10 contract value, up to +30; a missed contract resets it.",
+  "text": "Gain +30 contract value. When your team misses its contract, you lose this sigil.",
   "timing": "After scoring",
   "prototype": "automated",
   "signature": [
     {
-      "trigger": "always",
+      "trigger": "always; your team misses its contract",
       "scope": "self",
-      "target": "contract",
-      "effect": "+10 per consecutive made contract, max +30",
-      "frequency": "counter"
+      "target": "your team contract; this sigil",
+      "effect": "contract value +30; lost on a miss",
+      "frequency": "every round"
     }
   ],
   "archetypes": "All",
   "family": "Scaling sigils / Decay",
   "role": "Payoff: Contract additive",
-  "decision": "Protecting the streak: a miss resets it, so it rewards safe bids and punishes a gamble.",
-  "opponent": "Visible count; setting your team now also breaks the streak.",
-  "aiNote": "With a streak of two or more, bid a half trick more conservatively.",
-  "rationale": "Counts the team's current streak, including rounds before purchase, so it pays at once; at an 80% make rate it averages about +20 (about +16 expected) and reaches the cap after three made contracts, while GY-C20 never resets but starts from zero.",
-  "deviation": "Timing moved from After scoring to always on, and a cap added, so a long streak stays at common size and the sigil never dominates or is dominated by GY-C20."
+  "decision": "How safely to bid: every miss risks the sigil, so it rewards steady contracts and punishes a gamble.",
+  "opponent": "Visible; setting your team also knocks the sigil down.",
+  "aiNote": "Bid a half trick more conservatively.",
+  "rationale": "Three times Sturdy Wall's +10, paid only on a made contract, and lost on the first miss: at an 80% make rate it lasts about five rounds and pays about +120 over its life, a fragile common that suits a careful deck.",
+  "deviation": "Revision 1: replaced a capped, resetting streak counter, which read like Growing City (GY-C20)."
 }

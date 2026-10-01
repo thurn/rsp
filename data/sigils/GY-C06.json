@@ -21,24 +21,24 @@
       "icon": "mouse"
     }
   ],
-  "text": "Before bidding, you may swap the sigils on two chosen cards in your hand.",
+  "text": "Before bidding, you may move one of your Engraving sigils to a chosen card in your hand.",
   "timing": "Before bidding",
-  "prototype": "manual",
-  "prototypeNote": "Before bidding, use Engrave to swap the sigils on the two chosen cards.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before bidding",
       "scope": "self",
-      "target": "two chosen cards",
-      "effect": "swap sigils",
-      "frequency": "×1"
+      "target": "one of your engraved sigils",
+      "effect": "moved to a chosen card",
+      "frequency": "once a round"
     }
   ],
   "archetypes": "While Held, High Card, Kingmaker; any collection with card-bound sigils",
   "family": "Engraving control / Choice",
   "role": "Enabler (feeds Patient Hourglass, DU-S10)",
-  "decision": "Which sigil goes where: Crown Jewel onto an ace, Honed Edge onto a queen, Patient Hourglass onto the card least likely to be forced out.",
+  "decision": "Which sigil to place where: a win payoff onto your surest winner, a losing payoff onto a card that will lose, or an affinity sigil onto a card it fits.",
   "opponent": "Hidden; opponents see only the results through play.",
-  "aiNote": "Move win-trigger and rank sigils to the highest card, and while-held sigils to the top spade or the lowest card of the longest suit.",
-  "rationale": "A card without a sigil can be one of the two, which simply moves the sigil; one swap a round keeps it a common, and it works even late in the run when most cards carry a sigil."
+  "aiNote": "Skip it.",
+  "rationale": "One placement a round turns a badly placed engraving into a well-placed one, worth a few points on average; the chosen card must have no sigil of its own, which keeps it distinct from Musical Chairs (GY-R02), which trades places with an engraved card.",
+  "deviation": "Revision 1: replaced swapping the sigils on two chosen cards with placing one sigil where you choose."
 }

@@ -21,10 +21,10 @@
       "icon": "oven"
     }
   ],
-  "text": "At each shop, you may pay 30 gold to create a chosen card in your next hand.",
+  "text": "At each shop, you may pay 30 gold to choose a card. That card starts in your hand next round.",
   "timing": "At the shop",
   "prototype": "manual",
-  "prototypeNote": "At the shop, use Ledger to pay 30 gold; after the next deal, use Create card for the chosen card.",
+  "prototypeNote": "At the shop, use Ledger to pay 30 gold; after the next deal, use Move card to swap the chosen card into your hand for a random card of yours.",
   "signature": [
     {
       "trigger": "at shop",
@@ -40,5 +40,6 @@
   "decision": "Whether 30 gold is worth more as a card next round or toward sigils, and which card to order (the ace of spades for tricks, a heart for Heart Chorus, a two for nil).",
   "opponent": "Hidden until the card is played.",
   "aiNote": "Pay from round 6 on, or earlier when gold would stay above 150 after buying; order the ace of spades, or a two when planning nil.",
-  "rationale": "The card is created, so it may duplicate a dealt card, and it makes a 14-card hand, so one card may go unplayed; worth about a trick for 30 gold, a poor trade early and a good one late when gold buys little."
+  "rationale": "The chosen card is the real card from the deck: whoever was dealt it gets a random card of yours instead. Worth about a trick for 30 gold, a poor trade early and a good one late when gold buys little.",
+  "deviation": "Revision 1: the real card starts in your hand instead of a created copy, so the hand stays at 13 cards."
 }

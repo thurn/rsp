@@ -32,9 +32,10 @@ reference for clarity.
 - **Rounds without "this."** Conditions and counts that hold for every round
   say "in a round" or "each round": "If you throw off two or more cards in a
   round, gain +30 contract value."
-- **Growth that lasts the run.** A sigil that grows across rounds names the
-  trigger and what the sigil gains: "Whenever your team makes its contract,
-  this sigil gains +5 contract value."
+- **Growth that lasts the run.** A sigil that grows across rounds states what
+  it gives now, then names the trigger and what the sigil gains: "Gain +0
+  contract value. Whenever your team makes its contract, this sigil gains 5
+  contract value."
 - **Sigils and cards.** A sigil that copies or changes sigils says "this
   sigil"; "this card" means only the card it is engraved on.
 - **Set ranks plainly.** An effect that turns one rank into another says
@@ -42,15 +43,26 @@ reference for clarity.
 - **Flat modifiers.** An effect that adds to other gains adds a flat amount to
   each one: "Whenever you gain contract value from another sigil, gain +5
   more."
-- **Caps where they bind.** A cap appears only when ordinary play reaches it.
+- **Caps where they bind.** A cap appears only when ordinary play reaches it
+  and the sigil would break without it.
+- **Bags by name.** Effects on bags say "bags": "your team takes no bags,"
+  "Your team takes two fewer bags each round."
+- **Random cards are created.** Seeing random cards that come from no hand is
+  creating them: "create two random cards and add one of them to your hand."
+- **Chosen cards start in hand.** A card chosen for a later hand is the real
+  card, and it "starts in your hand next round."
+- **Copies say "copy."** A sigil that copies another "copies" it or "becomes
+  a copy of" it, and names whose sigil and when: "Before bidding, this sigil
+  copies another chosen sigil you own."
 - **"Other" fits every card.** "Other" and "earlier" phrases read correctly
   whichever card the sigil is engraved on: "each heart you played earlier
   this round."
 - **When, then what.** A triggered effect opens with when it happens, then says
   what happens: "When this card wins a trick, gain +20 contract value."
 - **Gain with a sign.** Increases of value use "gain" and a signed number:
-  "gain +20 contract value," "gain +5 gold." Rank changes use an unsigned
-  number in both directions: "gains 3 rank," "loses 4 rank." Decreases use a
+  "gain +20 contract value," "gain +5 gold." Rank changes and a sigil's own
+  growth use an unsigned number: "gains 3 rank," "loses 4 rank," "this sigil
+  gains 5 contract value." Decreases use a
   plain verb and an unsigned number: "Shop rerolls cost 20 gold less."
 - **Spades words and plain English.** Rules text uses the ordinary vocabulary
   of Spades freely: trick, lead, follow suit, void, trump, nil, blind nil,
@@ -88,7 +100,7 @@ reference for clarity.
 - **Affinities matter.** Engraving sigils sit on face cards unless an
   affinity says otherwise, so an affinity appears when another card plays
   better, such as a spade affinity on a sigil that pays when its card trumps,
-  or "Affinity: Low cards" on a sigil that turns a weak card into a winner. Affinities are
+  or "Affinity: 2–5" on a sigil that turns a weak card into a winner. Affinities are
   plural: "Affinity: Spades," "Affinity: Kings."
 - **Name the play.** Text names the play it means: "when you trump" rather
   than "when you play a spade to a trick of another suit," and "create a two"
@@ -194,7 +206,7 @@ These are the game's own terms, beyond standard Spades vocabulary.
 | **pass** | Give a card from your hand to another player, who gives nothing back. |
 | **swap** | You and another player each give the other a card at the same time. Each player secretly picks the card they give, unless the text names the cards: "swap your highest card for your partner's lowest card." "Swap two cards" moves two cards each way. |
 | **reveal** | Show a card to every player, from your hand or another player's. It stays in that hand and stays revealed for the round; playing a card does not reveal it. Seeing another player's cards is always a reveal, and "reveal to" names who sees it: "your partner reveals their hand to you." |
-| **this sigil gains** | Growth that lasts the run: "this sigil gains +10 contract value" adds +10 contract value every round from then on. |
+| **this sigil gains** | Growth that lasts the run: "this sigil gains 10 contract value" adds 10 to the contract value the sigil gives every round from then on. |
 | **throw off** | Play a card that neither follows the suit led nor is trump. Trumping is not throwing off. |
 | **longest suit, shortest suit** | Counted in your hand when the effect happens. Used rarely; most sigils name a suit. |
 | **team** | You and your partner. |
@@ -203,11 +215,10 @@ These are the game's own terms, beyond standard Spades vocabulary.
 | **sigil** | An effect you own for the run. Each is Ongoing or Engraving. |
 | **Ongoing sigil** | A sigil that works for its owner all round without sitting on a card. Its text never says "this card." |
 | **Engraving sigil** | A sigil engraved on a card in each new hand. Its text says "this card." |
-| **resonance** | A sigil's color: Red, Orange, Green, Blue, Teal, Purple, or Gray. "Gray sigils" means sigils of that resonance. |
+| **color** | A sigil's resonance: Red, Orange, Green, Blue, Teal, Purple, or Gray. "Gray sigils" means sigils of that color, and "sigils of three or more colors" counts each color once. |
 | **create** | Make a card that comes from no hand, such as "create a two of its suit in your hand." A created card is removed after the round. |
 | **beside** | Next to a card in your hand's dealt order. Rearranging your hand doesn't change which cards are beside each other. |
-| **affinity** | The suit, rank below ace, or low cards an Engraving sigil prefers to be engraved on. Without one, it prefers face cards, then aces. |
-| **low cards** | Twos through sixes, as in "Affinity: Low cards." |
+| **affinity** | The suit, rank below ace, or ranks 2–5 an Engraving sigil prefers to be engraved on, as in "Affinity: 2–5." Without one, it prefers face cards, then aces. |
 
 Any other invented term is added here before it appears in rules text.
 
@@ -239,9 +250,9 @@ Any other invented term is added here before it appears in rules text.
 - **Visibility:** every triggered effect is shown to the table when it happens,
   as the core rules require.
 - **Numbers** are written as digits, with a sign on value gains: "+5 gold,"
-  "+20 contract value." Rank changes are unsigned: "gains 3 rank," "loses 4
-  rank." Counts of cards are words: "a
-  card," "two cards," "three random cards."
+  "+20 contract value." Rank changes and a sigil's own growth are unsigned:
+  "gains 3 rank," "this sigil gains 5 contract value." Counts of cards are
+  words: "a card," "two cards," "three random cards."
 - **Punctuation:** full sentences, sentence case, ending with a period.
 
 ## Calibration

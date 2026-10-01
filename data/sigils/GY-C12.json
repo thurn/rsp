@@ -21,7 +21,7 @@
       "icon": "microwave-oven"
     }
   ],
-  "text": "When you play this card, look at two random cards and create one of them in your hand.",
+  "text": "When you play this card, create two random cards and add one of them to your hand.",
   "timing": "When played",
   "prototype": "automated",
   "signature": [

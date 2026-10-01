@@ -1,12 +1,12 @@
 {
   "code": "GY-R02",
-  "name": "Stacked Chairs",
+  "name": "Musical Chairs",
   "resonances": [
     "Gray"
   ],
-  "rarity": "Rare",
+  "rarity": "Common",
   "category": "Engraving",
-  "price": 90,
+  "price": 40,
   "wave": 4,
   "icon": "chair",
   "iconFamily": "chair",
@@ -21,25 +21,24 @@
       "icon": "circuit-board"
     }
   ],
-  "text": "Before bidding, you may move any of your other sigils onto this card.",
+  "text": "Before bidding, you may swap this sigil with the sigil on another one of your cards.",
   "timing": "Before bidding",
-  "prototype": "manual",
-  "prototypeNote": "Before bidding, use Engrave to move the chosen sigils onto this card.",
+  "prototype": "automated",
   "signature": [
     {
       "trigger": "before bidding",
       "scope": "self",
-      "target": "any of your other sigils",
-      "effect": "move onto this card",
-      "frequency": "any number"
+      "target": "this sigil and another card's sigil",
+      "effect": "swap cards",
+      "frequency": "once a round"
     }
   ],
   "archetypes": "While Held, High Card, Kingmaker",
-  "family": "Engraving control / Stacking",
-  "role": "Utility (Enabler for card-bound payoffs)",
-  "decision": "Whether this card, wherever it was engraved, is worth building on: pile rank sigils and win triggers onto it when it can become a winner, while-held sigils when it's a card you can keep, or nothing when it's a weak card you'll have to follow with early; one lost or taken card now costs the whole stack.",
+  "family": "Engraving control / Swap",
+  "role": "Enabler",
+  "decision": "Whether to bring another card's sigil onto this card: worth it when this card suits that sigil better, such as a win payoff onto a sure winner.",
   "opponent": "Hidden until the card is played; one forced play against it hits the whole stack, which is fair counterplay.",
-  "aiNote": "If this card is a queen or higher, or a spade of 10 or higher, move rank sigils and win triggers onto it; if it's the lowest card of your longest suit, move while-held sigils onto it; otherwise move nothing.",
-  "rationale": "Engraving stacking as a true build-around, one plain sentence, and never a copy; the stack lands on this sigil's own face card, which keeps it from being degenerate unless Rearranged Desk first moves it to an ace. Rulings: under the new convention a re-triggered or replayed sigil grants its contract multiplier at most once a round, so Twin Cherries or Masked Encore on the stack can't double its multipliers, and effects that name \"the sigil\" on a card (Second Home) act on every sigil stacked there.",
-  "deviation": "Timing moved from Always on, for the engraved card, to Before bidding, because the choice needs a named moment after you see the hand; this leaves the engraved-card window at 9, one short of its floor, for the wave 6 audit."
+  "aiNote": "Skip it.",
+  "rationale": "One swap a round gives another engraving this sigil's placement, usually a face card, which is a few points at best, so it sits at common; it differs from Rearranged Desk (GY-C06), which moves a sigil to a card without one.",
+  "deviation": "Revision 1: replaced moving any of your sigils onto this card (stacking), and moved from rare to common."
 }

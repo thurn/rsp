@@ -21,24 +21,24 @@
       "icon": "hospital"
     }
   ],
-  "text": "Gain +10 contract value for each resonance that both you and your partner have sigils of.",
+  "text": "If you and your partner each take at least your own bid, gain +30 contract value.",
   "timing": "Always on, for you",
   "prototype": "automated",
   "signature": [
     {
-      "trigger": "always",
-      "scope": "self",
-      "target": "contract",
-      "effect": "+10 per resonance in both partners' collections",
-      "frequency": "counter"
+      "trigger": "you and your partner both make your bids",
+      "scope": "your team",
+      "target": "your team contract",
+      "effect": "contract value +30",
+      "frequency": "once a round"
     }
   ],
-  "archetypes": "Kingmaker, Nil Guard, Swap Meet",
-  "family": "Resonance synergy / Partnership",
+  "archetypes": "Kingmaker, Nil Guard, Exact Contractor",
+  "family": "Partnership / Both bids",
   "role": "Payoff: Contract additive",
-  "decision": "Shopping toward your partner's resonances, and partner coordination: a human partner can buy to match.",
-  "opponent": "No effect on opponents.",
-  "aiNote": "Add 10 points of value to an offer whose resonance your partner owns and you don't yet.",
-  "rationale": "Gray is usually shared (+10), and the partner archetypes these decks pair with share a color (Kingmaker with High Card on Red, Nil Guard with Nil Champion on Purple), so +20 to +30 is typical; dual-resonance sigils count for both colors.",
-  "deviation": "Counts resonances the partners share instead of one resonance across both collections, because a Gray count across both partners is Well-Oiled Gear (GY-C22) with a wider scope."
+  "decision": "Sharing tricks: when one partner is short, the other feeds them rather than overtaking.",
+  "opponent": "Visible at scoring; opponents answer by setting the partner who is short.",
+  "aiNote": "When your partner is short of their bid and you have made yours, let their winners stand.",
+  "rationale": "Both partners make positive bids and take them in about half of rounds, so about +15 a round; a nil from either partner turns it off, and it differs from Attentive Ear (BL-U06), which needs your partner exact.",
+  "deviation": "Revision 1: replaced shared-resonance counting with a plain partnership condition."
 }

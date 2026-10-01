@@ -184,7 +184,7 @@ export const handlers: HandlerMap = {
       }
     },
   },
-  // Hidden Knife: Affinity: Low cards. When you play this card, its rank becomes one higher
+  // Hidden Knife: Affinity: 2–5. When you play this card, its rank becomes one higher
   // than every other card played to this trick. Led, it has nothing to compare against.
   'RE-U06': {
     on: {
@@ -221,7 +221,7 @@ export const handlers: HandlerMap = {
       },
     },
   },
-  // Bold Stance: Each round, your team's first two overtricks add no bags.
+  // Bold Stance: Your team takes two fewer bags each round.
   'RE-U10': {
     score: (ctx, calc) => {
       const t = calc.teams[ctx.team]

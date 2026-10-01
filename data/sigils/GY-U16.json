@@ -21,7 +21,7 @@
       "icon": "circuit-board"
     }
   ],
-  "text": "If you own sigils of five or more resonances, gain +30 contract value.",
+  "text": "If you own sigils of three or more colors, gain +20 contract value.",
   "timing": "Conditional scoring",
   "prototype": "automated",
   "signature": [
@@ -39,5 +39,6 @@
   "decision": "Shopping: chase a fifth resonance with a splash, weighing off-plan offers higher until it is on.",
   "opponent": "No effect on opponents.",
   "aiNote": "Until five resonances are owned, add 15 points of value to an offer of a new resonance.",
-  "rationale": "A typical collection holds two colors, Gray, and two off-plan sigils, so five is reachable by mid-run with intent, and a signpost counts both its colors; +30 (+24 expected) sits at the top of the uncommon band, below GY-R05's breadth multiplier."
+  "rationale": "A typical collection holds two colors and Gray by mid-run, so three colors is the common case and this is a steady +20 (about +16 expected) at uncommon, lower than before because it is on in most rounds; a signpost counts both its colors.",
+  "deviation": "Revision 1: threshold lowered from five colors to three, and the reward from +30 to +20."
 }

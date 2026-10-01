@@ -577,6 +577,11 @@ export class SigilCtx implements Ctx {
     const own = this.sigil
     if (own && !this.isCopy) own.sellBonus += n
   }
+  loseSigil() {
+    const p = this.state.players[this.owner]
+    p.sigils = p.sigils.filter((o) => o.code !== this.source)
+    this.logLine('sigil lost')
+  }
 
   private ask(seat: Seat, prompt: Omit<Prompt, 'seat' | 'source'>, ai: () => number): number {
     const run = this.run

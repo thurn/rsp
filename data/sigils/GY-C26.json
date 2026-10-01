@@ -21,7 +21,7 @@
       "icon": "chef-hat"
     }
   ],
-  "text": "Affinity: Low cards. When you play this card, aces count as twos for this trick.",
+  "text": "Affinity: 2–5. When you play this card, aces count as twos for this trick.",
   "timing": "When played",
   "prototype": "automated",
   "signature": [

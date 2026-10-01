@@ -236,7 +236,7 @@ export const handlers: HandlerMap = {
       },
     },
   },
-  // Patient Hourglass: Affinity: Low cards. If this card is still in your hand when the last trick
+  // Patient Hourglass: Affinity: 2–5. If this card is still in your hand when the last trick
   // begins, gain +1× contract multiplier.
   'DU-S10': {
     on: {
