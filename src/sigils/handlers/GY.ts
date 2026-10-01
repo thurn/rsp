@@ -28,6 +28,9 @@ const nameOf = (code: string) => getSigil(code)?.name ?? code
 const colors = (sigils: OwnedSigil[]) =>
   new Set(sigils.flatMap((o) => getSigil(o.code)?.resonances ?? []))
 
+/** Sigils that copy other sigils, which Matching Mugs can't copy. */
+const COPIERS = new Set(['GY-R03', 'GY-U06', 'GY-U07', 'TE-U01'])
+
 /** A sigil only works at the shop or when sold. */
 const shopOnly = (code: string) => /^(Shop tools|Selling)/.test(getSigil(code)?.family ?? '')
 
@@ -97,12 +100,12 @@ export const handlers: HandlerMap = {
     on: { shopEnter: (ctx) => ctx.note('uncommon guaranteed') },
   },
   // Rearranged Desk: Before bidding, you may move one of your Engraving sigils to a chosen card in
-  // your hand. The chosen card has no sigil of its own.
+  // your hand without a sigil.
   'GY-C06': {
     on: {
       beforeBidding: (ctx) => {
         const hand = ctx.hand()
-        const from = hand.filter((c) => c.sigils.some((g) => g.owner === ctx.owner))
+        const from = hand.filter((c) => c.sigils[0]?.owner === ctx.owner)
         const to = hand.filter((c) => c.sigils.length === 0)
         if (from.length === 0 || to.length === 0) return
         const a = ctx.chooseCard(ctx.seat, 'Move which card’s sigil?', from, () => null, true)
@@ -140,8 +143,10 @@ export const handlers: HandlerMap = {
   'GY-C08': {
     on: {
       deal: (ctx) => {
+        const own = ctx.state.players[ctx.owner].sigils
+        const owned = new Set(own.flatMap((o) => [o.code, o.copyOf ?? o.code]))
         const pool = Object.values(SIGILS)
-          .filter((g) => isEngraving(g.code) && isAutomated(g.code))
+          .filter((g) => isEngraving(g.code) && isAutomated(g.code) && !owned.has(g.code))
           .map((g) => g.code)
         const code = ctx.pick(pool)
         const card = ctx.pick(ctx.hand().filter((c) => c.sigils.length === 0))
@@ -261,7 +266,7 @@ export const handlers: HandlerMap = {
     on: {
       afterScoring: (ctx) => {
         const r = ctx.state.lastResult?.[ctx.team]
-        if (r && r.contract > 0 && !r.made) ctx.loseSigil()
+        if (r && r.contract > 0 && !r.made && !ctx.isCopy) ctx.loseSigil()
       },
     },
   },
@@ -388,7 +393,7 @@ export const handlers: HandlerMap = {
   'GY-R08': {
     on: {
       beforeBidding: (ctx) => {
-        const sorted = ctx.hand().sort((a, b) => ctx.rank(a) - ctx.rank(b))
+        const sorted = [...ctx.hand()].sort((a, b) => ctx.rank(a) - ctx.rank(b))
         for (const c of sorted.slice(0, 2)) ctx.setRank(c, ACE)
       },
     },
@@ -461,7 +466,7 @@ export const handlers: HandlerMap = {
       buy: (ctx, e) => {
         if (e.data?.code !== ctx.source) return
         const own = ctx.state.players[ctx.owner].sigils
-        const codes = own.filter((o) => o.code !== ctx.source).map((o) => o.code)
+        const codes = own.map((o) => o.code).filter((c) => c !== ctx.source && !COPIERS.has(c))
         if (codes.length === 0) return
         const i = ctx.choose('Copy which sigil?', codes.map(nameOf), () => bestCopy(codes))
         ctx.setCopyOf(codes[i])

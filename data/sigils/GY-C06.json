@@ -21,7 +21,7 @@
       "icon": "mouse"
     }
   ],
-  "text": "Before bidding, you may move one of your Engraving sigils to a chosen card in your hand.",
+  "text": "Before bidding, you may move one of your Engraving sigils to a chosen card in your hand without a sigil.",
   "timing": "Before bidding",
   "prototype": "automated",
   "signature": [

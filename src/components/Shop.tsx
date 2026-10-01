@@ -17,7 +17,7 @@ export function Shop({ state, seat }: { state: GameState; seat: Seat }) {
   const player = state.players[seat]
   const cost = rerollCost(state, seat)
   const [selling, setSelling] = useState<string | null>(null)
-  // After the shop's one purchase (or a second common, with Overstocked Fridge), only Done is left.
+  // After the shop's one purchase (or a second, with Overstocked Fridge), only Done is left.
   const canBuyMore = shop.bought === 0 || (shop.bought === 1 && shopRules(state, seat).secondSigil)
   const offers = canBuyMore ? shop.offers : []
   const sellCode = selling && player.sigils.some((o) => o.code === selling) ? selling : null

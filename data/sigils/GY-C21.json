@@ -39,6 +39,6 @@
   "decision": "How safely to bid: every miss risks the sigil, so it rewards steady contracts and punishes a gamble.",
   "opponent": "Visible; setting your team also knocks the sigil down.",
   "aiNote": "Bid a half trick more conservatively.",
-  "rationale": "Three times Sturdy Wall's +10, paid only on a made contract, and lost on the first miss: at an 80% make rate it lasts about five rounds and pays about +120 over its life, a fragile common that suits a careful deck.",
+  "rationale": "Three times Sturdy Wall's +10, paid only on a made contract, and lost on the first miss: at an 80% make rate it lasts about five rounds and pays about +120 over its life, a fragile common that suits a careful deck. A copy of it is never lost.",
   "deviation": "Revision 1: replaced a capped, resetting streak counter, which read like Growing City (GY-C20)."
 }

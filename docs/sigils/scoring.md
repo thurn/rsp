@@ -224,7 +224,7 @@ The lists below name accepted sigils with their codes. Some Gray sigils fit ever
 
 - **Gray payoffs:** Sturdy Wall (GY-C17), Growing City (GY-C20), House of Cards (GY-C21), and Waiting Bench (GY-U13).
 - **Gray shop tools:** GY-C01 through GY-C05, and GY-U01 through GY-U03.
-- **Square Meal (GY-R04):** a generic multiplier for any partnership that bids the same number, four or more. The table lists it as "generic".
+- **Square Meal (GY-R04):** a generic multiplier for any partnership whose contract is nine or more tricks. The table lists it as "generic".
 
 Signposts that score through the contract base (Unclouded Sun, Alchemist's Wand) or feed other payoffs (Unfolding Butterfly) are listed as enablers.
 

@@ -38,7 +38,7 @@
   "role": "Utility",
   "decision": "How to bid and play around a new effect each round.",
   "opponent": "The borrowed sigil acts like any sigil and is shown when it triggers.",
-  "aiNote": "Evaluate the borrowed sigil as if owned for the round; draw only from commons that act during a round (no shop or selling sigils).",
-  "rationale": "A small lucky dip: a random Engraving sigil of any rarity is worth a few points on average and occasionally a rare lands, and it never fills a collection slot.",
+  "aiNote": "Evaluate the borrowed sigil as if owned for the round.",
+  "rationale": "A small lucky dip: a random Engraving sigil of any rarity is worth a few points on average and occasionally a rare lands, and it never fills a collection slot. It draws only sigils you don't own and lands on a card without a sigil.",
   "deviation": "Revision 1: draws from every Engraving sigil, not only commons you do not own."
 }

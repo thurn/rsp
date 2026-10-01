@@ -29,16 +29,16 @@
       "trigger": "at purchase",
       "scope": "self",
       "target": "this sigil",
-      "effect": "permanent copy of a chosen common sigil you own",
+      "effect": "permanent copy of another chosen sigil you own",
       "frequency": "run"
     }
   ],
   "archetypes": "Bonus Chaser, Diamond Flood, Heart Chorus; any collection with a key common",
   "family": "Duplication and copying / Duplicate",
   "role": "Utility",
-  "decision": "Shopping: which common to double for the rest of the run, and when to buy it (after the key common lands).",
+  "decision": "Shopping: which sigil to double for the rest of the run, and when to buy it (after the key sigil lands).",
   "opponent": "The copy acts like any sigil and is shown when it triggers.",
-  "aiNote": "Buy only when you own a common worth 12 or more a round, and copy the one with the highest expected value; never a shop or selling common unless the collection is economy-led.",
-  "rationale": "A second copy of your best sigil for the rest of the run, from +12 for a common to a second multiplier for a rare; the copy is engraved each round like any sigil, keeps the original's affinity, stays if the original is sold, and a copied counter starts its own count; the one-time choice keeps it below Forger's Brush (GY-R03), which chooses each round.",
+  "aiNote": "Buy only when you own a sigil worth 12 or more a round, and copy the one with the highest expected value; never a shop or selling sigil unless the collection is economy-led.",
+  "rationale": "A second copy of your best sigil for the rest of the run, from +12 for a common to a second multiplier for a rare; the copy is engraved each round like any sigil, keeps the original's affinity, stays if the original is sold, and a copied counter shares the original's count. Sigils that copy other sigils (Forger's Brush, Tracing Pencil, Spare Key) can't be chosen. The one-time choice keeps it below Forger's Brush (GY-R03), which chooses each round.",
   "deviation": "Redesigned in revision 1: the per-round copy on this card matched Spare Key (TE-U01), which copies a partner's sigil each round, so this duplicates at the collection level with a single choice at purchase."
 }

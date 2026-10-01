@@ -38,6 +38,6 @@
   "role": "Payoff: Economy",
   "decision": "Whether to spend a round's gold on two sigils or bank it for interest and a pricier offer.",
   "opponent": "No effect on opponents.",
-  "aiNote": "Buy a second common when it scores at least 10 a round and gold stays above 50 afterward.",
+  "aiNote": "Buy a second sigil when it scores at least 10 a round and gold stays above 50 afterward.",
   "rationale": "Gold, not the rule, limits it: two sigils cost about 90 to 160 against about 65 income, so a double purchase comes every two or three shops, filling the 13-sigil collection faster; it fades once the collection is full, when selling (GY-U02) takes over."
 }
