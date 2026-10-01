@@ -97,6 +97,7 @@ export function SigilDetail({ sigil, icons, iconNames, onCommit, onClose, onStep
             <Icon svg={icons[sigil.icon]} className={styles.heroBadge} />
             <div className={styles.heroText}>
               <TextField
+                draftKey={`${sigil.code}:name`}
                 value={sigil.name}
                 onCommit={(name) => commit({ name })}
                 className={styles.nameInput}
@@ -111,6 +112,7 @@ export function SigilDetail({ sigil, icons, iconNames, onCommit, onClose, onStep
           <Field label="Rules text">
             <TextField
               multiline
+              draftKey={`${sigil.code}:text`}
               value={sigil.text}
               onCommit={(text) => commit({ text })}
               className={styles.rulesInput}
@@ -120,6 +122,7 @@ export function SigilDetail({ sigil, icons, iconNames, onCommit, onClose, onStep
           <Field label="Design notes" className={styles.notesField}>
             <TextField
               multiline
+              draftKey={`${sigil.code}:notes`}
               value={sigil.notes ?? ''}
               placeholder="Your thoughts on this sigil…"
               onCommit={(notes) => commit({ notes })}
@@ -179,6 +182,7 @@ export function SigilDetail({ sigil, icons, iconNames, onCommit, onClose, onStep
             </Field>
             <Field label="Price">
               <TextField
+                draftKey={`${sigil.code}:price`}
                 value={String(sigil.price)}
                 inputMode="numeric"
                 onCommit={(v) =>
@@ -188,6 +192,7 @@ export function SigilDetail({ sigil, icons, iconNames, onCommit, onClose, onStep
             </Field>
             <Field label="Icon">
               <TextField
+                draftKey={`${sigil.code}:icon`}
                 value={sigil.icon}
                 list="sigil-icons"
                 onCommit={(icon) => icon.trim() && commit({ icon: icon.trim() })}
@@ -219,7 +224,12 @@ export function SigilDetail({ sigil, icons, iconNames, onCommit, onClose, onStep
                 {CLAUSE_KEYS.map((k) => (
                   <label key={k} className={styles.clausePart}>
                     <span className={styles.subLabel}>{k}</span>
-                    <TextField multiline value={clause[k]} onCommit={(v) => setClause(i, k, v)} />
+                    <TextField
+                      multiline
+                      draftKey={`${sigil.code}:signature.${i}.${k}`}
+                      value={clause[k]}
+                      onCommit={(v) => setClause(i, k, v)}
+                    />
                   </label>
                 ))}
               </div>
@@ -230,6 +240,7 @@ export function SigilDetail({ sigil, icons, iconNames, onCommit, onClose, onStep
             <Field key={key} label={label}>
               <TextField
                 multiline
+                draftKey={`${sigil.code}:${key}`}
                 value={(sigil[key] as string | undefined) ?? ''}
                 onCommit={(v) => commit({ [key]: v })}
               />
@@ -266,11 +277,33 @@ function Field({
   )
 }
 
+const DRAFT_PREFIX = 'sigil-draft:'
+
+function readDraft(key: string): string | null {
+  try {
+    return localStorage.getItem(DRAFT_PREFIX + key)
+  } catch {
+    return null
+  }
+}
+
+function writeDraft(key: string, draft: string | null) {
+  try {
+    if (draft === null) localStorage.removeItem(DRAFT_PREFIX + key)
+    else localStorage.setItem(DRAFT_PREFIX + key, draft)
+  } catch {
+    // Storage is unavailable; the draft still lives in React state.
+  }
+}
+
 /**
  * Keeps its draft locally so typing re-renders only this field; the sigil is
  * updated and saved when the field blurs or unmounts with unsaved changes.
+ * Unsaved drafts are mirrored to localStorage so a dev-server reload restores
+ * them; the copy is dropped once the sigil holds the same text.
  */
 function TextField({
+  draftKey,
   value,
   onCommit,
   multiline,
@@ -280,6 +313,7 @@ function TextField({
   list,
   inputMode,
 }: {
+  draftKey: string
   value: string
   onCommit: (value: string) => void
   multiline?: boolean
@@ -289,12 +323,13 @@ function TextField({
   list?: string
   inputMode?: 'numeric'
 }) {
-  const [draft, setDraft] = useState(value)
+  const [draft, setDraft] = useState(() => readDraft(draftKey) ?? value)
   const ref = useRef<HTMLTextAreaElement & HTMLInputElement>(null)
   const latest = useRef({ draft, value, onCommit })
 
   useLayoutEffect(() => {
     latest.current = { draft, value, onCommit }
+    writeDraft(draftKey, draft === value ? null : draft)
     const el = ref.current
     if (multiline && el) {
       el.style.height = 'auto'
