@@ -40,5 +40,6 @@
   "opponent": "The count is public; opponents can hold spades for the late hearts to deny a qualifying round.",
   "aiNote": "Value each round at three or more heart wins as +15 for the rest of the run; with Unfolding Butterfly, hold hearts for the last five tricks.",
   "rationale": "A Heart Chorus hand with Unfolding Butterfly wins three heart tricks in about 60% of rounds, so a copy bought around round 5 reaches about +45 by round 10 and nears the cap by round 13 (about +35 to +45 EV late), rare value for the thinnest archetype; the round that qualifies pays at once, and it grows across the run instead of paying a one-round bonus (Schooling Fish, Sunset Sailboat) or raising heart ranks (Unfolding Butterfly).",
-  "deviation": "Step raised from about +10 to +15 (cap +90) because a rare is usually found mid-run and +10 left the thinnest archetype near +25 EV; timing moved from \"After scoring\" to the accepted always-on counter pattern (Growing City, Waiting Bench) so the qualifying round pays immediately, and After scoring is already above its floor of 3."
+  "deviation": "Step raised from about +10 to +15 (cap +90) because a rare is usually found mid-run and +10 left the thinnest archetype near +25 EV; timing moved from \"After scoring\" to the accepted always-on counter pattern (Growing City, Waiting Bench) so the qualifying round pays immediately, and After scoring is already above its floor of 3.",
+  "notes": "These kind of permanent effects should be phrased as like \"whenever you do X, this sigil gains Y\""
 }
