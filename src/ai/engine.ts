@@ -1,3 +1,4 @@
+import BALANCE from '../../data/balance.json'
 import { BLIND_NIL, NIL, isNil, type Bid } from '../game/types'
 import type { AIView, SimCard, SimRules } from './view'
 
@@ -131,28 +132,37 @@ function contractState(sim: Sim, team: number): { need: number; contract: number
   return { contract, need: contract - taken }
 }
 
-/** Plain Spades score for one team; the AI does not simulate sigils. */
+/** Points per bag: each overtrick carries its share of the next bag penalty. */
+const BAG_COST = BALANCE.scoring.bagPenalty / BALANCE.scoring.bagsPerPenalty
+/** What a gold of income is worth in points to the AI. */
+export const GOLD_POINTS = 0.25
+
+/** Plain Spades score for one team, plus overtrick and income values; no sigils. */
 function simScore(sim: Sim, team: number): number {
   let total = 0
   let contract = 0
   let taken = 0
+  let gold = 0
   for (let s = team; s < 4; s += 2) {
     const bid = sim.bids[s]
+    gold += BALANCE.income.goldPerTrick * sim.tricksWon[s]
     if (isNil(bid)) {
-      const v = bid === BLIND_NIL ? 200 : 100
-      total += sim.tricksWon[s] === 0 ? v : -v
+      const blind = bid === BLIND_NIL
+      const v = blind ? 200 : 100
+      const clean = sim.tricksWon[s] === 0
+      total += clean ? v : -v
+      if (clean) gold += blind ? BALANCE.income.blindNilGold : BALANCE.income.nilGold
     } else {
       contract += bid
       taken += sim.tricksWon[s]
     }
   }
   if (contract > 0) {
-    if (taken >= contract) {
-      total += 10 * contract
-      if (sim.bags[team] + taken - contract >= 10) total -= 100
-    } else total -= 10 * contract
+    if (taken >= contract) total += 10 * contract - BAG_COST * (taken - contract)
+    else total -= 10 * contract
   }
-  return total
+  // Both partners receive the team's income.
+  return total + 2 * gold * GOLD_POINTS
 }
 
 function evaluate(sim: Sim): [number, number] {
@@ -185,10 +195,11 @@ const beats = (sim: Sim, card: SimCard, seat: number): boolean => {
 
 const EPSILON = 0.08
 
-function policyMove(sim: Sim, rng: Rng): SimCard {
+/** The rollout heuristic; with no rng it is deterministic (no exploration). */
+function policyMove(sim: Sim, rng: Rng | null): SimCard {
   const legal = simLegal(sim)
   if (legal.length === 1) return legal[0]
-  if (rng() < EPSILON) return legal[Math.floor(rng() * legal.length)]
+  if (rng && rng() < EPSILON) return legal[Math.floor(rng() * legal.length)]
 
   const seat = sim.turn
   const partner = (seat + 2) % 4
@@ -230,7 +241,8 @@ function policyMove(sim: Sim, rng: Rng): SimCard {
     if (winners.length > 0) return last ? lowest(winners) : highest(winners)
   }
   if (want) {
-    const partnerWinning = winSeat === partner && (last || isBoss(sim, winCard, partner))
+    const partnerWinning =
+      winSeat === partner && (last || (isBoss(sim, winCard, partner) && !laterCanTrump(sim, seat)))
     if (partnerWinning || winners.length === 0) return lowest(losers.length > 0 ? losers : legal)
     if (last) return lowest(winners)
     const bossWinners = winners.filter((c) => isBoss(sim, c, seat))
@@ -239,6 +251,19 @@ function policyMove(sim: Sim, rng: Rng): SimCard {
   }
   if (losers.length > 0) return highest(losers)
   return last ? highest(winners) : lowest(winners)
+}
+
+/** A seat still to play after `seat` is void in the suit led and holds a spade. */
+function laterCanTrump(sim: Sim, seat: number): boolean {
+  const led = sim.trick[0].suit
+  if (led === SPADES) return false
+  const played = new Set([...sim.trickSeats, seat])
+  for (let s = 0; s < 4; s++) {
+    if (played.has(s)) continue
+    const hand = sim.hands[s]
+    if (!hand.some((c) => c.suit === led) && hand.some((c) => c.suit === SPADES)) return true
+  }
+  return false
 }
 
 /** The seat that would play after `seat` in the current trick, or null if `seat` is last. */
@@ -372,6 +397,8 @@ class Node {
 }
 
 const EXPLORATION = 0.7
+/** Root moves whose mean reward is this close to the best count as equally good. */
+const NEAR_BEST = 0.05
 
 /** Searches for `timeMs`, or for exactly `iterations` iterations when given (for reproducible runs). */
 export function chooseCard(view: AIView, timeMs: number, iterations?: number): number {
@@ -430,16 +457,19 @@ export function chooseCard(view: AIView, timeMs: number, iterations?: number): n
     }
   }
 
-  let choice = rootLegal[0].id
-  let most = -1
-  for (const m of rootLegal) {
-    const visits = root.children.get(m.id)?.visits ?? 0
-    if (visits > most) {
-      most = visits
-      choice = m.id
-    }
-  }
-  return choice
+  // Moves within a hair of the best mean are equal; picking among them by visit count is noise,
+  // so prefer the heuristic's move, then the cheapest card.
+  const stats = rootLegal.map((m) => {
+    const c = root.children.get(m.id)
+    return { m, visits: c?.visits ?? 0, mean: c && c.visits > 0 ? c.reward / c.visits : 0 }
+  })
+  const most = Math.max(...stats.map((x) => x.visits))
+  const tried = stats.filter((x) => x.visits > 0 && x.visits >= most * 0.1)
+  const best = Math.max(...tried.map((x) => x.mean))
+  const near = tried.filter((x) => x.mean >= best - NEAR_BEST).map((x) => x.m)
+  const heuristic = policyMove(simFrom(view, pool[0], bids), null)
+  if (near.some((m) => m.id === heuristic.id)) return heuristic.id
+  return lowest(near).id
 }
 
 // ---------------------------------------------------------------------------------------------
