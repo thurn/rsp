@@ -9,8 +9,7 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "preview": "vite preview",
-    "sigils": "python3 scripts/sigils_to_json.py"
+    "preview": "vite preview"
   },
   "dependencies": {
     "motion": "^13.4.6",
