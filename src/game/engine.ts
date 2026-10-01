@@ -344,10 +344,11 @@ function declareBlind(s: GameState, seat: Seat) {
   emit(s, 'bid', { seat, data: { bid: BLIND_NIL } })
 }
 
-/** AI seats decide on blind nil from the score alone, before their cards are seen. */
+/** AI seats decide on blind nil from the score alone, before their cards are seen; eligibility
+ * already reflects sigils such as Night Owl. */
 function aiWantsBlindNil(s: GameState, seat: Seat): boolean {
   const team = teamOf(seat)
-  return s.scores[1 - team] - s.scores[team] >= 200 && Math.random() < 0.4
+  return s.scores[1 - team] - s.scores[team] >= 100 && Math.random() < 0.4
 }
 
 /** Even cursor values open the seat's blind window; odd values take its blind nil decision. */
