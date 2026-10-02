@@ -42,6 +42,8 @@ export interface PlayerState {
   sigils: OwnedSigil[]
   /** Cards the next deal puts in this seat's hand (Tailored Shirt, Saved Hard Drive). */
   carry?: { suit: Suit; rank: number }[]
+  /** The archetypes this seat's shop offers draw from, plus Gray; absent means every sigil. */
+  archetypes?: string[]
 }
 
 export type LedgerKind = 'contract' | 'multiplier' | 'nil' | 'gold' | 'points' | 'bags'
@@ -124,6 +126,8 @@ export interface ShopSeat {
   boughtCommon: boolean
   done: boolean
   freeNext?: boolean
+  /** The extra featured offer and the archetype it was drawn for. */
+  featured?: { code: string; archetype: string }
 }
 
 export interface ShopState {
@@ -231,6 +235,8 @@ export interface GameState {
   notice: { id: number; source: string; text: string } | null
   /** Scoring is done this round, so points and bags apply directly. */
   scored: boolean
+  /** Each shop adds a featured offer from the seat's leading archetype. */
+  featured?: boolean
   /** The seat being asked whether to bid blind nil. */
   blindAsk: Seat | null
   /** Next seat index (from left of the dealer) for blind nil decisions. */

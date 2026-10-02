@@ -16,6 +16,8 @@ const USAGE = `scripts/draft-sim [--strategy commit|flex] [--trials N] [--seed N
   --by               also report how often the build is online before this round (7)
   --rerolls          none, smart (reroll for a core offer while gold stays above --reserve), or a
                      per-shop cap on smart rerolls
+  --featured N       N extra offers each shop from your archetype's core sigils (flex: its lean,
+                     or any of the run's archetypes before it owns two sigils)
   --affinity X       offer weight ×(1+X) for sigils sharing a colored resonance you own
   --run-archetypes K each run's pool holds only K random archetypes' sigils plus Gray
   --buys N           purchases per shop, 0 for no limit; a full collection sells a non-core
@@ -68,6 +70,7 @@ const o = {
   rerollStep: BALANCE.shop.rerollCostStep,
   rarity: Object.values(BALANCE.shop.rarityOdds),
   affinity: 0,
+  featured: 0,
   runArchetypes: 15,
   rounds: 0,
 }
@@ -94,6 +97,7 @@ while (args.length) {
   else if (a === '--reroll-step') o.rerollStep = num(a)
   else if (a === '--rarity') o.rarity = (args.shift() ?? '').split(',').map(Number)
   else if (a === '--affinity') o.affinity = num(a)
+  else if (a === '--featured') o.featured = num(a)
   else if (a === '--run-archetypes') o.runArchetypes = num(a)
   else if (a === '--rounds') o.rounds = num(a)
   else if (a === '--lengths')
@@ -181,6 +185,11 @@ function rollOffers(run, opening) {
       }
     if (!take(run.pool.filter((s) => s.rarity === rarity))) take(run.pool)
   }
+  if (o.featured) {
+    const focus = run.target ? [run.target] : run.owned.length >= 2 ? [lean(run)] : run.archetypes
+    const core = run.pool.filter((s) => focus.some((a) => s.core.has(a)))
+    for (let i = 0; i < o.featured; i++) take(core)
+  }
   if (opening && !offers.some((s) => s.price <= BALANCE.shop.openingAffordablePrice)) {
     const free = run.pool.filter(
       (s) => s.price <= BALANCE.shop.openingAffordablePrice && !offers.includes(s),
@@ -247,9 +256,11 @@ function playRun(target) {
   let onlineAt = null
   let rerollsUsed = 0
   let sells = 0
+  let deadShops = 0
   let ownedBy = 0
   for (let round = 1; round <= rounds; round++) {
     let offers = rollOffers(run, round === 1)
+    if (!offers.some((s) => isCore(run, s))) deadShops++
     let bought = 0
     let rerolls = 0
     for (;;) {
@@ -305,6 +316,7 @@ function playRun(target) {
     owned: run.owned.length,
     rerolls: rerollsUsed,
     sells,
+    deadShops: deadShops / rounds,
     ownedBy: rounds >= o.by ? ownedBy : null,
   }
 }
@@ -330,6 +342,7 @@ function summarize(results) {
     focus: mean((r) => (r.owned ? r.core / r.owned : 0)),
     rerollsPerRun: mean((r) => r.rerolls),
     sellsPerRun: mean((r) => r.sells),
+    deadShops: mean((r) => r.deadShops),
     ownedBy: (() => {
       const xs = results.filter((r) => r.ownedBy !== null)
       return xs.reduce((a, r) => a + r.ownedBy, 0) / xs.length
@@ -362,18 +375,18 @@ else {
   console.log(
     `${o.strategy}, online = ${o.core} core incl. ${o.payoffs} payoffs, rerolls ${o.rerolls}, ` +
       `offers ${o.offers}, buys ${o.buys || '∞'}, reroll ${o.rerollBase}+${o.rerollStep}, ` +
-      `rarity ${o.rarity.join('/')}, affinity ${o.affinity}, archetypes/run ${o.runArchetypes}, ` +
+      `rarity ${o.rarity.join('/')}, affinity ${o.affinity}, featured ${o.featured}, archetypes/run ${o.runArchetypes}, ` +
       `${o.rounds ? `${o.rounds} rounds` : `game lengths ${JSON.stringify(GAME_LENGTHS)}`}, ${o.trials} trials`,
   )
   const pct = (x) => `${(x * 100).toFixed(0)}%`.padStart(5)
-  const head = `${'Archetype'.padEnd(18)} pool  by end    by r${o.by}  median  core  focus  rerolls  sells  owned@r${o.by}`
+  const head = `${'Archetype'.padEnd(18)} pool  by end    by r${o.by}  median  core  focus  rerolls  sells  owned@r${o.by}  dead`
   console.log(head + (o.strategy === 'flex' ? '  share' : ''))
   for (const [a, r] of Object.entries(rows)) {
     const med = Number.isFinite(r.medianOnlineRound) ? `r${r.medianOnlineRound}` : 'never'
     console.log(
       `${a.padEnd(18)} ${String(pool[a] ?? '').padStart(4)}  ${pct(r.onlineByEnd)}  ${pct(r.onlineBy).padStart(9)}  ` +
         `${med.padStart(6)}  ${r.coreAtEnd.toFixed(1).padStart(4)}  ${pct(r.focus)}  ${r.rerollsPerRun.toFixed(1).padStart(7)}` +
-        `  ${r.sellsPerRun.toFixed(1).padStart(5)}  ${r.ownedBy.toFixed(1).padStart(8)}` +
+        `  ${r.sellsPerRun.toFixed(1).padStart(5)}  ${r.ownedBy.toFixed(1).padStart(8)}  ${pct(r.deadShops)}` +
         (o.strategy === 'flex' && a !== 'All' ? `  ${pct(r.share)}` : ''),
     )
   }

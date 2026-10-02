@@ -19,6 +19,53 @@ function rollRarity(): string {
   return 'Common'
 }
 
+export const ARCHETYPES = [
+  'High Card',
+  'Spade Master',
+  'Kingmaker',
+  'Contract Attacker',
+  'Bonus Chaser',
+  'Diamond Flood',
+  'Gold Miner',
+  'Swap Meet',
+  'Blind Bidder',
+  'While Held',
+  'Heart Chorus',
+  'Discard Dominance',
+  'Exact Contractor',
+  'Nil Champion',
+  'Nil Guard',
+]
+
+export function sampleArchetypes(n: number): string[] {
+  const free = ARCHETYPES.slice()
+  const out: string[] = []
+  while (out.length < n && free.length)
+    out.push(free.splice(Math.floor(Math.random() * free.length), 1)[0])
+  return out
+}
+
+/** The archetypes a sigil is built for: those named before the `;` in its line, minus splashes. */
+export function coreArchetypes(code: string): string[] {
+  const primary = (getSigil(code)?.archetypes ?? '').split(';')[0]
+  const parts = primary.split(',').filter((x) => !/splash|\(/i.test(x))
+  return ARCHETYPES.filter((a) => parts.some((x) => x.includes(a)))
+}
+
+/**
+ * The archetype a seat's featured offer serves: the one among its run archetypes (or all of them)
+ * with the most core sigils owned, the last featured archetype winning ties, then a random one.
+ */
+function leadingArchetype(s: GameState, seat: Seat): string {
+  const choices = s.players[seat].archetypes ?? ARCHETYPES
+  const owned = s.players[seat].sigils.flatMap((o) => coreArchetypes(o.code))
+  const count = (a: string) => owned.filter((x) => x === a).length
+  const best = Math.max(...choices.map(count))
+  const top = choices.filter((a) => count(a) === best)
+  const last = s.shop?.seats[seat]?.featured?.archetype
+  return last && top.includes(last) ? last : top[Math.floor(Math.random() * top.length)]
+}
+
 export function price(s: GameState, seat: Seat, code: string): number {
   if (s.shop?.seats[seat].freeNext) return 0
   return Math.max(0, (getSigil(code)?.price ?? 0) - shopRules(s, seat).discount)
@@ -40,8 +87,14 @@ export function sellValue(s: GameState, seat: Seat, code: string): number {
 export function rollOffers(s: GameState, seat: Seat, opening: boolean): string[] {
   const rules = shopRules(s, seat)
   const owned = new Set(s.players[seat].sigils.map((o) => o.code))
+  const run = s.players[seat].archetypes
   const pool = Object.values(SIGILS).filter(
-    (sg) => !owned.has(sg.code) && (seat === s.human || isAutomated(sg.code)),
+    (sg) =>
+      !owned.has(sg.code) &&
+      (seat === s.human || isAutomated(sg.code)) &&
+      (!run ||
+        sg.resonances.includes('Gray') ||
+        coreArchetypes(sg.code).some((a) => run.includes(a))),
   )
   const offers: string[] = []
   const take = (list: typeof pool) => {
@@ -70,6 +123,30 @@ export function rollOffers(s: GameState, seat: Seat, opening: boolean): string[]
   return offers
 }
 
+/** With featured offers on, adds one offer drawn from the seat's leading archetype. */
+function addFeatured(s: GameState, seat: Seat) {
+  const shop = s.shop!.seats[seat]
+  shop.featured = undefined
+  if (!s.featured) return
+  const archetype = leadingArchetype(s, seat)
+  const owned = new Set(s.players[seat].sigils.map((o) => o.code))
+  const pool = Object.values(SIGILS).filter(
+    (sg) =>
+      !owned.has(sg.code) &&
+      !shop.offers.includes(sg.code) &&
+      (seat === s.human || isAutomated(sg.code)) &&
+      coreArchetypes(sg.code).includes(archetype),
+  )
+  const rarity = rollRarity()
+  const list = pool.some((sg) => sg.rarity === rarity)
+    ? pool.filter((sg) => sg.rarity === rarity)
+    : pool
+  if (list.length === 0) return
+  const code = list[Math.floor(Math.random() * list.length)].code
+  shop.offers.push(code)
+  shop.featured = { code, archetype }
+}
+
 export function openShop(s: GameState, opening: boolean) {
   s.phase = 'shop'
   s.hands = [[], [], [], []]
@@ -84,6 +161,7 @@ export function openShop(s: GameState, opening: boolean) {
       done: false,
     })),
   }
+  for (const seat of [0, 1, 2, 3] as Seat[]) addFeatured(s, seat)
   log(s, opening ? 'Opening shop' : 'Shop')
   for (const seat of [0, 1, 2, 3] as Seat[]) emit(s, 'shopEnter', { seat })
   for (const seat of [0, 1, 2, 3] as Seat[]) if (seat !== s.human) aiShop(s, seat)
@@ -126,6 +204,7 @@ export function reroll(s: GameState, seat: Seat) {
   s.players[seat].gold -= cost
   shop.rerolls++
   shop.offers = rollOffers(s, seat, false)
+  addFeatured(s, seat)
   log(s, `${SEAT_NAMES[seat]} rerolls −${cost} gold`, { seat })
 }
 

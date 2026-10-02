@@ -21,6 +21,10 @@ export const PARAMS = {
   give: codes(params.get('give')),
   aiGive: codes(params.get('ai-give')),
   randomSigils: Number(params.get('random-sigils') ?? 0),
+  /** Archetypes per seat for its shop pool, plus Gray. */
+  archetypes: Number(params.get('archetypes') ?? 0),
+  /** Each shop adds a featured offer from the seat's leading archetype. */
+  featured: params.has('featured'),
 }
 
 function startingSigils(): string[][] {
@@ -72,6 +76,8 @@ function create(): GameState {
     gold: PARAMS.gold,
     give: startingSigils(),
     scores: PARAMS.behind ? [0, 250] : [0, 0],
+    archetypes: PARAMS.archetypes,
+    featured: PARAMS.featured,
   })
   return reduce(s, { type: 'start' })
 }

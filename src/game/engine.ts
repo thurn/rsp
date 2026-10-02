@@ -41,7 +41,7 @@ import {
   winningIndex,
 } from './rules'
 import { applySandbox, engraveSeat } from './sandbox'
-import { buy, closeShopIfDone, openShop, reroll, sell, shopDone } from './shop'
+import { buy, closeShopIfDone, openShop, reroll, sampleArchetypes, sell, shopDone } from './shop'
 import {
   type Action,
   type GameState,
@@ -58,6 +58,10 @@ export interface GameOptions {
   /** Sigils each seat starts with. */
   give: string[][]
   scores: [number, number]
+  /** Archetypes per seat for its shop pool; 0 or absent offers every sigil. */
+  archetypes?: number
+  /** Each shop adds a featured offer from the seat's leading archetype. */
+  featured?: boolean
 }
 
 const freshLedger = (): Ledger => ({
@@ -99,6 +103,7 @@ export function newGame(opts: GameOptions): GameState {
     players: [0, 1, 2, 3].map((seat) => ({
       gold: opts.gold,
       sigils: owned(opts.give[seat] ?? []),
+      ...(opts.archetypes ? { archetypes: sampleArchetypes(opts.archetypes) } : {}),
     })),
     ledger: freshLedger(),
     flags: freshFlags(),
@@ -115,6 +120,7 @@ export function newGame(opts: GameOptions): GameState {
     blindAsk: null,
     blindCursor: 0,
     version: 0,
+    featured: opts.featured,
   }
   // The first dealer is random; startRound rotates before each deal, so step back one seat.
   s.dealer = ((s.dealer + 3) % 4) as Seat
