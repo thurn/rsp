@@ -1,0 +1,6 @@
+#!/bin/sh
+# Monte Carlo of drafting toward an archetype. A dev tool, not part of scripts/ci.
+# Example: scripts/draft-sim --strategy flex --rerolls smart --trials 4000
+set -eu
+cd "$(dirname "$0")/.."
+exec node scripts/draft-sim.mjs "$@"
