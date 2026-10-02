@@ -130,7 +130,6 @@
   font-size: var(--text-md);
 }
 
-.archetypes,
 .featured {
   font-size: var(--text-xs);
   color: var(--text-muted);
@@ -152,27 +151,12 @@
   color: var(--gold);
 }
 
-.archetypes {
-  flex: 1;
-  text-align: center;
-}
-
 @media (max-width: 700px) {
   /* Centered, so equal margins keep the top clear of the restart button. */
   .shop {
     max-height: calc(100dvh - 248px);
     gap: var(--space-3);
     padding: var(--space-4);
-  }
-
-  .head {
-    flex-wrap: wrap;
-  }
-
-  .archetypes {
-    order: 3;
-    flex-basis: 100%;
-    text-align: left;
   }
 
   .offers {

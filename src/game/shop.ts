@@ -37,11 +37,16 @@ export const ARCHETYPES = [
   'Nil Guard',
 ]
 
+/** The five archetypes most often online in scripts/draft-sim --run-archetypes 3. */
+const ANCHORS = ['Diamond Flood', 'Bonus Chaser', 'Spade Master', 'Gold Miner', 'Contract Attacker']
+
+/** N random archetypes, at least one of them an anchor. */
 export function sampleArchetypes(n: number): string[] {
-  const free = ARCHETYPES.slice()
-  const out: string[] = []
-  while (out.length < n && free.length)
-    out.push(free.splice(Math.floor(Math.random() * free.length), 1)[0])
+  const pickFrom = (list: string[]) => list.splice(Math.floor(Math.random() * list.length), 1)[0]
+  const anchor = pickFrom(ANCHORS.slice())
+  const free = ARCHETYPES.filter((a) => a !== anchor)
+  const out = [anchor]
+  while (out.length < n && free.length) out.push(pickFrom(free))
   return out
 }
 

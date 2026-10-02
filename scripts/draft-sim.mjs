@@ -18,6 +18,7 @@ const USAGE = `scripts/draft-sim [--strategy commit|flex] [--trials N] [--seed N
                      per-shop cap on smart rerolls
   --featured N       N extra offers each shop from your archetype's core sigils (flex: its lean,
                      or any of the run's archetypes before it owns two sigils)
+  --anchors          a --run-archetypes run always holds one of the five best-supported archetypes
   --affinity X       offer weight ×(1+X) for sigils sharing a colored resonance you own
   --run-archetypes K each run's pool holds only K random archetypes' sigils plus Gray
   --buys N           purchases per shop, 0 for no limit; a full collection sells a non-core
@@ -49,6 +50,8 @@ const ARCHETYPES = [
   'Nil Guard',
 ]
 
+const ANCHORS = ['Diamond Flood', 'Bonus Chaser', 'Spade Master', 'Gold Miner', 'Contract Attacker']
+
 // Rounds per game from 80 four-AI self-play games with the full pool and one buy per shop
 // (scripts/econ-bench); with no buy limit it measured 4:1,6:3,7:10,8:14,9:18,10:13,11:5,12:6,13:10.
 let GAME_LENGTHS = { 6: 3, 7: 4, 8: 11, 9: 13, 10: 14, 11: 8, 12: 7, 13: 20 }
@@ -71,6 +74,7 @@ const o = {
   rarity: Object.values(BALANCE.shop.rarityOdds),
   affinity: 0,
   featured: 0,
+  anchors: false,
   runArchetypes: 15,
   rounds: 0,
 }
@@ -98,6 +102,7 @@ while (args.length) {
   else if (a === '--rarity') o.rarity = (args.shift() ?? '').split(',').map(Number)
   else if (a === '--affinity') o.affinity = num(a)
   else if (a === '--featured') o.featured = num(a)
+  else if (a === '--anchors') o.anchors = true
   else if (a === '--run-archetypes') o.runArchetypes = num(a)
   else if (a === '--rounds') o.rounds = num(a)
   else if (a === '--lengths')
@@ -249,6 +254,9 @@ function isCore(run, s) {
 
 function playRun(target) {
   const chosen = o.runArchetypes >= 15 ? ARCHETYPES : shuffle(ARCHETYPES).slice(0, o.runArchetypes)
+  // Like src/game/shop.ts sampleArchetypes: a limited run always holds one anchor archetype.
+  if (o.anchors && o.runArchetypes < 15 && !chosen.some((a) => ANCHORS.includes(a)))
+    chosen[chosen.length - 1] = pick(ANCHORS)
   if (target && !chosen.includes(target)) chosen[0] = target
   // Gray sigils built for no archetype in particular stay in every run's pool.
   const pool = SIGIL.filter(

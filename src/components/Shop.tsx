@@ -24,9 +24,6 @@ export function Shop({ state, seat }: { state: GameState; seat: Seat }) {
     <Panel className={styles.shop} aria-label="Shop">
       <div className={styles.head}>
         <Gold amount={player.gold} className={styles.gold} />
-        {player.archetypes && (
-          <span className={styles.archetypes}>{player.archetypes.join(' · ')}</span>
-        )}
         {player.sigils.length >= 11 && (
           <span className={styles.count}>
             {player.sigils.length}
@@ -57,9 +54,7 @@ export function Shop({ state, seat }: { state: GameState; seat: Seat }) {
                 <span className={styles.text} data-prose>
                   {s.text}
                 </span>
-                {shop.featured?.code === code && (
-                  <span className={styles.featured}>{shop.featured.archetype}</span>
-                )}
+                {shop.featured?.code === code && <span className={styles.featured}>Featured</span>}
               </button>
             )
           })}
