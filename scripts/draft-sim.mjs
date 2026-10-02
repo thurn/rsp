@@ -250,7 +250,10 @@ function isCore(run, s) {
 function playRun(target) {
   const chosen = o.runArchetypes >= 15 ? ARCHETYPES : shuffle(ARCHETYPES).slice(0, o.runArchetypes)
   if (target && !chosen.includes(target)) chosen[0] = target
-  const pool = SIGIL.filter((s) => s.gray || [...s.core].some((a) => chosen.includes(a)))
+  // Gray sigils built for no archetype in particular stay in every run's pool.
+  const pool = SIGIL.filter(
+    (s) => (s.gray && s.core.size === 0) || [...s.core].some((a) => chosen.includes(a)),
+  )
   const run = { target, archetypes: chosen, pool, owned: [], gold: BALANCE.game.startingGold }
   const rounds = gameLength()
   let onlineAt = null

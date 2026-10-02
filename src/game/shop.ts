@@ -52,6 +52,14 @@ export function coreArchetypes(code: string): string[] {
   return ARCHETYPES.filter((a) => parts.some((x) => x.includes(a)))
 }
 
+/** Whether a run limited to these archetypes offers the sigil: it is built for one of them, or it
+ * is a Gray sigil built for none in particular. */
+function inRun(code: string, run: string[]): boolean {
+  const core = coreArchetypes(code)
+  if (core.length === 0) return getSigil(code)?.resonances.includes('Gray') ?? false
+  return core.some((a) => run.includes(a))
+}
+
 /**
  * The archetype a seat's featured offer serves: the one among its run archetypes (or all of them)
  * with the most core sigils owned, the last featured archetype winning ties, then a random one.
@@ -92,9 +100,7 @@ export function rollOffers(s: GameState, seat: Seat, opening: boolean): string[]
     (sg) =>
       !owned.has(sg.code) &&
       (seat === s.human || isAutomated(sg.code)) &&
-      (!run ||
-        sg.resonances.includes('Gray') ||
-        coreArchetypes(sg.code).some((a) => run.includes(a))),
+      (!run || inRun(sg.code, run)),
   )
   const offers: string[] = []
   const take = (list: typeof pool) => {
