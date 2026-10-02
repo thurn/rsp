@@ -3,14 +3,16 @@ import os from 'node:os'
 import path from 'node:path'
 import { createServer } from 'vite'
 
-const USAGE = 'scripts/econ-bench [--games N] [--seed N] [--iterations N] [--json]'
-const o = { games: 20, seed: 1, iterations: 120 }
+const USAGE =
+  'scripts/econ-bench [--games N] [--seed N] [--iterations N] [--buys N (0 = no limit)] [--json]'
+const o = { games: 20, seed: 1, iterations: 120, buys: undefined }
 let json = false
 const args = process.argv.slice(2)
 while (args.length) {
   const a = args.shift()
   if (a === '--json') json = true
-  else if (['--games', '--seed', '--iterations'].includes(a)) o[a.slice(2)] = Number(args.shift())
+  else if (['--games', '--seed', '--iterations', '--buys'].includes(a))
+    o[a.slice(2)] = Number(args.shift())
   else {
     console.log(USAGE)
     process.exit(a === '--help' ? 0 : 1)
@@ -26,7 +28,7 @@ const server = await createServer({
 })
 try {
   const { runEcon } = await server.ssrLoadModule('/src/dev/econ.ts')
-  const games = runEcon(o.games, o.seed, o.iterations)
+  const games = runEcon(o.games, o.seed, o.iterations, o.buys)
   if (json) console.log(JSON.stringify(games))
   else print(games)
 } finally {
@@ -43,8 +45,10 @@ function print(games) {
     const gold = games.flatMap((g) => g.shopGold[i] ?? []).sort((a, b) => a - b)
     if (!gold.length) continue
     const q = (f) => gold[Math.floor(f * (gold.length - 1))]
+    const sigils = games.flatMap((g) => g.shopSigils[i] ?? [])
+    const owned = sigils.reduce((a, b) => a + b, 0) / sigils.length
     console.log(
-      `Shop before round ${String(i + 1).padStart(2)}: median ${q(0.5)} gold (p25 ${q(0.25)}, p75 ${q(0.75)}), ${gold.length} seats`,
+      `Shop before round ${String(i + 1).padStart(2)}: median ${q(0.5)} gold (p25 ${q(0.25)}, p75 ${q(0.75)}), ${owned.toFixed(1)} sigils owned, ${gold.length} seats`,
     )
   }
 }

@@ -1,7 +1,7 @@
 // The AI's shop visit: sell, reroll, buy by value, then press Done.
 import type { Seat } from '../game/cards'
 import { runTask } from '../game/core'
-import { AI_MIN_GOLD, buy, canBuy, sell, shopDone } from '../game/shop'
+import { AI_MIN_GOLD, MAX_SIGILS, buy, canBuy, sell, shopDone } from '../game/shop'
 import type { GameState, OwnedSigil } from '../game/types'
 import { getSigil, isAutomated } from '../sigils/registry'
 
@@ -63,7 +63,7 @@ function sellCode(s: GameState, seat: Seat, code: string) {
 
 /**
  * Sell payoff sigils when their moment comes, then buy the most expensive affordable offers (price
- * tracks power), synergy value breaking ties; a second buy when a sigil allows it. Rerolling and
+ * tracks power), synergy value breaking ties, until the shop's buy limit. Rerolling and
  * selling to upgrade a full collection lost points in the bench, so the AI does neither.
  */
 export function aiShop(s: GameState, seat: Seat) {
@@ -72,7 +72,7 @@ export function aiShop(s: GameState, seat: Seat) {
   const offers = () => shop.offers.filter(isAutomated)
   const score = (c: string) => (getSigil(c)?.price ?? 0) + sigilValue(s, seat, c)
   for (const o of [...p.sigils]) if (wantsSale(s, seat, o, offers())) sellCode(s, seat, o.code)
-  for (let n = 0; n < 2 && p.gold >= AI_MIN_GOLD; n++) {
+  for (let n = 0; n < MAX_SIGILS && p.gold >= AI_MIN_GOLD; n++) {
     const ok = offers().filter((c) => canBuy(s, seat, c))
     const pick = ok.reduce<string | null>(
       (a, b) => (a === null || score(b) > score(a) ? b : a),

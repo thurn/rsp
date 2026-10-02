@@ -8,7 +8,7 @@ import { fileURLToPath } from 'node:url'
 const USAGE = `scripts/draft-sim [--strategy commit|flex] [--trials N] [--seed N]
   [--core N] [--payoffs N] [--by ROUND] [--rerolls none|smart|N] [--reserve GOLD]
   [--offers N] [--buys N] [--reroll-base G] [--reroll-step G] [--rarity C,U,R]
-  [--affinity X] [--run-archetypes K] [--rounds N] [--json]
+  [--affinity X] [--run-archetypes K] [--rounds N | --lengths LEN:N,...] [--json]
 
   commit   pick the archetype before the opening shop (reported per archetype)
   flex     buy whatever most advances the best-looking archetype, decide late
@@ -18,7 +18,10 @@ const USAGE = `scripts/draft-sim [--strategy commit|flex] [--trials N] [--seed N
                      per-shop cap on smart rerolls
   --affinity X       offer weight ×(1+X) for sigils sharing a colored resonance you own
   --run-archetypes K each run's pool holds only K random archetypes' sigils plus Gray
-  --rounds N         play exactly N rounds instead of sampling measured game lengths`
+  --buys N           purchases per shop, 0 for no limit; a full collection sells a non-core
+                     sigil to make room for a core one
+  --rounds N         play exactly N rounds instead of sampling measured game lengths
+  --lengths          game-length histogram to sample, e.g. 8:11,9:13,10:14 (scripts/econ-bench)`
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..')
 const BALANCE = JSON.parse(fs.readFileSync(path.join(ROOT, 'data/balance.json'), 'utf8'))
@@ -44,8 +47,9 @@ const ARCHETYPES = [
   'Nil Guard',
 ]
 
-// Rounds per game from 80 four-AI self-play games with the full pool (scripts/econ-bench).
-const GAME_LENGTHS = { 6: 3, 7: 4, 8: 11, 9: 13, 10: 14, 11: 8, 12: 7, 13: 20 }
+// Rounds per game from 80 four-AI self-play games with the full pool and one buy per shop
+// (scripts/econ-bench); with no buy limit it measured 4:1,6:3,7:10,8:14,9:18,10:13,11:5,12:6,13:10.
+let GAME_LENGTHS = { 6: 3, 7: 4, 8: 11, 9: 13, 10: 14, 11: 8, 12: 7, 13: 20 }
 // A team's tricks per round: mean 6.5, roughly normal.
 const TRICK_SD = 1.8
 
@@ -92,6 +96,10 @@ while (args.length) {
   else if (a === '--affinity') o.affinity = num(a)
   else if (a === '--run-archetypes') o.runArchetypes = num(a)
   else if (a === '--rounds') o.rounds = num(a)
+  else if (a === '--lengths')
+    GAME_LENGTHS = Object.fromEntries(
+      (args.shift() ?? '').split(',').map((x) => x.split(':').map(Number)),
+    )
   else if (a === '--json') json = true
   else {
     console.log(USAGE)
@@ -99,6 +107,7 @@ while (args.length) {
   }
 }
 if (!['commit', 'flex'].includes(o.strategy)) throw new Error(USAGE)
+const buyLimit = o.buys || Infinity
 const rerollCap = o.rerolls === 'none' ? 0 : o.rerolls === 'smart' ? Infinity : Number(o.rerolls)
 
 // Core archetypes are the named ones before the `;` in a sigil's archetypes line; "(splash)"
@@ -237,12 +246,15 @@ function playRun(target) {
   const rounds = gameLength()
   let onlineAt = null
   let rerollsUsed = 0
+  let sells = 0
+  let ownedBy = 0
   for (let round = 1; round <= rounds; round++) {
     let offers = rollOffers(run, round === 1)
     let bought = 0
     let rerolls = 0
     for (;;) {
-      if (bought >= o.buys || run.owned.length >= BALANCE.shop.maxSigils) break
+      if (bought >= buyLimit) break
+      const full = run.owned.length >= BALANCE.shop.maxSigils
       const hasCore = offers.some((s) => isCore(run, s) && s.price <= run.gold)
       const cost = o.rerollBase + o.rerollStep * rerolls
       if (!hasCore && rerolls < rerollCap && run.gold - cost >= o.reserve) {
@@ -251,14 +263,30 @@ function playRun(target) {
         offers = rollOffers(run, false)
         continue
       }
-      const s = bestOffer(run, offers, run.gold, bought)
+      // A full collection sells its least useful non-core sigil, at half price, for a core offer.
+      const junk = full
+        ? run.owned
+            .filter((x) => !isCore(run, x))
+            .sort(
+              (x, y) => fit(run, run.target ?? lean(run), x) - fit(run, run.target ?? lean(run), y),
+            )[0]
+        : null
+      if (full && !junk) break
+      const refund = junk ? Math.floor(junk.price / 2 / 5) * 5 : 0
+      const s = bestOffer(run, offers, run.gold + refund, full ? 1 : bought)
       if (!s) break
+      if (junk) {
+        run.owned = run.owned.filter((x) => x !== junk)
+        run.gold += refund
+        sells++
+      }
       run.gold -= s.price
       run.owned.push(s)
       offers = offers.filter((x) => x !== s)
       bought++
     }
     rerollsUsed += rerolls
+    if (round === o.by) ownedBy = run.owned.length
     const a = target ?? lean(run)
     if (onlineAt === null && online(run, a)) onlineAt = round
     // The round: 10 gold per team trick to each partner, then interest on what is banked.
@@ -276,6 +304,8 @@ function playRun(target) {
     core: coreOf(run, a).length,
     owned: run.owned.length,
     rerolls: rerollsUsed,
+    sells,
+    ownedBy: rounds >= o.by ? ownedBy : null,
   }
 }
 
@@ -299,6 +329,11 @@ function summarize(results) {
     coreAtEnd: mean((r) => r.core),
     focus: mean((r) => (r.owned ? r.core / r.owned : 0)),
     rerollsPerRun: mean((r) => r.rerolls),
+    sellsPerRun: mean((r) => r.sells),
+    ownedBy: (() => {
+      const xs = results.filter((r) => r.ownedBy !== null)
+      return xs.reduce((a, r) => a + r.ownedBy, 0) / xs.length
+    })(),
   }
 }
 const median = (xs) => {
@@ -326,18 +361,19 @@ if (json) console.log(JSON.stringify({ options: o, pool, rows }, null, 2))
 else {
   console.log(
     `${o.strategy}, online = ${o.core} core incl. ${o.payoffs} payoffs, rerolls ${o.rerolls}, ` +
-      `offers ${o.offers}, buys ${o.buys}, reroll ${o.rerollBase}+${o.rerollStep}, ` +
+      `offers ${o.offers}, buys ${o.buys || '∞'}, reroll ${o.rerollBase}+${o.rerollStep}, ` +
       `rarity ${o.rarity.join('/')}, affinity ${o.affinity}, archetypes/run ${o.runArchetypes}, ` +
-      `${o.rounds ? `${o.rounds} rounds` : 'measured game lengths'}, ${o.trials} trials`,
+      `${o.rounds ? `${o.rounds} rounds` : `game lengths ${JSON.stringify(GAME_LENGTHS)}`}, ${o.trials} trials`,
   )
   const pct = (x) => `${(x * 100).toFixed(0)}%`.padStart(5)
-  const head = `${'Archetype'.padEnd(18)} pool  by end    by r${o.by}  median  core  focus  rerolls`
+  const head = `${'Archetype'.padEnd(18)} pool  by end    by r${o.by}  median  core  focus  rerolls  sells  owned@r${o.by}`
   console.log(head + (o.strategy === 'flex' ? '  share' : ''))
   for (const [a, r] of Object.entries(rows)) {
     const med = Number.isFinite(r.medianOnlineRound) ? `r${r.medianOnlineRound}` : 'never'
     console.log(
       `${a.padEnd(18)} ${String(pool[a] ?? '').padStart(4)}  ${pct(r.onlineByEnd)}  ${pct(r.onlineBy).padStart(9)}  ` +
         `${med.padStart(6)}  ${r.coreAtEnd.toFixed(1).padStart(4)}  ${pct(r.focus)}  ${r.rerollsPerRun.toFixed(1).padStart(7)}` +
+        `  ${r.sellsPerRun.toFixed(1).padStart(5)}  ${r.ownedBy.toFixed(1).padStart(8)}` +
         (o.strategy === 'flex' && a !== 'All' ? `  ${pct(r.share)}` : ''),
     )
   }

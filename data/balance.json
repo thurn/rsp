@@ -22,6 +22,7 @@
   },
   "shop": {
     "offers": 3,
+    "buysPerShop": 1,
     "maxSigils": 13,
     "rerollBaseCost": 50,
     "rerollCostStep": 10,

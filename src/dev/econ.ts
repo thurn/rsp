@@ -6,6 +6,7 @@ import { DEFAULT_GOLD, newGame, reduce } from '../game/engine'
 import type { Action, GameState } from '../game/types'
 import type { Sigil } from '../sigils/model'
 import { setLibrary } from '../sigils/registry'
+import { BALANCE } from '../game/rules'
 
 const files = import.meta.glob<{ default: Sigil }>('/data/sigils/*.json', { eager: true })
 setLibrary({ sigils: Object.values(files).map((m) => m.default), icons: {}, iconNames: [] })
@@ -16,6 +17,8 @@ export interface EconGame {
   rounds: number
   /** Gold per seat entering each shop; index 0 is the opening shop. */
   shopGold: number[][]
+  /** Sigils per seat entering each shop. */
+  shopSigils: number[][]
 }
 
 function nextAction(s: GameState, iterations: number): Action | null {
@@ -38,29 +41,41 @@ function nextAction(s: GameState, iterations: number): Action | null {
   }
 }
 
-export function runEcon(games: number, seed: number, iterations: number): EconGame[] {
+/** `buys` overrides balance.json's buysPerShop for the run (0 = no limit). */
+export function runEcon(
+  games: number,
+  seed: number,
+  iterations: number,
+  buys?: number,
+): EconGame[] {
   const random = Math.random
   const error = console.error
   Math.random = makeRng(seed)
   console.error = () => {}
+  const buysPerShop = BALANCE.shop.buysPerShop
+  if (buys !== undefined) BALANCE.shop.buysPerShop = buys
   const out: EconGame[] = []
   try {
     for (let g = 0; g < games; g++) {
       let s = newGame({ human: null, gold: DEFAULT_GOLD, give: [[], [], [], []], scores: [0, 0] })
       const shopGold: number[][] = []
+      const shopSigils: number[][] = []
       for (let n = 0; s.phase !== 'gameOver' && n < 60000; n++) {
         const action = nextAction(s, iterations)
         if (!action) break
         // AI seats shop inside start and nextRound, so the gold here is what each shop opens with.
-        if (action.type === 'start' || action.type === 'nextRound')
+        if (action.type === 'start' || action.type === 'nextRound') {
           shopGold.push(s.players.map((p) => p.gold))
+          shopSigils.push(s.players.map((p) => p.sigils.length))
+        }
         s = reduce(s, action)
       }
-      out.push({ rounds: s.round, shopGold })
+      out.push({ rounds: s.round, shopGold, shopSigils })
     }
   } finally {
     Math.random = random
     console.error = error
+    BALANCE.shop.buysPerShop = buysPerShop
   }
   return out
 }

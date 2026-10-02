@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { type Seat } from '../game/cards'
-import { canBuy, price, rerollCost, sellValue } from '../game/shop'
-import { shopRules } from '../game/rules'
+import { buyLimit, canBuy, price, rerollCost, sellValue } from '../game/shop'
 import { dispatch } from '../game/store'
 import type { GameState } from '../game/types'
 import { getSigil } from '../sigils/registry'
@@ -18,7 +17,7 @@ export function Shop({ state, seat }: { state: GameState; seat: Seat }) {
   const cost = rerollCost(state, seat)
   const [selling, setSelling] = useState<string | null>(null)
   // After the shop's one purchase (or a second, with Overstocked Fridge), only Done is left.
-  const canBuyMore = shop.bought === 0 || (shop.bought === 1 && shopRules(state, seat).secondSigil)
+  const canBuyMore = shop.bought < buyLimit(state, seat)
   const offers = canBuyMore ? shop.offers : []
   const sellCode = selling && player.sigils.some((o) => o.code === selling) ? selling : null
   return (

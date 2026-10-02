@@ -90,13 +90,18 @@ export function openShop(s: GameState, opening: boolean) {
   closeShopIfDone(s)
 }
 
+/** Purchases a seat may make this shop; balance.json's buysPerShop of 0 means no limit. */
+export function buyLimit(s: GameState, seat: Seat): number {
+  const base = BALANCE.shop.buysPerShop || Infinity
+  return base + (shopRules(s, seat).secondSigil ? 1 : 0)
+}
+
 export function canBuy(s: GameState, seat: Seat, code: string): boolean {
   const shop = s.shop?.seats[seat]
   if (!shop || shop.done || !shop.offers.includes(code)) return false
   if (s.players[seat].sigils.length >= MAX_SIGILS) return false
   if (price(s, seat, code) > s.players[seat].gold) return false
-  if (shop.bought === 0) return true
-  return shop.bought === 1 && shopRules(s, seat).secondSigil
+  return shop.bought < buyLimit(s, seat)
 }
 
 export function buy(s: GameState, seat: Seat, code: string) {
